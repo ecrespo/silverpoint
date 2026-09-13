@@ -1,0 +1,215 @@
+# silverpoint — Implementation Plan
+
+## Metadata
+
+| Field | Value |
+|---|---|
+| **Author** | Ernesto Crespo |
+| **Status** | `IN_REVIEW` |
+| **Version** | 1.1 |
+| **Date** | 2026-09-13 |
+| **PRD** | [`prd.md`](prd.md) v1.5 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.2 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.1 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.3 |
+
+---
+
+## 1. Implementation Summary
+
+Five phases. The first delivers no catalog: it delivers **a single chart travelling
+through the entire system** — core, inking, interaction, both adapters and the gates — to
+retire the risks that could invalidate the architecture. If that slice closes, the three
+that follow are repetition over engines that are already proven.
+
+The grouping is not by visual resemblance but **by shared engine**, which is what governs
+real cost:
+
+| Engine | Charts | Phase |
+|---|---|---|
+| Pure layout, no scales | 6 — bullet, pyramid, treemap, density heatmap, sankey, activity grid | 1 |
+| Cartesian scales | 15 — line, step, sparkline rows, KPI card, pill bars, stacked, composed, waterfall, funnel, curved area, range band, stream, scatter, bubble, candlestick | 2 |
+| Polar arcs | 10 — donut, radar, polar bars, radial arc group, radial rings, gauge arc, meter, coxcomb, wind rose, volvelle | 3 |
+| Own geometry | 2 — chord ring, armillary orbits | 3 |
+
+> **Correction against PRD v1.2.** That version grouped them as "8 without scales / 13
+> cartesian / 12 polar". Broken down per engine, candlestick and sparkline rows do need a
+> scale and move to Phase 2: the real split is 6 / 15 / 10 + 2. The PRD was amended
+> accordingly in v1.4.
+
+**Estimated effort:** 15-21 weeks. **Team:** one person, part time.
+**Explicit assumption:** these are relative efforts, not delivery commitments. The plan
+must be pausable between phases without leaving the repository inconsistent.
+
+## 2. Prerequisites
+
+| Prerequisite | Status |
+|---|---|
+| All seven spec artifacts approved | ☐ Pending |
+| Analyze gate re-run with no blocking findings open | ☐ Pending |
+| `@silverpoint` organisation reserved on npm and on GitHub | ☐ Pending |
+| EB Garamond OFL reviewed and `NOTICE` drafted | ☐ Pending |
+| CI runner on a digest-pinned image, for the pixel gate | ☐ Pending |
+
+---
+
+## 3. Phases
+
+### Phase 0 — Vertical slice
+
+**Effort:** 3-4 weeks. **Goal:** retire the risks that could invalidate the architecture,
+using a single chart.
+
+Delivers the monorepo, the scale engine, the `Inker` interface with `NullInker` and
+`RoughInker`, the complete `silverpoint` ground, the typeface package, **the interaction
+engine**, **the line chart** in React and in Angular, and both gates working.
+
+> Interaction is in this phase deliberately. "Hit-testing is a pure function of the core"
+> is an architectural claim, and it is one of the capabilities given up by not adopting a
+> charting engine. Discovering in Phase 2 that it was not viable would be discovering it
+> too late. This closes Analyze finding A-03.
+
+Tasks are broken out in [`tasks.md`](tasks.md).
+
+**Done criteria**
+- The string gate compares the line chart rendered by both adapters and finds them identical.
+- The pixel gate produces golden images for the 2 modes × 4 substrates.
+- Hover and keyboard focus both resolve the active item, through the same pure core function.
+- A deliberately dense hatched card has its path weight measured, and the 40 KB budget is
+  confirmed or corrected with data.
+- The contrast script validates the ground and fails if a colour is altered.
+- `axe-core` reports no A or AA issues for the line chart across all three example apps.
+- `0.1.0` is published to npm from CI, with no tokens.
+
+**Stop condition.** If the normaliser cannot reconcile the output of the two server
+renderers, **Phase 1 does not start**: DD-004 degrades to AST comparison or the gate is
+rethought. That is the risk this phase exists to resolve.
+
+---
+
+### Phase 1 — Layout engine
+
+**Effort:** 2-3 weeks. **Goal:** the 6 charts that need no scales.
+
+Bullet, pyramid, treemap, density heatmap, sankey and activity grid. They are direct
+geometry, so they exercise the pipeline without depending on the scale engine and produce
+a showable catalog early.
+
+**Done criteria**
+- All 6 in both adapters, with their fixtures in the matrix.
+- **Path weight measured for the matrix families**, which are many small shapes rather than
+  few large ones and are where the tile helps least. This is the open question the
+  Technical Design deferred to this phase.
+- Tabular alternative and keyboard navigation on all 6.
+- Each chart reviewed against REQ-124: no information carried by hatch style alone.
+
+---
+
+### Phase 2 — Cartesian scale engine
+
+**Effort:** 4-5 weeks. **Goal:** the 15 cartesian charts.
+
+A single scale engine and one family of path generators serve them all. The line chart
+already exists from Phase 0, so these are 14 new recipes over proven infrastructure.
+
+**Done criteria**
+- All 15 with fixtures and `ink`/`precision` vertex equivalence verified.
+- Candlestick with its `low ≤ min(open,close) ≤ max(open,close) ≤ high` invariant tested.
+- The 500-point-per-series ceiling verified, with `SP008` actually emitted.
+- Each chart reviewed against REQ-124.
+
+---
+
+### Phase 3 — Arc engine and own geometry
+
+**Effort:** 4-5 weeks. **Goal:** the 12 polar charts.
+
+Ten share the arc engine. **The chord ring and the armillary orbits do not**, and are
+planned as separate work inside the phase: ribbons over `d3-chord`, and elliptical arcs
+with markers positioned along the path.
+
+**Done criteria**
+- All 12 with fixtures.
+- The 60-sector ceiling and the chord ring's 12-category ceiling, with `SP008` and `SP010`.
+- Wind rose exercised with real directional data, not synthetic.
+- Each chart reviewed against REQ-124.
+
+---
+
+### Phase 4 — Close-out
+
+**Effort:** 2-3 weeks. **Goal:** publishable.
+
+**Done criteria**
+- WCAG 2.1 AA audit across all three apps, no A or AA issues.
+- REQ-124 verified across the whole catalog as a single pass, not chart by chart.
+- Bundle budgets green for all five packages.
+- The 2 ms and 16 ms benchmarks green.
+- Documentation site with gallery, ground playground and the 10-minute quickstart.
+- The full 1,584-fixture matrix green on the nightly run.
+- `1.0.0` published; the API Spec comes into force.
+
+## 4. Dependency Map
+
+```
+Phase 0 ── vertical slice, gates operational
+   │
+   ├──▶ Phase 1 ── layout engine     ─┐
+   │                                   │
+   ├──▶ Phase 2 ── scale engine       ─┼──▶ Phase 4 ── close-out
+   │                                   │
+   └──▶ Phase 3 ── arc engine         ─┘
+            └── chord and orbits (own geometry, inside the phase)
+```
+
+Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
+core but do not block each other. If the project has to pause, it pauses between phases and
+the repository stays coherent — a partial catalog, but complete in what it exposes.
+
+## 5. Implementation Risks
+
+| Risk | Prob. | Impact | Mitigation |
+|---|---|---|---|
+| The normaliser cannot reconcile the two server renderers | Medium | High | It is Phase 0's stop condition; degrade to AST comparison |
+| The 40 KB budget does not survive the matrix families | Medium | Medium | Explicit measurement in Phase 1's Done, before it propagates |
+| The pixel gate proves noisy between CI runs | Medium | Medium | Digest-pinned image; if it persists, the string gate already covers geometry and the pixel gate drops to advisory |
+| Phase 3 overruns because of chord and orbits | High | Medium | They are isolated: if they slip, the other 10 ship anyway |
+| Angular 23 lands mid-project and moves the floor | High | Low | The two-majors policy already anticipates it; the cost is updating the CI matrix |
+| Interaction in the core proves impractical | Low | High | Now surfaced in Phase 0 rather than Phase 2; if it fails, only the line chart has to be reworked |
+
+## 6. Tracking
+
+No ceremonies: this is a one-person project. Tracking lives in the repository.
+
+- `tasks.md` is marked with a checkbox and a date as each task closes, so any session —
+  human or agent — can resume with no prior context.
+- A deviation from the spec **stops implementation**: update the spec or open a Delta in
+  `changes/`, and only then continue.
+- The Analyze gate is re-run at the close of each phase.
+
+## 7. Definition of Done (global)
+
+- [ ] Code merged, with a changeset.
+- [ ] Every `MUST` touched has a test citing its `REQ-NNN`.
+- [ ] String gate and pixel gate green.
+- [ ] `axe-core` with no A or AA issues.
+- [ ] Bundle and path-weight budgets green.
+- [ ] Spec updated if implementation revealed it was wrong.
+- [ ] No known debt without its issue.
+
+---
+
+## Change History
+
+| Version | Date | Author | Changes |
+|---|---|---|---|
+| 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; interaction pulled into Phase 0 (Analyze finding A-03), REQ-124 given a verification point per phase (finding A-06), effort revised to 15-21 weeks |
+| 1.0 | 2026-09-13 | Ernesto Crespo | Initial version. Regroups phases by shared engine and corrects the PRD's split |
+
+## Constitution check
+
+- **Art. 3** — both gates are operational at the end of Phase 0, not at the end of the project.
+- **Art. 5** — accessibility is a Done criterion in every phase, not a final pass; Phase 4
+  only audits what should already hold.
+- **Art. 9** — §6 fixes the procedure on a deviation: stop and update the spec.
+- **Exception requested:** none.

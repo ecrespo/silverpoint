@@ -1,0 +1,185 @@
+# Constitution — silverpoint
+
+> Version 1.2 · Ratified: 2026-09-12 · Last amended: 2026-09-13
+> Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
+> `@silverpoint/angular`, `@silverpoint/grounds`, example apps and documentation site.
+
+**What silverpoint is.** A charting library for React and Angular whose visual language
+is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
+the mechanics of silverpoint: prepared mid-tone substrate, fine silver line, value built
+by hatching and white heightening. The engine supports several grounds; the Renaissance
+one is the first, not the only one.
+
+**What it is not.** It is not a port of Monocharts. The chart catalog takes its
+functional inventory from there, but the visual language, the geometry and the code are
+original work.
+
+---
+
+## Articles
+
+### Art. 1 — The geometry of the data is inviolable
+
+THE SYSTEM SHALL compute the geometry of every encoding channel —position, length,
+angle, area— with exact precision, and SHALL apply hand inking only to strokes that do
+not encode data. Every inked stroke SHALL be rendered with `preserveVertices: true`.
+Every chart SHALL produce identical vertices in `ink` mode and in `precision` mode,
+verified by a test that compares both outputs.
+
+*Rationale: Wood et al. (IEEE VIS 2012) show that irregular strokes degrade the
+judgement of area and proportion; the style cannot be paid for with the accuracy of the
+data.*
+
+### Art. 2 — A single geometry engine
+
+THE SYSTEM SHALL compute all geometry in `@silverpoint/core`, free of DOM and of
+framework. No adapter SHALL contain computation of scales, axes, arcs or paths: an
+adapter translates the core's output into nodes and nothing more. CI SHALL fail if an
+adapter package imports `d3-*` or `roughjs` directly, or if it declares maths of its
+own.
+
+*Rationale: two implementations of the same drawing always diverge; it is the failure
+that sinks multi-framework libraries.*
+
+### Art. 3 — Visual parity across frameworks
+
+THE SYSTEM SHALL produce, for the same data, configuration, ground, mode and seed, a
+normalised SVG output —attributes ordered, numbers to 2 decimals, whitespace collapsed—
+**character-for-character identical** in React and in Angular. CI SHALL verify this with
+zero tolerance.
+
+THE SYSTEM SHALL also pass three pixel comparisons, and CI SHALL block the release if
+any of them is not met:
+
+| Comparison | `threshold` | `maxDiffPixelRatio` |
+|---|---|---|
+| React against Angular, same commit | ≤ 0.10 | ≤ 0.001 |
+| Against the stored golden image | ≤ 0.15 | ≤ 0.005 |
+| Any individual pixel | > 0.50 fails | — |
+
+THE SYSTEM SHALL also render on the server and, after hydration, the same markup in the
+Next.js example app, with no hydration mismatches.
+
+The comparisons are only valid under declared conditions of determinism: a single
+browser pinned by version, `deviceScaleFactor: 1`, fixed viewport, animations disabled,
+self-hosted fonts preloaded and awaiting `document.fonts.ready`, a fixed seed and a
+stylesheet shared by the three example apps. The gate operates over a declared fixture
+matrix —chart × ground × mode × size—, never over the example apps in free evolution.
+
+*Rationale: with Art. 2 the geometry is identical by construction, so the strong gate is
+the string comparison, which has no rasterisation noise; the pixel thresholds only
+absorb antialiasing and browser version drift.*
+
+### Art. 4 — Determinism
+
+THE SYSTEM SHALL produce a reproducible render: the seed is part of the public API and,
+if not given, is derived stably from the chart's identifier. THE SYSTEM SHALL NOT invoke
+`Math.random()`, `Date.now()` or any other source of non-determinism in the render path.
+
+*Rationale: a chart whose stroke changes on every repaint is a defect, and without
+determinism the visual regression of Art. 3 is impossible.*
+
+### Art. 5 — Accessibility and precision mode
+
+THE SYSTEM SHALL expose every chart with an accessible role and name and a
+keyboard-navigable tabular alternative. THE SYSTEM SHALL offer `precision` mode —inking
+disabled entirely— on all charts from v1, and SHALL enable it automatically under
+`prefers-contrast: more` or `forced-colors: active`. No chart SHALL encode information
+solely through hatching style.
+
+*Rationale: the hand-drawn stroke is an aesthetic choice that cannot exclude anyone, and
+the state of the art itself advises against it exactly when precision is needed.*
+
+### Art. 6 — Tone is encoded with density
+
+THE SYSTEM SHALL build tonal value through hatch density and angle, and SHALL NOT use
+flat fill with opacity as a tonal mechanism. White heightening SHALL be reserved for a
+single element per chart.
+
+*Rationale: it is the real mechanics of engraving and of silverpoint, and it is what
+separates silverpoint from any old monochrome fill.*
+
+### Art. 7 — Grounds are data, not code
+
+THE SYSTEM SHALL define each style ground as a declarative set of tokens —substrate,
+inks, inking parameters, typography, tonal mechanism—. Adding or modifying a ground
+SHALL NOT require changes to the code of any chart.
+
+*Rationale: if the style leaks into the charts' code, the second ground costs the same
+as the first and the multi-style engine ceases to exist.*
+
+### Art. 8 — Dependency boundary and theming
+
+THE SYSTEM SHALL NOT require Tailwind or any CSS framework: theming goes through CSS
+custom properties. `@silverpoint/core` SHALL NOT declare runtime dependencies outside
+the allowlist pinned in the Technical Design. React and Angular SHALL be declared as
+`peerDependencies`, never as dependencies. Every package SHALL respect its declared
+bundle budget, verified in CI.
+
+*Rationale: a charting library that imposes a toolchain on the consumer does not get
+adopted.*
+
+### Art. 9 — The specs are the source
+
+THE TEAM SHALL obtain an approved spec before implementing any work of size ≥ medium
+feature, and SHALL update the spec as part of the Definition of Done. Every change to an
+already specified chart SHALL enter as a Delta Spec in `changes/` and be folded into
+`specs/` on approval. Every MUST requirement SHALL have a `REQ-NNN` identifier, and
+every task and every test SHALL cite the requirement they implement or verify.
+
+*Rationale: the project is implemented in large part with agents; without traceability
+there is no way to answer why a line of code exists.*
+
+---
+
+## Stack constraints
+
+Decided, not re-litigated per feature:
+
+| Area | Decision |
+|---|---|
+| Language | TypeScript 5.x in `strict` mode, ESM first |
+| Monorepo | pnpm workspaces + Nx (chosen for its Angular support) |
+| Geometry engine | `d3-scale` + `d3-shape` (only the subset used) |
+| Inking engine | `rough.js`, isolated behind the core's `Inker` interface |
+| React | 18.2+ and 19; RSC-compatible (`"use client"` only where indispensable) |
+| Angular | The two most recent majors; standalone components, signal inputs and `ChangeDetectionStrategy.OnPush`. Exact versions pinned in the Technical Design |
+| Build | `tsup` for core and react; `ng-packagr` (Angular Package Format) for angular |
+| Testing | Vitest (core, react), Angular TestBed, Playwright for cross-framework visual regression |
+| Validated integrations | `examples/vite-react`, `examples/nextjs`, `examples/angular` |
+| Runtime | Node 20+, pnpm 9+ |
+| CI | GitHub Actions |
+| Licence | MIT |
+
+## Planned grounds (non-normative)
+
+Context for the ratified scope. Their formal specification lives in the PRD; each one is
+chosen for having a **distinct tonal mechanism**, not just another palette.
+
+| Ground | Period / technique | Tonal mechanism | Status |
+|---|---|---|---|
+| `silverpoint` | Silverpoint, 15th c. | Hatching over a mid-tone substrate, white heightening | v1 |
+| `burin` | Copperplate engraving, 16th c. | Cross-hatching and stippling on white; line of variable thickness | planned |
+| `cyanotype` | Cyanotype, 1842 | White line on Prussian blue; value by thickness, not by hatching | planned |
+| `woodcut` | Woodcut, 16th c. | High-contrast block, coarse hatching, no fine gradation | planned |
+| `wash` | Bistre / sepia wash | Translucent washes: the only ground where the fill **is** the mechanism | planned |
+| `plotter` | Pen plotter, 20th c. | Single-thickness pen, fill by hatching, deterministic paths | planned |
+
+The `wash` ground constitutes the planned exception to Art. 6 and SHALL declare it
+explicitly in its tonal mechanism token.
+
+## Amendments
+
+| Date | Article | Change | Reason | Approved by |
+|---|---|---|---|---|
+| 2026-09-12 | — | Initial ratification v1.0 | — | Ernesto Crespo |
+| 2026-09-12 | Art. 3 | "Pixel-identical" is replaced by a string gate with zero tolerance plus three pixel thresholds, and the SSR/CSR gate is added | A single pixel threshold is either unenforceable or noisy; equality of normalised SVG is the noise-free gate that Art. 2 makes possible | Ernesto Crespo |
+| 2026-09-13 | Art. 3 | Rounding in the normalised form aligned to 2 decimals, matching REQ-002 | REQ-002 was lowered to 2 decimals after the path-weight measurement; the article still said 3, contradicting the PRD | Ernesto Crespo |
+| 2026-09-13 | — | Document converted to English | The project is an open-source library with an international audience | Ernesto Crespo |
+
+## Constitution check (use in every artifact)
+
+At the close of every PRD, Technical Design, Data Model, Implementation Plan and Delta
+Spec, include a 3-5 line section stating which articles apply and how they are met, or
+which exception is requested and why. An exception without written justification is a
+violation.
