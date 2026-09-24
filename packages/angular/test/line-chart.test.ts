@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
-import { provideSilverpoint } from '@silverpoint/angular';
+import { Component, type ApplicationRef } from '@angular/core';
+import { bootstrapApplication, type BootstrapContext } from '@angular/platform-browser';
+import { provideServerRendering, renderApplication } from '@angular/platform-server';
+import { provideSilverpoint, SpChartFrame } from '@silverpoint/angular';
+import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { tonedRecipe } from '../../../tools/visual-gate/toned-recipe';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
 import { canonical, ssr } from './harness';
 
@@ -62,6 +67,27 @@ describe('sp-line-chart under @angular/platform-server', () => {
     expect(provided).toMatch(/<svg[^>]*data-mode="precision"/);
     const overridden = await ssr({ ...fixed, substrate: 'blue' }, [provideSilverpoint({ substrate: 'ochre' })]);
     expect(overridden).toMatch(/<svg[^>]*data-substrate="blue"/);
+  });
+});
+
+describe('tile-filled shapes', () => {
+  test('REQ-029 · REQ-100 · <defs>, <pattern> and tile fills render identically to the canonical render', async () => {
+    const rendered = renderChart(tonedRecipe, { hatchFill: 'tile' }, { id: 'sp-toned', width: 200 });
+    expect(rendered.view.patterns.length).toBe(2);
+    const Host = Component({
+      selector: 'app-root',
+      imports: [SpChartFrame],
+      template: '<sp-chart-frame [rendered]="rendered" rootClass="sp-root" />',
+    })(
+      class {
+        rendered = rendered;
+      },
+    );
+    const html = await renderApplication(
+      (context: BootstrapContext): Promise<ApplicationRef> => bootstrapApplication(Host, { providers: [provideServerRendering()] }, context),
+      { document: '<html><head></head><body><app-root></app-root></body></html>' },
+    );
+    expect(compareSvg(html, toSVGString(rendered))).toEqual({ equal: true });
   });
 });
 

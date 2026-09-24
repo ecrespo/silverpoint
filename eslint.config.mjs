@@ -2,7 +2,8 @@ import tseslint from 'typescript-eslint';
 import vueParser from 'vue-eslint-parser';
 import silverpoint from './tools/lint-rules/plugin.mjs';
 
-const ADAPTERS = ['packages/react/src', 'packages/vue/src', 'packages/angular/src'];
+// Angular's secondary entry points (line-chart/, …) live beside src/ and are adapter code too.
+const ADAPTERS = ['packages/react/src', 'packages/vue/src', 'packages/angular/src', 'packages/angular/!(src|test|dist|node_modules)'];
 
 export default [
   {
@@ -21,7 +22,7 @@ export default [
   },
   {
     // REQ-004: the render path is every package's source.
-    files: ['packages/*/src/**/*.{ts,tsx,vue,mjs,js}'],
+    files: ['packages/*/src/**/*.{ts,tsx,vue,mjs,js}', 'packages/angular/!(test|dist|node_modules)/**/*.ts'],
     plugins: { silverpoint },
     rules: { 'silverpoint/no-nondeterminism': 'error' },
   },

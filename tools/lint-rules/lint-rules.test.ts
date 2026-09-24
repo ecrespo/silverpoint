@@ -92,6 +92,16 @@ describe('adapter-boundary', () => {
     expect(await rulesHit('packages/vue/src/X.vue', sfc)).toEqual(['silverpoint/adapter-boundary']);
   });
 
+  test('REQ-102 · REQ-004 · the Angular secondary entry points are adapter code too', async () => {
+    expect(await rulesHit('packages/angular/line-chart/x.ts', 'export const w = (n: number) => Math.round(n);')).toEqual([
+      'silverpoint/adapter-boundary',
+    ]);
+    expect(await rulesHit('packages/angular/line-chart/x.ts', "import { scaleLinear } from 'd3-scale';\nexport { scaleLinear };")).toEqual([
+      'silverpoint/adapter-boundary',
+    ]);
+    expect(await rulesHit('packages/angular/line-chart/y.ts', 'export const d = Date.now();')).toContain('silverpoint/no-nondeterminism');
+  });
+
   test('REQ-102 · the core may do maths', async () => {
     expect(await rulesHit('packages/core/src/x.ts', 'export const w = (n: number) => Math.round(n);')).toEqual([]);
   });

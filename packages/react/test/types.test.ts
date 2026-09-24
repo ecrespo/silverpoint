@@ -31,7 +31,7 @@ describe('server entry types', () => {
   test('REQ-104 · the server LineChart rejects onActiveChange at the type level', () => {
     const errors = typeErrors(`
       import { LineChart } from '../src/server/line-chart';
-      export const a = <LineChart width={320} height={160} onActiveChange={() => {}} />;
+      export const a = <LineChart id="x" width={320} height={160} onActiveChange={() => {}} />;
     `);
     expect(errors.join('\n')).toMatch(/onActiveChange/);
   }, 30_000);
@@ -44,10 +44,18 @@ describe('server entry types', () => {
     expect(errors.join('\n')).toMatch(/width|height/);
   }, 30_000);
 
+  test('TD §6 · the server LineChart requires an id, since nothing can generate a unique one', () => {
+    const errors = typeErrors(`
+      import { LineChart } from '../src/server/line-chart';
+      export const a = <LineChart width={320} height={160} />;
+    `);
+    expect(errors.join('\n')).toMatch(/\bid\b/);
+  }, 30_000);
+
   test('REQ-104 · a well-formed server chart type-checks', () => {
     const errors = typeErrors(`
       import { LineChart } from '../src/server/line-chart';
-      export const a = <LineChart width={320} height={160} title="Ok" />;
+      export const a = <LineChart id="sp-ok" width={320} height={160} title="Ok" />;
     `);
     expect(errors).toEqual([]);
   }, 30_000);

@@ -14,7 +14,13 @@ permissions:
   id-token: write
 
 jobs:
+  # Every gate — lint, contrast, string gate, budgets, traceability, the bench and the pixel
+  # gate in the pinned image — must pass before anything is published (Art. 3).
+  ci:
+    uses: ./.github/workflows/ci.yml
+
   publish:
+    needs: ci
     runs-on: ubuntu-latest
     environment: npm
     steps:
@@ -26,8 +32,6 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
       - run: pnpm install --frozen-lockfile
-      - run: pnpm lint
       - run: pnpm build
-      - run: pnpm test
       # Angular publishes its APF build from dist/ (publishConfig.directory).
       - run: pnpm --filter "./packages/**" publish --access public --provenance --no-git-checks

@@ -37,7 +37,7 @@ None.
 | REQ-025 | MUST | packages/core/test/scales-ink.test.ts<br>packages/grounds/test/render.test.ts |
 | REQ-026 | MUST | packages/core/test/scales-ink.test.ts<br>packages/grounds/test/render.test.ts |
 | REQ-027 | MUST | tools/lint-rules/lint-rules.test.ts |
-| REQ-029 | MUST | packages/core/test/view.test.ts<br>packages/grounds/test/rough-inker.test.ts<br>packages/grounds/test/styles.test.ts<br>tools/path-weight/path-weight.test.ts |
+| REQ-029 | MUST | packages/angular/test/line-chart.test.ts<br>packages/core/test/view.test.ts<br>packages/grounds/test/rough-inker.test.ts<br>packages/grounds/test/styles.test.ts<br>packages/react/test/line-chart.test.tsx<br>packages/vue/test/line-chart.test.ts<br>tools/path-weight/path-weight.test.ts |
 | REQ-030 | MUST | packages/grounds/test/rough-inker.test.ts |
 | REQ-031 | MUST | packages/core/test/scales-ink.test.ts<br>packages/grounds/test/render.test.ts<br>tools/contrast-gate/contrast-gate.test.ts |
 | REQ-032 | MUST | packages/angular/test/client.test.ts<br>packages/core/test/diagnostics.test.ts<br>packages/fonts/test/fonts.test.ts<br>packages/react/test/line-chart.test.tsx<br>packages/vue/test/line-chart.test.ts<br>tools/resolution-check/resolution.real.test.ts<br>e2e/apps.spec.ts |
@@ -58,7 +58,7 @@ None.
 | REQ-100 | MUST | packages/angular/test/client.test.ts<br>packages/angular/test/line-chart.test.ts<br>packages/react/test/line-chart.test.tsx<br>packages/vue/test/line-chart.test.ts<br>tools/visual-gate/harness.test.ts<br>tools/visual-gate/string-gate.real.test.ts<br>tools/visual-gate/string-gate.test.ts |
 | REQ-101 | MUST | packages/angular/test/line-chart.test.ts |
 | REQ-102 | MUST | tools/lint-rules/lint-rules.test.ts |
-| REQ-103 | MUST | tools/visual-gate/string-gate.real.test.ts<br>e2e/apps.spec.ts |
+| REQ-103 | MUST | packages/react/test/line-chart.test.tsx<br>tools/visual-gate/string-gate.real.test.ts<br>e2e/apps.spec.ts |
 | REQ-104 | MUST | packages/react/test/line-chart.test.tsx<br>packages/react/test/types.test.ts |
 | REQ-105 | MUST | packages/angular/test/apf.test.ts |
 | REQ-106 | MUST | tools/lint-rules/lint-rules.test.ts |

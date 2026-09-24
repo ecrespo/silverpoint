@@ -4,6 +4,8 @@ on:
   push:
     branches: [develop, main]
   pull_request:
+  # The release workflow runs this whole pipeline first (Art. 3: CI blocks the release).
+  workflow_call:
 
 permissions:
   contents: read
@@ -29,8 +31,12 @@ jobs:
       # Feature PRs only: a release PR's window legitimately holds many ground and chart changes.
       - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
         run: node tools/lint-rules/check-ground-pr.mjs origin/${{ github.base_ref }}
+      # …and on direct pushes to develop, over the pushed range.
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/develop' && github.event.before != '0000000000000000000000000000000000000000'
+        run: node tools/lint-rules/check-ground-pr.mjs ${{ github.event.before }}
       - run: pnpm build
-      - run: pnpm test
+      # Browser-free suites here; the gates that launch Chromium run in the pinned image below.
+      - run: pnpm exec vitest run --project core --project grounds --project fonts --project tools --project react --project vue --project angular
       # REQ-180: every adapter against the canonical render of every fixture.
       - run: pnpm --filter @silverpoint/visual-gate string-gate
       # REQ-164: every package within its declared budget.
@@ -52,6 +58,8 @@ jobs:
       - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+      # REQ-033, REQ-034, REQ-100, REQ-105, REQ-107, REQ-164: gates over the published builds.
+      - run: pnpm exec vitest run --project gates
       # REQ-103, REQ-109, REQ-042, REQ-032 on the four example apps; REQ-181 pixel gate.
       - run: pnpm exec playwright test
       - if: failure()

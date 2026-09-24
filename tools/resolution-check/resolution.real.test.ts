@@ -20,7 +20,8 @@ describe('package resolution under Vite (DD-011)', () => {
     expect(build.css).toMatch(/--sp-ink:\s*#5a5e65/i);
     expect(build.css).toMatch(/\[part=["']?sp-heighten["']?\]/);
     expect(build.css).toMatch(/@font-face/);
-    expect(build.js).toMatch(/sp-line-chart/);
+    // The line-chart recipe made it into the bundle (its name is a string literal in the core).
+    expect(build.js).toMatch(/['"`]LineChart['"`]/);
   }, 120_000);
 
   test('REQ-034 · a bundler that tree-shakes CSS by sideEffects, as webpack does, keeps the stylesheet', async () => {

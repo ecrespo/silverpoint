@@ -10,8 +10,7 @@ import {
   type Readout,
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
-import * as Vue from 'vue';
-import { computed, getCurrentInstance, ref } from 'vue';
+import { computed, ref, useId } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
 import { useForcedPrecision, useMeasuredWidth, useProvider, useTypefaceCheck } from './environment';
@@ -26,8 +25,8 @@ const emit = defineEmits<{
 
 defineSlots<{ tooltip?: (scope: { active: ActiveItem; readout: Readout }) => unknown }>();
 
-// `useId` arrived in Vue 3.5; 3.4 falls back to the instance uid, which is also stable per render order.
-const generated = (Vue as { useId?: () => string }).useId?.() ?? `v-${getCurrentInstance()?.uid ?? 0}`;
+// Vue's useId counts per application, so a server render and the hydrating client agree (REQ-109).
+const generated = useId();
 const provider = useProvider();
 const forcedPrecision = useForcedPrecision();
 useTypefaceCheck(lineChart.name);

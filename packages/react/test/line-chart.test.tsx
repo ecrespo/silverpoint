@@ -1,12 +1,15 @@
 import { act, createRef } from 'react';
-import { createRoot } from 'react-dom/client';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { __setDiagnosticSink, type SpCode } from '@silverpoint/core';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { LineChart, SilverpointProvider, type ChartHandle } from '../src';
 import { LineChart as ServerLineChart } from '../src/server/line-chart';
 import { canonical } from './helpers';
+import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { tonedRecipe } from '../../../tools/visual-gate/toned-recipe';
+import { ChartSvg } from '../src/chart-svg';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -71,6 +74,14 @@ describe('server LineChart', () => {
   test('REQ-041 · the root carries the ground class and substrate for the stylesheet', () => {
     const markup = renderToStaticMarkup(<ServerLineChart {...fixed} className="mine" />);
     expect(markup).toMatch(/^<div class="sp-root sp-ground-silverpoint mine" data-substrate="cream"/);
+  });
+});
+
+describe('tile-filled shapes', () => {
+  test('REQ-029 · REQ-100 · <defs>, <pattern> and tile fills render identically to the canonical render', () => {
+    const rendered = renderChart(tonedRecipe, { hatchFill: 'tile' }, { id: 'sp-toned', width: 200 });
+    expect(rendered.view.patterns.length).toBe(2);
+    expect(compareSvg(renderToStaticMarkup(<ChartSvg view={rendered.view} />), toSVGString(rendered))).toEqual({ equal: true });
   });
 });
 
@@ -147,6 +158,33 @@ describe('client LineChart', () => {
     const host = mount(<LineChart {...fixed} />);
     await vi.waitFor(() => expect(seen).toContain('SP013'));
     expect(host.querySelector('svg.sp-chart')).not.toBeNull();
+  });
+
+  test('REQ-103 · without an id, two charts hydrate with no mismatch and distinct instance ids', () => {
+    const page = (
+      <>
+        <LineChart width={320} height={160} title="A" />
+        <LineChart width={320} height={160} title="B" />
+      </>
+    );
+    const host = document.createElement('div');
+    host.innerHTML = renderToString(page);
+    document.body.append(host);
+    const recoverable = vi.fn();
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+    let root: ReturnType<typeof hydrateRoot> | undefined;
+    act(() => {
+      root = hydrateRoot(host, page, { onRecoverableError: recoverable });
+    });
+    cleanup.push(() => {
+      act(() => root?.unmount());
+      host.remove();
+    });
+    expect(recoverable).not.toHaveBeenCalled();
+    expect(errors.mock.calls.flat().join(' ')).not.toMatch(/hydrat|did not match/i);
+    const ids = [...host.querySelectorAll('svg.sp-chart title')].map((t) => t.id);
+    expect(ids).toHaveLength(2);
+    expect(new Set(ids).size).toBe(2);
   });
 
   test('REQ-060 · consumer data is drawn through accessor keys', () => {

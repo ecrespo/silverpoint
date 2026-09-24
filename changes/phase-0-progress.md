@@ -91,9 +91,10 @@ failing first where code changed.
 - **T-017 · Ruling:** REQ-108 allows no component-local reactive state beyond the measured
   width. The forced-precision flag is the *environment's* state, so it is one ref shared by
   every chart, not per component. *Cost if wrong:* none observable.
-- **T-017 · Ruling:** Vue 3.4 has no `useId`; the adapter uses it when present and falls back
-  to the instance uid, so the `^3.4` peer holds. *Cost if wrong:* under 3.4 the generated ids
-  are not in the normaliser's list, which only matters when no `id` prop is passed.
+- **T-017 · Ruling (superseded by the final review):** the Vue 3.4 fallback to the instance uid
+  was wrong — the uid is a module-global counter that keeps growing across server requests, so
+  server and client ids (and seeds) would differ. The peer range is now `^3.5.0` and the adapter
+  calls `useId` directly; see `delta-005-vue-3-5.md`.
 - **T-016 · Ruling:** Angular instance ids come from a counter in a root-provided service, so
   it restarts per application — the server render and the hydrating client derive the same ids.
   A module-level counter would drift across server requests. *Cost if wrong:* none known.
@@ -156,3 +157,49 @@ failing first where code changed.
 - **T-002 · Ruling:** "a PR adding a ground" is read as "a change touching any directory
   under `packages/grounds/src/` other than `ink/`". *Cost if wrong:* the check is stricter
   than needed on grounds refactors.
+
+## Final review (fresh reviewer, whole branch, 2026-09-24)
+
+No Critical findings. The reviewer also probed the three published SSR renderers with inputs
+outside the fixtures (hostile text, nulls, `chrome: 'bare'`, `per-shape`, visible table, empty
+data): all identical to the canonical render. Seven Important findings, all fixed in one pass:
+
+| # | Finding | Fix | Evidence |
+|---|---|---|---|
+| 1 | Server `LineChart` without `id` fell back to a constant id: two charts shared ids, labels and tiles | `id` is required on the server variant at the type level | `packages/react/test/types.test.ts` RED→GREEN |
+| 2 | `packages/angular/line-chart/` was not linted | ESLint globs cover every Angular entry point except `src`/`test`/`dist` | `tools/lint-rules/lint-rules.test.ts` RED→GREEN |
+| 3 | CI `checks` job ran the Chromium gates on a bare runner | browser-free projects in `checks`; `--project gates` in the pinned-image `browser` job | commands run locally: 334 + 15 tests |
+| 4 | Release did not wait for the Art. 3 gates | `ci.yml` is reusable; `release` `needs: ci` | workflow config |
+| 5 | Vue 3.4 uid fallback breaks SSR ids across requests | peer `^3.5.0`, `useId` only | id-less Vue hydration test after a prior render, GREEN |
+| 6 | `<defs>`/`<pattern>`/tile `fill` branch untested in adapters | tile-filled parity test per adapter over a toned recipe | each caught a deliberate `patternTransform` mutation |
+| 7 | No id-less hydration test | React (two charts, `hydrateRoot`) and Vue (two charts, after a prior server render) | GREEN; distinct ids, no recoverable errors |
+
+Also taken from the reviewer's disagreements: the REQ-044 ground check now runs on pushes to
+`develop` over the pushed range, not only on pull requests.
+
+**Deferred minors** (for Phase 1 or the Phase 4 close-out):
+- Traceability counts `test.skip` titles and would exit 0 on a PRD with no parsable MUST rows.
+- The pixel spec creates no tests if `FIXTURES` is empty; assert the count.
+- The `sideEffects` mutation test rewrites the tracked `packages/grounds/package.json`; override
+  `moduleSideEffects` inside rolldown instead.
+- `examples/vite-react/src/canonical.ts` uses `innerHTML` (escaped core output) while TD §6 says
+  "nowhere"; switch to `DOMParser` + `importNode` or record the exemption. `pnpm audit` in CI.
+- The string gate compares only the `<svg>` (root, table and overlay are not gated) and only the
+  React *server* entry.
+- The normaliser's `\bv-\d+\b` / `\bng\d+\b` patterns also rewrite consumer ids like `v-2`.
+- Consumer `id` values are not validated (a space breaks IDREFs and `url(#…)`).
+- `adapter-boundary` catches `Math.*` only, not arithmetic or Angular inline-template expressions.
+- `process.env.NODE_ENV` is read at runtime; unbundled browser ESM would throw.
+- React 18 is in the peer range but untested.
+- The five inherited LOW Analyze findings (B-01…B-05) remain as recorded in `specs/analyze.md`.
+
+## Phase 0 close
+
+All 29 tasks done; every Done criterion of the Implementation Plan's Phase 0 holds **except
+publishing `0.1.0` to npm**, which needs the `@silverpoint` npm organisation and Trusted
+Publishing configured (Plan §2 prerequisites); `.github/workflows/release.yml` is ready and has
+not been run. The stop condition did not trigger: the string gate is 24/24.
+
+Final verification, 2026-09-24: `pnpm lint` 0 errors · contrast gate 7/7 · 334 + 15 Vitest tests ·
+string gate 24/24 · size-limit 8/8 · traceability 68/99 MUST covered, 31 deferred, 0 blocking ·
+Playwright 94 passed, 2 skipped · pixel gate 40/40 inside the pinned image.

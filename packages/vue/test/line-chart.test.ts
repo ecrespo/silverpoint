@@ -5,6 +5,8 @@ import { createApp, createSSRApp, h, nextTick, ref } from 'vue';
 import { renderToString } from 'vue/server-renderer';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { provideSilverpoint, SpLineChart } from '../src';
+import ChartSvg from '../src/ChartSvg.vue';
+import { tonedRecipe } from '../../../tools/visual-gate/toned-recipe';
 
 const fixed = { id: 'sp-fixture', width: 320, height: 160 } as const;
 
@@ -87,6 +89,15 @@ describe('SpLineChart under @vue/server-renderer', () => {
   });
 });
 
+describe('tile-filled shapes', () => {
+  test('REQ-029 · REQ-100 · <defs>, <pattern> and tile fills render identically to the canonical render', async () => {
+    const rendered = renderChart(tonedRecipe, { hatchFill: 'tile' }, { id: 'sp-toned', width: 200 });
+    expect(rendered.view.patterns.length).toBe(2);
+    const html = await renderToString(createSSRApp({ render: () => h(ChartSvg, { view: rendered.view }) }));
+    expect(compareSvg(html, toSVGString(rendered))).toEqual({ equal: true });
+  });
+});
+
 describe('SpLineChart in the browser', () => {
   test('REQ-109 · server markup hydrates with no mismatch', async () => {
     const props = { ...fixed, title: 'Hydrated' };
@@ -101,6 +112,27 @@ describe('SpLineChart in the browser', () => {
     await nextTick();
     expect(warnings.filter((w) => /hydration/i.test(w))).toEqual([]);
     expect(errors.mock.calls.flat().join(' ')).not.toMatch(/hydration/i);
+    app.unmount();
+    host.remove();
+  });
+
+  test('REQ-109 · without an id, two charts hydrate with no mismatch and distinct instance ids', async () => {
+    const render = () => [h(SpLineChart, { width: 320, height: 160, title: 'A' }), h(SpLineChart, { width: 320, height: 160, title: 'B' })];
+    // A previous request on the same server must not shift the ids (a server renders many apps).
+    await renderToString(createSSRApp({ render }));
+    const host = document.createElement('div');
+    host.innerHTML = await renderToString(createSSRApp({ render }));
+    document.body.append(host);
+    const warnings: string[] = [];
+    const app = createSSRApp({ render });
+    app.config.warnHandler = (message) => warnings.push(message);
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+    app.mount(host);
+    await nextTick();
+    expect(warnings.filter((w) => /hydration/i.test(w))).toEqual([]);
+    expect(errors.mock.calls.flat().join(' ')).not.toMatch(/hydration/i);
+    const ids = [...host.querySelectorAll('svg.sp-chart title')].map((t) => t.id);
+    expect(new Set(ids).size).toBe(2);
     app.unmount();
     host.remove();
   });
