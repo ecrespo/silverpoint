@@ -17,6 +17,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-011 | done | 2026-09-24 | `tools/contrast-gate` reproduces Data Model §3.2; lightening `ink` 5 % fails; wired into `pnpm lint` |
 | T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-023) |
 | T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
+| T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -35,6 +36,13 @@ failing first where code changed.
 - `round2(1.005)` gives `1` (binary floating point); the ≤ 2-decimals guarantee holds.
 
 ## Rulings
+
+- **T-019 · Ruling:** DD-004 asks both to "normalise generated ids" and that "a differing id is
+  not ignored". Both hold by normalising only *framework-generated id tokens*, by explicit list
+  (`_r_N_` React ≥ 19.2 `useId`, `v-N` Vue `useId`, `ngN` the Angular adapter's counter); any
+  other id — including every id derived from an `id` prop, which the fixtures always pass — is
+  compared verbatim. *Cost if wrong:* a framework changing its `useId` format needs one list
+  entry.
 
 - **T-001 · Ruling:** the Angular adapter compiles with Angular 21 and TypeScript 5.9. Angular
   22's compiler requires TypeScript ≥ 6.0, and the Constitution's stack table pins
