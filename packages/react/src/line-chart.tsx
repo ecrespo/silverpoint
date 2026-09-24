@@ -22,7 +22,7 @@ import {
 } from 'react';
 import { ChartFrame } from './chart-frame';
 import { SilverpointContext } from './context';
-import { useForcedPrecision, useMeasuredWidth } from './environment';
+import { useForcedPrecision, useMeasuredWidth, useTypefaceCheck } from './environment';
 import { Overlay, type TooltipRenderer } from './overlay';
 
 export type { ChartHandle };
@@ -46,6 +46,7 @@ export const LineChart = forwardRef<ChartHandle, ClientLineChartProps>(function 
   const generated = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const forcedPrecision = useForcedPrecision();
+  useTypefaceCheck(lineChart.name);
   const measured = useMeasuredWidth(rootRef, allProps.width === undefined);
 
   const rendered = useMemo(

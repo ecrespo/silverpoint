@@ -2,6 +2,7 @@
 import { ApplicationRef, provideZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
+import { __setDiagnosticSink, type SpCode } from '@silverpoint/core';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { canonical, host } from './harness';
@@ -58,6 +59,23 @@ describe('sp-line-chart in the browser', () => {
     }));
     await mount({ ...fixed, mode: 'ink' });
     expect(document.querySelector('svg.sp-chart')?.getAttribute('data-mode')).toBe('precision');
+  });
+
+  test('REQ-032 · a typeface that fails to load reports SP013 and the chart still renders', async () => {
+    const seen: SpCode[] = [];
+    const restore = __setDiagnosticSink((code) => seen.push(code));
+    Object.defineProperty(document, 'fonts', {
+      configurable: true,
+      value: { load: () => Promise.reject(new Error('blocked')), check: () => false },
+    });
+    try {
+      await mount(fixed);
+      await vi.waitFor(() => expect(seen).toContain('SP013'));
+      expect(document.querySelector('svg.sp-chart')).not.toBeNull();
+    } finally {
+      Reflect.deleteProperty(document, 'fonts');
+      restore();
+    }
   });
 
   test('API §8.2 · getGeometry() and toSVGString() answer from the live component', async () => {

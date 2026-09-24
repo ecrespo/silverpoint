@@ -1,5 +1,5 @@
 import { afterNextRender, DestroyRef, ElementRef, inject, Injectable, signal, type Signal } from '@angular/core';
-import { FORCED_PRECISION_QUERY } from '@silverpoint/core';
+import { checkTypeface, FORCED_PRECISION_QUERY } from '@silverpoint/core';
 
 /**
  * Instance-id tokens, counted per application: the server render and the hydrating client
@@ -52,4 +52,11 @@ export function injectMeasuredWidth(enabled: () => boolean): Signal<number | und
     destroy.onDestroy(() => observer.disconnect());
   });
   return width.asReadonly();
+}
+
+/** Reports SP013 when the display typeface fails to load; never blocks the render (REQ-032). */
+export function injectTypefaceCheck(chart: string): void {
+  afterNextRender(() => {
+    if (typeof document !== 'undefined' && document.fonts) void checkTypeface(document.fonts, chart);
+  });
 }

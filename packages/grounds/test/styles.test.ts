@@ -31,7 +31,7 @@ describe('styles.css', () => {
   test.each(Object.entries(silverpoint.substrates))(
     "REQ-041 · substrate %s exposes the ground's colours as --sp- variables",
     (substrate, colour) => {
-      const vars = block(`.sp-ground-silverpoint[data-substrate='${substrate}']`);
+      const vars = block(`:where(.sp-ground-silverpoint[data-substrate='${substrate}']:not(.sp-root .sp-chart))`);
       expect(vars['--sp-substrate']).toBe(colour);
       expect(vars['--sp-ink']).toBe(silverpoint.ink.primary);
       expect(vars['--sp-ink-secondary']).toBe(silverpoint.ink.secondary);
@@ -44,7 +44,7 @@ describe('styles.css', () => {
   );
 
   test('REQ-041 · the ground-wide variables of API Spec §10.2 are declared', () => {
-    const vars = block('.sp-ground-silverpoint');
+    const vars = block(':where(.sp-ground-silverpoint:not(.sp-root .sp-chart))');
     expect(vars['--sp-font-display']).toBe(silverpoint.typography.display);
     expect(vars['--sp-stroke-width']).toBe('0.9');
     expect(vars['--sp-hatch-gap']).toBe(String(silverpoint.inkOptions.hatchGap));
@@ -61,6 +61,15 @@ describe('styles.css', () => {
     expect(block(".sp-chart [part='sp-grid']").stroke).toBe('var(--sp-grid)');
     expect(block(".sp-chart [part='sp-axis']").fill).toBe('var(--sp-text-muted)');
     expect(block(".sp-chart [part='sp-text']").fill).toBe('var(--sp-text)');
+  });
+
+  test('REQ-042 · variables weigh nothing and are declared once per chart, so a consumer rule on .sp-root wins', () => {
+    const declaring = [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{[^{}]*--sp-ink:/g)].map((m) => (m[1] ?? '').trim());
+    expect(declaring.length).toBeGreaterThan(0);
+    for (const selector of declaring) {
+      expect(selector.startsWith(':where(')).toBe(true);
+      expect(selector).toContain(':not(.sp-root .sp-chart)');
+    }
   });
 
   test('REQ-042 · no painting rule carries a literal colour', () => {

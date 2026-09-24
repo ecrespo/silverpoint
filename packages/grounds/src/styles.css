@@ -10,14 +10,18 @@
 
 /* ── Ground: silverpoint (Data Model §3) ─────────────────────────────────────────────── */
 
-.sp-ground-silverpoint {
+/* Wrapped in :where() so they weigh nothing: any consumer rule — `.sp-root { --sp-ink: … }` —
+   re-themes without fighting specificity (REQ-042). They are declared once per chart: on the
+   root, or on the <svg> itself when it stands alone (toSVGString), never on both. */
+
+:where(.sp-ground-silverpoint:not(.sp-root .sp-chart)) {
   --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
   --sp-stroke-width: 0.9;
   --sp-hatch-gap: 7;
   --sp-radius: 2px;
 }
 
-.sp-ground-silverpoint[data-substrate='cream'] {
+:where(.sp-ground-silverpoint[data-substrate='cream']:not(.sp-root .sp-chart)) {
   --sp-substrate: #EDE7DA;
   --sp-ink: #5A5E65;
   --sp-ink-secondary: #685C4D;
@@ -28,7 +32,7 @@
   --sp-text-muted: #5A5E65;
 }
 
-.sp-ground-silverpoint[data-substrate='green'] {
+:where(.sp-ground-silverpoint[data-substrate='green']:not(.sp-root .sp-chart)) {
   --sp-substrate: #D8DCD0;
   --sp-ink: #5A5E65;
   --sp-ink-secondary: #685C4D;
@@ -39,7 +43,7 @@
   --sp-text-muted: #5A5E65;
 }
 
-.sp-ground-silverpoint[data-substrate='blue'] {
+:where(.sp-ground-silverpoint[data-substrate='blue']:not(.sp-root .sp-chart)) {
   --sp-substrate: #D2D8DF;
   --sp-ink: #5A5E65;
   --sp-ink-secondary: #685C4D;
@@ -50,7 +54,7 @@
   --sp-text-muted: #5A5E65;
 }
 
-.sp-ground-silverpoint[data-substrate='ochre'] {
+:where(.sp-ground-silverpoint[data-substrate='ochre']:not(.sp-root .sp-chart)) {
   --sp-substrate: #E7DABC;
   --sp-ink: #5A5E65;
   --sp-ink-secondary: #685C4D;

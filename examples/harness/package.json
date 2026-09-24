@@ -1,0 +1,22 @@
+{
+  "name": "@silverpoint/example-harness",
+  "version": "0.0.0",
+  "private": true,
+  "description": "What every example app shares: the stylesheet, the fixed-size container and the fixture matrix.",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./harness.css": "./harness.css"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/fonts": "workspace:*",
+    "@silverpoint/grounds": "workspace:*"
+  }
+}

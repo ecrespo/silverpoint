@@ -14,7 +14,7 @@ import * as Vue from 'vue';
 import { computed, getCurrentInstance, ref } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
-import { useForcedPrecision, useMeasuredWidth, useProvider } from './environment';
+import { useForcedPrecision, useMeasuredWidth, useProvider, useTypefaceCheck } from './environment';
 
 /** `SpLineChart` (REQ-060): the same props as React's `LineChart`, name for name (API Spec §4). */
 const props = defineProps<LineChartProps>();
@@ -30,6 +30,7 @@ defineSlots<{ tooltip?: (scope: { active: ActiveItem; readout: Readout }) => unk
 const generated = (Vue as { useId?: () => string }).useId?.() ?? `v-${getCurrentInstance()?.uid ?? 0}`;
 const provider = useProvider();
 const forcedPrecision = useForcedPrecision();
+useTypefaceCheck(lineChart.name);
 const root = ref<{ $el: HTMLElement }>();
 const element = computed(() => root.value?.$el);
 const measured = useMeasuredWidth(element, () => props.width === undefined);

@@ -1,0 +1,45 @@
+/*
+ * The shared harness of every example app (T-023, Constitution Art. 3): one stylesheet, one
+ * fixed-size container, no animation, so the pixel gate compares like with like.
+ */
+@import '@silverpoint/fonts/fonts.css';
+@import '@silverpoint/grounds/styles.css';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f3ee;
+  color: #3f4348;
+  font-family: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+}
+
+main {
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* The gate container: fixed width, so every adapter lays the chart out identically. */
+.sp-harness {
+  width: 320px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.sp-harness[data-size='sm'] {
+  width: 240px;
+}
+
+.sp-harness[data-size='lg'] {
+  width: 640px;
+}
+
+/* Gate pages freeze motion (Art. 3: animations disabled). */
+.sp-harness[data-gate] .sp-chart {
+  animation: none;
+}

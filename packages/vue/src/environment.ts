@@ -1,4 +1,4 @@
-import { FORCED_PRECISION_QUERY, type ProviderConfig } from '@silverpoint/core';
+import { checkTypeface, FORCED_PRECISION_QUERY, type ProviderConfig } from '@silverpoint/core';
 import { inject, onBeforeUnmount, onMounted, ref, type InjectionKey, type Plugin, type Ref } from 'vue';
 
 export const SILVERPOINT: InjectionKey<ProviderConfig> = Symbol('silverpoint');
@@ -52,4 +52,11 @@ export function useMeasuredWidth(element: Ref<HTMLElement | undefined>, enabled:
   });
   onBeforeUnmount(() => observer?.disconnect());
   return width;
+}
+
+/** Reports SP013 when the display typeface fails to load; never blocks the render (REQ-032). */
+export function useTypefaceCheck(chart: string): void {
+  onMounted(() => {
+    if (typeof document !== 'undefined' && document.fonts) void checkTypeface(document.fonts, chart);
+  });
 }

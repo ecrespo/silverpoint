@@ -1,4 +1,4 @@
-import { lineChart, type LineChartProps } from '@silverpoint/core';
+import { __setDiagnosticSink, lineChart, type LineChartProps, type SpCode } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { createApp, createSSRApp, h, nextTick, ref } from 'vue';
@@ -145,6 +145,19 @@ describe('SpLineChart in the browser', () => {
     const host = mount(() => h(SpLineChart, { ...fixed, mode: 'ink' }));
     await nextTick();
     expect(host.querySelector('svg.sp-chart')?.getAttribute('data-mode')).toBe('precision');
+  });
+
+  test('REQ-032 · a typeface that fails to load reports SP013 and the chart still renders', async () => {
+    const seen: SpCode[] = [];
+    cleanup.push(__setDiagnosticSink((code) => seen.push(code)));
+    Object.defineProperty(document, 'fonts', {
+      configurable: true,
+      value: { load: () => Promise.reject(new Error('blocked')), check: () => false },
+    });
+    cleanup.push(() => Reflect.deleteProperty(document, 'fonts'));
+    const host = mount(() => h(SpLineChart, fixed));
+    await vi.waitFor(() => expect(seen).toContain('SP013'));
+    expect(host.querySelector('svg.sp-chart')).not.toBeNull();
   });
 
   test('API §8.3 · the template ref exposes getGeometry() and toSVGString()', () => {

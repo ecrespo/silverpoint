@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, contentChild, inject, inp
 import {
   injectForcedPrecision,
   injectMeasuredWidth,
+  injectTypefaceCheck,
   SILVERPOINT_CONFIG,
   SilverpointIds,
   SpChartFrame,
@@ -74,6 +75,7 @@ export class SpLineChart {
   private readonly provider = inject(SILVERPOINT_CONFIG, { optional: true }) ?? {};
   private readonly generated = inject(SilverpointIds).next();
   private readonly forcedPrecision = injectForcedPrecision();
+  private readonly typeface = injectTypefaceCheck(lineChart.name);
   private readonly measured = injectMeasuredWidth(() => this.width() === undefined);
 
   private readonly props = computed<LineChartProps>(() => ({

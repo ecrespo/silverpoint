@@ -1,4 +1,4 @@
-import { FORCED_PRECISION_QUERY } from '@silverpoint/core';
+import { checkTypeface, FORCED_PRECISION_QUERY } from '@silverpoint/core';
 import { useEffect, useState, type RefObject } from 'react';
 
 /**
@@ -32,4 +32,11 @@ export function useMeasuredWidth(ref: RefObject<HTMLElement | null>, enabled: bo
     return () => observer.disconnect();
   }, [ref, enabled]);
   return width;
+}
+
+/** Reports SP013 when the display typeface fails to load; never blocks the render (REQ-032). */
+export function useTypefaceCheck(chart: string): void {
+  useEffect(() => {
+    if (typeof document !== 'undefined' && document.fonts) void checkTypeface(document.fonts, chart);
+  }, [chart]);
 }

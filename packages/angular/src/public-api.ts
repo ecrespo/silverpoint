@@ -1,5 +1,5 @@
 export { provideSilverpoint, SILVERPOINT_CONFIG } from './config';
-export { injectForcedPrecision, injectMeasuredWidth, SilverpointIds } from './environment';
+export { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from './environment';
 export { SpChartFrame } from './chart-frame';
 export { SpChartOverlay } from './chart-overlay';
 export { SpTooltip, type SpTooltipContext } from './tooltip';
