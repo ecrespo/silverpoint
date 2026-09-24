@@ -7,7 +7,8 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 |---|---|---|---|
 | T-071 | done | 03aa704 | `charts/shared/polar.ts` — frame, `pointAt`, `sectorPath`/`arcPath` (exact SVG arcs; a full turn as two halves), `polarLabel`, `readSectors` (§2.2), `checkSectors`; `test/polar.test.ts` RED on the missing module → 13/13; the locale test was written with its fix and mutation-checked (`'en'` → red) |
 | T-072 (part) | done | 03aa704 | `checkSectors` + `SECTORS_PER_CHART = 60` unit-tested (60 silent, 61 → SP008); the contract over every sector recipe comes with the recipes |
-| T-073 | done | (this commit) | `DonutChart`: contract cases (`POLAR`, 13 tests) + sector-volume contract (61 → SP008) + 15 specific tests RED on the missing recipe → green; `ringTone` (no two neighbours share a tone, across 12 o'clock) and `sectorLegend` ("+N more") mutation-checked; one test's expected angles were wrong (Rent 50 % spans 0-π) and were corrected, not the code |
+| T-073 | done | 51321d8 | `DonutChart`: contract cases (`POLAR`, 13 tests) + sector-volume contract (61 → SP008) + 15 specific tests RED on the missing recipe → green; `ringTone` (no two neighbours share a tone, across 12 o'clock) and `sectorLegend` ("+N more") mutation-checked; one test's expected angles were wrong (Rent 50 % spans 0-π) and were corrected, not the code |
+| T-074, T-075, T-079 | done | (this commit) | `RadarChart`, `PolarBarChart`, `CoxcombChart`: 3 contract cases (39 tests) + 3 sector-volume contracts + 10 specific tests RED on the missing recipes → green (core 620/620); two tests corrected before any code ran (a radial bar's length is not an axis-aligned box's height; the coxcomb has no `legend`) |
 
 ## Rulings
 
@@ -24,3 +25,10 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
   readout and printed centre carry the data — cost if wrong: a narrow donut without names on paper.
 - **T-073 · Ruling:** sectors run clockwise from 12 o'clock with no gap between them; the outline
   separates them — cost if wrong: a style change to the demo output.
+- **T-074 · Ruling:** a radar value outside `domain` is held at its edge and warned `SP002`, as
+  the gauges saturate (Data Model §2.3); the table keeps the true value — cost if wrong: a polygon
+  that understates an outlier on paper.
+- **T-079 · Ruling:** `startAngle` is in degrees clockwise from 12 o'clock (API Spec §7 gives no
+  unit; degrees are what a consumer writes) — cost if wrong: a unit change before 1.0.
+- **T-075, T-079 · Ruling:** rim names are thinned to at most 24 so they never overprint; the table
+  and readout name every slot — cost if wrong: a dense polar chart with unnamed slots on paper.

@@ -15,12 +15,25 @@ export interface PolarFrame {
   readonly radius: number;
 }
 
-export function polarFrame(area: Rect): PolarFrame {
+/** `labelRoom` keeps a margin around the circle for names printed outside it. */
+export function polarFrame(area: Rect, labelRoom = 0): PolarFrame {
   return {
     cx: area.x + area.width / 2,
     cy: area.y + area.height / 2,
-    radius: Math.max(Math.min(area.width, area.height) / 2 - PLOT_INSET, 1),
+    radius: Math.max(Math.min(area.width, area.height) / 2 - PLOT_INSET - labelRoom, 1),
   };
+}
+
+/** Room outside a circle for the names printed around it. */
+export const RIM_LABELS = 14;
+
+/**
+ * Names around the rim, one per slot at its middle angle, thinned so no more than `most` are
+ * printed; the table and the readout name every slot.
+ */
+export function rimLabels(frame: PolarFrame, entries: readonly { readonly angle: number; readonly text: string }[], most = 24): TextLabel[] {
+  const step = Math.max(1, Math.ceil(entries.length / most));
+  return entries.filter((_, i) => i % step === 0).map((e) => polarLabel(frame, e.angle, frame.radius + 8, e.text));
 }
 
 /** The point at `angle` on the circle of radius `r`. */

@@ -8,11 +8,14 @@ import {
   bulletChart,
   candlestickChart,
   composedChart,
+  coxcombChart,
   donutChart,
   funnelChart,
   heatmapChart,
   kpiCard,
+  polarBarChart,
   pyramidChart,
+  radarChart,
   rangeBandChart,
   readout,
   sankeyChart,
@@ -235,10 +238,31 @@ const POLAR: readonly Case[] = [
     hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }, { n: 'h3', v: 'x' }],
     labelOf: (d) => String(d.n),
   },
+  {
+    recipe: P2(radarChart),
+    consumer: { data: [{ n: 'Speed', v: 7 }, { n: 'Range', v: 4 }, { n: 'Cost', v: 9 }, { n: 'Comfort', v: 5 }], subjectKey: 'n', valueKey: 'v', domain: [0, 10] },
+    items: 4,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
+    labelOf: (d) => String(d.n),
+  },
+  {
+    recipe: P2(polarBarChart),
+    consumer: { data: [{ n: 'Jan', v: 40 }, { n: 'Feb', v: 25 }, { n: 'Mar', v: 10 }, { n: 'Apr', v: 30 }], nameKey: 'n', valueKey: 'v' },
+    items: 4,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
+    labelOf: (d) => String(d.n),
+  },
+  {
+    recipe: P2(coxcombChart),
+    consumer: { data: [{ n: 'Jan', v: 40 }, { n: 'Feb', v: 25 }, { n: 'Mar', v: 10 }], nameKey: 'n', valueKey: 'v' },
+    items: 3,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
+    labelOf: (d) => String(d.n),
+  },
 ];
 
 /** The sector recipes, whose ceiling is 60 sectors (API Spec §12). */
-const SECTOR_CHARTS: readonly Case[] = POLAR.filter((c) => ['DonutChart'].includes(c.recipe.name));
+const SECTOR_CHARTS: readonly Case[] = POLAR.filter((c) => ['DonutChart', 'RadarChart', 'PolarBarChart', 'CoxcombChart'].includes(c.recipe.name));
 
 const items = (hits: readonly { seriesKey: string; index: number }[]) => new Set(hits.map((h) => `${h.seriesKey}#${h.index}`)).size;
 

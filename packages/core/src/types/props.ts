@@ -247,3 +247,26 @@ export interface DonutChartProps extends CommonChartProps {
   /** Names every sector with its share beside the ring; `true` by default. */
   legend?: boolean;
 }
+
+/** `RadarChart` (REQ-076): one spoke per subject, a closed polygon of values (Data Model §2.2). */
+export interface RadarChartProps extends CommonChartProps {
+  subjectKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  /** The value range along a spoke; `[0, the largest value]`, niced, by default. */
+  domain?: readonly [number, number];
+}
+
+/** `PolarBarChart` (REQ-077): 360° bars out from a hole, length ∝ value (Data Model §2.2). */
+export interface PolarBarChartProps extends CommonChartProps {
+  nameKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** `CoxcombChart` (REQ-088): equal angles, sector **area** ∝ value (Data Model §2.2). */
+export interface CoxcombChartProps extends CommonChartProps {
+  nameKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  /** Where the first sector starts, in degrees clockwise from 12 o'clock; 0 by default. */
+  startAngle?: number;
+}
+

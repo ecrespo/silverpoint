@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, donutChart, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, coxcombChart, donutChart, polarBarChart, radarChart, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -86,5 +86,99 @@ describe('DonutChart', () => {
     const model = donutChart.build({ ...bare, data }, context);
     expect(model.table.columns).toEqual(['name', 'value', 'share']);
     expect(model.table.rows[0]).toEqual(['Rent', '50', '50%']);
+  });
+});
+
+/** Distance of a hit from a centre. */
+const radiusOf = (hit: HitArea, cx: number, cy: number) => Math.hypot(hit.x - cx, hit.y - cy);
+/** The centre of a polar chart without a legend: the middle of its plot. */
+const centreOf = (model: ChartModel) => ({ cx: model.geometry.plot.x + model.geometry.plot.width / 2, cy: model.geometry.plot.y + model.geometry.plot.height / 2 });
+
+describe('RadarChart', () => {
+  const data = [{ subject: 'A', value: 10 }, { subject: 'B', value: 5 }, { subject: 'C', value: 0 }, { subject: 'D', value: 2.5 }];
+
+  test('REQ-076 · one spoke per subject, clockwise from 12; a value is its distance along the spoke', () => {
+    const model = radarChart.build({ ...bare, data, domain: [0, 10] }, context);
+    const { cx, cy } = centreOf(model);
+    const [a, b, c, d] = model.geometry.hitAreas;
+    close(angleOf(a!, cx, cy), 0, 0.01);
+    close(angleOf(b!, cx, cy), Math.PI / 2, 0.01);
+    close(angleOf(d!, cx, cy), 1.5 * Math.PI, 0.01);
+    close(radiusOf(b!, cx, cy), radiusOf(a!, cx, cy) / 2, 0.03);
+    close(radiusOf(d!, cx, cy), radiusOf(a!, cx, cy) / 4, 0.03);
+    close(radiusOf(c!, cx, cy), 0, 0.03);
+  });
+
+  test('REQ-076 · the polygon is one closed encoding path through every value', () => {
+    const model = radarChart.build({ ...bare, data, domain: [0, 10] }, context);
+    const polygons = encoding(model);
+    expect(polygons).toHaveLength(1);
+    expect(polygons[0]!.d.endsWith('Z')).toBe(true);
+    expect(polygons[0]!.d.match(/[ML]/g)).toHaveLength(4);
+  });
+
+  test('REQ-076 · every subject is named at the end of its spoke', () => {
+    expect(texts(radarChart.build({ ...bare, data }, context))).toEqual(expect.arrayContaining(['A', 'B', 'C', 'D']));
+  });
+
+  test('REQ-076 · a value outside `domain` is held at its edge and warned SP002', () => {
+    const seen = capture();
+    const model = radarChart.build({ ...bare, data: [{ subject: 'A', value: 20 }, { subject: 'B', value: 5 }, { subject: 'C', value: 5 }], domain: [0, 10] }, context);
+    const { cx, cy } = centreOf(model);
+    const [a, b] = model.geometry.hitAreas;
+    close(radiusOf(a!, cx, cy), 2 * radiusOf(b!, cx, cy), 0.03);
+    expect(seen).toContain('SP002');
+  });
+});
+
+describe('PolarBarChart', () => {
+  const data = [{ name: 'A', value: 40 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }, { name: 'D', value: 30 }];
+
+  test('REQ-077 · equal slots around the full turn, clockwise from 12', () => {
+    const model = polarBarChart.build({ ...bare, data }, context);
+    const { cx, cy } = centreOf(model);
+    const angles = model.geometry.hitAreas.map((h) => angleOf(h, cx, cy));
+    angles.forEach((a, i) => close(a, (i + 0.5) * (Math.PI / 2), 0.01));
+  });
+
+  test('REQ-077 · bar length out from the hole is proportional to the value (the hit sits at the tip)', () => {
+    const model = polarBarChart.build({ ...bare, data }, context);
+    expect(encoding(model)).toHaveLength(4);
+    const { cx, cy } = centreOf(model);
+    const [a, b, c, d] = model.geometry.hitAreas.map((h) => radiusOf(h, cx, cy));
+    close((a! - c!) / (40 - 10), (d! - b!) / (30 - 20), 0.01);
+    expect(a! - c!).toBeGreaterThan(10);
+  });
+
+  test('REQ-077 · every bar is named', () => {
+    expect(texts(polarBarChart.build({ ...bare, data }, context))).toEqual(expect.arrayContaining(['A', 'B', 'C', 'D']));
+  });
+});
+
+describe('CoxcombChart', () => {
+  const data = [{ name: 'A', value: 100 }, { name: 'B', value: 25 }, { name: 'C', value: 0 }, { name: 'D', value: 64 }];
+
+  test('REQ-088 · equal angles; the AREA of a sector is proportional to its value (radius ∝ √value)', () => {
+    const model = coxcombChart.build({ ...bare, data }, context);
+    const radii = encoding(model).map((s) => Number(/A([\d.]+),/.exec(s.d)?.[1]));
+    // C (0) draws nothing; A, B, D do.
+    expect(radii).toHaveLength(3);
+    close(radii[1]! / radii[0]!, Math.sqrt(25 / 100), 0.01);
+    close(radii[2]! / radii[0]!, Math.sqrt(64 / 100), 0.01);
+  });
+
+  test('REQ-088 · `startAngle`, in degrees, turns the first sector away from 12 o’clock', () => {
+    const at0 = coxcombChart.build({ ...bare, data }, context);
+    const at90 = coxcombChart.build({ ...bare, data, startAngle: 90 }, context);
+    const { cx, cy } = centreOf(at0);
+    close(angleOf(at0.geometry.hitAreas[0]!, cx, cy), Math.PI / 4, 0.01);
+    close(angleOf(at90.geometry.hitAreas[0]!, cx, cy), Math.PI / 2 + Math.PI / 4, 0.01);
+  });
+
+  test('REQ-088 · REQ-124 · every sector is named, and neighbours never share a tone', () => {
+    const model = coxcombChart.build({ ...bare, data }, context);
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C', 'D']));
+    const tones = encoding(model).map((s) => s.tone);
+    for (let i = 0; i < tones.length - 1; i += 1) expect(tones[i]).not.toBe(tones[i + 1]);
   });
 });
