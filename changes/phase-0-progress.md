@@ -19,6 +19,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
 | T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
 | T-015 | done (interaction in T-018) | 2026-09-24 | `packages/react/test` — server and client SSR equal to the canonical render in both modes and four substrates; server variant hook-free, rejects `onActiveChange` and requires `width`/`height` at the type level; built entries: client carries `'use client'`, server does not |
+| T-016 | done (interaction in T-018; example-app consumption in T-023) | 2026-09-24 | `packages/angular/test` — the ng-packagr APF bundle, linked at runtime, server-renders through `renderApplication` identically to the canonical render in both modes and four substrates; standalone, OnPush, 28 signal inputs named as `LineChartProps`; client measurement, forced precision and public methods verified, with mutations confirming the client tests bite; `dist/package.json` exports `.` and `./line-chart` |
 | T-017 | done (interaction in T-018) | 2026-09-24 | `packages/vue/test` — `@vue/server-renderer` output equal to the canonical render in both modes and four substrates; SSR → hydration with no mismatch (REQ-109); props equal to `LineChartProps` name for name; `@active-change` typed to `ActiveItem \| null`, verified with `vue-tsc` |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
@@ -82,6 +83,15 @@ failing first where code changed.
 - **T-017 · Ruling:** Vue 3.4 has no `useId`; the adapter uses it when present and falls back
   to the instance uid, so the `^3.4` peer holds. *Cost if wrong:* under 3.4 the generated ids
   are not in the normaliser's list, which only matters when no `id` prop is passed.
+- **T-016 · Ruling:** Angular instance ids come from a counter in a root-provided service, so
+  it restarts per application — the server render and the hydrating client derive the same ids.
+  A module-level counter would drift across server requests. *Cost if wrong:* none known.
+- **T-016 · Ruling:** the Angular tests run against the built APF bundle rather than JIT-compiled
+  sources, because signal inputs need the AOT/partial compiler; the suite therefore exercises the
+  artefact that is published. *Cost if wrong:* the Angular project rebuilds before each run (~10 s).
+- **T-016 · Process note:** the four Angular client tests were written after the code they cover;
+  each was then checked by a deliberate mutation (forced precision, measurement, `toSVGString`)
+  that made it fail, before restoring the code.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

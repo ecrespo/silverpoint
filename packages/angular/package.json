@@ -35,6 +35,7 @@
     "@angular/core": "^21.2.23",
     "@angular/platform-browser": "^21.2.23",
     "@angular/platform-server": "^21.2.23",
+    "happy-dom": "^20.14.5",
     "ng-packagr": "^21.2.7",
     "rxjs": "^7.8.2",
     "typescript": "5.9.3"
