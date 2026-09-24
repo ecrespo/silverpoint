@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, volvelleChart, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -520,5 +520,80 @@ describe('OrbitChart', () => {
     const model = orbitChart.build({ ...bare, data }, context);
     expect(model.table.columns).toEqual(['orbit', 'period', 'value']);
     expect(model.table.rows[1]).toEqual(['Inner', '0.25', '1']);
+  });
+});
+
+describe('VolvelleChart', () => {
+  // Day: four segments of 90°; Shift: three of 120°. Tue spans 90°-180°: its middle is 135°,
+  // which falls in Shift's second segment (120°-240°), Late.
+  const data = [
+    { label: 'Day', segments: ['Mon', 'Tue', 'Wed', 'Thu'] },
+    { label: 'Shift', segments: ['Early', 'Late', 'Night'] },
+  ];
+  const segmentsOf = (model: ChartModel, ring: number) => model.geometry.hitAreas.filter((h) => h.cell?.row === ring);
+
+  test('REQ-090 · concentric rings from the inside out, each in equal segments', () => {
+    const model = volvelleChart.build({ ...bare, data }, context);
+    expect(segmentsOf(model, 0)).toHaveLength(4);
+    expect(segmentsOf(model, 1)).toHaveLength(3);
+    expect(model.table.rows).toHaveLength(7);
+  });
+
+  test('REQ-090 · the index faces 12 o’clock, at the middle of `indexValue` on `indexRing`', () => {
+    const model = volvelleChart.build({ ...bare, data, indexRing: 0, indexValue: 'Tue' }, context);
+    const tue = segmentsOf(model, 0)[1]!;
+    const { cx } = centreOf(model);
+    close(tue.x, cx, 0.01);
+    expect(tue.y).toBeLessThan(centreOf(model).cy);
+  });
+
+  test('REQ-090 · the combined readout lists what every ring shows under the index', () => {
+    const model = volvelleChart.build({ ...bare, data, indexRing: 0, indexValue: 'Tue' }, context);
+    expect(texts(model)).toContain('Day Tue · Shift Late');
+    expect(model.description).toContain('Day Tue · Shift Late');
+  });
+
+  test('REQ-090 · REQ-124 · the aligned segments are marked by a tone, and named in the readout', () => {
+    const model = volvelleChart.build({ ...bare, data, indexRing: 1, indexValue: 'Night' }, context);
+    const toned = encoding(model).filter((s) => s.tone !== undefined);
+    expect(toned).toHaveLength(2);
+    // Night spans 240°-360°: its middle, 300°, falls in Day's fourth segment (270°-360°), Thu.
+    expect(texts(model)).toContain('Day Thu · Shift Night');
+  });
+
+  test('REQ-090 · a printed segment name stays inside its ring (seen in the preview)', () => {
+    // Large enough that some names fit inside their rings, so the check is never vacuous.
+    const model = volvelleChart.build({ chrome: 'bare', height: 320 }, { ...context, width: 640 });
+    const { cx, cy } = centreOf(model);
+    const segments = encoding(model);
+    expect(segments).toHaveLength(model.geometry.hitAreas.length);
+    let checked = 0;
+    model.geometry.hitAreas.forEach((hit, i) => {
+      const label = model.geometry.labels.find((l) => l.text === hit.datum.segment && Math.abs(l.x - hit.x) < 0.5);
+      if (!label) return;
+      const radii = [...segments[i]!.d.matchAll(/A([\d.]+),/g)].map((m) => Number(m[1]));
+      const [inner, outer] = [Math.min(...radii), Math.max(...radii)];
+      const box = textBox(label);
+      for (const [x, y] of [[box.x, box.y], [box.x + box.width, box.y], [box.x, box.y + box.height], [box.x + box.width, box.y + box.height]] as const) {
+        const r = Math.hypot(x - cx, y - cy);
+        expect(r >= inner - 1 && r <= outer + 1, `${label.text}: corner at r ${r.toFixed(1)} outside ${inner}-${outer}`).toBe(true);
+      }
+      checked += 1;
+    });
+    expect(checked).toBeGreaterThan(0);
+  });
+
+  test('REQ-090 · the outermost ring is named around the rim; the index’s segment is named in the readout', () => {
+    const model = volvelleChart.build({ ...bare }, context);
+    const printed = texts(model);
+    for (const team of ['Borealis', 'Cygnus', 'Draco', 'Eridanus']) expect(printed, team).toContain(team);
+    expect(printed.join(' ')).toContain('Team Atlas');
+  });
+
+  test('REQ-090 · an unknown `indexValue` or `indexRing` falls back to the first segment of the first ring, with SP002', () => {
+    const seen = capture();
+    const model = volvelleChart.build({ ...bare, data, indexRing: 5, indexValue: 'Sun' }, context);
+    expect(texts(model)).toContain('Day Mon · Shift Early');
+    expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(1);
   });
 });

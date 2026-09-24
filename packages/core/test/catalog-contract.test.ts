@@ -33,6 +33,7 @@ import {
   stepChart,
   streamChart,
   treemapChart,
+  volvelleChart,
   waterfallChart,
   windRose,
   type ChartRecipe,
@@ -312,6 +313,20 @@ const POLAR: readonly Case[] = [
     items: 3,
     hostile: [{ label: 'Bad', ms: [{ p: 1.5, value: 1 }, { p: Number.NaN, value: 1 }, { p: 0.2, value: -1 }] }],
     labelOf: (d) => String(d.orbit),
+  },
+  {
+    recipe: P2(volvelleChart),
+    consumer: {
+      data: [
+        { label: 'Day', segments: ['Mon', 'Tue', 'Wed', 'Thu'] },
+        { label: 'Shift', segments: ['Early', 'Late', 'Night'] },
+      ],
+      indexRing: 0,
+      indexValue: 'Tue',
+    },
+    items: 7,
+    hostile: [{ label: 'Bad', segments: 'not a list' }],
+    labelOf: (d) => String(d.ring),
   },
 ];
 

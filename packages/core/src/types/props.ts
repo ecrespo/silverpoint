@@ -333,3 +333,13 @@ export interface OrbitChartProps extends CommonChartProps {
   periodKey?: Accessor<number | null | undefined>;
 }
 
+/** `VolvelleChart` (REQ-090): concentric categorical rings read against one index (delta-010). */
+export interface VolvelleChartProps extends CommonChartProps {
+  /** Rings shown, from the inside out; all by default. */
+  rings?: number;
+  /** The ring whose segment is brought under the index, 0-based; 0 by default. */
+  indexRing?: number;
+  /** The segment of `indexRing` under the index; its first segment by default. */
+  indexValue?: string;
+}
+

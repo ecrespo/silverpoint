@@ -35,6 +35,7 @@ export type {
   WindRoseProps,
   ChordRingProps,
   OrbitChartProps,
+  VolvelleChartProps,
   KpiCardProps,
   RangeBandChartProps,
   ScatterChartProps,
