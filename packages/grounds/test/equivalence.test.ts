@@ -1,4 +1,12 @@
-import { lineChart, type ChartRecipe, type CommonChartProps, type Stroke } from '@silverpoint/core';
+import {
+  activityGrid,
+  bulletChart,
+  heatmapChart,
+  lineChart,
+  pyramidChart,
+  sankeyChart,
+  treemapChart,
+  type ChartRecipe, type CommonChartProps, type Stroke } from '@silverpoint/core';
 import { describe, expect, test } from 'vitest';
 import { renderChart } from '../src';
 
@@ -17,6 +25,11 @@ const CHARTS: readonly { readonly recipe: ChartRecipe<CommonChartProps>; readonl
       { data: [{ x: 1, value: 3 }, { x: 2, value: null }, { x: 4, value: 7 }], connectNulls: true } as CommonChartProps,
     ],
   },
+  // Phase 1: the charts that need no scale. Each also runs under per-shape hatching.
+  ...[bulletChart, pyramidChart, heatmapChart, treemapChart, sankeyChart, activityGrid].map((recipe) => ({
+    recipe: recipe as ChartRecipe<CommonChartProps>,
+    variants: [{}, { chrome: 'bare' }, { hatchFill: 'per-shape' }] as CommonChartProps[],
+  })),
 ];
 
 const SEEDS = [0, 1, 1592, 2 ** 31, 2 ** 32 - 1];

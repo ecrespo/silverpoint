@@ -54,3 +54,9 @@ export {
   type Readout,
 } from './interaction/hit-test';
 export { reduceInteraction, sameActive, type InteractionEvent, type InteractionResult } from './interaction/reduce';
+export { bulletChart } from './charts/bullet-chart/bullet-chart';
+export { pyramidChart } from './charts/pyramid-chart/pyramid-chart';
+export { heatmapChart } from './charts/heatmap-chart/heatmap-chart';
+export { treemapChart } from './charts/treemap-chart/treemap-chart';
+export { sankeyChart } from './charts/sankey-chart/sankey-chart';
+export { activityGrid } from './charts/activity-grid/activity-grid';

@@ -66,3 +66,49 @@ export interface ProviderConfig {
   mode?: InkMode;
   locale?: string;
 }
+
+/** `BulletChart` (REQ-069): one bar per target, with a marker at the target. Values in 0-100. */
+export interface BulletChartProps extends CommonChartProps {
+  titleKey?: Accessor<string>;
+  actualKey?: Accessor<number | null | undefined>;
+  targetKey?: Accessor<number | null | undefined>;
+}
+
+/** `PyramidChart` (REQ-070): stacked tiers whose width encodes the value (0-100). */
+export interface PyramidChartProps extends CommonChartProps {
+  labelKey?: Accessor<string>;
+  widthKey?: Accessor<number | null | undefined>;
+  toneKey?: Accessor<number | null | undefined>;
+}
+
+/** `HeatmapChart` (REQ-084): labelled rows of values, normalised against `scaleMax`. */
+export interface HeatmapChartProps extends CommonChartProps {
+  labelKey?: Accessor<string>;
+  valuesKey?: Accessor<readonly (number | null)[] | null | undefined>;
+  /** Value that maps to the darkest tone; 100 by default. */
+  scaleMax?: number;
+}
+
+/** `TreemapChart` (REQ-085): tiles of `cols × rows` cells placed in a `columns × rows` grid. */
+export interface TreemapChartProps extends CommonChartProps {
+  labelKey?: Accessor<string>;
+  shareKey?: Accessor<number | null | undefined>;
+  columns?: number;
+  rows?: number;
+}
+
+/** `SankeyChart` (REQ-086): flow bands between layered nodes. */
+export interface SankeyChartProps extends CommonChartProps {
+  sourceKey?: Accessor<string>;
+  targetKey?: Accessor<string>;
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** `ActivityGrid` (REQ-087): one cell per day, a column per week. */
+export interface ActivityGridProps extends CommonChartProps {
+  dateKey?: Accessor<string>;
+  countKey?: Accessor<number | null | undefined>;
+  levelKey?: Accessor<number | null | undefined>;
+  /** Weeks shown, the most recent last; 26 by default. */
+  weeks?: number;
+}
