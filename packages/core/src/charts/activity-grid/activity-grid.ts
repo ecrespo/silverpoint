@@ -110,7 +110,7 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
 }
 
 /** `ActivityGrid` recipe (REQ-087): one cell per day, a column per week, sized and toned by level. */
-export const activityGrid: ChartRecipe<ActivityGridProps> = Object.freeze({
+export const activityGrid: ChartRecipe<ActivityGridProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildActivityGrid,
 });

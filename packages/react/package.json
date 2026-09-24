@@ -27,6 +27,78 @@
       "import": "./dist/server/line-chart.js",
       "default": "./dist/server/line-chart.js"
     },
+    "./bullet-chart": {
+      "@silverpoint/source": "./src/bullet-chart.tsx",
+      "types": "./dist/bullet-chart.d.ts",
+      "import": "./dist/bullet-chart.js",
+      "default": "./dist/bullet-chart.js"
+    },
+    "./server/bullet-chart": {
+      "@silverpoint/source": "./src/server/bullet-chart.tsx",
+      "types": "./dist/server/bullet-chart.d.ts",
+      "import": "./dist/server/bullet-chart.js",
+      "default": "./dist/server/bullet-chart.js"
+    },
+    "./pyramid-chart": {
+      "@silverpoint/source": "./src/pyramid-chart.tsx",
+      "types": "./dist/pyramid-chart.d.ts",
+      "import": "./dist/pyramid-chart.js",
+      "default": "./dist/pyramid-chart.js"
+    },
+    "./server/pyramid-chart": {
+      "@silverpoint/source": "./src/server/pyramid-chart.tsx",
+      "types": "./dist/server/pyramid-chart.d.ts",
+      "import": "./dist/server/pyramid-chart.js",
+      "default": "./dist/server/pyramid-chart.js"
+    },
+    "./heatmap-chart": {
+      "@silverpoint/source": "./src/heatmap-chart.tsx",
+      "types": "./dist/heatmap-chart.d.ts",
+      "import": "./dist/heatmap-chart.js",
+      "default": "./dist/heatmap-chart.js"
+    },
+    "./server/heatmap-chart": {
+      "@silverpoint/source": "./src/server/heatmap-chart.tsx",
+      "types": "./dist/server/heatmap-chart.d.ts",
+      "import": "./dist/server/heatmap-chart.js",
+      "default": "./dist/server/heatmap-chart.js"
+    },
+    "./treemap-chart": {
+      "@silverpoint/source": "./src/treemap-chart.tsx",
+      "types": "./dist/treemap-chart.d.ts",
+      "import": "./dist/treemap-chart.js",
+      "default": "./dist/treemap-chart.js"
+    },
+    "./server/treemap-chart": {
+      "@silverpoint/source": "./src/server/treemap-chart.tsx",
+      "types": "./dist/server/treemap-chart.d.ts",
+      "import": "./dist/server/treemap-chart.js",
+      "default": "./dist/server/treemap-chart.js"
+    },
+    "./sankey-chart": {
+      "@silverpoint/source": "./src/sankey-chart.tsx",
+      "types": "./dist/sankey-chart.d.ts",
+      "import": "./dist/sankey-chart.js",
+      "default": "./dist/sankey-chart.js"
+    },
+    "./server/sankey-chart": {
+      "@silverpoint/source": "./src/server/sankey-chart.tsx",
+      "types": "./dist/server/sankey-chart.d.ts",
+      "import": "./dist/server/sankey-chart.js",
+      "default": "./dist/server/sankey-chart.js"
+    },
+    "./activity-grid": {
+      "@silverpoint/source": "./src/activity-grid.tsx",
+      "types": "./dist/activity-grid.d.ts",
+      "import": "./dist/activity-grid.js",
+      "default": "./dist/activity-grid.js"
+    },
+    "./server/activity-grid": {
+      "@silverpoint/source": "./src/server/activity-grid.tsx",
+      "types": "./dist/server/activity-grid.d.ts",
+      "import": "./dist/server/activity-grid.js",
+      "default": "./dist/server/activity-grid.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

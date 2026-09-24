@@ -4,7 +4,7 @@ import type { Datum } from '../../types';
  * Demo dataset of `LineChart` (REQ-093). Frozen, and part of the stable surface: changing it
  * alters the SVG of anyone who renders without data, so it is never a patch (Data Model §4).
  */
-export const LINE_CHART_DEMO: readonly Datum[] = Object.freeze(
+export const LINE_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
   [
     { hour: '00', hits: 18, baseline: 22 },
     { hour: '02', hits: 14, baseline: 18 },
@@ -21,7 +21,7 @@ export const LINE_CHART_DEMO: readonly Datum[] = Object.freeze(
   ].map((row) => Object.freeze(row)),
 );
 
-export const LINE_CHART_DEMO_KEYS = Object.freeze({
+export const LINE_CHART_DEMO_KEYS = /* @__PURE__ */ Object.freeze({
   xKey: 'hour',
   valueKey: 'hits',
   secondaryKey: 'baseline',

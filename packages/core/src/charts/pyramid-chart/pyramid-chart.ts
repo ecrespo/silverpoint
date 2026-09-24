@@ -96,7 +96,7 @@ function buildPyramidChart(props: PyramidChartProps, context: RecipeContext): Ch
 }
 
 /** `PyramidChart` recipe (REQ-070): stacked, centred tiers whose width encodes the value. */
-export const pyramidChart: ChartRecipe<PyramidChartProps> = Object.freeze({
+export const pyramidChart: ChartRecipe<PyramidChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildPyramidChart,
 });

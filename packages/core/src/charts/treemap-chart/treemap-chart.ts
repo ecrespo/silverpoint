@@ -114,7 +114,7 @@ function buildTreemapChart(props: TreemapChartProps, context: RecipeContext): Ch
 }
 
 /** `TreemapChart` recipe (REQ-085): tiles placed first-fit in a declared grid, each labelled with its share. */
-export const treemapChart: ChartRecipe<TreemapChartProps> = Object.freeze({
+export const treemapChart: ChartRecipe<TreemapChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildTreemapChart,
 });

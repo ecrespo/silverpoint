@@ -4,7 +4,7 @@ import type { Datum } from '../../types';
  * Demo dataset of `HeatmapChart` (REQ-093), in the default field names of Data Model §2.4.
  * Frozen and part of the stable surface (Data Model §4).
  */
-export const HEATMAP_CHART_DEMO: readonly Datum[] = Object.freeze(
+export const HEATMAP_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
   [
     { label: 'Mon', values: Object.freeze([12, 34, 58, 71, 66, 40]) },
     { label: 'Tue', values: Object.freeze([18, 42, 77, 88, 70, 35]) },

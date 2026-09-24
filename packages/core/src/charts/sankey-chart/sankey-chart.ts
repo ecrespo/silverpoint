@@ -176,7 +176,7 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
 }
 
 /** `SankeyChart` recipe (REQ-086): flow bands between nodes layered by longest path. */
-export const sankeyChart: ChartRecipe<SankeyChartProps> = Object.freeze({
+export const sankeyChart: ChartRecipe<SankeyChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildSankeyChart,
 });

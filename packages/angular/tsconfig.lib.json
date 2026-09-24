@@ -5,7 +5,10 @@
     "declaration": true,
     "declarationMap": false,
     "inlineSources": true,
-    "lib": ["ES2022", "DOM"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "types": [],
     "experimentalDecorators": false,
     "verbatimModuleSyntax": false,
@@ -17,6 +20,18 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true
   },
-  "include": ["src/**/*.ts", "line-chart/**/*.ts"],
-  "exclude": ["**/*.spec.ts", "test/**"]
+  "include": [
+    "src/**/*.ts",
+    "line-chart/**/*.ts",
+    "bullet-chart/**/*.ts",
+    "pyramid-chart/**/*.ts",
+    "heatmap-chart/**/*.ts",
+    "treemap-chart/**/*.ts",
+    "sankey-chart/**/*.ts",
+    "activity-grid/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "test/**"
+  ]
 }

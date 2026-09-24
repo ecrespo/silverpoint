@@ -3,7 +3,10 @@
     "name": "@silverpoint/react + core, LineChart (client)",
     "path": "packages/react/dist/line-chart.js",
     "import": "{ LineChart }",
-    "ignore": ["react", "react-dom"],
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
     "gzip": true,
     "limit": "45 kB"
   },
@@ -11,7 +14,10 @@
     "name": "@silverpoint/react + core, LineChart (server)",
     "path": "packages/react/dist/server/line-chart.js",
     "import": "{ LineChart }",
-    "ignore": ["react", "react-dom"],
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
     "gzip": true,
     "limit": "45 kB"
   },
@@ -19,7 +25,9 @@
     "name": "@silverpoint/vue + core, SpLineChart",
     "path": "packages/vue/dist/line-chart.js",
     "import": "{ SpLineChart }",
-    "ignore": ["vue"],
+    "ignore": [
+      "vue"
+    ],
     "gzip": true,
     "limit": "45 kB"
   },
@@ -27,7 +35,282 @@
     "name": "@silverpoint/angular + core, SpLineChart",
     "path": "packages/angular/dist/fesm2022/silverpoint-angular-line-chart.mjs",
     "import": "{ SpLineChart }",
-    "ignore": ["@angular/core", "@angular/common", "rxjs", "tslib"],
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BulletChart (client)",
+    "path": "packages/react/dist/bullet-chart.js",
+    "import": "{ BulletChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BulletChart (server)",
+    "path": "packages/react/dist/server/bullet-chart.js",
+    "import": "{ BulletChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBulletChart",
+    "path": "packages/vue/dist/bullet-chart.js",
+    "import": "{ SpBulletChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBulletChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-bullet-chart.mjs",
+    "import": "{ SpBulletChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PyramidChart (client)",
+    "path": "packages/react/dist/pyramid-chart.js",
+    "import": "{ PyramidChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PyramidChart (server)",
+    "path": "packages/react/dist/server/pyramid-chart.js",
+    "import": "{ PyramidChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpPyramidChart",
+    "path": "packages/vue/dist/pyramid-chart.js",
+    "import": "{ SpPyramidChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpPyramidChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-pyramid-chart.mjs",
+    "import": "{ SpPyramidChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, HeatmapChart (client)",
+    "path": "packages/react/dist/heatmap-chart.js",
+    "import": "{ HeatmapChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, HeatmapChart (server)",
+    "path": "packages/react/dist/server/heatmap-chart.js",
+    "import": "{ HeatmapChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpHeatmapChart",
+    "path": "packages/vue/dist/heatmap-chart.js",
+    "import": "{ SpHeatmapChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpHeatmapChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-heatmap-chart.mjs",
+    "import": "{ SpHeatmapChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, TreemapChart (client)",
+    "path": "packages/react/dist/treemap-chart.js",
+    "import": "{ TreemapChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, TreemapChart (server)",
+    "path": "packages/react/dist/server/treemap-chart.js",
+    "import": "{ TreemapChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpTreemapChart",
+    "path": "packages/vue/dist/treemap-chart.js",
+    "import": "{ SpTreemapChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpTreemapChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-treemap-chart.mjs",
+    "import": "{ SpTreemapChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SankeyChart (client)",
+    "path": "packages/react/dist/sankey-chart.js",
+    "import": "{ SankeyChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SankeyChart (server)",
+    "path": "packages/react/dist/server/sankey-chart.js",
+    "import": "{ SankeyChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpSankeyChart",
+    "path": "packages/vue/dist/sankey-chart.js",
+    "import": "{ SpSankeyChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpSankeyChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-sankey-chart.mjs",
+    "import": "{ SpSankeyChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ActivityGrid (client)",
+    "path": "packages/react/dist/activity-grid.js",
+    "import": "{ ActivityGrid }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ActivityGrid (server)",
+    "path": "packages/react/dist/server/activity-grid.js",
+    "import": "{ ActivityGrid }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpActivityGrid",
+    "path": "packages/vue/dist/activity-grid.js",
+    "import": "{ SpActivityGrid }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpActivityGrid",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-activity-grid.mjs",
+    "import": "{ SpActivityGrid }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
     "gzip": true,
     "limit": "45 kB"
   },

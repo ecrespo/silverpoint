@@ -4,7 +4,7 @@ import type { Datum } from '../../types';
  * Demo dataset of `BulletChart` (REQ-093), in the default field names of Data Model §2.9.
  * Frozen and part of the stable surface (Data Model §4).
  */
-export const BULLET_CHART_DEMO: readonly Datum[] = Object.freeze(
+export const BULLET_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
   [
     { title: 'Revenue', actual: 72, target: 80 },
     { title: 'Profit', actual: 58, target: 65 },

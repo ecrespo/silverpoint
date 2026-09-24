@@ -34,7 +34,8 @@ export default defineConfig({
         resolve: {
           ...source,
           alias: [
-            { find: /^@silverpoint\/angular\/line-chart$/, replacement: `${angularDist}silverpoint-angular-line-chart.mjs` },
+            // Every secondary entry point, `@silverpoint/angular/<slug>`, from its FESM bundle.
+            { find: /^@silverpoint\/angular\/([a-z-]+)$/, replacement: `${angularDist}silverpoint-angular-$1.mjs` },
             { find: /^@silverpoint\/angular$/, replacement: `${angularDist}silverpoint-angular.mjs` },
           ],
         },

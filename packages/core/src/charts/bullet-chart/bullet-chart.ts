@@ -91,7 +91,7 @@ function buildBulletChart(props: BulletChartProps, context: RecipeContext): Char
 }
 
 /** `BulletChart` recipe (REQ-069): a bar to the actual value and a marker at the target, on 0-100. */
-export const bulletChart: ChartRecipe<BulletChartProps> = Object.freeze({
+export const bulletChart: ChartRecipe<BulletChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildBulletChart,
 });

@@ -89,7 +89,7 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
 }
 
 /** `HeatmapChart` recipe (REQ-084): labelled rows of cells, toned by value and printed. */
-export const heatmapChart: ChartRecipe<HeatmapChartProps> = Object.freeze({
+export const heatmapChart: ChartRecipe<HeatmapChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildHeatmapChart,
 });

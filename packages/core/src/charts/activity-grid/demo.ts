@@ -14,7 +14,7 @@ const DAYS = 26 * 7;
  * generated once, at module load, and frozen; the level is quantised here, as a consumer would,
  * because the library never derives it from the count (Data Model §2.8).
  */
-export const ACTIVITY_GRID_DEMO: readonly Datum[] = Object.freeze(
+export const ACTIVITY_GRID_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
   (() => {
     const next = createPrng(ACTIVITY_GRID_DEMO_SEED);
     const first = parseIsoDate(ACTIVITY_GRID_DEMO_END) - (DAYS - 1);

@@ -21,6 +21,42 @@
       "import": "./dist/line-chart.js",
       "default": "./dist/line-chart.js"
     },
+    "./bullet-chart": {
+      "@silverpoint/source": "./src/bullet-chart.ts",
+      "types": "./dist/bullet-chart.d.ts",
+      "import": "./dist/bullet-chart.js",
+      "default": "./dist/bullet-chart.js"
+    },
+    "./pyramid-chart": {
+      "@silverpoint/source": "./src/pyramid-chart.ts",
+      "types": "./dist/pyramid-chart.d.ts",
+      "import": "./dist/pyramid-chart.js",
+      "default": "./dist/pyramid-chart.js"
+    },
+    "./heatmap-chart": {
+      "@silverpoint/source": "./src/heatmap-chart.ts",
+      "types": "./dist/heatmap-chart.d.ts",
+      "import": "./dist/heatmap-chart.js",
+      "default": "./dist/heatmap-chart.js"
+    },
+    "./treemap-chart": {
+      "@silverpoint/source": "./src/treemap-chart.ts",
+      "types": "./dist/treemap-chart.d.ts",
+      "import": "./dist/treemap-chart.js",
+      "default": "./dist/treemap-chart.js"
+    },
+    "./sankey-chart": {
+      "@silverpoint/source": "./src/sankey-chart.ts",
+      "types": "./dist/sankey-chart.d.ts",
+      "import": "./dist/sankey-chart.js",
+      "default": "./dist/sankey-chart.js"
+    },
+    "./activity-grid": {
+      "@silverpoint/source": "./src/activity-grid.ts",
+      "types": "./dist/activity-grid.d.ts",
+      "import": "./dist/activity-grid.js",
+      "default": "./dist/activity-grid.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

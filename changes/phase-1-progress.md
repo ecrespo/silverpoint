@@ -8,7 +8,9 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-031 | done | a71a10b | `packages/core/test/prng-dates.test.ts`, frozen mulberry32 sequence |
 | T-032..T-037 | done | 3e3be49 | `catalog-contract.test.ts` (12 contract tests × 6 charts + demo snapshots, RED 72/72 on stubs) and `catalog-charts.test.ts` (27 per-chart tests, RED 26/26 on stubs); snapshot mutation-checked; core 184 + 6 snapshots green |
 | T-047 (part) | done | 3e3be49 | the six charts appended to `grounds/test/equivalence.test.ts`: 30/30 |
-| T-038 | done | (this commit) | refactor under unchanged tests: react 32/32, vue 30/30, angular 34/34, string gate 24/24; `pnpm -r run typecheck` green |
+| T-038 | done | d919973 | refactor under unchanged tests: react 32/32, vue 30/30, angular 34/34, string gate 24/24; `pnpm -r run typecheck` green |
+| T-039..T-041 | done | (this commit) | `react/test/catalog.test.tsx` (RED 67/67 → 67 green), `vue/test/catalog.test.ts` + `types.test.ts` (RED 50 → green), `angular/test/catalog.test.ts` (RED 48/48 → green); SSR/server parity against the canonical render for demo ink/precision, consumer data and bare; subpaths; keyboard; Angular contract (standalone, OnPush, signal inputs = props interface) |
+| T-047 (part) | done | (this commit) | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
 
 ## Rulings
 
@@ -52,3 +54,13 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
   (everything)" 30 → 40 kB, because they grow with the catalog by design; the PRD's product budget
   is per chart (< 45 KB React + core with one chart), which T-047 adds for each new chart — cost if
   wrong: a looser catalog-wide alarm.
+- **T-039..T-041 · Ruling:** a shared `tools/visual-gate/catalog.ts` names every chart's recipe,
+  slug, REQ, props interface and a consumer sample with non-default keys; adapter tests, and next
+  the fixtures, iterate it — adding a chart is adding a row. Subpaths: React `./<slug>` and
+  `./server/<slug>`, Vue `./<slug>`, Angular secondary entry `<slug>/`; the vitest alias now maps
+  every `@silverpoint/angular/<slug>`.
+- **T-047 · Ruling (found while budgeting):** every one-chart bundle carried every recipe and demo,
+  because module-level `Object.freeze(...)` calls count as side effects for a bundler. They are now
+  `/* @__PURE__ */`, and a gate bundles each published one-chart entry with rolldown and fails if
+  another recipe is in it. The line chart's React bundle drops 31.95 → 27.98 kB — cost if wrong:
+  none; a future module-level call without the annotation is caught by the gate.

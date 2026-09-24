@@ -242,7 +242,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
 }
 
 /** `LineChart` recipe (REQ-060): props plus scales produce exact geometry. */
-export const lineChart: ChartRecipe<LineChartProps> = Object.freeze({
+export const lineChart: ChartRecipe<LineChartProps> = /* @__PURE__ */ Object.freeze({
   name: CHART,
   build: buildLineChart,
 });

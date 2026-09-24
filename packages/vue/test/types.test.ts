@@ -3,22 +3,12 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import ts from 'typescript';
 import { describe, expect, test } from 'vitest';
+import { interfaceKeys } from '../../../tools/testing/interface-keys';
+import { PHASE_1 } from '../../../tools/visual-gate/catalog';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const repo = fileURLToPath(new URL('../../..', import.meta.url));
-
-/** Property names of an exported interface, read with the TypeScript compiler. */
-function interfaceKeys(file: string, name: string): string[] {
-  const program = ts.createProgram([file], { strict: true, noEmit: true, moduleResolution: ts.ModuleResolutionKind.Bundler, module: ts.ModuleKind.ESNext });
-  const checker = program.getTypeChecker();
-  const source = program.getSourceFile(file);
-  if (!source) throw new Error(`Cannot read ${file}`);
-  const symbol = checker.getExportsOfModule(checker.getSymbolAtLocation(source) as ts.Symbol).find((s) => s.name === name);
-  if (!symbol) throw new Error(`${name} not exported from ${file}`);
-  return checker.getDeclaredTypeOfSymbol(symbol).getProperties().map((p) => p.name).sort();
-}
 
 /** Runs vue-tsc on a component snippet placed in a scratch directory inside the package. */
 function vueTypeErrors(template: string): string {
@@ -26,7 +16,7 @@ function vueTypeErrors(template: string): string {
   try {
     writeFileSync(
       join(dir, 'Use.vue'),
-      `<script setup lang="ts">\nimport { SpLineChart } from '../../src';\nimport type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem;\n</script>\n<template>${template}</template>\n`,
+      `<script setup lang="ts">\nimport { SpLineChart, SpBulletChart, SpPyramidChart, SpHeatmapChart, SpTreemapChart, SpSankeyChart, SpActivityGrid } from '../../src';\nimport type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem; void [SpLineChart, SpBulletChart, SpPyramidChart, SpHeatmapChart, SpTreemapChart, SpSankeyChart, SpActivityGrid];\n</script>\n<template>${template}</template>\n`,
     );
     writeFileSync(
       join(dir, 'tsconfig.json'),
@@ -56,5 +46,24 @@ describe('SpLineChart types', () => {
 
   test('REQ-108 · a handler expecting another payload is a type error', () => {
     expect(vueTypeErrors('<SpLineChart @active-change="onNumber" />')).toMatch(/number/);
+  }, 60_000);
+});
+
+describe('Phase 1 component types', () => {
+  test.each(PHASE_1.map((e) => [e.chart, e] as const))('API §4 · Sp%s props match the React adapter name for name', async (_name, entry) => {
+    const component = ((await import('../src')) as Record<string, unknown>)[`Sp${entry.chart}`];
+    const vueProps = Object.keys((component as { props: Record<string, unknown> }).props).sort();
+    expect(vueProps).toEqual(interfaceKeys(join(repo, 'packages/core/src/types/props.ts'), entry.propsInterface));
+  });
+
+  const all = (handler: string) => PHASE_1.map((e) => `<Sp${e.chart} @active-change="${handler}" />`).join('');
+
+  test('REQ-108 · every chart types @active-change to ActiveItem | null', () => {
+    expect(vueTypeErrors(all('onItem'))).toBe('');
+  }, 60_000);
+
+  test('REQ-108 · on every chart, a handler expecting another payload is a type error', () => {
+    const errors = vueTypeErrors(all('onNumber'));
+    expect(errors.match(/error TS/g)?.length ?? 0).toBeGreaterThanOrEqual(PHASE_1.length);
   }, 60_000);
 });
