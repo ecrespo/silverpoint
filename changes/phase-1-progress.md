@@ -15,7 +15,8 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-043 | done | 5538691, e2d4a0d | every app renders any fixture's chart (e2e RED 24 → green, strengthened to compare against the chart's canonical render after a vacuous first pass); 48 goldens generated in the pinned image; pixel gate 232/232 in docker; REQ-029 tile-fill e2e (RED `none` → `url(…)`) |
 | T-044 | done | cc70733 | `measureChart` (RED 19 → 25/25); `reports/path-weight.md`: tile ≤ 12.3 KiB for all six at every size; per-shape over 40 KB only for heatmap and activity grid at `lg` — budget confirmed |
 | T-045 | done | f37f406 | `?gallery` page of all seven charts in the four apps; axe-core A/AA clean on it (RED: no gallery → green); per chart, e2e table rows and keyboard announcements computed from the core's own `readout` — written after the adapters, mutation-checked (React keydown disabled → 6/6 keyboard tests red); apps + a11y 134 passed |
-| T-046 | done | (this commit) | `changes/phase-1-req-124-review.md` (channel table per chart, all pass); `grounds/test/req-124.test.ts` 7/7, written after the recipes and mutation-checked (heatmap values removed, activity sizes flattened → 2 red) |
+| T-046 | done | cff031b | `changes/phase-1-req-124-review.md` (channel table per chart, all pass); `grounds/test/req-124.test.ts` 7/7, written after the recipes and mutation-checked (heatmap values removed, activity sizes flattened → 2 red) |
+| T-047 | done | 3e3be49, 7a0caff, (this commit) | equivalence list (6 charts × 3 variants, 30/30); 24 per-chart budgets at 45 kB (largest: Angular 34.8 kB before the tree-shaking fix, React client 17–28 kB after); traceability re-run: 74/99 MUST covered, 25 deferred, 0 blocking |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its
