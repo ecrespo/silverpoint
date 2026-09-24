@@ -1,29 +1,39 @@
+import '@silverpoint/fonts/fonts.css';
+import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
 import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
+import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
+import { LineChart as ServerLineChart } from '@silverpoint/react/server/line-chart';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+// Every subpath this app imports — the barrel, the client entry and the server entry — must
+// resolve the same way under `vite dev` and `vite build` (REQ-033, T-024).
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
 function App() {
   if (fixture) {
-    const props = fixtureProps(fixture);
     return (
       <main>
         <div className="sp-harness" data-gate="" data-size="md">
-          <LineChart {...props} />
+          <LineChart {...fixtureProps(fixture)} />
         </div>
       </main>
     );
   }
   return (
-    <main>
-      <h1>silverpoint · Vite + React</h1>
-      <div className="sp-harness" data-size="md">
-        <LineChart {...DEMO_PROPS} />
-      </div>
-    </main>
+    <SilverpointProvider substrate="cream">
+      <main>
+        <h1>silverpoint · Vite + React</h1>
+        <div className="sp-harness" data-size="md">
+          <LineChart {...DEMO_PROPS} />
+        </div>
+        <section className="sp-server">
+          <ServerLineChart {...DEMO_PROPS} id="sp-demo-server" width={320} height={120} mode="precision" />
+        </section>
+      </main>
+    </SilverpointProvider>
   );
 }
 

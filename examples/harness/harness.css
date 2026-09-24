@@ -1,10 +1,10 @@
 /*
  * The shared harness of every example app (T-023, Constitution Art. 3): one stylesheet, one
- * fixed-size container, no animation, so the pixel gate compares like with like.
+ * fixed-size container, no animation, so the pixel gate compares like with like. Each app also
+ * imports the library's own sheets exactly as API Spec §1 documents:
+ *   import '@silverpoint/fonts/fonts.css';
+ *   import '@silverpoint/grounds/styles.css';
  */
-@import '@silverpoint/fonts/fonts.css';
-@import '@silverpoint/grounds/styles.css';
-
 html,
 body {
   margin: 0;

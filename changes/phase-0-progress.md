@@ -28,6 +28,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-027 | done — **40 KB confirmed** | 2026-09-24 | `tools/path-weight` tests and `reports/path-weight.md`. Tile fill: line chart 2.0–2.1 KiB inked at every size; a dense card of 6 or 12 cross-hatched bars over a tone-3 area weighs 1.5–1.7 KiB, ~0.6 KiB per tonal level whatever the shape count. Per-shape: 21.0 KiB (6 bars) and 34.7 KiB (12 bars) at `md`, 14–20× the tile. DD-007's 76 KB / 913 KB figures were taken at gap 4.5 and 3 decimals; gap 7 and 2-decimal rounding brought per-shape down, but it still approaches the budget with 12 bars, where SP011 warns. No PRD amendment needed |
 | T-028 | done | 2026-09-24 | `.size-limit.json` and `tools/bundle-budget/budget.real.test.ts`, min+gzip over the built packages: React client + core + LineChart **26.3 KiB** of 45 KB (rough.js and d3 included), React server 23.9, Vue 27.5, Angular 29.5, core 16.1 of 20, grounds 23.9 of 30, stylesheet 1.8 of 4, fonts 72.7 of 76 (raw woff2). A 1 kB limit makes size-limit exit non-zero |
 | T-023 | done | 2026-09-24 | `e2e/apps.spec.ts` over `vite-react`, `vite-vue` (SSR prerender + `createSSRApp` hydration), `nextjs` (client chart hydrated + server chart as RSC) and `angular` (Angular CLI 21 consuming the APF build): **18 passed, 2 skipped** (the hydration case on the two client-rendered apps). All four share `examples/harness` — one stylesheet, one fixed container. Next.js and Vue: server HTML and hydrated DOM both equal the canonical render; a tampered server page is caught. Also closes the browser halves of T-012 (blocked typeface: chart still renders) and T-013 (a consumer `.sp-root { --sp-ink }` recolours the same DOM node) |
+| T-024 | done | 2026-09-24 | `tools/resolution-check`: the vite-react app — barrel, `line-chart`, `server/line-chart`, grounds, fonts — builds with `vite build` shipping the ground variables, part rules and `@font-face`; serves under `vite dev` in the pinned browser with both charts rendered and no errors; its own config declares no `optimizeDeps` and no aliases; the dev build reports SP013 when the typeface is blocked. Removing `"*.css"` from grounds' `sideEffects` drops the stylesheet in a webpack-style tree-shaking bundle, and the check fails |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -124,6 +125,15 @@ failing first where code changed.
 - **T-023 · Ruling:** the ground's CSS variables are declared once per chart and at zero
   specificity (`:where(…:not(.sp-root .sp-chart))`), so a consumer re-themes with an ordinary
   `.sp-root { --sp-ink: … }`. Found by the bench: the `<svg>` redeclared them below the root.
+- **T-024 · Ruling:** Vite 8 marks every CSS module side-effectful, and esbuild 0.28 keeps
+  side-effect-free CSS imports too, so neither reproduces DD-011's "stylesheet silently
+  disappears". Webpack does, because it treats CSS as an ordinary module. The mutation test
+  therefore bundles the app with rolldown and a CSS-as-module plugin — webpack's behaviour —
+  where removing `"*.css"` drops the sheet. Vite is still exercised for REQ-033 in dev and build.
+  *Cost if wrong:* the guard targets the webpack family; Vite never had the defect.
+- **T-024 · Ruling:** the example apps now import `@silverpoint/fonts/fonts.css` and
+  `@silverpoint/grounds/styles.css` from JavaScript, as API Spec §1 documents, and the shared
+  harness sheet carries only the fixed container. A CSS `@import` would have masked REQ-034.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

@@ -1,3 +1,5 @@
+import '@silverpoint/fonts/fonts.css';
+import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
 import { fixtureById } from '@silverpoint/example-harness';
 import { createApp, createSSRApp } from 'vue';

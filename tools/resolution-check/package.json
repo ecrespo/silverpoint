@@ -1,0 +1,12 @@
+{
+  "name": "@silverpoint/resolution-check",
+  "version": "0.0.0",
+  "private": true,
+  "description": "REQ-033 and REQ-034: package resolution under Vite, in dev and in build.",
+  "type": "module",
+  "dependencies": {
+    "@playwright/test": "^1.63.0",
+    "rolldown": "^1.2.10",
+    "vite": "^8.3.0"
+  }
+}
