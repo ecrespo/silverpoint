@@ -114,3 +114,124 @@ export interface ActivityGridProps extends CommonChartProps {
   /** Weeks shown, the most recent last; 26 by default. */
   weeks?: number;
 }
+
+/** `StepChart` (REQ-061): a series drawn as steps. */
+export interface StepChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  /** Where the step sits between two points; `after` by default. */
+  step?: 'after' | 'before' | 'middle';
+}
+
+/** `SparklineRows` (REQ-062): one row per series — name, sparkline, readout (delta-008). */
+export interface SparklineRowsProps extends CommonChartProps {
+  /** Rows shown, from the first; all by default. */
+  rows?: number;
+  nameKey?: Accessor<string>;
+  /** The printed readout; the last value of the series by default. */
+  readoutKey?: Accessor<string | number | null | undefined>;
+  /** The row's points: an array. */
+  seriesKey?: Accessor<readonly unknown[] | null | undefined>;
+  /** The value of one point; the point itself when it is a number, else its `value`. */
+  pointKey?: Accessor<number | null | undefined>;
+}
+
+/** `KpiCard` (REQ-063): a metric, its delta, and an area sparkline of the series. */
+export interface KpiCardProps extends CommonChartProps {
+  valueKey?: Accessor<number | null | undefined>;
+  /** The metric's name, printed under the figure. */
+  metric?: string;
+  /** Signed change, printed with its sign and a direction mark. */
+  delta?: number;
+  /** Direction of the mark; from the sign of `delta` by default. */
+  deltaTone?: 'up' | 'down' | 'flat';
+}
+
+/** `BarChart` (REQ-064): pill bars, as columns or rows, with an optional second series. */
+export interface BarChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  secondaryKey?: Accessor<number | null | undefined>;
+  orientation?: 'columns' | 'rows';
+}
+
+/** `StackedBarChart` (REQ-065): one stacked segment per key. */
+export interface StackedBarChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  keys?: readonly string[];
+  /** Display names of the keys, in order; the keys themselves by default. */
+  names?: readonly string[];
+}
+
+/** `ComposedChart` (REQ-066): columns and a spline on one value scale. */
+export interface ComposedChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  barKey?: Accessor<number | null | undefined>;
+  lineKey?: Accessor<number | null | undefined>;
+  showLine?: boolean;
+}
+
+/** `WaterfallChart` (REQ-067): totals from zero and floating deltas from the running total. */
+export interface WaterfallChartProps extends CommonChartProps {
+  stepKey?: Accessor<string>;
+  /** An absolute total: the bar starts at zero and resets the running total. */
+  baseKey?: Accessor<number | null | undefined>;
+  /** A change from the running total. */
+  deltaKey?: Accessor<number | null | undefined>;
+}
+
+/** `FunnelChart` (REQ-068): horizontal, centred stages. */
+export interface FunnelChartProps extends CommonChartProps {
+  stageKey?: Accessor<string>;
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** `CandlestickChart` (REQ-071): OHLC bodies and wicks (Data Model §2.6). */
+export interface CandlestickChartProps extends CommonChartProps {
+  timeKey?: Accessor<string | number>;
+  openKey?: Accessor<number | null | undefined>;
+  highKey?: Accessor<number | null | undefined>;
+  lowKey?: Accessor<number | null | undefined>;
+  closeKey?: Accessor<number | null | undefined>;
+  /** Price bounds of the scale; derived from the data when omitted (REQ-097). */
+  bounds?: readonly [number, number];
+}
+
+/** `AreaChart` (REQ-072): a curved, toned area under its line. */
+export interface AreaChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  curve?: LineCurve;
+}
+
+/** `RangeBandChart` (REQ-073): the band between a low and a high series. */
+export interface RangeBandChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  lowKey?: Accessor<number | null | undefined>;
+  highKey?: Accessor<number | null | undefined>;
+}
+
+/** `StreamChart` (REQ-074): two waves, overlaid or stacked. */
+export interface StreamChartProps extends CommonChartProps {
+  xKey?: Accessor<string | number>;
+  keys?: readonly string[];
+  stacked?: boolean;
+}
+
+/** `ScatterChart` (REQ-082): points on two linear scales, optionally sized. */
+export interface ScatterChartProps extends CommonChartProps {
+  xKey?: Accessor<number | null | undefined>;
+  yKey?: Accessor<number | null | undefined>;
+  sizeKey?: Accessor<number | null | undefined>;
+  /** Marker area in px², smallest to largest; `[60, 240]` by default. */
+  sizeRange?: readonly [number, number];
+}
+
+/** `BubbleChart` (REQ-083): circles whose area encodes `sizeKey`. */
+export interface BubbleChartProps extends CommonChartProps {
+  xKey?: Accessor<number | null | undefined>;
+  yKey?: Accessor<number | null | undefined>;
+  sizeKey?: Accessor<number | null | undefined>;
+  /** Circle area in px², smallest to largest; `[100, 500]` by default. */
+  sizeRange?: readonly [number, number];
+}

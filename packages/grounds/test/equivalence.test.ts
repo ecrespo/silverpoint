@@ -1,6 +1,20 @@
 import {
   activityGrid,
+  areaChart,
+  barChart,
+  bubbleChart,
   bulletChart,
+  candlestickChart,
+  composedChart,
+  funnelChart,
+  kpiCard,
+  rangeBandChart,
+  scatterChart,
+  sparklineRows,
+  stackedBarChart,
+  stepChart,
+  streamChart,
+  waterfallChart,
   heatmapChart,
   lineChart,
   pyramidChart,
@@ -27,6 +41,14 @@ const CHARTS: readonly { readonly recipe: ChartRecipe<CommonChartProps>; readonl
   },
   // Phase 1: the charts that need no scale. Each also runs under per-shape hatching.
   ...[bulletChart, pyramidChart, heatmapChart, treemapChart, sankeyChart, activityGrid].map((recipe) => ({
+    recipe: recipe as ChartRecipe<CommonChartProps>,
+    variants: [{}, { chrome: 'bare' }, { hatchFill: 'per-shape' }] as CommonChartProps[],
+  })),
+  // Phase 2: the cartesian charts.
+  ...[
+    stepChart, sparklineRows, kpiCard, barChart, stackedBarChart, composedChart, waterfallChart,
+    funnelChart, candlestickChart, areaChart, rangeBandChart, streamChart, scatterChart, bubbleChart,
+  ].map((recipe) => ({
     recipe: recipe as ChartRecipe<CommonChartProps>,
     variants: [{}, { chrome: 'bare' }, { hatchFill: 'per-shape' }] as CommonChartProps[],
   })),

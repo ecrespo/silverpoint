@@ -1,6 +1,7 @@
 import { bandScale, linearScale, type LinearScale } from '../../scales/scales';
 import { extent } from '../../scales/util';
-import type { Accessor, Datum, Rect, Stroke, TextLabel } from '../../types';
+import type { Accessor, Datum, Rect, Stroke, TextLabel, ToneLevel } from '../../types';
+import { rectPath } from './cells';
 import { diagnose } from '../../diagnostics/diagnose';
 import { accessorName, formatNumber, read } from './format';
 
@@ -54,12 +55,13 @@ export const POINTS_PER_SERIES = 500;
  * the warning recommends aggregation, it never degrades silently (REQ-096).
  */
 export function checkVolume(chart: string, series: readonly Series[]): void {
-  if (process.env.NODE_ENV === 'production') return;
-  for (const s of series) {
-    if (s.points.length > POINTS_PER_SERIES) {
-      diagnose('SP008', chart, { property: s.key, message: `${s.points.length} points; the ceiling is ${POINTS_PER_SERIES} per series.` });
-    }
-  }
+  for (const s of series) checkCount(chart, s.key, s.points.length);
+}
+
+/** The same ceiling, for a chart whose points are not read as a `Series`. */
+export function checkCount(chart: string, property: string, count: number): void {
+  if (process.env.NODE_ENV === 'production' || count <= POINTS_PER_SERIES) return;
+  diagnose('SP008', chart, { property, message: `${count} points; the ceiling is ${POINTS_PER_SERIES} per series.` });
 }
 
 /** The finite values of a set of series. */
@@ -87,6 +89,8 @@ export function valueAxis(
     readonly locale: string;
     readonly numberFormat: Intl.NumberFormatOptions | undefined;
     readonly zero?: boolean;
+    /** Round the domain out to tick values; `true` by default. Pinned bounds pass `false`. */
+    readonly nice?: boolean;
   },
 ): ValueAxis {
   const bottom = plot.y + plot.height;
@@ -96,7 +100,7 @@ export function valueAxis(
     chart: options.chart,
     property: options.property,
     padding: options.padding,
-    nice: true,
+    nice: options.nice !== false,
   });
   const strokes: Stroke[] = [];
   const labels: TextLabel[] = [];
@@ -157,4 +161,72 @@ export function categoryLabels(texts: readonly string[], at: (index: number) => 
     });
   }
   return labels;
+}
+
+/** Height of the legend row at the top of the drawing area. */
+export const LEGEND_BAND = 16;
+/** Advance of one character of legend text at the 9.5 px tick size. */
+const LEGEND_CHAR = 5.2;
+
+export interface LegendEntry {
+  readonly name: string;
+  readonly part: 'ink' | 'ink-secondary';
+  readonly tone?: ToneLevel;
+  readonly dash?: 'dotted';
+}
+
+/**
+ * A legend row at the top of the area: a swatch drawn like its series — outline, dash and tone —
+ * and the series' name. The swatch carries no data, so it is an ornament; the name is what tells
+ * the series apart, never the tone alone (REQ-124). Returns the area left below it.
+ */
+export function legend(area: Rect, entries: readonly LegendEntry[]): { area: Rect; strokes: Stroke[]; labels: TextLabel[] } {
+  const strokes: Stroke[] = [];
+  const labels: TextLabel[] = [];
+  let x = area.x + PLOT_INSET;
+  for (const entry of entries) {
+    const swatch = { x, y: area.y + 4, width: 12, height: 7 };
+    strokes.push({ d: rectPath(swatch), role: 'ornament', part: entry.part, ...(entry.tone ? { tone: entry.tone } : {}), ...(entry.dash ? { dash: entry.dash } : {}) });
+    labels.push({ x: x + 16, y: area.y + 11, text: entry.name, kind: 'tick', part: 'axis', anchor: 'start' });
+    x += 16 + entry.name.length * LEGEND_CHAR + 12;
+  }
+  return { area: { x: area.x, y: area.y + LEGEND_BAND, width: area.width, height: Math.max(area.height - LEGEND_BAND, 1) }, strokes, labels };
+}
+
+/** A rectangle with fully rounded ends — a pill — as a closed path of lines and arcs. */
+export function pillPath(rect: Rect): string {
+  const { x, y, width, height } = rect;
+  const r = Math.min(width, height) / 2;
+  if (r <= 0) return `M${x},${y}H${x + width}V${y + height}H${x}Z`;
+  return (
+    `M${x},${y + r}A${r},${r},0,0,1,${x + r},${y}H${x + width - r}A${r},${r},0,0,1,${x + width},${y + r}` +
+    `V${y + height - r}A${r},${r},0,0,1,${x + width - r},${y + height}H${x + r}A${r},${r},0,0,1,${x},${y + height - r}Z`
+  );
+}
+
+/**
+ * The horizontal value scale of a chart laid out in rows: niced, zero in the domain, with vertical
+ * grid lines and tick labels under the plot, and the base rule at zero.
+ */
+export function horizontalValueAxis(
+  plot: Rect,
+  area: Rect,
+  domain: readonly [number, number],
+  options: { readonly chart: string; readonly property: string; readonly padding: number; readonly locale: string; readonly numberFormat: Intl.NumberFormatOptions | undefined },
+): ValueAxis {
+  const scale = linearScale([Math.min(0, domain[0]), Math.max(0, domain[1])], [plot.x, plot.x + plot.width], {
+    chart: options.chart,
+    property: options.property,
+    padding: options.padding,
+    nice: true,
+  });
+  const strokes: Stroke[] = [];
+  const labels: TextLabel[] = [];
+  for (const tick of scale.ticks(4)) {
+    const tx = scale(tick);
+    if (tick !== 0) strokes.push({ d: `M${tx},${plot.y}V${plot.y + plot.height}`, role: 'ornament', part: 'grid' });
+    labels.push({ x: tx, y: area.y + area.height - 5, text: formatNumber(tick, options.locale, options.numberFormat), kind: 'tick', part: 'axis', anchor: 'middle' });
+  }
+  strokes.push({ d: `M${scale(0)},${plot.y}V${plot.y + plot.height}`, role: 'ornament', part: 'rule' });
+  return { scale, strokes, labels };
 }

@@ -2,14 +2,28 @@ import { afterEach, describe, expect, test } from 'vitest';
 import {
   __setDiagnosticSink,
   activityGrid,
+  areaChart,
+  barChart,
+  bubbleChart,
   bulletChart,
+  candlestickChart,
+  composedChart,
+  funnelChart,
   heatmapChart,
+  kpiCard,
   pyramidChart,
+  rangeBandChart,
   readout,
   sankeyChart,
+  scatterChart,
   serializeGeometry,
+  sparklineRows,
+  stackedBarChart,
   stepActive,
+  stepChart,
+  streamChart,
   treemapChart,
+  waterfallChart,
   type ChartRecipe,
   type CommonChartProps,
   type Datum,
@@ -44,7 +58,7 @@ interface Case {
   /** Rows no chart can draw as given: NaN, Infinity, wrong types, out of range. */
   readonly hostile: readonly Datum[];
   /** The label an item's readout must name, read from its own datum. */
-  readonly labelOf: (datum: Datum) => string;
+  readonly labelOf: (datum: Datum, index: number) => string;
 }
 
 const CASES: readonly Case[] = [
@@ -103,9 +117,117 @@ const CASES: readonly Case[] = [
   },
 ];
 
+
+const P2 = (recipe: unknown) => recipe as ChartRecipe<CommonChartProps>;
+
+/** Phase 2: the cartesian charts. */
+const CARTESIAN: readonly Case[] = [
+  {
+    recipe: P2(stepChart),
+    consumer: { data: [{ d: 'a', v: 1 }, { d: 'b', v: 3 }, { d: 'c', v: 2 }], xKey: 'd', valueKey: 'v' },
+    items: 3,
+    hostile: [{ d: 'h1', v: Number.NaN }, { d: 'h2', v: 'x' }],
+    labelOf: (d) => String(d.d),
+  },
+  {
+    recipe: P2(sparklineRows),
+    consumer: { data: [{ n: 'CPU', r: '42%', pts: [1, 3, 2] }, { n: 'RAM', pts: [{ value: 5 }, { value: 4 }] }], nameKey: 'n', readoutKey: 'r', seriesKey: 'pts' },
+    items: 2,
+    hostile: [{ n: 'Bad', pts: 'nope' }, { n: 'Nans', pts: [Number.NaN, 'x'] }],
+    labelOf: (d) => String(d.n),
+  },
+  {
+    recipe: P2(kpiCard),
+    consumer: { data: [{ v: 5 }, { v: 7 }, { v: 6 }], valueKey: 'v', metric: 'Orders', delta: 12 },
+    items: 3,
+    hostile: [{ v: Number.NaN }, { v: 'x' }],
+    labelOf: (_d, i) => String(i + 1),
+  },
+  {
+    recipe: P2(barChart),
+    consumer: { data: [{ c: 'a', v: 3, w: 1 }, { c: 'b', v: -2, w: 2 }], xKey: 'c', valueKey: 'v', secondaryKey: 'w' },
+    items: 4,
+    hostile: [{ c: 'h1', v: Number.NaN, w: 'x' }],
+    labelOf: (d) => String(d.c),
+  },
+  {
+    recipe: P2(stackedBarChart),
+    consumer: { data: [{ c: 'a', p: 1, q: 2 }, { c: 'b', p: 3, q: 1 }], xKey: 'c', keys: ['p', 'q'], names: ['P', 'Q'] },
+    items: 4,
+    hostile: [{ c: 'h1', p: Number.NaN, q: -4 }],
+    labelOf: (d) => String(d.c),
+  },
+  {
+    recipe: P2(composedChart),
+    consumer: { data: [{ c: 'a', b: 3, l: 2 }, { c: 'b', b: 5, l: 4 }], xKey: 'c', barKey: 'b', lineKey: 'l' },
+    items: 4,
+    hostile: [{ c: 'h1', b: Number.NaN, l: Number.POSITIVE_INFINITY }],
+    labelOf: (d) => String(d.c),
+  },
+  {
+    recipe: P2(waterfallChart),
+    consumer: { data: [{ s: 'Start', base: 10 }, { s: 'Up', d: 5 }, { s: 'Down', d: -3 }, { s: 'End', base: 12 }], stepKey: 's', baseKey: 'base', deltaKey: 'd' },
+    items: 4,
+    hostile: [{ s: 'h1', d: Number.NaN }, { s: 'h2', base: 'x' }],
+    labelOf: (d) => String(d.s),
+  },
+  {
+    recipe: P2(funnelChart),
+    consumer: { data: [{ st: 'Visit', n: 100 }, { st: 'Cart', n: 40 }, { st: 'Buy', n: 10 }], stageKey: 'st', valueKey: 'n' },
+    items: 3,
+    hostile: [{ st: 'h1', n: Number.NaN }, { st: 'h2', n: -5 }],
+    labelOf: (d) => String(d.st),
+  },
+  {
+    recipe: P2(candlestickChart),
+    consumer: {
+      data: [{ t: 'd1', o: 10, h: 12, l: 9, c: 11 }, { t: 'd2', o: 11, h: 11.5, l: 8, c: 9 }],
+      timeKey: 't', openKey: 'o', highKey: 'h', lowKey: 'l', closeKey: 'c',
+    },
+    items: 2,
+    hostile: [{ t: 'h1', o: 10, h: 5, l: 9, c: 11 }, { t: 'h2', o: Number.NaN, h: 1, l: 0, c: 1 }],
+    labelOf: (d) => String(d.t),
+  },
+  {
+    recipe: P2(areaChart),
+    consumer: { data: [{ d: 'a', v: 1 }, { d: 'b', v: 4 }, { d: 'c', v: 2 }], xKey: 'd', valueKey: 'v' },
+    items: 3,
+    hostile: [{ d: 'h1', v: Number.NaN }],
+    labelOf: (d) => String(d.d),
+  },
+  {
+    recipe: P2(rangeBandChart),
+    consumer: { data: [{ d: 'a', lo: 1, hi: 3 }, { d: 'b', lo: 2, hi: 5 }], xKey: 'd', lowKey: 'lo', highKey: 'hi' },
+    items: 4,
+    hostile: [{ d: 'h1', lo: Number.NaN, hi: 2 }],
+    labelOf: (d) => String(d.d),
+  },
+  {
+    recipe: P2(streamChart),
+    consumer: { data: [{ d: 'a', p: 1, q: 2 }, { d: 'b', p: 3, q: 1 }, { d: 'c', p: 2, q: 2 }], xKey: 'd', keys: ['p', 'q'] },
+    items: 6,
+    hostile: [{ d: 'h1', p: Number.NaN, q: 'x' }],
+    labelOf: (d) => String(d.d),
+  },
+  {
+    recipe: P2(scatterChart),
+    consumer: { data: [{ a: 1, b: 2, s: 5 }, { a: 2, b: 4, s: 1 }, { a: 3, b: 1, s: 3 }], xKey: 'a', yKey: 'b', sizeKey: 's' },
+    items: 3,
+    hostile: [{ a: Number.NaN, b: 1 }, { a: 'x', b: 2 }, { a: 4, b: Number.POSITIVE_INFINITY }],
+    labelOf: (d) => String(d.a),
+  },
+  {
+    recipe: P2(bubbleChart),
+    consumer: { data: [{ a: 1, b: 2, s: 5 }, { a: 2, b: 4, s: 1 }, { a: 3, b: 1, s: 3 }], xKey: 'a', yKey: 'b', sizeKey: 's' },
+    items: 3,
+    hostile: [{ a: 1, b: 1, s: -5 }, { a: 2, b: 2, s: Number.NaN }],
+    labelOf: (d) => String(d.a),
+  },
+];
+
 const items = (hits: readonly { seriesKey: string; index: number }[]) => new Set(hits.map((h) => `${h.seriesKey}#${h.index}`)).size;
 
-describe.each(CASES.map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf }) => {
+describe.each([...CASES, ...CARTESIAN].map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf }) => {
   test('REQ-093 · invoked without data it renders its demo dataset', () => {
     const model = recipe.build({}, context);
     expect(model.status).toBe('ready');
@@ -212,7 +334,7 @@ describe.each(CASES.map((c) => [c.recipe.name, c] as const))('%s contract', (_na
     const model = recipe.build({ ...consumer, data: [...data.slice(0, 1), ...hostile, ...data.slice(1)] }, context);
     for (const hit of model.geometry.hitAreas) {
       const active = { seriesKey: hit.seriesKey, index: hit.index, datum: hit.datum, value: hit.value, point: { x: hit.x, y: hit.y } };
-      expect(readout(model, active).heading, `${hit.seriesKey}#${hit.index}`).toBe(labelOf(hit.datum));
+      expect(readout(model, active).heading, `${hit.seriesKey}#${hit.index}`).toBe(labelOf(hit.datum, hit.index));
     }
   });
 
@@ -224,8 +346,26 @@ describe.each(CASES.map((c) => [c.recipe.name, c] as const))('%s contract', (_na
   });
 });
 
+describe.each(CARTESIAN.map((c) => [c.recipe.name, c] as const))('%s data volume', (_name, { recipe, consumer }) => {
+  // A sparkline row's points are its series; every other chart's rows are its points.
+  const oversize = (count: number): Datum[] => {
+    const first = (consumer.data as Datum[])[0] ?? {};
+    if (recipe.name === 'SparklineRows') return [{ ...first, pts: Array.from({ length: count }, (_, i) => i % 7) }];
+    return Array.from({ length: count }, (_, i) => ({ ...first, ...(typeof first.a === 'number' ? { a: i } : {}) }));
+  };
+
+  test('REQ-096 · 501 points warn SP008; 500 do not', () => {
+    const over = capture();
+    recipe.build({ ...consumer, data: oversize(501) }, context);
+    expect(over).toContain('SP008');
+    const under = capture();
+    recipe.build({ ...consumer, data: oversize(500) }, context);
+    expect(under).not.toContain('SP008');
+  });
+});
+
 describe('demo snapshots', () => {
-  test.each(CASES.map((c) => [c.recipe.name, c.recipe] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
+  test.each([...CASES, ...CARTESIAN].map((c) => [c.recipe.name, c.recipe] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
     expect(serializeGeometry(recipe.build({ width: 320, height: 150 }, { ...context, id: 'sp-demo' }).geometry)).toMatchSnapshot();
   });
 });

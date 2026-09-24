@@ -133,12 +133,18 @@ export function stepActive(
   return toActiveItem(points[next] as HitArea);
 }
 
-/** Grid traversal: Home and End reach the first and last cell in reading order. */
+/**
+ * Grid traversal. Home and End reach the start and end of the current row, as in a spreadsheet;
+ * with nothing active they reach the first and last cell in reading order.
+ */
 function stepGrid(hits: readonly HitArea[], current: ActiveItem | null, key: string): ActiveItem | null {
   const order = [...hits].sort((a, b) => (a.cell?.row ?? 0) - (b.cell?.row ?? 0) || (a.cell?.column ?? 0) - (b.cell?.column ?? 0));
   const here = current ? hits.find((hit) => hit.seriesKey === current.seriesKey && hit.index === current.index) : undefined;
-  if (key === 'Home' || !here?.cell) return toActiveItem((key === 'End' ? order.at(-1) : order[0]) as HitArea);
-  if (key === 'End') return toActiveItem(order.at(-1) as HitArea);
+  if (!here?.cell) return toActiveItem((key === 'End' ? order.at(-1) : order[0]) as HitArea);
+  if (key === 'Home' || key === 'End') {
+    const row = order.filter((hit) => hit.cell?.row === here.cell?.row);
+    return toActiveItem((key === 'End' ? row.at(-1) : row[0]) as HitArea);
+  }
   const [dc, dr] = key === 'ArrowRight' ? [1, 0] : key === 'ArrowLeft' ? [-1, 0] : key === 'ArrowDown' ? [0, 1] : [0, -1];
   const { column, row } = here.cell;
   const next = hits.find((hit) => hit.cell?.column === column + dc && hit.cell?.row === row + dr);
