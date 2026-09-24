@@ -2,7 +2,7 @@ import type { ChartModel, ChartRecipe, HitArea, Rect, RecipeContext, StackedBarC
 import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkVolume, legend, readSeries, valueAxis } from '../shared/cartesian';
 import { rectPath, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { STACKED_BAR_CHART_DEMO, STACKED_BAR_CHART_DEMO_KEYS } from './demo';
 
@@ -19,14 +19,15 @@ function buildStackedBarChart(props: StackedBarChartProps, context: RecipeContex
   const { locale } = context;
   const numberFormat = props.numberFormat;
 
-  const series = keys.map((k) => readSeries(data, k, k));
+  // A series is known by its display name everywhere a reader meets it: legend, table, readout.
+  const series = keys.map((k, i) => ({ ...readSeries(data, k, k), key: names[i] ?? k }));
   checkVolume(CHART, series);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Stacked bar chart', {
-    columns: [xName, ...keys],
+    columns: [xName, ...names],
     rows: data.map((_, i) => [xLabels[i] ?? '', ...series.map((s) => formatValue(s.points[i]?.value, locale, numberFormat))]),
   });
   const size = measure(base, props, context);

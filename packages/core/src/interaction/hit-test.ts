@@ -145,9 +145,20 @@ function stepGrid(hits: readonly HitArea[], current: ActiveItem | null, key: str
     const row = order.filter((hit) => hit.cell?.row === here.cell?.row);
     return toActiveItem((key === 'End' ? row.at(-1) : row[0]) as HitArea);
   }
-  const [dc, dr] = key === 'ArrowRight' ? [1, 0] : key === 'ArrowLeft' ? [-1, 0] : key === 'ArrowDown' ? [0, 1] : [0, -1];
+  // An arrow moves to the nearest cell in its direction along the same row or column, so a
+  // missing value is stepped over rather than walling off the items behind it (REQ-122).
+  const horizontal = key === 'ArrowRight' || key === 'ArrowLeft';
+  const sign = key === 'ArrowRight' || key === 'ArrowDown' ? 1 : -1;
   const { column, row } = here.cell;
-  const next = hits.find((hit) => hit.cell?.column === column + dc && hit.cell?.row === row + dr);
+  let next: HitArea | undefined;
+  for (const hit of hits) {
+    if (!hit.cell) continue;
+    const along = horizontal ? hit.cell.column - column : hit.cell.row - row;
+    const across = horizontal ? hit.cell.row - row : hit.cell.column - column;
+    if (across !== 0 || along * sign <= 0) continue;
+    const best = next?.cell ? Math.abs(horizontal ? next.cell.column - column : next.cell.row - row) : Number.POSITIVE_INFINITY;
+    if (Math.abs(along) < best) next = hit;
+  }
   return toActiveItem(next ?? here);
 }
 

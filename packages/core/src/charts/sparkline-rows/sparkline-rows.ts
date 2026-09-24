@@ -4,7 +4,7 @@ import { cardLayout } from '../shared/card';
 import { checkCount } from '../shared/cartesian';
 import { finite, inset, warnValue } from '../shared/cells';
 import { CURVES } from '../shared/curves';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { SPARKLINE_ROWS_DEMO } from './demo';
 
@@ -43,7 +43,7 @@ function buildSparklineRows(props: SparklineRowsProps, context: RecipeContext): 
     return {
       index,
       datum,
-      name: formatValue(read(nameKey, datum, index), locale, undefined),
+      name: formatCategory(read(nameKey, datum, index), locale),
       points,
       values,
       last,

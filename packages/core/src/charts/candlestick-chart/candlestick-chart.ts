@@ -3,7 +3,7 @@ import type { CandlestickChartProps, ChartModel, ChartRecipe, Datum, HitArea, Re
 import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkCount, valueAxis } from '../shared/cartesian';
 import { finite, rectPath, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { CANDLESTICK_CHART_DEMO } from './demo';
 
@@ -49,7 +49,7 @@ function buildCandlestickChart(props: CandlestickChartProps, context: RecipeCont
     candles.push({ index, datum, open, high, low, close });
   });
   const timeName = accessorName(timeKey, 'time');
-  const timeLabels = data.map((datum, index) => formatValue(read(timeKey, datum, index), locale, undefined));
+  const timeLabels = data.map((datum, index) => formatCategory(read(timeKey, datum, index), locale));
 
   const base = modelBase(CHART, props, context, 'Candlestick chart', {
     columns: [timeName, names.open, names.high, names.low, names.close],
@@ -74,7 +74,11 @@ function buildCandlestickChart(props: CandlestickChartProps, context: RecipeCont
   // REQ-097: the price bounds are `bounds` when given, else the lowest low and the highest high.
   const bounds = pinned ?? [Math.min(...candles.map((c) => c.low)), Math.max(...candles.map((c) => c.high))];
   const axis = valueAxis(plot, bounds, { chart: CHART, property: 'bounds', padding: context.domainPadding, locale, numberFormat, zero: false, nice: !pinned });
-  const y = axis.scale;
+  // Pinned bounds may cut a candle: it is drawn clamped to the plot, and the table keeps its prices.
+  const [floor, ceiling] = bounds;
+  const outside = candles.filter((c) => c.low < floor || c.high > ceiling).length;
+  if (outside > 0) warnValue(CHART, 'bounds', `${outside} candles reach outside the pinned bounds; they are drawn clamped to them.`);
+  const y = (price: number) => axis.scale(Math.min(Math.max(price, floor), ceiling));
   strokes.push(...axis.strokes);
   labels.push(...axis.labels);
   const slots = categoryAxis(timeLabels, plot, { chart: CHART, property: timeName, padding: context.domainPadding, numeric: false, paddingInner: 0.25, paddingOuter: 0.1 });

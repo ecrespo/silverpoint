@@ -7,11 +7,12 @@ export type StrokeRole = 'encoding' | 'ornament' | 'hatch';
 export type StrokePart = 'ink' | 'ink-secondary' | 'heighten' | 'rule' | 'grid' | 'axis';
 
 /**
- * How the stylesheet paints the shape: its outline, its interior with the part colour, or
- * its interior with a hatch tile.
+ * How the stylesheet paints the shape: its outline, its interior with the part colour, its
+ * interior with a hatch tile, or nothing — a toned shape whose edges other strokes draw, so the
+ * Inker hatches it and no outline covers those edges.
  * @internal
  */
-export type StrokePaint = 'stroke' | 'fill' | 'tile';
+export type StrokePaint = 'stroke' | 'fill' | 'tile' | 'none';
 
 /** Tonal level on the ground's ramp; 0 is no fill (Data Model §3.4). */
 export type ToneLevel = 0 | 1 | 2 | 3 | 4;

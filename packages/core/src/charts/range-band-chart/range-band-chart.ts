@@ -5,7 +5,7 @@ import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkVolume, valueAxis, type Series } from '../shared/cartesian';
 import { finite, warnValue } from '../shared/cells';
 import { CURVES } from '../shared/curves';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { RANGE_BAND_CHART_DEMO } from './demo';
 
@@ -53,7 +53,7 @@ function buildRangeBandChart(props: RangeBandChartProps, context: RecipeContext)
   checkVolume(CHART, [asSeries(lowName, (s) => s.low)]);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Range band', {
     columns: [xName, lowName, highName],
@@ -83,7 +83,8 @@ function buildRangeBandChart(props: RangeBandChartProps, context: RecipeContext)
   const defined = (s: Span) => s.low !== undefined;
 
   const band = area<Span>().defined(defined).x((s) => xAt(s.index)).y0((s) => y(s.low ?? 0)).y1((s) => y(s.high ?? 0)).curve(curve)(spans);
-  if (band) strokes.push({ d: band, role: 'encoding', part: 'ink-secondary', paint: 'stroke', tone: 1 });
+  // The band is hatched only: its edges are the two lines below, and an outline would hide the dots.
+  if (band) strokes.push({ d: band, role: 'encoding', part: 'ink-secondary', paint: 'none', tone: 1 });
   // Both edges are drawn exactly: the high one solid, the low one dotted (REQ-124).
   const edge = (pick: (s: Span) => number) => line<Span>().defined(defined).x((s) => xAt(s.index)).y((s) => y(pick(s))).curve(curve)(spans);
   const high = edge((s) => s.high ?? 0);

@@ -1,7 +1,7 @@
 import type { ChartModel, ChartRecipe, HeatmapChartProps, HitArea, RecipeContext, Stroke, TextLabel, ToneLevel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { finite, inset, rectPath, toneOf, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { HEATMAP_CHART_DEMO } from './demo';
 
@@ -32,7 +32,7 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
     return {
       index,
       datum,
-      label: formatValue(read(labelKey, datum, index), locale, undefined),
+      label: formatCategory(read(labelKey, datum, index), locale),
       values: Array.isArray(raw) ? (raw as readonly unknown[]).map(finite) : undefined,
     };
   });

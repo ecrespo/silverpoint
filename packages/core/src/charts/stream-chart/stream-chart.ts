@@ -5,7 +5,7 @@ import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkVolume, legend, readSeries, valueAxis } from '../shared/cartesian';
 import { warnValue } from '../shared/cells';
 import { CURVES } from '../shared/curves';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { STREAM_CHART_DEMO, STREAM_CHART_DEMO_KEYS } from './demo';
 
@@ -33,7 +33,7 @@ function buildStreamChart(props: StreamChartProps, context: RecipeContext): Char
   checkVolume(CHART, series);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Stream chart', {
     columns: [xName, ...keys],
@@ -52,11 +52,17 @@ function buildStreamChart(props: StreamChartProps, context: RecipeContext): Char
   for (const s of series) if (s.missing > 0 && data.length > 0) warnValue(CHART, s.key, `${s.missing} of ${data.length} values are not finite; the wave breaks there.`);
 
   // Stacked, the second wave rides on the first; a negative value cannot stack and is held at zero.
+  // Stacked, a wave has nothing to ride on where the one below is missing: it breaks there too.
   let clamped = 0;
+  let unsupported = 0;
   const waves: Wave[] = series.map((s, w) => ({
     key: s.key,
     spans: s.points.map((p, i) => {
       if (p.value === undefined) return undefined;
+      if (stacked && w > 0 && series[0]?.points[i]?.value === undefined) {
+        unsupported += 1;
+        return undefined;
+      }
       let value = p.value;
       if (stacked && value < 0) {
         clamped += 1;
@@ -67,6 +73,7 @@ function buildStreamChart(props: StreamChartProps, context: RecipeContext): Char
     }),
   }));
   if (clamped > 0) warnValue(CHART, 'stacked', `${clamped} negative values cannot stack; they are drawn at zero.`);
+  if (unsupported > 0) warnValue(CHART, 'stacked', `${unsupported} values have nothing below them to stack on; the upper wave breaks there.`);
 
   const range = extent(waves.flatMap((w) => w.spans.flatMap((s) => (s ? [s.y0, s.y1] : []))));
   if (data.length === 0 || range === undefined) {
@@ -86,7 +93,8 @@ function buildStreamChart(props: StreamChartProps, context: RecipeContext): Char
     const shape = area<(typeof indexed)[number]>().defined(defined).x((e) => xAt(e.index)).y0((e) => y(e.span?.y0 ?? 0)).y1((e) => y(e.span?.y1 ?? 0)).curve(curve)(indexed);
     const top = line<(typeof indexed)[number]>().defined(defined).x((e) => xAt(e.index)).y((e) => y(e.span?.y1 ?? 0)).curve(curve)(indexed);
     const part = w === 0 ? 'ink' : 'ink-secondary';
-    if (shape) strokes.push({ d: shape, role: 'encoding', part, paint: 'stroke', tone: w === 0 ? 1 : 2 });
+    // The wave is hatched only: its top line below is its edge, and an outline would hide the dots.
+    if (shape) strokes.push({ d: shape, role: 'encoding', part, paint: 'none', tone: w === 0 ? 1 : 2 });
     if (top) strokes.push({ d: top, role: 'encoding', part, ...(w === 0 ? {} : { dash: 'dotted' as const }) });
     wave.spans.forEach((span, index) => {
       if (!span) return;

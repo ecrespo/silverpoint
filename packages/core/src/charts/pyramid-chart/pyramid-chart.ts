@@ -1,7 +1,7 @@
 import type { ChartModel, ChartRecipe, HitArea, PyramidChartProps, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { finite, inset, rectPath, toneLevel, toneOf, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { PYRAMID_CHART_DEMO } from './demo';
 
@@ -26,7 +26,7 @@ function buildPyramidChart(props: PyramidChartProps, context: RecipeContext): Ch
   const rows = data.map((datum, index) => ({
     index,
     datum,
-    label: formatValue(read(labelKey, datum, index), locale, undefined),
+    label: formatCategory(read(labelKey, datum, index), locale),
     width: finite(read(widthKey, datum, index)),
     tone: toneKey === undefined ? undefined : finite(read(toneKey, datum, index)),
   }));

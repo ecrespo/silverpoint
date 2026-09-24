@@ -15,7 +15,7 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 | T-068 | done | b976783 | the a11y spec already iterates every fixture (table rows, Tab + arrows announcing each); its gallery count RED (21 ≠ 7) → derived from `CATALOG` → 204/204, axe-core clean on the 21-chart gallery |
 | T-069 | done | b976783 | `changes/phase-2-req-124-review.md` (a channel table per chart); 14 precision tests + the no-hatch test over every chart, written after the recipes and mutation-checked in two batches (8 mutations, each caught by its own test) |
 | T-070 | done | b976783 | equivalence (da03921), tree-shaking and subpaths over 21 (a38e581); budget coverage test RED (56 paths) → 56 `.size-limit.json` entries at 45 kB, heaviest 32.8 kB (Angular stream); traceability via `pnpm lint` 0 errors; unit 1708/1708, gates 181/181, typecheck clean |
-| Golden review | done | (this commit) | the two layout issues seen in the T-067 goldens, `test/layout.test.ts` RED (5: four legend charts' top tick 1 px under the legend; the leftmost bubble over the `15` tick) → `LEGEND_BAND` 16 → 22 and a value-label gutter in the point charts → 6/6; 6 demo snapshots, 48 canonicals and 48 goldens regenerated (scatter and bubble with `--update-snapshots=all`), compare 680/680; unit 1714/1714 |
+| Golden review | done | 6c2845e | the two layout issues seen in the T-067 goldens, `test/layout.test.ts` RED (5: four legend charts' top tick 1 px under the legend; the leftmost bubble over the `15` tick) → `LEGEND_BAND` 16 → 22 and a value-label gutter in the point charts → 6/6; 6 demo snapshots, 48 canonicals and 48 goldens regenerated (scatter and bubble with `--update-snapshots=all`), compare 680/680; unit 1714/1714 |
 
 ## Rulings
 
@@ -86,3 +86,38 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
   threshold), so plain `--update-snapshots` kept the stale goldens; they were rewritten with
   `=all`. Geometry is the string gate's job (it failed at once); the pixel gate stays a raster
   check, as Art. 3 intends — cost if wrong: a stale golden that still passes, as here.
+
+## Final review
+
+Fresh reviewer (Opus), range `3465f13..6c2845e`: 2 Critical, 5 Important, 8 Minor. Re-graded by
+effect; all seven Critical and Important findings entered one fix pass, each reproduced first.
+
+- Final: fixed C1 dotted series hidden under a solid outline (stream, range band) — `req-124.test.ts`
+  "a dotted series is not drawn over by a solid outline" RED 4 → GREEN with `paint: 'none'`
+  (hatch only); 16 canonicals and 16 goldens regenerated and looked at, suite 1733/1733
+- Final: fixed C2 grid arrows stuck at a missing cell (range band, composed, paired bar, stream,
+  stacked) — `keyboard-gaps.test.ts` RED 6 → GREEN, arrows move to the nearest cell in their
+  direction; e2e a11y 204/204
+- Final: fixed I1 candles outside pinned `bounds` drawn off the card — "I1 · REQ-097" RED → GREEN,
+  clamped to the bounds with `SP002`; the table keeps the prices
+- Final: fixed I2 stacked stream's upper wave dropped to the floor under a missing lower value —
+  "I2 · REQ-074" RED → GREEN, the wave breaks there with `SP002`
+- Final: fixed I3 KPI description ignored `numberFormat` for the delta — "I3 · REQ-120" RED → GREEN
+- Final: fixed I4 stacked `names` missing from table, readout and announcement — "I4" RED → GREEN
+- Final: fixed I5 numeric categories printed with grouping ("2,020") — "I5" RED 5 → GREEN with
+  `formatCategory` at every category, time, stage and name label (17 recipes)
+- Suite after the pass: unit 1733/1733, gates 181/181, pixel 680/680 (pinned image), e2e apps +
+  a11y 306/306, lint and typecheck clean.
+- Final: minor (deferred): M1 formatter cache key ignores inherited option properties
+  (`Object.create({style:'percent'})`), so output can depend on call order
+- Final: minor (deferred): M2 an out-of-range `sizeRange` falls back to the default silently
+- Final: minor (deferred): M3 an all-zero or all-negative funnel shows "No data" without a diagnostic
+- Final: minor (deferred): M4 waterfall ignores a delta on a row that also has a base, silently
+- Final: minor (deferred): M5 candlestick drops inverted `bounds` silently; SP009 names `bounds` when
+  the cause is string-typed prices
+- Final: minor (deferred): M6 all-zero bar, stacked and waterfall charts show a "-0.05" tick
+- Final: minor (deferred): M7 the stacked-stream unit test also passes overlaid (data too weak)
+- Final: minor (deferred): M8 a non-integer `rows` in SparklineRows is ignored silently
+- Final: Ruling: the reviewer's "declined to judge" list (affine bubble area, KPI sparkline scale,
+  pill ends, stacked precision ambiguity, unsorted numeric x, row-label overflow, row Home/End)
+  stands on the rulings already ledgered above — cost if wrong: as stated in each ruling.

@@ -2,7 +2,7 @@ import type { ChartModel, ChartRecipe, Datum, HitArea, Rect, RecipeContext, Stro
 import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkCount, valueAxis } from '../shared/cartesian';
 import { finite, rectPath, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { WATERFALL_CHART_DEMO } from './demo';
 
@@ -49,7 +49,7 @@ function buildWaterfallChart(props: WaterfallChartProps, context: RecipeContext)
   });
   checkCount(CHART, deltaName, data.length);
   const stepName = accessorName(stepKey, 'step');
-  const stepLabels = data.map((datum, index) => formatValue(read(stepKey, datum, index), locale, undefined));
+  const stepLabels = data.map((datum, index) => formatCategory(read(stepKey, datum, index), locale));
   const signed = (value: number) => formatNumber(value, locale, { ...(numberFormat ?? { maximumFractionDigits: 2 }), signDisplay: 'always' });
 
   const base = modelBase(CHART, props, context, 'Waterfall chart', {

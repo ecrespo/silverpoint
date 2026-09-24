@@ -4,7 +4,7 @@ import type { ChartModel, ChartRecipe, HitArea, RecipeContext, StepChartProps, S
 import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkVolume, readSeries, seriesValues, valueAxis, type SeriesPoint } from '../shared/cartesian';
 import { warnValue } from '../shared/cells';
-import { accessorName, circlePath, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, circlePath, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { STEP_CHART_DEMO } from './demo';
 
@@ -28,7 +28,7 @@ function buildStepChart(props: StepChartProps, context: RecipeContext): ChartMod
   checkVolume(CHART, [series]);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Step chart', {
     columns: [xName, series.key],

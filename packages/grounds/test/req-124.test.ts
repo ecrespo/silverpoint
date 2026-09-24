@@ -204,3 +204,30 @@ function proportional(hits: readonly HitArea[], size: (hit: HitArea) => number):
   if (!first) throw new Error('no hits');
   for (const hit of hits) expect(near(size(hit) / Math.abs(hit.value), size(first) / Math.abs(first.value)), `${hit.seriesKey}#${hit.index}`).toBe(true);
 }
+
+/**
+ * Final-review finding C1: the dash that tells a series apart must be *visible*. A toned area
+ * painted with its own outline drew a solid line over the dotted edge it shares, so the dots never
+ * showed. No painted outline may run along a dotted encoding line, in either mode.
+ */
+describe('REQ-124 · a dotted series is not drawn over by a solid outline', () => {
+  const vertices = (d: string) => (d.match(/-?\d+(?:\.\d+)?,-?\d+(?:\.\d+)?/g) ?? []).map((v) => v.replace(/^M|^L/, ''));
+  test.each([
+    ['StreamChart', 'ink'],
+    ['StreamChart', 'precision'],
+    ['RangeBandChart', 'ink'],
+    ['RangeBandChart', 'precision'],
+  ] as const)('%s, %s', (chart, mode) => {
+    const model = render(chart, { mode });
+    const dotted = model.geometry.strokes.filter((s) => s.role === 'encoding' && s.dash === 'dotted');
+    expect(dotted.length).toBeGreaterThan(0);
+    const outlines = model.geometry.strokes.filter((s) => s.role === 'encoding' && !s.dash && (s.paint ?? 'stroke') === 'stroke');
+    for (const line of dotted) {
+      const own = vertices(line.d);
+      for (const outline of outlines) {
+        const theirs = new Set(vertices(outline.d));
+        expect(own.filter((v) => theirs.has(v)).length, `${outline.part} outline over the dotted ${line.part} line`).toBeLessThan(own.length / 2);
+      }
+    }
+  });
+});

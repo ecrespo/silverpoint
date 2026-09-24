@@ -1,7 +1,7 @@
 import type { ChartModel, ChartRecipe, Datum, HitArea, RecipeContext, SankeyChartProps, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { finite, inset, rectPath, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { SANKEY_CHART_DEMO } from './demo';
 
@@ -71,8 +71,8 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
       warnValue(CHART, accessorName(missing === 'source' ? sourceKey : targetKey, missing), `Flow ${index} has no ${missing}; it is omitted.`);
       return;
     }
-    const source = formatValue(rawSource, locale, undefined);
-    const target = formatValue(rawTarget, locale, undefined);
+    const source = formatCategory(rawSource, locale);
+    const target = formatCategory(rawTarget, locale);
     const value = finite(read(valueKey, datum, index));
     if (value === undefined || value <= 0) {
       warnValue(CHART, valueName, `Flow ${index} (${source} → ${target}) is ${String(value ?? 'not finite')}; flows must be positive, so it is omitted.`);

@@ -1,7 +1,7 @@
 import type { ChartModel, ChartRecipe, HitArea, RecipeContext, Stroke, TextLabel, TreemapChartProps } from '../../types';
 import { cardLayout } from '../shared/card';
 import { finite, inset, rectPath, toneLevel, toneOf, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { TREEMAP_CHART_DEMO } from './demo';
 
@@ -54,7 +54,7 @@ function buildTreemapChart(props: TreemapChartProps, context: RecipeContext): Ch
   const tiles = data.map((datum, index) => ({
     index,
     datum,
-    label: formatValue(read(labelKey, datum, index), locale, undefined),
+    label: formatCategory(read(labelKey, datum, index), locale),
     share: finite(read(shareKey, datum, index)),
     cols: wholeCount(datum.cols),
     rows: wholeCount(datum.rows),

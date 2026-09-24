@@ -44,9 +44,12 @@ function buildKpiCard(props: KpiCardProps, context: RecipeContext): ChartModel {
   const labels: TextLabel[] = [...card.labels];
   const hitAreas: HitArea[] = [];
 
-  if (delta !== undefined && Number.isFinite(delta)) {
+  // One text for the delta, printed and described alike (REQ-120).
+  const deltaText =
+    delta !== undefined && Number.isFinite(delta) ? formatNumber(delta, locale, { ...(numberFormat ?? { maximumFractionDigits: 2 }), signDisplay: 'always' }) : undefined;
+  if (delta !== undefined && deltaText !== undefined) {
     // The delta is printed with its sign, and a mark points its way: never tone alone (REQ-124).
-    const text = formatNumber(delta, locale, { ...(numberFormat ?? { maximumFractionDigits: 2 }), signDisplay: 'always' });
+    const text = deltaText;
     const right = drawing.x + drawing.width;
     labels.push({ x: right, y: drawing.y + 11, text, kind: 'tick', part: 'text', anchor: 'end' });
     const tone = props.deltaTone ?? (delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat');
@@ -84,7 +87,7 @@ function buildKpiCard(props: KpiCardProps, context: RecipeContext): ChartModel {
   const description =
     props.description ??
     `${base.name}. ${metric ?? accessorName(valueKey, 'value')} at ${formatValue(props.value ?? last, locale, numberFormat)}${
-      delta !== undefined && Number.isFinite(delta) ? `, change ${formatNumber(delta, locale, { signDisplay: 'always', maximumFractionDigits: 2 })}` : ''
+      deltaText !== undefined ? `, change ${deltaText}` : ''
     }; ${data.length} points from ${formatNumber(range[0], locale, numberFormat)} to ${formatNumber(range[1], locale, numberFormat)}.`;
   return readyModel(base, description, { viewBox: card.viewBox, plot, strokes, labels, hitAreas });
 }

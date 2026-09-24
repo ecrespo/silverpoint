@@ -1,7 +1,7 @@
 import type { BulletChartProps, ChartModel, ChartRecipe, HitArea, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { finite, inset, rectPath, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { BULLET_CHART_DEMO } from './demo';
 
@@ -30,7 +30,7 @@ function buildBulletChart(props: BulletChartProps, context: RecipeContext): Char
   const rows = data.map((datum, index) => ({
     index,
     datum,
-    title: formatValue(read(titleKey, datum, index), locale, undefined),
+    title: formatCategory(read(titleKey, datum, index), locale),
     actual: finite(read(actualKey, datum, index)),
     target: finite(read(targetKey, datum, index)),
   }));

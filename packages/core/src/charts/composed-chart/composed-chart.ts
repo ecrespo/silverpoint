@@ -5,7 +5,7 @@ import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, categoryLabels, checkVolume, legend, readSeries, seriesValues, valueAxis, type SeriesPoint } from '../shared/cartesian';
 import { rectPath, warnValue } from '../shared/cells';
 import { CURVES } from '../shared/curves';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { COMPOSED_CHART_DEMO, COMPOSED_CHART_DEMO_KEYS } from './demo';
 
@@ -28,7 +28,7 @@ function buildComposedChart(props: ComposedChartProps, context: RecipeContext): 
   checkVolume(CHART, series);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Composed chart', {
     columns: [xName, ...series.map((s) => s.key)],

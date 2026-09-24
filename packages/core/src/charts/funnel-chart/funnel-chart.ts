@@ -2,7 +2,7 @@ import type { ChartModel, ChartRecipe, FunnelChartProps, HitArea, RecipeContext,
 import { cardLayout } from '../shared/card';
 import { checkCount } from '../shared/cartesian';
 import { finite, inset, rectPath, toneOf, warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { FUNNEL_CHART_DEMO } from './demo';
 
@@ -26,7 +26,7 @@ function buildFunnelChart(props: FunnelChartProps, context: RecipeContext): Char
   const stages = data.map((datum, index) => ({
     index,
     datum,
-    stage: formatValue(read(stageKey, datum, index), locale, undefined),
+    stage: formatCategory(read(stageKey, datum, index), locale),
     value: finite(read(valueKey, datum, index)),
   }));
   // Shares are of the first stage that has a positive value: the funnel's entry.

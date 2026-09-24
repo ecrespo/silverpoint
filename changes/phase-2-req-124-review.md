@@ -166,6 +166,14 @@ later phase.
 
 **Pass.**
 
+## Correction after the final review
+
+The first version of this review read the dash from the geometry and passed `StreamChart` and
+`RangeBandChart`. The final review found the dots invisible on the page: the toned area was
+painted with its own outline, which ran solid along the dotted edge. The toned shapes are now
+hatched only (`paint: 'none'`), and a test reads the rendered strokes in both modes — no painted
+outline may share the dotted line's vertices. The two tables above hold as written since then.
+
 ## Result
 
 Fourteen charts reviewed: every tone is decorative or redundant with a length, a position, a

@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, test } from 'vitest';
 import {
   __setDiagnosticSink,
+  readout,
   areaChart,
   barChart,
   bubbleChart,
@@ -364,3 +365,61 @@ describe('BubbleChart', () => {
     expect(radius(circles[0]!.d)).toBeGreaterThan(radius(circles.at(-1)!.d));
   });
 });
+
+/** Final-review fix pass: the Important findings, each reproduced before it was fixed. */
+describe('final-review findings', () => {
+  test('I1 · REQ-097 · a candle outside pinned bounds is clamped to the plot and warned', () => {
+    const seen = capture();
+    const data = [
+      { time: 'a', open: 104, high: 150, low: 102, close: 106 },
+      { time: 'b', open: 106, high: 108, low: 60, close: 104 },
+    ];
+    const model = candlestickChart.build({ ...bare, data, bounds: [100, 110] }, context);
+    const { plot } = model.geometry;
+    const ys = encoding(model).flatMap((s) => [...s.d.matchAll(/[MLHV]?(-?[\d.]+),(-?[\d.]+)|V(-?[\d.]+)/g)].map((m) => Number(m[2] ?? m[3])));
+    for (const y of ys) {
+      expect(y).toBeGreaterThanOrEqual(plot.y - 0.01);
+      expect(y).toBeLessThanOrEqual(plot.y + plot.height + 0.01);
+    }
+    expect(seen).toContain('SP002');
+    expect(model.table.rows[0]).toContain('150');
+  });
+
+  test('I2 · REQ-074 · stacked, a wave with nothing below it breaks rather than falling to the floor', () => {
+    const seen = capture();
+    const data = [{ x: 'a', p: 5, q: 2 }, { x: 'b', p: null, q: 2 }, { x: 'c', p: 5, q: 2 }];
+    const model = streamChart.build({ ...bare, data, keys: ['p', 'q'], stacked: true }, context);
+    const q = model.geometry.hitAreas.filter((h) => h.seriesKey === 'q').map((h) => h.index);
+    expect(q).toEqual([0, 2]);
+    expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(2);
+  });
+
+  test('I3 · REQ-120 · the description says the delta as the card prints it', () => {
+    const model = kpiCard.build({ ...bare, data: [{ value: 0.4 }, { value: 0.45 }], numberFormat: { style: 'percent' }, delta: 0.052 }, context);
+    expect(texts(model)).toContain('+5%');
+    expect(model.description).toContain('change +5%');
+  });
+
+  test('I4 · REQ-121 · REQ-122 · the display names reach the table, the readout and the announcement', () => {
+    const data = [{ x: 'a', p: 1, q: 2 }];
+    const model = stackedBarChart.build({ ...bare, data, keys: ['p', 'q'], names: ['Apples', 'Bananas'] }, context);
+    expect(model.table.columns).toEqual(['x', 'Apples', 'Bananas']);
+    const hit = model.geometry.hitAreas.find((h) => h.value === 2)!;
+    expect(hit.seriesKey).toBe('Bananas');
+    expect(readout(model, { seriesKey: hit.seriesKey, index: hit.index, datum: hit.datum, value: hit.value, point: { x: hit.x, y: hit.y } }).announcement).toContain('Bananas 2');
+  });
+
+  test.each([
+    ['BarChart', barChart, { data: [{ x: 2020, value: 3 }, { x: 2021, value: 4 }] }],
+    ['AreaChart', areaChart, { data: [{ x: 2020, value: 3 }, { x: 2021, value: 4 }] }],
+    ['WaterfallChart', waterfallChart, { data: [{ step: 2020, base: 3 }, { step: 2021, base: 4 }] }],
+    ['CandlestickChart', candlestickChart, { data: [{ time: 2020, open: 1, high: 3, low: 1, close: 2 }, { time: 2021, open: 2, high: 3, low: 1, close: 1 }] }],
+    ['FunnelChart', funnelChart, { data: [{ stage: 2020, value: 3 }, { stage: 2021, value: 2 }] }],
+  ] as const)('I5 · REQ-121 · %s: a numeric category reads as itself, never with a thousands separator', (_name, recipe, props) => {
+    const model = (recipe as unknown as { build: (p: object, c: RecipeContext) => ChartModel }).build({ ...bare, ...props }, context);
+    expect(texts(model)).toContain('2020');
+    expect(model.table.rows[0]?.[0]).toBe('2020');
+    expect(JSON.stringify(model)).not.toContain('2,020');
+  });
+});
+

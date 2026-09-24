@@ -11,7 +11,7 @@ import { extent } from '../../scales/util';
 import type { ChartModel, ChartRecipe, HitArea, LineChartProps, LineCurve, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { cartesianPlot, categoryAxis, checkVolume, categoryLabels, readSeries, seriesValues, valueAxis, type Series, type SeriesPoint } from '../shared/cartesian';
-import { accessorName, circlePath, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, circlePath, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { LINE_CHART_DEMO, LINE_CHART_DEMO_KEYS } from './demo';
 
@@ -45,7 +45,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
 
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Line chart', {
     columns: [xName, ...series.map((s) => s.key)],

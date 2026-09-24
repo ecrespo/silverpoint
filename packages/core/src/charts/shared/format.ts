@@ -44,6 +44,14 @@ export function formatValue(
   return value === null || value === undefined ? '—' : String(value);
 }
 
+/**
+ * Formats a category — an x value, a time, a stage, a name. A number here is an identifier such as
+ * a year, so it is printed without grouping: 2020, never 2,020.
+ */
+export function formatCategory(value: unknown, locale: string): string {
+  return formatValue(value, locale, typeof value === 'number' ? { useGrouping: false, maximumFractionDigits: 2 } : undefined);
+}
+
 /** SVG path of a circle, drawn as two arcs so it survives inking as a closed path. */
 export function circlePath(cx: number, cy: number, r: number): string {
   return `M${cx - r},${cy}A${r},${r},0,1,0,${cx + r},${cy}A${r},${r},0,1,0,${cx - r},${cy}Z`;

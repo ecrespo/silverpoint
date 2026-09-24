@@ -16,7 +16,7 @@ import {
   valueAxis,
 } from '../shared/cartesian';
 import { warnValue } from '../shared/cells';
-import { accessorName, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { BAR_CHART_DEMO, BAR_CHART_DEMO_KEYS } from './demo';
 
@@ -40,7 +40,7 @@ function buildBarChart(props: BarChartProps, context: RecipeContext): ChartModel
   checkVolume(CHART, series);
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
-  const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
+  const xLabels = xValues.map((value) => formatCategory(value, locale));
 
   const base = modelBase(CHART, props, context, 'Bar chart', {
     columns: [xName, ...series.map((s) => s.key)],
