@@ -1,0 +1,22 @@
+{
+  "chart": "BarChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "bar-chart--silverpoint--cream--precision--md",
+  "req": "REQ-064",
+  "seed": 1592,
+  "props": {
+    "title": "Orders per quarter",
+    "badge": "vs 2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bar-chart/bar-chart--silverpoint--cream--precision--md.canonical.txt"
+}

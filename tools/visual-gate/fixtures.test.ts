@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { AFTER_LINE_CHART } from './catalog';
+import { AFTER_LINE_CHART, CATALOG } from './catalog';
 import { canonicalFor, FIXTURES_DIR, loadFixtures, validateFixture, type Fixture } from './fixtures';
 
 const valid: Fixture = {
@@ -84,6 +84,7 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
   });
 });
 
-test('REQ-182 · the PR matrix holds 7 charts × 8 cells', () => {
-  expect(loadFixtures()).toHaveLength(56);
+test('REQ-182 · the PR matrix holds every catalog chart × 8 cells', () => {
+  expect(loadFixtures()).toHaveLength(CATALOG.length * 8);
+  expect(CATALOG).toHaveLength(21);
 });

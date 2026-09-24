@@ -1,0 +1,24 @@
+<svg aria-labelledby="kpi-card--silverpoint--ochre--precision--md-title kpi-card--silverpoint--ochre--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="292" role="img" viewBox="0 0 320 292" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="kpi-card--silverpoint--ochre--precision--md-title">
+    "Orders"
+  <desc id="kpi-card--silverpoint--ochre--precision--md-desc">
+    "Orders. orders per day at 171, change +8.2; 14 points from 118 to 171."
+  <path d="M0.5,0.5H319.5V291.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,254H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M262.6,112L266.1,105L269.6,112Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M22,240C29.08,233.21,36.15,226.42,43.23,226.42C50.31,226.42,57.39,233.21,64.46,233.21C71.54,233.21,78.61,215.47,85.69,208.3C92.77,201.13,99.85,190.19,106.92,190.19C114,190.19,121.08,195.09,128.15,199.25C135.23,203.4,142.31,215.09,149.39,215.09C156.46,215.09,163.54,193.96,170.62,185.66C177.69,177.36,184.77,165.28,191.85,165.28C198.92,165.28,206,174.34,213.08,174.34C220.15,174.34,227.23,161.89,234.31,156.23C241.39,150.57,248.46,140.38,255.54,140.38C262.62,140.38,269.69,149.43,276.77,149.43C283.85,149.43,290.92,134.72,298,120L298,240C290.92,240,283.85,240,276.77,240C269.69,240,262.62,240,255.54,240C248.46,240,241.39,240,234.31,240C227.23,240,220.15,240,213.08,240C206,240,198.92,240,191.85,240C184.77,240,177.69,240,170.62,240C163.54,240,156.46,240,149.39,240C142.31,240,135.23,240,128.15,240C121.08,240,114,240,106.92,240C99.85,240,92.77,240,85.69,240C78.61,240,71.54,240,64.46,240C57.39,240,50.31,240,43.23,240C36.15,240,29.08,240,22,240Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,240C29.08,233.21,36.15,226.42,43.23,226.42C50.31,226.42,57.39,233.21,64.46,233.21C71.54,233.21,78.61,215.47,85.69,208.3C92.77,201.13,99.85,190.19,106.92,190.19C114,190.19,121.08,195.09,128.15,199.25C135.23,203.4,142.31,215.09,149.39,215.09C156.46,215.09,163.54,193.96,170.62,185.66C177.69,177.36,184.77,165.28,191.85,165.28C198.92,165.28,206,174.34,213.08,174.34C220.15,174.34,227.23,161.89,234.31,156.23C241.39,150.57,248.46,140.38,255.54,140.38C262.62,140.38,269.69,149.43,276.77,149.43C283.85,149.43,290.92,134.72,298,120" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Orders"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "14 days"
+  <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+    "171"
+  <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+    "orders per day"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="272">
+    "daily"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="272">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="113">
+    "+8.2"

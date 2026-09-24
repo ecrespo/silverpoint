@@ -6,6 +6,6 @@ const FAMILY = { chart: 'BubbleChart', fallbackName: 'Bubble chart', defaultSize
 
 /** `BubbleChart` recipe (REQ-083): circles whose area encodes the size. */
 export const bubbleChart: ChartRecipe<BubbleChartProps> = /* @__PURE__ */ Object.freeze({
-  name: FAMILY.chart,
+  name: 'BubbleChart',
   build: (props: BubbleChartProps, context: RecipeContext) => buildPoints(FAMILY, props, context, BUBBLE_CHART_DEMO),
 });

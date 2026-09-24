@@ -1,0 +1,47 @@
+<svg aria-labelledby="bubble-chart--silverpoint--green--precision--md-title bubble-chart--silverpoint--green--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="bubble-chart--silverpoint--green--precision--md-title">
+    "Markets"
+  <desc id="bubble-chart--silverpoint--green--precision--md-desc">
+    "Markets. 5 points; x from 2 to 14, y from 12 to 30, size from 40 to 210 as marker area."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M34.62,136.69H285.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,112H285.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,87.31H285.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,62.62H285.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,161.38H285.38" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M210.08,62.62A12.62,12.62,0,1,0,235.31,62.62A12.62,12.62,0,1,0,210.08,62.62Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M87.73,92.25A9.58,9.58,0,1,0,106.89,92.25A9.58,9.58,0,1,0,87.73,92.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M277.06,107.06A8.32,8.32,0,1,0,293.71,107.06A8.32,8.32,0,1,0,277.06,107.06Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.89,151.51A7.11,7.11,0,1,0,167.11,151.51A7.11,7.11,0,1,0,152.89,151.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M28.97,121.88A5.64,5.64,0,1,0,40.26,121.88A5.64,5.64,0,1,0,28.97,121.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Markets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "growth × margin"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="133.69">
+    "15"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="109">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="84.31">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="59.62">
+    "30"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="34.62" y="189">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="76.41" y="189">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="118.21" y="189">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="160" y="189">
+    "8"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="201.79" y="189">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="243.59" y="189">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="285.38" y="189">
+    "14"

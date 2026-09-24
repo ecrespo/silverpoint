@@ -1,0 +1,50 @@
+<svg aria-labelledby="bar-chart--silverpoint--green--precision--md-title bar-chart--silverpoint--green--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="bar-chart--silverpoint--green--precision--md-title">
+    "Orders per quarter"
+  <desc id="bar-chart--silverpoint--green--precision--md-desc">
+    "Orders per quarter. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M76,48H88V55H76Z" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M22,147H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,120H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,93H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,66H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,174H298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M39.6,125.75A8.45,8.45,0,0,1,48.05,117.3H48.05A8.45,8.45,0,0,1,56.5,125.75V165.55A8.45,8.45,0,0,1,48.05,174H48.05A8.45,8.45,0,0,1,39.6,165.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M108.6,104.15A8.45,8.45,0,0,1,117.05,95.7H117.05A8.45,8.45,0,0,1,125.5,104.15V165.55A8.45,8.45,0,0,1,117.05,174H117.05A8.45,8.45,0,0,1,108.6,165.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M177.6,113.6A8.45,8.45,0,0,1,186.05,105.15H186.05A8.45,8.45,0,0,1,194.5,113.6V165.55A8.45,8.45,0,0,1,186.05,174H186.05A8.45,8.45,0,0,1,177.6,165.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M246.6,83.9A8.45,8.45,0,0,1,255.05,75.45H255.05A8.45,8.45,0,0,1,263.5,83.9V165.55A8.45,8.45,0,0,1,255.05,174H255.05A8.45,8.45,0,0,1,246.6,165.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M56.5,135.2A8.45,8.45,0,0,1,64.95,126.75H64.95A8.45,8.45,0,0,1,73.4,135.2V165.55A8.45,8.45,0,0,1,64.95,174H64.95A8.45,8.45,0,0,1,56.5,165.55Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M125.5,123.05A8.45,8.45,0,0,1,133.95,114.6H133.95A8.45,8.45,0,0,1,142.4,123.05V165.55A8.45,8.45,0,0,1,133.95,174H133.95A8.45,8.45,0,0,1,125.5,165.55Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M194.5,116.3A8.45,8.45,0,0,1,202.95,107.85H202.95A8.45,8.45,0,0,1,211.41,116.3V165.55A8.45,8.45,0,0,1,202.95,174H202.95A8.45,8.45,0,0,1,194.5,165.55Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M263.5,101.45A8.45,8.45,0,0,1,271.95,93H271.95A8.45,8.45,0,0,1,280.4,101.45V165.55A8.45,8.45,0,0,1,271.95,174H271.95A8.45,8.45,0,0,1,263.5,165.55Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Orders per quarter"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "vs 2025"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "thousands"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "value"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+    "previous"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="144">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="117">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="90">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="63">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="56.5" y="189">
+    "Q1"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="125.5" y="189">
+    "Q2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="194.5" y="189">
+    "Q3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="263.5" y="189">
+    "Q4"

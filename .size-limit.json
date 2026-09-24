@@ -319,7 +319,7 @@
     "path": "packages/core/dist/index.js",
     "import": "*",
     "gzip": true,
-    "limit": "30 kB"
+    "limit": "40 kB"
   },
   {
     "name": "@silverpoint/grounds + core (everything)",

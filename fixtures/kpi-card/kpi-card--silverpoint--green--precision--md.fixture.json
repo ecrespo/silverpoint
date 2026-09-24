@@ -1,0 +1,22 @@
+{
+  "chart": "KpiCard",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "kpi-card--silverpoint--green--precision--md",
+  "req": "REQ-063",
+  "seed": 1592,
+  "props": {
+    "title": "Orders",
+    "badge": "14 days",
+    "footerLeft": "daily",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "kpi-card/kpi-card--silverpoint--green--precision--md.canonical.txt"
+}

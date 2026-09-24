@@ -1,0 +1,22 @@
+{
+  "chart": "StreamChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "stream-chart--silverpoint--blue--precision--md",
+  "req": "REQ-074",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "Week 26",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "stream-chart/stream-chart--silverpoint--blue--precision--md.canonical.txt"
+}

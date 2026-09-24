@@ -6,6 +6,6 @@ const FAMILY = { chart: 'ScatterChart', fallbackName: 'Scatter chart', defaultSi
 
 /** `ScatterChart` recipe (REQ-082): points on two linear scales, optionally sized by area. */
 export const scatterChart: ChartRecipe<ScatterChartProps> = /* @__PURE__ */ Object.freeze({
-  name: FAMILY.chart,
+  name: 'ScatterChart',
   build: (props: ScatterChartProps, context: RecipeContext) => buildPoints(FAMILY, props, context, SCATTER_CHART_DEMO),
 });

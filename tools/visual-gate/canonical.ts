@@ -21,6 +21,20 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
   TreemapChart: { title: 'Traffic sources', badge: 'June', footerLeft: 'share of visits', footerRight: 'silverpoint' },
   SankeyChart: { title: 'Visitor flow', badge: 'June', footerLeft: 'visits', footerRight: 'silverpoint' },
   ActivityGrid: { title: 'Contributions', badge: '26 weeks', footerLeft: 'Jan–Jun 2026', footerRight: 'silverpoint' },
+  StepChart: { title: 'Price tier', badge: '2026', footerLeft: 'per month', footerRight: 'silverpoint' },
+  SparklineRows: { title: 'Service health', badge: 'Live', footerLeft: 'last 8 checks', footerRight: 'silverpoint' },
+  KpiCard: { title: 'Orders', badge: '14 days', footerLeft: 'daily', footerRight: 'silverpoint' },
+  BarChart: { title: 'Orders per quarter', badge: 'vs 2025', footerLeft: 'thousands', footerRight: 'silverpoint' },
+  StackedBarChart: { title: 'Signups by plan', badge: 'H1', footerLeft: 'per month', footerRight: 'silverpoint' },
+  ComposedChart: { title: 'Revenue and margin', badge: 'H1', footerLeft: 'k€', footerRight: 'silverpoint' },
+  WaterfallChart: { title: 'Cash bridge', badge: 'Q2', footerLeft: 'k€', footerRight: 'silverpoint' },
+  FunnelChart: { title: 'Checkout funnel', badge: 'June', footerLeft: 'sessions', footerRight: 'silverpoint' },
+  CandlestickChart: { title: 'Share price', badge: '2 weeks', footerLeft: 'daily OHLC', footerRight: 'silverpoint' },
+  AreaChart: { title: 'Sessions', badge: 'Week 26', footerLeft: 'per day', footerRight: 'silverpoint' },
+  RangeBandChart: { title: 'Temperature', badge: '°C', footerLeft: 'daily range', footerRight: 'silverpoint' },
+  StreamChart: { title: 'Traffic sources', badge: 'Week 26', footerLeft: 'thousands', footerRight: 'silverpoint' },
+  ScatterChart: { title: 'Height and weight', badge: 'n = 9', footerLeft: 'cm × kg', footerRight: 'silverpoint' },
+  BubbleChart: { title: 'Markets', badge: '2026', footerLeft: 'growth × margin', footerRight: 'silverpoint' },
 };
 
 /** The PR matrix: every catalog chart × 2 modes × 4 substrates at `md` (Data Model §5). */

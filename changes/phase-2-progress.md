@@ -8,7 +8,8 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 | T-049 | done | 6fcd55a | `checkVolume` + `test/cartesian.test.ts` (RED 501 points → GREEN); every Phase 2 recipe calls it, and the contract test will cover all |
 | T-051..T-064 | done | da03921 | contract over 14 recipes (15 tests each; RED 210/210 on stubs → green), `phase2-charts.test.ts` (38 specific; RED 37 → green), SP008 contract for all 14 (mutation-checked), demo snapshots (mutation-checked); core 479, grounds equivalence 86/86 |
 | T-070 (part) | done | da03921 | the 14 appended to `grounds/test/equivalence.test.ts` |
-| T-065 | done | (this commit) | 14 catalog rows turned the adapter suites RED (380 failures) → 639/639 green; React client + server, Vue SFCs, Angular secondary entries; typecheck, build, lint clean |
+| T-065 | done | 5821608 | 14 catalog rows turned the adapter suites RED (380 failures) → 639/639 green; React client + server, Vue SFCs, Angular secondary entries; typecheck, build, lint clean |
+| T-066 | done | (this commit) | fixture test RED on 21 charts × 8 → CARDS + canonicals for 168 fixtures; string gate 504 comparisons, 0 failures; gates 180/180 — the extended tree-shaking gate went RED (84/84: scatter and bubble demos in every one-chart bundle) → GREEN with a literal recipe `name`; unit 1672/1672 |
 
 ## Rulings
 
@@ -55,3 +56,10 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
   has the same cast but its core default is `false`, so it is left as is — cost if wrong: none.
 - **T-065 · Ruling:** the catalog's `PHASE_1` list is renamed `AFTER_LINE_CHART` (every chart but
   the line chart), since the adapter suites, fixtures and path weight iterate it for all phases.
+- **T-066 · Ruling:** a recipe's `name` is a string literal, never a read of a module constant
+  (`FAMILY.chart`): a property read inside a `/* @__PURE__ */` call's argument counts as a possible
+  side effect, so rolldown kept the argument — and with it the demo dataset — in every consumer's
+  bundle. The tree-shaking gate over all 21 charts catches the regression — cost if wrong: none.
+- **T-066 · Ruling (T-070 pulled forward):** the catalog-wide "core (everything)" alarm rises
+  30 → 40 kB (measured 31.2 kB with 21 recipes), per the T-038 ruling that it grows with the
+  catalog; the product budget stays per chart — cost if wrong: a looser catalog-wide alarm.
