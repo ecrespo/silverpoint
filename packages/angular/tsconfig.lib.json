@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": false,
+    "inlineSources": true,
+    "lib": ["ES2022", "DOM"],
+    "types": [],
+    "experimentalDecorators": false,
+    "verbatimModuleSyntax": false,
+    "customConditions": []
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "strictTemplates": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true
+  },
+  "include": ["src/**/*.ts", "line-chart/**/*.ts"],
+  "exclude": ["**/*.spec.ts", "test/**"]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "@silverpoint/react",
+  "version": "0.1.0",
+  "description": "React adapter of silverpoint: translates core geometry into JSX, and nothing else.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./line-chart": {
+      "@silverpoint/source": "./src/line-chart.ts",
+      "types": "./dist/line-chart.d.ts",
+      "import": "./dist/line-chart.js",
+      "default": "./dist/line-chart.js"
+    },
+    "./server/line-chart": {
+      "@silverpoint/source": "./src/server/line-chart.ts",
+      "types": "./dist/server/line-chart.d.ts",
+      "import": "./dist/server/line-chart.js",
+      "default": "./dist/server/line-chart.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "happy-dom": "^20.14.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsup": "^8.5.1"
+  }
+}

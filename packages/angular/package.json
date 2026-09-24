@@ -1,0 +1,42 @@
+{
+  "name": "@silverpoint/angular",
+  "version": "0.1.0",
+  "description": "Angular adapter of silverpoint: standalone, signal-input, OnPush components in Angular Package Format.",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/angular"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json",
+    "typecheck": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "tslib": "^2.8.1"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=21.0.0 <23.0.0",
+    "@angular/core": ">=21.0.0 <23.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^21.2.23",
+    "@angular/compiler": "^21.2.23",
+    "@angular/compiler-cli": "^21.2.23",
+    "@angular/core": "^21.2.23",
+    "@angular/platform-browser": "^21.2.23",
+    "@angular/platform-server": "^21.2.23",
+    "ng-packagr": "^21.2.7",
+    "rxjs": "^7.8.2",
+    "typescript": "5.9.3"
+  }
+}

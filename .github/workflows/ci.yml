@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # REQ-004, REQ-027, REQ-106, REQ-161..163, REQ-034 and the spec corpus gate.
+      - run: pnpm lint
+      # REQ-044: a PR that touches a ground may not touch the charts.
+      - if: github.event_name == 'pull_request'
+        run: node tools/lint-rules/check-ground-pr.mjs origin/${{ github.base_ref }}
+      - run: pnpm build
+      - run: pnpm test

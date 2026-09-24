@@ -3,5 +3,8 @@ packages:
   - examples/*
   - tools/*
 allowBuilds:
+  '@parcel/watcher': false
   esbuild: false
   nx: false
+  lmdb: false
+  msgpackr-extract: false

@@ -1,0 +1,34 @@
+{
+  "name": "@silverpoint/fonts",
+  "version": "0.1.0",
+  "description": "Optional. Self-hosted EB Garamond (400, 500, 400 italic, latin subset) and its @font-face rules.",
+  "license": "MIT AND OFL-1.1",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./fonts.css",
+    "./fonts.css": "./fonts.css",
+    "./files/*": "./files/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "fonts.css",
+    "files",
+    "NOTICE",
+    "OFL.txt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/fonts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "node -e \"\""
+  }
+}
