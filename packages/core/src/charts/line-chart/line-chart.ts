@@ -120,7 +120,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
     if (s.missing > 0 && data.length > 0 && process.env.NODE_ENV !== 'production') {
       diagnose('SP002', CHART, {
         property: s.key,
-        message: `${s.missing} of ${data.length} values were omitted.`,
+        message: `${s.missing} of ${data.length} values were omitted from the stroke; set \`connectNulls\` to bridge the gap.`,
       });
     }
   }

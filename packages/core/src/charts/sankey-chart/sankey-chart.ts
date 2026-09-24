@@ -63,8 +63,16 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
   const flows: Flow[] = [];
   const edges = new Map<string, string[]>();
   data.forEach((datum, index) => {
-    const source = formatValue(read(sourceKey, datum, index), locale, undefined);
-    const target = formatValue(read(targetKey, datum, index), locale, undefined);
+    const rawSource = read(sourceKey, datum, index);
+    const rawTarget = read(targetKey, datum, index);
+    // A flow needs both ends: a missing one (often a mistyped key) is dropped, not named "—".
+    const missing = rawSource === null || rawSource === undefined ? 'source' : rawTarget === null || rawTarget === undefined ? 'target' : undefined;
+    if (missing) {
+      warnValue(CHART, accessorName(missing === 'source' ? sourceKey : targetKey, missing), `Flow ${index} has no ${missing}; it is omitted.`);
+      return;
+    }
+    const source = formatValue(rawSource, locale, undefined);
+    const target = formatValue(rawTarget, locale, undefined);
     const value = finite(read(valueKey, datum, index));
     if (value === undefined || value <= 0) {
       warnValue(CHART, valueName, `Flow ${index} (${source} → ${target}) is ${String(value ?? 'not finite')}; flows must be positive, so it is omitted.`);

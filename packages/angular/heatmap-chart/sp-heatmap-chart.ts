@@ -22,11 +22,13 @@ export class SpHeatmapChart extends SpChart<HeatmapChartProps> {
   readonly labelKey = input<Prop<'labelKey'>>();
   readonly valuesKey = input<Prop<'valuesKey'>>();
   readonly scaleMax = input<Prop<'scaleMax'>>();
+  readonly columnLabels = input<Prop<'columnLabels'>>();
 
   protected readonly ownProps = computed(() => ({
     labelKey: this.labelKey(),
     valuesKey: this.valuesKey(),
     scaleMax: this.scaleMax(),
+    columnLabels: this.columnLabels(),
   }));
 
   constructor() {

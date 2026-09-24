@@ -115,3 +115,13 @@ describe('styles.css', () => {
     expect(lockfile).not.toMatch(/^\s+'?tailwindcss@\d/m);
   });
 });
+
+describe('text over hatching', () => {
+  test('REQ-124 · text carries a substrate-coloured halo, painted under its fill, so hatching never crosses a digit', () => {
+    const text = block('.sp-chart text');
+    expect(text['paint-order']).toBe('stroke');
+    expect(text.stroke).toBe('var(--sp-substrate)');
+    expect(Number.parseFloat(text['stroke-width'] ?? '0')).toBeGreaterThan(0);
+    expect(text['stroke-linejoin']).toBe('round');
+  });
+});

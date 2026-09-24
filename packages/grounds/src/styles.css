@@ -169,7 +169,11 @@
   font-family: var(--sp-font-display);
   font-variant-numeric: tabular-nums;
   font-size: calc(11px * var(--sp-type-scale, 1));
-  stroke: none;
+  /* A halo of the substrate, painted under the fill: hatching and bands never cross a glyph. */
+  paint-order: stroke;
+  stroke: var(--sp-substrate);
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 
 .sp-chart [part='sp-text'] {

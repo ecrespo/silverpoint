@@ -87,6 +87,8 @@ export interface HeatmapChartProps extends CommonChartProps {
   valuesKey?: Accessor<readonly (number | null)[] | null | undefined>;
   /** Value that maps to the darkest tone; 100 by default. */
   scaleMax?: number;
+  /** Names of the columns, in order; missing ones fall back to `#k` (delta-006). */
+  columnLabels?: readonly string[];
 }
 
 /** `TreemapChart` (REQ-085): tiles of `cols × rows` cells placed in a `columns × rows` grid. */

@@ -78,6 +78,7 @@ function buildTreemapChart(props: TreemapChartProps, context: RecipeContext): Ch
   const taken = Array.from({ length: gridRows }, () => Array<boolean>(gridColumns).fill(false));
   const cellWidth = plot.width / gridColumns;
   const cellHeight = plot.height / gridRows;
+  const placed: (typeof tiles)[number][] = [];
 
   for (const tile of tiles) {
     if (tile.cols === undefined || tile.rows === undefined) {
@@ -100,6 +101,7 @@ function buildTreemapChart(props: TreemapChartProps, context: RecipeContext): Ch
     labels.push({ x, y: drawn.y + 2 * LINE, text: shareText(tile.share), kind: 'tick', part: 'axis', anchor: 'start' });
     // A consumer tone is information of its own, so it is printed as well as hatched (REQ-124).
     if (tile.tone !== undefined) labels.push({ x, y: drawn.y + 3 * LINE, text: `tone ${tone}`, kind: 'tick', part: 'axis', anchor: 'start' });
+    placed.push(tile);
     hitAreas.push({ seriesKey: shareName, index: tile.index, datum: tile.datum, value: tile.share ?? 0, x: box.x + box.width / 2, y: box.y + box.height / 2, box });
   }
 
@@ -109,7 +111,9 @@ function buildTreemapChart(props: TreemapChartProps, context: RecipeContext): Ch
 
   const description =
     props.description ??
-    `${base.name}. Treemap of ${hitAreas.length} tiles in a ${gridColumns} by ${gridRows} grid; ${tiles.map((t) => `${t.label} ${shareText(t.share)}`).join(', ')}.`;
+    `${base.name}. Treemap of ${hitAreas.length} tiles in a ${gridColumns} by ${gridRows} grid; ${placed.map((t) => `${t.label} ${shareText(t.share)}`).join(', ')}${
+      placed.length < tiles.length ? `; ${tiles.length - placed.length} omitted` : ''
+    }.`;
   return readyModel(base, description, { viewBox: card.viewBox, plot, strokes, labels, hitAreas });
 }
 

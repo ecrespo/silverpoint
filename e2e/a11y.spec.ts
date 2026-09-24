@@ -93,6 +93,16 @@ test.describe('Phase 1 accessibility', () => {
     expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
   });
 
+  test('REQ-122 · the announcement is plain words, not merely what readout() says: the bullet chart', async ({ page }) => {
+    await page.goto('/?fixture=bullet-chart--silverpoint--cream--ink--md');
+    await page.locator('.sp-harness .sp-root[data-status="ready"]').waitFor();
+    await page.keyboard.press('Tab');
+    const live = page.locator('.sp-harness .sp-root .sp-live');
+    await expect(live).toHaveText('title Revenue, actual 72');
+    await page.keyboard.press('ArrowRight');
+    await expect(live).toHaveText('title Profit, actual 58');
+  });
+
   for (const fixture of FIXTURES.filter((f) => f.chart !== 'LineChart' && f.substrate === 'cream' && f.mode === 'ink')) {
     test(`REQ-121 · ${fixture.chart}: the tabular alternative is reachable, one row per item`, async ({ page }) => {
       const model = modelOf(fixture);

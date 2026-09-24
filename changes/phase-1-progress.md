@@ -127,3 +127,25 @@ typecheck and lint clean. No canonical render changed.
   stale active item after data shrink, Angular `title` tooltip, `process.env` in core without a
   bundler, 10⁵-scale grids) all predate Phase 1 or are unrealistic inputs; they stand — cost if
   wrong: they surface in Phase 2 review.
+
+## Deferred minors, resolved (user: "Resuelve los pendientes menores", 2026-09-24)
+
+Each RED → GREEN; suite: unit 710/710, gates 68/68, e2e 138 passed, pixel 232/232 in docker (all
+56 goldens rewritten for the text halo), typecheck, lint, traceability 0 blocking.
+
+- **Resolved:** sankey flow without a source or target — dropped and warned, never a node "—"
+  (`Phase 1 minor fixes`).
+- **Resolved:** SP002 wording — neutral template; each chart's remedy in its specifics, the line
+  chart keeps `connectNulls` there. Spec change: `changes/delta-007-sp002-scope.md`.
+- **Resolved:** treemap description names only placed tiles and counts the omitted ones.
+- **Resolved:** heatmap column names — `columnLabels` prop in core and all three adapters, drawn in a
+  header band, heading the table and the announcement; without it nothing changes. Spec change:
+  `changes/delta-006-heatmap-column-labels.md`, approved by the user's instruction.
+- **Resolved:** text over hatching and sankey labels over bands — every text carries a
+  substrate-coloured halo (`paint-order: stroke`); colours unchanged, contrast gate green.
+- **Resolved:** hostile-input cases in the parameterised contract (NaN, Infinity, wrong types,
+  out of range, dropped mid-list) for all six charts, with every readout naming its own item —
+  written after the fixes and mutation-checked (sankey missing-end guard removed → red); a literal
+  e2e announcement for the bullet chart guards the wording itself.
+- **Ruling:** deltas 006 and 007 are recorded `APPROVED` on the strength of the user's instruction
+  and wait in `changes/` until `specs/` is writable — cost if wrong: two spec rows to revisit.

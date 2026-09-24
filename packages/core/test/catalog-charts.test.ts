@@ -372,3 +372,49 @@ describe('final-review fixes', () => {
     expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(2);
   });
 });
+
+describe('Phase 1 minor fixes', () => {
+  test('REQ-008 · the SP002 message is neutral: it does not prescribe a line-chart remedy', () => {
+    const messages: string[] = [];
+    restore = __setDiagnosticSink((_code, message) => messages.push(message));
+    treemapChart.build({ ...bare, data: [{ label: 'Big', share: 1, cols: 9, rows: 9 }], columns: 2, rows: 2 }, context);
+    expect(messages.join('\n')).toMatch(/SP002/);
+    expect(messages.join('\n')).not.toMatch(/connectNulls|stroke/);
+  });
+
+  test('REQ-086 · a flow without a source or a target is dropped and warned, never merged into "—"', () => {
+    const seen = capture();
+    const data = [{ a: 'Web', b: 'Signup', n: 5 }, { a: 'Ads', n: 3 }, { b: 'Signup', n: 2 }];
+    const model = sankeyChart.build({ ...bare, data, sourceKey: 'a', targetKey: 'b', valueKey: 'n' }, context);
+    expect(model.geometry.hitAreas).toHaveLength(1);
+    expect(texts(model).some((t) => t.startsWith('—'))).toBe(false);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-120 · the treemap description names only the tiles it draws, and counts the omitted ones', () => {
+    capture();
+    const data = [{ label: 'Kept', share: 60, cols: 2, rows: 2 }, { label: 'Dropped', share: 40, cols: 5, rows: 5 }];
+    const { description } = treemapChart.build({ ...bare, data, columns: 2, rows: 2 }, context);
+    expect(description).toMatch(/Kept/);
+    expect(description).not.toMatch(/Dropped/);
+    expect(description).toMatch(/1 omitted/);
+  });
+
+  test('REQ-084 · delta-006 · columnLabels name the columns in the table, the hit areas and the drawing', () => {
+    const data = [{ label: 'Mon', values: [1, 2, 3] }];
+    const model = heatmapChart.build({ ...bare, data, columnLabels: ['9h', '10h', '11h'] }, context);
+    expect(model.table.columns).toEqual(['label', '9h', '10h', '11h']);
+    expect(model.geometry.hitAreas.map((h) => h.seriesKey)).toEqual(['9h', '10h', '11h']);
+    expect(texts(model)).toEqual(expect.arrayContaining(['9h', '10h', '11h']));
+    const header = model.geometry.labels.find((l) => l.text === '9h')!;
+    expect(header.y).toBeLessThan(model.geometry.hitAreas[0]!.box!.y);
+  });
+
+  test('REQ-084 · delta-006 · missing names fall back to #k; extra names are ignored and warned', () => {
+    const seen = capture();
+    const short = heatmapChart.build({ ...bare, data: [{ label: 'a', values: [1, 2] }], columnLabels: ['x'] }, context);
+    expect(short.table.columns).toEqual(['label', 'x', '#2']);
+    heatmapChart.build({ ...bare, data: [{ label: 'a', values: [1] }], columnLabels: ['x', 'y'] }, context);
+    expect(seen).toContain('SP002');
+  });
+});

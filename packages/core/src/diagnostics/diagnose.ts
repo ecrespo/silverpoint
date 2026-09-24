@@ -116,8 +116,8 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
   },
   SP002: {
     req: 'REQ-008',
-    what: 'a value is null, undefined or not finite; the point is omitted from the stroke',
-    todo: 'Clean the value, or set `connectNulls` to bridge the gap',
+    what: 'a value cannot be drawn as given (null, not finite, or outside the data contract); it is corrected or omitted',
+    todo: 'Check the value against the chart\'s data contract (Data Model §2)',
   },
   SP003: {
     req: 'REQ-009',

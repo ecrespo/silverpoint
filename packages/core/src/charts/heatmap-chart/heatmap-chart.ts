@@ -10,6 +10,8 @@ const PLOT_INSET = 6;
 /** Room at the left for the row labels. */
 const LABEL_COLUMN = 40;
 const CELL_GAP = 2;
+/** Room above the cells for the column labels, when there are any. */
+const HEADER_BAND = 14;
 /** Advance of one tabular digit at the 9.5 px tick size, with room to spare. */
 const DIGIT_WIDTH = 5.5;
 const LINE_HEIGHT = 12;
@@ -38,7 +40,8 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
   const lengths = rows.flatMap((r) => (r.values ? [r.values.length] : []));
   // Rows of unequal length use the shortest (Data Model §2.4).
   const columnCount = lengths.length > 0 ? lengths.reduce((a, b) => Math.min(a, b)) : 0;
-  const columns = Array.from({ length: columnCount }, (_, i) => `#${i + 1}`);
+  const named = props.columnLabels ?? [];
+  const columns = Array.from({ length: columnCount }, (_, i) => named[i] ?? `#${i + 1}`);
 
   const base = modelBase(CHART, props, context, 'Heatmap', {
     columns: [accessorName(labelKey, 'label'), ...columns],
@@ -60,13 +63,23 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
   if (lengths.some((length) => length !== columnCount)) {
     warnValue(CHART, valuesName, `Rows have ${columnCount} to ${lengths.reduce((a, b) => Math.max(a, b))} values; the first ${columnCount} of each are drawn.`);
   }
+  if (named.length > columnCount && columnCount > 0) {
+    warnValue(CHART, 'columnLabels', `${named.length} column labels for ${columnCount} columns; the extra ones are ignored.`);
+  }
   const drawable = rows.some((r) => r.values?.slice(0, columnCount).some((v) => v !== undefined));
   if (!drawable) {
     return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, rows.length === 0);
   }
 
+  // Named columns get a header band above the cells (delta-006); unnamed ones draw none.
+  const header = named.length > 0 ? HEADER_BAND : 0;
   const cellWidth = (plot.width - LABEL_COLUMN) / columnCount;
-  const cellHeight = plot.height / rows.length;
+  const cellHeight = (plot.height - header) / rows.length;
+  if (header > 0) {
+    columns.forEach((name, c) => {
+      labels.push({ x: plot.x + LABEL_COLUMN + (c + 0.5) * cellWidth, y: plot.y + 10, text: name, kind: 'tick', part: 'axis', anchor: 'middle' });
+    });
+  }
   // When the widest value cannot be printed inside a cell, the value is carried by the cell's
   // size instead, as the activity grid carries its level, so it never overprints and still
   // survives `precision` mode (REQ-124).
@@ -76,7 +89,7 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
   let omitted = 0;
 
   for (const row of rows) {
-    const top = plot.y + row.index * cellHeight;
+    const top = plot.y + header + row.index * cellHeight;
     labels.push({ x: plot.x, y: top + cellHeight / 2 + 4, text: row.label, kind: 'tick', part: 'text', anchor: 'start' });
     for (let c = 0; c < columnCount; c += 1) {
       const value = row.values?.[c];
