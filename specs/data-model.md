@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.1 |
+| **Version** | 1.3 |
 | **Date** | 2026-09-13 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.2 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.3 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.4 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -284,6 +284,12 @@ interface Fixture {
   props: Record<string, unknown>;
   /** Path to a JSON data file, or `null` to use the demo dataset. */
   data: string | null;
+  /**
+   * Path to the canonical normalised SVG. Every adapter is compared against this file,
+   * never against a sibling adapter, so a third framework costs one comparison and a
+   * failure names the guilty adapter (Art. 3, DD-004).
+   */
+  canonical: string;
 }
 ```
 
@@ -320,6 +326,8 @@ Verifiable, and each one with its test.
 | Version | Date | Author | Changes |
 |---|---|---|---|
 | 1.0 | 2026-09-13 | Ernesto Crespo | Initial version. Palette adjusted after verifying contrast: the original seed failed on `rule`, `textMuted` and `heighten` |
+| 1.3 | 2026-09-13 | Ernesto Crespo | `Fixture` gains `canonical`, the reference render every adapter is compared against, after Vue made pairwise comparison untenable |
+| 1.2 | 2026-09-13 | Ernesto Crespo | Sibling version references realigned after the Vite integration change; no content change |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 
 ## Constitution check

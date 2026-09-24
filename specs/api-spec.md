@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.3 |
+| **API version** | v1.5 |
 | **Date** | 2026-09-13 |
-| **Related PRD** | [`prd.md`](prd.md) v1.5 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.2 |
+| **Related PRD** | [`prd.md`](prd.md) v1.7 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
 | **Surface** | npm packages — there is no network API |
 
 ---
@@ -36,10 +36,11 @@ that the Analyze gate does not read it as an omission:
 
 | Package | Contents | Dependencies |
 |---|---|---|
-| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types | `d3-scale`, `d3-shape` and the ribbon generator (§8.3) |
+| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
 | `@silverpoint/grounds` | Declarative style tokens and the `styles.css` sheet | `@silverpoint/core` |
 | `@silverpoint/react` | React components | `peer`: `react`, `react-dom` |
 | `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common` |
+| `@silverpoint/vue` | Vue 3 components authored with `<script setup>` | `peer`: `vue` |
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
 
 Every chart is importable by subpath, so that an app using one does not drag in all 33
@@ -51,10 +52,31 @@ import { LineChart } from '@silverpoint/react/line-chart';  // subpath
 import '@silverpoint/grounds/styles.css';                   // once only, in the app
 ```
 
+### 1.1 Consuming under a bundler
+
+The three frameworks are React, Angular and Vue. The bundlers that host them are validated
+separately, because that is where package resolution actually breaks. Vite is the default
+host for both the React and the Vue example apps, and runs underneath the Angular CLI.
+
+| Host | Guarantee | Requirement |
+|---|---|---|
+| Vite | Every subpath resolves identically in the dev server and in the production build, with no `optimizeDeps` entry required | REQ-033 |
+| Vite, Next.js, any bundler | The stylesheet import survives tree-shaking: packages declare `sideEffects: false` **except** for `.css`, so `import '@silverpoint/grounds/styles.css'` is never dropped | REQ-034 |
+| Next.js | Server-rendered markup hydrates with no mismatch | REQ-103 |
+
+If a consumer ever needs an `optimizeDeps.include` entry to make an import work, that is a
+defect in this package, not a configuration step for them to discover.
+
 In Angular the subpath is a secondary entry point per APF:
 
 ```ts
 import { SpLineChart } from '@silverpoint/angular/line-chart';
+```
+
+In Vue the subpath mirrors React's:
+
+```ts
+import { SpLineChart } from '@silverpoint/vue/line-chart';
 ```
 
 ## 2. Public versus internal surface
@@ -168,20 +190,21 @@ and it does not emit a `part` different from the one it received.
 |---|---|---|
 | React component | `PascalCase`, no prefix | `<LineChart>` |
 | Angular selector | `sp-` plus `kebab-case` | `<sp-line-chart>` |
-| Props and inputs | `camelCase`, identical in both adapters | `valueKey` |
+| Vue component | `Sp` plus `PascalCase`; `sp-` plus `kebab-case` in in-DOM templates | `<SpLineChart>` |
+| Props and inputs | `camelCase`, identical across all three adapters | `valueKey` |
 | Accessors | `Key` suffix when they accept a string | `xKey`, `valueKey` |
 | Subpath | `kebab-case` of the component | `@silverpoint/react/line-chart` |
 | CSS custom property | `--sp-` plus `kebab-case` | `--sp-ink-secondary` |
 | Part attribute | `part="sp-<part>"` | `part="sp-heighten"` |
 | Diagnostic code | `SP` plus three digits | `SP001` |
 
-Prop names are **identical** between React and Angular. It is a maintenance requirement:
+Prop names are **identical** across React, Angular and Vue. It is a maintenance requirement:
 the documentation is a single one, and the Art. 3 gate compares two trees that can only
 match if the input is the same.
 
 ## 5. Props common to every chart
 
-Present in all 33 charts, with identical names in React and Angular (REQ-094).
+Present in all 33 charts, with identical names across React, Vue and Angular (REQ-094).
 
 ```ts
 export interface CommonChartProps {
@@ -309,41 +332,41 @@ registerGround(myGround);
 The 33 charts. The `REQ` column is the traceability back to the PRD. All of them accept
 `CommonChartProps` in addition to their own props.
 
-| REQ | React | Angular selector | Own props |
-|---|---|---|---|
-| REQ-060 | `LineChart` | `sp-line-chart` | `xKey`, `valueKey`, `secondaryKey?`, `curve`, `series` |
-| REQ-061 | `StepChart` | `sp-step-chart` | `xKey`, `valueKey`, `step: 'after' \| 'before' \| 'middle'` |
-| REQ-062 | `SparklineRows` | `sp-sparkline-rows` | `rows`, `nameKey`, `readoutKey`, `seriesKey`, `pointKey` |
-| REQ-063 | `KpiCard` | `sp-kpi-card` | `valueKey`, `metric`, `delta`, `deltaTone` |
-| REQ-064 | `BarChart` | `sp-bar-chart` | `xKey`, `valueKey`, `secondaryKey?`, `orientation: 'columns' \| 'rows'` |
-| REQ-065 | `StackedBarChart` | `sp-stacked-bar-chart` | `xKey`, `keys`, `names?` |
-| REQ-066 | `ComposedChart` | `sp-composed-chart` | `xKey`, `barKey`, `lineKey`, `showLine` |
-| REQ-067 | `WaterfallChart` | `sp-waterfall-chart` | `stepKey`, `baseKey`, `deltaKey` |
-| REQ-068 | `FunnelChart` | `sp-funnel-chart` | `stageKey`, `valueKey` |
-| REQ-069 | `BulletChart` | `sp-bullet-chart` | `titleKey`, `actualKey`, `targetKey` |
-| REQ-070 | `PyramidChart` | `sp-pyramid-chart` | `labelKey`, `widthKey`, `toneKey?` |
-| REQ-071 | `CandlestickChart` | `sp-candlestick-chart` | `timeKey`, `openKey`, `highKey`, `lowKey`, `closeKey`, `bounds?` |
-| REQ-072 | `AreaChart` | `sp-area-chart` | `xKey`, `valueKey`, `curve` |
-| REQ-073 | `RangeBandChart` | `sp-range-band-chart` | `xKey`, `lowKey`, `highKey` |
-| REQ-074 | `StreamChart` | `sp-stream-chart` | `xKey`, `keys`, `stacked` |
-| REQ-075 | `DonutChart` | `sp-donut-chart` | `nameKey`, `valueKey`, `centerValue?`, `centerLabel?`, `legend` |
-| REQ-076 | `RadarChart` | `sp-radar-chart` | `subjectKey`, `valueKey`, `domain` |
-| REQ-077 | `PolarBarChart` | `sp-polar-bar-chart` | `nameKey`, `valueKey` |
-| REQ-078 | `RadialArcGroup` | `sp-radial-arc-group` | `nameKey`, `valueKey` |
-| REQ-079 | `RadialRings` | `sp-radial-rings` | `nameKey`, `valueKey` |
-| REQ-080 | `GaugeArc` | `sp-gauge-arc` | `percent`, `caption?`, `readout?` |
-| REQ-081 | `MeterChart` | `sp-meter-chart` | `percent`, `caption?`, `readout?` |
-| REQ-082 | `ScatterChart` | `sp-scatter-chart` | `xKey`, `yKey`, `sizeKey?`, `sizeRange` |
-| REQ-083 | `BubbleChart` | `sp-bubble-chart` | `xKey`, `yKey`, `sizeKey`, `sizeRange` |
-| REQ-084 | `HeatmapChart` | `sp-heatmap-chart` | `labelKey`, `valuesKey`, `scaleMax` |
-| REQ-085 | `TreemapChart` | `sp-treemap-chart` | `labelKey`, `shareKey`, `columns`, `rows` |
-| REQ-086 | `SankeyChart` | `sp-sankey-chart` | `sourceKey`, `targetKey`, `valueKey` |
-| REQ-087 | `ActivityGrid` | `sp-activity-grid` | `dateKey`, `countKey`, `levelKey`, `weeks` |
-| REQ-088 | `CoxcombChart` | `sp-coxcomb-chart` | `nameKey`, `valueKey`, `startAngle` |
-| REQ-089 | `WindRose` | `sp-wind-rose` | `bearingKey`, `valueKey`, `sectors`, `bins` |
-| REQ-090 | `VolvelleChart` | `sp-volvelle-chart` | `rings`, `indexRing`, `indexValue` |
-| REQ-091 | `ChordRing` | `sp-chord-ring` | `sourceKey`, `targetKey`, `valueKey`, `maxCategories` |
-| REQ-092 | `OrbitChart` | `sp-orbit-chart` | `orbits`, `periodKey`, `markerKey` |
+| REQ | React | Vue | Angular selector | Own props |
+|---|---|---|---|---|
+| REQ-060 | `LineChart` | `SpLineChart` | `sp-line-chart` | `xKey`, `valueKey`, `secondaryKey?`, `curve`, `series` |
+| REQ-061 | `StepChart` | `SpStepChart` | `sp-step-chart` | `xKey`, `valueKey`, `step: 'after' \| 'before' \| 'middle'` |
+| REQ-062 | `SparklineRows` | `SpSparklineRows` | `sp-sparkline-rows` | `rows`, `nameKey`, `readoutKey`, `seriesKey`, `pointKey` |
+| REQ-063 | `KpiCard` | `SpKpiCard` | `sp-kpi-card` | `valueKey`, `metric`, `delta`, `deltaTone` |
+| REQ-064 | `BarChart` | `SpBarChart` | `sp-bar-chart` | `xKey`, `valueKey`, `secondaryKey?`, `orientation: 'columns' \| 'rows'` |
+| REQ-065 | `StackedBarChart` | `SpStackedBarChart` | `sp-stacked-bar-chart` | `xKey`, `keys`, `names?` |
+| REQ-066 | `ComposedChart` | `SpComposedChart` | `sp-composed-chart` | `xKey`, `barKey`, `lineKey`, `showLine` |
+| REQ-067 | `WaterfallChart` | `SpWaterfallChart` | `sp-waterfall-chart` | `stepKey`, `baseKey`, `deltaKey` |
+| REQ-068 | `FunnelChart` | `SpFunnelChart` | `sp-funnel-chart` | `stageKey`, `valueKey` |
+| REQ-069 | `BulletChart` | `SpBulletChart` | `sp-bullet-chart` | `titleKey`, `actualKey`, `targetKey` |
+| REQ-070 | `PyramidChart` | `SpPyramidChart` | `sp-pyramid-chart` | `labelKey`, `widthKey`, `toneKey?` |
+| REQ-071 | `CandlestickChart` | `SpCandlestickChart` | `sp-candlestick-chart` | `timeKey`, `openKey`, `highKey`, `lowKey`, `closeKey`, `bounds?` |
+| REQ-072 | `AreaChart` | `SpAreaChart` | `sp-area-chart` | `xKey`, `valueKey`, `curve` |
+| REQ-073 | `RangeBandChart` | `SpRangeBandChart` | `sp-range-band-chart` | `xKey`, `lowKey`, `highKey` |
+| REQ-074 | `StreamChart` | `SpStreamChart` | `sp-stream-chart` | `xKey`, `keys`, `stacked` |
+| REQ-075 | `DonutChart` | `SpDonutChart` | `sp-donut-chart` | `nameKey`, `valueKey`, `centerValue?`, `centerLabel?`, `legend` |
+| REQ-076 | `RadarChart` | `SpRadarChart` | `sp-radar-chart` | `subjectKey`, `valueKey`, `domain` |
+| REQ-077 | `PolarBarChart` | `SpPolarBarChart` | `sp-polar-bar-chart` | `nameKey`, `valueKey` |
+| REQ-078 | `RadialArcGroup` | `SpRadialArcGroup` | `sp-radial-arc-group` | `nameKey`, `valueKey` |
+| REQ-079 | `RadialRings` | `SpRadialRings` | `sp-radial-rings` | `nameKey`, `valueKey` |
+| REQ-080 | `GaugeArc` | `SpGaugeArc` | `sp-gauge-arc` | `percent`, `caption?`, `readout?` |
+| REQ-081 | `MeterChart` | `SpMeterChart` | `sp-meter-chart` | `percent`, `caption?`, `readout?` |
+| REQ-082 | `ScatterChart` | `SpScatterChart` | `sp-scatter-chart` | `xKey`, `yKey`, `sizeKey?`, `sizeRange` |
+| REQ-083 | `BubbleChart` | `SpBubbleChart` | `sp-bubble-chart` | `xKey`, `yKey`, `sizeKey`, `sizeRange` |
+| REQ-084 | `HeatmapChart` | `SpHeatmapChart` | `sp-heatmap-chart` | `labelKey`, `valuesKey`, `scaleMax` |
+| REQ-085 | `TreemapChart` | `SpTreemapChart` | `sp-treemap-chart` | `labelKey`, `shareKey`, `columns`, `rows` |
+| REQ-086 | `SankeyChart` | `SpSankeyChart` | `sp-sankey-chart` | `sourceKey`, `targetKey`, `valueKey` |
+| REQ-087 | `ActivityGrid` | `SpActivityGrid` | `sp-activity-grid` | `dateKey`, `countKey`, `levelKey`, `weeks` |
+| REQ-088 | `CoxcombChart` | `SpCoxcombChart` | `sp-coxcomb-chart` | `nameKey`, `valueKey`, `startAngle` |
+| REQ-089 | `WindRose` | `SpWindRose` | `sp-wind-rose` | `bearingKey`, `valueKey`, `sectors`, `bins` |
+| REQ-090 | `VolvelleChart` | `SpVolvelleChart` | `sp-volvelle-chart` | `rings`, `indexRing`, `indexValue` |
+| REQ-091 | `ChordRing` | `SpChordRing` | `sp-chord-ring` | `sourceKey`, `targetKey`, `valueKey`, `maxCategories` |
+| REQ-092 | `OrbitChart` | `SpOrbitChart` | `sp-orbit-chart` | `orbits`, `periodKey`, `markerKey` |
 
 ## 8. API by adapter
 
@@ -389,6 +412,12 @@ Standalone components with signal inputs and `OnPush` (REQ-101).
 
 ```ts
 import { SpLineChart } from '@silverpoint/angular/line-chart';
+```
+
+In Vue the subpath mirrors React's:
+
+```ts
+import { SpLineChart } from '@silverpoint/vue/line-chart';
 import { provideSilverpoint } from '@silverpoint/angular';
 
 bootstrapApplication(App, {
@@ -410,7 +439,46 @@ Inputs are declared with `input()` and are read-only inside the component. The c
 SHALL NOT expose public methods beyond `getGeometry()` and `toSVGString()`, so as to keep
 symmetry with `ChartHandle`.
 
-### 8.3 Ribbon generator
+### 8.3 Vue
+
+Components authored with `<script setup>`, typed props and typed emits (REQ-108).
+
+```ts
+import { SpLineChart, provideSilverpoint } from '@silverpoint/vue';
+
+// main.ts
+app.use(provideSilverpoint({ ground: 'silverpoint', substrate: 'cream' }));
+```
+
+```vue
+<template>
+  <SpLineChart
+    :data="rows"
+    x-key="hour"
+    value-key="hits"
+    title="Throughput per hour"
+    unit="requests"
+    @active-change="active = $event" />
+</template>
+```
+
+Props are the same `CommonChartProps` as every other adapter; in templates they may be
+written in `kebab-case`, which Vue maps to the `camelCase` declaration. Emits are typed,
+so `@active-change` carries `ActiveItem | null` and nothing else.
+
+**Server rendering.** The adapter renders under `@vue/server-renderer` with no DOM access,
+which is what the string gate of DD-003 consumes and what REQ-109 verifies after
+hydration. There is no Nuxt-specific code: a Nuxt app consumes the package like any other
+Vue app, and Nuxt is not a validated integration in v1.
+
+**Imperative API** by template ref, identical to `ChartHandle`:
+
+```ts
+const chart = ref<InstanceType<typeof SpLineChart>>();
+chart.value?.getGeometry();
+```
+
+### 8.4 Ribbon generator
 
 `ChordRing` (REQ-091) needs a generator of ribbons between angular positions that the arc
 engine does not cover. The core exposes it as an internal part and the Technical Design
@@ -419,10 +487,10 @@ does not alter any signature in this specification.
 
 ## 9. Events and interaction
 
-| React | Angular | Payload | When |
-|---|---|---|---|
-| `onActiveChange` | `activeChange` | `ActiveItem \| null` | The pointer enters or leaves an item, or keyboard focus moves (REQ-141) |
-| `onSelect` | `select` | `ActiveItem` | Click, `Enter` or `Space` on an item |
+| React | Vue | Angular | Payload | When |
+|---|---|---|---|---|
+| `onActiveChange` | `@active-change` | `activeChange` | `ActiveItem \| null` | The pointer enters or leaves an item, or keyboard focus moves (REQ-141) |
+| `onSelect` | `@select` | `select` | `ActiveItem` | Click, `Enter` or `Space` on an item |
 
 `onActiveChange` emits `null` when leaving the area or losing focus, leaving no residual
 state (REQ-143). The active item is resolved by the core as a pure function of position
@@ -439,6 +507,10 @@ omitted, the included one is used.
 
 ```html
 <sp-line-chart><ng-template spTooltip let-active>…</ng-template></sp-line-chart>
+```
+
+```vue
+<SpLineChart><template #tooltip="{ active }">…</template></SpLineChart>
 ```
 
 ## 10. DOM and CSS contract
@@ -557,12 +629,14 @@ version.
 | 1.0 | 2026-09-13 | Initial version |
 | 1.2 | 2026-09-13 | Palette replaced with the one verified against the contrast thresholds (Data Model §3.2) |
 | 1.1 | 2026-09-13 | `@silverpoint/fonts` and the `hatchFill` prop are introduced; rounding to 2 decimals; `--sp-font-mono` is removed; `SP011` switches to measuring bytes |
+| 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
+| 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
 
 ## Constitution check
 
 - **Art. 2** — §1 and §8 maintain the boundary: the adapters only consume `Geometry`, and
-  the ribbon generator (§8.3) lives in the core.
+  the ribbon generator (§8.4) lives in the core.
 - **Art. 4** — `seed` is a public prop in §5 and is derived from `id` when omitted.
 - **Art. 5** — §10.3 fixes the accessibility contract, and §5 establishes that the media
   query forcing `precision` cannot be overridden by prop.

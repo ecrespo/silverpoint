@@ -1,0 +1,46 @@
+{
+  "name": "@silverpoint/core",
+  "version": "0.1.0",
+  "description": "Geometry, scales, interaction and the Inker interface of silverpoint. No DOM, no framework.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-shape": "^3.2.0",
+    "esbuild": "^0.28.2",
+    "tsup": "^8.5.1"
+  }
+}

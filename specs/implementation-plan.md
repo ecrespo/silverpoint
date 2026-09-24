@@ -6,19 +6,19 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.1 |
+| **Version** | 1.3 |
 | **Date** | 2026-09-13 |
-| **PRD** | [`prd.md`](prd.md) v1.5 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.2 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.1 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.3 |
+| **PRD** | [`prd.md`](prd.md) v1.7 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.4 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.3 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
 
 ---
 
 ## 1. Implementation Summary
 
 Five phases. The first delivers no catalog: it delivers **a single chart travelling
-through the entire system** — core, inking, interaction, both adapters and the gates — to
+through the entire system** — core, inking, interaction, all three adapters and the gates — to
 retire the risks that could invalidate the architecture. If that slice closes, the three
 that follow are repetition over engines that are already proven.
 
@@ -37,7 +37,7 @@ real cost:
 > scale and move to Phase 2: the real split is 6 / 15 / 10 + 2. The PRD was amended
 > accordingly in v1.4.
 
-**Estimated effort:** 15-21 weeks. **Team:** one person, part time.
+**Estimated effort:** 19-26 weeks. **Team:** one person, part time.
 **Explicit assumption:** these are relative efforts, not delivery commitments. The plan
 must be pausable between phases without leaving the repository inconsistent.
 
@@ -57,12 +57,13 @@ must be pausable between phases without leaving the repository inconsistent.
 
 ### Phase 0 — Vertical slice
 
-**Effort:** 3-4 weeks. **Goal:** retire the risks that could invalidate the architecture,
+**Effort:** 4-5 weeks. **Goal:** retire the risks that could invalidate the architecture,
 using a single chart.
 
 Delivers the monorepo, the scale engine, the `Inker` interface with `NullInker` and
 `RoughInker`, the complete `silverpoint` ground, the typeface package, **the interaction
-engine**, **the line chart** in React and in Angular, and both gates working.
+engine**, **the line chart in all three adapters — React, Vue and Angular** — and both
+gates working.
 
 > Interaction is in this phase deliberately. "Hit-testing is a pure function of the core"
 > is an architectural claim, and it is one of the capabilities given up by not adopting a
@@ -72,13 +73,16 @@ engine**, **the line chart** in React and in Angular, and both gates working.
 Tasks are broken out in [`tasks.md`](tasks.md).
 
 **Done criteria**
-- The string gate compares the line chart rendered by both adapters and finds them identical.
+- The string gate compares the line chart rendered by all three adapters against the
+  fixture's canonical render and finds them identical.
 - The pixel gate produces golden images for the 2 modes × 4 substrates.
 - Hover and keyboard focus both resolve the active item, through the same pure core function.
 - A deliberately dense hatched card has its path weight measured, and the 40 KB budget is
   confirmed or corrected with data.
 - The contrast script validates the ground and fails if a colour is altered.
-- `axe-core` reports no A or AA issues for the line chart across all three example apps.
+- `axe-core` reports no A or AA issues for the line chart across all four example apps.
+- Every subpath resolves under both `vite dev` and `vite build`, with no `optimizeDeps`
+  entry in the example app, and the stylesheet import survives tree-shaking.
 - `0.1.0` is published to npm from CI, with no tokens.
 
 **Stop condition.** If the normaliser cannot reconcile the output of the two server
@@ -89,14 +93,14 @@ rethought. That is the risk this phase exists to resolve.
 
 ### Phase 1 — Layout engine
 
-**Effort:** 2-3 weeks. **Goal:** the 6 charts that need no scales.
+**Effort:** 3-4 weeks. **Goal:** the 6 charts that need no scales.
 
 Bullet, pyramid, treemap, density heatmap, sankey and activity grid. They are direct
 geometry, so they exercise the pipeline without depending on the scale engine and produce
 a showable catalog early.
 
 **Done criteria**
-- All 6 in both adapters, with their fixtures in the matrix.
+- All 6 in all three adapters, with their fixtures in the matrix.
 - **Path weight measured for the matrix families**, which are many small shapes rather than
   few large ones and are where the tile helps least. This is the open question the
   Technical Design deferred to this phase.
@@ -107,7 +111,7 @@ a showable catalog early.
 
 ### Phase 2 — Cartesian scale engine
 
-**Effort:** 4-5 weeks. **Goal:** the 15 cartesian charts.
+**Effort:** 5-6 weeks. **Goal:** the 15 cartesian charts.
 
 A single scale engine and one family of path generators serve them all. The line chart
 already exists from Phase 0, so these are 14 new recipes over proven infrastructure.
@@ -122,7 +126,7 @@ already exists from Phase 0, so these are 14 new recipes over proven infrastruct
 
 ### Phase 3 — Arc engine and own geometry
 
-**Effort:** 4-5 weeks. **Goal:** the 12 polar charts.
+**Effort:** 5-6 weeks. **Goal:** the 12 polar charts.
 
 Ten share the arc engine. **The chord ring and the armillary orbits do not**, and are
 planned as separate work inside the phase: ribbons over `d3-chord`, and elliptical arcs
@@ -141,9 +145,9 @@ with markers positioned along the path.
 **Effort:** 2-3 weeks. **Goal:** publishable.
 
 **Done criteria**
-- WCAG 2.1 AA audit across all three apps, no A or AA issues.
+- WCAG 2.1 AA audit across all four apps, no A or AA issues.
 - REQ-124 verified across the whole catalog as a single pass, not chart by chart.
-- Bundle budgets green for all five packages.
+- Bundle budgets green for all six packages.
 - The 2 ms and 16 ms benchmarks green.
 - Documentation site with gallery, ground playground and the 10-minute quickstart.
 - The full 1,584-fixture matrix green on the nightly run.
@@ -176,6 +180,7 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | Phase 3 overruns because of chord and orbits | High | Medium | They are isolated: if they slip, the other 10 ship anyway |
 | Angular 23 lands mid-project and moves the floor | High | Low | The two-majors policy already anticipates it; the cost is updating the CI matrix |
 | Interaction in the core proves impractical | Low | High | Now surfaced in Phase 0 rather than Phase 2; if it fails, only the line chart has to be reworked |
+| The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
 
@@ -203,6 +208,8 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.3 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: Phase 0 covers all three, effort revised to 19-26 weeks, a fourth example app |
+| 1.2 | 2026-09-13 | Ernesto Crespo | Vite raised to a validated integration: bundler-resolution Done criterion added to Phase 0 (REQ-033, REQ-034) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; interaction pulled into Phase 0 (Analyze finding A-03), REQ-124 given a verification point per phase (finding A-06), effort revised to 15-21 weeks |
 | 1.0 | 2026-09-13 | Ernesto Crespo | Initial version. Regroups phases by shared engine and corrects the PRD's split |
 

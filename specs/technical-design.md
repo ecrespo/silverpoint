@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.2 |
+| **Version** | 1.4 |
 | **Date** | 2026-09-13 |
-| **Related PRD** | [`prd.md`](prd.md) v1.5 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.3 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.2 |
+| **Related PRD** | [`prd.md`](prd.md) v1.7 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -62,12 +62,12 @@ optimization.
             │  ground tokens  +  Inker  (Rough | Null | …)     │
             └────────────────────────┬─────────────────────────┘
                                      │  Geometry (inked, no color)
-                     ┌───────────────┴───────────────┐
-                     ▼                               ▼
-          @silverpoint/react              @silverpoint/angular
-          strokes.map(→ <path>)           @for (stroke of strokes)
-                     │                               │
-                     └───────────────┬───────────────┘
+            ┌────────────────────┼────────────────────┐
+            ▼                    ▼                    ▼
+  @silverpoint/react    @silverpoint/vue     @silverpoint/angular
+  strokes.map(→<path>)  v-for="stroke"       @for (stroke of …)
+            │                    │                    │
+            └────────────────────┼────────────────────┘
                                      ▼
                             SVG with `part` attributes
                                      │
@@ -136,7 +136,7 @@ consumer's side and must break early and with a message that says what is missin
 ### DD-001: Headless core with thin adapters
 
 - **Decision:** all geometry in `@silverpoint/core`, free of DOM and of framework;
-  React and Angular only translate.
+  React, Vue and Angular only translate.
 - **Context:** `recharts` is React-only and there is no shared equivalent with Angular.
   A choice has to be made about where the drawing lives.
 
@@ -178,7 +178,7 @@ consumer's side and must break early and with a message that says what is missin
 | B. `outerHTML` in the browser | Compares exactly what is shipped | Slow, subject to timing and to browser startup |
 
 - **Rationale:** the string gate verifies geometry, which is independent of layout; what
-  does depend on the browser is covered by the pixel gate. And running both adapters under
+  does depend on the browser is covered by the pixel gate. And running every adapter under
   SSR satisfies REQ-103 with no extra work.
 - **Consequences:** every adapter has to render on the server, which was already a
   requirement. The gate is fast enough to run on every PR over the full matrix.
@@ -281,10 +281,10 @@ consumer's side and must break early and with a message that says what is missin
 - **Live alternative:** Turborepo plus manual Angular configuration. Lighter, and
   replaceable without touching the packages' code.
 
-### DD-009: Angular renders with `@for` over the strokes
+### DD-009: Template-driven rendering in Angular and Vue
 
-- **Decision:** declarative template with `@for` and `[attr.d]`, not imperative DOM
-  construction.
+- **Decision:** declarative templates — `@for` with `[attr.d]` in Angular, `v-for` with
+  `:d` in Vue — not imperative DOM construction.
 - **Rationale:** it is idiomatic, it works with `OnPush` and signals, and it produces
   predictable markup. Imperative construction would give more control over attribute order,
   control that DD-004 makes unnecessary.
@@ -316,6 +316,55 @@ consumer's side and must break early and with a message that says what is missin
   reported as `SP013`**, because falling back silently would invalidate the consumer's
   golden images.
 
+### DD-011: Package resolution under a bundler
+
+- **Decision:** the `exports` map is authored so that Vite's dev server and its production
+  build resolve every subpath the same way, and `sideEffects` is `false` everywhere
+  **except** `*.css`. No consumer ever needs an `optimizeDeps` entry.
+- **Context:** React, Vue and Angular are the frameworks, but none of them resolves modules —
+  the bundler does. Vite hosts the React example and, since Angular 17, the Angular CLI as
+  well, so it is the single most exercised resolution path in the project and until now it
+  had no requirement of its own while Next.js had REQ-103.
+- **The three failure modes this closes:**
+
+| Failure | Why it happens | Guard |
+|---|---|---|
+| Works in `vite dev`, breaks in `vite build` | Dependency pre-bundling resolves a dual ESM/CJS package one way in dev and another in Rollup | Both modes exercised in CI, not just dev |
+| The stylesheet silently disappears | `sideEffects: false` lets the bundler drop a CSS import whose result is never referenced | `sideEffects: ["*.css"]` |
+| A subpath resolves to the barrel | `exports` conditions ordered so `default` shadows `import` | Condition order asserted by a resolution test |
+
+- **Justification:** each of these produces a bug that looks like the library is broken while
+  the failure is really in its published metadata. They cost the consumer an afternoon and
+  cost us the report.
+- **Consequences:** the example apps stop being demos and become the integration bench they
+  were always described as. The Vite check runs in CI in both modes, which is cheap, and it
+  covers Angular's resolution path for free.
+
+### DD-012: The Vue adapter
+
+- **Decision:** Vue 3 components authored with `<script setup>`, typed props and typed
+  emits, built with `tsup` like the React adapter, server-rendered through
+  `@vue/server-renderer` for the string gate.
+- **Context:** Vue contributes a component layer, so unlike a build tool it earns an
+  adapter. The question was how thin that adapter can be.
+
+| Option | Pros | Cons |
+|---|---|---|
+| **A. `<script setup>` SFC (chosen)** | Idiomatic; typed props and emits come free; `v-for` produces the same predictable markup as Angular's `@for` | Needs an SFC compile step in the build |
+| B. Render functions in plain TS | No SFC toolchain; closest to the React adapter | Non-idiomatic for Vue consumers; loses template-level type checking |
+| C. Web component wrapper | One implementation for Vue and anything else | Loses typed props and emits, and Vue users would pay for encapsulation they did not ask for |
+
+- **Justification:** the adapter is thin by Art. 2, so the SFC compile step is the only real
+  cost and `tsup` absorbs it. Option B would have been defensible on symmetry alone, but a
+  Vue library that does not look like Vue is not adopted.
+- **No Nuxt.** A Nuxt app consumes the package like any other Vue app. Nuxt is **not** a
+  validated integration in v1: SSR parity is verified directly with `@vue/server-renderer`
+  (REQ-109), which is what the gate needs and what a meta-framework would only wrap. Adding
+  Nuxt later is an example app and a CI job, not an architectural change.
+- **Consequences:** three adapters is where the thin-adapter discipline of Art. 2 stops
+  being a principle and starts paying: the Vue adapter is the same translation written a
+  third time, and none of the geometry, interaction or inking is touched.
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -340,6 +389,7 @@ silverpoint/
 │   ├── grounds/src/        # tokens, RoughInker, styles.css
 │   ├── fonts/           # EB Garamond woff2 + @font-face (optional)
 │   ├── react/src/
+│   ├── vue/src/            # <script setup> SFCs, same props as react
 │   └── angular/src/
 ├── examples/{vite-react,nextjs,angular}/
 ├── fixtures/               # the declared matrix of Art. 3, versioned
@@ -371,6 +421,7 @@ Closes REQ-162. Any addition requires an amendment to this document.
 | `@silverpoint/core` | `d3-scale`, `d3-shape`, `d3-chord` |
 | `@silverpoint/grounds` | `@silverpoint/core`, `roughjs` |
 | `@silverpoint/react` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `react`, `react-dom` |
+| `@silverpoint/vue` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `vue` |
 | `@silverpoint/angular` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `@angular/core`, `@angular/common` |
 | `@silverpoint/fonts` | none — only woff2 and CSS |
 
@@ -428,13 +479,15 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Property-based | Key invariants | Vitest plus `fast-check` | Scale monotonicity, domain coverage, that the Inker preserves the endpoints of `role='encoding'` | Every PR |
 | `ink`/`precision` equivalence | 33 charts | Vitest | REQ-006: same encoding vertices in both modes | Every PR |
 | React adapter | Happy path and accessibility | Vitest plus Testing Library | Props, events, ARIA roles | Every PR |
+| Vue adapter | Happy path and accessibility | Vitest plus Vue Test Utils | Props, emits, ARIA roles | Every PR |
 | Angular adapter | Happy path and accessibility | TestBed | Signal inputs, outputs, `OnPush` | Every PR |
-| **String gate** | Full matrix | Node, SSR of both adapters plus `svg-normalizer` | REQ-180, zero tolerance | Every PR |
+| **String gate** | Full matrix | Node, SSR of all three adapters plus `svg-normalizer` | REQ-180, zero tolerance | Every PR |
 | **Pixel gate** | Reduced matrix on PR, full at night | Playwright, container pinned by digest | REQ-181, the three thresholds of Art. 3 | PR and nightly |
-| Hydration | Next.js app | Playwright | REQ-103: no server/client mismatches | Every PR |
-| Accessibility | The three example apps | `axe-core` | REQ-120 to REQ-125; zero A and AA issues | Every PR |
+| Hydration | Next.js and Vue SSR apps | Playwright | REQ-103 and REQ-109: no server/client mismatches | Every PR |
+| Accessibility | The four example apps | `axe-core` | REQ-120 to REQ-125; zero A and AA issues | Every PR |
 | Ground contrast | Every registered ground | In-house script over the tokens | REQ-126, REQ-127; fails before publishing | Every PR |
-| Budgets | The four packages | `size-limit` | REQ-164 | Every PR |
+| Budgets | The five packages | `size-limit` | REQ-164 | Every PR |
+| Bundler resolution | Vite dev and build | Vite plus resolution assertions | REQ-033, REQ-034: every subpath in both modes, stylesheet survives tree-shaking | Every PR |
 | Performance | Geometry and render | Vitest benchmarks | The 2 ms and 16 ms of §2 | Nightly |
 | Boundary rules | The whole repo | In-house ESLint | REQ-004 and REQ-106: no `Math.random`, no `Date.now`, no cross imports | Every PR |
 
@@ -486,6 +539,8 @@ report that feeds the Analyze gate (REQ-184).
 |---|---|---|---|
 | 1.0 | 2026-09-13 | Ernesto Crespo | Initial version |
 | 1.1 | 2026-09-13 | Ernesto Crespo | DD-004 moves to parsed-tree comparison; DD-007 moves to tile per tonal level with the measurements that motivate it; DD-010 (typography) enters; `d3-array` leaves the allowlist; Angular pinned to 21 and 22; the exception to Art. 6 is withdrawn |
+| 1.4 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: DD-012, DD-009 extended to cover it, DD-004 amended to compare against a canonical render instead of pairwise |
+| 1.3 | 2026-09-13 | Ernesto Crespo | DD-011 added: package resolution under a bundler, with Vite raised to a validated integration alongside Next.js |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check

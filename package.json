@@ -1,0 +1,23 @@
+{
+  "name": "silverpoint-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "nx run-many -t build --projects='@silverpoint/*'",
+    "test": "vitest run",
+    "lint": "eslint . && node tools/lint-rules/check-deps.mjs && node tools/spec-check/spec-check.mjs",
+    "spec-check": "node tools/spec-check/spec-check.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "nx": "^23.2.1",
+    "tsx": "^4.23.13",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.0"
+  }
+}

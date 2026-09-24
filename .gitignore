@@ -94,3 +94,16 @@ resources/.arch-internal-preview.css
 .arch-internal-preview.css
 
 .idea/
+
+### silverpoint
+node_modules/
+dist/
+.nx/
+coverage/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.next/
+.angular/
+next-env.d.ts
+reports/*.local.*

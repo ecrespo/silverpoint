@@ -6,24 +6,24 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.5 |
+| **Version** | 1.7 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
 | **Last updated** | 2026-09-13 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.2 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
 
 ---
 
 ## 1. Executive Summary
 
-**silverpoint** is a charting library for React and Angular whose visual language is drawn
+**silverpoint** is a charting library for React, Vue and Angular whose visual language is drawn
 from historical drawing techniques. The first style —the `silverpoint` *ground*— reproduces
 the mechanics of Renaissance silverpoint: a prepared mid-tone substrate, a fine silver line,
 value built by hatch density, and white heightening on a single element. The engine supports
 several grounds, each with its own tonal mechanism.
 
 It targets teams building data products that do not want to look like yet another dashboard,
-and very particularly the houses that maintain React and Angular at the same time and today
+and very particularly the houses that maintain more than one front-end framework at once and today
 have no way to share a charting system between the two.
 
 The difference from the existing hand-drawn stroke libraries is an engineering decision, not
@@ -80,7 +80,7 @@ with `recharts`.
 - **Frequency of use:** Daily during development; the library choice is made once.
 - **Technical level:** High.
 
-### Persona 2: Architect at a house running React and Angular
+### Persona 2: Architect at a multi-framework house
 - **Description:** Tech lead at a company with a new product in React and a legacy platform in
   Angular.
 - **Main need:** A single charting system, with a verifiable guarantee that both stacks
@@ -108,7 +108,7 @@ with `recharts`.
 
 | Objective | Metric | Target | Deadline |
 |---|---|---|---|
-| Verifiable React/Angular parity | Art. 3 gates green over the full matrix | 100% | Release v1.0 |
+| Verifiable parity across all three adapters | Art. 3 gates green over the full matrix | 100% | Release v1.0 |
 | Do not charge for the style in accuracy | Identical vertices between `ink` and `precision` | 100% of the charts | Release v1.0 |
 | Real accessibility | WCAG 2.1 AA audit over the example apps | 0 level A and AA issues | Release v1.0 |
 | Low adoption cost | Weight of `@silverpoint/react` + `core` with one chart, minified and compressed | < 45 KB | Release v1.0 |
@@ -131,10 +131,13 @@ with `recharts`.
 - [ ] `@silverpoint/grounds`: declarative style tokens; complete `silverpoint` ground.
 - [ ] `@silverpoint/react`: React adapter, compatible with Vite and Next.js (SSR included).
 - [ ] `@silverpoint/angular`: standalone adapter with signals, packaged in APF.
+- [ ] `@silverpoint/vue`: Vue 3 adapter with `<script setup>`, typed props and emits.
 - [ ] The 28 charts of the base catalog and 5 new radial ones (§6.4).
 - [ ] `ink` and `precision` modes in every chart.
 - [ ] Accessibility layer: roles, names, tabular alternative and keyboard navigation.
-- [ ] `vite-react`, `nextjs` and `angular` example apps as an integration bench.
+- [ ] `vite-react`, `vite-vue`, `nextjs` and `angular` example apps as an integration bench. All four
+      are **validated integrations with requirements of their own**, not demos: Vite under
+      REQ-033 and REQ-034, Next.js under REQ-103.
 - [ ] Cross visual regression harness and the Art. 3 CI gates.
 - [ ] Documentation site with a gallery and a grounds playground.
 
@@ -268,7 +271,7 @@ Cross-cutting catalog requirements:
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-100 | ubiquitous | The React and Angular adapters SHALL produce character-for-character identical normalised SVG for the same inputs. | MUST |
+| REQ-100 | ubiquitous | Every adapter SHALL produce normalised SVG that is character-for-character identical to the canonical render stored with the fixture, for the same inputs. | MUST |
 | REQ-101 | ubiquitous | The Angular adapter SHALL expose standalone components with signal inputs and `ChangeDetectionStrategy.OnPush`. | MUST |
 | REQ-102 | ubiquitous | No adapter SHALL contain computation of scales, axes, arcs or paths. | MUST |
 | REQ-103 | event | WHEN the Next.js app renders on the server, THE SYSTEM SHALL produce markup that hydrates without mismatches. | MUST |
@@ -276,6 +279,8 @@ Cross-cutting catalog requirements:
 | REQ-105 | ubiquitous | The Angular adapter SHALL be published in Angular Package Format. | MUST |
 | REQ-106 | unwanted | IF an adapter package imports `d3-*` or the inking engine, THEN CI SHALL fail. | MUST |
 | REQ-107 | ubiquitous | Each chart SHALL be importable by its own subpath, so that an app using one does not include all 33. | MUST |
+| REQ-108 | ubiquitous | The Vue adapter SHALL expose components authored with `<script setup>`, declaring typed props and typed emits, with no component-local reactive state beyond the measured container size. | MUST |
+| REQ-109 | event | WHEN a Vue application server-renders a chart with `@vue/server-renderer` and then hydrates it, THE SYSTEM SHALL produce the same markup, with no hydration mismatches. | MUST |
 
 ### 6.6 Accessibility
 
@@ -304,17 +309,19 @@ Cross-cutting catalog requirements:
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-160 | ubiquitous | THE SYSTEM SHALL be published as `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/react`, `@silverpoint/angular` and `@silverpoint/fonts` (optional). | MUST |
-| REQ-161 | ubiquitous | React and Angular SHALL be declared as `peerDependencies`, never as dependencies. | MUST |
+| REQ-160 | ubiquitous | THE SYSTEM SHALL be published as `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/react`, `@silverpoint/angular`, `@silverpoint/vue` and `@silverpoint/fonts` (optional). | MUST |
+| REQ-161 | ubiquitous | React, Angular and Vue SHALL be declared as `peerDependencies`, never as dependencies. | MUST |
 | REQ-162 | ubiquitous | `@silverpoint/core` SHALL NOT declare runtime dependencies outside the Technical Design's allowlist. | MUST |
 | REQ-163 | ubiquitous | Every package SHALL publish an `exports` map, types, and `sideEffects: false` except for the stylesheet. | MUST |
 | REQ-164 | unwanted | IF a package exceeds its declared bundle budget, THEN CI SHALL fail. | MUST |
+| REQ-033 | event | WHEN the packages are consumed from a Vite application, THE SYSTEM SHALL resolve every subpath export identically in the dev server and in the production build, with no `optimizeDeps` override required from the consumer. | MUST |
+| REQ-034 | unwanted | IF a bundler would drop the stylesheet import because the package declares `sideEffects: false`, THEN THE SYSTEM SHALL declare the stylesheet as a side effect so that it survives tree-shaking. | MUST |
 
 ### 6.9 Quality and traceability
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-180 | ubiquitous | CI SHALL run the normalised-SVG equality gate between React and Angular with zero tolerance. | MUST |
+| REQ-180 | ubiquitous | CI SHALL run the normalised-SVG equality gate for every adapter against the fixture's canonical render, with zero tolerance. | MUST |
 | REQ-181 | ubiquitous | CI SHALL run the three pixel gates of Art. 3 with the thresholds set there. | MUST |
 | REQ-182 | ubiquitous | The gates SHALL operate over a declared fixture matrix —chart × ground × mode × size—, versioned in the repository. | MUST |
 | REQ-183 | ubiquitous | Every `MUST` requirement SHALL have at least one automated test citing its `REQ-NNN`. | MUST |
@@ -346,7 +353,9 @@ reinterpreted and the original is stated.
 ### Compatibility *(in place of "Availability")*
 
 - Browsers: the last two major versions of Chrome, Firefox, Safari and Edge.
-- React 18.2+ and 19. Angular: the two most recent majors. Node 20+ for the build.
+- React 18.2+ and 19. Angular: the two most recent majors. Vue 3.4+. Node 20+ for the build.
+- Vite: the two most recent majors, as the dev server and bundler of the React example and,
+  underneath, of the Angular CLI.
 - TypeScript 5.x; the published types SHALL resolve under `moduleResolution: bundler` and
   `node16`.
 
@@ -402,13 +411,13 @@ full documentation, so that I can evaluate the library in an afternoon.
   - [ ] Installing, importing a chart and seeing it with my own data takes less than 10 minutes (REQ-093).
   - [ ] Invoking it without `data` shows a demo dataset instead of an empty canvas (REQ-093).
 
-### Epic B — House with two frameworks
+### Epic B — House with several frameworks
 
-**US-002:** As an architect, I want a verifiable guarantee that React and Angular draw the
+**US-002:** As an architect, I want a verifiable guarantee that every adapter draws the
 same thing, so that I can standardise without auditing it by eye.
 - Acceptance criteria:
   - [ ] CI publishes the result of the SVG equality gate on every PR (REQ-180).
-  - [ ] The documentation shows the same fixture rendered by both adapters (REQ-100).
+  - [ ] The documentation shows the same fixture rendered by all three adapters (REQ-100).
 
 ### Epic C — Style as data
 
@@ -443,7 +452,7 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | Risk | Prob. | Impact | Mitigation |
 |---|---|---|---|
 | **Path data weight**: measured, a 6-bar card with cross-hatching weighs 76 KB of `d`, and a 12-card dashboard 913 KB, which moreover travel inside the server's HTML | High | High | Mitigated in design: shared-tile fill (REQ-029) brings the cost down to ~1 KB per tonal level; default gap 7 and rounding to 2 decimals as additional levers; 40 KB budget verified in CI |
-| The string equality gate turns out to be inapplicable because of serialisation differences between React and Angular | Medium | High | The risk is retired in Phase 0 with the vertical slice; if it falls, it degrades to SVG AST comparison before touching the pixel thresholds |
+| The string equality gate turns out to be inapplicable because of serialisation differences between the adapters' server renderers | Medium | High | The risk is retired in Phase 0 with the vertical slice; if it falls, it degrades to SVG AST comparison before touching the pixel thresholds |
 | `rough.js` is left unmaintained | Low | Medium | The `Inker` interface isolates it; an in-house `Inker` is viable because the subset used is small |
 | The Angular adapter effort is underestimated (APF, TestBed, version matrix) | Medium | Medium | Angular enters the Phase 0 vertical slice, not the end |
 | 33 charts are too many for a one-person team | High | Medium | The families share engines: one scale engine serves 15 charts and one arc engine 10; the plan groups them by engine, not by chart. Outside that amortisation are the chord ring and the orbits (REQ-091, REQ-092), which carry their own geometry and are planned as separate work |
@@ -470,6 +479,8 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.7 | 2026-09-13 | Ernesto Crespo | Vue added as a third supported framework: REQ-108 and REQ-109 enter, `@silverpoint/vue` joins REQ-160 and REQ-161, REQ-100 reformulated against a canonical render |
+| 1.6 | 2026-09-13 | Ernesto Crespo | Vite raised to a first-class validated integration: REQ-033 and REQ-034 added, compatibility floor stated, scope wording corrected |
 | 1.5 | 2026-09-13 | Ernesto Crespo | Converted to English; REQ-032 added to cover typeface load failure (Analyze finding A-05) |
 | 1.4 | 2026-09-13 | Ernesto Crespo | Phase split corrected by breaking down per engine: 6 / 15 / 10+2 instead of 8 / 13 / 12 |
 | 1.3 | 2026-09-13 | Ernesto Crespo | REQ-031 enters (heightening outline), after verifying that white does not reach 3:1 over any light substrate |

@@ -1,6 +1,6 @@
 # silverpoint
 
-Charts for React and Angular whose visual language is historical drawing technique.
+Charts for React, Vue and Angular whose visual language is historical drawing technique.
 
 The first style reproduces the mechanics of Renaissance **silverpoint**: a prepared
 middle-tone substrate, a fine silver line, tonal value built from hatch density, and white

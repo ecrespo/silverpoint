@@ -1,0 +1,46 @@
+{
+  "name": "@silverpoint/grounds",
+  "version": "0.1.0",
+  "description": "Declarative style grounds of silverpoint: tokens, inkers and the stylesheet.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/grounds"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup && node -e \"require('node:fs').copyFileSync('src/styles.css','dist/styles.css')\"",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "roughjs": "4.6.6"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  }
+}
