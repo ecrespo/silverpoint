@@ -1,0 +1,22 @@
+@silverpoint/fonts
+==================
+
+This package redistributes EB Garamond, unmodified from the latin subset built by
+Fontsource (@fontsource/eb-garamond 5.3.0):
+
+  files/eb-garamond-latin-400-normal.woff2
+  files/eb-garamond-latin-500-normal.woff2
+  files/eb-garamond-latin-400-italic.woff2
+
+EB Garamond
+Copyright 2017 The EB Garamond Project Authors
+(https://github.com/octaviopardo/EBGaramond12).
+Original digitisation by Georg Duffner; extended by Octavio Pardo. Based on the roman
+of Claude Garamont and the italic of Robert Granjon, from the Berner specimen of 1592.
+
+The fonts are licensed under the SIL Open Font License, Version 1.1. The full text of
+the licence is in OFL.txt. The fonts may be used, modified and redistributed, including
+commercially, but may not be sold on their own. The subset is a derivative work: no
+Reserved Font Name is used by this package.
+
+The rest of this package (fonts.css, package.json) is licensed under the MIT licence.
