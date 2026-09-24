@@ -14,7 +14,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-004 | done | 2026-09-24 | pre-existing; five frozen FNV-1a pairs verified against the reference values |
 | T-005 – T-009 | done | 2026-09-24 | pre-existing; `packages/core/test/*` verified against every Done criterion (Node without DOM, `SP004` on `[5,5]`, production build free of warn codes, `NullInker` identity and `SP006`, line-chart snapshot and `chrome: 'bare'`, pure hit-testing) |
 | T-010 | done | 2026-09-24 | `packages/grounds/test/ground.test.ts` |
-| T-011 | done | 2026-09-24 | `tools/contrast-gate` reproduces Data Model §3.2; lightening `ink` 5 % fails; wired into `pnpm lint` |
+| T-011 | done | 2026-09-24 | `tools/contrast-gate` reproduces Data Model §3.2; lightening `ink` 5 % fails; runs as its own CI step |
 | T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-023) |
 | T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
 | T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
@@ -31,6 +31,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-024 | done | 2026-09-24 | `tools/resolution-check`: the vite-react app — barrel, `line-chart`, `server/line-chart`, grounds, fonts — builds with `vite build` shipping the ground variables, part rules and `@font-face`; serves under `vite dev` in the pinned browser with both charts rendered and no errors; its own config declares no `optimizeDeps` and no aliases; the dev build reports SP013 when the typeface is blocked. Removing `"*.css"` from grounds' `sideEffects` drops the stylesheet in a webpack-style tree-shaking bundle, and the check fails |
 | T-022 | done | 2026-09-24 | `e2e/pixel.spec.ts`, goldens in `e2e/__golden__/` (8: 2 modes × 4 substrates) generated inside `mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30…` by `tools/visual-gate/pixel-docker.sh`. Every adapter (4 apps) passes the three Art. 3 comparisons against the framework-free canonical page (`canonical.html`) and the golden: **40/40** in the pinned container, and also on the host. Moving the heightened vertex by 2 px fails the gate; two consecutive screenshots are pixel-identical. CI runs the bench in the same pinned image |
 | T-026 | done | 2026-09-24 | `e2e/a11y.spec.ts` over the four apps, **36/36**: axe-core (WCAG 2.1 A + AA) reports no issue on the home and fixture pages; the SVG is `role="img"` named per API Spec §10.3; the table is reachable; Tab + arrows traverse and announce; `prefers-contrast: more` and `forced-colors: active` switch to precision; `prefers-reduced-motion` drops the entry animation; with hatching disabled the series stay distinct by line and dash (REQ-124) |
+| T-029 | done | 2026-09-24 | `tools/traceability` (tests + `reports/traceability.md`): REQ ids cited in test names reconciled with the PRD's MUST set and the Deferred table. The first real run flagged **REQ-105 and REQ-107 as blocking** — no test cited them — and tests were added (`packages/angular/test/apf.test.ts`, `tools/resolution-check/subpaths.real.test.ts`). Now **68/99 MUST covered, 31 deferred to phases 1-3, 0 blocking** |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -144,6 +145,10 @@ failing first where code changed.
 - **T-022 · Process note:** the first container run let pnpm 12 reinstall `node_modules` against a
   store inside the mount; the host install was restored and the script now sets
   `pnpm_config_verify_deps_before_run=false`.
+- **Ruling · root `package.json` is read-only** in this checkout (like `specs/`), so no root
+  scripts were added: CI invokes the tools directly (`pnpm exec size-limit`,
+  `pnpm exec playwright test`, `pnpm exec tsx tools/…`). *Cost if wrong:* convenience scripts
+  (`size`, `e2e`, `contrast`, `traceability`) can be added once the file is writable.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

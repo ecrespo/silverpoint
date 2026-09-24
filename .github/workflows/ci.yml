@@ -23,6 +23,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       # REQ-004, REQ-027, REQ-106, REQ-161..163, REQ-034 and the spec corpus gate.
       - run: pnpm lint
+      # REQ-126, REQ-127: every ink of every ground against every substrate.
+      - run: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
       # REQ-044: a PR that touches a ground may not touch the charts.
       # Feature PRs only: a release PR's window legitimately holds many ground and chart changes.
       - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
@@ -32,7 +34,9 @@ jobs:
       # REQ-180: every adapter against the canonical render of every fixture.
       - run: pnpm --filter @silverpoint/visual-gate string-gate
       # REQ-164: every package within its declared budget.
-      - run: pnpm size
+      - run: pnpm exec size-limit
+      # REQ-183, REQ-184: every MUST cited by a test, or deferred by the task list.
+      - run: pnpm exec tsx tools/traceability/traceability.ts
 
   # The integration bench and the pixel gate run on one rasteriser, pinned by digest (Art. 3).
   browser:
@@ -49,7 +53,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       # REQ-103, REQ-109, REQ-042, REQ-032 on the four example apps; REQ-181 pixel gate.
-      - run: pnpm e2e
+      - run: pnpm exec playwright test
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
