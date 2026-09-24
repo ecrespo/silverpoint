@@ -9,6 +9,7 @@
     "serve": "vite build && vite preview --strictPort"
   },
   "dependencies": {
+    "@silverpoint/core": "workspace:*",
     "@silverpoint/example-harness": "workspace:*",
     "@silverpoint/fonts": "workspace:*",
     "@silverpoint/grounds": "workspace:*",

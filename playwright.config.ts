@@ -31,6 +31,8 @@ export default defineConfig({
     reducedMotion: 'reduce',
   },
   expect: { toHaveScreenshot: { animations: 'disabled' } },
+  // One golden image per fixture, shared by every adapter: the canonical render's screenshot.
+  snapshotPathTemplate: '{testDir}/__golden__/{arg}{ext}',
   projects: selected.map(([name, app]) => ({
     name,
     use: { baseURL: `http://localhost:${app.port}` },

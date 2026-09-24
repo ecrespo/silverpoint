@@ -29,6 +29,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-028 | done | 2026-09-24 | `.size-limit.json` and `tools/bundle-budget/budget.real.test.ts`, min+gzip over the built packages: React client + core + LineChart **26.3 KiB** of 45 KB (rough.js and d3 included), React server 23.9, Vue 27.5, Angular 29.5, core 16.1 of 20, grounds 23.9 of 30, stylesheet 1.8 of 4, fonts 72.7 of 76 (raw woff2). A 1 kB limit makes size-limit exit non-zero |
 | T-023 | done | 2026-09-24 | `e2e/apps.spec.ts` over `vite-react`, `vite-vue` (SSR prerender + `createSSRApp` hydration), `nextjs` (client chart hydrated + server chart as RSC) and `angular` (Angular CLI 21 consuming the APF build): **18 passed, 2 skipped** (the hydration case on the two client-rendered apps). All four share `examples/harness` — one stylesheet, one fixed container. Next.js and Vue: server HTML and hydrated DOM both equal the canonical render; a tampered server page is caught. Also closes the browser halves of T-012 (blocked typeface: chart still renders) and T-013 (a consumer `.sp-root { --sp-ink }` recolours the same DOM node) |
 | T-024 | done | 2026-09-24 | `tools/resolution-check`: the vite-react app — barrel, `line-chart`, `server/line-chart`, grounds, fonts — builds with `vite build` shipping the ground variables, part rules and `@font-face`; serves under `vite dev` in the pinned browser with both charts rendered and no errors; its own config declares no `optimizeDeps` and no aliases; the dev build reports SP013 when the typeface is blocked. Removing `"*.css"` from grounds' `sideEffects` drops the stylesheet in a webpack-style tree-shaking bundle, and the check fails |
+| T-022 | done | 2026-09-24 | `e2e/pixel.spec.ts`, goldens in `e2e/__golden__/` (8: 2 modes × 4 substrates) generated inside `mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30…` by `tools/visual-gate/pixel-docker.sh`. Every adapter (4 apps) passes the three Art. 3 comparisons against the framework-free canonical page (`canonical.html`) and the golden: **40/40** in the pinned container, and also on the host. Moving the heightened vertex by 2 px fails the gate; two consecutive screenshots are pixel-identical. CI runs the bench in the same pinned image |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -134,6 +135,14 @@ failing first where code changed.
 - **T-024 · Ruling:** the example apps now import `@silverpoint/fonts/fonts.css` and
   `@silverpoint/grounds/styles.css` from JavaScript, as API Spec §1 documents, and the shared
   harness sheet carries only the fixed container. A CSS `@import` would have masked REQ-034.
+- **T-022 · Ruling:** the golden image is the screenshot of the *canonical* page — the core's SVG
+  string in the shared harness, no framework — one per fixture and shared by every adapter, so an
+  adapter is never its own reference. Pixel comparison uses pixelmatch with Playwright's
+  threshold semantics, because the Art. 3 "same commit" comparison is between two live
+  screenshots, which `toHaveScreenshot` cannot express.
+- **T-022 · Process note:** the first container run let pnpm 12 reinstall `node_modules` against a
+  store inside the mount; the host install was restored and the script now sets
+  `pnpm_config_verify_deps_before_run=false`.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen
