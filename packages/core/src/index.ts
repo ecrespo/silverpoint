@@ -3,6 +3,8 @@ export type * from './types';
 export { round2, roundPathData, roundGeometry } from './render/round';
 export { serializeGeometry, parseGeometry, pathBytes, PATH_BYTE_BUDGET } from './render/serialize';
 export { fnv1a32, deriveSeed, resolveSeed } from './render/seed';
+export { createPrng } from './render/prng';
+export { addDays, isoDate, parseIsoDate, weekday } from './charts/shared/dates';
 export { enforceHeightening } from './render/heighten';
 export { svgString, toSvgView, type PathView, type PatternView, type SvgView, type TextView, type ViewStyle } from './render/view';
 
