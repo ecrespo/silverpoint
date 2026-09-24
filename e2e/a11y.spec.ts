@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { FIXTURES, fixtureProps } from '../examples/harness/index.js';
 import { readout, stepActive, type ActiveItem } from '../packages/core/dist/index.js';
 import { renderChart } from '../packages/grounds/dist/index.js';
-import { catalogEntry } from '../tools/visual-gate/catalog';
+import { CATALOG, catalogEntry } from '../tools/visual-gate/catalog';
 
 const WCAG_AA = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
 
@@ -85,10 +85,10 @@ function modelOf(fixture: (typeof FIXTURES)[number]) {
   return renderChart(catalogEntry(fixture.chart).recipe, fixtureProps(fixture), { id: fixture.id });
 }
 
-test.describe('Phase 1 accessibility', () => {
-  test('REQ-120 · REQ-121 · axe-core reports no A or AA issue on a gallery of all seven charts', async ({ page }) => {
+test.describe('catalog accessibility', () => {
+  test(`REQ-120 · REQ-121 · axe-core reports no A or AA issue on a gallery of all ${CATALOG.length} charts`, async ({ page }) => {
     await page.goto('/?gallery');
-    await expect(page.locator('.sp-gallery .sp-root[data-status="ready"]')).toHaveCount(7);
+    await expect(page.locator('.sp-gallery .sp-root[data-status="ready"]')).toHaveCount(CATALOG.length);
     const results = await new AxeBuilder({ page }).withTags(WCAG_AA).analyze();
     expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
   });

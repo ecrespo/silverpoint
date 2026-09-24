@@ -8,12 +8,26 @@ import { SpHeatmapChart } from '@silverpoint/angular/heatmap-chart';
 import { SpTreemapChart } from '@silverpoint/angular/treemap-chart';
 import { SpSankeyChart } from '@silverpoint/angular/sankey-chart';
 import { SpActivityGrid } from '@silverpoint/angular/activity-grid';
+import { SpStepChart } from '@silverpoint/angular/step-chart';
+import { SpSparklineRows } from '@silverpoint/angular/sparkline-rows';
+import { SpKpiCard } from '@silverpoint/angular/kpi-card';
+import { SpBarChart } from '@silverpoint/angular/bar-chart';
+import { SpStackedBarChart } from '@silverpoint/angular/stacked-bar-chart';
+import { SpComposedChart } from '@silverpoint/angular/composed-chart';
+import { SpWaterfallChart } from '@silverpoint/angular/waterfall-chart';
+import { SpFunnelChart } from '@silverpoint/angular/funnel-chart';
+import { SpCandlestickChart } from '@silverpoint/angular/candlestick-chart';
+import { SpAreaChart } from '@silverpoint/angular/area-chart';
+import { SpRangeBandChart } from '@silverpoint/angular/range-band-chart';
+import { SpStreamChart } from '@silverpoint/angular/stream-chart';
+import { SpScatterChart } from '@silverpoint/angular/scatter-chart';
+import { SpBubbleChart } from '@silverpoint/angular/bubble-chart';
 import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid };
+const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart };
 
 @Component({
   selector: 'app-root',

@@ -10,6 +10,20 @@ import { HeatmapChart } from '@silverpoint/react/heatmap-chart';
 import { TreemapChart } from '@silverpoint/react/treemap-chart';
 import { SankeyChart } from '@silverpoint/react/sankey-chart';
 import { ActivityGrid } from '@silverpoint/react/activity-grid';
+import { StepChart } from '@silverpoint/react/step-chart';
+import { SparklineRows } from '@silverpoint/react/sparkline-rows';
+import { KpiCard } from '@silverpoint/react/kpi-card';
+import { BarChart } from '@silverpoint/react/bar-chart';
+import { StackedBarChart } from '@silverpoint/react/stacked-bar-chart';
+import { ComposedChart } from '@silverpoint/react/composed-chart';
+import { WaterfallChart } from '@silverpoint/react/waterfall-chart';
+import { FunnelChart } from '@silverpoint/react/funnel-chart';
+import { CandlestickChart } from '@silverpoint/react/candlestick-chart';
+import { AreaChart } from '@silverpoint/react/area-chart';
+import { RangeBandChart } from '@silverpoint/react/range-band-chart';
+import { StreamChart } from '@silverpoint/react/stream-chart';
+import { ScatterChart } from '@silverpoint/react/scatter-chart';
+import { BubbleChart } from '@silverpoint/react/bubble-chart';
 import { LineChart as ServerLineChart } from '@silverpoint/react/server/line-chart';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -19,7 +33,7 @@ import { createRoot } from 'react-dom/client';
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid } as const;
+const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart } as const;
 
 function App() {
   if (wantsGallery(location.search)) {

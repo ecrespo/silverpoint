@@ -315,6 +315,636 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, StepChart (client)",
+    "path": "packages/react/dist/step-chart.js",
+    "import": "{ StepChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, StepChart (server)",
+    "path": "packages/react/dist/server/step-chart.js",
+    "import": "{ StepChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpStepChart",
+    "path": "packages/vue/dist/step-chart.js",
+    "import": "{ SpStepChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpStepChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-step-chart.mjs",
+    "import": "{ SpStepChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SparklineRows (client)",
+    "path": "packages/react/dist/sparkline-rows.js",
+    "import": "{ SparklineRows }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SparklineRows (server)",
+    "path": "packages/react/dist/server/sparkline-rows.js",
+    "import": "{ SparklineRows }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpSparklineRows",
+    "path": "packages/vue/dist/sparkline-rows.js",
+    "import": "{ SpSparklineRows }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpSparklineRows",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-sparkline-rows.mjs",
+    "import": "{ SpSparklineRows }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, KpiCard (client)",
+    "path": "packages/react/dist/kpi-card.js",
+    "import": "{ KpiCard }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, KpiCard (server)",
+    "path": "packages/react/dist/server/kpi-card.js",
+    "import": "{ KpiCard }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpKpiCard",
+    "path": "packages/vue/dist/kpi-card.js",
+    "import": "{ SpKpiCard }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpKpiCard",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-kpi-card.mjs",
+    "import": "{ SpKpiCard }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BarChart (client)",
+    "path": "packages/react/dist/bar-chart.js",
+    "import": "{ BarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BarChart (server)",
+    "path": "packages/react/dist/server/bar-chart.js",
+    "import": "{ BarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBarChart",
+    "path": "packages/vue/dist/bar-chart.js",
+    "import": "{ SpBarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-bar-chart.mjs",
+    "import": "{ SpBarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, StackedBarChart (client)",
+    "path": "packages/react/dist/stacked-bar-chart.js",
+    "import": "{ StackedBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, StackedBarChart (server)",
+    "path": "packages/react/dist/server/stacked-bar-chart.js",
+    "import": "{ StackedBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpStackedBarChart",
+    "path": "packages/vue/dist/stacked-bar-chart.js",
+    "import": "{ SpStackedBarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpStackedBarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-stacked-bar-chart.mjs",
+    "import": "{ SpStackedBarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ComposedChart (client)",
+    "path": "packages/react/dist/composed-chart.js",
+    "import": "{ ComposedChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ComposedChart (server)",
+    "path": "packages/react/dist/server/composed-chart.js",
+    "import": "{ ComposedChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpComposedChart",
+    "path": "packages/vue/dist/composed-chart.js",
+    "import": "{ SpComposedChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpComposedChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-composed-chart.mjs",
+    "import": "{ SpComposedChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, WaterfallChart (client)",
+    "path": "packages/react/dist/waterfall-chart.js",
+    "import": "{ WaterfallChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, WaterfallChart (server)",
+    "path": "packages/react/dist/server/waterfall-chart.js",
+    "import": "{ WaterfallChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpWaterfallChart",
+    "path": "packages/vue/dist/waterfall-chart.js",
+    "import": "{ SpWaterfallChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpWaterfallChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-waterfall-chart.mjs",
+    "import": "{ SpWaterfallChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, FunnelChart (client)",
+    "path": "packages/react/dist/funnel-chart.js",
+    "import": "{ FunnelChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, FunnelChart (server)",
+    "path": "packages/react/dist/server/funnel-chart.js",
+    "import": "{ FunnelChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpFunnelChart",
+    "path": "packages/vue/dist/funnel-chart.js",
+    "import": "{ SpFunnelChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpFunnelChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-funnel-chart.mjs",
+    "import": "{ SpFunnelChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, CandlestickChart (client)",
+    "path": "packages/react/dist/candlestick-chart.js",
+    "import": "{ CandlestickChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, CandlestickChart (server)",
+    "path": "packages/react/dist/server/candlestick-chart.js",
+    "import": "{ CandlestickChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpCandlestickChart",
+    "path": "packages/vue/dist/candlestick-chart.js",
+    "import": "{ SpCandlestickChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpCandlestickChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-candlestick-chart.mjs",
+    "import": "{ SpCandlestickChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, AreaChart (client)",
+    "path": "packages/react/dist/area-chart.js",
+    "import": "{ AreaChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, AreaChart (server)",
+    "path": "packages/react/dist/server/area-chart.js",
+    "import": "{ AreaChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpAreaChart",
+    "path": "packages/vue/dist/area-chart.js",
+    "import": "{ SpAreaChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpAreaChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-area-chart.mjs",
+    "import": "{ SpAreaChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RangeBandChart (client)",
+    "path": "packages/react/dist/range-band-chart.js",
+    "import": "{ RangeBandChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RangeBandChart (server)",
+    "path": "packages/react/dist/server/range-band-chart.js",
+    "import": "{ RangeBandChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpRangeBandChart",
+    "path": "packages/vue/dist/range-band-chart.js",
+    "import": "{ SpRangeBandChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpRangeBandChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-range-band-chart.mjs",
+    "import": "{ SpRangeBandChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, StreamChart (client)",
+    "path": "packages/react/dist/stream-chart.js",
+    "import": "{ StreamChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, StreamChart (server)",
+    "path": "packages/react/dist/server/stream-chart.js",
+    "import": "{ StreamChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpStreamChart",
+    "path": "packages/vue/dist/stream-chart.js",
+    "import": "{ SpStreamChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpStreamChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-stream-chart.mjs",
+    "import": "{ SpStreamChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ScatterChart (client)",
+    "path": "packages/react/dist/scatter-chart.js",
+    "import": "{ ScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ScatterChart (server)",
+    "path": "packages/react/dist/server/scatter-chart.js",
+    "import": "{ ScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpScatterChart",
+    "path": "packages/vue/dist/scatter-chart.js",
+    "import": "{ SpScatterChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpScatterChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-scatter-chart.mjs",
+    "import": "{ SpScatterChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BubbleChart (client)",
+    "path": "packages/react/dist/bubble-chart.js",
+    "import": "{ BubbleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BubbleChart (server)",
+    "path": "packages/react/dist/server/bubble-chart.js",
+    "import": "{ BubbleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBubbleChart",
+    "path": "packages/vue/dist/bubble-chart.js",
+    "import": "{ SpBubbleChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBubbleChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-bubble-chart.mjs",
+    "import": "{ SpBubbleChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
     "name": "@silverpoint/core (everything)",
     "path": "packages/core/dist/index.js",
     "import": "*",

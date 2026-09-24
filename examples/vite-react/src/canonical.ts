@@ -6,11 +6,33 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { lineChart, bulletChart, pyramidChart, heatmapChart, treemapChart, sankeyChart, activityGrid } from '@silverpoint/core';
+import {
+  lineChart,
+  bulletChart,
+  pyramidChart,
+  heatmapChart,
+  treemapChart,
+  sankeyChart,
+  activityGrid,
+  stepChart,
+  sparklineRows,
+  kpiCard,
+  barChart,
+  stackedBarChart,
+  composedChart,
+  waterfallChart,
+  funnelChart,
+  candlestickChart,
+  areaChart,
+  rangeBandChart,
+  streamChart,
+  scatterChart,
+  bubbleChart,
+} from '@silverpoint/core';
 import { fixtureById, fixtureProps } from '@silverpoint/example-harness';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
-const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid } as const;
+const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector('.sp-harness');

@@ -10,7 +10,11 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 | T-070 (part) | done | da03921 | the 14 appended to `grounds/test/equivalence.test.ts` |
 | T-065 | done | 5821608 | 14 catalog rows turned the adapter suites RED (380 failures) → 639/639 green; React client + server, Vue SFCs, Angular secondary entries; typecheck, build, lint clean |
 | T-066 | done | a38e581 | fixture test RED on 21 charts × 8 → CARDS + canonicals for 168 fixtures; string gate 504 comparisons, 0 failures; gates 180/180 — the extended tree-shaking gate went RED (84/84: scatter and bubble demos in every one-chart bundle) → GREEN with a literal recipe `name`; unit 1672/1672 |
-| T-050 | done | (this commit) | `core/bench/hundred-points.ts` (15 cartesian recipes × 100 points; test RED on missing module → 16/16, mutation-checked: 99 points and a NaN both fail) + `geometry.bench.ts` (Vitest 5 `bench` fixture); first run put 5 charts over 2 ms (candlestick 3.8) — `Intl.NumberFormat` construction was 70–90 % of build time; `format.test.ts` RED (100 formatters) → cached formatters → worst mean 0.74 ms; `tools/bench-report` (3 tests, RED → green), `.github/workflows/nightly.yml`; unit 1693/1693, gates 180/180 |
+| T-050 | done | 499a80c | `core/bench/hundred-points.ts` (15 cartesian recipes × 100 points; test RED on missing module → 16/16, mutation-checked: 99 points and a NaN both fail) + `geometry.bench.ts` (Vitest 5 `bench` fixture); first run put 5 charts over 2 ms (candlestick 3.8) — `Intl.NumberFormat` construction was 70–90 % of build time; `format.test.ts` RED (100 formatters) → cached formatters → worst mean 0.74 ms; `tools/bench-report` (3 tests, RED → green), `.github/workflows/nightly.yml`; unit 1693/1693, gates 180/180 |
+| T-067 | done | (this commit) | e2e apps RED (56 = 14 charts × 4 apps) → the 14 in every app's `CHARTS` and the canonical page's `RECIPES` → 102/102; 112 goldens via `--update-snapshots=missing` in the pinned image, looked at (two cosmetic notes for the final review), compare-only run 680/680 |
+| T-068 | done | (this commit) | the a11y spec already iterates every fixture (table rows, Tab + arrows announcing each); its gallery count RED (21 ≠ 7) → derived from `CATALOG` → 204/204, axe-core clean on the 21-chart gallery |
+| T-069 | done | (this commit) | `changes/phase-2-req-124-review.md` (a channel table per chart); 14 precision tests + the no-hatch test over every chart, written after the recipes and mutation-checked in two batches (8 mutations, each caught by its own test) |
+| T-070 | done | (this commit) | equivalence (da03921), tree-shaking and subpaths over 21 (a38e581); budget coverage test RED (56 paths) → 56 `.size-limit.json` entries at 45 kB, heaviest 32.8 kB (Angular stream); traceability via `pnpm lint` 0 errors; unit 1708/1708, gates 181/181, typecheck clean |
 
 ## Rulings
 
@@ -71,3 +75,8 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
   bounded, 64-entry module cache). Output is unchanged — every canonical and the string gate
   agree — and it is not render-path state that Art. 4 forbids: it holds no time or chance, only
   a pure function's memo — cost if wrong: one allocation per label again.
+- **T-069 · Ruling:** `StackedBarChart` in precision mode tells a segment's key by its place in
+  the stack; with a zero or missing segment that place is ambiguous on paper, though the keyboard
+  readout and the data table still name every key. Accepted for Phase 2; the remedy (the key's
+  name inside a segment tall enough) is a later layout change — cost if wrong: a printed
+  precision stack with a gap can be misread.

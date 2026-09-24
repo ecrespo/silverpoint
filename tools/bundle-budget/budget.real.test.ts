@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
+import { CATALOG } from '../visual-gate/catalog';
 
 const repo = fileURLToPath(new URL('../..', import.meta.url));
 const bin = join(repo, 'node_modules/.bin/size-limit');
@@ -32,6 +33,18 @@ describe('bundle budgets (size-limit)', () => {
 
   test('REQ-164 · core + react with the line chart is budgeted at 45 KB min+gzip', () => {
     expect(config.find((e) => e.path === 'packages/react/dist/line-chart.js')?.limit).toBe('45 kB');
+  });
+
+  test('REQ-164 · every chart of the catalog is budgeted at 45 KB in every adapter', () => {
+    const missing = CATALOG.flatMap(({ slug }) =>
+      [
+        `packages/react/dist/${slug}.js`,
+        `packages/react/dist/server/${slug}.js`,
+        `packages/vue/dist/${slug}.js`,
+        `packages/angular/dist/fesm2022/silverpoint-angular-${slug}.mjs`,
+      ].filter((path) => config.find((e) => e.path === path)?.limit !== '45 kB'),
+    );
+    expect(missing).toEqual([]);
   });
 
   test('REQ-164 · every budget holds on the built packages', () => {
