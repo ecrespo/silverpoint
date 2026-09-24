@@ -270,6 +270,15 @@ describe('ActivityGrid', () => {
     expect(model.table.rows[0]?.[0]).toBe('2026-06-08');
   });
 
+  test('REQ-087 · month labels never crowd each other: at least three columns apart', () => {
+    const model = activityGrid.build(bare, context);
+    const hits = model.geometry.hitAreas;
+    const slot = hits[7]!.x - hits[0]!.x;
+    const months = model.geometry.labels.filter((l) => l.kind === 'tick').map((l) => l.x);
+    expect(months.length).toBeGreaterThan(3);
+    for (let i = 1; i < months.length; i += 1) expect(months[i]! - months[i - 1]!).toBeGreaterThanOrEqual(3 * slot - 0.02);
+  });
+
   test('REQ-005 · the demo spans 26 weeks ending on the constant 2026-06-30, the same on every call', () => {
     const a = activityGrid.build(bare, context);
     expect(a.table.rows).toHaveLength(182);

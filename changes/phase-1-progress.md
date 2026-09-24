@@ -11,7 +11,8 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-038 | done | d919973 | refactor under unchanged tests: react 32/32, vue 30/30, angular 34/34, string gate 24/24; `pnpm -r run typecheck` green |
 | T-039..T-041 | done | 7a0caff | `react/test/catalog.test.tsx` (RED 67/67 → 67 green), `vue/test/catalog.test.ts` + `types.test.ts` (RED 50 → green), `angular/test/catalog.test.ts` (RED 48/48 → green); SSR/server parity against the canonical render for demo ink/precision, consumer data and bare; subpaths; keyboard; Angular contract (standalone, OnPush, signal inputs = props interface) |
 | T-047 (part) | done | 7a0caff | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
-| T-042 | done | (this commit) | 48 new fixtures (RED 7 count tests → 29/29), canonicals committed, line-chart canonicals unchanged; string gate 168/168 (CLI and `gates` project); subpaths gate parameterized over the catalog (28/28, mutation-checked by removing a Vue export) |
+| T-042 | done | 031d906 | 48 new fixtures (RED 7 count tests → 29/29), canonicals committed, line-chart canonicals unchanged; string gate 168/168 (CLI and `gates` project); subpaths gate parameterized over the catalog (28/28, mutation-checked by removing a Vue export) |
+| T-043 | done | (this commit) | every app renders any fixture's chart (e2e RED 24 → green, strengthened to compare against the chart's canonical render after a vacuous first pass); 48 goldens generated in the pinned image; pixel gate 232/232 in docker; REQ-029 tile-fill e2e (RED `none` → `url(…)`) |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its
@@ -67,3 +68,14 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 - **T-042 · Ruling:** the Phase 1 fixtures use each chart's demo dataset (`data: null`) inside a
   card chosen per chart in `canonical.ts`; consumer data is covered by the adapter tests' catalog
   samples instead — cost if wrong: the gate compares demo layouts only.
+- **T-043 · Ruling (Phase 0 defect found by looking at the goldens):** `.sp-chart path { fill: none }`
+  overrode every `fill="url(#…)"`, so tile hatching never showed — in the canonical page as much as
+  in the adapters, which is why no gate saw it. The reset now skips `[data-paint='tile']` inside
+  `:where()` (specificity unchanged); an e2e test asserts the computed fill is the pattern. Line-
+  chart goldens are unaffected (no tiles) — cost if wrong: none.
+- **T-043 · Ruling:** the activity grid's month labels keep three columns apart; a leading partial
+  month gives way to the next (the demo starts on 31 December) — cost if wrong: one label.
+- **T-043 · minor (deferred):** hatching runs under the printed values of heatmap cells and treemap
+  tiles; a substrate-coloured text halo (`paint-order: stroke`) would lift them, but restyles every
+  chart's text and every golden — a Phase 4 typography pass.
+- **T-043 · minor (deferred):** sankey labels of middle-layer nodes sit over the outgoing bands.

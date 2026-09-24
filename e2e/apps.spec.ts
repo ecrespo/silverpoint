@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
-import { DEMO_PROPS } from '../examples/harness/index.js';
+import { DEMO_PROPS, FIXTURES, fixtureProps } from '../examples/harness/index.js';
 import { lineChart } from '../packages/core/dist/index.js';
 import { renderChart, toSVGString } from '../packages/grounds/dist/index.js';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
+import { catalogEntry } from '../tools/visual-gate/catalog';
 import { APPS, type AppName } from '../playwright.config';
 
 /** The canonical render of the demo chart every home page shows. */
@@ -33,6 +34,31 @@ test.describe('example apps', () => {
     await expect(harness.locator('svg.sp-chart')).toHaveAttribute('data-substrate', 'ochre');
     await expect(harness.locator('svg.sp-chart')).toHaveAttribute('data-mode', 'precision');
     await expect(harness.locator('svg.sp-chart title')).toHaveAttribute('id', 'line-chart--silverpoint--ochre--precision--md-title');
+  });
+
+  for (const fixture of FIXTURES.filter((f) => f.chart !== 'LineChart' && f.substrate === 'cream' && f.mode === 'ink')) {
+    test(`REQ-182 · the fixture page of ${fixture.chart} renders that chart`, async ({ page }) => {
+      const errors: string[] = [];
+      page.on('pageerror', (error) => errors.push(error.message));
+      await page.goto(`/?fixture=${fixture.id}`);
+      const harness = page.locator('.sp-harness[data-gate]');
+      await expect(harness.locator('.sp-root')).toHaveAttribute('data-status', 'ready');
+      await expect(harness.locator('svg.sp-chart title')).toHaveAttribute('id', `${fixture.id}-title`);
+      await expect(harness.locator('svg.sp-chart title')).toHaveText(String(fixture.props.title));
+      // The chart itself, not merely its card: the markup equals that recipe's canonical render.
+      const drawn = await harness.locator('svg.sp-chart').evaluate((el) => el.outerHTML);
+      const expected = toSVGString(renderChart(catalogEntry(fixture.chart).recipe, fixtureProps(fixture), { id: fixture.id }));
+      expect(compareSvg(drawn, expected)).toEqual({ equal: true });
+      expect(errors).toEqual([]);
+    });
+  }
+
+  test('REQ-029 · a tile-painted shape is filled by its hatch pattern', async ({ page }) => {
+    await page.goto('/?fixture=bullet-chart--silverpoint--cream--ink--md');
+    const tiled = page.locator('.sp-harness[data-gate] svg.sp-chart path[data-paint="tile"]').first();
+    await expect(tiled).toHaveAttribute('fill', /^url\(#/);
+    // The stylesheet must not override the pattern: the computed fill is the pattern itself.
+    expect(await tiled.evaluate((el) => getComputedStyle(el).fill)).toMatch(/url\(/);
   });
 
   test('REQ-103 · REQ-109 · server-rendered apps ship the chart in the HTML and hydrate with no mismatch', async ({ page, request }, info) => {

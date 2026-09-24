@@ -1,4 +1,4 @@
-import type { LineChartProps } from '@silverpoint/core';
+import type { CommonChartProps, LineChartProps } from '@silverpoint/core';
 
 export interface HarnessFixture {
   readonly id: string;
@@ -16,5 +16,7 @@ export interface HarnessFixture {
 
 export declare const FIXTURES: readonly HarnessFixture[];
 export declare function fixtureById(id: string | null | undefined): HarnessFixture | undefined;
-export declare function fixtureProps(fixture: HarnessFixture): LineChartProps;
+/** A fixture's props: the common ones, typed, plus whatever its chart takes. */
+export type FixtureProps = CommonChartProps & Record<string, unknown>;
+export declare function fixtureProps(fixture: HarnessFixture): FixtureProps;
 export declare const DEMO_PROPS: Readonly<LineChartProps>;

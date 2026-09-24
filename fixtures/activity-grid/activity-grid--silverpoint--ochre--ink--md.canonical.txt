@@ -359,8 +359,6 @@
     "Jan–Jun 2026"
   <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
     "silverpoint"
-  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="60">
-    "Dec"
   <text data-kind="tick" part="sp-axis" text-anchor="start" x="32.62" y="60">
     "Jan"
   <text data-kind="tick" part="sp-axis" text-anchor="start" x="75.08" y="60">

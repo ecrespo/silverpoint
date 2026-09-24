@@ -18,6 +18,8 @@ const DAY_MS = 86_400_000;
  */
 const CELL_SCALE: Readonly<Record<ToneLevel, number>> = { 0: 0.4, 1: 0.55, 2: 0.7, 3: 0.85, 4: 1 };
 const CELL_FILL = 0.86;
+/** Fewest columns between two month labels. */
+const MONTH_GAP = 3;
 
 interface Day {
   readonly datum: Datum;
@@ -81,16 +83,22 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
   const slot = Math.min(plot.width / columns, (plot.height - MONTH_BAND) / 7);
   const top = plot.y + MONTH_BAND;
   const month = new Intl.DateTimeFormat(locale, { month: 'short', timeZone: 'UTC' });
-  let shownMonth = '';
+  // A month label names the first column that starts in it; two closer than MONTH_GAP columns
+  // would collide, so a leading partial month gives way to the next, and any other newcomer waits.
+  const months: { column: number; name: string }[] = [];
 
   days.forEach((d, index) => {
     const column = Math.floor(index / 7);
     const row = index % 7;
     if (row === 0) {
       const name = month.format(new Date(d.day * DAY_MS));
-      if (name !== shownMonth) {
-        labels.push({ x: plot.x + column * slot, y: plot.y + 10, text: name, kind: 'tick', part: 'axis', anchor: 'start' });
-        shownMonth = name;
+      const last = months.at(-1);
+      if (name !== last?.name) {
+        if (last && column - last.column < MONTH_GAP) {
+          if (months.length === 1) months[0] = { column, name };
+        } else {
+          months.push({ column, name });
+        }
       }
     }
     const side = slot * CELL_FILL * CELL_SCALE[d.level];
@@ -100,6 +108,10 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
     strokes.push({ d: rectPath(cell), role: 'encoding', part: 'ink', ...(d.level > 0 ? { tone: d.level } : {}) });
     hitAreas.push({ seriesKey: countName, index, datum: d.datum, value: d.count ?? 0, x: cx, y: cy, box: cell });
   });
+
+  for (const { column, name } of months) {
+    labels.push({ x: plot.x + column * slot, y: plot.y + 10, text: name, kind: 'tick', part: 'axis', anchor: 'start' });
+  }
 
   const total = days.reduce((sum, d) => sum + (d.count ?? 0), 0);
   const active = days.filter((d) => d.level > 0).length;

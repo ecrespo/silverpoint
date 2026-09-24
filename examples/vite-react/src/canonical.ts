@@ -6,14 +6,16 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { lineChart } from '@silverpoint/core';
+import { lineChart, bulletChart, pyramidChart, heatmapChart, treemapChart, sankeyChart, activityGrid } from '@silverpoint/core';
 import { fixtureById, fixtureProps } from '@silverpoint/example-harness';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
+
+const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector('.sp-harness');
 if (fixture && harness) {
-  const rendered = renderChart(lineChart, fixtureProps(fixture), { id: fixture.id });
+  const rendered = renderChart(RECIPES[fixture.chart as keyof typeof RECIPES], fixtureProps(fixture), { id: fixture.id });
   const root = document.createElement('div');
   root.className = `sp-root sp-ground-${rendered.ground}`;
   root.dataset.substrate = rendered.substrate;

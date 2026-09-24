@@ -55,7 +55,8 @@ test.describe('pixel gate', () => {
   }
 
   test('REQ-181 · moving a vertex by 2 px fails the gate', async ({ page }) => {
-    const fixture = FIXTURES[0];
+    // A line-chart fixture: it has the heightened point this test moves.
+    const fixture = FIXTURES.find((f) => f.chart === 'LineChart');
     test.skip(!fixture);
     const url = `${CANONICAL}?fixture=${fixture?.id}`;
     const canonical = await shoot(page, url);
@@ -71,7 +72,7 @@ test.describe('pixel gate', () => {
   });
 
   test('REQ-181 · two consecutive runs do not differ', async ({ page }) => {
-    const fixture = FIXTURES[0];
+    const fixture = FIXTURES.find((f) => f.chart === 'LineChart');
     test.skip(!fixture);
     const first = await shoot(page, `/?fixture=${fixture?.id}`);
     const second = await shoot(page, `/?fixture=${fixture?.id}`);

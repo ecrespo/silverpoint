@@ -1,23 +1,29 @@
-import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection } from '@angular/core';
+import { NgComponentOutlet } from '@angular/common';
+import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection, type Type } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
+import { SpBulletChart } from '@silverpoint/angular/bullet-chart';
+import { SpPyramidChart } from '@silverpoint/angular/pyramid-chart';
+import { SpHeatmapChart } from '@silverpoint/angular/heatmap-chart';
+import { SpTreemapChart } from '@silverpoint/angular/treemap-chart';
+import { SpSankeyChart } from '@silverpoint/angular/sankey-chart';
+import { SpActivityGrid } from '@silverpoint/angular/activity-grid';
 import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
+/** Every chart a fixture can name, by its chart name. */
+const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid };
+
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart],
+  imports: [SpLineChart, NgComponentOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (gate; as p) {
+    @if (gate) {
       <main>
         <div class="sp-harness" data-gate="" data-size="md">
-          <sp-line-chart
-            [id]="p.id" [width]="p.width" [height]="p.height" [ground]="p.ground" [substrate]="p.substrate"
-            [mode]="p.mode" [hatchFill]="p.hatchFill" [seed]="p.seed" [title]="p.title" [badge]="p.badge"
-            [value]="p.value" [unit]="p.unit" [footerLeft]="p.footerLeft" [footerRight]="p.footerRight"
-          />
+          <ng-container *ngComponentOutlet="gate.component; inputs: gate.inputs" />
         </div>
       </main>
     } @else {
@@ -34,7 +40,7 @@ const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'))
   `,
 })
 class App {
-  protected readonly gate = fixture ? fixtureProps(fixture) : undefined;
+  protected readonly gate = fixture ? { component: CHARTS[fixture.chart] as Type<unknown>, inputs: fixtureProps(fixture) } : undefined;
   protected readonly demo = DEMO_PROPS;
 }
 

@@ -1,15 +1,25 @@
 import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
 import { LineChart } from '@silverpoint/react/line-chart';
+import { BulletChart } from '@silverpoint/react/bullet-chart';
+import { PyramidChart } from '@silverpoint/react/pyramid-chart';
+import { HeatmapChart } from '@silverpoint/react/heatmap-chart';
+import { TreemapChart } from '@silverpoint/react/treemap-chart';
+import { SankeyChart } from '@silverpoint/react/sankey-chart';
+import { ActivityGrid } from '@silverpoint/react/activity-grid';
 import { LineChart as ServerLineChart } from '@silverpoint/react/server/line-chart';
 import { Hydrated } from './hydrated';
+
+/** Every chart a fixture can name, by its chart name. */
+const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid } as const;
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const fixture = fixtureById((await searchParams).fixture);
   if (fixture) {
+    const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
     return (
       <main>
         <div className="sp-harness" data-gate="" data-size="md">
-          <LineChart {...fixtureProps(fixture)} />
+          <FixtureChart {...fixtureProps(fixture)} />
         </div>
         <Hydrated />
       </main>

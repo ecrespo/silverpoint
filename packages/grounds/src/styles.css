@@ -106,8 +106,13 @@
 
 /* ── Paint by part (API Spec §10.1) ──────────────────────────────────────────────────── */
 
-.sp-chart path {
+/* A tile-painted shape keeps its `fill="url(#…)"` attribute: a CSS fill would override it (REQ-029).
+   :where() keeps this reset at (0,1,1), under every paint-by-part rule below. */
+.sp-chart path:where(:not([data-paint='tile'])) {
   fill: none;
+}
+
+.sp-chart path {
   stroke: none;
   stroke-width: var(--sp-stroke-width);
   stroke-linecap: round;
