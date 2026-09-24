@@ -9,24 +9,38 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { CATALOG } from './catalog';
 import { canonicalFor, FIXTURES_DIR, fixtureId, SIZES, type Fixture } from './fixtures';
 
-/** The PR matrix of Phase 0: the line chart × 2 modes × 4 substrates at `md`. */
+/** The card each chart's fixtures draw around its demo dataset. */
+const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
+  LineChart: { title: 'Throughput per hour', badge: 'Live', value: 88, unit: 'requests', footerLeft: '00–22 h', footerRight: 'silverpoint' },
+  BulletChart: { title: 'Quarter targets', badge: 'Q2', footerLeft: '0–100', footerRight: 'silverpoint' },
+  PyramidChart: { title: 'Headcount by level', badge: '2026', footerLeft: 'width in %', footerRight: 'silverpoint' },
+  HeatmapChart: { title: 'Load by weekday', badge: 'Week 26', footerLeft: 'of 100', footerRight: 'silverpoint' },
+  TreemapChart: { title: 'Traffic sources', badge: 'June', footerLeft: 'share of visits', footerRight: 'silverpoint' },
+  SankeyChart: { title: 'Visitor flow', badge: 'June', footerLeft: 'visits', footerRight: 'silverpoint' },
+  ActivityGrid: { title: 'Contributions', badge: '26 weeks', footerLeft: 'Jan–Jun 2026', footerRight: 'silverpoint' },
+};
+
+/** The PR matrix: every catalog chart × 2 modes × 4 substrates at `md` (Data Model §5). */
 function matrix(): Fixture[] {
   const fixtures: Fixture[] = [];
-  for (const mode of ['ink', 'precision'] as const) {
-    for (const substrate of ['cream', 'green', 'blue', 'ochre']) {
-      const cell = { chart: 'LineChart', ground: 'silverpoint', substrate, mode, hatchFill: 'tile', size: SIZES.md } as const;
-      const id = fixtureId(cell);
-      fixtures.push({
-        ...cell,
-        id,
-        req: 'REQ-060',
-        seed: 1592,
-        props: { title: 'Throughput per hour', badge: 'Live', value: 88, unit: 'requests', footerLeft: '00–22 h', footerRight: 'silverpoint' },
-        data: null,
-        canonical: `line-chart/${id}.canonical.txt`,
-      });
+  for (const { chart, req, slug } of CATALOG) {
+    for (const mode of ['ink', 'precision'] as const) {
+      for (const substrate of ['cream', 'green', 'blue', 'ochre']) {
+        const cell = { chart, ground: 'silverpoint', substrate, mode, hatchFill: 'tile', size: SIZES.md } as const;
+        const id = fixtureId(cell);
+        fixtures.push({
+          ...cell,
+          id,
+          req,
+          seed: 1592,
+          props: CARDS[chart] ?? {},
+          data: null,
+          canonical: `${slug}/${id}.canonical.txt`,
+        });
+      }
     }
   }
   return fixtures;

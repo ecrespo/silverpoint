@@ -1,0 +1,22 @@
+{
+  "chart": "TreemapChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "treemap-chart--silverpoint--cream--precision--md",
+  "req": "REQ-085",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "June",
+    "footerLeft": "share of visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "treemap-chart/treemap-chart--silverpoint--cream--precision--md.canonical.txt"
+}

@@ -1,0 +1,35 @@
+<svg aria-labelledby="pyramid-chart--silverpoint--cream--precision--md-title pyramid-chart--silverpoint--cream--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="pyramid-chart--silverpoint--cream--precision--md-title">
+    "Headcount by level"
+  <desc id="pyramid-chart--silverpoint--cream--precision--md-desc">
+    "Headcount by level. Pyramid of 4 tiers, from Leads at the top to Staff at the base; width on a 0 to 100 scale."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M157.96,51H186.04V83.5H157.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M139.24,85.5H204.76V118H139.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M117.4,120H226.6V152.5H117.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M94,154.5H250V187H94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Headcount by level"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "width in %"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="71.25">
+    "Leads"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="71.25">
+    "18"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="105.75">
+    "Managers"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="105.75">
+    "42"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="140.25">
+    "Specialists"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="140.25">
+    "70"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="174.75">
+    "Staff"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="174.75">
+    "100"

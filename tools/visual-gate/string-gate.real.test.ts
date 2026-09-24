@@ -13,3 +13,14 @@ describe('the cross-adapter string gate over the published builds', () => {
     expect(results).toHaveLength(24);
   }, 120_000);
 });
+
+describe('the string gate over the whole Phase 1 matrix', () => {
+  test('REQ-100 · REQ-180 · all 7 charts are identical across 3 adapters × 2 modes × 4 substrates', async () => {
+    const fixtures = loadFixtures();
+    expect(fixtures).toHaveLength(56);
+    const results = await runStringGate(fixtures, adapterRenderers);
+    const failures = results.filter((r) => !r.equal).map((r) => `${r.adapter} · ${r.fixture} · ${r.difference}`);
+    expect(failures).toEqual([]);
+    expect(results).toHaveLength(168);
+  }, 600_000);
+});

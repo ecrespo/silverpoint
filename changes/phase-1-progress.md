@@ -9,9 +9,9 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-032..T-037 | done | 3e3be49 | `catalog-contract.test.ts` (12 contract tests × 6 charts + demo snapshots, RED 72/72 on stubs) and `catalog-charts.test.ts` (27 per-chart tests, RED 26/26 on stubs); snapshot mutation-checked; core 184 + 6 snapshots green |
 | T-047 (part) | done | 3e3be49 | the six charts appended to `grounds/test/equivalence.test.ts`: 30/30 |
 | T-038 | done | d919973 | refactor under unchanged tests: react 32/32, vue 30/30, angular 34/34, string gate 24/24; `pnpm -r run typecheck` green |
-| T-039..T-041 | done | (this commit) | `react/test/catalog.test.tsx` (RED 67/67 → 67 green), `vue/test/catalog.test.ts` + `types.test.ts` (RED 50 → green), `angular/test/catalog.test.ts` (RED 48/48 → green); SSR/server parity against the canonical render for demo ink/precision, consumer data and bare; subpaths; keyboard; Angular contract (standalone, OnPush, signal inputs = props interface) |
-| T-047 (part) | done | (this commit) | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
-
+| T-039..T-041 | done | 7a0caff | `react/test/catalog.test.tsx` (RED 67/67 → 67 green), `vue/test/catalog.test.ts` + `types.test.ts` (RED 50 → green), `angular/test/catalog.test.ts` (RED 48/48 → green); SSR/server parity against the canonical render for demo ink/precision, consumer data and bare; subpaths; keyboard; Angular contract (standalone, OnPush, signal inputs = props interface) |
+| T-047 (part) | done | 7a0caff | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
+| T-042 | done | (this commit) | 48 new fixtures (RED 7 count tests → 29/29), canonicals committed, line-chart canonicals unchanged; string gate 168/168 (CLI and `gates` project); subpaths gate parameterized over the catalog (28/28, mutation-checked by removing a Vue export) |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its
@@ -64,3 +64,6 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
   `/* @__PURE__ */`, and a gate bundles each published one-chart entry with rolldown and fails if
   another recipe is in it. The line chart's React bundle drops 31.95 → 27.98 kB — cost if wrong:
   none; a future module-level call without the annotation is caught by the gate.
+- **T-042 · Ruling:** the Phase 1 fixtures use each chart's demo dataset (`data: null`) inside a
+  card chosen per chart in `canonical.ts`; consumer data is covered by the adapter tests' catalog
+  samples instead — cost if wrong: the gate compares demo layouts only.

@@ -1,0 +1,55 @@
+<svg aria-labelledby="bullet-chart--silverpoint--green--ink--md-title bullet-chart--silverpoint--green--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="bullet-chart--silverpoint--green--ink--md-title">
+    "Quarter targets"
+  <desc id="bullet-chart--silverpoint--green--ink--md-desc">
+    "Quarter targets. Bullet chart of 4 targets on a 0 to 100 scale; 1 of 4 reach their target."
+  <defs>
+    <pattern height="45" id="bullet-chart--silverpoint--green--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 69.05 C79.11 68.2, 137.26 69.24, 298 69.05 M22 69.05 C105.04 69.72, 188.04 69.9, 298 69.05 M298 69.05 C298.18 72.59, 297.96 74.96, 298 81.05 M298 69.05 C298.16 72.26, 298.17 75.17, 298 81.05 M298 81.05 C198.01 81.05, 97.29 80.94, 22 81.05 M298 81.05 C241.66 81.22, 184.96 80.96, 22 81.05 M22 81.05 C21.67 77.45, 21.96 73.47, 22 69.05 M22 81.05 C22.06 76.7, 22.21 72.33, 22 69.05" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,69.05H220.72V81.05H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M22,69.05H220.72V81.05H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M242.8,66.05V84.05" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 103.55 C79.55 103.7, 137.26 104.13, 298 103.55 M22 103.55 C111.22 102.83, 200.69 102.97, 298 103.55 M298 103.55 C298.33 105.68, 298.45 108.46, 298 115.55 M298 103.55 C298.09 107.28, 298.17 110.84, 298 115.55 M298 115.55 C194.76 116.21, 91.04 116.03, 22 115.55 M298 115.55 C226.07 116.33, 154.49 116.21, 22 115.55 M22 115.55 C21.76 111.77, 21.47 107.41, 22 103.55 M22 115.55 C21.88 112.58, 22.03 109.35, 22 103.55" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,103.55H182.08V115.55H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M22,103.55H182.08V115.55H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M201.4,100.55V118.55" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 138.05 C80 138.05, 137.25 137.87, 298 138.05 M22 138.05 C118.09 137.78, 213.35 137.89, 298 138.05 M298 138.05 C298.48 142.24, 297.86 146.76, 298 150.05 M298 138.05 C298.02 142.3, 298.18 147.04, 298 150.05 M298 150.05 C191.52 148.82, 86.17 149.96, 22 150.05 M298 150.05 C211.17 149.59, 124.71 149.6, 22 150.05 M22 150.05 C21.84 146.09, 22.06 141.36, 22 138.05 M22 150.05 C22.18 146.05, 21.78 141.58, 22 138.05" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,138.05H259.36V150.05H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M22,138.05H259.36V150.05H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M229,135.05V153.05" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 172.55 C80.44 172.16, 138.63 172.77, 298 172.55 M22 172.55 C124.27 172.04, 226 172.11, 298 172.55 M298 172.55 C297.49 176.41, 298.28 180.26, 298 184.55 M298 172.55 C297.96 175.46, 298.18 177.9, 298 184.55 M298 184.55 C188.27 183.98, 79.91 183.65, 22 184.55 M298 184.55 C196.27 184.7, 94.93 184.85, 22 184.55 M22 184.55 C21.93 180.41, 21.57 176.39, 22 172.55 M22 184.55 C22.01 181.39, 22.14 178.6, 22 172.55" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,172.55H135.16V184.55H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M22,172.55H135.16V184.55H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M187.6,169.55V187.55" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Quarter targets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "0–100"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="64.05">
+    "Revenue"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="64.05">
+    "72"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="98.55">
+    "Profit"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="98.55">
+    "58"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="133.05">
+    "New users"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="133.05">
+    "86"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="167.55">
+    "Retention"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="167.55">
+    "41"

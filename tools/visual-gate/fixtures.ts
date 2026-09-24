@@ -6,9 +6,10 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { lineChart, type ChartRecipe, type CommonChartProps, type Datum } from '@silverpoint/core';
+import type { ChartRecipe, CommonChartProps, Datum } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { normalizeSvg } from '../svg-normalizer/normalize';
+import { CATALOG } from './catalog';
 
 export interface Fixture {
   /** Stable identifier; it is the file name of the golden image. */
@@ -34,10 +35,8 @@ export const FIXTURES_DIR = fileURLToPath(new URL('../../fixtures', import.meta.
 /** Size names of Data Model §5. */
 export const SIZES = { sm: { width: 240, height: 120 }, md: { width: 320, height: 150 }, lg: { width: 640, height: 300 } } as const;
 
-/** Recipes by chart name; later phases append to it. */
-export const RECIPES: Readonly<Record<string, ChartRecipe<CommonChartProps>>> = {
-  LineChart: lineChart as ChartRecipe<CommonChartProps>,
-};
+/** Recipes by chart name, from the catalog. */
+export const RECIPES: Readonly<Record<string, ChartRecipe<CommonChartProps>>> = Object.fromEntries(CATALOG.map((c) => [c.chart, c.recipe]));
 
 const kebab = (name: string) => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 

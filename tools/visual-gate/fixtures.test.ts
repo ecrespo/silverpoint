@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
+import { PHASE_1 } from './catalog';
 import { canonicalFor, FIXTURES_DIR, loadFixtures, validateFixture, type Fixture } from './fixtures';
 
 const valid: Fixture = {
@@ -55,4 +56,34 @@ describe('the line-chart fixtures', () => {
       expect(committed, fixture.id).toBe(canonicalFor(fixture));
     }
   });
+});
+
+describe.each(PHASE_1.map((e) => [e.chart, e] as const))('the %s fixtures', (chart, entry) => {
+  const fixtures = loadFixtures().filter((fixture) => fixture.chart === chart);
+
+  test('REQ-182 · 8 fixtures cover 2 modes × 4 substrates at the md size', () => {
+    expect(fixtures).toHaveLength(8);
+    const cells = fixtures.map((f) => `${f.mode}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
+    expect(cells).toEqual(
+      ['ink', 'precision'].flatMap((mode) => ['blue', 'cream', 'green', 'ochre'].map((s) => `${mode}/${s}/320x150`)).sort(),
+    );
+  });
+
+  test('REQ-182 · every fixture validates and traces to the chart requirement', () => {
+    for (const fixture of fixtures) {
+      expect(validateFixture(fixture), fixture.id).toEqual([]);
+      expect(fixture.req, fixture.id).toBe(entry.req);
+    }
+  });
+
+  test('REQ-182 · every committed canonical render is current', () => {
+    for (const fixture of fixtures) {
+      const committed = readFileSync(`${FIXTURES_DIR}/${fixture.canonical}`, 'utf8');
+      expect(committed, fixture.id).toBe(canonicalFor(fixture));
+    }
+  });
+});
+
+test('REQ-182 · the PR matrix holds 7 charts × 8 cells', () => {
+  expect(loadFixtures()).toHaveLength(56);
 });
