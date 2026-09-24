@@ -22,12 +22,24 @@ import { SpRangeBandChart } from '@silverpoint/angular/range-band-chart';
 import { SpStreamChart } from '@silverpoint/angular/stream-chart';
 import { SpScatterChart } from '@silverpoint/angular/scatter-chart';
 import { SpBubbleChart } from '@silverpoint/angular/bubble-chart';
+import { SpDonutChart } from '@silverpoint/angular/donut-chart';
+import { SpRadarChart } from '@silverpoint/angular/radar-chart';
+import { SpPolarBarChart } from '@silverpoint/angular/polar-bar-chart';
+import { SpRadialArcGroup } from '@silverpoint/angular/radial-arc-group';
+import { SpRadialRings } from '@silverpoint/angular/radial-rings';
+import { SpGaugeArc } from '@silverpoint/angular/gauge-arc';
+import { SpMeterChart } from '@silverpoint/angular/meter-chart';
+import { SpCoxcombChart } from '@silverpoint/angular/coxcomb-chart';
+import { SpWindRose } from '@silverpoint/angular/wind-rose';
+import { SpVolvelleChart } from '@silverpoint/angular/volvelle-chart';
+import { SpChordRing } from '@silverpoint/angular/chord-ring';
+import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
 import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart };
+const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart };
 
 @Component({
   selector: 'app-root',

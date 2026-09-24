@@ -21,11 +21,23 @@ import { SpRangeBandChart } from '@silverpoint/vue/range-band-chart';
 import { SpStreamChart } from '@silverpoint/vue/stream-chart';
 import { SpScatterChart } from '@silverpoint/vue/scatter-chart';
 import { SpBubbleChart } from '@silverpoint/vue/bubble-chart';
+import { SpDonutChart } from '@silverpoint/vue/donut-chart';
+import { SpRadarChart } from '@silverpoint/vue/radar-chart';
+import { SpPolarBarChart } from '@silverpoint/vue/polar-bar-chart';
+import { SpRadialArcGroup } from '@silverpoint/vue/radial-arc-group';
+import { SpRadialRings } from '@silverpoint/vue/radial-rings';
+import { SpGaugeArc } from '@silverpoint/vue/gauge-arc';
+import { SpMeterChart } from '@silverpoint/vue/meter-chart';
+import { SpCoxcombChart } from '@silverpoint/vue/coxcomb-chart';
+import { SpWindRose } from '@silverpoint/vue/wind-rose';
+import { SpVolvelleChart } from '@silverpoint/vue/volvelle-chart';
+import { SpChordRing } from '@silverpoint/vue/chord-ring';
+import { SpOrbitChart } from '@silverpoint/vue/orbit-chart';
 
 const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean }>();
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart } as const;
+const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart } as const;
 </script>
 
 <template>

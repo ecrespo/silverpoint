@@ -184,7 +184,104 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     const bySize = [...model.geometry.hitAreas].sort((a, b) => Number(a.datum.size) - Number(b.datum.size));
     for (let i = 1; i < bySize.length; i += 1) expect(box(bySize[i]!).width).toBeGreaterThan(box(bySize[i - 1]!).width);
   });
+  // Phase 3 (T-088): the polar charts. Written after the recipes; each was mutation-checked.
+
+  test('DonutChart · every sector is named with its share, and its sweep is its share of the turn', () => {
+    const data = [{ name: 'A', value: 50 }, { name: 'B', value: 30 }, { name: 'C', value: 20 }];
+    const model = render('DonutChart', { data });
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', '50%', 'B', '30%', 'C', '20%']));
+    const sweeps = sectorSweeps(model);
+    expect(near(sweeps[0]! / sweeps[1]!, 50 / 30)).toBe(true);
+  });
+
+  test('RadarChart · a value is its distance along its spoke', () => {
+    const model = render('RadarChart', { data: [{ subject: 'A', value: 10 }, { subject: 'B', value: 5 }, { subject: 'C', value: 2.5 }], domain: [0, 10] });
+    const [a, b, c] = model.geometry.hitAreas.map((h) => distanceFromCentre(model, h));
+    expect(near(b! / a!, 0.5)).toBe(true);
+    expect(near(c! / a!, 0.25)).toBe(true);
+  });
+
+  test('PolarBarChart · a bar’s length out from the hole is proportional to its value, and every bar is named', () => {
+    const model = render('PolarBarChart', { data: [{ name: 'A', value: 40 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }] });
+    const [a, b, c] = model.geometry.hitAreas.map((h) => distanceFromCentre(model, h));
+    expect(near((a! - b!) / (b! - c!), 20 / 10)).toBe(true);
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C']));
+  });
+
+  test('RadialArcGroup · RadialRings · every track is named with its value beside it', () => {
+    expect(texts(render('RadialArcGroup', { data: [{ name: 'A', value: 80 }, { name: 'B', value: 40 }] }))).toEqual(expect.arrayContaining(['A', '80', 'B', '40']));
+    expect(texts(render('RadialRings', { data: [{ name: 'A', value: 80 }, { name: 'B', value: 40 }] }))).toEqual(expect.arrayContaining(['A', '80%', 'B', '40%']));
+  });
+
+  test('GaugeArc · MeterChart · the percent is printed', () => {
+    expect(texts(render('GaugeArc', { percent: 37 }))).toContain('37%');
+    expect(texts(render('MeterChart', { percent: 64 }))).toContain('64%');
+  });
+
+  test('CoxcombChart · every sector is named, and its radius is the square root of its value', () => {
+    const model = render('CoxcombChart', { data: [{ name: 'A', value: 100 }, { name: 'B', value: 25 }] });
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B']));
+    const radii = encodings(model).map((s) => Number(/A([\d.]+),/.exec(s.d)?.[1]));
+    expect(near(radii[1]! / radii[0]!, 0.5)).toBe(true);
+  });
+
+  test('WindRose · every speed bin is named with its share, calmest first, and the calms are printed', () => {
+    const model = render('WindRose', { bins: [5, 10] });
+    const printed = texts(model);
+    expect(printed).toEqual(expect.arrayContaining(['< 5', '5–10', '≥ 10']));
+    expect(printed.indexOf('< 5')).toBeLessThan(printed.indexOf('≥ 10'));
+    expect(printed.some((t) => /^calm \d+%$/.test(t))).toBe(true);
+  });
+
+  test('VolvelleChart · what the index shows is printed, not only toned', () => {
+    const model = render('VolvelleChart', { data: [{ label: 'Day', segments: ['Mon', 'Tue'] }, { label: 'Shift', segments: ['Early', 'Late'] }], indexValue: 'Tue' });
+    expect(texts(model)).toContain('Day Tue · Shift Late');
+  });
+
+  test('ChordRing · every category is named at its arc, and a ribbon’s ends span angles proportional to its flow', () => {
+    const model = render('ChordRing', { data: [{ source: 'A', target: 'B', value: 30 }, { source: 'A', target: 'C', value: 10 }] });
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C']));
+    const ribbons = encodings(model).filter((s) => s.d.includes('Q'));
+    const spans = ribbons.map((r) => ribbonSpan(r.d));
+    expect(near(spans[0]! / spans[1]!, 3)).toBe(true);
+  });
+
+  test('OrbitChart · a marker’s area is its value; every orbit is named', () => {
+    const model = render('OrbitChart', { data: [{ label: 'In', markers: [{ period: 0, value: 4 }, { period: 0.5, value: 1 }] }, { label: 'Out', markers: [] }] });
+    const [big, small] = model.geometry.hitAreas;
+    expect(near((box(big!).width / box(small!).width) ** 2, 4)).toBe(true);
+    expect(texts(model)).toEqual(expect.arrayContaining(['In', 'Out']));
+  });
 });
+
+/** Distance of a hit from its chart's centre: the plot's centre on the charts drawn without a legend. */
+function distanceFromCentre(model: Rendered, hit: HitArea): number {
+  const { plot } = model.geometry;
+  return Math.hypot(hit.x - (plot.x + plot.width / 2), hit.y - (plot.y + plot.height / 2));
+}
+
+/** Sweeps of the donut's sectors, read from the angle between each outer arc's two ends. */
+function sectorSweeps(model: Rendered): number[] {
+  return encodings(model).map((s) => {
+    const points = [...s.d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAZ])/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
+    const inner = [...s.d.matchAll(/A([\d.]+),/g)].map((m) => Number(m[1]));
+    const [p0, p1] = points;
+    const chord = Math.hypot(p1!.x - p0!.x, p1!.y - p0!.y);
+    const r = Math.max(...inner);
+    const large = /A[\d.]+,[\d.]+,0,1,/.test(s.d);
+    const a = 2 * Math.asin(Math.min(chord / (2 * r), 1));
+    return large ? 2 * Math.PI - a : a;
+  });
+}
+
+/** Angle spanned by a ribbon's first end: the chord between its first two points on the ring. */
+function ribbonSpan(d: string): number {
+  const points = [...d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAQZ])/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
+  const r = Number(/A([\d.]+),/.exec(d)?.[1]);
+  const [p0, p1] = points;
+  return 2 * Math.asin(Math.min(Math.hypot(p1!.x - p0!.x, p1!.y - p0!.y) / (2 * r), 1));
+}
+
 
 const encodings = (model: Rendered) => model.geometry.strokes.filter((s) => s.role === 'encoding' && s.part !== 'heighten');
 

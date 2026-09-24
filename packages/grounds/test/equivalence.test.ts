@@ -20,6 +20,18 @@ import {
   pyramidChart,
   sankeyChart,
   treemapChart,
+  donutChart,
+  radarChart,
+  polarBarChart,
+  radialArcGroup,
+  radialRings,
+  gaugeArc,
+  meterChart,
+  coxcombChart,
+  windRose,
+  volvelleChart,
+  chordRing,
+  orbitChart,
   type ChartRecipe, type CommonChartProps, type Stroke } from '@silverpoint/core';
 import { describe, expect, test } from 'vitest';
 import { renderChart } from '../src';
@@ -48,6 +60,14 @@ const CHARTS: readonly { readonly recipe: ChartRecipe<CommonChartProps>; readonl
   ...[
     stepChart, sparklineRows, kpiCard, barChart, stackedBarChart, composedChart, waterfallChart,
     funnelChart, candlestickChart, areaChart, rangeBandChart, streamChart, scatterChart, bubbleChart,
+  ].map((recipe) => ({
+    recipe: recipe as ChartRecipe<CommonChartProps>,
+    variants: [{}, { chrome: 'bare' }, { hatchFill: 'per-shape' }] as CommonChartProps[],
+  })),
+  // Phase 3: the polar charts, on the arc engine and on geometry of their own.
+  ...[
+    donutChart, radarChart, polarBarChart, radialArcGroup, radialRings, gaugeArc, meterChart,
+    coxcombChart, windRose, volvelleChart, chordRing, orbitChart,
   ].map((recipe) => ({
     recipe: recipe as ChartRecipe<CommonChartProps>,
     variants: [{}, { chrome: 'bare' }, { hatchFill: 'per-shape' }] as CommonChartProps[],

@@ -7,17 +7,29 @@ import {
   barChart,
   bubbleChart,
   candlestickChart,
+  chordRing,
   composedChart,
+  coxcombChart,
+  donutChart,
   funnelChart,
+  gaugeArc,
   kpiCard,
   lineChart,
+  meterChart,
+  orbitChart,
+  polarBarChart,
+  radarChart,
+  radialArcGroup,
+  radialRings,
   rangeBandChart,
   scatterChart,
   sparklineRows,
   stackedBarChart,
   stepChart,
   streamChart,
+  volvelleChart,
   waterfallChart,
+  windRose,
   type ChartRecipe,
   type CommonChartProps,
   type Datum,
@@ -76,6 +88,29 @@ export const HUNDRED_POINTS: Readonly<Record<string, BenchCase>> = {
   StreamChart: bench(streamChart, { data: rows(POINTS / 2, (i) => ({ x: label(i), a: wave(i), b: wave(i, 1) })), keys: ['a', 'b'] }),
   ScatterChart: bench(scatterChart, { data: rows(POINTS, (i) => ({ x: i, y: wave(i) })) }),
   BubbleChart: bench(bubbleChart, { data: rows(POINTS, (i) => ({ x: i, y: wave(i), size: 1 + (i % 9) })) }),
+};
+
+/** The polar ceiling (API Spec §12). */
+const SECTORS = 60;
+const sectors = (count: number) => rows(count, (i) => ({ name: label(i), value: Math.round(wave(i)) }));
+
+/**
+ * The polar charts at their ceilings (API Spec §12): 60 sectors, 12 chord categories; 100
+ * observations or markers where no ceiling applies; the meters draw one value whatever the data.
+ */
+export const POLAR_AT_CEILING: Readonly<Record<string, BenchCase>> = {
+  DonutChart: bench(donutChart, { data: sectors(SECTORS) }),
+  RadarChart: bench(radarChart, { data: rows(SECTORS, (i) => ({ subject: label(i), value: wave(i) })) }),
+  PolarBarChart: bench(polarBarChart, { data: sectors(SECTORS) }),
+  RadialArcGroup: bench(radialArcGroup, { data: sectors(SECTORS) }),
+  RadialRings: bench(radialRings, { data: rows(SECTORS, (i) => ({ name: label(i), value: Math.min(wave(i), 100) })) }),
+  GaugeArc: bench(gaugeArc, { percent: 72, caption: 'Load' }),
+  MeterChart: bench(meterChart, { percent: 72, caption: 'Load' }),
+  CoxcombChart: bench(coxcombChart, { data: sectors(SECTORS) }),
+  WindRose: bench(windRose, { data: rows(POINTS, (i) => ({ bearing: (i * 37) % 360, speed: 1 + (i % 25) })) }),
+  VolvelleChart: bench(volvelleChart, { data: [0, 1, 2].map((k) => ({ label: `R${k}`, segments: Array.from({ length: SECTORS / (k + 1) }, (_, i) => label(i)) })) }),
+  ChordRing: bench(chordRing, { data: rows(POINTS, (i) => ({ source: `c${i % 12}`, target: `c${(i * 5 + 1) % 12}`, value: 1 + (i % 9) })) }),
+  OrbitChart: bench(orbitChart, { data: [0, 1, 2, 3].map((k) => ({ label: `O${k}`, markers: rows(POINTS / 4, (i) => ({ period: i / 25, value: 1 + ((i + k) % 7) })) })) }),
 };
 
 /** Points a dataset draws: rows times the series each row carries. */

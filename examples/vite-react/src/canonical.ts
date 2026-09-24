@@ -28,11 +28,23 @@ import {
   streamChart,
   scatterChart,
   bubbleChart,
+  donutChart,
+  radarChart,
+  polarBarChart,
+  radialArcGroup,
+  radialRings,
+  gaugeArc,
+  meterChart,
+  coxcombChart,
+  windRose,
+  volvelleChart,
+  chordRing,
+  orbitChart,
 } from '@silverpoint/core';
 import { fixtureById, fixtureProps } from '@silverpoint/example-harness';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
-const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart } as const;
+const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector('.sp-harness');
