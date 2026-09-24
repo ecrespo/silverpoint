@@ -1,0 +1,29 @@
+name: nightly
+
+# TD §9 "Performance · Vitest benchmarks · Nightly": geometry for a 100-point chart against the
+# 2 ms of TD §2. Reported in the job summary, never enforced: shared runners are too noisy.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest bench --run packages/core/bench --reporter=default --reporter=json --outputFile.json=bench.json
+      - run: pnpm exec tsx tools/bench-report/report.ts bench.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bench
+          path: bench.json

@@ -12,7 +12,13 @@ export default defineConfig({
       {
         resolve: source,
         ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
-        test: { name: 'core', root: 'packages/core', environment: 'node', include: ['src/**/*.test.ts', 'test/**/*.test.ts'] },
+        test: {
+          name: 'core',
+          root: 'packages/core',
+          environment: 'node',
+          include: ['src/**/*.test.ts', 'test/**/*.test.ts'],
+          benchmark: { include: ['bench/**/*.bench.ts'] },
+        },
       },
       {
         resolve: source,

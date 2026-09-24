@@ -9,7 +9,8 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 | T-051..T-064 | done | da03921 | contract over 14 recipes (15 tests each; RED 210/210 on stubs → green), `phase2-charts.test.ts` (38 specific; RED 37 → green), SP008 contract for all 14 (mutation-checked), demo snapshots (mutation-checked); core 479, grounds equivalence 86/86 |
 | T-070 (part) | done | da03921 | the 14 appended to `grounds/test/equivalence.test.ts` |
 | T-065 | done | 5821608 | 14 catalog rows turned the adapter suites RED (380 failures) → 639/639 green; React client + server, Vue SFCs, Angular secondary entries; typecheck, build, lint clean |
-| T-066 | done | (this commit) | fixture test RED on 21 charts × 8 → CARDS + canonicals for 168 fixtures; string gate 504 comparisons, 0 failures; gates 180/180 — the extended tree-shaking gate went RED (84/84: scatter and bubble demos in every one-chart bundle) → GREEN with a literal recipe `name`; unit 1672/1672 |
+| T-066 | done | a38e581 | fixture test RED on 21 charts × 8 → CARDS + canonicals for 168 fixtures; string gate 504 comparisons, 0 failures; gates 180/180 — the extended tree-shaking gate went RED (84/84: scatter and bubble demos in every one-chart bundle) → GREEN with a literal recipe `name`; unit 1672/1672 |
+| T-050 | done | (this commit) | `core/bench/hundred-points.ts` (15 cartesian recipes × 100 points; test RED on missing module → 16/16, mutation-checked: 99 points and a NaN both fail) + `geometry.bench.ts` (Vitest 5 `bench` fixture); first run put 5 charts over 2 ms (candlestick 3.8) — `Intl.NumberFormat` construction was 70–90 % of build time; `format.test.ts` RED (100 formatters) → cached formatters → worst mean 0.74 ms; `tools/bench-report` (3 tests, RED → green), `.github/workflows/nightly.yml`; unit 1693/1693, gates 180/180 |
 
 ## Rulings
 
@@ -63,3 +64,10 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 - **T-066 · Ruling (T-070 pulled forward):** the catalog-wide "core (everything)" alarm rises
   30 → 40 kB (measured 31.2 kB with 21 recipes), per the T-038 ruling that it grows with the
   catalog; the product budget stays per chart — cost if wrong: a looser catalog-wide alarm.
+- **T-050 · Ruling:** Vitest 5 replaced module-scope `bench()` and `--outputJson` with a
+  test-context `bench` fixture and the JSON reporter; the benchmark and the nightly job use those.
+  The report reads the JSON reporter's `benchmarks` field — cost if wrong: a report to re-point.
+- **T-050 · Ruling:** `formatNumber` keeps one `Intl.NumberFormat` per locale and options (a
+  bounded, 64-entry module cache). Output is unchanged — every canonical and the string gate
+  agree — and it is not render-path state that Art. 4 forbids: it holds no time or chance, only
+  a pure function's memo — cost if wrong: one allocation per label again.

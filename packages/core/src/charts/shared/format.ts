@@ -10,13 +10,26 @@ export function accessorName(accessor: Accessor<unknown>, fallback: string): str
   return typeof accessor === 'string' ? accessor : fallback;
 }
 
+/** Formatters already built, by locale and options: building one costs more than a label (TD §2). */
+const FORMATTERS = /* @__PURE__ */ new Map<string, Intl.NumberFormat>();
+/** Distinct locale-and-options pairs kept; past it the cache starts over, so it stays bounded. */
+const MAX_FORMATTERS = 64;
+
 /** Formats a number with the resolved locale. Formatting lives in the core so both adapters agree. */
 export function formatNumber(
   value: number,
   locale: string,
   options: Intl.NumberFormatOptions | undefined,
 ): string {
-  return new Intl.NumberFormat(locale, options ?? { maximumFractionDigits: 2 }).format(value);
+  const resolved = options ?? { maximumFractionDigits: 2 };
+  const key = `${locale}|${JSON.stringify(resolved)}`;
+  let formatter = FORMATTERS.get(key);
+  if (!formatter) {
+    if (FORMATTERS.size >= MAX_FORMATTERS) FORMATTERS.clear();
+    formatter = new Intl.NumberFormat(locale, resolved);
+    FORMATTERS.set(key, formatter);
+  }
+  return formatter.format(value);
 }
 
 /** Formats a label that may be a number or free text. */
