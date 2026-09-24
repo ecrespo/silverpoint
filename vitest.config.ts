@@ -50,15 +50,16 @@ export default defineConfig({
         },
       },
       {
-        // The Art. 3 string gate runs against the published builds of every adapter, resolved
-        // without the source condition, exactly as a consumer would import them.
+        // The gates that need built artefacts — the Art. 3 string gate and the bundle budgets —
+        // run against the published builds, resolved as a consumer would import them.
         test: {
           name: 'gates',
-          root: 'tools/visual-gate',
+          root: 'tools',
           environment: 'node',
-          include: ['*.real.test.ts'],
-          globalSetup: ['gate-setup.ts'],
-          setupFiles: ['gate-angular.ts'],
+          include: ['**/*.real.test.ts'],
+          exclude: ['**/node_modules/**'],
+          globalSetup: ['visual-gate/gate-setup.ts'],
+          setupFiles: ['visual-gate/gate-angular.ts'],
           testTimeout: 120_000,
         },
       },

@@ -31,3 +31,5 @@ jobs:
       - run: pnpm test
       # REQ-180: every adapter against the canonical render of every fixture.
       - run: pnpm --filter @silverpoint/visual-gate string-gate
+      # REQ-164: every package within its declared budget.
+      - run: pnpm size

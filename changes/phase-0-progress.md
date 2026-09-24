@@ -26,6 +26,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-020 | **done — stop condition not triggered** | 2026-09-24 | `tools/visual-gate/string-gate.real.test.ts` and `pnpm --filter @silverpoint/visual-gate string-gate`: the published builds of React (`renderToStaticMarkup`), Vue (`@vue/server-renderer`) and Angular (`renderApplication`) are identical to the canonical render in **24/24** comparisons (3 adapters × 2 modes × 4 substrates). DD-004 holds as designed; no degradation to AST comparison is needed |
 | T-025 | done | 2026-09-24 | `packages/grounds/test/equivalence.test.ts` — parameterised by chart, 5 variants × 5 seeds × 4 substrates; a mutation that inks encoding strokes fails every variant |
 | T-027 | done — **40 KB confirmed** | 2026-09-24 | `tools/path-weight` tests and `reports/path-weight.md`. Tile fill: line chart 2.0–2.1 KiB inked at every size; a dense card of 6 or 12 cross-hatched bars over a tone-3 area weighs 1.5–1.7 KiB, ~0.6 KiB per tonal level whatever the shape count. Per-shape: 21.0 KiB (6 bars) and 34.7 KiB (12 bars) at `md`, 14–20× the tile. DD-007's 76 KB / 913 KB figures were taken at gap 4.5 and 3 decimals; gap 7 and 2-decimal rounding brought per-shape down, but it still approaches the budget with 12 bars, where SP011 warns. No PRD amendment needed |
+| T-028 | done | 2026-09-24 | `.size-limit.json` and `tools/bundle-budget/budget.real.test.ts`, min+gzip over the built packages: React client + core + LineChart **26.3 KiB** of 45 KB (rough.js and d3 included), React server 23.9, Vue 27.5, Angular 29.5, core 16.1 of 20, grounds 23.9 of 30, stylesheet 1.8 of 4, fonts 72.7 of 76 (raw woff2). A 1 kB limit makes size-limit exit non-zero |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -107,6 +108,10 @@ failing first where code changed.
   requirement's letter; `delta-004-vue-interaction-state.md` proposes the wording.
 - **T-018 · Ruling:** the React client memoises the render on the props object React passes in,
   so moving the pointer never re-inks the chart. *Cost if wrong:* none; caught while wiring.
+- **T-028 · Ruling:** the spec fixes only the 45 KB budget for core + react with one chart. The
+  same 45 KB is declared for the Vue and Angular entries, and measured budgets with headroom for
+  the rest (core 20, grounds 30, stylesheet 4, fonts 76). *Cost if wrong:* a budget to retune;
+  each is one line in `.size-limit.json`.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen
