@@ -1,12 +1,23 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChild, inject, input, output, signal } from '@angular/core';
 import {
   injectForcedPrecision,
   injectMeasuredWidth,
   SILVERPOINT_CONFIG,
   SilverpointIds,
   SpChartFrame,
+  SpChartOverlay,
+  SpTooltip,
 } from '@silverpoint/angular';
-import { instanceId, lineChart, type ActiveItem, type Geometry, type LineChartProps } from '@silverpoint/core';
+import {
+  instanceId,
+  lineChart,
+  reduceInteraction,
+  type ActiveItem,
+  type Geometry,
+  type InteractionEvent,
+  type LineChartProps,
+  type PointerKind,
+} from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
 type Prop<K extends keyof LineChartProps> = LineChartProps[K];
@@ -17,9 +28,13 @@ type Prop<K extends keyof LineChartProps> = LineChartProps[K];
  */
 @Component({
   selector: 'sp-line-chart',
-  imports: [SpChartFrame],
+  imports: [SpChartFrame, SpChartOverlay],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<sp-chart-frame [rendered]="rendered()" [rootClass]="rootClass()" />`,
+  template: `
+    <sp-chart-frame [rendered]="rendered()" [rootClass]="rootClass()" [interactive]="true" (rootEvent)="onRootEvent($event)">
+      <sp-chart-overlay [rendered]="rendered()" [active]="active()" [tooltip]="tooltip()?.template" />
+    </sp-chart-frame>
+  `,
 })
 export class SpLineChart {
   readonly data = input<Prop<'data'>>();
@@ -104,6 +119,52 @@ export class SpLineChart {
   protected readonly rootClass = computed(() =>
     ['sp-root', `sp-ground-${this.rendered().ground}`, this.className()].filter(Boolean).join(' '),
   );
+
+  /** A consumer-supplied readout template (REQ-142). */
+  protected readonly tooltip = contentChild(SpTooltip);
+  /** The active item: interaction state REQ-141 requires. */
+  protected readonly active = signal<ActiveItem | null>(null);
+
+  private readonly dispatch = (event: InteractionEvent): boolean => {
+    const result = reduceInteraction(this.rendered().geometry, this.active(), event);
+    if (result.changed) {
+      this.active.set(result.active);
+      this.activeChange.emit(result.active);
+    }
+    if (result.selected) this.select.emit(result.selected);
+    return result.handled;
+  };
+
+  /** Turns a DOM event of the chart root into a core interaction event; decides nothing. */
+  protected readonly onRootEvent = (event: Event): void => {
+    const root = event.currentTarget as HTMLElement | null;
+    switch (event.type) {
+      case 'pointermove':
+      case 'pointerdown':
+      case 'click': {
+        const svg = root?.querySelector('svg.sp-chart');
+        if (!svg) return;
+        const box = svg.getBoundingClientRect();
+        const pointer = event as PointerEvent;
+        this.dispatch({
+          type: event.type === 'click' ? 'click' : 'pointer',
+          client: { x: pointer.clientX, y: pointer.clientY },
+          box: { left: box.left, top: box.top, width: box.width, height: box.height },
+          kind: (pointer.pointerType || 'mouse') as PointerKind,
+        });
+        return;
+      }
+      case 'pointerleave':
+        this.dispatch({ type: 'leave' });
+        return;
+      case 'focus':
+      case 'blur':
+        this.dispatch({ type: event.type });
+        return;
+      case 'keydown':
+        if (this.dispatch({ type: 'key', key: (event as KeyboardEvent).key })) event.preventDefault();
+    }
+  };
 
   /** The rendered geometry (API Spec §8.2, symmetric with `ChartHandle`). */
   getGeometry(): Geometry {

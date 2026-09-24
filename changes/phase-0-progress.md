@@ -21,6 +21,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-015 | done (interaction in T-018) | 2026-09-24 | `packages/react/test` — server and client SSR equal to the canonical render in both modes and four substrates; server variant hook-free, rejects `onActiveChange` and requires `width`/`height` at the type level; built entries: client carries `'use client'`, server does not |
 | T-016 | done (interaction in T-018; example-app consumption in T-023) | 2026-09-24 | `packages/angular/test` — the ng-packagr APF bundle, linked at runtime, server-renders through `renderApplication` identically to the canonical render in both modes and four substrates; standalone, OnPush, 28 signal inputs named as `LineChartProps`; client measurement, forced precision and public methods verified, with mutations confirming the client tests bite; `dist/package.json` exports `.` and `./line-chart` |
 | T-017 | done (interaction in T-018) | 2026-09-24 | `packages/vue/test` — `@vue/server-renderer` output equal to the canonical render in both modes and four substrates; SSR → hydration with no mismatch (REQ-109); props equal to `LineChartProps` name for name; `@active-change` typed to `ActiveItem \| null`, verified with `vue-tsc` |
+| T-018 | done | 2026-09-24 | core `reduceInteraction` (`packages/core/test/reducer.test.ts`) plus the same seven readout tests in each adapter (`packages/{react,vue,angular}/test/interaction.test.*`): hover and keyboard give the same readout, leave and blur emit `null` with no residue, Enter selects, a custom renderer replaces the built-in one, a polite live region announces |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -92,6 +93,16 @@ failing first where code changed.
 - **T-016 · Process note:** the four Angular client tests were written after the code they cover;
   each was then checked by a deliberate mutation (forced precision, measurement, `toSVGString`)
   that made it fail, before restoring the code.
+- **T-018 · Ruling:** all interaction logic is one pure core function, `reduceInteraction`
+  (current item + event → next item, changed, selected, handled). Adapters forward DOM events and
+  keep the result, so hover, keyboard and selection cannot diverge between frameworks. The chart
+  root becomes focusable (`tabindex=0`, `role=group`) in the client components only.
+- **T-018 · Ruling:** REQ-108 allows no component-local state in Vue beyond the measured width,
+  but REQ-141 requires the readout to follow the active item, which is interaction state. The
+  active item is kept as the one extra ref; nothing geometric is stored. *Cost if wrong:* the
+  requirement's letter; `delta-004-vue-interaction-state.md` proposes the wording.
+- **T-018 · Ruling:** the React client memoises the render on the props object React passes in,
+  so moving the pointer never re-inks the chart. *Cost if wrong:* none; caught while wiring.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

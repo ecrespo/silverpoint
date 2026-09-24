@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import type { RenderedChart } from '@silverpoint/grounds';
 
 /**
@@ -16,6 +16,16 @@ import type { RenderedChart } from '@silverpoint/grounds';
       [attr.data-substrate]="r.substrate"
       [attr.data-chrome]="r.chrome"
       [attr.data-status]="r.status"
+      [attr.tabindex]="interactive() ? 0 : null"
+      [attr.role]="interactive() ? 'group' : null"
+      [attr.aria-label]="interactive() ? r.name : null"
+      (pointermove)="rootEvent.emit($event)"
+      (pointerdown)="rootEvent.emit($event)"
+      (click)="rootEvent.emit($event)"
+      (pointerleave)="rootEvent.emit($event)"
+      (focus)="rootEvent.emit($event)"
+      (blur)="rootEvent.emit($event)"
+      (keydown)="rootEvent.emit($event)"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -106,4 +116,8 @@ import type { RenderedChart } from '@silverpoint/grounds';
 export class SpChartFrame {
   readonly rendered = input.required<RenderedChart>();
   readonly rootClass = input.required<string>();
+  /** Focusable, with the interaction events forwarded to the chart component. */
+  readonly interactive = input(false);
+  /** DOM events of the root, forwarded untouched; the chart turns them into core events. */
+  readonly rootEvent = output<Event>();
 }

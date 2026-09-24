@@ -51,3 +51,4 @@ export {
   type PointerKind,
   type Readout,
 } from './interaction/hit-test';
+export { reduceInteraction, sameActive, type InteractionEvent, type InteractionResult } from './interaction/reduce';
