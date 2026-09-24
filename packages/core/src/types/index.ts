@@ -33,6 +33,7 @@ export type {
   GaugeArcProps,
   MeterChartProps,
   WindRoseProps,
+  ChordRingProps,
   KpiCardProps,
   RangeBandChartProps,
   ScatterChartProps,

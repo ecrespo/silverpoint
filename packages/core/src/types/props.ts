@@ -314,3 +314,12 @@ export interface WindRoseProps extends CommonChartProps {
   bins?: readonly number[];
 }
 
+/** `ChordRing` (REQ-091): directed flows between categories around a circle (Data Model §2.7). */
+export interface ChordRingProps extends CommonChartProps {
+  sourceKey?: Accessor<string | number>;
+  targetKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  /** Categories drawn; past it the smallest merge into "Other" (`SP010`). 12 by default. */
+  maxCategories?: number;
+}
+

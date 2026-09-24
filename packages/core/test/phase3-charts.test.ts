@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -205,7 +205,7 @@ describe('CoxcombChart', () => {
 });
 
 /** The points of a path, in order. */
-const pointsOf = (d: string) => [...d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAZ]|$)/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
+const pointsOf = (d: string) => [...d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAQZ]|$)/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
 /** The guide tracks: ornament arcs on the grid part. */
 const tracks = (model: ChartModel) => model.geometry.strokes.filter((s) => s.role === 'ornament' && s.part === 'grid' && s.d.includes('A'));
 const radiusOfArc = (d: string) => Number(/A([\d.]+),/.exec(d)?.[1]);
@@ -367,5 +367,88 @@ describe('WindRose', () => {
     const model = windRose.build({ ...bare }, context);
     expect(model.description).toMatch(/742 observations/);
     expect(model.description).toMatch(/most often from [NSEW]{1,3}/);
+  });
+});
+
+describe('ChordRing', () => {
+  const flows = [
+    { source: 'A', target: 'B', value: 30 },
+    { source: 'B', target: 'A', value: 10 },
+    { source: 'A', target: 'C', value: 20 },
+    { source: 'C', target: 'B', value: 5 },
+  ];
+  const ribbons = (model: ChartModel) => encoding(model).filter((s) => s.d.includes('Q'));
+  const groups = (model: ChartModel) => encoding(model).filter((s) => !s.d.includes('Q'));
+  /** Centre of the ring: every ribbon curves through it. */
+  const centreFrom = (model: ChartModel) => {
+    const q = /Q(-?[\d.]+),(-?[\d.]+)/.exec(ribbons(model)[0]!.d)!;
+    return { cx: Number(q[1]), cy: Number(q[2]) };
+  };
+  const at = (p: { x: number; y: number }, c: { cx: number; cy: number }) => {
+    const a = Math.atan2(p.x - c.cx, c.cy - p.y);
+    return a < 0 ? a + 2 * Math.PI : a;
+  };
+
+  test('REQ-091 · one ribbon per flow and one arc per category, in order of first appearance', () => {
+    const model = chordRing.build({ ...bare, data: flows }, context);
+    expect(ribbons(model)).toHaveLength(4);
+    expect(groups(model)).toHaveLength(3);
+    const printed = texts(model);
+    expect(printed.indexOf('A')).toBeLessThan(printed.indexOf('B'));
+    expect(printed.indexOf('B')).toBeLessThan(printed.indexOf('C'));
+  });
+
+  test('REQ-091 · a ribbon’s end spans an angle proportional to its flow', () => {
+    const model = chordRing.build({ ...bare, data: flows }, context);
+    const c = centreFrom(model);
+    const span = (d: string) => {
+      const [p0, p1] = pointsOf(d);
+      let s = at(p1!, c) - at(p0!, c);
+      if (s < 0) s += 2 * Math.PI;
+      return s;
+    };
+    const spans = ribbons(model).map((r) => span(r.d));
+    close(spans[0]! / spans[2]!, 30 / 20, 0.02);
+    close(spans[1]! / spans[3]!, 10 / 5, 0.02);
+  });
+
+  test('REQ-091 · a category’s arc spans its throughput — what it sends plus what it receives', () => {
+    const model = chordRing.build({ ...bare, data: flows }, context);
+    const c = centreFrom(model);
+    const sweep = (d: string) => {
+      const [p0, p1] = pointsOf(d);
+      let s = at(p1!, c) - at(p0!, c);
+      if (s < 0) s += 2 * Math.PI;
+      return s;
+    };
+    // A: 30 + 20 out, 10 in = 60; B: 10 out, 30 + 5 in = 45; C: 5 out, 20 in = 25.
+    const [a, b, cc] = groups(model).map((g) => sweep(g.d));
+    close(a! / b!, 60 / 45, 0.02);
+    close(a! / cc!, 60 / 25, 0.02);
+  });
+
+  test('REQ-091 · above 12 categories SP010 is warned; past `maxCategories` the smallest merge into “Other”', () => {
+    const seen = capture();
+    const wide = Array.from({ length: 13 }, (_, i) => ({ source: `c${i}`, target: `c${(i + 1) % 13}`, value: 13 - i }));
+    chordRing.build({ ...bare, data: wide, maxCategories: 20 }, context);
+    expect(seen).toContain('SP010');
+    const few = capture();
+    const model = chordRing.build({ ...bare, data: flows, maxCategories: 2 }, context);
+    expect(few).toContain('SP010');
+    expect(groups(model)).toHaveLength(2);
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', 'Other']));
+    expect(model.table.rows).toHaveLength(4);
+  });
+
+  test('REQ-091 · 12 categories draw without SP010', () => {
+    const seen = capture();
+    chordRing.build({ ...bare, data: Array.from({ length: 12 }, (_, i) => ({ source: `c${i}`, target: `c${(i + 1) % 12}`, value: 1 })) }, context);
+    expect(seen).not.toContain('SP010');
+  });
+
+  test('REQ-121 · the table lists every flow: source, target, value', () => {
+    const model = chordRing.build({ ...bare, data: flows }, context);
+    expect(model.table.columns).toEqual(['source', 'target', 'value']);
+    expect(model.table.rows[0]).toEqual(['A', 'B', '30']);
   });
 });

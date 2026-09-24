@@ -7,6 +7,7 @@ import {
   bubbleChart,
   bulletChart,
   candlestickChart,
+  chordRing,
   composedChart,
   coxcombChart,
   donutChart,
@@ -289,6 +290,13 @@ const POLAR: readonly Case[] = [
     items: 4,
     hostile: [{ b: Number.NaN, s: 5 }, { b: 10, s: -3 }, { b: 'x', s: 1 }],
     labelOf: (d) => String(d.direction),
+  },
+  {
+    recipe: P2(chordRing),
+    consumer: { data: [{ a: 'Web', b: 'App', n: 30 }, { a: 'App', b: 'Web', n: 10 }, { a: 'Web', b: 'Mail', n: 20 }, { a: 'Mail', b: 'App', n: 5 }], sourceKey: 'a', targetKey: 'b', valueKey: 'n' },
+    items: 4,
+    hostile: [{ a: 'Web', b: 'App', n: Number.NaN }, { a: 'Web', b: 'App', n: -3 }, { a: 'Web', n: 4 }],
+    labelOf: (d) => String(d.a),
   },
 ];
 

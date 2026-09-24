@@ -10,7 +10,8 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 | T-073 | done | 51321d8 | `DonutChart`: contract cases (`POLAR`, 13 tests) + sector-volume contract (61 → SP008) + 15 specific tests RED on the missing recipe → green; `ringTone` (no two neighbours share a tone, across 12 o'clock) and `sectorLegend` ("+N more") mutation-checked; one test's expected angles were wrong (Rent 50 % spans 0-π) and were corrected, not the code |
 | T-074, T-075, T-079 | done | 70cc7b4 | `RadarChart`, `PolarBarChart`, `CoxcombChart`: 3 contract cases (39 tests) + 3 sector-volume contracts + 10 specific tests RED on the missing recipes → green (core 620/620); two tests corrected before any code ran (a radial bar's length is not an axis-aligned box's height; the coxcomb has no `legend`) |
 | T-076, T-077, T-078 | done | 23861e9 | `RadialArcGroup`, `RadialRings` (shared `tracks.ts`), `GaugeArc`, `MeterChart` (shared `scalar.ts`, own 9-test scalar contract — a meter has no rows): 2 contract cases + 2 sector-volume contracts + 18 scalar-contract tests + 7 specific tests RED on the missing recipes → green; three tests rewritten before any code ran (two tautologies, one "sweep > 0") to check the exact end angle from the guide track. A first **preview render** (Chromium, real stylesheet and fonts) showed two defects the geometry tests missed: the radar's outer ring value over the 12 o'clock name and the meter's readout under its needle — each got a RED test (label boxes; readout clearance, tightened once the preview showed the % sign's ascent) and a fix; core 681/681 |
-| T-080 | done | (this commit) | `WindRose` on a **real record**: 742 hourly METAR reports, ASOS station DSM (Des Moines, Iowa), March 2024, from the Iowa Environmental Mesonet archive, cited in `demo.ts` (2 reports with a missing value left out). Contract case (13 tests) + 7 specific tests RED on the missing recipe → green; the preview showed the outer ring's "15%" over "NNE" — the radar's overlap test was generalised to both charts (RED on the wind rose) and fixed; core 704/704 |
+| T-080 | done | 5c6f58e | `WindRose` on a **real record**: 742 hourly METAR reports, ASOS station DSM (Des Moines, Iowa), March 2024, from the Iowa Environmental Mesonet archive, cited in `demo.ts` (2 reports with a missing value left out). Contract case (13 tests) + 7 specific tests RED on the missing recipe → green; the preview showed the outer ring's "15%" over "NNE" — the radar's overlap test was generalised to both charts (RED on the wind rose) and fixed; core 704/704 |
+| T-082 | done | (this commit) | `ChordRing`: `d3-chord` ^3.0.1 (+ `@types/d3-chord`) added to `@silverpoint/core` only (DD-005; already in the allowlist). Contract case (13 tests) + 6 specific tests RED on the missing recipe → green after one behaviour change (ribbons drawn in row order, which the test assumed); the existing REQ-007 production-strip test caught an unguarded `SP010` → guarded; the preview showed outline-only ribbons reading as strands → hatched in the source's tone; core 725/725, `pnpm lint` 0 errors |
 
 ## Rulings
 
@@ -57,3 +58,14 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
   wrong: a domain to widen before 1.0.
 - **T-080 · Ruling:** the demo is fetched once from a public archive and committed as data; the
   test suite never touches the network — cost if wrong: none.
+- **T-082 · Ruling:** flows are directed (`chordDirected`): each row is its own ribbon, whose two
+  ends span its value, and a category's arc is its throughput (sent + received). The spec's
+  "flows between categories" (REQ-091) over `{source, target, value}` rows (Data Model §2.7, shared
+  with the sankey) reads as directed — cost if wrong: an undirected mode to add.
+- **T-082 · Ruling:** `SP010` is warned above the v1 ceiling of 12 categories and also whenever
+  `maxCategories` forces a merge; past `maxCategories` the smallest categories by throughput merge
+  into "Other" (the table keeps every row) — cost if wrong: a merge a consumer did not expect, but
+  never silently.
+- **T-082 · Ruling:** `d3-chord` allocates the angles; the ribbon path is written with the polar
+  frame's exact arcs (the same quadratic-through-the-centre shape as d3's `ribbon()`), because
+  `ribbon()` draws around the origin — cost if wrong: a path generator to swap.
