@@ -1,0 +1,28 @@
+<svg aria-labelledby="gauge-arc--silverpoint--cream--ink--md-title gauge-arc--silverpoint--cream--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="gauge-arc--silverpoint--cream--ink--md-title">
+    "Capacity"
+  <desc id="gauge-arc--silverpoint--cream--ink--md-desc">
+    "Capacity. The value at 72% of the range."
+  <defs>
+    <pattern height="45" id="gauge-arc--silverpoint--cream--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M86.73 184.8 C53.34 128.11, 95.58 57.61, 160.01 57.91 M86.73 184.8 C53.58 129.28, 95.82 57.91, 160.01 57.91 M160.01 57.91 C224.4 57.11, 265.47 128.82, 233.27 184.8 M160.01 57.91 C224.22 58.93, 265.46 127.76, 233.27 184.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M78.59,189.5A94,94,0,0,1,234.87,85.67L219.9,97.03A75.2,75.2,0,0,0,94.87,180.1Z" data-paint="tile" data-role="hatch" fill="url(#gauge-arc--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M78.59,189.5A94,94,0,0,1,234.87,85.67L219.9,97.03A75.2,75.2,0,0,0,94.87,180.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Capacity"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "live"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "of the cluster"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="160" y="144.5">
+    "72%"

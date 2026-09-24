@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `PolarBarChart` (REQ-093): a year of monthly sales. Frozen (Data Model §4). */
 export const POLAR_BAR_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { name: 'Jan', value: 32 },
     { name: 'Feb', value: 28 },
     { name: 'Mar', value: 41 },

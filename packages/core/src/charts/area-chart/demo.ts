@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `AreaChart` (REQ-093): sessions per weekday. Frozen (Data Model §4). */
 export const AREA_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Mon', value: 32 },
     { x: 'Tue', value: 45 },
     { x: 'Wed', value: 41 },

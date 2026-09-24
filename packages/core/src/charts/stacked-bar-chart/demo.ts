@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `StackedBarChart` (REQ-093): signups by plan per month. Frozen (Data Model §4). */
 export const STACKED_BAR_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Jan', free: 40, pro: 18, team: 6 },
     { x: 'Feb', free: 46, pro: 21, team: 9 },
     { x: 'Mar', free: 38, pro: 26, team: 11 },

@@ -27,6 +27,18 @@ import { SpRangeBandChart as AngularRangeBandChart } from '@silverpoint/angular/
 import { SpStreamChart as AngularStreamChart } from '@silverpoint/angular/stream-chart';
 import { SpScatterChart as AngularScatterChart } from '@silverpoint/angular/scatter-chart';
 import { SpBubbleChart as AngularBubbleChart } from '@silverpoint/angular/bubble-chart';
+import { SpDonutChart as AngularDonutChart } from '@silverpoint/angular/donut-chart';
+import { SpRadarChart as AngularRadarChart } from '@silverpoint/angular/radar-chart';
+import { SpPolarBarChart as AngularPolarBarChart } from '@silverpoint/angular/polar-bar-chart';
+import { SpRadialArcGroup as AngularRadialArcGroup } from '@silverpoint/angular/radial-arc-group';
+import { SpRadialRings as AngularRadialRings } from '@silverpoint/angular/radial-rings';
+import { SpGaugeArc as AngularGaugeArc } from '@silverpoint/angular/gauge-arc';
+import { SpMeterChart as AngularMeterChart } from '@silverpoint/angular/meter-chart';
+import { SpCoxcombChart as AngularCoxcombChart } from '@silverpoint/angular/coxcomb-chart';
+import { SpWindRose as AngularWindRose } from '@silverpoint/angular/wind-rose';
+import { SpVolvelleChart as AngularVolvelleChart } from '@silverpoint/angular/volvelle-chart';
+import { SpChordRing as AngularChordRing } from '@silverpoint/angular/chord-ring';
+import { SpOrbitChart as AngularOrbitChart } from '@silverpoint/angular/orbit-chart';
 import { LineChart as ReactLineChart } from '@silverpoint/react/server/line-chart';
 import { BulletChart as ReactBulletChart } from '@silverpoint/react/server/bullet-chart';
 import { PyramidChart as ReactPyramidChart } from '@silverpoint/react/server/pyramid-chart';
@@ -48,6 +60,18 @@ import { RangeBandChart as ReactRangeBandChart } from '@silverpoint/react/server
 import { StreamChart as ReactStreamChart } from '@silverpoint/react/server/stream-chart';
 import { ScatterChart as ReactScatterChart } from '@silverpoint/react/server/scatter-chart';
 import { BubbleChart as ReactBubbleChart } from '@silverpoint/react/server/bubble-chart';
+import { DonutChart as ReactDonutChart } from '@silverpoint/react/server/donut-chart';
+import { RadarChart as ReactRadarChart } from '@silverpoint/react/server/radar-chart';
+import { PolarBarChart as ReactPolarBarChart } from '@silverpoint/react/server/polar-bar-chart';
+import { RadialArcGroup as ReactRadialArcGroup } from '@silverpoint/react/server/radial-arc-group';
+import { RadialRings as ReactRadialRings } from '@silverpoint/react/server/radial-rings';
+import { GaugeArc as ReactGaugeArc } from '@silverpoint/react/server/gauge-arc';
+import { MeterChart as ReactMeterChart } from '@silverpoint/react/server/meter-chart';
+import { CoxcombChart as ReactCoxcombChart } from '@silverpoint/react/server/coxcomb-chart';
+import { WindRose as ReactWindRose } from '@silverpoint/react/server/wind-rose';
+import { VolvelleChart as ReactVolvelleChart } from '@silverpoint/react/server/volvelle-chart';
+import { ChordRing as ReactChordRing } from '@silverpoint/react/server/chord-ring';
+import { OrbitChart as ReactOrbitChart } from '@silverpoint/react/server/orbit-chart';
 import { SpLineChart as VueLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart as VueBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart as VuePyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -69,6 +93,18 @@ import { SpRangeBandChart as VueRangeBandChart } from '@silverpoint/vue/range-ba
 import { SpStreamChart as VueStreamChart } from '@silverpoint/vue/stream-chart';
 import { SpScatterChart as VueScatterChart } from '@silverpoint/vue/scatter-chart';
 import { SpBubbleChart as VueBubbleChart } from '@silverpoint/vue/bubble-chart';
+import { SpDonutChart as VueDonutChart } from '@silverpoint/vue/donut-chart';
+import { SpRadarChart as VueRadarChart } from '@silverpoint/vue/radar-chart';
+import { SpPolarBarChart as VuePolarBarChart } from '@silverpoint/vue/polar-bar-chart';
+import { SpRadialArcGroup as VueRadialArcGroup } from '@silverpoint/vue/radial-arc-group';
+import { SpRadialRings as VueRadialRings } from '@silverpoint/vue/radial-rings';
+import { SpGaugeArc as VueGaugeArc } from '@silverpoint/vue/gauge-arc';
+import { SpMeterChart as VueMeterChart } from '@silverpoint/vue/meter-chart';
+import { SpCoxcombChart as VueCoxcombChart } from '@silverpoint/vue/coxcomb-chart';
+import { SpWindRose as VueWindRose } from '@silverpoint/vue/wind-rose';
+import { SpVolvelleChart as VueVolvelleChart } from '@silverpoint/vue/volvelle-chart';
+import { SpChordRing as VueChordRing } from '@silverpoint/vue/chord-ring';
+import { SpOrbitChart as VueOrbitChart } from '@silverpoint/vue/orbit-chart';
 import { createElement, type ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createSSRApp, h, type Component as VueComponent } from 'vue';
@@ -98,6 +134,18 @@ const REACT: Readonly<Record<string, ComponentType<never>>> = {
   StreamChart: ReactStreamChart as ComponentType<never>,
   ScatterChart: ReactScatterChart as ComponentType<never>,
   BubbleChart: ReactBubbleChart as ComponentType<never>,
+  DonutChart: ReactDonutChart as ComponentType<never>,
+  RadarChart: ReactRadarChart as ComponentType<never>,
+  PolarBarChart: ReactPolarBarChart as ComponentType<never>,
+  RadialArcGroup: ReactRadialArcGroup as ComponentType<never>,
+  RadialRings: ReactRadialRings as ComponentType<never>,
+  GaugeArc: ReactGaugeArc as ComponentType<never>,
+  MeterChart: ReactMeterChart as ComponentType<never>,
+  CoxcombChart: ReactCoxcombChart as ComponentType<never>,
+  WindRose: ReactWindRose as ComponentType<never>,
+  VolvelleChart: ReactVolvelleChart as ComponentType<never>,
+  ChordRing: ReactChordRing as ComponentType<never>,
+  OrbitChart: ReactOrbitChart as ComponentType<never>,
 };
 const VUE: Readonly<Record<string, VueComponent>> = {
   LineChart: VueLineChart as VueComponent,
@@ -121,6 +169,18 @@ const VUE: Readonly<Record<string, VueComponent>> = {
   StreamChart: VueStreamChart as VueComponent,
   ScatterChart: VueScatterChart as VueComponent,
   BubbleChart: VueBubbleChart as VueComponent,
+  DonutChart: VueDonutChart as VueComponent,
+  RadarChart: VueRadarChart as VueComponent,
+  PolarBarChart: VuePolarBarChart as VueComponent,
+  RadialArcGroup: VueRadialArcGroup as VueComponent,
+  RadialRings: VueRadialRings as VueComponent,
+  GaugeArc: VueGaugeArc as VueComponent,
+  MeterChart: VueMeterChart as VueComponent,
+  CoxcombChart: VueCoxcombChart as VueComponent,
+  WindRose: VueWindRose as VueComponent,
+  VolvelleChart: VueVolvelleChart as VueComponent,
+  ChordRing: VueChordRing as VueComponent,
+  OrbitChart: VueOrbitChart as VueComponent,
 };
 const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   LineChart: AngularLineChart,
@@ -144,6 +204,18 @@ const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   StreamChart: AngularStreamChart,
   ScatterChart: AngularScatterChart,
   BubbleChart: AngularBubbleChart,
+  DonutChart: AngularDonutChart,
+  RadarChart: AngularRadarChart,
+  PolarBarChart: AngularPolarBarChart,
+  RadialArcGroup: AngularRadialArcGroup,
+  RadialRings: AngularRadialRings,
+  GaugeArc: AngularGaugeArc,
+  MeterChart: AngularMeterChart,
+  CoxcombChart: AngularCoxcombChart,
+  WindRose: AngularWindRose,
+  VolvelleChart: AngularVolvelleChart,
+  ChordRing: AngularChordRing,
+  OrbitChart: AngularOrbitChart,
 };
 
 function pick<T>(table: Readonly<Record<string, T>>, chart: string): T {

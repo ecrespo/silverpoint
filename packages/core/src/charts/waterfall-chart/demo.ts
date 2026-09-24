@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `WaterfallChart` (REQ-093): from opening to closing cash. Frozen (Data Model §4). */
 export const WATERFALL_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { step: 'Opening', base: 120 },
     { step: 'Sales', delta: 64 },
     { step: 'Services', delta: 22 },

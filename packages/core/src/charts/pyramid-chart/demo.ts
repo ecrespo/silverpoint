@@ -5,7 +5,7 @@ import type { Datum } from '../../types';
  * Frozen and part of the stable surface (Data Model §4).
  */
 export const PYRAMID_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { label: 'Leads', width: 18 },
     { label: 'Managers', width: 42 },
     { label: 'Specialists', width: 70 },

@@ -11,7 +11,8 @@ import type { Datum } from '../../types';
  * https://mesonet.agron.iastate.edu/request/download.phtml (station DSM, 2024-03-01 to 2024-04-01,
  * fields `drct` and `sknt`, routine reports only), retrieved 2026-09-24.
  */
-const OBSERVATIONS: readonly (readonly [number, number])[] = [
+export const WIND_ROSE_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
+  /* @__PURE__ */ [
     [180, 11], [170, 11], [180, 9], [180, 10], [170, 7], [180, 11], [180, 10], [180, 9], [160, 7], [150, 6], [140, 9], [150, 8],
     [160, 8], [180, 9], [190, 8], [200, 12], [190, 16], [210, 16], [170, 17], [180, 16], [190, 15], [190, 17], [190, 13], [180, 14],
     [170, 9], [170, 11], [160, 9], [150, 6], [150, 7], [150, 8], [160, 9], [160, 9], [140, 7], [150, 9], [150, 7], [140, 7],
@@ -74,8 +75,5 @@ const OBSERVATIONS: readonly (readonly [number, number])[] = [
     [330, 13], [340, 12], [330, 12], [350, 8], [340, 9], [360, 5], [30, 4], [10, 10], [360, 9], [350, 6], [360, 4], [10, 8],
     [10, 8], [30, 8], [20, 8], [30, 6], [20, 7], [30, 11], [20, 8], [30, 9], [40, 8], [30, 5], [30, 6], [50, 8],
     [60, 11], [50, 8], [90, 9], [50, 12], [80, 8], [70, 15], [80, 12], [90, 10], [80, 11], [70, 12],
-];
-
-export const WIND_ROSE_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  OBSERVATIONS.map(([bearing, speed]) => Object.freeze({ bearing, speed })),
+  ].map(([bearing, speed]) => Object.freeze({ bearing, speed })),
 );

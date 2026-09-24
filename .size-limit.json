@@ -945,11 +945,551 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, DonutChart (client)",
+    "path": "packages/react/dist/donut-chart.js",
+    "import": "{ DonutChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DonutChart (server)",
+    "path": "packages/react/dist/server/donut-chart.js",
+    "import": "{ DonutChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDonutChart",
+    "path": "packages/vue/dist/donut-chart.js",
+    "import": "{ SpDonutChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDonutChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-donut-chart.mjs",
+    "import": "{ SpDonutChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadarChart (client)",
+    "path": "packages/react/dist/radar-chart.js",
+    "import": "{ RadarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadarChart (server)",
+    "path": "packages/react/dist/server/radar-chart.js",
+    "import": "{ RadarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpRadarChart",
+    "path": "packages/vue/dist/radar-chart.js",
+    "import": "{ SpRadarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpRadarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-radar-chart.mjs",
+    "import": "{ SpRadarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarBarChart (client)",
+    "path": "packages/react/dist/polar-bar-chart.js",
+    "import": "{ PolarBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarBarChart (server)",
+    "path": "packages/react/dist/server/polar-bar-chart.js",
+    "import": "{ PolarBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpPolarBarChart",
+    "path": "packages/vue/dist/polar-bar-chart.js",
+    "import": "{ SpPolarBarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpPolarBarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-polar-bar-chart.mjs",
+    "import": "{ SpPolarBarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadialArcGroup (client)",
+    "path": "packages/react/dist/radial-arc-group.js",
+    "import": "{ RadialArcGroup }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadialArcGroup (server)",
+    "path": "packages/react/dist/server/radial-arc-group.js",
+    "import": "{ RadialArcGroup }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpRadialArcGroup",
+    "path": "packages/vue/dist/radial-arc-group.js",
+    "import": "{ SpRadialArcGroup }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpRadialArcGroup",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-radial-arc-group.mjs",
+    "import": "{ SpRadialArcGroup }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadialRings (client)",
+    "path": "packages/react/dist/radial-rings.js",
+    "import": "{ RadialRings }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RadialRings (server)",
+    "path": "packages/react/dist/server/radial-rings.js",
+    "import": "{ RadialRings }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpRadialRings",
+    "path": "packages/vue/dist/radial-rings.js",
+    "import": "{ SpRadialRings }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpRadialRings",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-radial-rings.mjs",
+    "import": "{ SpRadialRings }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, GaugeArc (client)",
+    "path": "packages/react/dist/gauge-arc.js",
+    "import": "{ GaugeArc }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, GaugeArc (server)",
+    "path": "packages/react/dist/server/gauge-arc.js",
+    "import": "{ GaugeArc }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpGaugeArc",
+    "path": "packages/vue/dist/gauge-arc.js",
+    "import": "{ SpGaugeArc }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpGaugeArc",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-gauge-arc.mjs",
+    "import": "{ SpGaugeArc }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, MeterChart (client)",
+    "path": "packages/react/dist/meter-chart.js",
+    "import": "{ MeterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, MeterChart (server)",
+    "path": "packages/react/dist/server/meter-chart.js",
+    "import": "{ MeterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpMeterChart",
+    "path": "packages/vue/dist/meter-chart.js",
+    "import": "{ SpMeterChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpMeterChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-meter-chart.mjs",
+    "import": "{ SpMeterChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, CoxcombChart (client)",
+    "path": "packages/react/dist/coxcomb-chart.js",
+    "import": "{ CoxcombChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, CoxcombChart (server)",
+    "path": "packages/react/dist/server/coxcomb-chart.js",
+    "import": "{ CoxcombChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpCoxcombChart",
+    "path": "packages/vue/dist/coxcomb-chart.js",
+    "import": "{ SpCoxcombChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpCoxcombChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-coxcomb-chart.mjs",
+    "import": "{ SpCoxcombChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, WindRose (client)",
+    "path": "packages/react/dist/wind-rose.js",
+    "import": "{ WindRose }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, WindRose (server)",
+    "path": "packages/react/dist/server/wind-rose.js",
+    "import": "{ WindRose }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpWindRose",
+    "path": "packages/vue/dist/wind-rose.js",
+    "import": "{ SpWindRose }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpWindRose",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-wind-rose.mjs",
+    "import": "{ SpWindRose }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, VolvelleChart (client)",
+    "path": "packages/react/dist/volvelle-chart.js",
+    "import": "{ VolvelleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, VolvelleChart (server)",
+    "path": "packages/react/dist/server/volvelle-chart.js",
+    "import": "{ VolvelleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpVolvelleChart",
+    "path": "packages/vue/dist/volvelle-chart.js",
+    "import": "{ SpVolvelleChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpVolvelleChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-volvelle-chart.mjs",
+    "import": "{ SpVolvelleChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ChordRing (client)",
+    "path": "packages/react/dist/chord-ring.js",
+    "import": "{ ChordRing }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ChordRing (server)",
+    "path": "packages/react/dist/server/chord-ring.js",
+    "import": "{ ChordRing }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpChordRing",
+    "path": "packages/vue/dist/chord-ring.js",
+    "import": "{ SpChordRing }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpChordRing",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-chord-ring.mjs",
+    "import": "{ SpChordRing }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, OrbitChart (client)",
+    "path": "packages/react/dist/orbit-chart.js",
+    "import": "{ OrbitChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, OrbitChart (server)",
+    "path": "packages/react/dist/server/orbit-chart.js",
+    "import": "{ OrbitChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpOrbitChart",
+    "path": "packages/vue/dist/orbit-chart.js",
+    "import": "{ SpOrbitChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpOrbitChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-orbit-chart.mjs",
+    "import": "{ SpOrbitChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
     "name": "@silverpoint/core (everything)",
     "path": "packages/core/dist/index.js",
     "import": "*",
     "gzip": true,
-    "limit": "40 kB"
+    "limit": "45 kB"
   },
   {
     "name": "@silverpoint/grounds + core (everything)",

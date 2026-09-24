@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `ChordRing` (REQ-093): visitors moving between five sections of a site. Frozen (Data Model §4). */
 export const CHORD_RING_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { source: 'Home', target: 'Shop', value: 42 },
     { source: 'Home', target: 'Blog', value: 28 },
     { source: 'Blog', target: 'Shop', value: 16 },

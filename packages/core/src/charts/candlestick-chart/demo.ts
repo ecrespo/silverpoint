@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `CandlestickChart` (REQ-093): ten sessions of a price. Frozen (Data Model §4). */
 export const CANDLESTICK_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { time: 'Mon', open: 102, high: 108, low: 99, close: 106 },
     { time: 'Tue', open: 106, high: 109, low: 101, close: 103 },
     { time: 'Wed', open: 103, high: 105, low: 97, close: 99 },

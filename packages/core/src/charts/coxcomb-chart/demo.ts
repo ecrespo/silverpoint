@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `CoxcombChart` (REQ-093): support tickets by weekday. Frozen (Data Model §4). */
 export const COXCOMB_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { name: 'Mon', value: 42 },
     { name: 'Tue', value: 35 },
     { name: 'Wed', value: 31 },

@@ -1,0 +1,50 @@
+<svg aria-labelledby="radial-rings--silverpoint--cream--ink--md-title radial-rings--silverpoint--cream--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-rings--silverpoint--cream--ink--md-title">
+    "Daily goals"
+  <desc id="radial-rings--silverpoint--cream--ink--md-desc">
+    "Daily goals. 3 concentric tracks, outermost first: Move 82%, Exercise 64%, Stand 100%."
+  <defs>
+    <pattern height="45" id="radial-rings--silverpoint--cream--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M99 55.8 C146.82 55.51, 178.75 108.17, 153.73 150.6 M99 55.8 C147.05 56.68, 179 108.48, 153.73 150.6 M153.73 150.6 C141.72 169.35, 121.22 182.62, 99 182.2 M153.73 150.6 C141.53 171.17, 121.21 181.55, 99 182.2 M99 182.2 C50.62 182.54, 20.55 129.51, 44.27 87.4 M99 182.2 C49.5 181.78, 20.16 128.89, 44.27 87.4 M44.27 87.4 C56.07 68.15, 76.97 55.45, 99 55.8 M44.27 87.4 C56.22 68.54, 76.52 56.39, 99 55.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,50A69,69,0,1,1,36.57,89.62L47.06,94.56A57.41,57.41,0,1,0,99,61.59Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M99,50A69,69,0,1,1,36.57,89.62L47.06,94.56A57.41,57.41,0,1,0,99,61.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99 71.9 C134.43 71.4, 158.56 111.64, 139.79 142.55 M99 71.9 C134.34 72.3, 157.25 111.32, 139.79 142.55 M139.79 142.55 C131.79 157.41, 116.47 165.92, 99 166.1 M139.79 142.55 C131.27 157.37, 116.47 165.32, 99 166.1 M99 166.1 C63.24 166.58, 39.85 126.14, 58.21 95.45 M99 166.1 C63.66 166.06, 40.72 127.14, 58.21 95.45 M58.21 95.45 C66.41 81.49, 82.76 71.84, 99 71.9 M58.21 95.45 C65.98 80.11, 81.23 71.45, 99 71.9" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,66.1A52.9,52.9,0,1,1,58.24,152.72L67.17,145.33A41.31,41.31,0,1,0,99,77.69Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M99,66.1A52.9,52.9,0,1,1,58.24,152.72L67.17,145.33A41.31,41.31,0,1,0,99,77.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99 88 C122.04 87.3, 138.37 113.3, 125.85 134.5 M99 88 C123.69 87.92, 137.57 114.16, 125.85 134.5 M125.85 134.5 C120.07 143.67, 109.92 149.21, 99 150 M125.85 134.5 C121.01 143.58, 109.65 149.08, 99 150 M99 150 C75.85 150.62, 60.94 124.56, 72.15 103.5 M99 150 C75.76 150.33, 59.21 123.31, 72.15 103.5 M72.15 103.5 C78.55 93.04, 88.54 88.24, 99 88 M72.15 103.5 C77.8 93.75, 88.01 88.58, 99 88" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,82.2A36.8,36.8,0,0,1,99,155.8A36.8,36.8,0,0,1,99,82.2L99,93.79A25.21,25.21,0,0,0,99,144.21A25.21,25.21,0,0,0,99,93.79Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M99,82.2A36.8,36.8,0,0,1,99,155.8A36.8,36.8,0,0,1,99,82.2L99,93.79A25.21,25.21,0,0,0,99,144.21A25.21,25.21,0,0,0,99,93.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194,101H203V108H194Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M194 101 C195.99 101.18, 197.55 101.08, 203 101 M194 101 C197.31 101.07, 200.14 101.14, 203 101 M203 101 C203.28 103.45, 202.92 106.08, 203 108 M203 101 C203.01 103.48, 203.1 106.24, 203 108 M203 108 C199.36 107.57, 196.37 108.24, 194 108 M203 108 C200.07 107.88, 197.35 107.89, 194 108 M194 108 C193.91 105.69, 194.03 102.93, 194 101 M194 108 C194.11 105.67, 193.87 103.06, 194 101" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,115H203V122H194Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M194 115 C195.77 114.74, 197.46 114.79, 203 115 M194 115 C197.09 115.04, 200.55 115.1, 203 115 M203 115 C203.29 116.24, 202.78 117.6, 203 122 M203 115 C203.13 117.79, 203.13 120.36, 203 122 M203 122 C200.13 121.68, 197.42 122.33, 194 122 M203 122 C200.21 122.09, 196.82 121.86, 194 122 M194 122 C194.12 119.45, 193.93 117.24, 194 115 M194 122 C193.86 120.19, 194.05 118.59, 194 115" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,129H203V136H194Z" data-paint="tile" data-role="hatch" fill="url(#radial-rings--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M194 129 C195.54 129.06, 198.18 129.26, 203 129 M194 129 C197.27 128.96, 200.57 129.01, 203 129 M203 129 C203.33 131.06, 203.3 132.55, 203 136 M203 129 C202.9 130.38, 203.12 132, 203 136 M203 136 C200.9 135.74, 198.46 136.38, 194 136 M203 136 C199.94 135.85, 196.69 136.18, 194 136 M194 136 C193.71 133.2, 193.82 130.93, 194 129 M194 136 C193.93 133.63, 193.91 131, 194 129" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Daily goals"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "today"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "percent reached"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="108">
+    "Move"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="108">
+    "82%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="122">
+    "Exercise"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="122">
+    "64%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="136">
+    "Stand"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="136">
+    "100%"

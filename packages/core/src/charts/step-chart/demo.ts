@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `StepChart` (REQ-093): a price tier over the year. Frozen (Data Model §4). */
 export const STEP_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Jan', value: 12 },
     { x: 'Feb', value: 12 },
     { x: 'Mar', value: 18 },

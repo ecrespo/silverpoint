@@ -1,0 +1,22 @@
+{
+  "chart": "WindRose",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "wind-rose--silverpoint--blue--ink--md",
+  "req": "REQ-089",
+  "seed": 1592,
+  "props": {
+    "title": "Wind at DSM",
+    "badge": "Mar 2024",
+    "footerLeft": "knots, hourly METAR",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "wind-rose/wind-rose--silverpoint--blue--ink--md.canonical.txt"
+}

@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `RangeBandChart` (REQ-093): daily temperature range. Frozen (Data Model §4). */
 export const RANGE_BAND_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Mon', low: 11, high: 19 },
     { x: 'Tue', low: 12, high: 22 },
     { x: 'Wed', low: 14, high: 24 },

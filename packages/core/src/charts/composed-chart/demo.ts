@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `ComposedChart` (REQ-093): revenue and margin per month. Frozen (Data Model §4). */
 export const COMPOSED_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Jan', revenue: 42, margin: 18 },
     { x: 'Feb', revenue: 48, margin: 21 },
     { x: 'Mar', revenue: 39, margin: 17 },

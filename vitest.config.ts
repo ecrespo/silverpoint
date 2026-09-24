@@ -61,6 +61,9 @@ export default defineConfig({
         // run against the published builds, resolved as a consumer would import them.
         test: {
           name: 'gates',
+          // After the unit projects, never beside them: one gate rewrites a real manifest to prove
+          // the stylesheet check, which a parallel manifest test would read mid-change.
+          sequence: { groupOrder: 1 },
           root: 'tools',
           environment: 'node',
           include: ['**/*.real.test.ts'],

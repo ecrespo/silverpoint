@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `StreamChart` (REQ-093): two traffic sources over a week. Frozen (Data Model §4). */
 export const STREAM_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Mon', organic: 22, paid: 14 },
     { x: 'Tue', organic: 28, paid: 18 },
     { x: 'Wed', organic: 35, paid: 16 },

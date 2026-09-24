@@ -1,0 +1,22 @@
+{
+  "chart": "CoxcombChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "coxcomb-chart--silverpoint--green--precision--md",
+  "req": "REQ-088",
+  "seed": 1592,
+  "props": {
+    "title": "Tickets",
+    "badge": "week",
+    "footerLeft": "by weekday",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "coxcomb-chart/coxcomb-chart--silverpoint--green--precision--md.canonical.txt"
+}

@@ -1,0 +1,100 @@
+<svg aria-labelledby="donut-chart--silverpoint--cream--ink--md-title donut-chart--silverpoint--cream--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="donut-chart--silverpoint--cream--ink--md-title">
+    "Budget"
+  <desc id="donut-chart--silverpoint--cream--ink--md-desc">
+    "Budget. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
+  <defs>
+    <pattern height="50" id="donut-chart--silverpoint--cream--ink--md-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="donut-chart--silverpoint--cream--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="donut-chart--silverpoint--cream--ink--md-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="donut-chart--silverpoint--cream--ink--md-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M91,50A69,69,0,0,1,138.23,169.3L120.28,150.19A42.78,42.78,0,0,0,91,76.22Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-1)" part="sp-ink">
+  <path d="M91,50A69,69,0,0,1,138.23,169.3L120.28,150.19A42.78,42.78,0,0,0,91,76.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M138.23,169.3A69,69,0,0,1,50.44,174.82L65.85,153.61A42.78,42.78,0,0,0,120.28,150.19Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M138.23,169.3A69,69,0,0,1,50.44,174.82L65.85,153.61A42.78,42.78,0,0,0,120.28,150.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M50.44,174.82A69,69,0,0,1,22,119L48.22,119A42.78,42.78,0,0,0,65.85,153.61Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-3)" part="sp-ink">
+  <path d="M50.44,174.82A69,69,0,0,1,22,119L48.22,119A42.78,42.78,0,0,0,65.85,153.61Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,119A69,69,0,0,1,47.02,65.83L63.73,86.04A42.78,42.78,0,0,0,48.22,119Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-4)" part="sp-ink">
+  <path d="M22,119A69,69,0,0,1,47.02,65.83L63.73,86.04A42.78,42.78,0,0,0,48.22,119Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M47.02,65.83A69,69,0,0,1,91,50L91,76.22A42.78,42.78,0,0,0,63.73,86.04Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-3)" part="sp-ink">
+  <path d="M47.02,65.83A69,69,0,0,1,91,50L91,76.22A42.78,42.78,0,0,0,63.73,86.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180,87H189V94H180Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-1)" part="sp-ink">
+  <path d="M180 87 C182.22 86.87, 183.64 86.61, 189 87 M180 87 C183.13 87.16, 186.12 86.82, 189 87 M189 87 C189.24 89.25, 189.02 91.13, 189 94 M189 87 C188.93 89.48, 189.11 91.81, 189 94 M189 94 C186.39 94.32, 184.93 94.19, 180 94 M189 94 C186.34 94.12, 183.48 93.96, 180 94 M180 94 C180.29 91.3, 180.1 89.25, 180 87 M180 94 C180.07 92.23, 180.05 90.33, 180 87" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,101H189V108H180Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M180 101 C181.99 101.18, 183.55 101.08, 189 101 M180 101 C183.31 101.07, 186.14 101.14, 189 101 M189 101 C189.28 103.45, 188.92 106.08, 189 108 M189 101 C189.01 103.48, 189.1 106.24, 189 108 M189 108 C185.36 107.57, 182.37 108.24, 180 108 M189 108 C186.07 107.88, 183.35 107.89, 180 108 M180 108 C179.91 105.69, 180.03 102.93, 180 101 M180 108 C180.11 105.67, 179.87 103.06, 180 101" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,115H189V122H180Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-3)" part="sp-ink">
+  <path d="M180 115 C181.77 114.74, 183.46 114.79, 189 115 M180 115 C183.09 115.04, 186.55 115.1, 189 115 M189 115 C189.29 116.24, 188.78 117.6, 189 122 M189 115 C189.13 117.79, 189.13 120.36, 189 122 M189 122 C186.13 121.68, 183.42 122.33, 180 122 M189 122 C186.21 122.09, 182.82 121.86, 180 122 M180 122 C180.12 119.45, 179.93 117.24, 180 115 M180 122 C179.86 120.19, 180.05 118.59, 180 115" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,129H189V136H180Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-4)" part="sp-ink">
+  <path d="M180 129 C181.54 129.06, 184.18 129.26, 189 129 M180 129 C183.27 128.96, 186.57 129.01, 189 129 M189 129 C189.33 131.06, 189.3 132.55, 189 136 M189 129 C188.9 130.38, 189.12 132, 189 136 M189 136 C186.9 135.74, 184.46 136.38, 180 136 M189 136 C185.94 135.85, 182.69 136.18, 180 136 M180 136 C179.71 133.2, 179.82 130.93, 180 129 M180 136 C179.93 133.63, 179.91 131, 180 129" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,143H189V150H180Z" data-paint="tile" data-role="hatch" fill="url(#donut-chart--silverpoint--cream--ink--md-tone-3)" part="sp-ink">
+  <path d="M180 143 C182.12 142.62, 184.09 142.97, 189 143 M180 143 C183.45 142.88, 186.58 142.92, 189 143 M189 143 C188.7 145.25, 189.16 147.5, 189 150 M189 143 C188.97 144.7, 189.1 146.12, 189 150 M189 150 C185.06 149.81, 181.91 149.62, 180 150 M189 150 C185.67 150.06, 182.57 150.15, 180 150 M180 150 C179.96 147.59, 179.75 145.24, 180 143 M180 150 C180.01 148.16, 180.08 146.53, 180 143" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "May"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "share of spend"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="91" y="125">
+    "100"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="94">
+    "Rent"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="94">
+    "38%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="108">
+    "Food"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="108">
+    "22%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="122">
+    "Savings"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="122">
+    "15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="136">
+    "Transport"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="136">
+    "14%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="150">
+    "Leisure"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="150">
+    "11%"

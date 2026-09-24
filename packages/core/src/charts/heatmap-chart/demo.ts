@@ -5,7 +5,7 @@ import type { Datum } from '../../types';
  * Frozen and part of the stable surface (Data Model §4).
  */
 export const HEATMAP_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { label: 'Mon', values: Object.freeze([12, 34, 58, 71, 66, 40]) },
     { label: 'Tue', values: Object.freeze([18, 42, 77, 88, 70, 35]) },
     { label: 'Wed', values: Object.freeze([9, 38, 64, 93, 81, 47]) },

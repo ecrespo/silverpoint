@@ -1,0 +1,22 @@
+{
+  "chart": "VolvelleChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "volvelle-chart--silverpoint--blue--precision--md",
+  "req": "REQ-090",
+  "seed": 1592,
+  "props": {
+    "title": "On call",
+    "badge": "rota",
+    "footerLeft": "day · shift · team",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "volvelle-chart/volvelle-chart--silverpoint--blue--precision--md.canonical.txt"
+}

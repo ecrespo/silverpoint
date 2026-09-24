@@ -5,7 +5,7 @@ import type { Datum } from '../../types';
  * alters the SVG of anyone who renders without data, so it is never a patch (Data Model §4).
  */
 export const LINE_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { hour: '00', hits: 18, baseline: 22 },
     { hour: '02', hits: 14, baseline: 18 },
     { hour: '04', hits: 11, baseline: 15 },

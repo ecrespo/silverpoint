@@ -5,7 +5,7 @@ import type { Datum } from '../../types';
  * Frozen and part of the stable surface (Data Model §4).
  */
 export const SANKEY_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { source: 'Search', target: 'Visit', value: 48 },
     { source: 'Social', target: 'Visit', value: 27 },
     { source: 'Email', target: 'Visit', value: 15 },

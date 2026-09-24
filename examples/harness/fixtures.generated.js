@@ -1009,6 +1009,174 @@ export const FIXTURES = [
     "rows": null
   },
   {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--blue--ink--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--blue--precision--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--cream--ink--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--cream--precision--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--green--ink--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--green--precision--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--ochre--ink--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--silverpoint--ochre--precision--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "ComposedChart",
     "ground": "silverpoint",
     "substrate": "blue",
@@ -1177,6 +1345,342 @@ export const FIXTURES = [
     "rows": null
   },
   {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--blue--ink--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--blue--precision--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--cream--ink--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--cream--precision--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--green--ink--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--green--precision--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--blue--ink--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--blue--precision--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--cream--ink--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--cream--precision--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--green--ink--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--green--precision--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "FunnelChart",
     "ground": "silverpoint",
     "substrate": "blue",
@@ -1340,6 +1844,174 @@ export const FIXTURES = [
       "title": "Checkout funnel",
       "badge": "June",
       "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--blue--ink--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--blue--precision--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--cream--ink--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--cream--precision--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--green--ink--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--green--precision--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--ochre--ink--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--silverpoint--ochre--precision--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -1865,6 +2537,510 @@ export const FIXTURES = [
     "rows": null
   },
   {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--blue--ink--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--blue--precision--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--cream--ink--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--cream--precision--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--green--ink--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--green--precision--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--blue--ink--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--blue--precision--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--cream--ink--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--cream--precision--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--green--ink--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--green--precision--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--blue--ink--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--blue--precision--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--cream--ink--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--cream--precision--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--green--ink--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--green--precision--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "PyramidChart",
     "ground": "silverpoint",
     "substrate": "blue",
@@ -2028,6 +3204,510 @@ export const FIXTURES = [
       "title": "Headcount by level",
       "badge": "2026",
       "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--blue--ink--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--blue--precision--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--cream--ink--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--cream--precision--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--green--ink--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--green--precision--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--blue--ink--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--blue--precision--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--cream--ink--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--cream--precision--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--green--ink--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--green--precision--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--ochre--ink--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--silverpoint--ochre--precision--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--blue--ink--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--blue--precision--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--cream--ink--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--cream--precision--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--green--ink--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--green--precision--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--ochre--ink--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--silverpoint--ochre--precision--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -3377,6 +5057,174 @@ export const FIXTURES = [
     "rows": null
   },
   {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--blue--ink--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--blue--precision--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--cream--ink--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--cream--precision--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--green--ink--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--green--precision--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "WaterfallChart",
     "ground": "silverpoint",
     "substrate": "blue",
@@ -3540,6 +5388,174 @@ export const FIXTURES = [
       "title": "Cash bridge",
       "badge": "Q2",
       "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--blue--ink--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--blue--precision--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--cream--ink--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--cream--precision--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--green--ink--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--green--precision--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--ochre--ink--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--silverpoint--ochre--precision--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
       "footerRight": "silverpoint"
     },
     "rows": null

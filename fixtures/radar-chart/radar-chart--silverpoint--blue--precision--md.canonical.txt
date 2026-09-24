@@ -1,0 +1,45 @@
+<svg aria-labelledby="radar-chart--silverpoint--blue--precision--md-title radar-chart--silverpoint--blue--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="radar-chart--silverpoint--blue--precision--md-title">
+    "Model scores"
+  <desc id="radar-chart--silverpoint--blue--precision--md-desc">
+    "Model scores. Radar of 6 subjects on a scale from 0 to 10; highest Safety at 9, lowest Cost at 4."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M160,108L169.53,113.5L169.53,124.5L160,130L150.47,124.5L150.47,113.5Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,97L179.05,108L179.05,130L160,141L140.95,130L140.95,108Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,86L188.58,102.5L188.58,135.5L160,152L131.42,135.5L131.42,102.5Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,75L198.11,97L198.11,141L160,163L121.89,141L121.89,97Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,64L207.63,91.5L207.63,146.5L160,174L112.37,146.5L112.37,91.5Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L160,64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L207.63,91.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L207.63,146.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L160,174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L112.37,146.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,119L112.37,91.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M160,75L188.58,102.5L193.34,138.25L160,168.5L140.95,130L131.42,102.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Model scores"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "v2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "out of 10"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163" y="106">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163" y="95">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163" y="84">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="160" y="59">
+    "Speed"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="214.56" y="90.5">
+    "Range"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="214.56" y="153.5">
+    "Comfort"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="160" y="185">
+    "Safety"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="105.44" y="153.5">
+    "Cost"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="105.44" y="90.5">
+    "Style"

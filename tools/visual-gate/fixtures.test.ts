@@ -86,5 +86,5 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
 
 test('REQ-182 · the PR matrix holds every catalog chart × 8 cells', () => {
   expect(loadFixtures()).toHaveLength(CATALOG.length * 8);
-  expect(CATALOG).toHaveLength(21);
+  expect(CATALOG).toHaveLength(33);
 });

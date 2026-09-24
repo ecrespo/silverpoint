@@ -35,6 +35,18 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
   StreamChart: { title: 'Traffic sources', badge: 'Week 26', footerLeft: 'thousands', footerRight: 'silverpoint' },
   ScatterChart: { title: 'Height and weight', badge: 'n = 9', footerLeft: 'cm × kg', footerRight: 'silverpoint' },
   BubbleChart: { title: 'Markets', badge: '2026', footerLeft: 'growth × margin', footerRight: 'silverpoint' },
+  DonutChart: { title: 'Budget', badge: 'May', footerLeft: 'share of spend', footerRight: 'silverpoint' },
+  RadarChart: { title: 'Model scores', badge: 'v2', footerLeft: 'out of 10', footerRight: 'silverpoint' },
+  PolarBarChart: { title: 'Monthly sales', badge: '2025', footerLeft: 'thousands', footerRight: 'silverpoint' },
+  RadialArcGroup: { title: 'Pipeline', badge: 'Q3', footerLeft: 'by channel', footerRight: 'silverpoint' },
+  RadialRings: { title: 'Daily goals', badge: 'today', footerLeft: 'percent reached', footerRight: 'silverpoint' },
+  GaugeArc: { title: 'Capacity', badge: 'live', footerLeft: 'of the cluster', footerRight: 'silverpoint' },
+  MeterChart: { title: 'Pressure', badge: 'now', footerLeft: 'of the rated maximum', footerRight: 'silverpoint' },
+  CoxcombChart: { title: 'Tickets', badge: 'week', footerLeft: 'by weekday', footerRight: 'silverpoint' },
+  WindRose: { title: 'Wind at DSM', badge: 'Mar 2024', footerLeft: 'knots, hourly METAR', footerRight: 'silverpoint' },
+  VolvelleChart: { title: 'On call', badge: 'rota', footerLeft: 'day · shift · team', footerRight: 'silverpoint' },
+  ChordRing: { title: 'Site journeys', badge: 'June', footerLeft: 'visitors between sections', footerRight: 'silverpoint' },
+  OrbitChart: { title: 'Releases', badge: '3 years', footerLeft: 'by day of the year', footerRight: 'silverpoint' },
 };
 
 /** The PR matrix: every catalog chart × 2 modes × 4 substrates at `md` (Data Model §5). */

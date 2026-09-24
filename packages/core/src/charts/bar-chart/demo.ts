@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `BarChart` (REQ-093): orders per quarter against last year. Frozen (Data Model §4). */
 export const BAR_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 'Q1', value: 42, previous: 35 },
     { x: 'Q2', value: 58, previous: 44 },
     { x: 'Q3', value: 51, previous: 49 },

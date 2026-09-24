@@ -1,0 +1,38 @@
+<svg aria-labelledby="chord-ring--silverpoint--ochre--precision--md-title chord-ring--silverpoint--ochre--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="chord-ring--silverpoint--ochre--precision--md-title">
+    "Site journeys"
+  <desc id="chord-ring--silverpoint--ochre--precision--md-desc">
+    "Site journeys. Chord ring of 8 flows between 5 categories; the busiest is Shop, sending 46."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M160,64A55,55,0,0,1,214.87,115.21L210.48,115.51A50.6,50.6,0,0,0,160,68.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M214.98,117.4A55,55,0,0,1,128.7,164.23L131.21,160.61A50.6,50.6,0,0,0,210.58,117.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M126.92,162.94A55,55,0,0,1,105.19,114.49L109.57,114.85A50.6,50.6,0,0,0,129.57,159.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M105.41,112.3A55,55,0,0,1,137.46,68.83L139.27,72.84A50.6,50.6,0,0,0,109.78,112.84Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M139.49,67.97A55,55,0,0,1,157.8,64.04L157.98,68.44A50.6,50.6,0,0,0,141.13,72.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.61,69.14A50.6,50.6,0,0,1,201.73,90.38Q160,119,204.33,143.4A50.6,50.6,0,0,1,173.45,167.78Q160,119,168.61,69.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M201.73,90.38A50.6,50.6,0,0,1,210.48,115.51Q160,119,129.57,159.42A50.6,50.6,0,0,1,113.26,138.39Q160,119,201.73,90.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.64,130.15A50.6,50.6,0,0,1,109.57,114.85Q160,119,209.6,129.01A50.6,50.6,0,0,1,204.33,143.4Q160,119,110.64,130.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M173.45,167.78A50.6,50.6,0,0,1,140.47,165.68Q160,119,111.04,106.23A50.6,50.6,0,0,1,129.37,78.73Q160,119,173.45,167.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.37,78.73A50.6,50.6,0,0,1,139.27,72.84Q160,119,210.58,117.53A50.6,50.6,0,0,1,209.6,129.01Q160,119,129.37,78.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.26,138.39A50.6,50.6,0,0,1,110.64,130.15Q160,119,160,68.4A50.6,50.6,0,0,1,168.61,69.14Q160,119,113.26,138.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.29,69.16A50.6,50.6,0,0,1,157.98,68.44Q160,119,109.78,112.84A50.6,50.6,0,0,1,111.04,106.23Q160,119,151.29,69.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.47,165.68A50.6,50.6,0,0,1,131.21,160.61Q160,119,141.13,72.05A50.6,50.6,0,0,1,151.29,69.16Q160,119,140.47,165.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Site journeys"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "visitors between sections"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="202.98" y="75.94">
+    "Home"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="190.05" y="177.37">
+    "Shop"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="102.52" y="147.79">
+    "Blog"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="109.29" y="84.61">
+    "Cart"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="146.8" y="60.4">
+    "Help"

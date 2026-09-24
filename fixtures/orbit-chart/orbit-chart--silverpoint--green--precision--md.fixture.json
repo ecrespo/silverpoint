@@ -1,0 +1,22 @@
+{
+  "chart": "OrbitChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "orbit-chart--silverpoint--green--precision--md",
+  "req": "REQ-092",
+  "seed": 1592,
+  "props": {
+    "title": "Releases",
+    "badge": "3 years",
+    "footerLeft": "by day of the year",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "orbit-chart/orbit-chart--silverpoint--green--precision--md.canonical.txt"
+}

@@ -15,7 +15,7 @@ const DAYS = 26 * 7;
  * because the library never derives it from the count (Data Model §2.8).
  */
 export const ACTIVITY_GRID_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  (() => {
+  /* @__PURE__ */ (() => {
     const next = createPrng(ACTIVITY_GRID_DEMO_SEED);
     const first = parseIsoDate(ACTIVITY_GRID_DEMO_END) - (DAYS - 1);
     return Array.from({ length: DAYS }, (_, i) => {

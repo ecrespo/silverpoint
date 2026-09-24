@@ -2,7 +2,7 @@ import type { Datum } from '../../types';
 
 /** Demo dataset of `ScatterChart` (REQ-093): height against weight. Frozen (Data Model §4). */
 export const SCATTER_CHART_DEMO: readonly Datum[] = /* @__PURE__ */ Object.freeze(
-  [
+  /* @__PURE__ */ [
     { x: 152, y: 51, size: 2 },
     { x: 158, y: 56, size: 4 },
     { x: 161, y: 54, size: 3 },
