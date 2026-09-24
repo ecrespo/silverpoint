@@ -15,11 +15,11 @@ export default defineConfig([
   {
     ...shared,
     clean: true,
-    entry: { index: 'src/index.ts', 'line-chart': 'src/line-chart.ts' },
+    entry: { index: 'src/index.ts', 'line-chart': 'src/line-chart-entry.ts' },
     banner: { js: "'use client';" },
   },
   {
     ...shared,
-    entry: { 'server/line-chart': 'src/server/line-chart.ts' },
+    entry: { 'server/line-chart': 'src/server/line-chart.tsx' },
   },
 ]);

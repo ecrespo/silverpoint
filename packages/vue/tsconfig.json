@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": { "types": ["node"], "lib": ["ES2022", "DOM"], "jsx": "preserve" },
+  "compilerOptions": { "types": ["node"], "lib": ["ES2022", "DOM", "DOM.Iterable"], "jsx": "preserve" },
   "include": ["src/**/*.ts", "src/**/*.vue", "test"]
 }

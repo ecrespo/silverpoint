@@ -18,6 +18,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-023) |
 | T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
 | T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
+| T-015 | done (interaction in T-018) | 2026-09-24 | `packages/react/test` — server and client SSR equal to the canonical render in both modes and four substrates; server variant hook-free, rejects `onActiveChange` and requires `width`/`height` at the type level; built entries: client carries `'use client'`, server does not |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -69,6 +70,11 @@ failing first where code changed.
   `svgString` is the canonical render. Colour is `part` + `data-paint`; a tile fill is the only
   `fill` attribute and is always `url(#…)`. *Cost if wrong:* the markup is internal (API Spec §2)
   and can change in a minor.
+- **T-015 · Ruling:** API Spec §5.1 gives `locale` a default of `navigator.language` on the
+  client and `'en'` on the server. Different values on each side is a hydration mismatch
+  (REQ-103, and Art. 3's SSR clause), so the adapters default to the provider's locale or
+  `'en'` on both sides. *Cost if wrong:* consumers wanting the browser locale pass it through the
+  provider; the spec default needs a delta (`delta-003-client-locale.md`).
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

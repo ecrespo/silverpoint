@@ -16,13 +16,13 @@
       "default": "./dist/index.js"
     },
     "./line-chart": {
-      "@silverpoint/source": "./src/line-chart.ts",
+      "@silverpoint/source": "./src/line-chart-entry.ts",
       "types": "./dist/line-chart.d.ts",
       "import": "./dist/line-chart.js",
       "default": "./dist/line-chart.js"
     },
     "./server/line-chart": {
-      "@silverpoint/source": "./src/server/line-chart.ts",
+      "@silverpoint/source": "./src/server/line-chart.tsx",
       "types": "./dist/server/line-chart.d.ts",
       "import": "./dist/server/line-chart.js",
       "default": "./dist/server/line-chart.js"

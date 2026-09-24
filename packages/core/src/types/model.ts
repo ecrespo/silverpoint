@@ -45,3 +45,9 @@ export interface ChartRecipe<P extends CommonChartProps> {
   readonly name: string;
   build(props: P, context: RecipeContext): ChartModel;
 }
+
+/** Imperative handle every adapter exposes, deliberately minimal (API Spec §8.1). */
+export interface ChartHandle {
+  getGeometry(): Geometry;
+  toSVGString(): string;
+}

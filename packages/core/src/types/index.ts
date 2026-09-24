@@ -15,4 +15,4 @@ export type {
 export type { Ground, GroundName, GroundRef } from './ground';
 export type { Inker, InkOptions, TonalRamp, ToneSpec } from './ink';
 export type { CommonChartProps, LineChartProps, LineCurve, ProviderConfig } from './props';
-export type { ChartModel, ChartRecipe, DataTable, RecipeContext } from './model';
+export type { ChartHandle, ChartModel, ChartRecipe, DataTable, RecipeContext } from './model';
