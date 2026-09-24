@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest';
-import { lineChart } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
-import { loadFixtures, fixtureProps, type Fixture } from './fixtures';
+import { loadFixtures, fixtureProps, RECIPES, type Fixture } from './fixtures';
 import { runStringGate, type Renderers } from './string-gate';
 
 const fixtures = loadFixtures().slice(0, 2);
-const svgOf = (fixture: Fixture) => toSVGString(renderChart(lineChart, fixtureProps(fixture), { id: fixture.id }));
+// Each fixture drawn by its own chart's recipe, as a faithful adapter would.
+const svgOf = (fixture: Fixture) => toSVGString(renderChart(RECIPES[fixture.chart]!, fixtureProps(fixture), { id: fixture.id }));
 
 const faithful: Renderers = {
   react: async (f) => `<div class="sp-root">${svgOf(f)}</div>`,
