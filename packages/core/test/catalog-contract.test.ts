@@ -32,6 +32,7 @@ import {
   streamChart,
   treemapChart,
   waterfallChart,
+  windRose,
   type ChartRecipe,
   type CommonChartProps,
   type Datum,
@@ -276,6 +277,18 @@ const POLAR: readonly Case[] = [
     items: 3,
     hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
     labelOf: (d) => String(d.n),
+  },
+  {
+    recipe: P2(windRose),
+    consumer: {
+      data: [{ b: 0, s: 5 }, { b: 90, s: 12 }, { b: 180, s: 3 }, { b: 270, s: 25 }, { b: 0, s: 0 }],
+      bearingKey: 'b',
+      valueKey: 's',
+      sectors: 4,
+    },
+    items: 4,
+    hostile: [{ b: Number.NaN, s: 5 }, { b: 10, s: -3 }, { b: 'x', s: 1 }],
+    labelOf: (d) => String(d.direction),
   },
 ];
 

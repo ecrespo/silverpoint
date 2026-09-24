@@ -32,6 +32,7 @@ export type {
   RadialRingsProps,
   GaugeArcProps,
   MeterChartProps,
+  WindRoseProps,
   KpiCardProps,
   RangeBandChartProps,
   ScatterChartProps,

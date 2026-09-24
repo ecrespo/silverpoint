@@ -302,3 +302,15 @@ export interface MeterChartProps extends CommonChartProps {
   readout?: string;
 }
 
+/** `WindRose` (REQ-089): observations of (bearing, speed) binned by compass sector and speed. */
+export interface WindRoseProps extends CommonChartProps {
+  /** Where the wind blows from, in degrees clockwise from north. */
+  bearingKey?: Accessor<number | null | undefined>;
+  /** The wind speed; 0 is a calm, which has no direction. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Compass sectors: 4, 8, 16 or 32; 16 by default. */
+  sectors?: number;
+  /** Ascending speed thresholds that split each sector; `[5, 10, 15, 20]` by default. */
+  bins?: readonly number[];
+}
+

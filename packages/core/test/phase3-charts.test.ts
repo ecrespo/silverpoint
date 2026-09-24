@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -140,10 +140,13 @@ function textBox(l: { x: number; y: number; text: string; anchor?: string }) {
 const overlap = (a: ReturnType<typeof textBox>, b: ReturnType<typeof textBox>) =>
   a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
 
-test('REQ-076 · RadarChart: no ring value overprints a subject name (seen in the first preview)', () => {
-  const model = radarChart.build({ ...bare }, context);
-  const names = model.geometry.labels.filter((l) => /^[A-Z][a-z]+$/.test(l.text));
-  const ticks = model.geometry.labels.filter((l) => /^\d+$/.test(l.text));
+test.each([
+  ['RadarChart', radarChart, /^\d+$/],
+  ['WindRose', windRose, /^\d+%$/],
+] as const)('REQ-076 · REQ-089 · %s: no ring value overprints a rim name (seen in the previews)', (_name, recipe, tick) => {
+  const model = (recipe as unknown as { build: (p: object, c: RecipeContext) => ChartModel }).build({ ...bare }, context);
+  const names = model.geometry.labels.filter((l) => /^[A-Z][A-Za-z]*$/.test(l.text));
+  const ticks = model.geometry.labels.filter((l) => tick.test(l.text));
   expect(names.length).toBeGreaterThan(0);
   expect(ticks.length).toBeGreaterThan(0);
   for (const t of ticks) for (const n of names) expect(overlap(textBox(t), textBox(n)), `${t.text} over ${n.text}`).toBe(false);
@@ -304,5 +307,65 @@ describe('GaugeArc and MeterChart', () => {
     expect(at50.y).toBeLessThan(at0.y);
     const needle = encoding(meterChart.build({ ...bare, percent: 50 }, context)).find((s) => !s.d.includes('A') && !s.d.endsWith('Z'));
     expect(needle).toBeDefined();
+  });
+});
+
+describe('WindRose', () => {
+  const obs = (pairs: [number, number][]) => pairs.map(([bearing, speed]) => ({ bearing, speed }));
+
+  test('REQ-089 · a bearing falls in the compass sector centred nearest it, north wrapping round', () => {
+    const model = windRose.build({ ...bare, data: obs([[11, 5], [12, 5], [349, 5], [360, 5], [180, 5]]), sectors: 16 }, context);
+    const share = (dir: string) => model.table.rows.find((r) => r[0] === dir)?.[1];
+    expect(share('N')).toBe('60%');
+    expect(share('NNE')).toBe('20%');
+    expect(share('S')).toBe('20%');
+    expect(model.table.rows).toHaveLength(16);
+  });
+
+  test('REQ-089 · a sector’s length is proportional to its share of the observations', () => {
+    const model = windRose.build({ ...bare, data: obs([[0, 5], [0, 5], [90, 5], [180, 5]]), sectors: 4 }, context);
+    // West has no observation: its tip is the centre.
+    const [nHit, eHit, sHit, wHit] = model.geometry.hitAreas;
+    const [n, e, s] = [nHit, eHit, sHit].map((h) => radiusOf(h!, wHit!.x, wHit!.y));
+    close(n! / e!, 2, 0.02);
+    close(s!, e!, 0.01);
+    close(angleOf(nHit!, wHit!.x, wHit!.y), 0, 0.01);
+    close(angleOf(eHit!, wHit!.x, wHit!.y), Math.PI / 2, 0.01);
+  });
+
+  test('REQ-089 · a sector is stacked by speed bin, the calmest bin innermost', () => {
+    const model = windRose.build({ ...bare, data: obs([[0, 2], [0, 12], [0, 12]]), sectors: 4, bins: [5, 10] }, context);
+    const bands = encoding(model);
+    expect(bands).toHaveLength(2);
+    const outerOf = (d: string) => Math.max(...[...d.matchAll(/A([\d.]+),/g)].map((m) => Number(m[1])));
+    const [inner, outer] = bands;
+    // One observation under 5, two at 10 or more: the second band reaches three times as far.
+    close(outerOf(outer!.d) / outerOf(inner!.d), 3, 0.02);
+    expect(inner!.tone).not.toBe(outer!.tone);
+  });
+
+  test('REQ-089 · calms have no direction: they are counted apart and printed in the centre', () => {
+    const model = windRose.build({ ...bare, data: obs([[0, 0], [90, 5], [180, 5], [270, 5], [0, 5]]), sectors: 4 }, context);
+    expect(texts(model)).toContain('calm 20%');
+    expect(model.table.rows.map((r) => r[1])).toEqual(['20%', '20%', '20%', '20%']);
+  });
+
+  test('REQ-089 · the bearings are labelled by compass point; an unsupported sector count falls back to 16 with SP002', () => {
+    expect(texts(windRose.build({ ...bare, sectors: 8 }, context))).toEqual(expect.arrayContaining(['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']));
+    const seen = capture();
+    expect(windRose.build({ ...bare, sectors: 7 }, context).table.rows).toHaveLength(16);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-089 · REQ-124 · the legend names every speed bin, calmest first', () => {
+    const printed = texts(windRose.build({ ...bare, bins: [5, 10, 20] }, context));
+    expect(printed).toEqual(expect.arrayContaining(['< 5', '5–10', '10–20', '≥ 20']));
+    expect(printed.indexOf('< 5')).toBeLessThan(printed.indexOf('≥ 20'));
+  });
+
+  test('REQ-089 · the demo is the real record: 742 hourly reports, described with its prevailing direction', () => {
+    const model = windRose.build({ ...bare }, context);
+    expect(model.description).toMatch(/742 observations/);
+    expect(model.description).toMatch(/most often from [NSEW]{1,3}/);
   });
 });
