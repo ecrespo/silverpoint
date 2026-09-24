@@ -16,7 +16,7 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-044 | done | cc70733 | `measureChart` (RED 19 → 25/25); `reports/path-weight.md`: tile ≤ 12.3 KiB for all six at every size; per-shape over 40 KB only for heatmap and activity grid at `lg` — budget confirmed |
 | T-045 | done | f37f406 | `?gallery` page of all seven charts in the four apps; axe-core A/AA clean on it (RED: no gallery → green); per chart, e2e table rows and keyboard announcements computed from the core's own `readout` — written after the adapters, mutation-checked (React keydown disabled → 6/6 keyboard tests red); apps + a11y 134 passed |
 | T-046 | done | cff031b | `changes/phase-1-req-124-review.md` (channel table per chart, all pass); `grounds/test/req-124.test.ts` 7/7, written after the recipes and mutation-checked (heatmap values removed, activity sizes flattened → 2 red) |
-| T-047 | done | 3e3be49, 7a0caff, (this commit) | equivalence list (6 charts × 3 variants, 30/30); 24 per-chart budgets at 45 kB (largest: Angular 34.8 kB before the tree-shaking fix, React client 17–28 kB after); traceability re-run: 74/99 MUST covered, 25 deferred, 0 blocking |
+| T-047 | done | 3e3be49, 7a0caff, e82057e | equivalence list (6 charts × 3 variants, 30/30); 24 per-chart budgets at 45 kB (largest: Angular 34.8 kB before the tree-shaking fix, React client 17–28 kB after); traceability re-run: 74/99 MUST covered, 25 deferred, 0 blocking |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its
@@ -86,3 +86,44 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 - **T-043 · Ruling (process):** 5538691 was committed with three failing unit tests (the
   string-gate unit test drew fixtures as line charts); fixed in e2d4a0d. Verification now runs as
   its own step, and a commit follows only a read exit status of 0.
+
+## Final review (fresh reviewer, Opus, `28e3e29..e82057e`)
+
+Five Important findings, fixed in one pass, each RED → GREEN in `catalog-charts.test.ts`
+("final-review fixes"); suite: unit 692/692, gates 68/68, e2e 134 passed, pixel 232/232 in docker,
+typecheck and lint clean. No canonical render changed.
+
+- **Final: fixed** sankey nodes inverted when a layer holds more than ~14 nodes — gaps now take at
+  most half the height, the scale stays positive, and a crowded layer warns SP002 — "a layer of many
+  nodes still fits the plot" RED→GREEN.
+- **Final: fixed** a heatmap row without `values` blanked the whole chart silently — it is now a
+  blank, warned row, and the length warning precedes the empty check — "a row without values is
+  left blank and warned" RED→GREEN.
+- **Final: fixed** keyboard reached one heatmap column (REQ-122) — `HitArea.cell` places an item in
+  a grid; when every item has one, left/right move a column and up/down a row. The heatmap and the
+  activity grid use it (right = next week). The contract test now proves every item of every chart
+  is reachable from Home — "the keyboard reaches every cell of a heatmap", "right moves a week"
+  RED→GREEN. Supersedes the T-034 ruling.
+- **Final: fixed** heatmap labels overprinted at common sizes, losing REQ-124's channel — when the
+  widest value does not fit a cell, values are carried by cell size (as the activity grid) and not
+  printed; the description says so — "carried by cell size instead of overprinting" RED→GREEN.
+  Also computes min/max without spreading every cell (the reviewer's finding 6).
+- **Final: fixed** activity grid misdrew impossible, repeated and non-consecutive dates silently —
+  non-round-tripping ISO dates are rejected, repeats keep the first row, gaps are warned — "an
+  impossible date is rejected", "duplicate dates keep the first row" RED→GREEN. Refines the T-037
+  ruling: placement stays by position, but no longer silently.
+
+- **Final: minor (deferred):** a mistyped sankey `sourceKey`/`targetKey` merges flows into a node "—"
+  without a warning.
+- **Final: minor (deferred):** the SP002 template text is the line chart's ("set `connectNulls`");
+  Phase 1 passes the specifics in `message`, but the generic sentence misleads.
+- **Final: minor (deferred):** the treemap description lists omitted tiles as well as placed ones.
+- **Final: minor (deferred):** hostile-input cases (dropped rows mid-list, NaN) are covered per
+  finding above but not yet in the parameterised contract test; the e2e keyboard oracle reuses the
+  core's `stepActive`, so it verifies wiring, not wording.
+- **Final: minor (deferred), spec:** heatmap columns have no names (`#1…#n`); API Spec §7 has no prop
+  for them. Needs a delta through Art. 9 before a `columnLabels` prop.
+- **Final: Ruling:** the reviewer's "Declined to judge" items (React `useMemo` on parent re-render,
+  stale active item after data shrink, Angular `title` tooltip, `process.env` in core without a
+  bundler, 10⁵-scale grids) all predate Phase 1 or are unrealistic inputs; they stand — cost if
+  wrong: they surface in Phase 2 review.

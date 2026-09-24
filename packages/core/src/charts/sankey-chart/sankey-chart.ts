@@ -9,6 +9,8 @@ const CHART = 'SankeyChart';
 const PLOT_INSET = 6;
 const NODE_WIDTH = 8;
 const NODE_GAP = 10;
+/** The largest share of the height the gaps of one layer may take. */
+const MAX_GAP_SHARE = 0.5;
 const LABEL_GAP = 4;
 
 interface Flow {
@@ -118,13 +120,21 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
   const layers: Node[][] = [];
   for (const n of nodes.values()) (layers[n.layer] ??= []).push(n);
   const throughput = (n: Node) => Math.max(n.inflow, n.outflow);
-  // One scale for every layer: the fullest layer fills the height.
-  const scale = Math.min(
-    ...layers.map((layer) => (plot.height - (layer.length - 1) * NODE_GAP) / layer.reduce((sum, n) => sum + throughput(n), 0)),
+  // Gaps between nodes take at most half the height, so a crowded layer still leaves room for
+  // its flows; one scale for every layer then lets the fullest layer fill the height.
+  const gapOf = (count: number) => (count > 1 ? Math.min(NODE_GAP, (plot.height * MAX_GAP_SHARE) / (count - 1)) : 0);
+  const crowded = layers.filter((layer) => gapOf(layer.length) < NODE_GAP);
+  if (crowded.length > 0) {
+    warnValue(CHART, accessorName(targetKey, 'target'), `A layer of ${Math.max(...crowded.map((l) => l.length))} nodes is crowded; its gaps are narrowed to fit.`);
+  }
+  const scale = layers.reduce(
+    (smallest, layer) => Math.min(smallest, (plot.height - (layer.length - 1) * gapOf(layer.length)) / layer.reduce((sum, n) => sum + throughput(n), 0)),
+    Number.POSITIVE_INFINITY,
   );
   const step = layers.length > 1 ? (plot.width - NODE_WIDTH) / (layers.length - 1) : 0;
   layers.forEach((layer, index) => {
-    const height = layer.reduce((sum, n) => sum + throughput(n) * scale, 0) + (layer.length - 1) * NODE_GAP;
+    const gap = gapOf(layer.length);
+    const height = layer.reduce((sum, n) => sum + throughput(n) * scale, 0) + (layer.length - 1) * gap;
     let y = plot.y + (plot.height - height) / 2;
     for (const n of layer) {
       n.x = plot.x + index * step;
@@ -132,7 +142,7 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
       n.height = throughput(n) * scale;
       n.outCursor = y;
       n.inCursor = y;
-      y += n.height + NODE_GAP;
+      y += n.height + gap;
     }
   });
 

@@ -119,16 +119,23 @@ describe.each(CASES.map((c) => [c.recipe.name, c] as const))('%s contract', (_na
     }
   });
 
-  test('REQ-122 · the keyboard traverses every item of the first series', () => {
+  test('REQ-122 · the arrow keys reach every item, starting from Home', () => {
     const { geometry } = recipe.build(consumer, context);
-    const series = geometry.hitAreas[0]?.seriesKey;
-    const seen = new Set<number>();
-    let active = stepActive(geometry, null, 'Home') ?? null;
-    for (let i = 0; i < geometry.hitAreas.length && active; i += 1) {
-      seen.add(active.index);
-      active = stepActive(geometry, active, 'ArrowRight') ?? null;
+    const key = (a: { seriesKey: string; index: number }) => `${a.seriesKey}#${a.index}`;
+    const start = stepActive(geometry, null, 'Home');
+    const seen = new Map(start ? [[key(start), start]] : []);
+    const queue = start ? [start] : [];
+    while (queue.length > 0) {
+      const at = queue.shift()!;
+      for (const k of ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp', 'End']) {
+        const next = stepActive(geometry, at, k);
+        if (next && !seen.has(key(next))) {
+          seen.set(key(next), next);
+          queue.push(next);
+        }
+      }
     }
-    expect(seen.size).toBe(geometry.hitAreas.filter((h) => h.seriesKey === series).length);
+    expect(seen.size).toBe(items(geometry.hitAreas));
   });
 
   test('REQ-094 · title, badge, value, unit and footers are drawn in the card', () => {

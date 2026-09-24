@@ -99,7 +99,8 @@ export const NAVIGATION_KEYS: readonly string[] = ['ArrowRight', 'ArrowDown', 'A
 /**
  * Keyboard traversal of the data points, as a pure function (REQ-122). Right and down move to
  * the next point of the series, left and up to the previous one, Home and End to its ends,
- * Escape clears. Returns `undefined` for a key that is not a navigation key.
+ * Escape clears. On a grid — every item carries a `cell` — the arrows move by column and row
+ * instead. Returns `undefined` for a key that is not a navigation key.
  */
 export function stepActive(
   geometry: Geometry,
@@ -108,6 +109,8 @@ export function stepActive(
 ): ActiveItem | null | undefined {
   if (!NAVIGATION_KEYS.includes(key)) return undefined;
   if (key === 'Escape') return null;
+  const grid = geometry.hitAreas.length > 0 && geometry.hitAreas.every((hit) => hit.cell !== undefined);
+  if (grid) return stepGrid(geometry.hitAreas, current, key);
   const seriesKey = current?.seriesKey ?? geometry.hitAreas[0]?.seriesKey;
   const points = geometry.hitAreas.filter((hit) => hit.seriesKey === seriesKey);
   if (points.length === 0) return null;
@@ -128,6 +131,18 @@ export function stepActive(
       next = position < 0 ? 0 : Math.max(position - 1, 0);
   }
   return toActiveItem(points[next] as HitArea);
+}
+
+/** Grid traversal: Home and End reach the first and last cell in reading order. */
+function stepGrid(hits: readonly HitArea[], current: ActiveItem | null, key: string): ActiveItem | null {
+  const order = [...hits].sort((a, b) => (a.cell?.row ?? 0) - (b.cell?.row ?? 0) || (a.cell?.column ?? 0) - (b.cell?.column ?? 0));
+  const here = current ? hits.find((hit) => hit.seriesKey === current.seriesKey && hit.index === current.index) : undefined;
+  if (key === 'Home' || !here?.cell) return toActiveItem((key === 'End' ? order.at(-1) : order[0]) as HitArea);
+  if (key === 'End') return toActiveItem(order.at(-1) as HitArea);
+  const [dc, dr] = key === 'ArrowRight' ? [1, 0] : key === 'ArrowLeft' ? [-1, 0] : key === 'ArrowDown' ? [0, 1] : [0, -1];
+  const { column, row } = here.cell;
+  const next = hits.find((hit) => hit.cell?.column === column + dc && hit.cell?.row === row + dr);
+  return toActiveItem(next ?? here);
 }
 
 /** Readout of an active item, positioned as percentages of the viewBox (REQ-141). */

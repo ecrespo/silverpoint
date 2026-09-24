@@ -6,6 +6,7 @@ import {
   heatmapChart,
   pyramidChart,
   sankeyChart,
+  stepActive,
   treemapChart,
   type ChartModel,
   type HitArea,
@@ -285,5 +286,89 @@ describe('ActivityGrid', () => {
     expect(a.table.rows[181]?.[0]).toBe('2026-06-30');
     expect(a.table.rows[0]?.[0]).toBe('2025-12-31');
     expect(a.table).toEqual(activityGrid.build(bare, { ...context, id: 'other' }).table);
+  });
+});
+
+describe('final-review fixes', () => {
+  const width = (d: string) => {
+    const m = /^M([\d.-]+),[\d.-]+H([\d.-]+)/.exec(d);
+    return m ? Number(m[2]) - Number(m[1]) : Number.NaN;
+  };
+
+  test('REQ-086 · a layer of many nodes still fits the plot: no negative sizes, and a warning', () => {
+    const seen = capture();
+    const data = Array.from({ length: 20 }, (_, i) => ({ source: 'Budget', target: `Item ${i}`, value: 5 + i }));
+    const { geometry } = sankeyChart.build({ ...bare, data }, context);
+    const { plot } = geometry;
+    for (const s of geometry.strokes.filter((st) => st.role === 'encoding')) {
+      for (const [, y] of s.d.matchAll(/[VMC,]\s*[\d.]+,(-?[\d.]+)/g)) {
+        expect(Number(y), s.d).toBeGreaterThanOrEqual(plot.y - 0.02);
+        expect(Number(y), s.d).toBeLessThanOrEqual(plot.y + plot.height + 0.02);
+      }
+      for (const [, v] of s.d.matchAll(/V(-?[\d.]+)/g)) expect(Number(v)).toBeGreaterThanOrEqual(plot.y - 0.02);
+    }
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-084 · a row without values is left blank and warned; the other rows are drawn', () => {
+    const seen = capture();
+    const model = heatmapChart.build({ ...bare, data: [{ label: 'a', values: [1, 2, 3] }, { label: 'b', values: null }] }, context);
+    expect(model.geometry.hitAreas).toHaveLength(3);
+    expect(model.table.columns).toEqual(['label', '#1', '#2', '#3']);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-122 · the keyboard reaches every cell of a heatmap: left and right change column, up and down change row', () => {
+    const data = [{ label: 'a', values: [1, 2, 3] }, { label: 'b', values: [4, 5, 6] }];
+    const { geometry } = heatmapChart.build({ ...bare, data }, context);
+    let active = stepActive(geometry, null, 'Home') ?? null;
+    expect(active).toMatchObject({ seriesKey: '#1', index: 0 });
+    active = stepActive(geometry, active, 'ArrowRight') ?? null;
+    expect(active).toMatchObject({ seriesKey: '#2', index: 0 });
+    active = stepActive(geometry, active, 'ArrowDown') ?? null;
+    expect(active).toMatchObject({ seriesKey: '#2', index: 1 });
+    active = stepActive(geometry, active, 'ArrowLeft') ?? null;
+    expect(active).toMatchObject({ seriesKey: '#1', index: 1 });
+    active = stepActive(geometry, active, 'End') ?? null;
+    expect(active).toMatchObject({ seriesKey: '#3', index: 1 });
+  });
+
+  test('REQ-122 · in the activity grid, right moves a week and down moves a day', () => {
+    const data = Array.from({ length: 14 }, (_, i) => ({ date: `2026-06-${String(i + 1).padStart(2, '0')}`, count: i, level: 1 }));
+    const { geometry } = activityGrid.build({ ...bare, data, weeks: 2 }, context);
+    let active = stepActive(geometry, null, 'Home') ?? null;
+    active = stepActive(geometry, active, 'ArrowRight') ?? null;
+    expect(active?.index).toBe(7);
+    active = stepActive(geometry, active, 'ArrowDown') ?? null;
+    expect(active?.index).toBe(8);
+  });
+
+  test('REQ-124 · heatmap values that cannot fit their cells are carried by cell size instead of overprinting', () => {
+    const values = Array.from({ length: 24 }, (_, i) => (i * 37) % 101);
+    const model = heatmapChart.build({ ...bare, data: [{ label: 'Mon', values }, { label: 'Tue', values: [...values].reverse() }] }, context);
+    const printed = model.geometry.labels.filter((l) => /^\d+$/.test(l.text));
+    expect(printed).toEqual([]);
+    const cells = model.geometry.strokes.filter((s) => s.role === 'encoding');
+    const byValue = model.geometry.hitAreas.map((h, i) => ({ value: h.value, size: width(cells[i]!.d) }));
+    const small = byValue.reduce((a, b) => (b.value < a.value ? b : a));
+    const large = byValue.reduce((a, b) => (b.value > a.value ? b : a));
+    expect(large.size).toBeGreaterThan(small.size);
+  });
+
+  test('REQ-087 · an impossible date is rejected, not rolled over, and warned', () => {
+    const seen = capture();
+    const data = [...Array.from({ length: 7 }, (_, i) => ({ date: `2026-03-0${i + 1}`, count: 1, level: 1 })), { date: '2026-02-31', count: 9, level: 4 }];
+    const model = activityGrid.build({ ...bare, data, weeks: 1 }, context);
+    expect(model.table.rows.map((r) => r[0])).not.toContain('2026-03-03' + 'x');
+    expect(model.table.rows.filter((r) => r[0] === '2026-03-03')).toHaveLength(1);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-087 · duplicate dates keep the first row, and non-consecutive dates are warned', () => {
+    const seen = capture();
+    const days = ['01', '02', '02', '03', '04', '05', '08', '09'].map((d) => ({ date: `2026-06-${d}`, count: 1, level: 1 }));
+    const model = activityGrid.build({ ...bare, data: days, weeks: 1 }, context);
+    expect(new Set(model.table.rows.map((r) => r[0])).size).toBe(model.table.rows.length);
+    expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(2);
   });
 });

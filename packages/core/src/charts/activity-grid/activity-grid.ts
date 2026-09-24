@@ -42,9 +42,11 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
 
   const parsed: Day[] = [];
   data.forEach((datum, index) => {
-    const day = parseIsoDate(String(read(dateKey, datum, index)));
-    if (Number.isNaN(day)) {
-      warnValue(CHART, accessorName(dateKey, 'date'), `Row ${index} is not an ISO date; it is omitted.`);
+    const iso = String(read(dateKey, datum, index));
+    const day = parseIsoDate(iso);
+    // A date that does not exist (2026-02-31) would roll over onto a real one: it is rejected.
+    if (Number.isNaN(day) || isoDate(day) !== iso) {
+      warnValue(CHART, accessorName(dateKey, 'date'), `Row ${index} (${iso}) is not a calendar date in ISO form; it is omitted.`);
       return;
     }
     const raw = finite(read(levelKey, datum, index));
@@ -54,6 +56,12 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
   });
   // The grid runs forward in time whatever order the rows came in.
   let days = [...parsed].sort((a, b) => a.day - b.day);
+  // One cell per day: a repeated date keeps its first row.
+  const unique = days.filter((d, i) => i === 0 || d.day !== days[i - 1]?.day);
+  if (unique.length < days.length) {
+    warnValue(CHART, accessorName(dateKey, 'date'), `${days.length - unique.length} rows repeat a date; the first row of each day is kept.`);
+    days = unique;
+  }
   // Whole weeks only (Data Model §2.8): the oldest days of a partial week are trimmed.
   const partial = days.length % 7;
   if (partial > 0) {
@@ -61,6 +69,10 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
     days = days.slice(partial);
   }
   days = days.slice(-weeks * 7);
+  // Cells are placed by position, so a missing day shifts every later one off its weekday.
+  if (days.some((d, i) => i > 0 && d.day !== (days[i - 1]?.day ?? 0) + 1)) {
+    warnValue(CHART, accessorName(dateKey, 'date'), 'The dates are not consecutive; cells are placed by position, one per row.');
+  }
 
   const base = modelBase(CHART, props, context, 'Activity grid', {
     columns: [accessorName(dateKey, 'date'), countName, levelName],
@@ -106,7 +118,7 @@ function buildActivityGrid(props: ActivityGridProps, context: RecipeContext): Ch
     const cy = top + row * slot + slot / 2;
     const cell = { x: cx - side / 2, y: cy - side / 2, width: side, height: side };
     strokes.push({ d: rectPath(cell), role: 'encoding', part: 'ink', ...(d.level > 0 ? { tone: d.level } : {}) });
-    hitAreas.push({ seriesKey: countName, index, datum: d.datum, value: d.count ?? 0, x: cx, y: cy, box: cell });
+    hitAreas.push({ seriesKey: countName, index, datum: d.datum, value: d.count ?? 0, x: cx, y: cy, box: cell, cell: { column, row } });
   });
 
   for (const { column, name } of months) {

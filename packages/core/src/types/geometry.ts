@@ -57,6 +57,11 @@ export interface HitArea {
   readonly y: number;
   /** The item's area, when it has one — a bar, a cell, a tile. A pointer inside it wins. */
   readonly box?: Rect;
+  /**
+   * The item's place in a grid, when the chart is one. When every item has one, the arrow keys
+   * move by column (left, right) and by row (up, down) across the whole grid (REQ-122).
+   */
+  readonly cell?: Readonly<{ column: number; row: number }>;
 }
 
 /**
