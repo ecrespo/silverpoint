@@ -42,7 +42,19 @@
     "range-band-chart/**/*.ts",
     "stream-chart/**/*.ts",
     "scatter-chart/**/*.ts",
-    "bubble-chart/**/*.ts"
+    "bubble-chart/**/*.ts",
+    "donut-chart/**/*.ts",
+    "radar-chart/**/*.ts",
+    "polar-bar-chart/**/*.ts",
+    "radial-arc-group/**/*.ts",
+    "radial-rings/**/*.ts",
+    "gauge-arc/**/*.ts",
+    "meter-chart/**/*.ts",
+    "coxcomb-chart/**/*.ts",
+    "wind-rose/**/*.ts",
+    "volvelle-chart/**/*.ts",
+    "chord-ring/**/*.ts",
+    "orbit-chart/**/*.ts"
   ],
   "exclude": [
     "**/*.spec.ts",

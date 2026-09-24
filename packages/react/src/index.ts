@@ -19,6 +19,18 @@ export { RangeBandChart, type ClientRangeBandChartProps } from './range-band-cha
 export { StreamChart, type ClientStreamChartProps } from './stream-chart';
 export { ScatterChart, type ClientScatterChartProps } from './scatter-chart';
 export { BubbleChart, type ClientBubbleChartProps } from './bubble-chart';
+export { DonutChart, type ClientDonutChartProps } from './donut-chart';
+export { RadarChart, type ClientRadarChartProps } from './radar-chart';
+export { PolarBarChart, type ClientPolarBarChartProps } from './polar-bar-chart';
+export { RadialArcGroup, type ClientRadialArcGroupProps } from './radial-arc-group';
+export { RadialRings, type ClientRadialRingsProps } from './radial-rings';
+export { GaugeArc, type ClientGaugeArcProps } from './gauge-arc';
+export { MeterChart, type ClientMeterChartProps } from './meter-chart';
+export { CoxcombChart, type ClientCoxcombChartProps } from './coxcomb-chart';
+export { WindRose, type ClientWindRoseProps } from './wind-rose';
+export { VolvelleChart, type ClientVolvelleChartProps } from './volvelle-chart';
+export { ChordRing, type ClientChordRingProps } from './chord-ring';
+export { OrbitChart, type ClientOrbitChartProps } from './orbit-chart';
 export type { TooltipRenderer } from './overlay';
 export { SilverpointProvider, type SilverpointProviderProps } from './provider';
 export type {
@@ -37,6 +49,18 @@ export type {
   StreamChartProps,
   ScatterChartProps,
   BubbleChartProps,
+  DonutChartProps,
+  RadarChartProps,
+  PolarBarChartProps,
+  RadialArcGroupProps,
+  RadialRingsProps,
+  GaugeArcProps,
+  MeterChartProps,
+  CoxcombChartProps,
+  WindRoseProps,
+  VolvelleChartProps,
+  ChordRingProps,
+  OrbitChartProps,
 
   BulletChartProps,
   HeatmapChartProps,

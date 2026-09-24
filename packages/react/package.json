@@ -267,6 +267,150 @@
       "import": "./dist/server/bubble-chart.js",
       "default": "./dist/server/bubble-chart.js"
     },
+    "./donut-chart": {
+      "@silverpoint/source": "./src/donut-chart.tsx",
+      "types": "./dist/donut-chart.d.ts",
+      "import": "./dist/donut-chart.js",
+      "default": "./dist/donut-chart.js"
+    },
+    "./server/donut-chart": {
+      "@silverpoint/source": "./src/server/donut-chart.tsx",
+      "types": "./dist/server/donut-chart.d.ts",
+      "import": "./dist/server/donut-chart.js",
+      "default": "./dist/server/donut-chart.js"
+    },
+    "./radar-chart": {
+      "@silverpoint/source": "./src/radar-chart.tsx",
+      "types": "./dist/radar-chart.d.ts",
+      "import": "./dist/radar-chart.js",
+      "default": "./dist/radar-chart.js"
+    },
+    "./server/radar-chart": {
+      "@silverpoint/source": "./src/server/radar-chart.tsx",
+      "types": "./dist/server/radar-chart.d.ts",
+      "import": "./dist/server/radar-chart.js",
+      "default": "./dist/server/radar-chart.js"
+    },
+    "./polar-bar-chart": {
+      "@silverpoint/source": "./src/polar-bar-chart.tsx",
+      "types": "./dist/polar-bar-chart.d.ts",
+      "import": "./dist/polar-bar-chart.js",
+      "default": "./dist/polar-bar-chart.js"
+    },
+    "./server/polar-bar-chart": {
+      "@silverpoint/source": "./src/server/polar-bar-chart.tsx",
+      "types": "./dist/server/polar-bar-chart.d.ts",
+      "import": "./dist/server/polar-bar-chart.js",
+      "default": "./dist/server/polar-bar-chart.js"
+    },
+    "./radial-arc-group": {
+      "@silverpoint/source": "./src/radial-arc-group.tsx",
+      "types": "./dist/radial-arc-group.d.ts",
+      "import": "./dist/radial-arc-group.js",
+      "default": "./dist/radial-arc-group.js"
+    },
+    "./server/radial-arc-group": {
+      "@silverpoint/source": "./src/server/radial-arc-group.tsx",
+      "types": "./dist/server/radial-arc-group.d.ts",
+      "import": "./dist/server/radial-arc-group.js",
+      "default": "./dist/server/radial-arc-group.js"
+    },
+    "./radial-rings": {
+      "@silverpoint/source": "./src/radial-rings.tsx",
+      "types": "./dist/radial-rings.d.ts",
+      "import": "./dist/radial-rings.js",
+      "default": "./dist/radial-rings.js"
+    },
+    "./server/radial-rings": {
+      "@silverpoint/source": "./src/server/radial-rings.tsx",
+      "types": "./dist/server/radial-rings.d.ts",
+      "import": "./dist/server/radial-rings.js",
+      "default": "./dist/server/radial-rings.js"
+    },
+    "./gauge-arc": {
+      "@silverpoint/source": "./src/gauge-arc.tsx",
+      "types": "./dist/gauge-arc.d.ts",
+      "import": "./dist/gauge-arc.js",
+      "default": "./dist/gauge-arc.js"
+    },
+    "./server/gauge-arc": {
+      "@silverpoint/source": "./src/server/gauge-arc.tsx",
+      "types": "./dist/server/gauge-arc.d.ts",
+      "import": "./dist/server/gauge-arc.js",
+      "default": "./dist/server/gauge-arc.js"
+    },
+    "./meter-chart": {
+      "@silverpoint/source": "./src/meter-chart.tsx",
+      "types": "./dist/meter-chart.d.ts",
+      "import": "./dist/meter-chart.js",
+      "default": "./dist/meter-chart.js"
+    },
+    "./server/meter-chart": {
+      "@silverpoint/source": "./src/server/meter-chart.tsx",
+      "types": "./dist/server/meter-chart.d.ts",
+      "import": "./dist/server/meter-chart.js",
+      "default": "./dist/server/meter-chart.js"
+    },
+    "./coxcomb-chart": {
+      "@silverpoint/source": "./src/coxcomb-chart.tsx",
+      "types": "./dist/coxcomb-chart.d.ts",
+      "import": "./dist/coxcomb-chart.js",
+      "default": "./dist/coxcomb-chart.js"
+    },
+    "./server/coxcomb-chart": {
+      "@silverpoint/source": "./src/server/coxcomb-chart.tsx",
+      "types": "./dist/server/coxcomb-chart.d.ts",
+      "import": "./dist/server/coxcomb-chart.js",
+      "default": "./dist/server/coxcomb-chart.js"
+    },
+    "./wind-rose": {
+      "@silverpoint/source": "./src/wind-rose.tsx",
+      "types": "./dist/wind-rose.d.ts",
+      "import": "./dist/wind-rose.js",
+      "default": "./dist/wind-rose.js"
+    },
+    "./server/wind-rose": {
+      "@silverpoint/source": "./src/server/wind-rose.tsx",
+      "types": "./dist/server/wind-rose.d.ts",
+      "import": "./dist/server/wind-rose.js",
+      "default": "./dist/server/wind-rose.js"
+    },
+    "./volvelle-chart": {
+      "@silverpoint/source": "./src/volvelle-chart.tsx",
+      "types": "./dist/volvelle-chart.d.ts",
+      "import": "./dist/volvelle-chart.js",
+      "default": "./dist/volvelle-chart.js"
+    },
+    "./server/volvelle-chart": {
+      "@silverpoint/source": "./src/server/volvelle-chart.tsx",
+      "types": "./dist/server/volvelle-chart.d.ts",
+      "import": "./dist/server/volvelle-chart.js",
+      "default": "./dist/server/volvelle-chart.js"
+    },
+    "./chord-ring": {
+      "@silverpoint/source": "./src/chord-ring.tsx",
+      "types": "./dist/chord-ring.d.ts",
+      "import": "./dist/chord-ring.js",
+      "default": "./dist/chord-ring.js"
+    },
+    "./server/chord-ring": {
+      "@silverpoint/source": "./src/server/chord-ring.tsx",
+      "types": "./dist/server/chord-ring.d.ts",
+      "import": "./dist/server/chord-ring.js",
+      "default": "./dist/server/chord-ring.js"
+    },
+    "./orbit-chart": {
+      "@silverpoint/source": "./src/orbit-chart.tsx",
+      "types": "./dist/orbit-chart.d.ts",
+      "import": "./dist/orbit-chart.js",
+      "default": "./dist/orbit-chart.js"
+    },
+    "./server/orbit-chart": {
+      "@silverpoint/source": "./src/server/orbit-chart.tsx",
+      "types": "./dist/server/orbit-chart.d.ts",
+      "import": "./dist/server/orbit-chart.js",
+      "default": "./dist/server/orbit-chart.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

@@ -19,6 +19,18 @@ export { default as SpRangeBandChart } from './SpRangeBandChart.vue';
 export { default as SpStreamChart } from './SpStreamChart.vue';
 export { default as SpScatterChart } from './SpScatterChart.vue';
 export { default as SpBubbleChart } from './SpBubbleChart.vue';
+export { default as SpDonutChart } from './SpDonutChart.vue';
+export { default as SpRadarChart } from './SpRadarChart.vue';
+export { default as SpPolarBarChart } from './SpPolarBarChart.vue';
+export { default as SpRadialArcGroup } from './SpRadialArcGroup.vue';
+export { default as SpRadialRings } from './SpRadialRings.vue';
+export { default as SpGaugeArc } from './SpGaugeArc.vue';
+export { default as SpMeterChart } from './SpMeterChart.vue';
+export { default as SpCoxcombChart } from './SpCoxcombChart.vue';
+export { default as SpWindRose } from './SpWindRose.vue';
+export { default as SpVolvelleChart } from './SpVolvelleChart.vue';
+export { default as SpChordRing } from './SpChordRing.vue';
+export { default as SpOrbitChart } from './SpOrbitChart.vue';
 export { provideSilverpoint } from './environment';
 export type {
   ActiveItem,
@@ -37,6 +49,18 @@ export type {
   StreamChartProps,
   ScatterChartProps,
   BubbleChartProps,
+  DonutChartProps,
+  RadarChartProps,
+  PolarBarChartProps,
+  RadialArcGroupProps,
+  RadialRingsProps,
+  GaugeArcProps,
+  MeterChartProps,
+  CoxcombChartProps,
+  WindRoseProps,
+  VolvelleChartProps,
+  ChordRingProps,
+  OrbitChartProps,
 
   BulletChartProps,
   ChartHandle,
