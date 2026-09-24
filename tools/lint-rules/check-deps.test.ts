@@ -87,6 +87,27 @@ describe('check-deps', () => {
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-162.*@silverpoint\/vue.*roughjs/);
   });
 
+  test.each(['peerDependencies', 'optionalDependencies'])('REQ-162 · a core %s entry outside the allowlist fails', (field) => {
+    const manifests = replace(valid(), '@silverpoint/core', (m) => ({ ...m, [field]: { 'd3-selection': '^3' } }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-162.*d3-selection/);
+  });
+
+  test('REQ-163 · an export without types fails', () => {
+    const manifests = replace(valid(), '@silverpoint/core', (m) => ({
+      ...m,
+      exports: { '.': { import: './dist/index.js', default: './dist/index.js' } },
+    }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*types/);
+  });
+
+  test('REQ-163 · types listed after import fails, because TypeScript stops at the first match', () => {
+    const manifests = replace(valid(), '@silverpoint/core', (m) => ({
+      ...m,
+      exports: { '.': { import: './dist/index.js', types: './dist/index.d.ts', default: './dist/index.js' } },
+    }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*types/);
+  });
+
   test('REQ-163 · a library without an exports map fails', () => {
     const manifests = replace(valid(), '@silverpoint/core', ({ exports: _exports, ...rest }) => rest);
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*exports/);

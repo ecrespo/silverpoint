@@ -35,6 +35,13 @@ function checkConditionOrder(name, exports, problems) {
   for (const [subpath, target] of Object.entries(exports)) {
     if (typeof target !== 'object' || target === null) continue;
     const keys = Object.keys(target);
+    const code = ['import', 'default'].filter((key) => typeof target[key] === 'string' && target[key].endsWith('.js'));
+    if (code.length > 0) {
+      const types = keys.indexOf('types');
+      if (types === -1 || code.some((key) => keys.indexOf(key) < types)) {
+        problems.push(`REQ-163 · ${name}: exports "${subpath}" must list "types" before ${code.map((k) => `"${k}"`).join(' and ')}.`);
+      }
+    }
     const position = keys.indexOf('default');
     if (position !== -1 && position !== keys.length - 1) {
       problems.push(
@@ -58,6 +65,15 @@ export function checkManifests(manifests) {
     if (!allowed) continue;
     const dependencies = Object.keys(manifest.dependencies ?? {});
 
+    const declared = [
+      ...Object.keys(manifest.peerDependencies ?? {}),
+      ...Object.keys(manifest.optionalDependencies ?? {}),
+    ];
+    for (const dependency of declared) {
+      if (!allowed.includes(dependency) && !(PEERS[name] ?? []).includes(dependency)) {
+        problems.push(`REQ-162 · ${name} declares ${dependency}, which is outside its allowlist (${allowed.join(', ') || 'none'}).`);
+      }
+    }
     for (const dependency of dependencies) {
       if (FRAMEWORKS.includes(dependency)) {
         problems.push(`REQ-161 · ${name} declares ${dependency} as a dependency; frameworks are peerDependencies only.`);

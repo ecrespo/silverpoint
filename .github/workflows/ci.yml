@@ -24,7 +24,8 @@ jobs:
       # REQ-004, REQ-027, REQ-106, REQ-161..163, REQ-034 and the spec corpus gate.
       - run: pnpm lint
       # REQ-044: a PR that touches a ground may not touch the charts.
-      - if: github.event_name == 'pull_request'
+      # Feature PRs only: a release PR's window legitimately holds many ground and chart changes.
+      - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
         run: node tools/lint-rules/check-ground-pr.mjs origin/${{ github.base_ref }}
       - run: pnpm build
       - run: pnpm test

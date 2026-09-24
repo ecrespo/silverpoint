@@ -15,8 +15,10 @@ the two constraints cannot both hold for a build with Angular 22.
 ## What Phase 0 does meanwhile
 
 `@silverpoint/angular` is compiled with Angular 21.2 and TypeScript 5.9 in partial
-compilation mode. Partial declarations are linked by newer Angular versions, so the published
-package keeps its `>=21 <23` peer range.
+compilation mode. Partial declarations are linked by newer Angular versions, but the emitted
+`.d.ts` generics can change between majors and nothing builds or consumes the package under 22
+yet, so the peer range is narrowed to **`>=21 <22`** until this delta is approved and an
+Angular 22 consumer job exists.
 
 ## Proposal
 

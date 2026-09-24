@@ -29,6 +29,31 @@ describe('no-nondeterminism', () => {
     expect(await rulesHit('packages/core/src/x.ts', "export const d = new Date('2026-06-30');")).toEqual([]);
   });
 
+  test.each([
+    ['destructuring', 'const { random } = Math; export const r = random();'],
+    ['an alias', 'const M = Math; export const r = M.random();'],
+    ['globalThis', 'export const r = globalThis.Math.random();'],
+    ['window', 'export const t = window.Date.now();'],
+    ['a computed key', "export const r = Math['random']();"],
+    ['Date() without new', 'export const d = Date();'],
+    ['new Date(undefined)', 'export const d = new Date(undefined);'],
+    ['crypto.getRandomValues', 'export const b = crypto.getRandomValues(new Uint8Array(4));'],
+    ['crypto.randomUUID', 'export const u = crypto.randomUUID();'],
+  ])('REQ-004 · an evasion through %s still fails', async (_how, code) => {
+    const hits = await rulesHit('packages/core/src/x.ts', code);
+    expect(hits.length).toBeGreaterThan(0);
+    expect(new Set(hits)).toEqual(new Set(['silverpoint/no-nondeterminism']));
+  });
+
+  test('REQ-004 · a local binding that shadows Math is not the global', async () => {
+    expect(await rulesHit('packages/core/src/x.ts', 'export function f(Math: { random(): number }) { return Math.random(); }')).toEqual([]);
+  });
+
+  test('REQ-004 · Math.random() in a Vue template fails', async () => {
+    const sfc = '<script setup lang="ts">\n</script>\n<template><p>{{ Math.random() }}</p></template>\n';
+    expect(await rulesHit('packages/vue/src/X.vue', sfc)).toContain('silverpoint/no-nondeterminism');
+  });
+
   test('REQ-004 · tests are outside the render path', async () => {
     expect(await rulesHit('packages/core/test/x.test.ts', 'export const r = Math.random();')).toEqual([]);
   });
@@ -60,6 +85,11 @@ describe('adapter-boundary', () => {
     expect(await rulesHit('packages/react/src/x.ts', 'export const w = (n: number) => Math.round(n);')).toEqual([
       'silverpoint/adapter-boundary',
     ]);
+  });
+
+  test('REQ-102 · maths inside a Vue template binding fails', async () => {
+    const sfc = '<script setup lang="ts">\nconst x = 1;\n</script>\n<template><path :d="`M${Math.round(x)},0`" /></template>\n';
+    expect(await rulesHit('packages/vue/src/X.vue', sfc)).toEqual(['silverpoint/adapter-boundary']);
   });
 
   test('REQ-102 · the core may do maths', async () => {

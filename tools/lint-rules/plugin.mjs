@@ -14,11 +14,16 @@ export const CORE_ALLOWLIST = Object.freeze(['d3-scale', 'd3-shape', 'd3-chord']
 
 const INKING_ENGINE = /^roughjs(\/|$)/;
 const D3 = /^d3-/;
-const NONDETERMINISTIC = [
-  ['Math', 'random'],
-  ['Date', 'now'],
-  ['performance', 'now'],
-];
+
+/** Global objects whose listed members are sources of non-determinism (Art. 4). */
+const NONDETERMINISTIC = {
+  Math: ['random'],
+  Date: ['now'],
+  performance: ['now'],
+  crypto: ['getRandomValues', 'randomUUID'],
+};
+/** Names through which a script reaches the global object. */
+const GLOBAL_OBJECTS = ['globalThis', 'window', 'self', 'global'];
 
 /** Calls `report(node, source)` for every static, dynamic or `require` import. */
 function onImport(report) {
@@ -36,12 +41,100 @@ function onImport(report) {
   };
 }
 
-function memberOf(node, object) {
-  return node.object.type === 'Identifier' && node.object.name === object;
+/** Static name of a member access: `a.b` and `a['b']` both give `b`. */
+function propertyName(node) {
+  if (!node.computed && node.property.type === 'Identifier') return node.property.name;
+  if (node.computed && node.property.type === 'Literal' && typeof node.property.value === 'string') {
+    return node.property.value;
+  }
+  return undefined;
 }
 
-function propertyName(node) {
-  return !node.computed && node.property.type === 'Identifier' ? node.property.name : undefined;
+/**
+ * Builds a resolver telling whether an Identifier refers to the global binding of that name.
+ * Template expressions of a Vue SFC live outside the scope manager; there every free name is
+ * a global the template compiler whitelists, so they count as global.
+ */
+function globalResolver(context, inTemplate) {
+  return (identifier) => {
+    if (inTemplate) return true;
+    let scope = context.sourceCode.getScope(identifier);
+    while (scope) {
+      const variable = scope.set.get(identifier.name);
+      if (variable) return variable.defs.length === 0;
+      scope = scope.upper;
+    }
+    return true;
+  };
+}
+
+/**
+ * Name of the global object an expression denotes — `Math`, `globalThis.Math`,
+ * `window['Date']` — or undefined.
+ */
+function globalObject(node, isGlobal, names) {
+  if (node.type === 'Identifier') return names.includes(node.name) && isGlobal(node) ? node.name : undefined;
+  if (node.type === 'MemberExpression') {
+    const name = propertyName(node);
+    const through = node.object.type === 'Identifier' && GLOBAL_OBJECTS.includes(node.object.name) && isGlobal(node.object);
+    if (through && name && names.includes(name)) return name;
+  }
+  return undefined;
+}
+
+/** True when `node` is only the object of a member access, the one legitimate use. */
+function isMemberObject(node) {
+  return node.parent?.type === 'MemberExpression' && node.parent.object === node;
+}
+
+function nondeterminismVisitor(context, inTemplate) {
+  const isGlobal = globalResolver(context, inTemplate);
+  const names = Object.keys(NONDETERMINISTIC);
+  const report = (node, what) => context.report({ node, messageId: 'forbidden', data: { what } });
+  const check = (node) => {
+    const object = globalObject(node, isGlobal, names);
+    if (!object) return;
+    const parent = node.parent;
+    if (isMemberObject(node)) {
+      const member = propertyName(parent);
+      if (member && NONDETERMINISTIC[object].includes(member)) report(parent, `${object}.${member}`);
+      return;
+    }
+    if (object === 'Date' && parent?.type === 'NewExpression' && parent.callee === node) {
+      const [first] = parent.arguments;
+      const empty = parent.arguments.length === 0 || (first?.type === 'Identifier' && first.name === 'undefined');
+      if (empty) report(parent, 'new Date() without a date');
+      return;
+    }
+    if (object === 'Date' && parent?.type === 'CallExpression' && parent.callee === node) {
+      report(parent, 'Date()');
+      return;
+    }
+    if (object === 'Date' && parent?.type === 'BinaryExpression' && parent.operator === 'instanceof') return;
+    // Destructuring or aliasing the object would hide every later call from this rule.
+    report(node, `aliasing ${object}`);
+  };
+  return {
+    Identifier(node) {
+      if (node.parent?.type === 'MemberExpression' && node.parent.property === node && !node.parent.computed) return;
+      if (node.parent?.type === 'Property' && node.parent.key === node && node.parent.parent?.type !== 'ObjectPattern') return;
+      if (node.parent?.type === 'MemberExpression' && GLOBAL_OBJECTS.includes(node.name)) return;
+      check(node);
+    },
+    MemberExpression(node) {
+      if (globalObject(node, isGlobal, names)) check(node);
+    },
+  };
+}
+
+/** Applies `build(inTemplate)` to the script and, in a Vue SFC, to the template as well. */
+function withTemplate(context, build) {
+  const script = build(false);
+  const services = context.sourceCode.parserServices;
+  if (typeof services?.defineTemplateBodyVisitor === 'function') {
+    return services.defineTemplateBodyVisitor(build(true), script);
+  }
+  return script;
 }
 
 const noNondeterminism = {
@@ -55,20 +148,7 @@ const noNondeterminism = {
     schema: [],
   },
   create(context) {
-    return {
-      MemberExpression(node) {
-        for (const [object, property] of NONDETERMINISTIC) {
-          if (memberOf(node, object) && propertyName(node) === property) {
-            context.report({ node, messageId: 'forbidden', data: { what: `${object}.${property}` } });
-          }
-        }
-      },
-      NewExpression(node) {
-        if (node.callee.type === 'Identifier' && node.callee.name === 'Date' && node.arguments.length === 0) {
-          context.report({ node, messageId: 'forbidden', data: { what: 'new Date()' } });
-        }
-      },
-    };
+    return withTemplate(context, (inTemplate) => nondeterminismVisitor(context, inTemplate));
   },
 };
 
@@ -84,17 +164,22 @@ const adapterBoundary = {
     schema: [],
   },
   create(context) {
-    return {
-      ...onImport((node, source) => {
-        if (D3.test(source)) context.report({ node, messageId: 'd3', data: { source } });
-        if (INKING_ENGINE.test(source)) context.report({ node, messageId: 'ink', data: { source } });
-      }),
-      MemberExpression(node) {
-        if (memberOf(node, 'Math')) {
-          context.report({ node, messageId: 'maths', data: { name: propertyName(node) ?? '[computed]' } });
-        }
-      },
+    const maths = (inTemplate) => {
+      const isGlobal = globalResolver(context, inTemplate);
+      return {
+        Identifier(node) {
+          if (node.parent?.type === 'MemberExpression' && node.parent.property === node && !node.parent.computed) return;
+          if (node.name !== 'Math' || !isGlobal(node)) return;
+          const name = isMemberObject(node) ? (propertyName(node.parent) ?? '[computed]') : '(alias)';
+          context.report({ node: node.parent ?? node, messageId: 'maths', data: { name } });
+        },
+      };
     };
+    const imports = onImport((node, source) => {
+      if (D3.test(source)) context.report({ node, messageId: 'd3', data: { source } });
+      if (INKING_ENGINE.test(source)) context.report({ node, messageId: 'ink', data: { source } });
+    });
+    return withTemplate(context, (inTemplate) => (inTemplate ? maths(true) : { ...imports, ...maths(false) }));
   },
 };
 
