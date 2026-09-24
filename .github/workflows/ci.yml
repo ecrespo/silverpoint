@@ -35,6 +35,8 @@ jobs:
       - if: github.event_name == 'push' && github.ref == 'refs/heads/develop' && github.event.before != '0000000000000000000000000000000000000000'
         run: node tools/lint-rules/check-ground-pr.mjs ${{ github.event.before }}
       - run: pnpm build
+      # Every package's own typecheck, tests and templates included (vue-tsc, ngc).
+      - run: pnpm -r run typecheck
       # Browser-free suites here; the gates that launch Chromium run in the pinned image below.
       - run: pnpm exec vitest run --project core --project grounds --project fonts --project tools --project react --project vue --project angular
       # REQ-180: every adapter against the canonical render of every fixture.

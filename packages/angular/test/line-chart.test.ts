@@ -119,9 +119,11 @@ describe('sp-line-chart component contract', () => {
   });
 
   test('API §8.2 · exposes getGeometry() and toSVGString() and no other public method', () => {
-    const methods = Object.getOwnPropertyNames(SpLineChart.prototype).filter(
-      (name) => name !== 'constructor' && !name.startsWith('ng'),
-    );
-    expect(methods.sort()).toEqual(['getGeometry', 'toSVGString']);
+    // Walk the whole class chain: the methods may live on a shared base class.
+    const methods = new Set<string>();
+    for (let proto = SpLineChart.prototype; proto && proto !== Object.prototype; proto = Object.getPrototypeOf(proto)) {
+      for (const name of Object.getOwnPropertyNames(proto)) if (name !== 'constructor' && !name.startsWith('ng')) methods.add(name);
+    }
+    expect([...methods].sort()).toEqual(['getGeometry', 'toSVGString']);
   });
 });

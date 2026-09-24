@@ -46,7 +46,7 @@ function vueTypeErrors(template: string): string {
 describe('SpLineChart types', () => {
   test('API §4 · props match the React adapter name for name', async () => {
     const { SpLineChart } = await import('../src');
-    const vueProps = Object.keys((SpLineChart as { props: Record<string, unknown> }).props).sort();
+    const vueProps = Object.keys((SpLineChart as unknown as { props: Record<string, unknown> }).props).sort();
     expect(vueProps).toEqual(interfaceKeys(join(repo, 'packages/core/src/types/props.ts'), 'LineChartProps'));
   });
 

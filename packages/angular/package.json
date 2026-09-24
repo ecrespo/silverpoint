@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json",
-    "typecheck": "tsc -p tsconfig.lib.json --noEmit"
+    "typecheck": "ngc -p tsconfig.typecheck.json"
   },
   "dependencies": {
     "@silverpoint/core": "workspace:*",

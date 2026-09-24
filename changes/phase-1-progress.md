@@ -6,8 +6,9 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 |---|---|---|---|
 | T-030 | done | 1a3e6f3 | line-chart snapshot + 8 canonicals unchanged; box hit-area tests |
 | T-031 | done | a71a10b | `packages/core/test/prng-dates.test.ts`, frozen mulberry32 sequence |
-| T-032..T-037 | done | (this commit) | `catalog-contract.test.ts` (12 contract tests × 6 charts + demo snapshots, RED 72/72 on stubs) and `catalog-charts.test.ts` (27 per-chart tests, RED 26/26 on stubs); snapshot mutation-checked; core 184 + 6 snapshots green |
-| T-047 (part) | done | (this commit) | the six charts appended to `grounds/test/equivalence.test.ts`: 30/30 |
+| T-032..T-037 | done | 3e3be49 | `catalog-contract.test.ts` (12 contract tests × 6 charts + demo snapshots, RED 72/72 on stubs) and `catalog-charts.test.ts` (27 per-chart tests, RED 26/26 on stubs); snapshot mutation-checked; core 184 + 6 snapshots green |
+| T-047 (part) | done | 3e3be49 | the six charts appended to `grounds/test/equivalence.test.ts`: 30/30 |
+| T-038 | done | (this commit) | refactor under unchanged tests: react 32/32, vue 30/30, angular 34/34, string gate 24/24; `pnpm -r run typecheck` green |
 
 ## Rulings
 
@@ -39,3 +40,15 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 - **T-032..T-037 · Ruling:** every "drawn anyway / clamped / dropped" case is warned with SP002
   and a specific message; the SP002 template still reads as the line chart's null-value text — a
   wording fix to the template is left for the review — cost if wrong: a misleading hint.
+- **T-038 · Ruling:** React `createClientChart`/`createServerChart`, Vue `ChartShell.vue` (each `Sp*`
+  SFC keeps its own `defineProps<XProps>()` and re-emits), Angular abstract `SpChart` `@Directive`
+  taking the recipe in its constructor. The Angular "no other public method" test now walks the
+  class chain, since the methods live on the base — its assertion is unchanged.
+- **T-038 · Ruling (Phase 0 gap):** CI ran no typecheck, and two were broken — the Vue types test
+  cast (TS2352) and Angular's `typecheck` script (`inlineSources` without source maps; the secondary
+  entry's self-import unresolved). Fixed with `tsconfig.typecheck.json` (path to `src/public-api.ts`,
+  run by `ngc`, so templates are checked) and a `pnpm -r run typecheck` CI step — cost if wrong: none.
+- **T-038 · Ruling:** the "core (everything)" budget rises 20 → 30 kB and "grounds + core
+  (everything)" 30 → 40 kB, because they grow with the catalog by design; the PRD's product budget
+  is per chart (< 45 KB React + core with one chart), which T-047 adds for each new chart — cost if
+  wrong: a looser catalog-wide alarm.
