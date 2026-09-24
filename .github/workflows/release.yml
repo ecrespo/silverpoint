@@ -1,0 +1,33 @@
+name: release
+
+# Publishes the six packages with the same version, from CI, with no token in the repository:
+# npm Trusted Publishing authenticates this workflow through GitHub's OIDC token (TD §9).
+# Prerequisites (Implementation Plan §2): the @silverpoint organisation on npm, and each package
+# configured on npmjs.com to trust this repository and workflow.
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm test
+      # Angular publishes its APF build from dist/ (publishConfig.directory).
+      - run: pnpm --filter "./packages/**" publish --access public --provenance --no-git-checks
