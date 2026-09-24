@@ -50,12 +50,25 @@ export default defineConfig({
         },
       },
       {
+        // The Art. 3 string gate runs against the published builds of every adapter, resolved
+        // without the source condition, exactly as a consumer would import them.
+        test: {
+          name: 'gates',
+          root: 'tools/visual-gate',
+          environment: 'node',
+          include: ['*.real.test.ts'],
+          globalSetup: ['gate-setup.ts'],
+          setupFiles: ['gate-angular.ts'],
+          testTimeout: 120_000,
+        },
+      },
+      {
         test: { name: 'fonts', root: 'packages/fonts', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {
         resolve: source,
         ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
-        test: { name: 'tools', root: 'tools', environment: 'node', include: ['**/*.test.{ts,mjs}'], exclude: ['**/node_modules/**', '**/fixtures/**'] },
+        test: { name: 'tools', root: 'tools', environment: 'node', include: ['**/*.test.{ts,mjs}'], exclude: ['**/node_modules/**', '**/fixtures/**', '**/*.real.test.ts'] },
       },
     ],
   },

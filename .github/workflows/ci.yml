@@ -29,3 +29,5 @@ jobs:
         run: node tools/lint-rules/check-ground-pr.mjs origin/${{ github.base_ref }}
       - run: pnpm build
       - run: pnpm test
+      # REQ-180: every adapter against the canonical render of every fixture.
+      - run: pnpm --filter @silverpoint/visual-gate string-gate

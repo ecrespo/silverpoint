@@ -352,6 +352,52 @@ importers:
         specifier: ^3.3.11
         version: 3.3.11(typescript@5.9.3)
 
+  tools/visual-gate:
+    dependencies:
+      '@silverpoint/angular':
+        specifier: workspace:*
+        version: link:../../packages/angular/dist
+      '@silverpoint/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@silverpoint/grounds':
+        specifier: workspace:*
+        version: link:../../packages/grounds
+      '@silverpoint/react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@silverpoint/vue':
+        specifier: workspace:*
+        version: link:../../packages/vue
+    devDependencies:
+      '@angular/common':
+        specifier: ^21.2.23
+        version: 21.2.23(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))(rxjs@7.8.2)
+      '@angular/compiler':
+        specifier: ^21.2.23
+        version: 21.2.23
+      '@angular/core':
+        specifier: ^21.2.23
+        version: 21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2)
+      '@angular/platform-browser':
+        specifier: ^21.2.23
+        version: 21.2.23(@angular/common@21.2.23(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))
+      '@angular/platform-server':
+        specifier: ^21.2.23
+        version: 21.2.23(@angular/common@21.2.23(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@21.2.23)(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))(@angular/platform-browser@21.2.23(@angular/common@21.2.23(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.23(@angular/compiler@21.2.23)(rxjs@7.8.2)))(rxjs@7.8.2)
+      react:
+        specifier: ^19.3.0
+        version: 19.3.0
+      react-dom:
+        specifier: ^19.3.0
+        version: 19.3.0(react@19.3.0)
+      rxjs:
+        specifier: ^7.8.2
+        version: 7.8.2
+      vue:
+        specifier: ^3.5.43
+        version: 3.5.43(typescript@5.9.3)
+
 packages:
 
   '@ampproject/remapping@2.3.0':

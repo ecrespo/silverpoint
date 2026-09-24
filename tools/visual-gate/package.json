@@ -1,0 +1,29 @@
+{
+  "name": "@silverpoint/visual-gate",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Art. 3 gates: the fixture matrix, the cross-adapter string gate and the pixel gate.",
+  "type": "module",
+  "scripts": {
+    "string-gate": "tsx string-gate.ts",
+    "canonical": "tsx --conditions=@silverpoint/source canonical.ts"
+  },
+  "dependencies": {
+    "@silverpoint/angular": "workspace:*",
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/react": "workspace:*",
+    "@silverpoint/vue": "workspace:*"
+  },
+  "devDependencies": {
+    "@angular/common": "^21.2.23",
+    "@angular/compiler": "^21.2.23",
+    "@angular/core": "^21.2.23",
+    "@angular/platform-browser": "^21.2.23",
+    "@angular/platform-server": "^21.2.23",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "rxjs": "^7.8.2",
+    "vue": "^3.5.43"
+  }
+}
