@@ -19,6 +19,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
 | T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
 | T-015 | done (interaction in T-018) | 2026-09-24 | `packages/react/test` — server and client SSR equal to the canonical render in both modes and four substrates; server variant hook-free, rejects `onActiveChange` and requires `width`/`height` at the type level; built entries: client carries `'use client'`, server does not |
+| T-017 | done (interaction in T-018) | 2026-09-24 | `packages/vue/test` — `@vue/server-renderer` output equal to the canonical render in both modes and four substrates; SSR → hydration with no mismatch (REQ-109); props equal to `LineChartProps` name for name; `@active-change` typed to `ActiveItem \| null`, verified with `vue-tsc` |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -75,6 +76,12 @@ failing first where code changed.
   (REQ-103, and Art. 3's SSR clause), so the adapters default to the provider's locale or
   `'en'` on both sides. *Cost if wrong:* consumers wanting the browser locale pass it through the
   provider; the spec default needs a delta (`delta-003-client-locale.md`).
+- **T-017 · Ruling:** REQ-108 allows no component-local reactive state beyond the measured
+  width. The forced-precision flag is the *environment's* state, so it is one ref shared by
+  every chart, not per component. *Cost if wrong:* none observable.
+- **T-017 · Ruling:** Vue 3.4 has no `useId`; the adapter uses it when present and falls back
+  to the instance uid, so the `^3.4` peer holds. *Cost if wrong:* under 3.4 the generated ids
+  are not in the normaliser's list, which only matters when no `id` prop is passed.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen
