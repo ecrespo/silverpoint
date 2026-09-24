@@ -58,6 +58,8 @@ function buildRadarChart(props: RadarChartProps, context: RecipeContext): ChartM
     const r = radius(tick);
     if (r <= 0) continue;
     strokes.push({ d: ring(r), role: 'ornament', part: 'grid' });
+    // The outermost ring's value would sit under the name at 12 o'clock; the inner rings give the scale.
+    if (r > frame.radius - RIM_LABELS) continue;
     labels.push({ x: frame.cx + 3, y: frame.cy - r - 2, text: formatNumber(tick, locale, numberFormat), kind: 'tick', part: 'axis', anchor: 'start' });
   }
   subjects.forEach((_, k) => {

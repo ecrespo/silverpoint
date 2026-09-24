@@ -8,7 +8,8 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 | T-071 | done | 03aa704 | `charts/shared/polar.ts` — frame, `pointAt`, `sectorPath`/`arcPath` (exact SVG arcs; a full turn as two halves), `polarLabel`, `readSectors` (§2.2), `checkSectors`; `test/polar.test.ts` RED on the missing module → 13/13; the locale test was written with its fix and mutation-checked (`'en'` → red) |
 | T-072 (part) | done | 03aa704 | `checkSectors` + `SECTORS_PER_CHART = 60` unit-tested (60 silent, 61 → SP008); the contract over every sector recipe comes with the recipes |
 | T-073 | done | 51321d8 | `DonutChart`: contract cases (`POLAR`, 13 tests) + sector-volume contract (61 → SP008) + 15 specific tests RED on the missing recipe → green; `ringTone` (no two neighbours share a tone, across 12 o'clock) and `sectorLegend` ("+N more") mutation-checked; one test's expected angles were wrong (Rent 50 % spans 0-π) and were corrected, not the code |
-| T-074, T-075, T-079 | done | (this commit) | `RadarChart`, `PolarBarChart`, `CoxcombChart`: 3 contract cases (39 tests) + 3 sector-volume contracts + 10 specific tests RED on the missing recipes → green (core 620/620); two tests corrected before any code ran (a radial bar's length is not an axis-aligned box's height; the coxcomb has no `legend`) |
+| T-074, T-075, T-079 | done | 70cc7b4 | `RadarChart`, `PolarBarChart`, `CoxcombChart`: 3 contract cases (39 tests) + 3 sector-volume contracts + 10 specific tests RED on the missing recipes → green (core 620/620); two tests corrected before any code ran (a radial bar's length is not an axis-aligned box's height; the coxcomb has no `legend`) |
+| T-076, T-077, T-078 | done | (this commit) | `RadialArcGroup`, `RadialRings` (shared `tracks.ts`), `GaugeArc`, `MeterChart` (shared `scalar.ts`, own 9-test scalar contract — a meter has no rows): 2 contract cases + 2 sector-volume contracts + 18 scalar-contract tests + 7 specific tests RED on the missing recipes → green; three tests rewritten before any code ran (two tautologies, one "sweep > 0") to check the exact end angle from the guide track. A first **preview render** (Chromium, real stylesheet and fonts) showed two defects the geometry tests missed: the radar's outer ring value over the 12 o'clock name and the meter's readout under its needle — each got a RED test (label boxes; readout clearance, tightened once the preview showed the % sign's ascent) and a fix; core 681/681 |
 
 ## Rulings
 
@@ -32,3 +33,13 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
   unit; degrees are what a consumer writes) — cost if wrong: a unit change before 1.0.
 - **T-075, T-079 · Ruling:** rim names are thinned to at most 24 so they never overprint; the table
   and readout name every slot — cost if wrong: a dense polar chart with unnamed slots on paper.
+- **T-076..T-078 · Ruling:** the arc group and the rings share one tone; the tracks are told apart by
+  order (outermost first, as the legend lists them) and by the value printed beside each name —
+  the stacked-bar pattern, with the same limit on paper when the legend does not fit (a plot
+  narrower than 220 px) — cost if wrong: a narrow card whose tracks are unnamed on paper.
+- **T-078 · Ruling:** the meters take no rows (Data Model §2.3 `ScalarPercent`), so they get their
+  own scalar contract instead of the row contract; `percent` omitted renders the demo value 72,
+  a non-finite one draws the empty track with `SP002` and no item — cost if wrong: none.
+- **T-076..T-078 · Ruling:** a preview render of each new chart in Chromium, before its fixtures
+  exist, is part of the task: it found two overprints the geometry tests passed — cost if wrong:
+  a few seconds per chart.

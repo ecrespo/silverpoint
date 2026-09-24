@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, coxcombChart, donutChart, polarBarChart, radarChart, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -131,6 +131,24 @@ describe('RadarChart', () => {
   });
 });
 
+/** Estimated box of a 9.5 px label: 5.2 px per character, 7 px of cap height above the baseline. */
+function textBox(l: { x: number; y: number; text: string; anchor?: string }) {
+  const width = l.text.length * 5.2;
+  const x = l.anchor === 'end' ? l.x - width : l.anchor === 'middle' ? l.x - width / 2 : l.x;
+  return { x, y: l.y - 7, width, height: 7 };
+}
+const overlap = (a: ReturnType<typeof textBox>, b: ReturnType<typeof textBox>) =>
+  a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+
+test('REQ-076 · RadarChart: no ring value overprints a subject name (seen in the first preview)', () => {
+  const model = radarChart.build({ ...bare }, context);
+  const names = model.geometry.labels.filter((l) => /^[A-Z][a-z]+$/.test(l.text));
+  const ticks = model.geometry.labels.filter((l) => /^\d+$/.test(l.text));
+  expect(names.length).toBeGreaterThan(0);
+  expect(ticks.length).toBeGreaterThan(0);
+  for (const t of ticks) for (const n of names) expect(overlap(textBox(t), textBox(n)), `${t.text} over ${n.text}`).toBe(false);
+});
+
 describe('PolarBarChart', () => {
   const data = [{ name: 'A', value: 40 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }, { name: 'D', value: 30 }];
 
@@ -180,5 +198,111 @@ describe('CoxcombChart', () => {
     expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C', 'D']));
     const tones = encoding(model).map((s) => s.tone);
     for (let i = 0; i < tones.length - 1; i += 1) expect(tones[i]).not.toBe(tones[i + 1]);
+  });
+});
+
+/** The points of a path, in order. */
+const pointsOf = (d: string) => [...d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAZ]|$)/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
+/** The guide tracks: ornament arcs on the grid part. */
+const tracks = (model: ChartModel) => model.geometry.strokes.filter((s) => s.role === 'ornament' && s.part === 'grid' && s.d.includes('A'));
+const radiusOfArc = (d: string) => Number(/A([\d.]+),/.exec(d)?.[1]);
+
+describe('RadialArcGroup', () => {
+  const data = [{ name: 'A', value: 100 }, { name: 'B', value: 50 }, { name: 'C', value: 25 }];
+
+  test('REQ-078 · concentric 180° tracks from 9 to 3 o’clock, outermost first; each value sweeps its share of the half turn', () => {
+    const model = radialArcGroup.build({ ...bare, data }, context);
+    expect(encoding(model)).toHaveLength(3);
+    const guides = tracks(model);
+    expect(guides).toHaveLength(3);
+    const radii = guides.map((t) => radiusOfArc(t.d));
+    expect(radii[0]).toBeGreaterThan(radii[1]!);
+    expect(radii[1]).toBeGreaterThan(radii[2]!);
+    // A track runs from (cx - r, cy) over the top to (cx + r, cy).
+    const outer = pointsOf(guides[0]!.d);
+    const cx = (outer[0]!.x + outer.at(-1)!.x) / 2;
+    const cy = outer[0]!.y;
+    close(outer[0]!.y, outer.at(-1)!.y, 0.01);
+    // The hit sits where the value ends: A (the largest) at 3 o'clock, B at 12, C half-way to 12.
+    const [a, b, c] = model.geometry.hitAreas;
+    close(angleOf(a!, cx, cy), Math.PI / 2, 0.01);
+    close(angleOf(b!, cx, cy), 0, 0.01);
+    close(angleOf(c!, cx, cy), 2 * Math.PI - Math.PI / 4, 0.01);
+  });
+
+  test('REQ-078 · REQ-124 · every track is named with its value, outermost first', () => {
+    const printed = texts(radialArcGroup.build({ ...bare, data }, context));
+    expect(printed).toEqual(expect.arrayContaining(['A', '100', 'B', '50', 'C', '25']));
+    expect(printed.indexOf('A')).toBeLessThan(printed.indexOf('B'));
+  });
+});
+
+describe('RadialRings', () => {
+  test('REQ-079 · one full ring per item; a value sweeps its percent of the turn from 12 o’clock', () => {
+    const model = radialRings.build({ ...bare, data: [{ name: 'A', value: 50 }, { name: 'B', value: 75 }] }, context);
+    expect(encoding(model)).toHaveLength(2);
+    const guides = tracks(model);
+    expect(guides).toHaveLength(2);
+    // A full ring starts at 12 o'clock, (cx, cy - r), and its first half ends at 6, (cx, cy + r).
+    const ring = pointsOf(guides[0]!.d);
+    const cx = ring[0]!.x;
+    const cy = (ring[0]!.y + ring[1]!.y) / 2;
+    const [a, b] = model.geometry.hitAreas;
+    close(angleOf(a!, cx, cy), Math.PI, 0.01);
+    close(angleOf(b!, cx, cy), 1.5 * Math.PI, 0.01);
+  });
+
+  test('REQ-079 · a full ring at 100 is drawn as two half arcs, and a value above 100 saturates with SP002', () => {
+    const seen = capture();
+    const model = radialRings.build({ ...bare, data: [{ name: 'A', value: 130 }] }, context);
+    expect(model.geometry.hitAreas[0]!.value).toBe(130);
+    expect(encoding(model)[0]!.d.match(/A/g)!.length).toBe(4);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-079 · REQ-124 · every ring is named with its percent', () => {
+    expect(texts(radialRings.build({ ...bare, data: [{ name: 'A', value: 50 }] }, context))).toEqual(expect.arrayContaining(['A', '50%']));
+  });
+});
+
+describe('GaugeArc and MeterChart', () => {
+  test('REQ-080 · the gauge track spans 240°, symmetric about 12 o’clock; the value sweeps its percent of it', () => {
+    const at = (percent: number) => {
+      const model = gaugeArc.build({ ...bare, percent }, context);
+      const guide = pointsOf(tracks(model)[0]!.d);
+      const r = radiusOfArc(tracks(model)[0]!.d);
+      // The track runs from -120° to +120°: its ends are level, each r·cos 60° below the centre.
+      close(guide[0]!.y, guide.at(-1)!.y, 0.01);
+      const cx = (guide[0]!.x + guide.at(-1)!.x) / 2;
+      const cy = guide[0]!.y - r / 2;
+      close(guide.at(-1)!.x - guide[0]!.x, 2 * r * Math.sin((2 * Math.PI) / 3), 0.05);
+      return angleOf(model.geometry.hitAreas[0]!, cx, cy);
+    };
+    close(at(50), 0, 0.01);
+    close(at(25), 2 * Math.PI - Math.PI / 3, 0.01);
+    close(at(100), (2 * Math.PI) / 3, 0.01);
+  });
+
+  test('REQ-081 · the readout sits clear below the pivot: the needle never crosses it (seen in the first preview)', () => {
+    const model = meterChart.build({ ...bare, percent: 72, caption: 'Load' }, context);
+    const needle = encoding(model).find((s) => !s.d.includes('A'))!;
+    const pivot = pointsOf(needle.d)[0]!;
+    const readout = model.geometry.labels.find((l) => l.kind === 'value')!;
+    // A 30 px readout stands up to 22 px above its baseline (the % sign); keep 6 px of air.
+    expect(readout.y - 22).toBeGreaterThanOrEqual(pivot.y + 6);
+    const caption = model.geometry.labels.find((l) => l.text === 'Load')!;
+    expect(caption.y).toBeGreaterThan(readout.y + 6);
+    expect(caption.y).toBeLessThanOrEqual(model.geometry.plot.y + model.geometry.plot.height);
+  });
+
+  test('REQ-081 · the meter spans 180° and points a needle at the value', () => {
+    const at0 = meterChart.build({ ...bare, percent: 0 }, context).geometry.hitAreas[0]!;
+    const at50 = meterChart.build({ ...bare, percent: 50 }, context).geometry.hitAreas[0]!;
+    const at100 = meterChart.build({ ...bare, percent: 100 }, context).geometry.hitAreas[0]!;
+    close(at0.y, at100.y, 0.01);
+    close(at50.x, (at0.x + at100.x) / 2, 0.01);
+    expect(at50.y).toBeLessThan(at0.y);
+    const needle = encoding(meterChart.build({ ...bare, percent: 50 }, context)).find((s) => !s.d.includes('A') && !s.d.endsWith('Z'));
+    expect(needle).toBeDefined();
   });
 });

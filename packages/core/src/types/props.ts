@@ -270,3 +270,35 @@ export interface CoxcombChartProps extends CommonChartProps {
   startAngle?: number;
 }
 
+/** `RadialArcGroup` (REQ-078): concentric 180° tracks, sweep ∝ value / the largest (Data Model §2.2). */
+export interface RadialArcGroupProps extends CommonChartProps {
+  nameKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** `RadialRings` (REQ-079): concentric progress rings, sweep ∝ value in 0-100 (Data Model §2.2). */
+export interface RadialRingsProps extends CommonChartProps {
+  nameKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** `GaugeArc` (REQ-080): a 240° arc swept to a percent (Data Model §2.3). */
+export interface GaugeArcProps extends CommonChartProps {
+  /** 0 to 100; saturated at the ends outside it. */
+  percent?: number;
+  /** Names the measure under the readout. */
+  caption?: string;
+  /** Printed in place of the percent. */
+  readout?: string;
+}
+
+/** `MeterChart` (REQ-081): a semicircular meter with a needle at a percent (Data Model §2.3). */
+export interface MeterChartProps extends CommonChartProps {
+  /** 0 to 100; saturated at the ends outside it. */
+  percent?: number;
+  /** Names the measure under the readout. */
+  caption?: string;
+  /** Printed in place of the percent. */
+  readout?: string;
+}
+

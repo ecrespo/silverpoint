@@ -11,11 +11,15 @@ import {
   coxcombChart,
   donutChart,
   funnelChart,
+  gaugeArc,
   heatmapChart,
   kpiCard,
+  meterChart,
   polarBarChart,
   pyramidChart,
   radarChart,
+  radialArcGroup,
+  radialRings,
   rangeBandChart,
   readout,
   sankeyChart,
@@ -259,10 +263,24 @@ const POLAR: readonly Case[] = [
     hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
     labelOf: (d) => String(d.n),
   },
+  {
+    recipe: P2(radialArcGroup),
+    consumer: { data: [{ n: 'Sales', v: 80 }, { n: 'Leads', v: 55 }, { n: 'Churn', v: 20 }], nameKey: 'n', valueKey: 'v' },
+    items: 3,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
+    labelOf: (d) => String(d.n),
+  },
+  {
+    recipe: P2(radialRings),
+    consumer: { data: [{ n: 'Move', v: 80 }, { n: 'Exercise', v: 55 }, { n: 'Stand', v: 100 }], nameKey: 'n', valueKey: 'v' },
+    items: 3,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }],
+    labelOf: (d) => String(d.n),
+  },
 ];
 
 /** The sector recipes, whose ceiling is 60 sectors (API Spec §12). */
-const SECTOR_CHARTS: readonly Case[] = POLAR.filter((c) => ['DonutChart', 'RadarChart', 'PolarBarChart', 'CoxcombChart'].includes(c.recipe.name));
+const SECTOR_CHARTS: readonly Case[] = POLAR.filter((c) => ['DonutChart', 'RadarChart', 'PolarBarChart', 'CoxcombChart', 'RadialArcGroup', 'RadialRings'].includes(c.recipe.name));
 
 const items = (hits: readonly { seriesKey: string; index: number }[]) => new Set(hits.map((h) => `${h.seriesKey}#${h.index}`)).size;
 
@@ -419,8 +437,75 @@ describe.each(SECTOR_CHARTS.map((c) => [c.recipe.name, c] as const))('%s sector 
   });
 });
 
+/** The meters (Data Model §2.3): one scalar percent, no rows. */
+const SCALAR = [P2(gaugeArc), P2(meterChart)];
+
+describe.each(SCALAR.map((r) => [r.name, r] as const))('%s contract', (_name, recipe) => {
+  test('REQ-093 · invoked without a percent it renders its demo value', () => {
+    const model = recipe.build({}, context);
+    expect(model.status).toBe('ready');
+    expect(model.geometry.hitAreas).toHaveLength(1);
+  });
+
+  test('REQ-080 · REQ-081 · the percent is read, printed, and is the one item', () => {
+    const model = recipe.build({ percent: 37 }, context);
+    expect(model.geometry.hitAreas.map((h) => h.value)).toEqual([37]);
+    expect(model.geometry.labels.map((l) => l.text)).toContain('37%');
+    expect(model.table.rows).toEqual([['value', '37%']]);
+  });
+
+  test('REQ-008 · outside 0-100 it saturates at the end and warns SP002', () => {
+    const seen = capture();
+    expect(recipe.build({ percent: 140 }, context).geometry.hitAreas[0]?.value).toBe(100);
+    expect(recipe.build({ percent: -5 }, context).geometry.hitAreas[0]?.value).toBe(0);
+    expect(seen.filter((c) => c === 'SP002')).toHaveLength(2);
+  });
+
+  test('REQ-008 · a non-finite percent draws the empty track, no item, and warns SP002', () => {
+    const seen = capture();
+    const model = recipe.build({ percent: Number.NaN }, context);
+    expect(model.geometry.hitAreas).toEqual([]);
+    expect(seen).toContain('SP002');
+    expect(serializeGeometry(model.geometry)).not.toMatch(/NaN/);
+  });
+
+  test('REQ-080 · REQ-081 · `readout` replaces the printed percent and `caption` names it', () => {
+    const model = recipe.build({ percent: 37, readout: '3.7 of 10', caption: 'Score' }, context);
+    const texts = model.geometry.labels.map((l) => l.text);
+    expect(texts).toEqual(expect.arrayContaining(['3.7 of 10', 'Score']));
+    expect(model.table.rows).toEqual([['Score', '3.7 of 10']]);
+  });
+
+  test('REQ-122 · the keyboard reaches the one item', () => {
+    expect(stepActive(recipe.build({ percent: 37 }, context).geometry, null, 'Home')?.value).toBe(37);
+  });
+
+  test('REQ-094 · REQ-095 · card chrome and bare chrome', () => {
+    const card = recipe.build({ percent: 37, title: 'T', footerLeft: 'L' }, context).geometry.labels;
+    expect(card.some((l) => l.kind === 'title') && card.some((l) => l.kind === 'footer')).toBe(true);
+    const bare = recipe.build({ percent: 37, chrome: 'bare', title: 'T', height: 150 }, context).geometry;
+    expect(bare.labels.some((l) => l.kind === 'title')).toBe(false);
+    expect(bare.viewBox.height).toBe(150);
+  });
+
+  test('REQ-009 · REQ-120 · deferred at zero width; named and described', () => {
+    capture();
+    expect(recipe.build({ percent: 37 }, { ...context, width: 0 }).status).toBe('deferred');
+    const model = recipe.build({ percent: 37, title: 'Named' }, context);
+    expect(model.name).toBe('Named');
+    expect(model.description).toContain('37%');
+  });
+
+  test('REQ-002 · REQ-005 · REQ-022 · encoding drawn; rounded and deterministic', () => {
+    const a = serializeGeometry(recipe.build({ percent: 37 }, context).geometry);
+    expect(a).toBe(serializeGeometry(recipe.build({ percent: 37 }, context).geometry));
+    expect(a).not.toMatch(/\d\.\d{3}/);
+    expect(recipe.build({ percent: 37 }, context).geometry.strokes.some((s) => s.role === 'encoding')).toBe(true);
+  });
+});
+
 describe('demo snapshots', () => {
-  test.each([...CASES, ...CARTESIAN, ...POLAR].map((c) => [c.recipe.name, c.recipe] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
+  test.each([...[...CASES, ...CARTESIAN, ...POLAR].map((c) => c.recipe), ...SCALAR].map((r) => [r.name, r] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
     expect(serializeGeometry(recipe.build({ width: 320, height: 150 }, { ...context, id: 'sp-demo' }).geometry)).toMatchSnapshot();
   });
 });
