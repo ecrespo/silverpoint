@@ -7,34 +7,16 @@ import {
   type CurveFactory,
 } from 'd3-shape';
 import { diagnose } from '../../diagnostics/diagnose';
-import { bandScale, linearScale } from '../../scales/scales';
 import { extent } from '../../scales/util';
-import type {
-  Accessor,
-  ChartModel,
-  ChartRecipe,
-  Datum,
-  HitArea,
-  LineChartProps,
-  LineCurve,
-  RecipeContext,
-  Rect,
-  Stroke,
-  TextLabel,
-} from '../../types';
+import type { ChartModel, ChartRecipe, HitArea, LineChartProps, LineCurve, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
+import { cartesianPlot, categoryAxis, checkVolume, categoryLabels, readSeries, seriesValues, valueAxis, type Series, type SeriesPoint } from '../shared/cartesian';
 import { accessorName, circlePath, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { LINE_CHART_DEMO, LINE_CHART_DEMO_KEYS } from './demo';
 
 const CHART = 'LineChart';
-/** Room under the plot for the category labels. */
-const AXIS_BAND = 20;
-/** Room around the plot so the heightened point is never clipped. */
-const PLOT_INSET = 6;
 const HEIGHTEN_RADIUS = 3.5;
-/** Minimum horizontal room per category label. */
-const LABEL_SPACING = 48;
 
 const CURVES: Record<LineCurve, CurveFactory> = {
   monotone: curveMonotoneX,
@@ -42,32 +24,6 @@ const CURVES: Record<LineCurve, CurveFactory> = {
   natural: curveNatural,
   step: curveStepAfter,
 };
-
-interface SeriesPoint {
-  readonly index: number;
-  readonly datum: Datum;
-  readonly value: number | undefined;
-}
-
-interface Series {
-  readonly key: string;
-  readonly points: readonly SeriesPoint[];
-}
-
-function readSeries(
-  data: readonly Datum[],
-  accessor: Accessor<number | null | undefined>,
-  fallbackName: string,
-): Series & { readonly missing: number } {
-  let missing = 0;
-  const points = data.map((datum, index) => {
-    const raw = read(accessor, datum, index);
-    const value = typeof raw === 'number' && Number.isFinite(raw) ? raw : undefined;
-    if (value === undefined) missing += 1;
-    return { index, datum, value };
-  });
-  return { key: accessorName(accessor, fallbackName), points, missing };
-}
 
 function buildLineChart(props: LineChartProps, context: RecipeContext): ChartModel {
   const usesDemo = props.data === undefined;
@@ -85,6 +41,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
       ? readSeries(data, secondaryKey, 'secondary')
       : undefined;
   const series = secondary ? [primary, secondary] : [primary];
+  checkVolume(CHART, series);
 
   const xName = accessorName(xKey, 'x');
   const xValues = data.map((datum, index) => read(xKey, datum, index));
@@ -105,13 +62,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
 
   const card = cardLayout(props, { width, areaHeight: size.height, chrome, locale });
   const { area } = card;
-  const plot: Rect = {
-    x: area.x + PLOT_INSET,
-    y: area.y + PLOT_INSET,
-    width: Math.max(area.width - 2 * PLOT_INSET, 1),
-    height: Math.max(area.height - AXIS_BAND - PLOT_INSET, 1),
-  };
-  const plotBottom = plot.y + plot.height;
+  const plot = cartesianPlot(area);
   const strokes: Stroke[] = [...card.strokes];
   const labels: TextLabel[] = [...card.labels];
   const hitAreas: HitArea[] = [];
@@ -125,50 +76,17 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
     }
   }
 
-  const values = series.flatMap((s) => s.points.flatMap((p) => (p.value === undefined ? [] : [p.value])));
-  const valueExtent = extent(values);
+  const valueExtent = extent(seriesValues(series));
 
   if (data.length === 0 || valueExtent === undefined) {
     return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, data.length === 0);
   }
 
-  const y = linearScale(
-    [Math.min(0, valueExtent[0]), valueExtent[1]],
-    [plotBottom, plot.y],
-    { chart: CHART, property: primary.key, padding: context.domainPadding, nice: true },
-  );
-
-  const numericX = xValues.every((value) => typeof value === 'number' && Number.isFinite(value));
-  let xAt: (index: number) => number;
-  if (numericX) {
-    const numbers = xValues as number[];
-    const xExtent = extent(numbers) ?? [0, 0];
-    const x = linearScale(xExtent, [plot.x, plot.x + plot.width], {
-      chart: CHART,
-      property: xName,
-      padding: context.domainPadding,
-    });
-    xAt = (index) => x(numbers[index] ?? 0);
-  } else {
-    const keys = data.map((_, index) => String(index));
-    const x = bandScale(keys, [plot.x, plot.x + plot.width]);
-    xAt = (index) => x.center(String(index)) ?? plot.x;
-  }
-
-  for (const tick of y.ticks(4)) {
-    const ty = y(tick);
-    if (tick === y.domain[0]) continue;
-    strokes.push({ d: `M${plot.x},${ty}H${plot.x + plot.width}`, role: 'ornament', part: 'grid' });
-    labels.push({
-      x: plot.x,
-      y: ty - 3,
-      text: formatNumber(tick, locale, numberFormat),
-      kind: 'tick',
-      part: 'axis',
-      anchor: 'start',
-    });
-  }
-  strokes.push({ d: `M${plot.x},${plotBottom}H${plot.x + plot.width}`, role: 'ornament', part: 'rule' });
+  const axis = valueAxis(plot, valueExtent, { chart: CHART, property: primary.key, padding: context.domainPadding, locale, numberFormat });
+  const y = axis.scale;
+  strokes.push(...axis.strokes);
+  labels.push(...axis.labels);
+  const xAt = categoryAxis(xValues, plot, { chart: CHART, property: xName, padding: context.domainPadding }).at;
 
   const curve = CURVES[props.curve ?? 'monotone'];
   const connectNulls = props.connectNulls ?? false;
@@ -216,17 +134,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
   }
 
   const count = data.length;
-  const step = Math.max(1, Math.ceil(count / Math.max(2, Math.floor(plot.width / LABEL_SPACING))));
-  for (let index = 0; index < count; index += step) {
-    labels.push({
-      x: xAt(index),
-      y: area.y + area.height - 5,
-      text: xLabels[index] ?? '',
-      kind: 'tick',
-      part: 'axis',
-      anchor: index === 0 ? 'start' : 'middle',
-    });
-  }
+  labels.push(...categoryLabels(xLabels, xAt, area, plot));
 
   const ranges = series.map((s) => {
     const seriesExtent = extent(s.points.flatMap((p) => (p.value === undefined ? [] : [p.value])));
