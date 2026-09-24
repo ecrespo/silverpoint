@@ -55,6 +55,8 @@ export interface HitArea {
   readonly value: number;
   readonly x: number;
   readonly y: number;
+  /** The item's area, when it has one — a bar, a cell, a tile. A pointer inside it wins. */
+  readonly box?: Rect;
 }
 
 /**

@@ -68,6 +68,19 @@ describe('rounding', () => {
     }
   });
 
+  test('REQ-002 · hit-area boxes are rounded to 2 decimals as well', () => {
+    const box = { x: 0, y: 0, width: 1, height: 1 };
+    const rounded = roundGeometry({
+      viewBox: box,
+      plot: box,
+      strokes: [],
+      labels: [],
+      defs: [],
+      hitAreas: [{ seriesKey: 's', index: 0, datum: {}, value: 1, x: 1.234, y: 5.678, box: { x: 0.123, y: 1.005, width: 2.555, height: 3.14159 } }],
+    });
+    expect(rounded.hitAreas[0]?.box).toEqual({ x: 0.12, y: 1, width: 2.56, height: 3.14 });
+  });
+
   test('REQ-002 · roundGeometry is idempotent', () => {
     const { geometry } = lineChart.build({}, context);
     expect(roundGeometry(geometry)).toEqual(geometry);

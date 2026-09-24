@@ -43,7 +43,12 @@ export function roundGeometry(geometry: Geometry): Geometry {
     plot: roundRect(geometry.plot),
     strokes: geometry.strokes.map(roundStroke),
     labels: geometry.labels.map((label) => ({ ...label, x: round2(label.x), y: round2(label.y) })),
-    hitAreas: geometry.hitAreas.map((hit) => ({ ...hit, x: round2(hit.x), y: round2(hit.y) })),
+    hitAreas: geometry.hitAreas.map((hit) => ({
+      ...hit,
+      x: round2(hit.x),
+      y: round2(hit.y),
+      ...(hit.box ? { box: roundRect(hit.box) } : {}),
+    })),
     defs: geometry.defs.map(roundTile),
   };
 }

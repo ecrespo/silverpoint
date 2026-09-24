@@ -80,6 +80,41 @@ describe('hit-testing engine', () => {
   });
 });
 
+describe('box hit areas', () => {
+  const box = { x: 0, y: 0, width: 200, height: 100 };
+  const cells = {
+    viewBox: box,
+    plot: box,
+    strokes: [],
+    labels: [],
+    defs: [],
+    hitAreas: [
+      { seriesKey: 'v', index: 0, datum: {}, value: 1, x: 25, y: 50, box: { x: 0, y: 0, width: 50, height: 100 } },
+      { seriesKey: 'v', index: 1, datum: {}, value: 2, x: 52, y: 50 },
+    ],
+  };
+
+  test('REQ-140 · a pointer inside a box resolves to that box, even when another centre is nearer', () => {
+    expect(resolveActive(cells, { x: 49, y: 50 })?.index).toBe(0);
+  });
+
+  test('REQ-140 · outside every box, resolution falls back to proximity', () => {
+    expect(resolveActive(cells, { x: 60, y: 50 })?.index).toBe(1);
+  });
+
+  test('REQ-140 · of two nested boxes, the smaller one wins', () => {
+    const nested = {
+      ...cells,
+      hitAreas: [
+        { seriesKey: 'v', index: 0, datum: {}, value: 1, x: 12, y: 12, box: { x: 0, y: 0, width: 200, height: 100 } },
+        { seriesKey: 'v', index: 1, datum: {}, value: 2, x: 20, y: 20, box: { x: 10, y: 10, width: 20, height: 20 } },
+      ],
+    };
+    // Proximity alone would pick index 0, whose centre sits on the pointer.
+    expect(resolveActive(nested, { x: 12, y: 12 })?.index).toBe(1);
+  });
+});
+
 describe('keyboard traversal', () => {
   test('REQ-122 · arrows, Home and End traverse the points of a series', () => {
     const first = stepActive(geometry, null, 'ArrowRight');

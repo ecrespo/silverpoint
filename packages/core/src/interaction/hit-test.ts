@@ -38,7 +38,8 @@ function spacing(hitAreas: readonly HitArea[]): number {
  * Resolves the active item as a pure function of a pointer position, in SVG space, and the
  * geometry — no DOM involved (REQ-140).
  *
- * A mouse or pen resolves to the item nearest along x, then along y. Touch resolves by
+ * A pointer inside an item's box resolves to that item. Otherwise a mouse or pen resolves to the
+ * item nearest along x, then along y. Touch resolves by
  * proximity and only within a target at least 24 px wide (REQ-144). A point outside the
  * drawing area resolves to `null`.
  */
@@ -49,6 +50,13 @@ export function resolveActive(
 ): ActiveItem | null {
   if (!Number.isFinite(pointer.x) || !Number.isFinite(pointer.y)) return null;
   if (!inside(geometry.plot, pointer.x, pointer.y)) return null;
+  // An item with an area wins when the pointer is inside it; of nested areas, the smallest.
+  let boxed: HitArea | undefined;
+  for (const hit of geometry.hitAreas) {
+    if (!hit.box || !inside(hit.box, pointer.x, pointer.y)) continue;
+    if (!boxed?.box || hit.box.width * hit.box.height < boxed.box.width * boxed.box.height) boxed = hit;
+  }
+  if (boxed) return toActiveItem(boxed);
   let best: HitArea | undefined;
   let bestDx = Number.POSITIVE_INFINITY;
   let bestDy = Number.POSITIVE_INFINITY;

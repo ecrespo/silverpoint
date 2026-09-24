@@ -7,7 +7,6 @@ import {
   type CurveFactory,
 } from 'd3-shape';
 import { diagnose } from '../../diagnostics/diagnose';
-import { roundGeometry } from '../../render/round';
 import { bandScale, linearScale } from '../../scales/scales';
 import { extent } from '../../scales/util';
 import type {
@@ -15,7 +14,6 @@ import type {
   ChartModel,
   ChartRecipe,
   Datum,
-  Geometry,
   HitArea,
   LineChartProps,
   LineCurve,
@@ -26,6 +24,7 @@ import type {
 } from '../../types';
 import { cardLayout } from '../shared/card';
 import { accessorName, circlePath, formatNumber, formatValue, read } from '../shared/format';
+import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { LINE_CHART_DEMO, LINE_CHART_DEMO_KEYS } from './demo';
 
 const CHART = 'LineChart';
@@ -70,10 +69,6 @@ function readSeries(
   return { key: accessorName(accessor, fallbackName), points, missing };
 }
 
-function emptyGeometry(viewBox: Rect): Geometry {
-  return { viewBox, plot: viewBox, strokes: [], labels: [], hitAreas: [], defs: [] };
-}
-
 function buildLineChart(props: LineChartProps, context: RecipeContext): ChartModel {
   const usesDemo = props.data === undefined;
   const data = props.data ?? LINE_CHART_DEMO;
@@ -81,13 +76,8 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
   const valueKey = usesDemo ? LINE_CHART_DEMO_KEYS.valueKey : (props.valueKey ?? 'value');
   const secondaryKey = usesDemo ? LINE_CHART_DEMO_KEYS.secondaryKey : props.secondaryKey;
   const chrome = props.chrome ?? 'card';
-  const areaHeight = props.height ?? 160;
-  const { locale, id } = context;
+  const { locale } = context;
   const numberFormat = props.numberFormat;
-
-  const name = props.label ?? props.title ?? 'Line chart';
-  const ids = { title: `${id}-title`, desc: `${id}-desc`, table: `${id}-table` };
-  const dataTable = props.dataTable ?? 'hidden';
 
   const primary = readSeries(data, valueKey, 'value');
   const secondary =
@@ -100,35 +90,20 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
   const xValues = data.map((datum, index) => read(xKey, datum, index));
   const xLabels = xValues.map((value) => formatValue(value, locale, undefined));
 
-  const table = {
-    caption: name,
+  const base = modelBase(CHART, props, context, 'Line chart', {
     columns: [xName, ...series.map((s) => s.key)],
     rows: data.map((_, index) => [
       xLabels[index] ?? '',
       ...series.map((s) => formatValue(s.points[index]?.value, locale, numberFormat)),
     ]),
-  };
+  });
+  const { name } = base;
 
-  const base = { chart: CHART, id, chrome, name, ids, table, dataTable } as const;
+  const size = measure(base, props, context);
+  if ('deferred' in size) return size.deferred;
+  const { width } = size;
 
-  const width = props.width ?? context.width;
-  if (width === undefined || width <= 0 || areaHeight <= 0) {
-    if (width !== undefined && process.env.NODE_ENV !== 'production') {
-      diagnose('SP003', CHART, {
-        property: width <= 0 ? 'width' : 'height',
-        message: `Measured ${width} × ${areaHeight} px.`,
-      });
-    }
-    const box = { x: 0, y: 0, width: 0, height: 0 };
-    return {
-      ...base,
-      status: 'deferred',
-      geometry: emptyGeometry(box),
-      description: props.description ?? name,
-    };
-  }
-
-  const card = cardLayout(props, { width, areaHeight, chrome, locale });
+  const card = cardLayout(props, { width, areaHeight: size.height, chrome, locale });
   const { area } = card;
   const plot: Rect = {
     x: area.x + PLOT_INSET,
@@ -154,26 +129,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
   const valueExtent = extent(values);
 
   if (data.length === 0 || valueExtent === undefined) {
-    if (data.length === 0 && process.env.NODE_ENV !== 'production') {
-      diagnose('SP001', CHART, { property: 'data' });
-    }
-    if (context.emptyState.rule) {
-      strokes.push({ d: `M${plot.x},${plotBottom}H${plot.x + plot.width}`, role: 'ornament', part: 'rule' });
-    }
-    labels.push({
-      x: plot.x + plot.width / 2,
-      y: plot.y + plot.height / 2,
-      text: context.emptyState.text,
-      kind: 'empty',
-      part: 'axis',
-      anchor: 'middle',
-    });
-    return {
-      ...base,
-      status: 'ready',
-      description: props.description ?? `${name}. ${context.emptyState.text}.`,
-      geometry: roundGeometry({ viewBox: card.viewBox, plot, strokes, labels, hitAreas, defs: [] }),
-    };
+    return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, data.length === 0);
   }
 
   const y = linearScale(
@@ -282,12 +238,7 @@ function buildLineChart(props: LineChartProps, context: RecipeContext): ChartMod
     props.description ??
     `${name}. Line chart of ${count} ${xName} values${secondary ? ' in 2 series' : ''}; ${ranges.join('; ')}.`;
 
-  return {
-    ...base,
-    status: 'ready',
-    description,
-    geometry: roundGeometry({ viewBox: card.viewBox, plot, strokes, labels, hitAreas, defs: [] }),
-  };
+  return readyModel(base, description, { viewBox: card.viewBox, plot, strokes, labels, hitAreas });
 }
 
 /** `LineChart` recipe (REQ-060): props plus scales produce exact geometry. */
