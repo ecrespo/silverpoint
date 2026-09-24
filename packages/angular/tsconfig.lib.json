@@ -28,7 +28,21 @@
     "heatmap-chart/**/*.ts",
     "treemap-chart/**/*.ts",
     "sankey-chart/**/*.ts",
-    "activity-grid/**/*.ts"
+    "activity-grid/**/*.ts",
+    "step-chart/**/*.ts",
+    "sparkline-rows/**/*.ts",
+    "kpi-card/**/*.ts",
+    "bar-chart/**/*.ts",
+    "stacked-bar-chart/**/*.ts",
+    "composed-chart/**/*.ts",
+    "waterfall-chart/**/*.ts",
+    "funnel-chart/**/*.ts",
+    "candlestick-chart/**/*.ts",
+    "area-chart/**/*.ts",
+    "range-band-chart/**/*.ts",
+    "stream-chart/**/*.ts",
+    "scatter-chart/**/*.ts",
+    "bubble-chart/**/*.ts"
   ],
   "exclude": [
     "**/*.spec.ts",

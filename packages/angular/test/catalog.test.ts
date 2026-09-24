@@ -5,7 +5,7 @@ import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { describe, expect, test } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { interfaceKeys } from '../../../tools/testing/interface-keys';
-import { PHASE_1, type CatalogEntry } from '../../../tools/visual-gate/catalog';
+import { AFTER_LINE_CHART, type CatalogEntry } from '../../../tools/visual-gate/catalog';
 import { ssrFor } from './harness';
 
 const packageDir = join(import.meta.dirname, '..');
@@ -17,7 +17,7 @@ const canonical = (entry: CatalogEntry, props: Record<string, unknown>) =>
 const load = async (entry: CatalogEntry) =>
   ((await import(/* @vite-ignore */ `@silverpoint/angular/${entry.slug}`)) as Record<string, Type<unknown>>)[`Sp${entry.chart}`] as Type<unknown>;
 
-describe.each(PHASE_1.map((e) => [`sp-${e.slug}`, e] as const))('%s', (selector, entry) => {
+describe.each(AFTER_LINE_CHART.map((e) => [`sp-${e.slug}`, e] as const))('%s', (selector, entry) => {
   const variants = {
     'demo, ink': { ...fixed, mode: 'ink', title: entry.chart },
     'demo, precision': { ...fixed, mode: 'precision' },

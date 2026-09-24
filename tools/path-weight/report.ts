@@ -2,7 +2,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { PATH_BYTE_BUDGET } from '@silverpoint/core';
-import { PHASE_1 } from '../visual-gate/catalog';
+import { AFTER_LINE_CHART } from '../visual-gate/catalog';
 import { measureChart, measureDenseCard, measureLineChart } from './measure';
 
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KiB (${bytes} B)`;
@@ -15,7 +15,7 @@ for (const bars of [6, 12]) {
   const card = measureDenseCard(bars);
   rows.push(`| Dense card, ${bars} cross-hatched bars + tone-3 area | — | ${kb(card.tile)} | ${kb(card.perShape)} |`);
 }
-for (const entry of PHASE_1) {
+for (const entry of AFTER_LINE_CHART) {
   for (const size of ['sm', 'md', 'lg'] as const) {
     const weight = measureChart(entry.recipe, size);
     const over = (bytes: number) => (bytes > PATH_BYTE_BUDGET ? ' **over**' : '');

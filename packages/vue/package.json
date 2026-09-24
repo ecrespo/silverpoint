@@ -57,6 +57,90 @@
       "import": "./dist/activity-grid.js",
       "default": "./dist/activity-grid.js"
     },
+    "./step-chart": {
+      "@silverpoint/source": "./src/step-chart.ts",
+      "types": "./dist/step-chart.d.ts",
+      "import": "./dist/step-chart.js",
+      "default": "./dist/step-chart.js"
+    },
+    "./sparkline-rows": {
+      "@silverpoint/source": "./src/sparkline-rows.ts",
+      "types": "./dist/sparkline-rows.d.ts",
+      "import": "./dist/sparkline-rows.js",
+      "default": "./dist/sparkline-rows.js"
+    },
+    "./kpi-card": {
+      "@silverpoint/source": "./src/kpi-card.ts",
+      "types": "./dist/kpi-card.d.ts",
+      "import": "./dist/kpi-card.js",
+      "default": "./dist/kpi-card.js"
+    },
+    "./bar-chart": {
+      "@silverpoint/source": "./src/bar-chart.ts",
+      "types": "./dist/bar-chart.d.ts",
+      "import": "./dist/bar-chart.js",
+      "default": "./dist/bar-chart.js"
+    },
+    "./stacked-bar-chart": {
+      "@silverpoint/source": "./src/stacked-bar-chart.ts",
+      "types": "./dist/stacked-bar-chart.d.ts",
+      "import": "./dist/stacked-bar-chart.js",
+      "default": "./dist/stacked-bar-chart.js"
+    },
+    "./composed-chart": {
+      "@silverpoint/source": "./src/composed-chart.ts",
+      "types": "./dist/composed-chart.d.ts",
+      "import": "./dist/composed-chart.js",
+      "default": "./dist/composed-chart.js"
+    },
+    "./waterfall-chart": {
+      "@silverpoint/source": "./src/waterfall-chart.ts",
+      "types": "./dist/waterfall-chart.d.ts",
+      "import": "./dist/waterfall-chart.js",
+      "default": "./dist/waterfall-chart.js"
+    },
+    "./funnel-chart": {
+      "@silverpoint/source": "./src/funnel-chart.ts",
+      "types": "./dist/funnel-chart.d.ts",
+      "import": "./dist/funnel-chart.js",
+      "default": "./dist/funnel-chart.js"
+    },
+    "./candlestick-chart": {
+      "@silverpoint/source": "./src/candlestick-chart.ts",
+      "types": "./dist/candlestick-chart.d.ts",
+      "import": "./dist/candlestick-chart.js",
+      "default": "./dist/candlestick-chart.js"
+    },
+    "./area-chart": {
+      "@silverpoint/source": "./src/area-chart.ts",
+      "types": "./dist/area-chart.d.ts",
+      "import": "./dist/area-chart.js",
+      "default": "./dist/area-chart.js"
+    },
+    "./range-band-chart": {
+      "@silverpoint/source": "./src/range-band-chart.ts",
+      "types": "./dist/range-band-chart.d.ts",
+      "import": "./dist/range-band-chart.js",
+      "default": "./dist/range-band-chart.js"
+    },
+    "./stream-chart": {
+      "@silverpoint/source": "./src/stream-chart.ts",
+      "types": "./dist/stream-chart.d.ts",
+      "import": "./dist/stream-chart.js",
+      "default": "./dist/stream-chart.js"
+    },
+    "./scatter-chart": {
+      "@silverpoint/source": "./src/scatter-chart.ts",
+      "types": "./dist/scatter-chart.d.ts",
+      "import": "./dist/scatter-chart.js",
+      "default": "./dist/scatter-chart.js"
+    },
+    "./bubble-chart": {
+      "@silverpoint/source": "./src/bubble-chart.ts",
+      "types": "./dist/bubble-chart.d.ts",
+      "import": "./dist/bubble-chart.js",
+      "default": "./dist/bubble-chart.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

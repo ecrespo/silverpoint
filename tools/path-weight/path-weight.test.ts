@@ -1,6 +1,6 @@
 import { PATH_BYTE_BUDGET } from '@silverpoint/core';
 import { describe, expect, test } from 'vitest';
-import { catalogEntry, PHASE_1 } from '../visual-gate/catalog';
+import { catalogEntry, AFTER_LINE_CHART } from '../visual-gate/catalog';
 import { measureChart, measureDenseCard, measureLineChart } from './measure';
 
 describe('path weight (PRD NFR §7)', () => {
@@ -29,7 +29,7 @@ describe('path weight (PRD NFR §7)', () => {
 
 describe('path weight of the Phase 1 charts (T-044, the open question of TD §10)', () => {
   test.each(
-    PHASE_1.flatMap((entry) => (['sm', 'md', 'lg'] as const).map((size) => [entry.chart, size, entry] as const)),
+    AFTER_LINE_CHART.flatMap((entry) => (['sm', 'md', 'lg'] as const).map((size) => [entry.chart, size, entry] as const)),
   )('NFR §7 · REQ-029 · %s with its demo dataset stays under 40 KB at %s, inked with the tile fill', (_chart, size, entry) => {
     expect(measureChart(entry.recipe, size).tile).toBeLessThanOrEqual(PATH_BYTE_BUDGET);
   });

@@ -7,7 +7,7 @@ import type { ActiveItem } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
-import { PHASE_1, type CatalogEntry } from '../../../tools/visual-gate/catalog';
+import { AFTER_LINE_CHART, type CatalogEntry } from '../../../tools/visual-gate/catalog';
 import * as client from '../src';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
@@ -30,7 +30,7 @@ afterEach(() => {
   cleanup = [];
 });
 
-describe.each(PHASE_1.map((e) => [e.chart, e] as const))('%s', (_name, entry) => {
+describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('%s', (_name, entry) => {
   const variants = {
     'demo, ink': { ...fixed, mode: 'ink', title: entry.chart },
     'demo, precision': { ...fixed, mode: 'precision' },
@@ -85,7 +85,7 @@ describe.each(PHASE_1.map((e) => [e.chart, e] as const))('%s', (_name, entry) =>
 
 describe('server entry types', () => {
   test('REQ-104 · every server variant is a plain function: no hooks, no client state', async () => {
-    for (const entry of PHASE_1) {
+    for (const entry of AFTER_LINE_CHART) {
       const { [entry.chart]: Server } = (await import(`../src/server/${entry.slug}.tsx`)) as Record<string, (p: object) => unknown>;
       expect(() => Server?.({ ...fixed }), entry.chart).not.toThrow();
     }

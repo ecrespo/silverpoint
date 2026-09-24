@@ -6,8 +6,9 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
 |---|---|---|---|
 | T-048 | done | 6fcd55a | `charts/shared/cartesian.ts` (plot, value axis, category axis and labels, series reading); line chart moved onto it under unchanged tests: core 215/215, 8 canonicals unchanged |
 | T-049 | done | 6fcd55a | `checkVolume` + `test/cartesian.test.ts` (RED 501 points → GREEN); every Phase 2 recipe calls it, and the contract test will cover all |
-| T-051..T-064 | done | (this commit) | contract over 14 recipes (15 tests each; RED 210/210 on stubs → green), `phase2-charts.test.ts` (38 specific; RED 37 → green), SP008 contract for all 14 (mutation-checked), demo snapshots (mutation-checked); core 479, grounds equivalence 86/86 |
-| T-070 (part) | done | (this commit) | the 14 appended to `grounds/test/equivalence.test.ts` |
+| T-051..T-064 | done | da03921 | contract over 14 recipes (15 tests each; RED 210/210 on stubs → green), `phase2-charts.test.ts` (38 specific; RED 37 → green), SP008 contract for all 14 (mutation-checked), demo snapshots (mutation-checked); core 479, grounds equivalence 86/86 |
+| T-070 (part) | done | da03921 | the 14 appended to `grounds/test/equivalence.test.ts` |
+| T-065 | done | (this commit) | 14 catalog rows turned the adapter suites RED (380 failures) → 639/639 green; React client + server, Vue SFCs, Angular secondary entries; typecheck, build, lint clean |
 
 ## Rulings
 
@@ -48,3 +49,9 @@ Tasks: `changes/phase-2-tasks.md` (T-048..T-070). Every task test-first; tests c
   (column = x, row = series); on a grid Home/End now reach the start/end of the current **row**,
   like a spreadsheet — which also refines Phase 1's grid charts. The line chart keeps its Phase 0
   series traversal — cost if wrong: one convention to unify in Phase 4.
+- **T-065 · Ruling:** Vue casts an absent boolean prop to `false`, which silently turned
+  `showLine` off; boolean own props (`showLine`, `stacked`) declare an explicit `undefined`
+  default through `withDefaults`, so the core applies its own default. `connectNulls` (line chart)
+  has the same cast but its core default is `false`, so it is left as is — cost if wrong: none.
+- **T-065 · Ruling:** the catalog's `PHASE_1` list is renamed `AFTER_LINE_CHART` (every chart but
+  the line chart), since the adapter suites, fixtures and path weight iterate it for all phases.

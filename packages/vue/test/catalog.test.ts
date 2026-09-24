@@ -6,7 +6,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest';
 import { createApp, createSSRApp, h, nextTick, type Component } from 'vue';
 import { renderToString } from 'vue/server-renderer';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
-import { PHASE_1, type CatalogEntry } from '../../../tools/visual-gate/catalog';
+import { AFTER_LINE_CHART, type CatalogEntry } from '../../../tools/visual-gate/catalog';
 import * as library from '../src';
 
 const fixed = { id: 'sp-fixture', width: 320, height: 150 } as const;
@@ -26,7 +26,7 @@ afterEach(() => {
   cleanup = [];
 });
 
-describe.each(PHASE_1.map((e) => [`Sp${e.chart}`, e] as const))('%s', (_name, entry) => {
+describe.each(AFTER_LINE_CHART.map((e) => [`Sp${e.chart}`, e] as const))('%s', (_name, entry) => {
   const variants = {
     'demo, ink': { ...fixed, mode: 'ink', title: entry.chart },
     'demo, precision': { ...fixed, mode: 'precision' },

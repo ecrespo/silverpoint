@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { PHASE_1 } from './catalog';
+import { AFTER_LINE_CHART } from './catalog';
 import { canonicalFor, FIXTURES_DIR, loadFixtures, validateFixture, type Fixture } from './fixtures';
 
 const valid: Fixture = {
@@ -58,7 +58,7 @@ describe('the line-chart fixtures', () => {
   });
 });
 
-describe.each(PHASE_1.map((e) => [e.chart, e] as const))('the %s fixtures', (chart, entry) => {
+describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtures', (chart, entry) => {
   const fixtures = loadFixtures().filter((fixture) => fixture.chart === chart);
 
   test('REQ-182 · 8 fixtures cover 2 modes × 4 substrates at the md size', () => {

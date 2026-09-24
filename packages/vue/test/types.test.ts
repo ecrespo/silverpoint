@@ -5,10 +5,12 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { interfaceKeys } from '../../../tools/testing/interface-keys';
-import { PHASE_1 } from '../../../tools/visual-gate/catalog';
+import { AFTER_LINE_CHART } from '../../../tools/visual-gate/catalog';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const repo = fileURLToPath(new URL('../../..', import.meta.url));
+/** Every chart component, as the snippet imports them. */
+const COMPONENTS = ['SpLineChart', ...AFTER_LINE_CHART.map((e) => `Sp${e.chart}`)].join(', ');
 
 /** Runs vue-tsc on a component snippet placed in a scratch directory inside the package. */
 function vueTypeErrors(template: string): string {
@@ -16,7 +18,7 @@ function vueTypeErrors(template: string): string {
   try {
     writeFileSync(
       join(dir, 'Use.vue'),
-      `<script setup lang="ts">\nimport { SpLineChart, SpBulletChart, SpPyramidChart, SpHeatmapChart, SpTreemapChart, SpSankeyChart, SpActivityGrid } from '../../src';\nimport type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem; void [SpLineChart, SpBulletChart, SpPyramidChart, SpHeatmapChart, SpTreemapChart, SpSankeyChart, SpActivityGrid];\n</script>\n<template>${template}</template>\n`,
+      `<script setup lang="ts">\nimport { ${COMPONENTS} } from '../../src';\nimport type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem; void [${COMPONENTS}];\n</script>\n<template>${template}</template>\n`,
     );
     writeFileSync(
       join(dir, 'tsconfig.json'),
@@ -50,13 +52,13 @@ describe('SpLineChart types', () => {
 });
 
 describe('Phase 1 component types', () => {
-  test.each(PHASE_1.map((e) => [e.chart, e] as const))('API §4 · Sp%s props match the React adapter name for name', async (_name, entry) => {
+  test.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('API §4 · Sp%s props match the React adapter name for name', async (_name, entry) => {
     const component = ((await import('../src')) as Record<string, unknown>)[`Sp${entry.chart}`];
     const vueProps = Object.keys((component as { props: Record<string, unknown> }).props).sort();
     expect(vueProps).toEqual(interfaceKeys(join(repo, 'packages/core/src/types/props.ts'), entry.propsInterface));
   });
 
-  const all = (handler: string) => PHASE_1.map((e) => `<Sp${e.chart} @active-change="${handler}" />`).join('');
+  const all = (handler: string) => AFTER_LINE_CHART.map((e) => `<Sp${e.chart} @active-change="${handler}" />`).join('');
 
   test('REQ-108 · every chart types @active-change to ActiveItem | null', () => {
     expect(vueTypeErrors(all('onItem'))).toBe('');
@@ -64,6 +66,6 @@ describe('Phase 1 component types', () => {
 
   test('REQ-108 · on every chart, a handler expecting another payload is a type error', () => {
     const errors = vueTypeErrors(all('onNumber'));
-    expect(errors.match(/error TS/g)?.length ?? 0).toBeGreaterThanOrEqual(PHASE_1.length);
+    expect(errors.match(/error TS/g)?.length ?? 0).toBeGreaterThanOrEqual(AFTER_LINE_CHART.length);
   }, 60_000);
 });
