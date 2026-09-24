@@ -2,7 +2,7 @@ import { linearScale } from '../../scales/scales';
 import { extent } from '../../scales/util';
 import type { Accessor, ChartModel, CommonChartProps, Datum, HitArea, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from './card';
-import { cartesianPlot, checkCount, valueAxis } from './cartesian';
+import { cartesianPlot, checkCount, TICK_CHAR, valueAxis } from './cartesian';
 import { finite, inset, warnValue } from './cells';
 import { accessorName, circlePath, formatNumber, formatValue, read } from './format';
 import { emptyModel, measure, modelBase, readyModel } from './shell';
@@ -106,7 +106,9 @@ export function buildPoints(family: PointFamily, props: PointProps, context: Rec
   const y = axis.scale;
   strokes.push(...axis.strokes);
   labels.push(...axis.labels);
-  const x = linearScale(extent(points.map((p) => p.x)) ?? [0, 0], [inner.x, inner.x + inner.width], { chart, property: xName, padding: context.domainPadding, nice: true });
+  // The value labels sit at the plot's left edge; the marks start after them, so none covers one.
+  const gutter = Math.min(Math.max(0, ...axis.labels.map((l) => l.text.length * TICK_CHAR)) + 4 + largest, inner.width / 3);
+  const x = linearScale(extent(points.map((p) => p.x)) ?? [0, 0], [inner.x + gutter, inner.x + inner.width], { chart, property: xName, padding: context.domainPadding, nice: true });
   for (const tick of x.ticks(4)) {
     labels.push({ x: x(tick), y: card.area.y + card.area.height - 5, text: formatNumber(tick, locale, numberFormat), kind: 'tick', part: 'axis', anchor: 'middle' });
   }

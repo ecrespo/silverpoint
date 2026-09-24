@@ -163,10 +163,11 @@ export function categoryLabels(texts: readonly string[], at: (index: number) => 
   return labels;
 }
 
-/** Height of the legend row at the top of the drawing area. */
-export const LEGEND_BAND = 16;
-/** Advance of one character of legend text at the 9.5 px tick size. */
-const LEGEND_CHAR = 5.2;
+/** Height of the legend row at the top of the drawing area: a full line above the top value tick. */
+export const LEGEND_BAND = 22;
+/** Advance of one character of tick or legend text at the 9.5 px tick size. */
+export const TICK_CHAR = 5.2;
+const LEGEND_CHAR = TICK_CHAR;
 
 export interface LegendEntry {
   readonly name: string;
