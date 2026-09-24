@@ -16,6 +16,7 @@ import {
   heatmapChart,
   kpiCard,
   meterChart,
+  orbitChart,
   polarBarChart,
   pyramidChart,
   radarChart,
@@ -297,6 +298,20 @@ const POLAR: readonly Case[] = [
     items: 4,
     hostile: [{ a: 'Web', b: 'App', n: Number.NaN }, { a: 'Web', b: 'App', n: -3 }, { a: 'Web', n: 4 }],
     labelOf: (d) => String(d.a),
+  },
+  {
+    recipe: P2(orbitChart),
+    consumer: {
+      data: [
+        { label: 'Inner', ms: [{ p: 0, value: 4 }, { p: 0.5, value: 2 }] },
+        { label: 'Outer', ms: [{ p: 0.25, value: 3 }] },
+      ],
+      markerKey: 'ms',
+      periodKey: 'p',
+    },
+    items: 3,
+    hostile: [{ label: 'Bad', ms: [{ p: 1.5, value: 1 }, { p: Number.NaN, value: 1 }, { p: 0.2, value: -1 }] }],
+    labelOf: (d) => String(d.orbit),
   },
 ];
 

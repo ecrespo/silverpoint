@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -450,5 +450,75 @@ describe('ChordRing', () => {
     const model = chordRing.build({ ...bare, data: flows }, context);
     expect(model.table.columns).toEqual(['source', 'target', 'value']);
     expect(model.table.rows[0]).toEqual(['A', 'B', '30']);
+  });
+});
+
+describe('OrbitChart', () => {
+  const data = [
+    { label: 'Inner', markers: [{ period: 0, value: 4 }, { period: 0.25, value: 1 }] },
+    { label: 'Middle', markers: [{ period: 0.5, value: 4 }] },
+    { label: 'Outer', markers: [{ period: 0.75, value: 4 }] },
+  ];
+  /** The orbits: ornament ellipses, two arcs each. */
+  const orbits = (model: ChartModel) => model.geometry.strokes.filter((s) => s.role === 'ornament' && /A[\d.]+,[\d.]+,0,1,1/.test(s.d));
+  const semi = (d: string) => {
+    const m = /A([\d.]+),([\d.]+),/.exec(d)!;
+    return { a: Number(m[1]), b: Number(m[2]) };
+  };
+
+  test('REQ-092 · nested elliptical orbits, from the inside out in data order', () => {
+    const model = orbitChart.build({ ...bare, data }, context);
+    const axes = orbits(model).map((o) => semi(o.d));
+    expect(axes).toHaveLength(3);
+    expect(axes[0]!.a).toBeLessThan(axes[1]!.a);
+    expect(axes[1]!.a).toBeLessThan(axes[2]!.a);
+    for (const e of axes) expect(e.b).toBeLessThan(e.a);
+  });
+
+  test('REQ-092 · a marker sits on its orbit, at its period of the cycle, clockwise from 12 o’clock', () => {
+    const model = orbitChart.build({ ...bare, data }, context);
+    const [inner, , outer] = orbits(model).map((o) => ({ ...semi(o.d), top: pointsOf(o.d)[0]! }));
+    const cx = inner!.top.x;
+    const cy = inner!.top.y + inner!.b;
+    const [m0, m1, , m3] = model.geometry.hitAreas;
+    // Inner, period 0: the top of the ellipse; period 0.25: its right end.
+    close(m0!.x, cx, 0.01);
+    close(m0!.y, cy - inner!.b, 0.01);
+    close(m1!.x, cx + inner!.a, 0.01);
+    close(m1!.y, cy, 0.01);
+    // Outer, period 0.75: its left end.
+    close(m3!.x, cx - outer!.a, 0.01);
+    close(m3!.y, cy, 0.01);
+    // Every marker lies on its ellipse.
+    for (const [hit, e] of [[m0, inner], [m3, outer]] as const) close(((hit!.x - cx) / e!.a) ** 2 + ((hit!.y - cy) / e!.b) ** 2, 1, 0.01);
+  });
+
+  test('REQ-092 · REQ-124 · a marker’s area is proportional to its value', () => {
+    const model = orbitChart.build({ ...bare, data }, context);
+    const [big, small] = model.geometry.hitAreas;
+    close((big!.box!.width / small!.box!.width) ** 2, 4, 0.05);
+  });
+
+  test('REQ-092 · every orbit is named', () => {
+    expect(texts(orbitChart.build({ ...bare, data }, context))).toEqual(expect.arrayContaining(['Inner', 'Middle', 'Outer']));
+  });
+
+  test('REQ-092 · `orbits` caps the orbits shown, from the inside out', () => {
+    const model = orbitChart.build({ ...bare, data, orbits: 2 }, context);
+    expect(orbits(model)).toHaveLength(2);
+    expect(texts(model)).not.toContain('Outer');
+  });
+
+  test('REQ-008 · a period outside 0-1 or a negative value is warned SP002 and dropped', () => {
+    const seen = capture();
+    const model = orbitChart.build({ ...bare, data: [{ label: 'X', markers: [{ period: 1.2, value: 1 }, { period: 0.5, value: -2 }, { period: 0.5, value: 2 }] }] }, context);
+    expect(model.geometry.hitAreas).toHaveLength(1);
+    expect(seen.filter((c) => c === 'SP002')).toHaveLength(2);
+  });
+
+  test('REQ-121 · the table lists every marker: orbit, period, value', () => {
+    const model = orbitChart.build({ ...bare, data }, context);
+    expect(model.table.columns).toEqual(['orbit', 'period', 'value']);
+    expect(model.table.rows[1]).toEqual(['Inner', '0.25', '1']);
   });
 });

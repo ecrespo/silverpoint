@@ -78,6 +78,7 @@ export { gaugeArc } from './charts/gauge-arc/gauge-arc';
 export { meterChart } from './charts/meter-chart/meter-chart';
 export { windRose } from './charts/wind-rose/wind-rose';
 export { chordRing } from './charts/chord-ring/chord-ring';
+export { orbitChart } from './charts/orbit-chart/orbit-chart';
 export { candlestickChart } from './charts/candlestick-chart/candlestick-chart';
 export { areaChart } from './charts/area-chart/area-chart';
 export { rangeBandChart } from './charts/range-band-chart/range-band-chart';

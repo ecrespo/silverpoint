@@ -323,3 +323,13 @@ export interface ChordRingProps extends CommonChartProps {
   maxCategories?: number;
 }
 
+/** `OrbitChart` (REQ-092): nested elliptical orbits with markers along them (Data Model §2.10, delta-009). */
+export interface OrbitChartProps extends CommonChartProps {
+  /** Orbits shown, from the inside out; all by default. */
+  orbits?: number;
+  /** A row's markers; `'markers'` by default. */
+  markerKey?: Accessor<readonly unknown[] | null | undefined>;
+  /** A marker's period, 0-1 over the cycle; `'period'` by default. */
+  periodKey?: Accessor<number | null | undefined>;
+}
+
