@@ -5,8 +5,9 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 
 | Task | State | Commit | Evidence |
 |---|---|---|---|
-| T-071 | done | (this commit) | `charts/shared/polar.ts` — frame, `pointAt`, `sectorPath`/`arcPath` (exact SVG arcs; a full turn as two halves), `polarLabel`, `readSectors` (§2.2), `checkSectors`; `test/polar.test.ts` RED on the missing module → 13/13; the locale test was written with its fix and mutation-checked (`'en'` → red) |
-| T-072 (part) | done | (this commit) | `checkSectors` + `SECTORS_PER_CHART = 60` unit-tested (60 silent, 61 → SP008); the contract over every sector recipe comes with the recipes |
+| T-071 | done | 03aa704 | `charts/shared/polar.ts` — frame, `pointAt`, `sectorPath`/`arcPath` (exact SVG arcs; a full turn as two halves), `polarLabel`, `readSectors` (§2.2), `checkSectors`; `test/polar.test.ts` RED on the missing module → 13/13; the locale test was written with its fix and mutation-checked (`'en'` → red) |
+| T-072 (part) | done | 03aa704 | `checkSectors` + `SECTORS_PER_CHART = 60` unit-tested (60 silent, 61 → SP008); the contract over every sector recipe comes with the recipes |
+| T-073 | done | (this commit) | `DonutChart`: contract cases (`POLAR`, 13 tests) + sector-volume contract (61 → SP008) + 15 specific tests RED on the missing recipe → green; `ringTone` (no two neighbours share a tone, across 12 o'clock) and `sectorLegend` ("+N more") mutation-checked; one test's expected angles were wrong (Rent 50 % spans 0-π) and were corrected, not the code |
 
 ## Rulings
 
@@ -18,3 +19,8 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 - **T-071 · Ruling:** a repeated sector name is kept and made unique as "name (2)" with `SP002`,
   rather than dropped: Data Model §2.2 asks for unique names but names no remedy, and dropping a
   row would lose data silently — cost if wrong: a renamed sector the consumer did not expect.
+- **T-073 · Ruling:** the donut's legend sits beside the ring only when the area is at least 1.5×
+  wider than tall; in a squarer area it is left out even with `legend: true`, and the table,
+  readout and printed centre carry the data — cost if wrong: a narrow donut without names on paper.
+- **T-073 · Ruling:** sectors run clockwise from 12 o'clock with no gap between them; the outline
+  separates them — cost if wrong: a style change to the demo output.

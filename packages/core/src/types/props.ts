@@ -235,3 +235,15 @@ export interface BubbleChartProps extends CommonChartProps {
   /** Circle area in px², smallest to largest; `[100, 500]` by default. */
   sizeRange?: readonly [number, number];
 }
+
+/** `DonutChart` (REQ-075): sectors ∝ value around a central readout (Data Model §2.2). */
+export interface DonutChartProps extends CommonChartProps {
+  nameKey?: Accessor<string | number>;
+  valueKey?: Accessor<number | null | undefined>;
+  /** Printed in the centre; the total by default. */
+  centerValue?: string | number;
+  /** A line under the centre value. */
+  centerLabel?: string;
+  /** Names every sector with its share beside the ring; `true` by default. */
+  legend?: boolean;
+}

@@ -24,6 +24,7 @@ export type {
   CommonChartProps,
   ComposedChartProps,
   FunnelChartProps,
+  DonutChartProps,
   KpiCardProps,
   RangeBandChartProps,
   ScatterChartProps,

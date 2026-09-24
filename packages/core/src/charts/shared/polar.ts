@@ -1,7 +1,7 @@
-import type { Accessor, Datum, Rect, TextLabel } from '../../types';
+import type { Accessor, Datum, Rect, Stroke, TextLabel, ToneLevel } from '../../types';
 import { diagnose } from '../../diagnostics/diagnose';
 import { PLOT_INSET } from './cartesian';
-import { finite, warnValue } from './cells';
+import { finite, rectPath, warnValue } from './cells';
 import { accessorName, formatCategory, read } from './format';
 
 /**
@@ -101,7 +101,7 @@ export interface Sector {
  */
 export function readSectors(
   data: readonly Datum[],
-  nameKey: Accessor<string>,
+  nameKey: Accessor<string | number>,
   valueKey: Accessor<number | null | undefined>,
   chart: string,
   locale: string,
@@ -131,4 +131,48 @@ export const SECTORS_PER_CHART = 60;
 export function checkSectors(chart: string, property: string, count: number): void {
   if (process.env.NODE_ENV === 'production' || count <= SECTORS_PER_CHART) return;
   diagnose('SP008', chart, { property, message: `${count} sectors; the ceiling is ${SECTORS_PER_CHART}.` });
+}
+
+const RING_TONES: readonly ToneLevel[] = [1, 2, 3, 4];
+
+/**
+ * The tone of sector `index` of `count` around a closed ring: the ramp in turn, and the last sector
+ * never repeats the first, its neighbour across 12 o'clock. Tone only repeats what the legend and
+ * the printed shares say (REQ-124).
+ */
+export function ringTone(index: number, count: number): ToneLevel {
+  const tone = RING_TONES[index % RING_TONES.length] as ToneLevel;
+  if (count > 1 && index === count - 1 && tone === RING_TONES[0]) return RING_TONES[2] as ToneLevel;
+  return tone;
+}
+
+/** Height of one legend row. */
+const LEGEND_ROW = 14;
+
+export interface SectorLegendEntry {
+  readonly name: string;
+  readonly share: string;
+  readonly tone: ToneLevel;
+}
+
+/**
+ * A legend column: a toned swatch (ornament: it carries no data), the sector's name and its share,
+ * in the ring's clockwise order. Rows that do not fit end in "+N more"; the table lists them all.
+ */
+export function sectorLegend(area: Rect, entries: readonly SectorLegendEntry[]): { strokes: Stroke[]; labels: TextLabel[] } {
+  const strokes: Stroke[] = [];
+  const labels: TextLabel[] = [];
+  const fits = Math.max(Math.floor(area.height / LEGEND_ROW), 1);
+  const shown = entries.length > fits ? fits - 1 : entries.length;
+  const top = area.y + (area.height - Math.min(entries.length, fits) * LEGEND_ROW) / 2;
+  entries.slice(0, shown).forEach((entry, row) => {
+    const y = top + row * LEGEND_ROW;
+    strokes.push({ d: rectPath({ x: area.x, y: y + 3, width: 9, height: 7 }), role: 'ornament', part: 'ink', tone: entry.tone });
+    labels.push({ x: area.x + 14, y: y + 10, text: entry.name, kind: 'tick', part: 'text', anchor: 'start' });
+    labels.push({ x: area.x + area.width, y: y + 10, text: entry.share, kind: 'tick', part: 'axis', anchor: 'end' });
+  });
+  if (shown < entries.length) {
+    labels.push({ x: area.x + 14, y: top + shown * LEGEND_ROW + 10, text: `+${entries.length - shown} more`, kind: 'tick', part: 'axis', anchor: 'start' });
+  }
+  return { strokes, labels };
 }

@@ -68,6 +68,7 @@ export { stackedBarChart } from './charts/stacked-bar-chart/stacked-bar-chart';
 export { composedChart } from './charts/composed-chart/composed-chart';
 export { waterfallChart } from './charts/waterfall-chart/waterfall-chart';
 export { funnelChart } from './charts/funnel-chart/funnel-chart';
+export { donutChart } from './charts/donut-chart/donut-chart';
 export { candlestickChart } from './charts/candlestick-chart/candlestick-chart';
 export { areaChart } from './charts/area-chart/area-chart';
 export { rangeBandChart } from './charts/range-band-chart/range-band-chart';

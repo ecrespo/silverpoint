@@ -8,6 +8,7 @@ import {
   bulletChart,
   candlestickChart,
   composedChart,
+  donutChart,
   funnelChart,
   heatmapChart,
   kpiCard,
@@ -225,9 +226,23 @@ const CARTESIAN: readonly Case[] = [
   },
 ];
 
+/** Phase 3: the polar charts, on the arc engine and on geometry of their own. */
+const POLAR: readonly Case[] = [
+  {
+    recipe: P2(donutChart),
+    consumer: { data: [{ n: 'Rent', v: 40 }, { n: 'Food', v: 25 }, { n: 'Fun', v: 10 }], nameKey: 'n', valueKey: 'v' },
+    items: 3,
+    hostile: [{ n: 'h1', v: Number.NaN }, { n: 'h2', v: -4 }, { n: 'h3', v: 'x' }],
+    labelOf: (d) => String(d.n),
+  },
+];
+
+/** The sector recipes, whose ceiling is 60 sectors (API Spec §12). */
+const SECTOR_CHARTS: readonly Case[] = POLAR.filter((c) => ['DonutChart'].includes(c.recipe.name));
+
 const items = (hits: readonly { seriesKey: string; index: number }[]) => new Set(hits.map((h) => `${h.seriesKey}#${h.index}`)).size;
 
-describe.each([...CASES, ...CARTESIAN].map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf }) => {
+describe.each([...CASES, ...CARTESIAN, ...POLAR].map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf }) => {
   test('REQ-093 · invoked without data it renders its demo dataset', () => {
     const model = recipe.build({}, context);
     expect(model.status).toBe('ready');
@@ -364,8 +379,24 @@ describe.each(CARTESIAN.map((c) => [c.recipe.name, c] as const))('%s data volume
   });
 });
 
+describe.each(SECTOR_CHARTS.map((c) => [c.recipe.name, c] as const))('%s sector volume', (_name, { recipe, consumer }) => {
+  const oversize = (count: number): Datum[] => {
+    const first = (consumer.data as Datum[])[0] ?? {};
+    return Array.from({ length: count }, (_, i) => ({ ...first, n: `s${i}` }));
+  };
+
+  test('REQ-096 · 61 sectors warn SP008; 60 do not', () => {
+    const over = capture();
+    recipe.build({ ...consumer, data: oversize(61) }, context);
+    expect(over).toContain('SP008');
+    const under = capture();
+    recipe.build({ ...consumer, data: oversize(60) }, context);
+    expect(under).not.toContain('SP008');
+  });
+});
+
 describe('demo snapshots', () => {
-  test.each([...CASES, ...CARTESIAN].map((c) => [c.recipe.name, c.recipe] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
+  test.each([...CASES, ...CARTESIAN, ...POLAR].map((c) => [c.recipe.name, c.recipe] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
     expect(serializeGeometry(recipe.build({ width: 320, height: 150 }, { ...context, id: 'sp-demo' }).geometry)).toMatchSnapshot();
   });
 });
