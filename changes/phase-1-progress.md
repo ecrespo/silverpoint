@@ -12,7 +12,8 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-039..T-041 | done | 7a0caff | `react/test/catalog.test.tsx` (RED 67/67 → 67 green), `vue/test/catalog.test.ts` + `types.test.ts` (RED 50 → green), `angular/test/catalog.test.ts` (RED 48/48 → green); SSR/server parity against the canonical render for demo ink/precision, consumer data and bare; subpaths; keyboard; Angular contract (standalone, OnPush, signal inputs = props interface) |
 | T-047 (part) | done | 7a0caff | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
 | T-042 | done | 031d906 | 48 new fixtures (RED 7 count tests → 29/29), canonicals committed, line-chart canonicals unchanged; string gate 168/168 (CLI and `gates` project); subpaths gate parameterized over the catalog (28/28, mutation-checked by removing a Vue export) |
-| T-043 | done | (this commit) | every app renders any fixture's chart (e2e RED 24 → green, strengthened to compare against the chart's canonical render after a vacuous first pass); 48 goldens generated in the pinned image; pixel gate 232/232 in docker; REQ-029 tile-fill e2e (RED `none` → `url(…)`) |
+| T-043 | done | 5538691, e2d4a0d | every app renders any fixture's chart (e2e RED 24 → green, strengthened to compare against the chart's canonical render after a vacuous first pass); 48 goldens generated in the pinned image; pixel gate 232/232 in docker; REQ-029 tile-fill e2e (RED `none` → `url(…)`) |
+| T-044 | done | (this commit) | `measureChart` (RED 19 → 25/25); `reports/path-weight.md`: tile ≤ 12.3 KiB for all six at every size; per-shape over 40 KB only for heatmap and activity grid at `lg` — budget confirmed |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its
@@ -79,3 +80,6 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
   tiles; a substrate-coloured text halo (`paint-order: stroke`) would lift them, but restyles every
   chart's text and every golden — a Phase 4 typography pass.
 - **T-043 · minor (deferred):** sankey labels of middle-layer nodes sit over the outgoing bands.
+- **T-043 · Ruling (process):** 5538691 was committed with three failing unit tests (the
+  string-gate unit test drew fixtures as line charts); fixed in e2d4a0d. Verification now runs as
+  its own step, and a commit follows only a read exit status of 0.

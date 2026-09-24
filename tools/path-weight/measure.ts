@@ -57,3 +57,21 @@ export function measureDenseCard(bars = 6): { tile: number; perShape: number; ti
   const tileDefs = pathBytes({ ...tiled, strokes: [] });
   return { tile: pathBytes(tiled), perShape: pathBytes(render('per-shape')), tileDefs };
 }
+
+/**
+ * Bytes of path data of any chart with its demo dataset, full card, in precision and inked with
+ * each hatch fill — the matrix families (many small toned shapes) are where the tile helps least.
+ */
+export function measureChart(
+  recipe: ChartRecipe<CommonChartProps>,
+  size: keyof typeof SIZES,
+): { precision: number; tile: number; perShape: number } {
+  const { width, height } = SIZES[size];
+  const props = { width, height, seed: 1592, title: 'Weight', badge: 'Live', footerLeft: 'a', footerRight: 'b' };
+  const bytes = (extra: CommonChartProps) => pathBytes(renderChart(recipe, { ...props, ...extra }, { id: `sp-weight-${size}` }).geometry);
+  return {
+    precision: bytes({ mode: 'precision' }),
+    tile: bytes({ mode: 'ink', hatchFill: 'tile' }),
+    perShape: bytes({ mode: 'ink', hatchFill: 'per-shape' }),
+  };
+}
