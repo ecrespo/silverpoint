@@ -27,6 +27,7 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-025 | done | 2026-09-24 | `packages/grounds/test/equivalence.test.ts` — parameterised by chart, 5 variants × 5 seeds × 4 substrates; a mutation that inks encoding strokes fails every variant |
 | T-027 | done — **40 KB confirmed** | 2026-09-24 | `tools/path-weight` tests and `reports/path-weight.md`. Tile fill: line chart 2.0–2.1 KiB inked at every size; a dense card of 6 or 12 cross-hatched bars over a tone-3 area weighs 1.5–1.7 KiB, ~0.6 KiB per tonal level whatever the shape count. Per-shape: 21.0 KiB (6 bars) and 34.7 KiB (12 bars) at `md`, 14–20× the tile. DD-007's 76 KB / 913 KB figures were taken at gap 4.5 and 3 decimals; gap 7 and 2-decimal rounding brought per-shape down, but it still approaches the budget with 12 bars, where SP011 warns. No PRD amendment needed |
 | T-028 | done | 2026-09-24 | `.size-limit.json` and `tools/bundle-budget/budget.real.test.ts`, min+gzip over the built packages: React client + core + LineChart **26.3 KiB** of 45 KB (rough.js and d3 included), React server 23.9, Vue 27.5, Angular 29.5, core 16.1 of 20, grounds 23.9 of 30, stylesheet 1.8 of 4, fonts 72.7 of 76 (raw woff2). A 1 kB limit makes size-limit exit non-zero |
+| T-023 | done | 2026-09-24 | `e2e/apps.spec.ts` over `vite-react`, `vite-vue` (SSR prerender + `createSSRApp` hydration), `nextjs` (client chart hydrated + server chart as RSC) and `angular` (Angular CLI 21 consuming the APF build): **18 passed, 2 skipped** (the hydration case on the two client-rendered apps). All four share `examples/harness` — one stylesheet, one fixed container. Next.js and Vue: server HTML and hydrated DOM both equal the canonical render; a tampered server page is caught. Also closes the browser halves of T-012 (blocked typeface: chart still renders) and T-013 (a consumer `.sp-root { --sp-ink }` recolours the same DOM node) |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
@@ -112,6 +113,17 @@ failing first where code changed.
   same 45 KB is declared for the Vue and Angular entries, and measured budgets with headroom for
   the rest (core 20, grounds 30, stylesheet 4, fonts 76). *Cost if wrong:* a budget to retune;
   each is one line in `.size-limit.json`.
+- **T-023 · Ruling:** SP013 is a development warning stripped from production builds (API Spec
+  §11), so the production example apps can only show that the chart survives a blocked typeface;
+  the emission itself is verified in each adapter's unit tests and against the Vite dev server
+  (T-024). *Cost if wrong:* none; it is what the spec says.
+- **T-023 · Ruling:** Vue and React do not check attributes when hydrating a production build, so
+  a console-only hydration check would pass a mismatched page. The bench compares the server HTML
+  and the hydrated DOM with the canonical render instead, and the Vue app also enables
+  `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__`. Verified by tampering with the server page.
+- **T-023 · Ruling:** the ground's CSS variables are declared once per chart and at zero
+  specificity (`:where(…:not(.sp-root .sp-chart))`), so a consumer re-themes with an ordinary
+  `.sp-root { --sp-ink: … }`. Found by the bench: the `<svg>` redeclared them below the root.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen
