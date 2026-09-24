@@ -1,7 +1,7 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
 import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
@@ -22,6 +22,23 @@ const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'))
 const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid } as const;
 
 function App() {
+  if (wantsGallery(location.search)) {
+    return (
+      <main>
+        <h1>silverpoint · Vite + React · gallery</h1>
+        <div className="sp-gallery">
+          {GALLERY.map(({ chart, props }) => {
+            const Chart = CHARTS[chart as keyof typeof CHARTS];
+            return (
+              <div className="sp-harness" data-size="md" key={chart}>
+                <Chart {...props} />
+              </div>
+            );
+          })}
+        </div>
+      </main>
+    );
+  }
   if (fixture) {
     const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
     return (

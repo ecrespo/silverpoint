@@ -8,7 +8,7 @@ import { SpHeatmapChart } from '@silverpoint/angular/heatmap-chart';
 import { SpTreemapChart } from '@silverpoint/angular/treemap-chart';
 import { SpSankeyChart } from '@silverpoint/angular/sankey-chart';
 import { SpActivityGrid } from '@silverpoint/angular/activity-grid';
-import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
@@ -26,6 +26,17 @@ const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart
           <ng-container *ngComponentOutlet="gate.component; inputs: gate.inputs" />
         </div>
       </main>
+    } @else if (gallery) {
+      <main>
+        <h1>silverpoint · Angular · gallery</h1>
+        <div class="sp-gallery">
+          @for (item of gallery; track item.chart) {
+            <div class="sp-harness" data-size="md">
+              <ng-container *ngComponentOutlet="item.component; inputs: item.inputs" />
+            </div>
+          }
+        </div>
+      </main>
     } @else {
       <main>
         <h1>silverpoint · Angular</h1>
@@ -41,6 +52,9 @@ const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart
 })
 class App {
   protected readonly gate = fixture ? { component: CHARTS[fixture.chart] as Type<unknown>, inputs: fixtureProps(fixture) } : undefined;
+  protected readonly gallery = wantsGallery(location.search)
+    ? GALLERY.map(({ chart, props }) => ({ chart, component: CHARTS[chart] as Type<unknown>, inputs: props }))
+    : undefined;
   protected readonly demo = DEMO_PROPS;
 }
 

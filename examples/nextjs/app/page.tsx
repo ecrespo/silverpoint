@@ -1,4 +1,4 @@
-import { DEMO_PROPS, fixtureById, fixtureProps } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY } from '@silverpoint/example-harness';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
 import { PyramidChart } from '@silverpoint/react/pyramid-chart';
@@ -13,7 +13,26 @@ import { Hydrated } from './hydrated';
 const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid } as const;
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
-  const fixture = fixtureById((await searchParams).fixture);
+  const params = await searchParams;
+  if ('gallery' in params) {
+    return (
+      <main>
+        <h1>silverpoint · Next.js (React) · gallery</h1>
+        <div className="sp-gallery">
+          {GALLERY.map(({ chart, props }) => {
+            const Chart = CHARTS[chart as keyof typeof CHARTS];
+            return (
+              <div className="sp-harness" data-size="md" key={chart}>
+                <Chart {...props} />
+              </div>
+            );
+          })}
+        </div>
+        <Hydrated />
+      </main>
+    );
+  }
+  const fixture = fixtureById(params.fixture);
   if (fixture) {
     const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
     return (

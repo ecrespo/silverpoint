@@ -41,3 +41,21 @@ export const DEMO_PROPS = Object.freeze({
   footerLeft: '00–22 h',
   footerRight: 'silverpoint',
 });
+
+const kebab = (/** @type {string} */ name) => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+
+/**
+ * One of every chart, with its demo dataset and its fixture card, each under an id of its own:
+ * the `?gallery` page every app shows, which axe-core audits (T-045).
+ */
+export const GALLERY = Object.freeze(
+  FIXTURES.filter((fixture) => fixture.substrate === 'cream' && fixture.mode === 'ink').map((fixture) => ({
+    chart: fixture.chart,
+    props: { ...fixture.props, id: `sp-gallery-${kebab(fixture.chart)}`, width: 320 },
+  })),
+);
+
+/** Whether the page asks for the gallery. */
+export function wantsGallery(/** @type {string} */ search) {
+  return new URLSearchParams(search).has('gallery');
+}

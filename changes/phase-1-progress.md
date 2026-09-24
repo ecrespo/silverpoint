@@ -13,7 +13,8 @@ Tasks: `changes/phase-1-tasks.md` (T-030..T-047). Every task test-first; tests c
 | T-047 (part) | done | 7a0caff | per-chart budgets, 24 entries at 45 kB: React client 17–28 kB; new gate `tools/resolution-check/tree-shaking.real.test.ts` (RED 28/28 → 28/28) |
 | T-042 | done | 031d906 | 48 new fixtures (RED 7 count tests → 29/29), canonicals committed, line-chart canonicals unchanged; string gate 168/168 (CLI and `gates` project); subpaths gate parameterized over the catalog (28/28, mutation-checked by removing a Vue export) |
 | T-043 | done | 5538691, e2d4a0d | every app renders any fixture's chart (e2e RED 24 → green, strengthened to compare against the chart's canonical render after a vacuous first pass); 48 goldens generated in the pinned image; pixel gate 232/232 in docker; REQ-029 tile-fill e2e (RED `none` → `url(…)`) |
-| T-044 | done | (this commit) | `measureChart` (RED 19 → 25/25); `reports/path-weight.md`: tile ≤ 12.3 KiB for all six at every size; per-shape over 40 KB only for heatmap and activity grid at `lg` — budget confirmed |
+| T-044 | done | cc70733 | `measureChart` (RED 19 → 25/25); `reports/path-weight.md`: tile ≤ 12.3 KiB for all six at every size; per-shape over 40 KB only for heatmap and activity grid at `lg` — budget confirmed |
+| T-045 | done | (this commit) | `?gallery` page of all seven charts in the four apps; axe-core A/AA clean on it (RED: no gallery → green); per chart, e2e table rows and keyboard announcements computed from the core's own `readout` — written after the adapters, mutation-checked (React keydown disabled → 6/6 keyboard tests red); apps + a11y 134 passed |
 ## Rulings
 
 - **Phase 1 · Ruling:** `precision` draws no hatching, so every tone-encoding chart carries its

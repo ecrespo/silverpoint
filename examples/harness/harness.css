@@ -43,3 +43,10 @@ h1 {
 .sp-harness[data-gate] .sp-chart {
   animation: none;
 }
+
+/* The gallery page: every chart once, for the accessibility audit (T-045). */
+.sp-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

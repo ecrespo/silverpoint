@@ -20,3 +20,5 @@ export declare function fixtureById(id: string | null | undefined): HarnessFixtu
 export type FixtureProps = CommonChartProps & Record<string, unknown>;
 export declare function fixtureProps(fixture: HarnessFixture): FixtureProps;
 export declare const DEMO_PROPS: Readonly<LineChartProps>;
+export declare const GALLERY: readonly { readonly chart: string; readonly props: FixtureProps }[];
+export declare function wantsGallery(search: string): boolean;
