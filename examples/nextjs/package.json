@@ -1,0 +1,25 @@
+{
+  "name": "@silverpoint/example-nextjs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "serve": "next build && next start"
+  },
+  "dependencies": {
+    "@silverpoint/example-harness": "workspace:*",
+    "@silverpoint/fonts": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/react": "workspace:*",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "typescript": "5.9.3"
+  }
+}
