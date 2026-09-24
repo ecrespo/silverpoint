@@ -12,6 +12,12 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-002 | done | 2026-09-24 | `tools/lint-rules/*.test.ts` — fixtures with `Math.random()`, `import 'd3-scale'` in an adapter, and a PR touching a ground and `core/src/charts` each fail |
 | T-003 | done | 2026-09-24 | pre-existing; `packages/core/test/render.test.ts` (REQ-002, REQ-011) verified green |
 | T-004 | done | 2026-09-24 | pre-existing; five frozen FNV-1a pairs verified against the reference values |
+| T-005 – T-009 | done | 2026-09-24 | pre-existing; `packages/core/test/*` verified against every Done criterion (Node without DOM, `SP004` on `[5,5]`, production build free of warn codes, `NullInker` identity and `SP006`, line-chart snapshot and `chrome: 'bare'`, pure hit-testing) |
+| T-010 | done | 2026-09-24 | `packages/grounds/test/ground.test.ts` |
+| T-011 | done | 2026-09-24 | `tools/contrast-gate` reproduces Data Model §3.2; lightening `ink` 5 % fails; wired into `pnpm lint` |
+| T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-023) |
+| T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
+| T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
 
 ## Batch-1 review (fresh reviewer, 2026-09-24)
 
@@ -41,6 +47,20 @@ failing first where code changed.
 - **Review · Ruling:** the ground-PR check runs only on pull requests into `develop`; a
   release PR into `main` spans many unrelated ground and chart changes. *Cost if wrong:* a
   ground PR merged straight into `main` is not checked.
+- **T-013 · Ruling:** the stylesheet is hand-written, and a test pins every `--sp-*` value to
+  the ground tokens, so drift fails CI. Generating it from the tokens would be Art. 7 in its
+  purest form, but it adds a build step for four rules. *Cost if wrong:* a second ground has
+  to add its block by hand under the same test.
+- **T-014 · Ruling:** the render pipeline (`renderChart`) lives in `@silverpoint/grounds`, the
+  only package that sees both the core recipes and the inkers. Adapters import it, never
+  `roughjs` (REQ-027). A consequence against DD-002: an app using only `precision` still bundles
+  rough.js, because the inker is resolved by name at runtime. *Cost if wrong:* ~9 KB gzip,
+  measured against the 45 KB budget in T-028.
+- **T-014 · Ruling:** the SVG markup contract is a view model in the core (`toSvgView`) with
+  every attribute already a string; each adapter template writes its fields one to one, and
+  `svgString` is the canonical render. Colour is `part` + `data-paint`; a tile fill is the only
+  `fill` attribute and is always `url(#…)`. *Cost if wrong:* the markup is internal (API Spec §2)
+  and can change in a minor.
 - **Review · Ruling (critical finding 1):** a seed of 0, or one whose `+1` wraps to 0, makes
   roughjs fall back to `Math.random`. The fix belongs where roughjs is fed — `RoughInker`
   maps every seed into a safe range, verified by test in T-014. `resolveSeed` keeps its frozen

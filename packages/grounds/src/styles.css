@@ -1,1 +1,278 @@
-/* silverpoint grounds */
+/*
+ * @silverpoint/grounds — styles.css
+ *
+ * The only coupling between the SVG and its paint is the `part` attribute (API Spec §10.1).
+ * Colour enters through --sp-* custom properties, so overriding one re-themes every chart
+ * without re-rendering (REQ-041, REQ-042). No CSS framework is required (REQ-043).
+ *
+ * Import once per app:  import '@silverpoint/grounds/styles.css';
+ */
+
+/* ── Ground: silverpoint (Data Model §3) ─────────────────────────────────────────────── */
+
+.sp-ground-silverpoint {
+  --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --sp-stroke-width: 0.9;
+  --sp-hatch-gap: 7;
+  --sp-radius: 2px;
+}
+
+.sp-ground-silverpoint[data-substrate='cream'] {
+  --sp-substrate: #EDE7DA;
+  --sp-ink: #5A5E65;
+  --sp-ink-secondary: #685C4D;
+  --sp-heighten: #FFFFFF;
+  --sp-rule: #737A82;
+  --sp-grid: #737A82;
+  --sp-text: #3F4348;
+  --sp-text-muted: #5A5E65;
+}
+
+.sp-ground-silverpoint[data-substrate='green'] {
+  --sp-substrate: #D8DCD0;
+  --sp-ink: #5A5E65;
+  --sp-ink-secondary: #685C4D;
+  --sp-heighten: #FFFFFF;
+  --sp-rule: #737A82;
+  --sp-grid: #737A82;
+  --sp-text: #3F4348;
+  --sp-text-muted: #5A5E65;
+}
+
+.sp-ground-silverpoint[data-substrate='blue'] {
+  --sp-substrate: #D2D8DF;
+  --sp-ink: #5A5E65;
+  --sp-ink-secondary: #685C4D;
+  --sp-heighten: #FFFFFF;
+  --sp-rule: #737A82;
+  --sp-grid: #737A82;
+  --sp-text: #3F4348;
+  --sp-text-muted: #5A5E65;
+}
+
+.sp-ground-silverpoint[data-substrate='ochre'] {
+  --sp-substrate: #E7DABC;
+  --sp-ink: #5A5E65;
+  --sp-ink-secondary: #685C4D;
+  --sp-heighten: #FFFFFF;
+  --sp-rule: #737A82;
+  --sp-grid: #737A82;
+  --sp-text: #3F4348;
+  --sp-text-muted: #5A5E65;
+}
+
+/* ── Chart root ──────────────────────────────────────────────────────────────────────── */
+
+.sp-root {
+  position: relative;
+  display: block;
+  color: var(--sp-text);
+  font-family: var(--sp-font-display);
+}
+
+.sp-root:focus-visible {
+  outline: 1.5px solid var(--sp-ink);
+  outline-offset: 2px;
+}
+
+.sp-chart {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  background: var(--sp-substrate);
+  border-radius: var(--sp-radius);
+  animation: sp-enter 280ms ease-out;
+}
+
+@keyframes sp-enter {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-chart {
+    animation: none;
+  }
+}
+
+/* ── Paint by part (API Spec §10.1) ──────────────────────────────────────────────────── */
+
+.sp-chart path {
+  fill: none;
+  stroke: none;
+  stroke-width: var(--sp-stroke-width);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-chart [part='sp-ink'][data-paint='stroke'] {
+  stroke: var(--sp-ink);
+}
+
+.sp-chart [part='sp-ink'][data-paint='fill'] {
+  fill: var(--sp-ink);
+}
+
+.sp-chart [part='sp-ink-secondary'][data-paint='stroke'] {
+  stroke: var(--sp-ink-secondary);
+}
+
+.sp-chart [part='sp-ink-secondary'][data-paint='fill'] {
+  fill: var(--sp-ink-secondary);
+}
+
+.sp-chart [part='sp-heighten'] {
+  fill: var(--sp-heighten);
+}
+
+.sp-chart [part='sp-rule'] {
+  stroke: var(--sp-rule);
+}
+
+.sp-chart [part='sp-grid'] {
+  stroke: var(--sp-grid);
+  stroke-width: calc(var(--sp-stroke-width) * 0.6);
+}
+
+/* Hatching: finer than the outline (fillWeight 0.55 against strokeWidth 0.9). */
+.sp-chart [data-role='hatch'] {
+  stroke-width: calc(var(--sp-stroke-width) * 0.6);
+}
+
+/* A tile-painted shape: the pattern is its fill (REQ-029); the outline is its own stroke. */
+.sp-chart [data-paint='tile'] {
+  stroke: none;
+}
+
+.sp-chart [data-dash='dotted'] {
+  stroke-dasharray: 0.5 3.5;
+}
+
+/* ── Type (Data Model §3.6) ─────────────────────────────────────────────────────────── */
+
+.sp-chart text {
+  font-family: var(--sp-font-display);
+  font-variant-numeric: tabular-nums;
+  font-size: calc(11px * var(--sp-type-scale, 1));
+  stroke: none;
+}
+
+.sp-chart [part='sp-text'] {
+  fill: var(--sp-text);
+}
+
+.sp-chart [part='sp-axis'] {
+  fill: var(--sp-text-muted);
+}
+
+.sp-chart [data-kind='title'] {
+  font-size: calc(13px * var(--sp-type-scale, 1));
+  font-weight: 500;
+}
+
+.sp-chart [data-kind='value'] {
+  font-size: calc(30px * var(--sp-type-scale, 1));
+}
+
+.sp-chart [data-kind='unit'] {
+  font-style: italic;
+}
+
+/* Small-caps lines: `smcp` is not in the distributed subset, so uppercase with tracking. */
+.sp-chart [data-kind='badge'],
+.sp-chart [data-kind='footer'] {
+  font-size: calc(9px * var(--sp-type-scale, 1));
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.sp-chart [data-kind='tick'] {
+  font-size: calc(9.5px * var(--sp-type-scale, 1));
+}
+
+.sp-chart [data-kind='empty'] {
+  font-style: italic;
+}
+
+/* ── Readout (REQ-141) ──────────────────────────────────────────────────────────────── */
+
+.sp-readout {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  padding: 4px 8px;
+  pointer-events: none;
+  white-space: nowrap;
+  background: var(--sp-substrate);
+  border: 0.9px solid var(--sp-rule);
+  border-radius: var(--sp-radius);
+  color: var(--sp-text);
+  font-family: var(--sp-font-display);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sp-readout-heading {
+  display: block;
+  color: var(--sp-text-muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.sp-marker {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sp-marker path {
+  fill: none;
+  stroke: var(--sp-ink);
+  stroke-width: var(--sp-stroke-width);
+}
+
+/* ── Tabular alternative (REQ-121) ───────────────────────────────────────────────────── */
+
+.sp-table {
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-family: var(--sp-font-display);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--sp-text);
+}
+
+.sp-table th,
+.sp-table td {
+  padding: 2px 8px;
+  text-align: right;
+  border-bottom: 0.9px solid var(--sp-rule);
+}
+
+.sp-table caption {
+  text-align: left;
+  font-style: italic;
+}
+
+/* Hidden for sight, present for assistive technology — never `display: none`. */
+.sp-table[data-visibility='hidden'],
+.sp-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
