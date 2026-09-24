@@ -107,3 +107,4 @@ playwright-report/
 .angular/
 next-env.d.ts
 reports/*.local.*
+dist-server/

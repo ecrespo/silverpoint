@@ -1,5 +1,12 @@
 import { expect, test } from '@playwright/test';
+import { DEMO_PROPS } from '../examples/harness/index.js';
+import { lineChart } from '../packages/core/dist/index.js';
+import { renderChart, toSVGString } from '../packages/grounds/dist/index.js';
+import { compareSvg } from '../tools/svg-normalizer/normalize';
 import { APPS, type AppName } from '../playwright.config';
+
+/** The canonical render of the demo chart every home page shows. */
+const demoCanonical = toSVGString(renderChart(lineChart, DEMO_PROPS, { id: 'unused' }));
 
 const appOf = (name: string) => APPS[name as AppName];
 
@@ -35,8 +42,11 @@ test.describe('example apps', () => {
     const messages: string[] = [];
     page.on('console', (message) => messages.push(`${message.type()}: ${message.text()}`));
     page.on('pageerror', (error) => messages.push(`pageerror: ${error.message}`));
+    expect(compareSvg(html, demoCanonical), 'server HTML').toEqual({ equal: true });
     await page.goto('/');
     await page.waitForFunction(() => document.documentElement.dataset.hydrated === 'true');
+    const hydrated = await page.locator('.sp-harness svg.sp-chart').evaluate((el) => el.outerHTML);
+    expect(compareSvg(hydrated, demoCanonical), 'after hydration').toEqual({ equal: true });
     expect(messages.filter((m) => /hydrat|mismatch|did not match/i.test(m))).toEqual([]);
   });
 
