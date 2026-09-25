@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
-    "serve": "ng build && node serve.mjs"
+    "serve": "ng build && node serve.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@angular/common": "^21.2.23",

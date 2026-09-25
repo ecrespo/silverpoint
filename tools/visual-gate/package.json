@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "string-gate": "tsx string-gate.ts",
-    "canonical": "tsx --conditions=@silverpoint/source canonical.ts"
+    "canonical": "tsx --conditions=@silverpoint/source canonical.ts",
+    "parity": "tsx parity.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",

@@ -2,6 +2,7 @@ packages:
   - packages/*
   - examples/*
   - tools/*
+  - docs/site
 allowBuilds:
   '@parcel/watcher': false
   esbuild: false

@@ -60,6 +60,12 @@ export default defineConfig({
         },
       },
       {
+        // The documentation site's generators: props reference and adapter parity (T-097).
+        resolve: source,
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: { name: 'docs', root: 'docs/site', environment: 'node', include: ['test/**/*.test.ts'] },
+      },
+      {
         plugins: [vue()],
         resolve: source,
         ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },

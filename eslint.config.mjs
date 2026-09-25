@@ -39,6 +39,7 @@ export default [
       'packages/angular/!(test|dist|node_modules)/**/*.ts',
       'examples/*/src/**/*.{ts,tsx,vue}',
       'examples/nextjs/app/**/*.{ts,tsx}',
+      'docs/site/src/**/*.{ts,tsx}',
     ],
     rules: {
       'no-restricted-syntax': [

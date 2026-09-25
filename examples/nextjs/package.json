@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "serve": "next build && next start"
+    "serve": "next build && next start",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@silverpoint/example-harness": "workspace:*",

@@ -1,0 +1,993 @@
+{
+  "common": [
+    {
+      "name": "data",
+      "type": "readonly Datum[]",
+      "optional": true,
+      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093)."
+    },
+    {
+      "name": "ground",
+      "type": "GroundRef",
+      "optional": true,
+      "doc": "Style ground. Defaults to the app provider's, or `silverpoint`."
+    },
+    {
+      "name": "substrate",
+      "type": "SubstrateName",
+      "optional": true,
+      "doc": "Prepared substrate within the ground (REQ-046)."
+    },
+    {
+      "name": "mode",
+      "type": "InkMode",
+      "optional": true,
+      "doc": "`ink` by default; `precision` disables inking (REQ-021)."
+    },
+    {
+      "name": "seed",
+      "type": "Seed",
+      "optional": true,
+      "doc": "Seed. If omitted, it is derived from `id` stably (REQ-003)."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "doc": "Stable identifier. If omitted, it is generated deterministically."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "optional": true,
+      "doc": "Height of the drawing area in px. Width is the container's unless pinned."
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "chrome",
+      "type": "'card' | 'bare'",
+      "optional": true,
+      "doc": "`card` draws the full frame; `bare` only the drawing area (REQ-095)."
+    },
+    {
+      "name": "hatchFill",
+      "type": "'tile' | 'per-shape'",
+      "optional": true,
+      "doc": "How areas are filled (REQ-029)."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "value",
+      "type": "string | number",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "footerLeft",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "footerRight",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "optional": true,
+      "doc": "Accessible name. If omitted, it is derived from `title` (REQ-120)."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "optional": true,
+      "doc": "Long description for screen readers (REQ-120)."
+    },
+    {
+      "name": "dataTable",
+      "type": "'visible' | 'hidden' | 'none'",
+      "optional": true,
+      "doc": "Tabular alternative; `hidden` leaves it for assistive technology only (REQ-121)."
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "numberFormat",
+      "type": "Intl.NumberFormatOptions",
+      "optional": true,
+      "doc": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "doc": ""
+    }
+  ],
+  "charts": [
+    {
+      "chart": "LineChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "secondaryKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "curve",
+          "type": "LineCurve",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "series",
+          "type": "'all' | 'primary'",
+          "optional": true,
+          "doc": "`all` draws the secondary series when there is one; `primary` omits it."
+        },
+        {
+          "name": "connectNulls",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Whether a gap left by a missing value is bridged (REQ-008)."
+        }
+      ]
+    },
+    {
+      "chart": "BulletChart",
+      "own": [
+        {
+          "name": "titleKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "actualKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "targetKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "PyramidChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "widthKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "toneKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "HeatmapChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valuesKey",
+          "type": "Accessor<readonly (number | null)[] | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "scaleMax",
+          "type": "number",
+          "optional": true,
+          "doc": "Value that maps to the darkest tone; 100 by default."
+        },
+        {
+          "name": "columnLabels",
+          "type": "readonly string[]",
+          "optional": true,
+          "doc": "Names of the columns, in order; missing ones fall back to `#k` (delta-006)."
+        }
+      ]
+    },
+    {
+      "chart": "TreemapChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "shareKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "SankeyChart",
+      "own": [
+        {
+          "name": "sourceKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "targetKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "ActivityGrid",
+      "own": [
+        {
+          "name": "dateKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "countKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "levelKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "weeks",
+          "type": "number",
+          "optional": true,
+          "doc": "Weeks shown, the most recent last; 26 by default."
+        }
+      ]
+    },
+    {
+      "chart": "StepChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "step",
+          "type": "'after' | 'before' | 'middle'",
+          "optional": true,
+          "doc": "Where the step sits between two points; `after` by default."
+        }
+      ]
+    },
+    {
+      "chart": "SparklineRows",
+      "own": [
+        {
+          "name": "rows",
+          "type": "number",
+          "optional": true,
+          "doc": "Rows shown, from the first; all by default."
+        },
+        {
+          "name": "nameKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "readoutKey",
+          "type": "Accessor<string | number | null | undefined>",
+          "optional": true,
+          "doc": "The printed readout; the last value of the series by default."
+        },
+        {
+          "name": "seriesKey",
+          "type": "Accessor<readonly unknown[] | null | undefined>",
+          "optional": true,
+          "doc": "The row's points: an array."
+        },
+        {
+          "name": "pointKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "The value of one point; the point itself when it is a number, else its `value`."
+        }
+      ]
+    },
+    {
+      "chart": "KpiCard",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "metric",
+          "type": "string",
+          "optional": true,
+          "doc": "The metric's name, printed under the figure."
+        },
+        {
+          "name": "delta",
+          "type": "number",
+          "optional": true,
+          "doc": "Signed change, printed with its sign and a direction mark."
+        },
+        {
+          "name": "deltaTone",
+          "type": "'up' | 'down' | 'flat'",
+          "optional": true,
+          "doc": "Direction of the mark; from the sign of `delta` by default."
+        }
+      ]
+    },
+    {
+      "chart": "BarChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "secondaryKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "orientation",
+          "type": "'columns' | 'rows'",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "StackedBarChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "keys",
+          "type": "readonly string[]",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "names",
+          "type": "readonly string[]",
+          "optional": true,
+          "doc": "Display names of the keys, in order; the keys themselves by default."
+        }
+      ]
+    },
+    {
+      "chart": "ComposedChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "barKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "lineKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "showLine",
+          "type": "boolean",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "WaterfallChart",
+      "own": [
+        {
+          "name": "stepKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "baseKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "An absolute total: the bar starts at zero and resets the running total."
+        },
+        {
+          "name": "deltaKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "A change from the running total."
+        }
+      ]
+    },
+    {
+      "chart": "FunnelChart",
+      "own": [
+        {
+          "name": "stageKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "CandlestickChart",
+      "own": [
+        {
+          "name": "timeKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "openKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "highKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "lowKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "closeKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "bounds",
+          "type": "readonly [number, number]",
+          "optional": true,
+          "doc": "Price bounds of the scale; derived from the data when omitted (REQ-097)."
+        }
+      ]
+    },
+    {
+      "chart": "AreaChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "curve",
+          "type": "LineCurve",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "RangeBandChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "lowKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "highKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "StreamChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "keys",
+          "type": "readonly string[]",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "stacked",
+          "type": "boolean",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "ScatterChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "sizeKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "sizeRange",
+          "type": "readonly [number, number]",
+          "optional": true,
+          "doc": "Marker area in px², smallest to largest; `[60, 240]` by default."
+        }
+      ]
+    },
+    {
+      "chart": "BubbleChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "sizeKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "sizeRange",
+          "type": "readonly [number, number]",
+          "optional": true,
+          "doc": "Circle area in px², smallest to largest; `[100, 500]` by default."
+        }
+      ]
+    },
+    {
+      "chart": "DonutChart",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "centerValue",
+          "type": "string | number",
+          "optional": true,
+          "doc": "Printed in the centre; the total by default."
+        },
+        {
+          "name": "centerLabel",
+          "type": "string",
+          "optional": true,
+          "doc": "A line under the centre value."
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Names every sector with its share beside the ring; `true` by default."
+        }
+      ]
+    },
+    {
+      "chart": "RadarChart",
+      "own": [
+        {
+          "name": "subjectKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "domain",
+          "type": "readonly [number, number]",
+          "optional": true,
+          "doc": "The value range along a spoke; `[0, the largest value]`, niced, by default."
+        }
+      ]
+    },
+    {
+      "chart": "PolarBarChart",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "RadialArcGroup",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "RadialRings",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "GaugeArc",
+      "own": [
+        {
+          "name": "percent",
+          "type": "number",
+          "optional": true,
+          "doc": "0 to 100; saturated at the ends outside it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "optional": true,
+          "doc": "Names the measure under the readout."
+        },
+        {
+          "name": "readout",
+          "type": "string",
+          "optional": true,
+          "doc": "Printed in place of the percent."
+        }
+      ]
+    },
+    {
+      "chart": "MeterChart",
+      "own": [
+        {
+          "name": "percent",
+          "type": "number",
+          "optional": true,
+          "doc": "0 to 100; saturated at the ends outside it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "optional": true,
+          "doc": "Names the measure under the readout."
+        },
+        {
+          "name": "readout",
+          "type": "string",
+          "optional": true,
+          "doc": "Printed in place of the percent."
+        }
+      ]
+    },
+    {
+      "chart": "CoxcombChart",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "startAngle",
+          "type": "number",
+          "optional": true,
+          "doc": "Where the first sector starts, in degrees clockwise from 12 o'clock; 0 by default."
+        }
+      ]
+    },
+    {
+      "chart": "WindRose",
+      "own": [
+        {
+          "name": "bearingKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Where the wind blows from, in degrees clockwise from north."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "The wind speed; 0 is a calm, which has no direction."
+        },
+        {
+          "name": "sectors",
+          "type": "number",
+          "optional": true,
+          "doc": "Compass sectors: 4, 8, 16 or 32; 16 by default."
+        },
+        {
+          "name": "bins",
+          "type": "readonly number[]",
+          "optional": true,
+          "doc": "Ascending speed thresholds that split each sector; `[5, 10, 15, 20]` by default."
+        }
+      ]
+    },
+    {
+      "chart": "VolvelleChart",
+      "own": [
+        {
+          "name": "rings",
+          "type": "number",
+          "optional": true,
+          "doc": "Rings shown, from the inside out; all by default."
+        },
+        {
+          "name": "indexRing",
+          "type": "number",
+          "optional": true,
+          "doc": "The ring whose segment is brought under the index, 0-based; 0 by default."
+        },
+        {
+          "name": "indexValue",
+          "type": "string",
+          "optional": true,
+          "doc": "The segment of `indexRing` under the index; its first segment by default."
+        }
+      ]
+    },
+    {
+      "chart": "ChordRing",
+      "own": [
+        {
+          "name": "sourceKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "targetKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "maxCategories",
+          "type": "number",
+          "optional": true,
+          "doc": "Categories drawn; past it the smallest merge into \"Other\" (`SP010`). 12 by default."
+        }
+      ]
+    },
+    {
+      "chart": "OrbitChart",
+      "own": [
+        {
+          "name": "orbits",
+          "type": "number",
+          "optional": true,
+          "doc": "Orbits shown, from the inside out; all by default."
+        },
+        {
+          "name": "markerKey",
+          "type": "Accessor<readonly unknown[] | null | undefined>",
+          "optional": true,
+          "doc": "A row's markers; `'markers'` by default."
+        },
+        {
+          "name": "periodKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "A marker's period, 0-1 over the cycle; `'period'` by default."
+        }
+      ]
+    }
+  ]
+}

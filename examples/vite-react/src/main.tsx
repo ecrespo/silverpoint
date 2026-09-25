@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
@@ -45,7 +46,8 @@ import { createRoot } from 'react-dom/client';
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart } as const;
+/** Every chart a fixture can name. A fixture's props fit its own chart; the union cannot say so. */
+const CHARTS: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
 
 function App() {
   if (wantsGallery(location.search)) {
@@ -54,7 +56,7 @@ function App() {
         <h1>silverpoint · Vite + React · gallery</h1>
         <div className="sp-gallery">
           {GALLERY.map(({ chart, props }) => {
-            const Chart = CHARTS[chart as keyof typeof CHARTS];
+            const Chart = CHARTS[chart]!;
             return (
               <div className="sp-harness" data-size="md" key={chart}>
                 <Chart {...props} />
@@ -66,7 +68,7 @@ function App() {
     );
   }
   if (fixture) {
-    const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
+    const FixtureChart = CHARTS[fixture.chart]!;
     return (
       <main>
         <div className="sp-harness" data-gate="" data-size={sizeOf(fixture)}>
