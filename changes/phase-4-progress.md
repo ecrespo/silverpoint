@@ -134,3 +134,14 @@ lint, typecheck, traceability 99/99; no source under `packages/*/src` changed, s
   guarantee and determinism both hold — cost if wrong: a value on an exact half-hundredth of a
   pixel rounds down.
 
+
+## Phase 4 close
+
+T-090 to T-100 done, and the final review closed. The Implementation Plan's Phase 4 Done criteria all
+hold except publishing: WCAG 2.1 AA across the four apps and the site (T-096), REQ-124 in one pass
+(T-095), budgets for the six packages (T-094), the 2 ms and 16 ms benchmarks (T-093), the site
+with its gallery, playground and quickstart (T-097, T-098), and the full matrix nightly (T-091,
+T-092). **`1.0.0` is not yet published (T-101).** Every delta is approved, and the `1.0.0`
+changeset is ready. What remains is outside the repository: the `@silverpoint` npm organisation
+and Trusted Publishing on npmjs.com. Then `pnpm --filter @silverpoint/release run version-packages`
+(the release commit, pushed to `develop`), and `release.yml`.
