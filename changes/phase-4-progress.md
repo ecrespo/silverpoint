@@ -84,3 +84,6 @@ Base: Phase 3 closed at `e9bb182`.
 - **T-099 · Ruling:** `changeset version` is not applied in this commit; the `1.0.0` changeset waits in
   `.changeset/` and becomes the release commit in T-101, after the user approves the PROPOSED deltas,
   because `1.0.0` puts the API Spec in force — cost if wrong: none; the version commit is one command.
+- **Deltas (user, 2026-09-25: "Apruebo los deltas puedes continuar"):** 001-005 and 008-010 move
+  from `PROPOSED` to `APPROVED`; with 006 and 007, all ten await folding into `specs/` when it is
+  writable. T-101's approval prerequisite is met; the npm organisation and Trusted Publishing remain.

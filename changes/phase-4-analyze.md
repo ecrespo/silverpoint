@@ -36,24 +36,24 @@ which is read-only in this checkout, so they are carried with the edit they need
 
 | Delta | Subject | Affects | Status |
 |---|---|---|---|
-| 001 | TypeScript 6 for the Angular 22 build | Constitution stack; TD §10 | `PROPOSED` |
-| 002 | `tslib` in the Angular adapter's runtime allowlist | TD §5.3 | `PROPOSED` |
-| 003 | The client `locale` default | API Spec §5.1 | `PROPOSED` |
-| 004 | Interaction state in the Vue adapter | PRD REQ-108 | `PROPOSED` |
-| 005 | Vue 3.5 floor | Constitution stack; PRD NFR Compatibility | `PROPOSED` |
+| 001 | TypeScript 6 for the Angular 22 build | Constitution stack; TD §10 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 002 | `tslib` in the Angular adapter's runtime allowlist | TD §5.3 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 003 | The client `locale` default | API Spec §5.1 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 004 | Interaction state in the Vue adapter | PRD REQ-108 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 005 | Vue 3.5 floor | Constitution stack; PRD NFR Compatibility | `APPROVED` 2026-09-25; to fold into `specs/` |
 | 006 | Heatmap column labels | API Spec §7 (REQ-084 row); Data Model §2.4 | `APPROVED` 2026-09-24; to fold into `specs/` |
 | 007 | SP002 covers every value a chart cannot draw as given | API Spec §11 (`SP002`) | `APPROVED` 2026-09-24; to fold into `specs/` |
-| 008 | The input shape of SparklineRows | Data Model §2.1, new §2.11 | `PROPOSED` |
-| 009 | How OrbitChart's props read the Orbits shape | Data Model §2.10; API Spec §7 | `PROPOSED` |
-| 010 | The input shape and the alignment of VolvelleChart | Data Model new §2.12; API Spec §7 | `PROPOSED` |
+| 008 | The input shape of SparklineRows | Data Model §2.1, new §2.11 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 009 | How OrbitChart's props read the Orbits shape | Data Model §2.10; API Spec §7 | `APPROVED` 2026-09-25; to fold into `specs/` |
+| 010 | The input shape and the alignment of VolvelleChart | Data Model new §2.12; API Spec §7 | `APPROVED` 2026-09-25; to fold into `specs/` |
 
 The code already behaves as every delta describes; each one records where the approved specs and
-the implementation part ways. **`1.0.0` puts the API Spec in force (TD §9), so T-101 waits on the
-user's decision on the eight `PROPOSED` deltas.** After approval, all ten are folded into
-`specs/` once it is writable, together with B-02 and B-03.
+the implementation part ways. `1.0.0` puts the API Spec in force (TD §9), so T-101 waited on the
+eight deltas that were `PROPOSED` at this run. **The user approved them on 2026-09-25** ("Apruebo
+los deltas puedes continuar"). All ten are to be folded into `specs/` once it is writable,
+together with B-02 and B-03.
 
 ## Result
 
 No MUST requirement is uncited, and nothing blocks. The open items are all outside the code: three
-spec edits (B-02, B-03, the deltas), one repository decision (B-04), and the deltas' approval
-before `1.0.0`.
+spec edits (B-02, B-03, the deltas), and one repository decision (B-04). The deltas are approved.

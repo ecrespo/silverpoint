@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
 | **Affects** | Constitution stack table and PRD NFR Compatibility ("Vue 3.4+") |
 | **Raised by** | Phase 0 final review, 2026-09-24 |
 

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
 | **Affects** | Constitution stack table (TypeScript 5.x); Technical Design §10 (Angular 21 and 22) |
 | **Raised by** | T-001, 2026-09-24 |
 

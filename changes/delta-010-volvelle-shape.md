@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
 | **Affects** | Data Model (a new §2.12); API Spec §7 (`VolvelleChart` row) |
 | **Raised by** | Phase 3, T-081, 2026-09-24 |
 
