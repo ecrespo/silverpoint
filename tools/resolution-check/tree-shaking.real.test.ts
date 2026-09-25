@@ -1,3 +1,4 @@
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rolldown } from 'rolldown';
@@ -17,25 +18,41 @@ async function bundle(entry: string): Promise<string> {
   return output.map((chunk) => ('code' in chunk ? chunk.code : '')).join('\n');
 }
 
-/** Field names found only in one chart's demo, for demos whose rows are numbers and nothing else. */
-const DEMO_FIELDS: Readonly<Record<string, string>> = { WindRose: 'bearing', OrbitChart: 'markers' };
+/** Each chart's demo module source, or `''` for a chart without one. */
+const DEMO_SOURCE: ReadonlyMap<string, string> = new Map(
+  CATALOG.map((c) => {
+    const file = join(repo, 'packages/core/src/charts', c.slug, 'demo.ts');
+    return [c.chart, existsSync(file) ? readFileSync(file, 'utf8') : ''] as const;
+  }),
+);
+const literals = (source: string) => new Set([...source.matchAll(/'([^'\\\n]{3,})'/g)].map((m) => m[1] as string));
+
+/** The string literals of the library itself, demos aside: a demo's "Home" is also a key name. */
+const LIBRARY = (() => {
+  const found = new Set<string>();
+  for (const pkg of ['core', 'react', 'vue', 'angular']) {
+    for (const file of readdirSync(join(repo, 'packages', pkg), { recursive: true, encoding: 'utf8' })) {
+      if (!/\.(ts|tsx|vue)$/.test(file) || file.endsWith('demo.ts') || /(^|\/)(node_modules|dist|test)\//.test(file)) continue;
+      for (const text of literals(readFileSync(join(repo, 'packages', pkg, file), 'utf8'))) found.add(text);
+    }
+  }
+  return found;
+})();
 
 /**
- * The words of each chart's demo table that no other chart's demo uses: if one appears in a bundle
- * of another chart, that demo was not shaken out.
+ * What gives each chart's demo away in a bundle (Phase 3 final review, I-6: words of the demo's
+ * table missed 18 charts). Two signals: the names its module exports (`CHORD_RING_DEMO`), which a
+ * bundler keeps in unminified output unless it inlines the constant; and the string literals of
+ * its rows that no other demo uses, which survive inlining.
  */
-const DEMO_WORDS: ReadonlyMap<string, readonly string[]> = (() => {
-  const context = { id: 'sp-demo-words', width: 320, locale: 'en', emptyState: { text: '', rule: false }, domainPadding: 0.1 };
-  const texts = (c: (typeof CATALOG)[number]) => {
-    const model = c.recipe.build({}, context);
-    return [...model.table.rows.flat(), ...model.geometry.labels.map((l) => l.text)];
-  };
-  // Split into words: a sankey prints "Search 48" and "Search → Visit", never "Search" alone.
-  const words = new Map(CATALOG.map((c) => [c.chart, new Set(texts(c).flatMap((t) => t.split(/[^A-Za-z]+/)).filter((t) => /^[A-Z][a-z]{4,}$/.test(t)))] as const));
-  return new Map(
-    CATALOG.map((c) => [c.chart, [...(words.get(c.chart) ?? [])].filter((w) => CATALOG.every((o) => o.chart === c.chart || !words.get(o.chart)?.has(w)))] as const),
-  );
-})();
+const DEMO_SIGNS: ReadonlyMap<string, { readonly names: readonly string[]; readonly strings: readonly string[] }> = new Map(
+  CATALOG.map((c) => {
+    const source = DEMO_SOURCE.get(c.chart) ?? '';
+    const names = [...source.matchAll(/^export const (\w+)/gm)].map((m) => m[1] as string);
+    const strings = [...literals(source)].filter((text) => !LIBRARY.has(text) && CATALOG.every((o) => o.chart === c.chart || !literals(DEMO_SOURCE.get(o.chart) ?? '').has(text)));
+    return [c.chart, { names, strings }] as const;
+  }),
+);
 
 const ENTRIES = (slug: string) => ({
   'react (client)': `packages/react/dist/${slug}.js`,
@@ -44,15 +61,34 @@ const ENTRIES = (slug: string) => ({
   angular: `packages/angular/dist/fesm2022/silverpoint-angular-${slug}.mjs`,
 });
 
+/** Whether a bundle carries `chart`'s demo dataset. */
+function carriesDemo(chart: string, code: string): boolean {
+  const signs = DEMO_SIGNS.get(chart);
+  if (!signs) return false;
+  return signs.names.some((name) => new RegExp(`\\b${name}\\b`).test(code)) || signs.strings.some((text) => code.includes(`"${text}"`) || code.includes(`'${text}'`));
+}
+
+/** The charts without a demo dataset: a scalar reads one number, shared by the scalar family. */
+const NO_DATASET = ['GaugeArc', 'MeterChart'];
+
+// Phase 3 final review (I-6): the leak check below is only as good as this detector, so it must
+// find every chart's demo in that chart's own bundle — otherwise its absence elsewhere proves nothing.
+test('REQ-164 · every chart but the scalars has a demo module to detect it by', () => {
+  expect(CATALOG.filter((c) => (DEMO_SIGNS.get(c.chart)?.names ?? []).length === 0).map((c) => c.chart)).toEqual(NO_DATASET);
+});
+
+test.each(CATALOG.filter((c) => !NO_DATASET.includes(c.chart)).map((c) => [c.chart, c.slug] as const))(
+  'REQ-164 · the demo of %s is detected in its own bundle',
+  async (chart, slug) => {
+    expect(carriesDemo(chart, await bundle(`packages/react/dist/${slug}.js`))).toBe(true);
+  },
+);
+
 /**
  * REQ-164, PRD NFR "low adoption cost": a consumer importing one chart pays for that chart. The
  * other recipes, and their demo datasets, must shake out of a one-chart bundle, or the 45 KB
  * budget per chart erodes with every chart the catalog adds.
  */
-test('REQ-164 · most demos have words of their own to detect them by', () => {
-  expect(CATALOG.filter((c) => (DEMO_WORDS.get(c.chart) ?? []).length > 0 || c.chart in DEMO_FIELDS).length).toBeGreaterThanOrEqual(CATALOG.length / 3);
-});
-
 describe.each(CATALOG.map((c) => [c.chart, c] as const))('one-chart bundle of %s', (chart, entry) => {
   test.each(Object.entries(ENTRIES(entry.slug)))('REQ-164 · %s carries no other recipe', async (_adapter, file) => {
     const code = await bundle(file);
@@ -60,8 +96,7 @@ describe.each(CATALOG.map((c) => [c.chart, c] as const))('one-chart bundle of %s
     expect(quoted(chart), `${chart} itself`).toBe(true);
     expect(CATALOG.filter((c) => c.chart !== chart && quoted(c.chart)).map((c) => c.chart)).toEqual([]);
     // Demo datasets built through a call the bundler cannot prove pure — a mapped constant, a helper
-    // — stay in every bundle; their field names give them away (seen in Phase 3).
-    expect(Object.entries(DEMO_FIELDS).filter(([owner, field]) => owner !== chart && new RegExp(`\\b${field}\\b`).test(code)).map(([owner]) => owner)).toEqual([]);
-    expect(CATALOG.filter((c) => c.chart !== chart && (DEMO_WORDS.get(c.chart) ?? []).some(quoted)).map((c) => c.chart)).toEqual([]);
+    // — stay in every bundle (seen in Phase 3).
+    expect(CATALOG.filter((c) => c.chart !== chart && carriesDemo(c.chart, code)).map((c) => c.chart)).toEqual([]);
   });
 });

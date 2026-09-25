@@ -76,13 +76,26 @@ function buildChordRing(props: ChordRingProps, context: RecipeContext): ChartMod
   const categories = [...all.filter((c) => kept.has(c)), ...(all.length > most ? [OTHER] : [])];
   const slot = (name: string) => categories.indexOf(kept.has(name) ? name : OTHER);
 
+  // One ribbon per directed pair of categories, in order of its first row. Rows repeating a pair
+  // are summed into one ribbon, and warned; flows merged into "Other" were warned by SP010.
+  const pairs = new Map<string, { i: number; j: number; index: number; value: number }>();
+  const seenPairs = new Map<string, number>();
+  for (const f of flows) {
+    const raw = `${f.source}\u0000${f.target}`;
+    const earlier = seenPairs.get(raw);
+    if (earlier === undefined) seenPairs.set(raw, f.index);
+    else warnValue(CHART, valueName, `Rows ${earlier} and ${f.index} both run ${f.source} → ${f.target}; their values are summed into one ribbon.`);
+    const [i, j] = [slot(f.source), slot(f.target)];
+    const pair = pairs.get(`${i}>${j}`);
+    if (pair) pair.value += f.value;
+    else pairs.set(`${i}>${j}`, { i, j, index: f.index, value: f.value });
+  }
+  const ribbonsInOrder = [...pairs.values()];
+
+  // A ribbon is named by both its ends, as a sankey flow is, so the readout says where it goes.
   const base = modelBase(CHART, props, context, 'Chord ring', {
-    columns: [accessorName(sourceKey, 'source'), accessorName(targetKey, 'target'), valueName],
-    rows: data.map((datum, index) => [
-      formatCategory(read(sourceKey, datum, index), locale),
-      formatCategory(read(targetKey, datum, index), locale),
-      formatValue(finite(read(valueKey, datum, index)), locale, numberFormat),
-    ]),
+    columns: ['flow', valueName],
+    rows: ribbonsInOrder.map((p) => [`${categories[p.i]} → ${categories[p.j]}`, formatValue(p.value, locale, numberFormat)]),
   });
   const size = measure(base, props, context);
   if ('deferred' in size) return size.deferred;
@@ -96,12 +109,7 @@ function buildChordRing(props: ChordRingProps, context: RecipeContext): ChartMod
   // The square matrix is ours (DD-005); d3-chord allocates the angles, one chord per directed cell.
   const n = categories.length;
   const matrix = Array.from({ length: n }, () => new Array<number>(n).fill(0));
-  const first = new Map<string, (typeof flows)[number]>();
-  for (const f of flows) {
-    const [i, j] = [slot(f.source), slot(f.target)];
-    (matrix[i] as number[])[j] = ((matrix[i] as number[])[j] as number) + f.value;
-    if (!first.has(`${i}>${j}`)) first.set(`${i}>${j}`, f);
-  }
+  for (const p of ribbonsInOrder) (matrix[p.i] as number[])[p.j] = p.value;
   const chords = chordDirected().padAngle(PAD)(matrix);
 
   const frame = polarFrame(plot, RIM_LABELS);
@@ -111,17 +119,20 @@ function buildChordRing(props: ChordRingProps, context: RecipeContext): ChartMod
     if (d) strokes.push({ d, role: 'encoding', part: 'ink', tone: ringTone(g.index, n) });
   });
   // Ribbons in the order of their first row, so drawing and keyboard follow the consumer's data.
-  const order = (c: (typeof chords)[number]) => first.get(`${c.source.index}>${c.target.index}`)?.index ?? Number.MAX_SAFE_INTEGER;
+  const order = (c: (typeof chords)[number]) => {
+    const position = ribbonsInOrder.indexOf(pairs.get(`${c.source.index}>${c.target.index}`)!);
+    return position < 0 ? Number.MAX_SAFE_INTEGER : position;
+  };
   for (const c of [...chords].sort((x, y) => order(x) - order(y))) {
     // A ribbon is a surface: hatched in its source's tone, which ties it to the arc it leaves.
     strokes.push({ d: ribbonPath(frame, inner, c.source.startAngle, c.source.endAngle, c.target.startAngle, c.target.endAngle), role: 'encoding', part: 'ink', tone: ringTone(c.source.index, n) });
-    const flow = first.get(`${c.source.index}>${c.target.index}`);
-    if (!flow) continue;
+    const pair = pairs.get(`${c.source.index}>${c.target.index}`);
+    if (!pair) continue;
     // The ribbon's midpoint: a quarter of each end and half the centre, on its quadratic curves.
     const a = pointAt(frame, (c.source.startAngle + c.source.endAngle) / 2, inner);
     const b = pointAt(frame, (c.target.startAngle + c.target.endAngle) / 2, inner);
-    const datum = data[flow.index] ?? {};
-    hitAreas.push({ seriesKey: valueName, index: flow.index, datum, value: c.source.value, x: 0.25 * a.x + 0.5 * frame.cx + 0.25 * b.x, y: 0.25 * a.y + 0.5 * frame.cy + 0.25 * b.y });
+    const datum = data[pair.index] ?? {};
+    hitAreas.push({ seriesKey: valueName, index: ribbonsInOrder.indexOf(pair), datum, value: c.source.value, x: 0.25 * a.x + 0.5 * frame.cx + 0.25 * b.x, y: 0.25 * a.y + 0.5 * frame.cy + 0.25 * b.y });
   }
   labels.push(...rimLabels(frame, chords.groups.map((g) => ({ angle: (g.startAngle + g.endAngle) / 2, text: categories[g.index] as string }))));
 

@@ -100,3 +100,56 @@ Base: `cab2510` (Phase 2 closed at `f9065da`).
 - **T-088 · Ruling:** a mutation batch lost its backups (zsh does not split an unquoted list), so
   the seven mutated files were restored with `git checkout` after checking that their diff held
   the seven mutations and nothing else — cost if wrong: none; backups are now copied one by one.
+
+## Final review (fresh reviewer, Opus, `f9065da..2215bab`)
+
+No Critical findings; six Important, re-graded as Important by effect and fixed in one pass, each
+RED → GREEN in `phase3-charts.test.ts` ("final-review findings") or the tree-shaking gate. Suite
+after the pass: vitest 2584/2584 (gates included), lint and typecheck clean, e2e apps + a11y
+450/450, pixel 1064/1064 in the pinned image. Canonicals changed for the gauge and radial rings
+only (arcs split, same endpoints); no golden changed.
+
+- Final: fixed I-1 a sector of almost the whole turn vanished (its single arc rounded to end where it
+  started) — "I-1 · … no arc ends where it starts" RED → GREEN: every arc past half a turn is drawn
+  as two halves, so the large-arc flag is always 0; the polar unit test that asserted the flag now
+  asserts the split; the gauge and radial-rings demo snapshots and 16 canonicals updated (same
+  endpoints, checked)
+- Final: fixed I-2 the chord readout named the source only — "I-2" RED → GREEN: the table is one
+  row per ribbon, `flow` ("A → B") and value, as the sankey names a flow; the contract's `labelOf`
+  and two chord tests follow the new table
+- Final: fixed I-3 rows repeating a (source, target) pair became one ribbon reachable only through
+  the first row, with a value that disagreed with its readout — "I-3" RED → GREEN: repeated pairs
+  are summed and warned `SP002`, every ribbon is one table row and one hit; the 100-row benchmark
+  dataset now uses 100 distinct pairs
+- Final: fixed I-4 the volvelle read shared boundaries by floating point (6 against 12 segments
+  picked the wrong side) — "I-4" RED → GREEN, brute-forced over 1-12 × 1-24 segments: the segment
+  under the index is found in whole numbers, ⌊(2j+1)·m / 2n⌋
+- Final: fixed I-5 an orbit marker after dropped markers was unreachable by keyboard — "I-5"
+  RED → GREEN: a marker's column counts the kept markers only
+- Final: fixed I-6 the demo-leak check could not detect 18 of the 31 demos — "the demo of %s is
+  detected in its own bundle" RED on 18 → GREEN: a demo is detected by the names its module exports
+  or by string literals no other demo and no library source uses (a demo constant inlined into a
+  family object loses its name); mutation-checked (RadialRings' inner `@__PURE__` removed → 128
+  bundles red)
+- Final: Ruling: the chord table changes from `source, target, value` per data row to `flow, value`
+  per ribbon — the table is the tabular alternative of what is drawn, and a ribbon is what is
+  drawn; merged "Other" flows and repeated pairs appear once, summed — cost if wrong: a table shape
+  to revisit when the API Spec comes into force
+- Final: Ruling: the reviewer's "declined to judge" items (arc flags at exactly π, the `pointsOf`
+  regex, the wind rose's rounding boundary, the adapters' builds, the orbits as ornament, budgets
+  and `groupOrder`) stand: the first three were probed correct by the reviewer, the builds and
+  budgets are covered by the suite above, the orbits by the T-083 ruling — cost if wrong: as stated
+  in those rulings
+- Final: minor (deferred): M-1 a real category named "Other" collides with the merge bucket
+- Final: minor (deferred): M-2 tones are assigned before zero sectors are dropped, so two drawn
+  neighbours can share one (tone is redundant under REQ-124)
+- Final: minor (deferred): M-3 an all-zero radar draws a polygon on a ±0.1 scale; 1-2 subjects draw
+  a degenerate polygon without a warning
+- Final: minor (deferred): M-4 an all-calm wind rose describes "most often from N (0%)"
+- Final: minor (deferred): M-5 the volvelle's `indexRing` counts rings after invalid ones are removed
+- Final: minor (deferred): M-6 `indexRing`/`indexValue` are ignored silently without `data`
+- Final: minor (deferred): M-7 periods 0 and 1 draw two orbit markers at the same point
+- Final: minor (deferred): M-8 a missing sector name becomes "—" without a warning
+- Final: minor (deferred): M-9 no SP008 for volvelle segments per ring; d3 collapses chord angles at
+  `maxCategories` ≥ 158
+- Final: minor (deferred): M-10 the orbit readout omits the period

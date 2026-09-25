@@ -109,7 +109,8 @@ export const POLAR_AT_CEILING: Readonly<Record<string, BenchCase>> = {
   CoxcombChart: bench(coxcombChart, { data: sectors(SECTORS) }),
   WindRose: bench(windRose, { data: rows(POINTS, (i) => ({ bearing: (i * 37) % 360, speed: 1 + (i % 25) })) }),
   VolvelleChart: bench(volvelleChart, { data: [0, 1, 2].map((k) => ({ label: `R${k}`, segments: Array.from({ length: SECTORS / (k + 1) }, (_, i) => label(i)) })) }),
-  ChordRing: bench(chordRing, { data: rows(POINTS, (i) => ({ source: `c${i % 12}`, target: `c${(i * 5 + 1) % 12}`, value: 1 + (i % 9) })) }),
+  // 100 distinct directed pairs over 12 categories: a repeated pair would be summed and warned.
+  ChordRing: bench(chordRing, { data: rows(POINTS, (i) => ({ source: `c${i % 12}`, target: `c${(i % 12 + Math.floor(i / 12) + 1) % 12}`, value: 1 + (i % 9) })) }),
   OrbitChart: bench(orbitChart, { data: [0, 1, 2, 3].map((k) => ({ label: `O${k}`, markers: rows(POINTS / 4, (i) => ({ period: i / 25, value: 1 + ((i + k) % 7) })) })) }),
 };
 

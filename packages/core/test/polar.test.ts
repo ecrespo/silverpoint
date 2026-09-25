@@ -41,8 +41,10 @@ describe('polar frame (T-071)', () => {
     expect(sectorPath(frame, { inner: 0, outer: 40, start: 0, end: Math.PI / 2 })).toBe('M100,20A40,40,0,0,1,140,60L100,60Z');
   });
 
-  test('REQ-075 · a sweep past 180° sets the large-arc flag', () => {
-    expect(sectorPath(frame, { inner: 0, outer: 40, start: 0, end: (3 * Math.PI) / 2 })).toContain('A40,40,0,1,1');
+  test('REQ-075 · a sweep past 180° is drawn as two arcs of at most 180°, never one large arc', () => {
+    const d = sectorPath(frame, { inner: 0, outer: 40, start: 0, end: (3 * Math.PI) / 2 });
+    expect(d.match(/A40,40,0,0,1/g)).toHaveLength(2);
+    expect(d).not.toContain('A40,40,0,1');
   });
 
   test('REQ-079 · a full turn is drawn as two half arcs, never as a degenerate arc', () => {

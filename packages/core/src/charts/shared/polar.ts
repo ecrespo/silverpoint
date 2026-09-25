@@ -41,7 +41,6 @@ export function pointAt(frame: PolarFrame, angle: number, r: number): { x: numbe
   return { x: frame.cx + r * Math.sin(angle), y: frame.cy - r * Math.cos(angle) };
 }
 
-const TAU = 2 * Math.PI;
 /** Below this sweep an arc has no extent to draw. */
 const EPSILON = 1e-9;
 
@@ -50,17 +49,19 @@ const at = (frame: PolarFrame, angle: number, r: number) => {
   return `${p.x},${p.y}`;
 };
 
-/** An arc command from the current point to `end` along radius `r`, in the given direction. */
-function arcTo(frame: PolarFrame, r: number, start: number, end: number, clockwise: boolean): string {
-  const large = Math.abs(end - start) > Math.PI ? 1 : 0;
-  return `A${r},${r},0,${large},${clockwise ? 1 : 0},${at(frame, end, r)}`;
+/** An arc command of at most half a turn from the current point to `end` along radius `r`. */
+function arcTo(frame: PolarFrame, r: number, end: number, clockwise: boolean): string {
+  return `A${r},${r},0,0,${clockwise ? 1 : 0},${at(frame, end, r)}`;
 }
 
-/** An arc along radius `r` from `start` to `end` that never degenerates: a full turn is two halves. */
+/**
+ * An arc along radius `r` from `start` to `end` that never degenerates: past half a turn it is drawn
+ * as two halves, so a sweep near a full turn never rounds to an arc that ends where it starts.
+ */
 function sweep(frame: PolarFrame, r: number, start: number, end: number, clockwise: boolean): string {
-  if (Math.abs(end - start) < TAU - EPSILON) return arcTo(frame, r, start, end, clockwise);
+  if (Math.abs(end - start) <= Math.PI) return arcTo(frame, r, end, clockwise);
   const middle = (start + end) / 2;
-  return arcTo(frame, r, start, middle, clockwise) + arcTo(frame, r, middle, end, clockwise);
+  return arcTo(frame, r, middle, clockwise) + arcTo(frame, r, end, clockwise);
 }
 
 /** An open arc along one radius, from `start` to `end` (clockwise when `end > start`). */

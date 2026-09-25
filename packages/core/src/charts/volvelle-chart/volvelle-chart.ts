@@ -77,7 +77,10 @@ function buildVolvelleChart(props: VolvelleChartProps, context: RecipeContext): 
     segment = 0;
   }
   const indexAngle = turned ? ((segment + 0.5) * 2 * Math.PI) / turned.segments.length : 0;
-  const underIndex = rings.map((r) => Math.min(Math.floor((indexAngle / (2 * Math.PI)) * r.segments.length), r.segments.length - 1));
+  // The segment of each ring holding the index angle, (segment + ½) / n of the turn, found in whole
+  // numbers: a boundary shared by two rings (6 and 12 segments) is read exactly, never by rounding.
+  const n = turned?.segments.length ?? 1;
+  const underIndex = rings.map((r) => Math.floor(((2 * segment + 1) * r.segments.length) / (2 * n)));
   const combined = rings.map((r, k) => `${r.label} ${r.segments[underIndex[k] as number]}`).join(' · ');
 
   const base = modelBase(CHART, props, context, 'Volvelle', {

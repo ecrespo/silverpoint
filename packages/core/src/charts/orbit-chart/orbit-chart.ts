@@ -45,6 +45,9 @@ function buildOrbitChart(props: OrbitChartProps, context: RecipeContext): ChartM
   data.forEach((datum, orbit) => {
     const label = formatCategory(datum.label, locale);
     const list = read(markerKey, datum, orbit);
+    // A marker's keyboard column counts the kept markers only, so a dropped one leaves no gap that
+    // the arrows cannot cross between orbits (REQ-122).
+    let kept = 0;
     (Array.isArray(list) ? list : []).forEach((raw: unknown, column) => {
       const m = (typeof raw === 'object' && raw !== null ? raw : {}) as Datum;
       const period = finite(read(periodKey, m, column));
@@ -55,7 +58,7 @@ function buildOrbitChart(props: OrbitChartProps, context: RecipeContext): ChartM
         warnValue(CHART, periodName, `Marker ${column} of orbit "${label}" needs a period in 0-1 and a value ≥ 0; it is omitted.`);
         return;
       }
-      markers.push({ flat, orbit, column, datum: { orbit: label, ...m }, period, value });
+      markers.push({ flat, orbit, column: kept++, datum: { orbit: label, ...m }, period, value });
     });
   });
 

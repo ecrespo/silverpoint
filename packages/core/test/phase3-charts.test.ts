@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, volvelleChart, windRose, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, readout, stepActive, volvelleChart, windRose, type ActiveItem, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -437,7 +437,8 @@ describe('ChordRing', () => {
     expect(few).toContain('SP010');
     expect(groups(model)).toHaveLength(2);
     expect(texts(model)).toEqual(expect.arrayContaining(['A', 'Other']));
-    expect(model.table.rows).toHaveLength(4);
+    // The table lists the ribbons drawn: A → B and A → C merge into A → Other.
+    expect(model.table.rows).toEqual([['A → Other', '50'], ['Other → A', '10'], ['Other → Other', '5']]);
   });
 
   test('REQ-091 · 12 categories draw without SP010', () => {
@@ -446,10 +447,10 @@ describe('ChordRing', () => {
     expect(seen).not.toContain('SP010');
   });
 
-  test('REQ-121 · the table lists every flow: source, target, value', () => {
+  test('REQ-121 · the table lists every ribbon by both its ends, as the sankey names a flow', () => {
     const model = chordRing.build({ ...bare, data: flows }, context);
-    expect(model.table.columns).toEqual(['source', 'target', 'value']);
-    expect(model.table.rows[0]).toEqual(['A', 'B', '30']);
+    expect(model.table.columns).toEqual(['flow', 'value']);
+    expect(model.table.rows[0]).toEqual(['A → B', '30']);
   });
 });
 
@@ -595,5 +596,106 @@ describe('VolvelleChart', () => {
     const model = volvelleChart.build({ ...bare, data, indexRing: 5, indexValue: 'Sun' }, context);
     expect(texts(model)).toContain('Day Mon · Shift Early');
     expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+/** Phase 3 final review: each finding reproduced before its fix. */
+describe('final-review findings', () => {
+  /** Every arc command of a path, with the point it starts from and the point it ends at. */
+  function arcs(d: string): { from: string; to: string }[] {
+    const out: { from: string; to: string }[] = [];
+    let here = '';
+    for (const [, cmd, args] of d.matchAll(/([MLAQZ])([^MLAQZ]*)/g)) {
+      const n = args!.split(',');
+      if (cmd === 'A') out.push({ from: here, to: `${n[5]},${n[6]}` });
+      if (cmd !== 'Z') here = `${n.at(-2)},${n.at(-1)}`;
+    }
+    return out;
+  }
+  /** Every item the keyboard reaches from Home, following every arrow from every reached item. */
+  function reachable(model: ChartModel): Set<string> {
+    const key = (a: ActiveItem) => `${a.seriesKey}#${a.index}`;
+    const start = stepActive(model.geometry, null, 'Home')!;
+    const seen = new Map([[key(start), start]]);
+    const queue = [start];
+    while (queue.length > 0) {
+      const item = queue.shift()!;
+      for (const k of ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'Home', 'End']) {
+        const next = stepActive(model.geometry, item, k);
+        if (next && !seen.has(key(next))) {
+          seen.set(key(next), next);
+          queue.push(next);
+        }
+      }
+    }
+    return new Set(seen.keys());
+  }
+
+  test('I-1 · REQ-075 · REQ-079 · a sector of almost the whole turn is still drawn: no arc ends where it starts', () => {
+    for (const model of [
+      donutChart.build({ ...bare, data: [{ name: 'big', value: 1e6 }, { name: 'tiny', value: 1 }] }, context),
+      donutChart.build({ ...bare, data: [{ name: 'big', value: 99999 }, { name: 'tiny', value: 1 }] }, context),
+      radialRings.build({ ...bare, data: [{ name: 'Done', value: 99.9999 }] }, context),
+    ]) {
+      // The big sector, drawn first; the tiny one is legitimately too small to draw.
+      const big = encoding(model)[0]!;
+      expect(arcs(big.d).length).toBeGreaterThan(0);
+      for (const a of arcs(big.d)) expect(a.to, `${model.chart}: ${big.d}`).not.toBe(a.from);
+    }
+  });
+
+  test('I-2 · REQ-122 · a chord ribbon is announced by its source and its target', () => {
+    const model = chordRing.build({ ...bare, data: [{ source: 'Home', target: 'Shop', value: 42 }, { source: 'Home', target: 'Blog', value: 28 }] }, context);
+    const said = model.geometry.hitAreas.map((h) => readout(model, { seriesKey: h.seriesKey, index: h.index, datum: h.datum, value: h.value, point: { x: h.x, y: h.y } }).announcement);
+    expect(said[0]).toContain('Shop');
+    expect(said[1]).toContain('Blog');
+  });
+
+  test('I-3 · REQ-091 · REQ-122 · rows repeating a pair are one ribbon, warned, reachable, and read as their sum', () => {
+    const seen = capture();
+    const model = chordRing.build({ ...bare, data: [{ source: 'A', target: 'B', value: 1 }, { source: 'A', target: 'B', value: 9 }, { source: 'B', target: 'A', value: 2 }] }, context);
+    expect(seen).toContain('SP002');
+    const hits = model.geometry.hitAreas;
+    expect(hits).toHaveLength(2);
+    expect(reachable(model).size).toBe(2);
+    for (const h of hits) {
+      const r = readout(model, { seriesKey: h.seriesKey, index: h.index, datum: h.datum, value: h.value, point: { x: h.x, y: h.y } });
+      expect(r.text).toContain(String(h.value));
+    }
+    expect(hits.map((h) => h.value)).toEqual([10, 2]);
+  });
+
+  test('I-4 · REQ-090 · the index reads a boundary exactly: [start, end) in whole segments, never by floating point', () => {
+    // Six segments of 60°; the fourth (index 3) spans 180°-240°, its middle 210°. A ring of twelve
+    // has 210° as the start of its eighth segment (index 7): 210°-240°.
+    const six = ['s0', 's1', 's2', 's3', 's4', 's5'];
+    const twelve = Array.from({ length: 12 }, (_, i) => `t${i}`);
+    const model = volvelleChart.build({ ...bare, data: [{ label: 'Six', segments: six }, { label: 'Twelve', segments: twelve }], indexRing: 0, indexValue: 's3' }, context);
+    expect(texts(model)).toContain('Six s3 · Twelve t7');
+    // Brute force: every pair of ring sizes, every index segment, against exact integer arithmetic.
+    for (let n = 1; n <= 12; n++) {
+      for (let m = 1; m <= 24; m++) {
+        const a = Array.from({ length: n }, (_, i) => `a${i}`);
+        const b = Array.from({ length: m }, (_, i) => `b${i}`);
+        for (let j = 0; j < n; j++) {
+          const built = volvelleChart.build({ ...bare, data: [{ label: 'A', segments: a }, { label: 'B', segments: b }], indexValue: `a${j}` }, context);
+          expect(built.description, `n ${n}, m ${m}, j ${j}`).toContain(`A a${j} · B b${Math.floor(((2 * j + 1) * m) / (2 * n))}`);
+        }
+      }
+    }
+  });
+
+  test('I-5 · REQ-122 · every orbit marker is reachable by keyboard, even after dropped markers', () => {
+    const seen = capture();
+    const model = orbitChart.build({
+      ...bare,
+      data: [
+        { label: 'A', markers: [{ period: 0.1, value: 1 }, { period: 0.2, value: 1 }] },
+        { label: 'B', markers: [{ period: 2, value: 1 }, { period: -1, value: 1 }, { period: 0.5, value: 1 }] },
+      ],
+    }, context);
+    expect(seen).toContain('SP002');
+    expect(model.geometry.hitAreas).toHaveLength(3);
+    expect(reachable(model).size).toBe(3);
   });
 });
