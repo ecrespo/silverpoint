@@ -48,12 +48,13 @@ const version = (dir: string, pkg: string): string =>
   JSON.parse(readFileSync(join(dir, 'packages', pkg, 'package.json'), 'utf8')).version;
 
 describe('Changesets (TD §9)', () => {
-  test('REQ-160 · `changeset version` releases the six packages as 1.0.0, with a changelog entry each', () => {
-    scratch = copyWorkspace();
+  test('REQ-160 · `changeset version` releases the six packages together, with a changelog entry each', () => {
+    scratch = copyWorkspace({ 'one-major.md': "---\n'@silverpoint/core': major\n---\n\nA major release.\n" });
+    const next = `${Number(version(scratch, 'core').split('.')[0]) + 1}.0.0`;
     runVersion(scratch);
     for (const pkg of SIX) {
-      expect(version(scratch, pkg), pkg).toBe('1.0.0');
-      expect(readFileSync(join(scratch, 'packages', pkg, 'CHANGELOG.md'), 'utf8'), pkg).toMatch(/^## 1\.0\.0$/m);
+      expect(version(scratch, pkg), pkg).toBe(next);
+      expect(readFileSync(join(scratch, 'packages', pkg, 'CHANGELOG.md'), 'utf8'), pkg).toContain(`## ${next}`);
     }
     // The private workspace packages (examples, tools, the site) are not versioned.
     expect(JSON.parse(readFileSync(join(scratch, 'tools/release/package.json'), 'utf8')).version).toBe('0.0.0');

@@ -1,17 +1,27 @@
 name: release
 
-# Publishes the six packages with the same version, from CI, with no token in the repository:
-# npm Trusted Publishing authenticates this workflow through GitHub's OIDC token (TD §9).
-# Prerequisites (Implementation Plan §2): the @silverpoint organisation on npm, and each package
-# configured on npmjs.com to trust this repository and workflow.
+# Publishes the six packages with one version on every push to main, from CI, with no token in the
+# repository: npm Trusted Publishing authenticates this workflow through GitHub's OIDC token
+# (TD §9). Only the versions npm does not have yet are published (tools/release/publish.mjs), so a
+# merge into main that does not bump the version publishes nothing, and a re-run is harmless.
+#
+# The release flow: on develop, `pnpm --filter @silverpoint/release run version-packages` consumes
+# the changesets and bumps the six packages; merge develop into main; this workflow runs every CI
+# gate, publishes, then tags `v<version>` and opens the GitHub release from the changelog.
+#
+# Prerequisite outside the repository: each package on npmjs.com trusts this repository, this
+# workflow (release.yml) and the `npm` environment (Settings → Trusted Publisher → GitHub Actions).
 on:
-  workflow_dispatch:
   push:
-    tags: ['v*']
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   # Every gate — lint, contrast, string gate, budgets, traceability, the bench and the pixel
@@ -23,15 +33,36 @@ jobs:
     needs: ci
     runs-on: ubuntu-latest
     environment: npm
+    permissions:
+      # The tag and the GitHub release.
+      contents: write
+      # Trusted Publishing and provenance.
+      id-token: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org
+      # Trusted Publishing needs npm 11.5.1 or later; Node 22 ships npm 10.
+      - run: npm install --global npm@latest
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      # Angular publishes its APF build from dist/ (publishConfig.directory).
-      - run: pnpm --filter "./packages/**" publish --access public --provenance --no-git-checks
+      # Angular is packed from its APF build in dist/ (publishConfig.directory).
+      - id: publish
+        run: node tools/release/publish.mjs
+      - if: steps.publish.outputs.published != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.publish.outputs.version }}
+        run: |
+          tag="v${VERSION}"
+          git tag "$tag" "$GITHUB_SHA"
+          git push origin "$tag"
+          # The release notes are the version's section of the shared changelog.
+          awk -v v="$VERSION" '$0 == "## " v {on=1; next} /^## / {on=0} on' packages/core/CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          gh release create "$tag" --title "$tag" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag

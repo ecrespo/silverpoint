@@ -2,7 +2,8 @@ name: ci
 
 on:
   push:
-    branches: [develop, main]
+    # main is covered by release.yml, which runs this whole pipeline before it publishes.
+    branches: [develop]
   pull_request:
   # The release workflow runs this whole pipeline first (Art. 3: CI blocks the release).
   workflow_call:

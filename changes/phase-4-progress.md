@@ -145,3 +145,32 @@ T-092). **`1.0.0` is not yet published (T-101).** Every delta is approved, and t
 changeset is ready. What remains is outside the repository: the `@silverpoint` npm organisation
 and Trusted Publishing on npmjs.com. Then `pnpm --filter @silverpoint/release run version-packages`
 (the release commit, pushed to `develop`), and `release.yml`.
+
+## T-101 re-scoped (user, 2026-09-25)
+
+The user created the `@silverpoint` organisation on npm and published `0.1.0` of the six packages
+by hand. They then asked for a *minimal* version instead of `1.0.0`: the next release is **`0.1.1`**,
+a patch. The `1.0.0` changeset waits in `changes/release-1.0.0-changeset.md` until the user asks for
+it. Authentication is npm Trusted Publishing, which the user chose.
+
+- **Package pages.** `0.1.0` went out with no README, so every npm page was empty. Each package now
+  has one. The React, Vue and Angular READMEs cover installation, the site's quickstart word for
+  word, a provider, precision mode, interaction with a custom readout, the imperative handle, and
+  server rendering. `tools/release/readmes.test.ts` went RED 15/15 → GREEN. It checks that each page
+  names its install command, gives the site quickstart exactly, and that every `@silverpoint/*`
+  import in a sample is an entry point that exists (mutation-checked: `bar-charts` → red).
+- **Publishing on main.** `release.yml` now runs on every push to `main`. It runs the whole of
+  `ci.yml`, then `tools/release/publish.mjs`, then tags `v<version>` and creates the GitHub release
+  from the changelog. `publish.mjs` packs every public package with `pnpm pack` (Angular from
+  `dist/`) and publishes only the versions npm does not have yet, in dependency order, with
+  `npm publish` over OIDC and with provenance. `ci.yml` no longer runs on pushes to `main`, so CI
+  does not run twice. `publish.test.ts` went RED → GREEN 5/5, and its mutations turn it red (no
+  dependency order; plan inverted; `needs: ci` dropped). `version.test.ts` no longer depends on
+  which changeset is pending.
+- **Suite.** lint, contrast, build, `pnpm -r typecheck`, vitest (browser-free projects) 2791/2791,
+  string gate 792/792, size-limit, traceability 99/99. `publish.mjs --dry-run` against the registry
+  would publish all six at `0.1.1`, each with its README.
+
+T-101 closes when `release.yml` publishes `0.1.1`. Prerequisite on npmjs.com, for each package:
+Settings → Trusted Publisher → GitHub Actions, `ecrespo/silverpoint`, workflow `release.yml`,
+environment `npm`.

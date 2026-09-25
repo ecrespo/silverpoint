@@ -13,6 +13,19 @@ inking switched off entirely.
 
 ![silverpoint, dark and light](docs/assets/probe-silverpoint.png)
 
+## Packages
+
+| Package | |
+|---|---|
+| [`@silverpoint/react`](packages/react/README.md) | React 18.2+ and 19 components, with server entry points for RSC |
+| [`@silverpoint/vue`](packages/vue/README.md) | Vue 3.5 components, with server rendering |
+| [`@silverpoint/angular`](packages/angular/README.md) | Angular 21 and 22 standalone components |
+| [`@silverpoint/grounds`](packages/grounds/README.md) | The grounds and the stylesheet every app imports once |
+| [`@silverpoint/fonts`](packages/fonts/README.md) | Optional self-hosted EB Garamond |
+| [`@silverpoint/core`](packages/core/README.md) | The framework-free engine the adapters share |
+
+Each adapter's README has its installation steps, quickstart and examples.
+
 ## Quickstart (React)
 
 ```sh
@@ -52,5 +65,8 @@ playground and every chart's props. A bundler is required (Vite, Next.js or the 
 
 The specifications live in [`specs/`](specs/): eight Spec-Driven Design artifacts, from the
 constitution through to the Analyze gate.
+
+Releases: see [`.changeset/README.md`](.changeset/README.md). Every merge into `main` publishes
+whatever version npm does not have yet, from CI, with provenance.
 
 MIT. Typeface: EB Garamond, SIL Open Font License.
