@@ -17,3 +17,10 @@ test('REQ-183 · CI runs every vitest project, so no cited test goes unrun', () 
   expect(declared.length).toBeGreaterThan(5);
   expect(declared.filter((name) => !ciProjects().has(name))).toEqual([]);
 });
+
+test('Art. 3 · the contrast gate runs after the build, whose dist/ it imports (a clean checkout has none)', () => {
+  const ci = read('.github/workflows/ci.yml');
+  const build = ci.indexOf('- run: pnpm build');
+  expect(build).toBeGreaterThan(-1);
+  expect(ci.indexOf('tools/contrast-gate/contrast-gate.ts')).toBeGreaterThan(build);
+});

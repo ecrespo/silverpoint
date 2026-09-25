@@ -26,8 +26,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       # REQ-004, REQ-027, REQ-106, REQ-161..163, REQ-034 and the spec corpus gate.
       - run: pnpm lint
-      # REQ-126, REQ-127: every ink of every ground against every substrate.
-      - run: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
       # REQ-044: a PR that touches a ground may not touch the charts.
       # Feature PRs only: a release PR's window legitimately holds many ground and chart changes.
       - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
@@ -40,6 +38,9 @@ jobs:
       - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
         run: node tools/release/check-changeset.mjs origin/${{ github.base_ref }}
       - run: pnpm build
+      # REQ-126, REQ-127: every ink of every ground against every substrate. After the build: it imports
+      # the packages' dist/.
+      - run: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
       # Every package's own typecheck, tests and templates included (vue-tsc, ngc).
       - run: pnpm -r run typecheck
       # Browser-free suites here; the gates that launch Chromium run in the pinned image below.
