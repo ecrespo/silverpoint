@@ -1,7 +1,8 @@
 name: nightly
 
 # TD §9 "Performance · Vitest benchmarks · Nightly": geometry for a 100-point chart against the
-# 2 ms of TD §2. Reported in the job summary, never enforced: shared runners are too noisy.
+# 2 ms of TD §2, and the full initial render of a card against its 16 ms. Reported in the job
+# summary, never enforced: shared runners are too noisy.
 on:
   schedule:
     - cron: '17 3 * * *'
@@ -21,7 +22,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec vitest bench --run packages/core/bench --reporter=default --reporter=json --outputFile.json=bench.json
+      - run: pnpm exec vitest bench --run packages/core/bench packages/grounds/bench --reporter=default --reporter=json --outputFile.json=bench.json
       - run: pnpm exec tsx tools/bench-report/report.ts bench.json >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with:

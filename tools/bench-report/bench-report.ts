@@ -1,11 +1,17 @@
 /**
  * Turns a `vitest bench --reporter=json` run into the nightly performance report (TD §2, TD §9:
- * "Performance · Vitest benchmarks · Nightly"). The budget is reported, never enforced: shared
+ * "Performance · Vitest benchmarks · Nightly"). The budgets are reported, never enforced: shared
  * runners are too noisy for a 2 ms threshold to gate a pull request.
  */
 
 /** PRD NFR Performance: geometry for a 100-point chart in < 2 ms. */
 export const GEOMETRY_BUDGET_MS = 2;
+
+/** PRD NFR Performance: full initial render of a card, inking included, in < 16 ms (one frame). */
+export const RENDER_BUDGET_MS = 16;
+
+/** Render benchmarks are named `render · <Chart>`; every other one times geometry. */
+const budgetOf = (name: string) => (name.startsWith('render · ') ? RENDER_BUDGET_MS : GEOMETRY_BUDGET_MS);
 
 interface Latency {
   readonly mean: number;
@@ -32,21 +38,21 @@ export interface BenchReport {
   readonly markdown: string;
 }
 
-export function benchReport(json: BenchJson, budget = GEOMETRY_BUDGET_MS): BenchReport {
+export function benchReport(json: BenchJson): BenchReport {
   const rows: BenchRow[] = json.testResults
     .flatMap((file) => file.assertionResults ?? [])
     .flatMap((test) => test.benchmarks ?? [])
     .flatMap((b) => b.tasks ?? [])
     .map((task) => ({ name: task.name, mean: task.latency.mean, p99: task.latency.p99, samplesCount: task.latency.samplesCount }))
     .sort((a, b) => b.mean - a.mean);
-  const over = rows.filter((r) => r.mean > budget).map((r) => r.name);
-  const head = `# Geometry benchmark — TD §2\n\nBudget: ${budget} ms of geometry for a 100-point chart (PRD NFR Performance). Reported, not enforced.\n\n`;
+  const over = rows.filter((r) => r.mean > budgetOf(r.name)).map((r) => r.name);
+  const head = `# Performance benchmarks — TD §2\n\nBudgets (PRD NFR Performance): ${GEOMETRY_BUDGET_MS} ms of geometry for a 100-point chart; ${RENDER_BUDGET_MS} ms for the full initial render of a card, inking included (\`render · …\`). Reported, not enforced.\n\n`;
   if (rows.length === 0) return { rows, over, markdown: `${head}No benchmark results in this run.\n` };
   const table = [
-    '| Chart | mean (ms) | p99 (ms) | samples | budget |',
-    '|---|---|---|---|---|',
-    ...rows.map((r) => `| ${r.name} | ${r.mean.toFixed(3)} | ${r.p99.toFixed(3)} | ${r.samplesCount} | ${r.mean > budget ? '**over**' : 'within'} |`),
+    '| Benchmark | mean (ms) | p99 (ms) | samples | budget | verdict |',
+    '|---|---|---|---|---|---|',
+    ...rows.map((r) => `| ${r.name} | ${r.mean.toFixed(3)} | ${r.p99.toFixed(3)} | ${r.samplesCount} | ${budgetOf(r.name)} ms | ${r.mean > budgetOf(r.name) ? '**over**' : 'within'} |`),
   ].join('\n');
-  const verdict = over.length === 0 ? 'Every chart is within budget.' : `Over budget: ${over.join(', ')}.`;
+  const verdict = over.length === 0 ? 'Every benchmark is within budget.' : `Over budget: ${over.join(', ')}.`;
   return { rows, over, markdown: `${head}${table}\n\n${verdict}\n` };
 }

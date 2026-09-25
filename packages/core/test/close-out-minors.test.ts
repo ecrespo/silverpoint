@@ -8,6 +8,7 @@ import {
   donutChart,
   funnelChart,
   radarChart,
+  sankeyChart,
   sparklineRows,
   streamChart,
   volvelleChart,
@@ -174,3 +175,12 @@ describe('Phase 3 minors', () => {
     expect(encoding(model).filter((s) => !s.d.includes('Q'))).toHaveLength(200);
   });
 });
+
+describe('found by the render benchmark (T-093)', () => {
+  test('REQ-008 · a sankey whose layers have room warns nothing: a one-node layer has no gap to narrow', () => {
+    const seen = capture();
+    sankeyChart.build({ ...bare, data: [{ source: 'A', target: 'B', value: 5 }, { source: 'A', target: 'C', value: 3 }] }, context);
+    expect(codes(seen)).toEqual([]);
+  });
+});
+

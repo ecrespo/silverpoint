@@ -131,7 +131,8 @@ function buildSankeyChart(props: SankeyChartProps, context: RecipeContext): Char
   // Gaps between nodes take at most half the height, so a crowded layer still leaves room for
   // its flows; one scale for every layer then lets the fullest layer fill the height.
   const gapOf = (count: number) => (count > 1 ? Math.min(NODE_GAP, (plot.height * MAX_GAP_SHARE) / (count - 1)) : 0);
-  const crowded = layers.filter((layer) => gapOf(layer.length) < NODE_GAP);
+  // A one-node layer has no gap to narrow, so it is never crowded.
+  const crowded = layers.filter((layer) => layer.length > 1 && gapOf(layer.length) < NODE_GAP);
   if (crowded.length > 0) {
     warnValue(CHART, accessorName(targetKey, 'target'), `A layer of ${Math.max(...crowded.map((l) => l.length))} nodes is crowded; its gaps are narrowed to fit.`);
   }

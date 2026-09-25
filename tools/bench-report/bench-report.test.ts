@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { benchReport, GEOMETRY_BUDGET_MS } from './bench-report';
+import { benchReport, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS } from './bench-report';
 
 /** The shape `vitest bench --reporter=json` writes: each test case carries its benchmarks. */
 const run = (means: Record<string, number>) => ({
@@ -22,13 +22,21 @@ describe('bench report (TD §2, run nightly)', () => {
     const report = benchReport(run({ LineChart: 0.26, FunnelChart: 3.5 }));
     expect(report.rows.map((r) => r.name)).toEqual(['FunnelChart', 'LineChart']);
     expect(report.over).toEqual(['FunnelChart']);
-    expect(report.markdown).toContain('| FunnelChart | 3.500 | 7.000 | 500 | **over** |');
-    expect(report.markdown).toContain('| LineChart | 0.260 | 0.520 | 500 | within |');
+    expect(report.markdown).toContain('| FunnelChart | 3.500 | 7.000 | 500 | 2 ms | **over** |');
+    expect(report.markdown).toContain('| LineChart | 0.260 | 0.520 | 500 | 2 ms | within |');
   });
 
   test('TD §2 · a run without benchmarks is reported as such, never as a pass', () => {
     const report = benchReport({ testResults: [] });
     expect(report.rows).toEqual([]);
     expect(report.markdown).toMatch(/no benchmark results/i);
+  });
+
+  test('TD §2 · a render benchmark is held to 16 ms, a geometry one to 2 ms (T-093)', () => {
+    expect(RENDER_BUDGET_MS).toBe(16);
+    const report = benchReport(run({ 'render · DonutChart': 9.5, 'render · WindRose': 17, LineChart: 2.5 }));
+    expect(report.over.sort()).toEqual(['LineChart', 'render · WindRose']);
+    expect(report.markdown).toContain('| render · DonutChart | 9.500 | 19.000 | 500 | 16 ms | within |');
+    expect(report.markdown).toContain('| LineChart | 2.500 | 5.000 | 500 | 2 ms | **over** |');
   });
 });

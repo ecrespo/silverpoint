@@ -8,6 +8,7 @@ Base: Phase 3 closed at `e9bb182`.
 | T-090 | done | (this commit) | 27 deferred minors triaged: 22 fixed test-first, 7 ruled (below). `close-out-minors.test.ts` RED 19 → GREEN (M1-M8, M-1..M-9; two tests corrected before any fix: an empty chart is `ready` with an `empty` label, and SP009 throws); M7 strengthened and mutation-checked (stacking disabled → red); traceability RED 2 → GREEN (skipped titles cite nothing; an empty PRD fails); pixel count guard mutation-checked (empty `FIXTURES` → 0 ≠ 264); markup-injection lint RED 5 → GREEN, then it caught the canonical page, rewritten with `DOMParser` + `importNode`; consumer id RED → GREEN (sanitised, SP002); React 18: the whole React suite runs on React 18.3 (385/385) as project `react-18`, with a guard mutation-checked (alias removed → 19 ≠ 18). Suite: vitest 3002/3002, lint, typecheck, traceability 99/99, size-limit, e2e 450/450, pixel 1068/1068; no canonical changed |
 | T-091 | done | (this commit) | `fixtures.test.ts` "the full matrix" RED (264 ≠ 1,584; no `ALL_FIXTURES`) → the generator writes 33 × 2 × 4 × 2 × 3 = 1,584 cells (22 MB on disk); `loadFixtures()` keeps the PR slice (264), `loadFixtures('full')` all; the harness exports `ALL_FIXTURES` and `fixtureById` finds any cell; every canonical of the full matrix is checked current on every PR (tools 301/301 in 3.3 s) |
 | T-092 | done | (this commit) | e2e "a sm/lg fixture lays out in a sm/lg container" RED in 4 apps (`md` hard-coded) → `sizeOf` in the harness, used by the four apps and the canonical page (12/12); `matrixScope` (`SP_MATRIX`, an unknown value throws) RED → GREEN; the string gate over the full matrix: 4,752 comparisons, 0 failures (18 s); the pixel gate over the full matrix in the pinned image: 6,348/6,348 (10.7 min); `nightly.yml` gains the `matrix` job; PR run unchanged: e2e 458/458, pixel 1068/1068, vitest 3008/3008 |
+| T-093 | done | (this commit) | bench report RED (one budget) → `render · …` benchmarks held to 16 ms, geometry to 2 ms; `packages/grounds/bench` (a card per catalog chart: resolve, build, ink, round, serialise) with a dataset test RED on the missing module → GREEN after **a real bug it found**: the sankey counted a one-node layer as "crowded" and warned SP002 on its own demo (hidden by diagnostic de-duplication) — RED → GREEN in `close-out-minors.test.ts`; measured: 33 cards within 16 ms (slowest ActivityGrid 1.23 ms), 27 geometry benchmarks within 2 ms (slowest 0.67 ms); nightly runs both |
 
 ## Rulings
 
@@ -51,3 +52,7 @@ Base: Phase 3 closed at `e9bb182`.
   the PR cells already catch, while geometry drift in every cell is caught by the committed
   canonicals — cost if wrong: a size- or fill-specific CSS regression surfaces as a difference
   between adapters only if it hits them unequally; ~40 MB of goldens would close it.
+- **T-093 · Ruling:** "full initial render of a card" is timed through the render pipeline every
+  adapter calls — resolve, build, ink, round, serialise — without a framework's DOM work, which
+  Art. 2 keeps a translation; timing it would time React, Vue and Angular — cost if wrong: an
+  adapter whose DOM work alone approaches 16 ms goes unmeasured.
