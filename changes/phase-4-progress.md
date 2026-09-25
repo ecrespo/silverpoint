@@ -74,3 +74,7 @@ Base: Phase 3 closed at `e9bb182`.
 - **T-098 · Ruling:** `README.md` is read-only in this checkout (like `specs/`), so the quickstart
   lives in the site only; the README change is proposed to the user in the phase summary — cost if
   wrong: the repository's front page still says "In specification".
+- **T-098 · README (user, 2026-09-24: "Ya cambié los permisos del README.md. Actualiza el archivo
+  README.md"):** the README's "In specification" note is replaced by the React quickstart, written
+  from `docs/site/src/quickstart.ts`; `tools/quickstart/readme.test.ts` RED → GREEN holds them equal.
+  Supersedes the T-098 README ruling.
