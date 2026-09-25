@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/fonts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Optional. Self-hosted EB Garamond (400, 500, 400 italic, latin subset) and its @font-face rules.",
   "license": "MIT AND OFL-1.1",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React adapter of silverpoint: translates core geometry into JSX, and nothing else.",
   "license": "MIT",
   "type": "module",

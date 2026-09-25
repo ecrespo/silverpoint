@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/grounds",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Declarative style grounds of silverpoint: tokens, inkers and the stylesheet.",
   "license": "MIT",
   "type": "module",
