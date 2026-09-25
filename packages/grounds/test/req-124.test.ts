@@ -1,6 +1,6 @@
 import type { HitArea, TextLabel } from '@silverpoint/core';
 import { describe, expect, test } from 'vitest';
-import { AFTER_LINE_CHART, catalogEntry } from '../../../tools/visual-gate/catalog';
+import { AFTER_LINE_CHART, CATALOG, catalogEntry } from '../../../tools/visual-gate/catalog';
 import { renderChart } from '../src';
 
 /**
@@ -22,7 +22,7 @@ const near = (a: number, b: number, tolerance = 0.03) => Math.abs(a - b) <= tole
 
 describe('REQ-124 · the data survives precision mode through a non-hatch channel', () => {
   test('precision mode draws no hatching for any chart', () => {
-    for (const { chart } of AFTER_LINE_CHART) {
+    for (const { chart } of CATALOG) {
       const model = render(chart, {});
       expect(model.geometry.strokes.filter((s) => s.role === 'hatch'), chart).toEqual([]);
       expect(model.geometry.defs, chart).toEqual([]);
@@ -187,11 +187,13 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
   // Phase 3 (T-088): the polar charts. Written after the recipes; each was mutation-checked.
 
   test('DonutChart · every sector is named with its share, and its sweep is its share of the turn', () => {
-    const data = [{ name: 'A', value: 50 }, { name: 'B', value: 30 }, { name: 'C', value: 20 }];
+    // A sweeps past half a turn: drawn as two arcs, it must still measure 70 % of the turn.
+    const data = [{ name: 'A', value: 70 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }];
     const model = render('DonutChart', { data });
-    expect(texts(model)).toEqual(expect.arrayContaining(['A', '50%', 'B', '30%', 'C', '20%']));
+    expect(texts(model)).toEqual(expect.arrayContaining(['A', '70%', 'B', '20%', 'C', '10%']));
     const sweeps = sectorSweeps(model);
-    expect(near(sweeps[0]! / sweeps[1]!, 50 / 30)).toBe(true);
+    expect(near(sweeps[0]! / sweeps[1]!, 70 / 20)).toBe(true);
+    expect(near(sweeps[0]! / (2 * Math.PI), 0.7)).toBe(true);
   });
 
   test('RadarChart · a value is its distance along its spoke', () => {
@@ -260,17 +262,21 @@ function distanceFromCentre(model: Rendered, hit: HitArea): number {
   return Math.hypot(hit.x - (plot.x + plot.width / 2), hit.y - (plot.y + plot.height / 2));
 }
 
-/** Sweeps of the donut's sectors, read from the angle between each outer arc's two ends. */
+/**
+ * Sweeps of the donut's sectors: the outer arcs run from the start to the first `L`, each at most
+ * half a turn (a longer sweep is drawn as two), so each arc's angle is read from its chord.
+ */
 function sectorSweeps(model: Rendered): number[] {
   return encodings(model).map((s) => {
-    const points = [...s.d.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MLAZ])/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
-    const inner = [...s.d.matchAll(/A([\d.]+),/g)].map((m) => Number(m[1]));
-    const [p0, p1] = points;
-    const chord = Math.hypot(p1!.x - p0!.x, p1!.y - p0!.y);
-    const r = Math.max(...inner);
-    const large = /A[\d.]+,[\d.]+,0,1,/.test(s.d);
-    const a = 2 * Math.asin(Math.min(chord / (2 * r), 1));
-    return large ? 2 * Math.PI - a : a;
+    const outer = s.d.split('L')[0] ?? '';
+    const points = [...outer.matchAll(/(-?[\d.]+),(-?[\d.]+)(?=[MAZ]|$)/g)].map((m) => ({ x: Number(m[1]), y: Number(m[2]) }));
+    const r = Number(/A([\d.]+),/.exec(outer)?.[1]);
+    let sweep = 0;
+    for (let k = 1; k < points.length; k++) {
+      const chord = Math.hypot(points[k]!.x - points[k - 1]!.x, points[k]!.y - points[k - 1]!.y);
+      sweep += 2 * Math.asin(Math.min(chord / (2 * r), 1));
+    }
+    return sweep;
   });
 }
 
@@ -328,3 +334,61 @@ describe('REQ-124 · a dotted series is not drawn over by a solid outline', () =
     }
   });
 });
+
+/**
+ * T-095: REQ-124 over the whole catalog in one pass, not chart by chart. A chart that tells items
+ * apart by tone must say, on paper and without hatching, what the tone says. Each such chart
+ * declares the channel that does, and the channel is checked in precision on its demo; a chart
+ * that starts toning items without declaring one fails the first test.
+ */
+describe('REQ-124 · one pass over the catalog', () => {
+  const toneCount = (chart: string) => {
+    const inked = renderChart(catalogEntry(chart).recipe, { width: 320, height: 150 }, { id: `sp-124-tones-${chart}` });
+    return new Set(inked.geometry.strokes.filter((s) => s.role === 'encoding' && (s.tone ?? 0) > 0).map((s) => s.tone)).size;
+  };
+  const printed = (model: Rendered, name: string) => texts(model).some((t) => t === name || t.startsWith(`${name} `) || t.includes(` ${name}`));
+  const firstColumn = (model: Rendered) => model.table.rows.map((row) => row[0] ?? '');
+  const flowEnds = (model: Rendered) => [...new Set(firstColumn(model).flatMap((flow) => flow.split(' → ')))];
+  const seriesColumns = (model: Rendered, from: number) => model.table.columns.slice(from);
+  const dotted = (model: Rendered) => encodings(model).some((s) => s.dash === 'dotted');
+
+  /** The non-hatch channel of every chart that tones its items, as the three phase reviews found it. */
+  const IDENTITY: Readonly<Record<string, { readonly channel: string; readonly holds: (model: Rendered) => boolean }>> = {
+    PyramidChart: { channel: 'every tier named and its width printed', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    HeatmapChart: {
+      channel: 'every value printed in its cell, or carried by cell size',
+      holds: (m) => m.description.includes('cell size') || m.table.rows.every((row) => row.slice(1).every((v) => v === '—' || texts(m).includes(v))),
+    },
+    TreemapChart: { channel: 'every tile named with its share', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    SankeyChart: { channel: 'every node named, flows read by thickness', holds: (m) => flowEnds(m).every((n) => printed(m, n)) },
+    ActivityGrid: {
+      channel: 'the level carried by cell size',
+      holds: (m) => {
+        const level = new Map(m.table.rows.map((row, i) => [i, Number(row[2])]));
+        const width = new Map<number, number>();
+        for (const hit of m.geometry.hitAreas) width.set(level.get(hit.index) ?? 0, box(hit).width);
+        const levels = [...width.keys()].sort((a, b) => a - b);
+        return levels.length > 1 && levels.every((l, k) => k === 0 || (width.get(l) ?? 0) > (width.get(levels[k - 1] ?? 0) ?? 0));
+      },
+    },
+    BarChart: { channel: 'the secondary series dotted', holds: dotted },
+    StackedBarChart: { channel: 'every key named in stack order (the ruled limit: a gap in a stack)', holds: (m) => seriesColumns(m, 1).every((k) => printed(m, k)) },
+    WaterfallChart: { channel: 'rises and falls printed with their sign', holds: (m) => texts(m).filter((t) => /^[+−-]\d/.test(t)).length >= m.table.rows.filter((row) => row[2] !== '—').length },
+    FunnelChart: { channel: 'every stage named with its share', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    StreamChart: { channel: 'the second wave dotted, both named', holds: (m) => dotted(m) && seriesColumns(m, 1).every((k) => printed(m, k)) },
+    DonutChart: { channel: 'every sector named with its share in the legend (the ruled limit: a square card has no legend)', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    CoxcombChart: { channel: 'every sector named at the rim', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    WindRose: { channel: 'every speed bin named in stack order (the ruled limit: a gap in a stack)', holds: (m) => seriesColumns(m, 2).every((b) => printed(m, b)) },
+    ChordRing: { channel: 'every category named at its arc', holds: (m) => flowEnds(m).every((n) => printed(m, n)) },
+  };
+
+  test('every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {
+    const toned = CATALOG.filter((c) => toneCount(c.chart) > 1).map((c) => c.chart).sort();
+    expect(toned).toEqual(Object.keys(IDENTITY).sort());
+  });
+
+  test.each(Object.entries(IDENTITY).map(([chart, i]) => [chart, i.channel, i.holds] as const))('%s · in precision, %s', (chart, _channel, holds) => {
+    expect(holds(render(chart, {}))).toBe(true);
+  });
+});
+
