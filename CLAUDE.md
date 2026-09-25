@@ -40,6 +40,43 @@ active proposals. Work of medium-feature size or larger needs an approved spec b
 implementation (Art. 9). Every MUST carries a `REQ-NNN`; every task and every test cites
 the requirement it implements or verifies.
 
+## Releasing the next version
+
+The six packages (`core`, `grounds`, `react`, `vue`, `angular`, `fonts`) share **one
+version** (Changesets `fixed` group) and are published **only by CI**, never by hand.
+
+1. **Every change that touches `packages/` adds a changeset** on its branch (CI refuses a PR
+   into `develop` without one):
+   ```sh
+   pnpm --filter @silverpoint/release exec changeset          # patch / minor / major + summary
+   pnpm --filter @silverpoint/release exec changeset --empty  # nothing to release
+   ```
+   A change to the normalised SVG output is **never a patch**.
+2. **Release commit, on `develop`.** It consumes the changesets, bumps all six and writes the
+   changelogs:
+   ```sh
+   pnpm --filter @silverpoint/release run version-packages   # NOT `exec changeset version`
+   git add -A packages .changeset && git commit -m "chore(release): version packages X.Y.Z"
+   git push origin develop                                   # directly, not as a PR
+   ```
+   Push it directly: as a PR, the changeset check would refuse it, because it deletes the
+   changesets. Wait for `ci` on `develop` to be green.
+3. **Publish:** `git push origin develop:main` (fast-forward). `release.yml` runs every CI gate,
+   then `tools/release/publish.mjs` publishes the versions npm does not have yet, in dependency
+   order, through npm Trusted Publishing with provenance (no token). It then tags `vX.Y.Z` and
+   creates the GitHub release from `packages/core/CHANGELOG.md`. A push that bumps nothing
+   publishes nothing, and re-running a failed release is safe.
+4. **Verify** against the registry, not with `npm view`: the local `.npmrc` sets
+   `minimum-release-age`, which hides fresh versions, and the registry index lags a few minutes.
+   ```sh
+   curl -s https://registry.npmjs.org/@silverpoint%2Freact/X.Y.Z -o /dev/null -w "%{http_code}\n"
+   ```
+
+**`1.0.0`** puts the API Spec in force. Its changeset waits in
+`changes/release-1.0.0-changeset.md`; move it back into `.changeset/` to cut it.
+If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Actions,
+`ecrespo/silverpoint`, `release.yml`, environment `npm`) before its first CI release.
+
 ## Status
 
 | Artifact | Status |
