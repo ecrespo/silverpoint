@@ -34,6 +34,10 @@ jobs:
       # …and on direct pushes to develop, over the pushed range.
       - if: github.event_name == 'push' && github.ref == 'refs/heads/develop' && github.event.before != '0000000000000000000000000000000000000000'
         run: node tools/lint-rules/check-ground-pr.mjs ${{ github.event.before }}
+      # TD §9, REQ-160: a feature PR that touches packages/ carries a changeset. A release PR
+      # into main has consumed them with `changeset version`, so it is not checked.
+      - if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+        run: node tools/release/check-changeset.mjs origin/${{ github.base_ref }}
       - run: pnpm build
       # Every package's own typecheck, tests and templates included (vue-tsc, ngc).
       - run: pnpm -r run typecheck

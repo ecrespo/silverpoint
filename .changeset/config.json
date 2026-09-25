@@ -1,0 +1,19 @@
+{
+  "$schema": "../tools/release/node_modules/@changesets/config/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [
+    [
+      "@silverpoint/core",
+      "@silverpoint/grounds",
+      "@silverpoint/react",
+      "@silverpoint/angular",
+      "@silverpoint/vue",
+      "@silverpoint/fonts"
+    ]
+  ],
+  "access": "public",
+  "baseBranch": "develop",
+  "updateInternalDependencies": "patch",
+  "format": false
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@silverpoint/release",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TD §9: Changesets, one shared version for the six packages, and the PR check for a changeset.",
+  "type": "module",
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3"
+  }
+}
