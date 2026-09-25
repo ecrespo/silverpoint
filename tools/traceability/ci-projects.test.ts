@@ -24,3 +24,9 @@ test('Art. 3 · the contrast gate runs after the build, whose dist/ it imports (
   expect(build).toBeGreaterThan(-1);
   expect(ci.indexOf('tools/contrast-gate/contrast-gate.ts')).toBeGreaterThan(build);
 });
+
+test('Art. 3 · the gates run one file at a time: one rewrites a real manifest that the others read', () => {
+  const config = read('vitest.config.ts');
+  const gates = config.slice(config.indexOf("name: 'gates'"));
+  expect(gates.slice(0, gates.indexOf('globalSetup'))).toMatch(/fileParallelism: false/);
+});

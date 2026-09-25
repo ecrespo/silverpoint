@@ -13,12 +13,19 @@ interface Result { name: string; passed: boolean; size: number }
 
 function sizeLimit(config?: string): { status: number; results: Result[] } {
   const args = ['--json', ...(config ? ['--config', config] : [])];
+  let status = 0;
+  let stdout: string;
   try {
-    return { status: 0, results: JSON.parse(execFileSync(bin, args, { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })) };
+    stdout = execFileSync(bin, args, { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
   } catch (error) {
     const failure = error as { status: number; stdout: string };
-    return { status: failure.status, results: JSON.parse(failure.stdout) };
+    status = failure.status;
+    stdout = failure.stdout;
   }
+  const parsed: unknown = JSON.parse(stdout);
+  // size-limit reports a failure to measure as `{ "error": "…" }`: show it, not a TypeError.
+  if (!Array.isArray(parsed)) throw new Error(`size-limit could not measure: ${JSON.stringify(parsed)}`);
+  return { status, results: parsed as Result[] };
 }
 
 const config = JSON.parse(readFileSync(join(repo, '.size-limit.json'), 'utf8')) as Entry[];

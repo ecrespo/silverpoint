@@ -99,6 +99,9 @@ export default defineConfig({
           // After the unit projects, never beside them: one gate rewrites a real manifest to prove
           // the stylesheet check, which a parallel manifest test would read mid-change.
           sequence: { groupOrder: 1 },
+          // One file at a time, too: resolution.real.test.ts rewrites packages/grounds/package.json,
+          // and size-limit's esbuild in budget.real.test.ts read it half-written on CI.
+          fileParallelism: false,
           root: 'tools',
           environment: 'node',
           include: ['**/*.real.test.ts'],
