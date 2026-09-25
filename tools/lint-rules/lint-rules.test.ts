@@ -68,6 +68,18 @@ describe('adapter-boundary', () => {
     ]);
   });
 
+  test("REQ-106 · TypeScript's `import x = require('d3-scale')` in an adapter fails", async () => {
+    expect(await rulesHit('packages/react/src/x.ts', "import d3 = require('d3-scale');\nexport const s = d3.scaleLinear;")).toEqual([
+      'silverpoint/adapter-boundary',
+    ]);
+  });
+
+  test("REQ-106 · a type query `import('d3-scale').T` in an adapter fails", async () => {
+    expect(await rulesHit('packages/vue/src/x.ts', "export type S = import('d3-scale').ScaleLinear<number, number>;")).toEqual([
+      'silverpoint/adapter-boundary',
+    ]);
+  });
+
   test('REQ-106 · a d3 import inside a Vue SFC fails', async () => {
     const sfc = "<script setup lang=\"ts\">\nimport { line } from 'd3-shape';\nline();\n</script>\n<template><svg /></template>\n";
     expect(await rulesHit('packages/vue/src/X.vue', sfc)).toEqual(['silverpoint/adapter-boundary']);

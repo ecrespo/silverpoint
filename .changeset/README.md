@@ -11,7 +11,7 @@ released together with one version (TD §9), fixed as one group in `config.json`
 ```sh
 pnpm --filter @silverpoint/release exec changeset          # add a changeset
 pnpm --filter @silverpoint/release exec changeset --empty  # a change with nothing to release
-pnpm --filter @silverpoint/release exec changeset version  # the release commit: versions and changelogs
+pnpm --filter @silverpoint/release run version-packages    # the release commit: versions and changelogs
 ```
 
 Publishing is `release.yml`'s, from CI with Trusted Publishing.

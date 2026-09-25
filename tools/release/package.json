@@ -2,8 +2,11 @@
   "name": "@silverpoint/release",
   "version": "0.0.0",
   "private": true,
-  "description": "TD §9: Changesets, one shared version for the six packages, and the PR check for a changeset.",
+  "description": "TD \u00a79: Changesets, one shared version for the six packages, and the PR check for a changeset.",
   "type": "module",
+  "scripts": {
+    "version-packages": "node version.mjs"
+  },
   "devDependencies": {
     "@changesets/cli": "^3.0.3"
   }

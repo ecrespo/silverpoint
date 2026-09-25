@@ -21,7 +21,7 @@ const box = (hit: HitArea) => {
 const near = (a: number, b: number, tolerance = 0.03) => Math.abs(a - b) <= tolerance * Math.max(Math.abs(a), Math.abs(b), 1);
 
 describe('REQ-124 · the data survives precision mode through a non-hatch channel', () => {
-  test('precision mode draws no hatching for any chart', () => {
+  test('REQ-124 · precision mode draws no hatching for any chart', () => {
     for (const { chart } of CATALOG) {
       const model = render(chart, {});
       expect(model.geometry.strokes.filter((s) => s.role === 'hatch'), chart).toEqual([]);
@@ -29,14 +29,14 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     }
   });
 
-  test('BulletChart · each actual is printed, and the bar length is proportional to it', () => {
+  test('REQ-124 · BulletChart · each actual is printed, and the bar length is proportional to it', () => {
     const model = render('BulletChart', {});
     const [first, ...rest] = model.geometry.hitAreas;
     for (const hit of model.geometry.hitAreas) expect(texts(model)).toContain(String(hit.value));
     for (const hit of rest) expect(near(box(hit).width / hit.value, box(first!).width / first!.value)).toBe(true);
   });
 
-  test('PyramidChart · each width is printed and drawn as length; a consumer tone is printed', () => {
+  test('REQ-124 · PyramidChart · each width is printed and drawn as length; a consumer tone is printed', () => {
     const data = [{ label: 'A', width: 30, tone: 1 }, { label: 'B', width: 60, tone: 4 }];
     const model = render('PyramidChart', { data, toneKey: 'tone' });
     const [a, b] = model.geometry.hitAreas;
@@ -44,7 +44,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(near(box(b!).width, 2 * box(a!).width)).toBe(true);
   });
 
-  test('HeatmapChart · every cell prints its own value at its centre', () => {
+  test('REQ-124 · HeatmapChart · every cell prints its own value at its centre', () => {
     const model = render('HeatmapChart', {});
     for (const hit of model.geometry.hitAreas) {
       const cell = box(hit);
@@ -55,7 +55,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     }
   });
 
-  test('TreemapChart · every tile prints its share inside itself; a consumer tone is printed', () => {
+  test('REQ-124 · TreemapChart · every tile prints its share inside itself; a consumer tone is printed', () => {
     const data = [{ label: 'A', share: 60, cols: 3, rows: 2, tone: 2 }, { label: 'B', share: 40, cols: 3, rows: 2 }];
     const model = render('TreemapChart', { data, columns: 6, rows: 2 });
     for (const hit of model.geometry.hitAreas) {
@@ -66,7 +66,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(texts(model)).toContain('tone 2');
   });
 
-  test('SankeyChart · band thickness is proportional to the flow, and node throughput is printed', () => {
+  test('REQ-124 · SankeyChart · band thickness is proportional to the flow, and node throughput is printed', () => {
     const model = render('SankeyChart', {});
     const bands = model.geometry.strokes.filter((s) => s.role === 'encoding' && s.d.includes('C'));
     const thickness = (d: string) => Number(/V([\d.]+)/.exec(d)?.[1]) - Number(/C[\d.]+,[\d.]+,[\d.]+,[\d.]+,[\d.]+,([\d.]+)/.exec(d)?.[1]);
@@ -75,7 +75,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(texts(model).some((t) => /^Visit \d/.test(t))).toBe(true);
   });
 
-  test('ActivityGrid · the level is carried by the cell size: a higher level is a larger cell', () => {
+  test('REQ-124 · ActivityGrid · the level is carried by the cell size: a higher level is a larger cell', () => {
     const model = render('ActivityGrid', {});
     const sizeOf = new Map<number, number>();
     for (const hit of model.geometry.hitAreas) sizeOf.set(Number(hit.datum.level), box(hit).width);
@@ -86,22 +86,22 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
 
   // Phase 2 (T-069): the cartesian charts. Written after the recipes; each was mutation-checked.
 
-  test('StepChart · every value is a height on a linear scale', () => {
+  test('REQ-124 · StepChart · every value is a height on a linear scale', () => {
     expect(linearInValue(render('StepChart', {}).geometry.hitAreas)).toBe(true);
   });
 
-  test('SparklineRows · every row prints its readout, the last value when none is given', () => {
+  test('REQ-124 · SparklineRows · every row prints its readout, the last value when none is given', () => {
     const model = render('SparklineRows', {});
     expect(texts(model)).toEqual(expect.arrayContaining(['API', '99.9%', 'Queue', '17']));
   });
 
-  test('KpiCard · the delta is printed with its sign, and the series is a height', () => {
+  test('REQ-124 · KpiCard · the delta is printed with its sign, and the series is a height', () => {
     const model = render('KpiCard', {});
     expect(texts(model)).toContain('+8.2');
     expect(linearInValue(model.geometry.hitAreas)).toBe(true);
   });
 
-  test('BarChart · the secondary series is dotted and named; bar length is proportional to the value', () => {
+  test('REQ-124 · BarChart · the secondary series is dotted and named; bar length is proportional to the value', () => {
     const model = render('BarChart', {});
     const secondary = encodings(model).filter((s) => s.part === 'ink-secondary');
     expect(secondary.length).toBeGreaterThan(0);
@@ -110,7 +110,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     proportional(model.geometry.hitAreas, (hit) => box(hit).height);
   });
 
-  test('StackedBarChart · the keys are named in stack order, and each segment height is its value', () => {
+  test('REQ-124 · StackedBarChart · the keys are named in stack order, and each segment height is its value', () => {
     const model = render('StackedBarChart', {});
     expect(texts(model).slice(0, 3)).toEqual(['free', 'pro', 'team']);
     proportional(model.geometry.hitAreas, (hit) => box(hit).height);
@@ -119,7 +119,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     for (let k = 1; k < first.length; k += 1) expect(box(first[k]!).y).toBeLessThan(box(first[k - 1]!).y);
   });
 
-  test('ComposedChart · bars and line differ in shape, and each is named', () => {
+  test('REQ-124 · ComposedChart · bars and line differ in shape, and each is named', () => {
     const model = render('ComposedChart', {});
     const bars = encodings(model).filter((s) => s.part === 'ink');
     const line = encodings(model).filter((s) => s.part === 'ink-secondary');
@@ -129,7 +129,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(texts(model)).toEqual(expect.arrayContaining(['revenue', 'margin']));
   });
 
-  test('WaterfallChart · rises and falls print their sign; totals print unsigned', () => {
+  test('REQ-124 · WaterfallChart · rises and falls print their sign; totals print unsigned', () => {
     const model = render('WaterfallChart', {});
     const printed = texts(model);
     for (const hit of model.geometry.hitAreas) {
@@ -138,13 +138,13 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     }
   });
 
-  test('FunnelChart · each stage prints its value and share, and its width is proportional to the value', () => {
+  test('REQ-124 · FunnelChart · each stage prints its value and share, and its width is proportional to the value', () => {
     const model = render('FunnelChart', {});
     expect(texts(model)).toEqual(expect.arrayContaining(['12,400', '100%', '980', '8%']));
     proportional(model.geometry.hitAreas, (hit) => box(hit).width);
   });
 
-  test('CandlestickChart · a falling candle is solid and a rising one hollow: fill, not hatch', () => {
+  test('REQ-124 · CandlestickChart · a falling candle is solid and a rising one hollow: fill, not hatch', () => {
     const data = [
       { time: 'a', open: 10, high: 14, low: 9, close: 13 },
       { time: 'b', open: 13, high: 13.5, low: 8, close: 9 },
@@ -154,31 +154,31 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(bodies.map((s) => s.paint ?? 'outline')).toEqual(['outline', 'fill']);
   });
 
-  test('AreaChart · the exact line on top carries every value as a height', () => {
+  test('REQ-124 · AreaChart · the exact line on top carries every value as a height', () => {
     const model = render('AreaChart', {});
     expect(encodings(model).some((s) => s.part === 'ink' && s.tone === undefined && s.paint === undefined)).toBe(true);
     expect(linearInValue(model.geometry.hitAreas)).toBe(true);
   });
 
-  test('RangeBandChart · the low edge is dotted, the high edge solid; both are heights', () => {
+  test('REQ-124 · RangeBandChart · the low edge is dotted, the high edge solid; both are heights', () => {
     const model = render('RangeBandChart', {});
     const edges = encodings(model).filter((s) => s.part === 'ink' && s.paint === undefined);
     expect(edges.map((s) => s.dash ?? 'solid').sort()).toEqual(['dotted', 'solid']);
     expect(linearInValue(model.geometry.hitAreas)).toBe(true);
   });
 
-  test('StreamChart · the second wave is dotted and named', () => {
+  test('REQ-124 · StreamChart · the second wave is dotted and named', () => {
     const model = render('StreamChart', {});
     const lines = encodings(model).filter((s) => s.paint === undefined);
     expect(lines.map((s) => `${s.part}:${s.dash ?? 'solid'}`)).toEqual(['ink:solid', 'ink-secondary:dotted']);
     expect(texts(model)).toEqual(expect.arrayContaining(['organic', 'paid']));
   });
 
-  test('ScatterChart · every point sits at its value on a linear scale', () => {
+  test('REQ-124 · ScatterChart · every point sits at its value on a linear scale', () => {
     expect(linearInValue(render('ScatterChart', {}).geometry.hitAreas)).toBe(true);
   });
 
-  test('BubbleChart · every bubble has one tone, and its area grows with its size', () => {
+  test('REQ-124 · BubbleChart · every bubble has one tone, and its area grows with its size', () => {
     const model = render('BubbleChart', {});
     expect(new Set(encodings(model).map((s) => s.tone))).toEqual(new Set([1]));
     const bySize = [...model.geometry.hitAreas].sort((a, b) => Number(a.datum.size) - Number(b.datum.size));
@@ -186,7 +186,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
   });
   // Phase 3 (T-088): the polar charts. Written after the recipes; each was mutation-checked.
 
-  test('DonutChart · every sector is named with its share, and its sweep is its share of the turn', () => {
+  test('REQ-124 · DonutChart · every sector is named with its share, and its sweep is its share of the turn', () => {
     // A sweeps past half a turn: drawn as two arcs, it must still measure 70 % of the turn.
     const data = [{ name: 'A', value: 70 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }];
     const model = render('DonutChart', { data });
@@ -196,38 +196,38 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(near(sweeps[0]! / (2 * Math.PI), 0.7)).toBe(true);
   });
 
-  test('RadarChart · a value is its distance along its spoke', () => {
+  test('REQ-124 · RadarChart · a value is its distance along its spoke', () => {
     const model = render('RadarChart', { data: [{ subject: 'A', value: 10 }, { subject: 'B', value: 5 }, { subject: 'C', value: 2.5 }], domain: [0, 10] });
     const [a, b, c] = model.geometry.hitAreas.map((h) => distanceFromCentre(model, h));
     expect(near(b! / a!, 0.5)).toBe(true);
     expect(near(c! / a!, 0.25)).toBe(true);
   });
 
-  test('PolarBarChart · a bar’s length out from the hole is proportional to its value, and every bar is named', () => {
+  test('REQ-124 · PolarBarChart · a bar’s length out from the hole is proportional to its value, and every bar is named', () => {
     const model = render('PolarBarChart', { data: [{ name: 'A', value: 40 }, { name: 'B', value: 20 }, { name: 'C', value: 10 }] });
     const [a, b, c] = model.geometry.hitAreas.map((h) => distanceFromCentre(model, h));
     expect(near((a! - b!) / (b! - c!), 20 / 10)).toBe(true);
     expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C']));
   });
 
-  test('RadialArcGroup · RadialRings · every track is named with its value beside it', () => {
+  test('REQ-124 · RadialArcGroup · RadialRings · every track is named with its value beside it', () => {
     expect(texts(render('RadialArcGroup', { data: [{ name: 'A', value: 80 }, { name: 'B', value: 40 }] }))).toEqual(expect.arrayContaining(['A', '80', 'B', '40']));
     expect(texts(render('RadialRings', { data: [{ name: 'A', value: 80 }, { name: 'B', value: 40 }] }))).toEqual(expect.arrayContaining(['A', '80%', 'B', '40%']));
   });
 
-  test('GaugeArc · MeterChart · the percent is printed', () => {
+  test('REQ-124 · GaugeArc · MeterChart · the percent is printed', () => {
     expect(texts(render('GaugeArc', { percent: 37 }))).toContain('37%');
     expect(texts(render('MeterChart', { percent: 64 }))).toContain('64%');
   });
 
-  test('CoxcombChart · every sector is named, and its radius is the square root of its value', () => {
+  test('REQ-124 · CoxcombChart · every sector is named, and its radius is the square root of its value', () => {
     const model = render('CoxcombChart', { data: [{ name: 'A', value: 100 }, { name: 'B', value: 25 }] });
     expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B']));
     const radii = encodings(model).map((s) => Number(/A([\d.]+),/.exec(s.d)?.[1]));
     expect(near(radii[1]! / radii[0]!, 0.5)).toBe(true);
   });
 
-  test('WindRose · every speed bin is named with its share, calmest first, and the calms are printed', () => {
+  test('REQ-124 · WindRose · every speed bin is named with its share, calmest first, and the calms are printed', () => {
     const model = render('WindRose', { bins: [5, 10] });
     const printed = texts(model);
     expect(printed).toEqual(expect.arrayContaining(['< 5', '5–10', '≥ 10']));
@@ -235,12 +235,12 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(printed.some((t) => /^calm \d+%$/.test(t))).toBe(true);
   });
 
-  test('VolvelleChart · what the index shows is printed, not only toned', () => {
+  test('REQ-124 · VolvelleChart · what the index shows is printed, not only toned', () => {
     const model = render('VolvelleChart', { data: [{ label: 'Day', segments: ['Mon', 'Tue'] }, { label: 'Shift', segments: ['Early', 'Late'] }], indexValue: 'Tue' });
     expect(texts(model)).toContain('Day Tue · Shift Late');
   });
 
-  test('ChordRing · every category is named at its arc, and a ribbon’s ends span angles proportional to its flow', () => {
+  test('REQ-124 · ChordRing · every category is named at its arc, and a ribbon’s ends span angles proportional to its flow', () => {
     const model = render('ChordRing', { data: [{ source: 'A', target: 'B', value: 30 }, { source: 'A', target: 'C', value: 10 }] });
     expect(texts(model)).toEqual(expect.arrayContaining(['A', 'B', 'C']));
     const ribbons = encodings(model).filter((s) => s.d.includes('Q'));
@@ -248,7 +248,7 @@ describe('REQ-124 · the data survives precision mode through a non-hatch channe
     expect(near(spans[0]! / spans[1]!, 3)).toBe(true);
   });
 
-  test('OrbitChart · a marker’s area is its value; every orbit is named', () => {
+  test('REQ-124 · OrbitChart · a marker’s area is its value; every orbit is named', () => {
     const model = render('OrbitChart', { data: [{ label: 'In', markers: [{ period: 0, value: 4 }, { period: 0.5, value: 1 }] }, { label: 'Out', markers: [] }] });
     const [big, small] = model.geometry.hitAreas;
     expect(near((box(big!).width / box(small!).width) ** 2, 4)).toBe(true);
@@ -320,7 +320,7 @@ describe('REQ-124 · a dotted series is not drawn over by a solid outline', () =
     ['StreamChart', 'precision'],
     ['RangeBandChart', 'ink'],
     ['RangeBandChart', 'precision'],
-  ] as const)('%s, %s', (chart, mode) => {
+  ] as const)('REQ-124 · %s, %s', (chart, mode) => {
     const model = render(chart, { mode });
     const dotted = model.geometry.strokes.filter((s) => s.role === 'encoding' && s.dash === 'dotted');
     expect(dotted.length).toBeGreaterThan(0);
@@ -382,12 +382,12 @@ describe('REQ-124 · one pass over the catalog', () => {
     ChordRing: { channel: 'every category named at its arc', holds: (m) => flowEnds(m).every((n) => printed(m, n)) },
   };
 
-  test('every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {
+  test('REQ-124 · every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {
     const toned = CATALOG.filter((c) => toneCount(c.chart) > 1).map((c) => c.chart).sort();
     expect(toned).toEqual(Object.keys(IDENTITY).sort());
   });
 
-  test.each(Object.entries(IDENTITY).map(([chart, i]) => [chart, i.channel, i.holds] as const))('%s · in precision, %s', (chart, _channel, holds) => {
+  test.each(Object.entries(IDENTITY).map(([chart, i]) => [chart, i.channel, i.holds] as const))('REQ-124 · %s · in precision, %s', (chart, _channel, holds) => {
     expect(holds(render(chart, {}))).toBe(true);
   });
 });

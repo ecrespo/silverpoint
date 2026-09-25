@@ -10,7 +10,9 @@ import { afterEach, describe, expect, test } from 'vitest';
  * tree: the release version and the shared-version rule are what TD §9 fixes.
  */
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const BIN = join(ROOT, 'tools/release/node_modules/.bin/changeset');
+/** The documented release step (`.changeset/README.md`), pointed at the scratch copy. */
+const VERSION = join(ROOT, 'tools/release/version.mjs');
+const runVersion = (dir: string) => execFileSync(process.execPath, [VERSION, dir], { cwd: join(ROOT, 'tools/release'), stdio: 'pipe' });
 const SIX = ['angular', 'core', 'fonts', 'grounds', 'react', 'vue'];
 const WORKSPACE_DIRS = ['packages', 'examples', 'tools'];
 
@@ -48,7 +50,7 @@ const version = (dir: string, pkg: string): string =>
 describe('Changesets (TD §9)', () => {
   test('REQ-160 · `changeset version` releases the six packages as 1.0.0, with a changelog entry each', () => {
     scratch = copyWorkspace();
-    execFileSync(BIN, ['version'], { cwd: scratch, stdio: 'pipe' });
+    runVersion(scratch);
     for (const pkg of SIX) {
       expect(version(scratch, pkg), pkg).toBe('1.0.0');
       expect(readFileSync(join(scratch, 'packages', pkg, 'CHANGELOG.md'), 'utf8'), pkg).toMatch(/^## 1\.0\.0$/m);
@@ -60,8 +62,16 @@ describe('Changesets (TD §9)', () => {
   test('REQ-160 · TD §9 · the six packages share one version: a patch to one releases all six', () => {
     scratch = copyWorkspace({ 'one-patch.md': "---\n'@silverpoint/fonts': patch\n---\n\nA patch to the fonts alone.\n" });
     const before = version(scratch, 'core');
-    execFileSync(BIN, ['version'], { cwd: scratch, stdio: 'pipe' });
+    runVersion(scratch);
     const [major, minor, patch] = before.split('.').map(Number);
     for (const pkg of SIX) expect(version(scratch, pkg), pkg).toBe(`${major}.${minor}.${patch + 1}`);
   }, 60_000);
+
+  test('REQ-160 · TD §9 · the README documents the release step as the script this suite runs', () => {
+    const readme = readFileSync(join(ROOT, '.changeset/README.md'), 'utf8');
+    expect(readme).toContain('pnpm --filter @silverpoint/release run version-packages');
+    expect(readme).not.toMatch(/exec changeset version/);
+    const manifest = JSON.parse(readFileSync(join(ROOT, 'tools/release/package.json'), 'utf8'));
+    expect(manifest.scripts?.['version-packages']).toBe('node version.mjs');
+  });
 });

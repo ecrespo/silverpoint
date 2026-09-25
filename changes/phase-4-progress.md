@@ -5,7 +5,7 @@ Base: Phase 3 closed at `e9bb182`.
 
 | Task | State | Commit | Evidence |
 |---|---|---|---|
-| T-090 | done | (this commit) | 27 deferred minors triaged: 22 fixed test-first, 7 ruled (below). `close-out-minors.test.ts` RED 19 → GREEN (M1-M8, M-1..M-9; two tests corrected before any fix: an empty chart is `ready` with an `empty` label, and SP009 throws); M7 strengthened and mutation-checked (stacking disabled → red); traceability RED 2 → GREEN (skipped titles cite nothing; an empty PRD fails); pixel count guard mutation-checked (empty `FIXTURES` → 0 ≠ 264); markup-injection lint RED 5 → GREEN, then it caught the canonical page, rewritten with `DOMParser` + `importNode`; consumer id RED → GREEN (sanitised, SP002); React 18: the whole React suite runs on React 18.3 (385/385) as project `react-18`, with a guard mutation-checked (alias removed → 19 ≠ 18). Suite: vitest 3002/3002, lint, typecheck, traceability 99/99, size-limit, e2e 450/450, pixel 1068/1068; no canonical changed |
+| T-090 | done | (this commit) | 28 deferred minors triaged (Phase 0's second list 10, Phase 2 8, Phase 3 10): 21 fixed test-first, 7 ruled (below); Phase 0's first list of 6 was missed here and closed in the final-review fix pass (below). `close-out-minors.test.ts` RED 19 → GREEN (M1-M8, M-1..M-9; two tests corrected before any fix: an empty chart is `ready` with an `empty` label, and SP009 throws); M7 strengthened and mutation-checked (stacking disabled → red); traceability RED 2 → GREEN (skipped titles cite nothing; an empty PRD fails); pixel count guard mutation-checked (empty `FIXTURES` → 0 ≠ 264); markup-injection lint RED 5 → GREEN, then it caught the canonical page, rewritten with `DOMParser` + `importNode`; consumer id RED → GREEN (sanitised, SP002); React 18: the whole React suite runs on React 18.3 (385/385) as project `react-18`, with a guard mutation-checked (alias removed → 19 ≠ 18). Suite: vitest 3002/3002, lint, typecheck, traceability 99/99, size-limit, e2e 450/450, pixel 1068/1068; no canonical changed |
 | T-091 | done | (this commit) | `fixtures.test.ts` "the full matrix" RED (264 ≠ 1,584; no `ALL_FIXTURES`) → the generator writes 33 × 2 × 4 × 2 × 3 = 1,584 cells (22 MB on disk); `loadFixtures()` keeps the PR slice (264), `loadFixtures('full')` all; the harness exports `ALL_FIXTURES` and `fixtureById` finds any cell; every canonical of the full matrix is checked current on every PR (tools 301/301 in 3.3 s) |
 | T-092 | done | (this commit) | e2e "a sm/lg fixture lays out in a sm/lg container" RED in 4 apps (`md` hard-coded) → `sizeOf` in the harness, used by the four apps and the canonical page (12/12); `matrixScope` (`SP_MATRIX`, an unknown value throws) RED → GREEN; the string gate over the full matrix: 4,752 comparisons, 0 failures (18 s); the pixel gate over the full matrix in the pinned image: 6,348/6,348 (10.7 min); `nightly.yml` gains the `matrix` job; PR run unchanged: e2e 458/458, pixel 1068/1068, vitest 3008/3008 |
 | T-093 | done | (this commit) | bench report RED (one budget) → `render · …` benchmarks held to 16 ms, geometry to 2 ms; `packages/grounds/bench` (a card per catalog chart: resolve, build, ink, round, serialise) with a dataset test RED on the missing module → GREEN after **a real bug it found**: the sankey counted a one-node layer as "crowded" and warned SP002 on its own demo (hidden by diagnostic de-duplication) — RED → GREEN in `close-out-minors.test.ts`; measured: 33 cards within 16 ms (slowest ActivityGrid 1.23 ms), 27 geometry benchmarks within 2 ms (slowest 0.67 ms); nightly runs both |
@@ -87,3 +87,50 @@ Base: Phase 3 closed at `e9bb182`.
 - **Deltas (user, 2026-09-25: "Apruebo los deltas puedes continuar"):** 001-005 and 008-010 move
   from `PROPOSED` to `APPROVED`; with 006 and 007, all ten await folding into `specs/` when it is
   writable. T-101's approval prerequisite is met; the npm organisation and Trusted Publishing remain.
+
+## Final review (fresh reviewer, range `e9bb182..01efe4c`)
+
+No correctness bug in the shipped library code, no constitution violation. 2 Important, 4 Minor.
+Every one is closed below: fixed test-first, or ruled. Suite after the fix pass: vitest 3082/3082,
+lint, typecheck, traceability 99/99; no source under `packages/*/src` changed, so e2e and pixel
+(509/509 and 1068/1068 at T-096) stand.
+
+- **Important 1 · fixed:** the documented release step `pnpm --filter @silverpoint/release exec
+  changeset version` fails: Changesets 3.0.3 reads `.changeset/` from its working directory, which
+  `--filter … exec` sets to `tools/release`. `tools/release/version.mjs` runs it from the root, as the
+  `version-packages` script; `version.test.ts` now runs that script and holds the README to it. RED 3 →
+  GREEN; the literal `pnpm --filter @silverpoint/release run version-packages <scratch>` was run
+  on a scratch copy: six packages at `1.0.0`, the real tree untouched.
+- **Important 2 · fixed:** the `docs` vitest project, which holds the committed props reference
+  current (T-097), never ran in CI. `tools/traceability/ci-projects.test.ts`: every project of
+  `vitest.config.ts` appears in a `vitest run --project` step of `ci.yml`. RED (`docs`) → GREEN.
+- **Minor 4 · fixed:** 34 test titles in `packages/grounds/test/req-124.test.ts` cited REQ-124 only in
+  their `describe`, which traceability does not read; each title now starts `REQ-124 · `.
+- **Minor 5 · fixed:** the T-090 row's counts (27 = 22 + 7) did not add up; recounted above. The
+  recount found Phase 0's first list of minors (six items) never dispositioned:
+  - **fixed** `import x = require('d3-scale')` and the type query `import('d3-scale').T` evaded the
+    import rules: `lint-rules.test.ts` RED 2 → GREEN (`TSImportEqualsDeclaration`, `TSImportType`);
+  - **fixed** `checkConditionOrder` did not recurse into nested condition objects:
+    `check-deps.test.ts` RED 2 → GREEN (a first version passed for the wrong reason, a missing
+    top-level `types`, and was tightened before the fix);
+  - **fixed** `pnpm audit` in CI: nightly job `audit` (`--prod --audit-level high`; clean today);
+  - **ruled** below: the ground check's subdirectory convention, the `@silverpoint/source`
+    condition, `round2(1.005)`.
+- **Ruling (Minor 3):** Angular's Escape listener is a `(document:keydown)` host listener for the
+  chart's life, checking `active()` inside, where React and Vue attach theirs only while an item is
+  active; the behaviour is the same, and the examples are zoneless — cost if wrong: in an app on
+  zone.js every keypress runs change detection once per chart (OnPush, so the check is shallow).
+- **Ruling (Minor 6):** the release commit (`version-packages`) is pushed to `develop` directly or
+  made on a release branch into `main`, never as a PR into `develop`, whose changeset check would
+  refuse a commit that deletes the changeset it consumes — cost if wrong: one refused PR.
+- **Ruling (Phase 0 minor):** the REQ-044 ground check recognises a ground as a directory under
+  `grounds/src`, the only form a ground takes (`silverpoint/`; `ink/` excluded) — cost if wrong: a
+  ground added as a single file escapes the check.
+- **Ruling (Phase 0 minor):** the `@silverpoint/source` export condition stays in the published
+  manifests: only the workspace's tooling sets that condition, and stripping it would publish a
+  manifest other than the tested one — cost if wrong: a consumer who sets it resolves to an
+  unpublished `src/` and the build fails loudly.
+- **Ruling (Phase 0 minor):** `round2(1.005)` gives `1` (binary floating point); the ≤ 2-decimals
+  guarantee and determinism both hold — cost if wrong: a value on an exact half-hundredth of a
+  pixel rounds down.
+

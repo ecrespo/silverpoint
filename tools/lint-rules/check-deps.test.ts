@@ -108,6 +108,22 @@ describe('check-deps', () => {
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*types/);
   });
 
+  test('REQ-163 · a nested condition object is checked too: types after import inside `node` fails', () => {
+    const manifests = replace(valid(), '@silverpoint/core', (m) => ({
+      ...m,
+      exports: { '.': { types: './dist/index.d.ts', node: { import: './dist/node.js', types: './dist/node.d.ts' }, default: './dist/index.js' } },
+    }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*"\. › node".*types/);
+  });
+
+  test('REQ-163 · a nested condition object is checked too: default shadowing inside `browser` fails', () => {
+    const manifests = replace(valid(), '@silverpoint/core', (m) => ({
+      ...m,
+      exports: { '.': { types: './dist/index.d.ts', browser: { default: './dist/b.js', import: './dist/b.js' }, default: './dist/index.js' } },
+    }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*"\. › browser".*shadows "import"/);
+  });
+
   test('REQ-163 · a library without an exports map fails', () => {
     const manifests = replace(valid(), '@silverpoint/core', ({ exports: _exports, ...rest }) => rest);
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/core.*exports/);

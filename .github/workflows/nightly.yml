@@ -29,6 +29,18 @@ jobs:
           name: bench
           path: bench.json
 
+  # Advisories against what the six packages ship (Phase 0 minor): nightly, not per PR, because
+  # the advisory database changes under an unchanged lockfile.
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm audit --prod --audit-level high
+
   # Data Model §5, TD §8: the full 1,584-fixture matrix — 33 charts × 2 modes × 4 substrates ×
   # 2 hatchFill × 3 sizes — through the string gate (REQ-180) and the pixel gate (REQ-181), on the
   # same pinned rasteriser as the PR job. The PR runs the md + tile slice only.

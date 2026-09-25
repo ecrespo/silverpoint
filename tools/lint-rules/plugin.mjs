@@ -38,6 +38,11 @@ function onImport(report) {
     CallExpression(node) {
       if (node.callee.type === 'Identifier' && node.callee.name === 'require') check(node, node.arguments[0]);
     },
+    // TypeScript's `import x = require('m')` and the type query `import('m').T`.
+    TSImportEqualsDeclaration(node) {
+      if (node.moduleReference.type === 'TSExternalModuleReference') check(node, node.moduleReference.expression);
+    },
+    TSImportType: (node) => check(node, node.argument?.literal ?? node.argument),
   };
 }
 

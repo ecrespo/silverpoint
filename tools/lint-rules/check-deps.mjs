@@ -32,23 +32,27 @@ const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts'];
 
 function checkConditionOrder(name, exports, problems) {
   if (typeof exports !== 'object' || exports === null) return;
-  for (const [subpath, target] of Object.entries(exports)) {
-    if (typeof target !== 'object' || target === null) continue;
-    const keys = Object.keys(target);
-    const code = ['import', 'default'].filter((key) => typeof target[key] === 'string' && target[key].endsWith('.js'));
-    if (code.length > 0) {
-      const types = keys.indexOf('types');
-      if (types === -1 || code.some((key) => keys.indexOf(key) < types)) {
-        problems.push(`REQ-163 · ${name}: exports "${subpath}" must list "types" before ${code.map((k) => `"${k}"`).join(' and ')}.`);
-      }
-    }
-    const position = keys.indexOf('default');
-    if (position !== -1 && position !== keys.length - 1) {
-      problems.push(
-        `REQ-163 · ${name}: in exports "${subpath}" the "default" condition shadows ${keys.slice(position + 1).map((k) => `"${k}"`).join(', ')}; it must come last.`,
-      );
+  for (const [subpath, target] of Object.entries(exports)) checkConditions(name, subpath, target, problems);
+}
+
+/** One condition object, and every condition object nested in it (`"node": { … }`). */
+function checkConditions(name, path, target, problems) {
+  if (typeof target !== 'object' || target === null) return;
+  const keys = Object.keys(target);
+  const code = ['import', 'default'].filter((key) => typeof target[key] === 'string' && target[key].endsWith('.js'));
+  if (code.length > 0) {
+    const types = keys.indexOf('types');
+    if (types === -1 || code.some((key) => keys.indexOf(key) < types)) {
+      problems.push(`REQ-163 · ${name}: exports "${path}" must list "types" before ${code.map((k) => `"${k}"`).join(' and ')}.`);
     }
   }
+  const position = keys.indexOf('default');
+  if (position !== -1 && position !== keys.length - 1) {
+    problems.push(
+      `REQ-163 · ${name}: in exports "${path}" the "default" condition shadows ${keys.slice(position + 1).map((k) => `"${k}"`).join(', ')}; it must come last.`,
+    );
+  }
+  for (const key of keys) checkConditions(name, `${path} › ${key}`, target[key], problems);
 }
 
 /** Returns one line per problem found across the manifests; empty when all pass. */
