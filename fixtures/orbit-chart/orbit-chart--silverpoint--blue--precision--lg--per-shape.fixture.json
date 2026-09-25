@@ -1,0 +1,22 @@
+{
+  "chart": "OrbitChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "orbit-chart--silverpoint--blue--precision--lg--per-shape",
+  "req": "REQ-092",
+  "seed": 1592,
+  "props": {
+    "title": "Releases",
+    "badge": "3 years",
+    "footerLeft": "by day of the year",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "orbit-chart/orbit-chart--silverpoint--blue--precision--lg--per-shape.canonical.txt"
+}

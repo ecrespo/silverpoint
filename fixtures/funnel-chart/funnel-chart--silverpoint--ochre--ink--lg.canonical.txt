@@ -1,0 +1,91 @@
+<svg aria-labelledby="funnel-chart--silverpoint--ochre--ink--lg-title funnel-chart--silverpoint--ochre--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="funnel-chart--silverpoint--ochre--ink--lg-title">
+    "Checkout funnel"
+  <desc id="funnel-chart--silverpoint--ochre--ink--lg-desc">
+    "Checkout funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."
+  <defs>
+    <pattern height="50" id="funnel-chart--silverpoint--ochre--ink--lg-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="funnel-chart--silverpoint--ochre--ink--lg-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="funnel-chart--silverpoint--ochre--ink--lg-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M86,51.5H554V106.1H86Z" data-paint="tile" data-role="hatch" fill="url(#funnel-chart--silverpoint--ochre--ink--lg-tone-4)" part="sp-ink">
+  <path d="M86,51.5H554V106.1H86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M191.68,109.1H448.32V163.7H191.68Z" data-paint="tile" data-role="hatch" fill="url(#funnel-chart--silverpoint--ochre--ink--lg-tone-3)" part="sp-ink">
+  <path d="M191.68,109.1H448.32V163.7H191.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M265.27,166.7H374.73V221.3H265.27Z" data-paint="tile" data-role="hatch" fill="url(#funnel-chart--silverpoint--ochre--ink--lg-tone-1)" part="sp-ink">
+  <path d="M265.27,166.7H374.73V221.3H265.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M291.69,224.3H348.31V278.9H291.69Z" data-paint="tile" data-role="hatch" fill="url(#funnel-chart--silverpoint--ochre--ink--lg-tone-1)" part="sp-ink">
+  <path d="M291.69,224.3H348.31V278.9H291.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M301.51,281.9H338.49V336.5H301.51Z" data-paint="tile" data-role="hatch" fill="url(#funnel-chart--silverpoint--ochre--ink--lg-tone-1)" part="sp-ink">
+  <path d="M301.51,281.9H338.49V336.5H301.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Checkout funnel"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "sessions"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="82.8">
+    "Visits"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="76.8">
+    "12,400"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="87.8">
+    "100%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="140.4">
+    "Product"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="134.4">
+    "6,800"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="145.4">
+    "55%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="198">
+    "Cart"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="192">
+    "2,900"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="203">
+    "23%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="255.6">
+    "Checkout"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="249.6">
+    "1,500"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="260.6">
+    "12%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="313.2">
+    "Paid"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="307.2">
+    "980"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="318.2">
+    "8%"

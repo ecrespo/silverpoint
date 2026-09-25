@@ -1,0 +1,46 @@
+<svg aria-labelledby="stream-chart--silverpoint--green--precision--md--per-shape-title stream-chart--silverpoint--green--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="stream-chart--silverpoint--green--precision--md--per-shape-title">
+    "Traffic sources"
+  <desc id="stream-chart--silverpoint--green--precision--md--per-shape-desc">
+    "Traffic sources. Overlaid stream of 2 waves over 7 x values; organic totals 199; paid totals 134."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M86.4,48H98.4V55H86.4Z" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M22,148.5H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,123H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,97.5H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,72H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,174H298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M41.71,117.9C54.86,113.01,68,108.13,81.14,102.6C94.29,97.08,107.43,84.75,120.57,84.75C133.71,84.75,146.86,94.95,160,94.95C173.14,94.95,186.29,77.1,199.43,77.1C212.57,77.1,225.71,99.63,238.86,107.7C252,115.78,265.14,120.66,278.29,125.55L278.29,174C265.14,174,252,174,238.86,174C225.71,174,212.57,174,199.43,174C186.29,174,173.14,174,160,174C146.86,174,133.71,174,120.57,174C107.43,174,94.29,174,81.14,174C68,174,54.86,174,41.71,174Z" data-paint="none" data-role="encoding" part="sp-ink">
+  <path d="M41.71,117.9C54.86,113.01,68,108.13,81.14,102.6C94.29,97.08,107.43,84.75,120.57,84.75C133.71,84.75,146.86,94.95,160,94.95C173.14,94.95,186.29,77.1,199.43,77.1C212.57,77.1,225.71,99.63,238.86,107.7C252,115.78,265.14,120.66,278.29,125.55" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M41.71,138.3C54.86,133.2,68,128.1,81.14,128.1C94.29,128.1,107.43,133.2,120.57,133.2C133.71,133.2,146.86,118.33,160,112.8C173.14,107.28,186.29,100.05,199.43,100.05C212.57,100.05,225.71,113.23,238.86,120.45C252,127.68,265.14,135.54,278.29,143.4L278.29,174C265.14,174,252,174,238.86,174C225.71,174,212.57,174,199.43,174C186.29,174,173.14,174,160,174C146.86,174,133.71,174,120.57,174C107.43,174,94.29,174,81.14,174C68,174,54.86,174,41.71,174Z" data-paint="none" data-role="encoding" part="sp-ink-secondary">
+  <path d="M41.71,138.3C54.86,133.2,68,128.1,81.14,128.1C94.29,128.1,107.43,133.2,120.57,133.2C133.71,133.2,146.86,118.33,160,112.8C173.14,107.28,186.29,100.05,199.43,100.05C212.57,100.05,225.71,113.23,238.86,120.45C252,127.68,265.14,135.54,278.29,143.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Traffic sources"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Week 26"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "thousands"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "organic"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+    "paid"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="145.5">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="120">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="94.5">
+    "30"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="41.71" y="189">
+    "Mon"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="120.57" y="189">
+    "Wed"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="199.43" y="189">
+    "Fri"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="278.29" y="189">
+    "Sun"

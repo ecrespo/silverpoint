@@ -1,0 +1,22 @@
+{
+  "chart": "WaterfallChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "waterfall-chart--silverpoint--cream--ink--lg",
+  "req": "REQ-067",
+  "seed": 1592,
+  "props": {
+    "title": "Cash bridge",
+    "badge": "Q2",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "waterfall-chart/waterfall-chart--silverpoint--cream--ink--lg.canonical.txt"
+}

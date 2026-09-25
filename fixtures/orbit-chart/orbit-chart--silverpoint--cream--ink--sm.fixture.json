@@ -1,0 +1,22 @@
+{
+  "chart": "OrbitChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "orbit-chart--silverpoint--cream--ink--sm",
+  "req": "REQ-092",
+  "seed": 1592,
+  "props": {
+    "title": "Releases",
+    "badge": "3 years",
+    "footerLeft": "by day of the year",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "orbit-chart/orbit-chart--silverpoint--cream--ink--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "RadarChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "radar-chart--silverpoint--green--ink--md--per-shape",
+  "req": "REQ-076",
+  "seed": 1592,
+  "props": {
+    "title": "Model scores",
+    "badge": "v2",
+    "footerLeft": "out of 10",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radar-chart/radar-chart--silverpoint--green--ink--md--per-shape.canonical.txt"
+}

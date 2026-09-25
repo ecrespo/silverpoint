@@ -1,0 +1,52 @@
+<svg aria-labelledby="polar-bar-chart--silverpoint--ochre--precision--lg--per-shape-title polar-bar-chart--silverpoint--ochre--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="polar-bar-chart--silverpoint--ochre--precision--lg--per-shape-title">
+    "Monthly sales"
+  <desc id="polar-bar-chart--silverpoint--ochre--precision--lg--per-shape-desc">
+    "Monthly sales. Polar bars for 12 categories around the circle; the longest is Jul at 66."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M320,165.4A28.6,28.6,0,0,1,320,222.6A28.6,28.6,0,0,1,320,165.4" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M322.85,116.29A77.76,77.76,0,0,1,356.39,125.28L333.38,168.72A28.6,28.6,0,0,0,321.05,165.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M358.06,133.33A71.62,71.62,0,0,1,380.67,155.94L344.23,178.8A28.6,28.6,0,0,0,335.2,169.77Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M400.94,151.14A91.59,91.59,0,0,1,411.53,190.64L348.58,192.95A28.6,28.6,0,0,0,345.28,180.62Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M420.74,197.69A100.81,100.81,0,0,1,409.09,241.17L345.28,207.38A28.6,28.6,0,0,0,348.58,195.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M415.81,254.1A113.1,113.1,0,0,1,380.1,289.81L335.2,218.23A28.6,28.6,0,0,0,344.23,209.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M377.24,302.1A122.32,122.32,0,0,1,324.48,316.24L321.05,222.58A28.6,28.6,0,0,0,333.38,219.28Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M315.24,323.91A130,130,0,0,1,259.17,308.89L306.62,219.28A28.6,28.6,0,0,0,318.95,222.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M253.37,300.22A125.39,125.39,0,0,1,213.78,260.63L295.77,209.2A28.6,28.6,0,0,0,304.8,218.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M224.12,244.77A108.49,108.49,0,0,1,211.58,197.98L291.42,195.05A28.6,28.6,0,0,0,294.72,207.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M223.86,190.47A96.2,96.2,0,0,1,234.98,148.99L294.72,180.62A28.6,28.6,0,0,0,291.42,192.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M247.62,148.59A85.45,85.45,0,0,1,274.59,121.62L304.8,169.77A28.6,28.6,0,0,0,295.77,178.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M271.39,102.19A103.88,103.88,0,0,1,316.19,90.19L318.95,165.42A28.6,28.6,0,0,0,306.62,168.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Monthly sales"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2025"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "thousands"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="355.72" y="63.7">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="417.58" y="99.42">
+    "Feb"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="453.3" y="161.28">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="453.3" y="232.72">
+    "Apr"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="417.58" y="294.58">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="355.72" y="330.3">
+    "Jun"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="284.28" y="330.3">
+    "Jul"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="222.42" y="294.58">
+    "Aug"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="186.7" y="232.72">
+    "Sep"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="186.7" y="161.28">
+    "Oct"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="222.42" y="99.42">
+    "Nov"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="284.28" y="63.7">
+    "Dec"

@@ -1,0 +1,22 @@
+{
+  "chart": "ComposedChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "composed-chart--silverpoint--green--precision--md--per-shape",
+  "req": "REQ-066",
+  "seed": 1592,
+  "props": {
+    "title": "Revenue and margin",
+    "badge": "H1",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "composed-chart/composed-chart--silverpoint--green--precision--md--per-shape.canonical.txt"
+}

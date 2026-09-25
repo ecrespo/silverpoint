@@ -1,0 +1,55 @@
+<svg aria-labelledby="bullet-chart--silverpoint--cream--ink--lg-title bullet-chart--silverpoint--cream--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="bullet-chart--silverpoint--cream--ink--lg-title">
+    "Quarter targets"
+  <desc id="bullet-chart--silverpoint--cream--ink--lg-desc">
+    "Quarter targets. Bullet chart of 4 targets on a 0 to 100 scale; 1 of 4 reach their target."
+  <defs>
+    <pattern height="45" id="bullet-chart--silverpoint--cream--ink--lg-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 106 C145.69 105.3, 269.93 105.83, 618 106 M22 106 C201.54 106.66, 381.06 106.75, 618 106 M618 106 C618.18 109.54, 617.96 111.91, 618 118 M618 106 C618.16 109.21, 618.17 112.12, 618 118 M618 118 C401.43 118.04, 184.49 117.98, 22 118 M618 118 C496.04 118.24, 373.89 118.11, 22 118 M22 118 C21.67 114.4, 21.96 110.42, 22 106 M22 118 C22.06 113.65, 22.21 109.28, 22 106" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,106H451.12V118H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--cream--ink--lg-tone-2)" part="sp-ink">
+  <path d="M22,106H451.12V118H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M498.8,103V121" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 178 C146.32 178.19, 270.71 178.41, 618 178 M22 178 C215.07 177.31, 408.28 177.38, 618 178 M618 178 C618.33 180.13, 618.45 182.91, 618 190 M618 178 C618.09 181.73, 618.17 185.29, 618 190 M618 190 C395 190.54, 171.75 190.45, 22 190 M618 190 C463.24 190.74, 308.66 190.68, 22 190 M22 190 C21.76 186.22, 21.47 181.86, 22 178 M22 190 C21.88 187.03, 22.03 183.8, 22 178" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,178H367.68V190H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--cream--ink--lg-tone-2)" part="sp-ink">
+  <path d="M22,178H367.68V190H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M409.4,175V193" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 250 C146.94 249.8, 271.49 249.7, 618 250 M22 250 C228.97 249.6, 435.51 249.66, 618 250 M618 250 C618.48 254.19, 617.86 258.71, 618 262 M618 250 C618.02 254.25, 618.18 258.99, 618 262 M618 262 C388.58 261.04, 159.74 261.63, 22 262 M618 262 C430.8 261.6, 243.78 261.61, 22 262 M22 262 C21.84 258.04, 22.06 253.31, 22 250 M22 262 C22.18 258, 21.78 253.53, 22 250" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,250H534.56V262H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--cream--ink--lg-tone-2)" part="sp-ink">
+  <path d="M22,250H534.56V262H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M469,247V265" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22 322 C147.56 321.97, 272.98 322.29, 618 322 M22 322 C242.51 321.54, 462.73 321.58, 618 322 M618 322 C617.49 325.86, 618.28 329.71, 618 334 M618 322 C617.96 324.91, 618.18 327.35, 618 334 M618 334 C382.15 333.55, 147 333.38, 22 334 M618 334 C398.35 334.1, 178.91 334.18, 22 334 M22 334 C21.93 329.86, 21.57 325.84, 22 322 M22 334 C22.01 330.84, 22.14 328.05, 22 322" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,322H266.36V334H22Z" data-paint="tile" data-role="hatch" fill="url(#bullet-chart--silverpoint--cream--ink--lg-tone-2)" part="sp-ink">
+  <path d="M22,322H266.36V334H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M379.6,319V337" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Quarter targets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "0–100"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="101">
+    "Revenue"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="101">
+    "72"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="173">
+    "Profit"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="173">
+    "58"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="245">
+    "New users"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="245">
+    "86"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="317">
+    "Retention"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="618" y="317">
+    "41"

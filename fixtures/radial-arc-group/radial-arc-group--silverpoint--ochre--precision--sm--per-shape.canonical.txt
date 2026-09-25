@@ -1,0 +1,23 @@
+<svg aria-labelledby="radial-arc-group--silverpoint--ochre--precision--sm--per-shape-title radial-arc-group--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-arc-group--silverpoint--ochre--precision--sm--per-shape-title">
+    "Pipeline"
+  <desc id="radial-arc-group--silverpoint--ochre--precision--sm--per-shape-desc">
+    "Pipeline. 4 concentric tracks, outermost first: Direct 84, Partners 62, Online 47, Events 23."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M28.17,156A91.83,91.83,0,0,1,211.83,156" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,156A98,98,0,0,1,218,156L205.65,156A85.65,85.65,0,0,0,34.35,156Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M45.32,156A74.68,74.68,0,0,1,194.68,156" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M39.15,156A80.85,80.85,0,0,1,174.99,96.73L166.59,105.78A68.5,68.5,0,0,0,51.5,156Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M62.47,156A57.53,57.53,0,0,1,177.53,156" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M56.3,156A63.7,63.7,0,0,1,131.84,93.41L129.55,105.54A51.35,51.35,0,0,0,68.65,156Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M79.62,156A40.38,40.38,0,0,1,160.38,156" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M73.45,156A46.55,46.55,0,0,1,89.64,120.72L97.69,130.08A34.2,34.2,0,0,0,85.8,156Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pipeline"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Q3"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by channel"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"

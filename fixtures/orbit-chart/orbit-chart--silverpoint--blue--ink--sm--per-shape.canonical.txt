@@ -1,0 +1,36 @@
+<svg aria-labelledby="orbit-chart--silverpoint--blue--ink--sm--per-shape-title orbit-chart--silverpoint--blue--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="orbit-chart--silverpoint--blue--ink--sm--per-shape-title">
+    "Releases"
+  <desc id="orbit-chart--silverpoint--blue--ink--sm--per-shape-desc">
+    "Releases. 3 orbits from the inside out (2023, 2024, 2025) with 12 markers placed by period over the cycle; the largest is 50."
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120 92.41 C140.42 92.12, 155.22 101.78, 143.9 109.8 M120 92.41 C140.65 93.29, 155.47 102.08, 143.9 109.8 M143.9 109.8 C138.25 112.58, 129.5 116.01, 120 115.59 M143.9 109.8 C138.06 114.4, 129.49 114.94, 120 115.59 M120 115.59 C99.02 115.93, 86.09 105.9, 96.1 98.21 M120 115.59 C97.9 115.17, 85.7 105.29, 96.1 98.21 M96.1 98.21 C101.54 94.92, 110.69 92.06, 120 92.41 M96.1 98.21 C101.69 95.32, 110.24 93, 120 92.41 M120 92.41 C120 92.41, 120 92.41, 120 92.41 M120 92.41 C120 92.41, 120 92.41, 120 92.41" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120 78.88 C165.21 79.39, 194.57 99.01, 171.79 116.56 M120 78.88 C166.31 79.52, 194.94 99.91, 171.79 116.56 M171.79 116.56 C160.95 124.08, 141.51 129.24, 120 129.12 M171.79 116.56 C161.63 124.97, 141.5 129.44, 120 129.12 M120 129.12 C74.35 129.53, 45.38 107.82, 68.21 91.44 M120 129.12 C74 128.89, 44.59 108.01, 68.21 91.44 M68.21 91.44 C78.14 83.23, 99.2 79.58, 120 78.88 M68.21 91.44 C78.9 83.63, 98.22 77.91, 120 78.88 M120 78.88 C120 78.88, 120 78.88, 120 78.88 M120 78.88 C120 78.88, 120 78.88, 120 78.88" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120 65.36 C190 64.86, 235.73 98.05, 199.67 123.32 M120 65.36 C189.9 65.76, 234.41 97.73, 199.67 123.32 M199.67 123.32 C183.66 135.56, 153.51 142.46, 120 142.64 M199.67 123.32 C183.14 135.53, 153.51 141.86, 120 142.64 M120 142.64 C49.67 143.12, 4.68 109.73, 40.33 84.68 M120 142.64 C50.1 142.6, 5.55 110.73, 40.33 84.68 M40.33 84.68 C56.55 73.34, 87.72 65.3, 120 65.36 M40.33 84.68 C56.11 71.96, 86.19 64.91, 120 65.36 M120 65.36 C120 65.36, 120 65.36, 120 65.36 M120 65.36 C120 65.36, 120 65.36, 120 65.36" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M130.36,93.84A2.94,2.94,0,1,0,136.24,93.84A2.94,2.94,0,1,0,130.36,93.84Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M139.54,109.58A4.65,4.65,0,1,0,148.83,109.58A4.65,4.65,0,1,0,139.54,109.58Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M98.81,112.93A3.6,3.6,0,1,0,106.01,112.93A3.6,3.6,0,1,0,98.81,112.93Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M99.62,94.62A4.16,4.16,0,1,0,107.93,94.62A4.16,4.16,0,1,0,99.62,94.62Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M157.14,85.69A3.79,3.79,0,1,0,164.73,85.69A3.79,3.79,0,1,0,157.14,85.69Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M149.65,124.32A5.5,5.5,0,1,0,160.65,124.32A5.5,5.5,0,1,0,149.65,124.32Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M66.22,117.46A3.29,3.29,0,1,0,72.8,117.46A3.29,3.29,0,1,0,66.22,117.46Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M71.53,86.81A4.87,4.87,0,1,0,81.28,86.81A4.87,4.87,0,1,0,71.53,86.81Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M144.1,67.25A4.33,4.33,0,1,0,152.76,67.25A4.33,4.33,0,1,0,144.1,67.25Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M203.88,113.61A5.23,5.23,0,1,0,214.34,113.61A5.23,5.23,0,1,0,203.88,113.61Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M85.57,140.75A6,6,0,1,0,97.57,140.75A6,6,0,1,0,85.57,140.75Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M30.57,89.78A3.89,3.89,0,1,0,38.35,89.78A3.89,3.89,0,1,0,30.57,89.78Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Releases"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "3 years"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by day of the year"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="95.4" y="107">
+    "2023"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="63.2" y="107">
+    "2024"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="31" y="107">
+    "2025"

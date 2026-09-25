@@ -1,4 +1,4 @@
-import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, sizeOf } from '@silverpoint/example-harness';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
 import { PyramidChart } from '@silverpoint/react/pyramid-chart';
@@ -63,7 +63,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
     const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
     return (
       <main>
-        <div className="sp-harness" data-gate="" data-size="md">
+        <div className="sp-harness" data-gate="" data-size={sizeOf(fixture)}>
           <FixtureChart {...fixtureProps(fixture)} />
         </div>
         <Hydrated />

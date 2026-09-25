@@ -1,0 +1,47 @@
+<svg aria-labelledby="line-chart--silverpoint--blue--precision--md--per-shape-title line-chart--silverpoint--blue--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="292" role="img" viewBox="0 0 320 292" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="line-chart--silverpoint--blue--precision--md--per-shape-title">
+    "Throughput per hour"
+  <desc id="line-chart--silverpoint--blue--precision--md--per-shape-desc">
+    "Throughput per hour. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
+  <path d="M0.5,0.5H319.5V291.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,254H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,201.2H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,176.4H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,151.6H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,126.8H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,102H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,226H298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M33.5,198.72C41.17,200.48,48.83,202.23,56.5,203.68C64.17,205.13,71.83,207.4,79.5,207.4C87.17,207.4,94.83,206.57,102.5,204.92C110.17,203.27,117.83,195.21,125.5,188.8C133.17,182.39,140.83,172.68,148.5,166.48C156.17,160.28,163.83,153.25,171.5,151.6C179.17,149.95,186.83,149.95,194.5,149.12C202.17,148.29,209.83,148.29,217.5,146.64C225.17,144.99,232.83,139.2,240.5,139.2C248.17,139.2,255.83,151.6,263.5,157.8C271.17,164,278.83,170.2,286.5,176.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M33.5,203.68C41.17,205.44,48.83,207.19,56.5,208.64C64.17,210.09,71.83,212.36,79.5,212.36C87.17,212.36,94.83,210.29,102.5,206.16C110.17,202.03,117.83,192.52,125.5,183.84C133.17,175.16,140.83,161.73,148.5,154.08C156.17,146.43,163.83,137.96,171.5,137.96C179.17,137.96,186.83,144.16,194.5,144.16C202.17,144.16,209.83,138.79,217.5,134.24C225.17,129.69,232.83,116.88,240.5,116.88C248.17,116.88,255.83,139.41,263.5,149.12C271.17,158.83,278.83,167,286.5,175.16" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M283,175.16A3.5,3.5,0,1,0,290,175.16A3.5,3.5,0,1,0,283,175.16Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M283,175.16A3.5,3.5,0,1,0,290,175.16A3.5,3.5,0,1,0,283,175.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Throughput per hour"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Live"
+  <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+    "88"
+  <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+    "requests"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="272">
+    "00–22 h"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="272">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="198.2">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="173.4">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="148.6">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="123.8">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="99">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="33.5" y="241">
+    "00"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="102.5" y="241">
+    "06"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171.5" y="241">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="240.5" y="241">
+    "18"

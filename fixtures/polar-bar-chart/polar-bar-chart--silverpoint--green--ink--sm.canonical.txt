@@ -1,0 +1,72 @@
+<svg aria-labelledby="polar-bar-chart--silverpoint--green--ink--sm-title polar-bar-chart--silverpoint--green--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="polar-bar-chart--silverpoint--green--ink--sm-title">
+    "Monthly sales"
+  <desc id="polar-bar-chart--silverpoint--green--ink--sm-desc">
+    "Monthly sales. Polar bars for 12 categories around the circle; the longest is Jul at 66."
+  <defs>
+    <pattern height="45" id="polar-bar-chart--silverpoint--green--ink--sm-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120 95.2 C125.94 94.91, 131.7 102.24, 127.62 108.4 M120 95.2 C126.18 96.08, 131.95 102.55, 127.62 108.4 M127.62 108.4 C125.32 110.32, 122.79 113.22, 120 112.8 M127.62 108.4 C125.14 112.14, 122.78 112.15, 120 112.8 M120 112.8 C113.49 113.14, 109.6 105.44, 112.38 99.6 M120 112.8 C112.37 112.38, 109.21 104.82, 112.38 99.6 M112.38 99.6 C114.46 97.18, 117.41 94.85, 120 95.2 M112.38 99.6 C114.61 97.58, 116.96 95.79, 120 95.2" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120.88,80.09A23.93,23.93,0,0,1,131.2,82.85L124.12,96.22A8.8,8.8,0,0,0,120.32,95.21Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M120.88,80.09A23.93,23.93,0,0,1,131.2,82.85L124.12,96.22A8.8,8.8,0,0,0,120.32,95.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M131.71,85.33A22.04,22.04,0,0,1,138.67,92.29L127.45,99.32A8.8,8.8,0,0,0,124.68,96.55Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M131.71,85.33A22.04,22.04,0,0,1,138.67,92.29L127.45,99.32A8.8,8.8,0,0,0,124.68,96.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M144.91,90.81A28.18,28.18,0,0,1,148.16,102.97L128.79,103.68A8.8,8.8,0,0,0,127.78,99.88Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M144.91,90.81A28.18,28.18,0,0,1,148.16,102.97L128.79,103.68A8.8,8.8,0,0,0,127.78,99.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151,105.14A31.02,31.02,0,0,1,147.41,118.51L127.78,108.12A8.8,8.8,0,0,0,128.79,104.32Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M151,105.14A31.02,31.02,0,0,1,147.41,118.51L127.78,108.12A8.8,8.8,0,0,0,128.79,104.32Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M149.48,122.49A34.8,34.8,0,0,1,138.49,133.48L124.68,111.45A8.8,8.8,0,0,0,127.45,108.68Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M149.48,122.49A34.8,34.8,0,0,1,138.49,133.48L124.68,111.45A8.8,8.8,0,0,0,127.45,108.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M137.61,137.26A37.64,37.64,0,0,1,121.38,141.61L120.32,112.79A8.8,8.8,0,0,0,124.12,111.78Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M137.61,137.26A37.64,37.64,0,0,1,121.38,141.61L120.32,112.79A8.8,8.8,0,0,0,124.12,111.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M118.53,143.97A40,40,0,0,1,101.28,139.35L115.88,111.78A8.8,8.8,0,0,0,119.68,112.79Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M118.53,143.97A40,40,0,0,1,101.28,139.35L115.88,111.78A8.8,8.8,0,0,0,119.68,112.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.5,136.68A38.58,38.58,0,0,1,87.32,124.5L112.55,108.68A8.8,8.8,0,0,0,115.32,111.45Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M99.5,136.68A38.58,38.58,0,0,1,87.32,124.5L112.55,108.68A8.8,8.8,0,0,0,115.32,111.45Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M90.5,119.62A33.38,33.38,0,0,1,86.64,105.22L111.21,104.32A8.8,8.8,0,0,0,112.22,108.12Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M90.5,119.62A33.38,33.38,0,0,1,86.64,105.22L111.21,104.32A8.8,8.8,0,0,0,112.22,108.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M90.42,102.92A29.6,29.6,0,0,1,93.84,90.15L112.22,99.88A8.8,8.8,0,0,0,111.21,103.68Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M90.42,102.92A29.6,29.6,0,0,1,93.84,90.15L112.22,99.88A8.8,8.8,0,0,0,111.21,103.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.73,90.03A26.29,26.29,0,0,1,106.03,81.73L115.32,96.55A8.8,8.8,0,0,0,112.55,99.32Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M97.73,90.03A26.29,26.29,0,0,1,106.03,81.73L115.32,96.55A8.8,8.8,0,0,0,112.55,99.32Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M105.04,75.75A31.96,31.96,0,0,1,118.83,72.06L119.68,95.21A8.8,8.8,0,0,0,115.88,96.22Z" data-paint="tile" data-role="hatch" fill="url(#polar-bar-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M105.04,75.75A31.96,31.96,0,0,1,118.83,72.06L119.68,95.21A8.8,8.8,0,0,0,115.88,96.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Monthly sales"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2025"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "thousands"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="132.42" y="60.64">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="153.94" y="73.06">
+    "Feb"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="166.36" y="94.58">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="166.36" y="119.42">
+    "Apr"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="153.94" y="140.94">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="132.42" y="153.36">
+    "Jun"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="107.58" y="153.36">
+    "Jul"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="86.06" y="140.94">
+    "Aug"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="73.64" y="119.42">
+    "Sep"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="73.64" y="94.58">
+    "Oct"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="86.06" y="73.06">
+    "Nov"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="107.58" y="60.64">
+    "Dec"

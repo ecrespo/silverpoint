@@ -1,0 +1,22 @@
+{
+  "chart": "ComposedChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "composed-chart--silverpoint--ochre--ink--lg--per-shape",
+  "req": "REQ-066",
+  "seed": 1592,
+  "props": {
+    "title": "Revenue and margin",
+    "badge": "H1",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "composed-chart/composed-chart--silverpoint--ochre--ink--lg--per-shape.canonical.txt"
+}

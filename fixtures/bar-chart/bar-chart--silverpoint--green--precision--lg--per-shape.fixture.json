@@ -1,0 +1,22 @@
+{
+  "chart": "BarChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "bar-chart--silverpoint--green--precision--lg--per-shape",
+  "req": "REQ-064",
+  "seed": 1592,
+  "props": {
+    "title": "Orders per quarter",
+    "badge": "vs 2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bar-chart/bar-chart--silverpoint--green--precision--lg--per-shape.canonical.txt"
+}

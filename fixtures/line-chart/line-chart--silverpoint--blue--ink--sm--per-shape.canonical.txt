@@ -1,0 +1,47 @@
+<svg aria-labelledby="line-chart--silverpoint--blue--ink--sm--per-shape-title line-chart--silverpoint--blue--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="262" role="img" viewBox="0 0 240 262" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="line-chart--silverpoint--blue--ink--sm--per-shape-title">
+    "Throughput per hour"
+  <desc id="line-chart--silverpoint--blue--ink--sm--per-shape-desc">
+    "Throughput per hour. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.38 96.17, 239.75 191.99, 239.5 261.5 M239.5 0.5 C239.17 58.85, 239.6 116.94, 239.5 261.5 M239.5 261.5 C169.85 260.69, 101.26 260.62, 0.5 261.5 M239.5 261.5 C151.28 261.84, 63.41 261.72, 0.5 261.5 M0.5 261.5 C0.98 179.08, 1.39 96.81, 0.5 0.5 M0.5 261.5 C0.12 164.25, 0.57 66.22, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 224 C59.34 224.56, 101.57 223.85, 224 224 M16 224 C76.72 224.07, 138.09 223.49, 224 224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 177.2 C62.42 176.27, 104.2 177.61, 218 177.2 M22 177.2 C80.89 177.88, 139.74 178.11, 218 177.2" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 158.4 C61.97 158.78, 104.1 158.65, 218 158.4 M22 158.4 C82.63 158.61, 143.34 158.83, 218 158.4" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 139.6 C63.32 138.42, 104.01 138.64, 218 139.6 M22 139.6 C84.37 139.34, 146.05 139.54, 218 139.6" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 120.8 C62.86 120.93, 103.91 121.48, 218 120.8 M22 120.8 C85.21 120.07, 148.76 120.25, 218 120.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 102 C62.41 102.38, 103.82 101.47, 218 102 M22 102 C86.95 101.85, 152.36 102.02, 218 102" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 196 C63.75 195.88, 103.72 195.31, 218 196 M22 196 C88.69 196.28, 155.07 195.54, 218 196" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M30.17,175.32C35.61,176.65,41.06,177.98,46.5,179.08C51.94,180.18,57.39,181.9,62.83,181.9C68.28,181.9,73.72,181.27,79.17,180.02C84.61,178.77,90.06,172.66,95.5,167.8C100.94,162.94,106.39,155.58,111.83,150.88C117.28,146.18,122.72,140.85,128.17,139.6C133.61,138.35,139.06,138.35,144.5,137.72C149.94,137.09,155.39,137.09,160.83,135.84C166.28,134.59,171.72,130.2,177.17,130.2C182.61,130.2,188.06,139.6,193.5,144.3C198.94,149,204.39,153.7,209.83,158.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M30.17,179.08C35.61,180.41,41.06,181.74,46.5,182.84C51.94,183.94,57.39,185.66,62.83,185.66C68.28,185.66,73.72,184.09,79.17,180.96C84.61,177.83,90.06,170.62,95.5,164.04C100.94,157.46,106.39,147.28,111.83,141.48C117.28,135.68,122.72,129.26,128.17,129.26C133.61,129.26,139.06,133.96,144.5,133.96C149.94,133.96,155.39,129.89,160.83,126.44C166.28,122.99,171.72,113.28,177.17,113.28C182.61,113.28,188.06,130.36,193.5,137.72C198.94,145.08,204.39,151.27,209.83,157.46" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M206.33,157.46A3.5,3.5,0,1,0,213.33,157.46A3.5,3.5,0,1,0,206.33,157.46Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M206.33,157.46A3.5,3.5,0,1,0,213.33,157.46A3.5,3.5,0,1,0,206.33,157.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Throughput per hour"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Live"
+  <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+    "88"
+  <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+    "requests"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="242">
+    "00–22 h"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="242">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="174.2">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="155.4">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="136.6">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="117.8">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="99">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="30.17" y="211">
+    "00"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="79.17" y="211">
+    "06"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="128.17" y="211">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="177.17" y="211">
+    "18"

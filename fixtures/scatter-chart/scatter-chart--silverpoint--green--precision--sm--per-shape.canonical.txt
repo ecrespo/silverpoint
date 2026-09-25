@@ -1,0 +1,44 @@
+<svg aria-labelledby="scatter-chart--silverpoint--green--precision--sm--per-shape-title scatter-chart--silverpoint--green--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="scatter-chart--silverpoint--green--precision--sm--per-shape-title">
+    "Height and weight"
+  <desc id="scatter-chart--silverpoint--green--precision--sm--per-shape-desc">
+    "Height and weight. 9 points; x from 152 to 182, y from 51 to 77, size from 2 to 10 as marker area."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M30.74,109.75H209.26" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M30.74,84.25H209.26" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M30.74,58.74H209.26" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M30.74,135.26H209.26" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M169.44,66.39A8.74,8.74,0,1,0,186.92,66.39A8.74,8.74,0,1,0,169.44,66.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M154.33,86.8A8.32,8.32,0,1,0,170.97,86.8A8.32,8.32,0,1,0,154.33,86.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M127.58,89.35A7.88,7.88,0,1,0,143.33,89.35A7.88,7.88,0,1,0,127.58,89.35Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M143.58,81.7A7.41,7.41,0,1,0,158.4,81.7A7.41,7.41,0,1,0,143.58,81.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M105.24,104.65A6.91,6.91,0,1,0,119.06,104.65A6.91,6.91,0,1,0,105.24,104.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M117.43,109.75A6.37,6.37,0,1,0,130.17,109.75A6.37,6.37,0,1,0,117.43,109.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M79.18,119.96A5.78,5.78,0,1,0,90.74,119.96A5.78,5.78,0,1,0,79.18,119.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M91.49,125.06A5.12,5.12,0,1,0,101.73,125.06A5.12,5.12,0,1,0,91.49,125.06Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M57.28,132.71A4.37,4.37,0,1,0,66.02,132.71A4.37,4.37,0,1,0,57.28,132.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Height and weight"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "n = 9"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "cm × kg"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="30.74" y="106.75">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="30.74" y="81.25">
+    "70"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="30.74" y="55.74">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="53.88" y="159">
+    "150"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="92.73" y="159">
+    "160"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="131.57" y="159">
+    "170"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="170.41" y="159">
+    "180"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="209.26" y="159">
+    "190"

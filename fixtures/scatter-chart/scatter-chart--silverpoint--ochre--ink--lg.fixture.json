@@ -1,0 +1,22 @@
+{
+  "chart": "ScatterChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "scatter-chart--silverpoint--ochre--ink--lg",
+  "req": "REQ-082",
+  "seed": 1592,
+  "props": {
+    "title": "Height and weight",
+    "badge": "n = 9",
+    "footerLeft": "cm × kg",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "scatter-chart/scatter-chart--silverpoint--ochre--ink--lg.canonical.txt"
+}

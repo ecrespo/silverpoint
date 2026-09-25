@@ -1,0 +1,22 @@
+{
+  "chart": "BarChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "bar-chart--silverpoint--blue--ink--sm",
+  "req": "REQ-064",
+  "seed": 1592,
+  "props": {
+    "title": "Orders per quarter",
+    "badge": "vs 2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bar-chart/bar-chart--silverpoint--blue--ink--sm.canonical.txt"
+}

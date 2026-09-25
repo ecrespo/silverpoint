@@ -1,0 +1,44 @@
+<svg aria-labelledby="step-chart--silverpoint--blue--ink--lg--per-shape-title step-chart--silverpoint--blue--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="step-chart--silverpoint--blue--ink--lg--per-shape-title">
+    "Price tier"
+  <desc id="step-chart--silverpoint--blue--ink--lg--per-shape-desc">
+    "Price tier. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 232.67 C145.69 231.97, 269.93 232.5, 618 232.67 M22 232.67 C201.54 233.33, 381.06 233.42, 618 232.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 141.33 C145.66 141.59, 270.19 141.54, 618 141.33 M22 141.33 C206.17 141.54, 390.37 141.62, 618 141.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 50 C146.35 49.22, 270.45 49.31, 618 50 M22 50 C210.8 49.76, 399.33 49.84, 618 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 324 C146.32 324.19, 270.71 324.41, 618 324 M22 324 C215.07 323.31, 408.28 323.38, 618 324" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M59.25,214.4L133.75,214.4L133.75,214.4L208.25,214.4L208.25,159.6L282.75,159.6L282.75,159.6L357.25,159.6L357.25,187L431.75,187L431.75,104.8L506.25,104.8L506.25,104.8L580.75,104.8L580.75,50" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M577.25,50A3.5,3.5,0,1,0,584.25,50A3.5,3.5,0,1,0,577.25,50Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M577.25,50A3.5,3.5,0,1,0,584.25,50A3.5,3.5,0,1,0,577.25,50Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Price tier"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "per month"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="229.67">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="138.33">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "30"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="59.25" y="339">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="133.75" y="339">
+    "Feb"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="208.25" y="339">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="282.75" y="339">
+    "Apr"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="357.25" y="339">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="431.75" y="339">
+    "Jun"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="506.25" y="339">
+    "Jul"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="580.75" y="339">
+    "Aug"

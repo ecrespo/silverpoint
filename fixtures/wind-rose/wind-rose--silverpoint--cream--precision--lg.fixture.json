@@ -1,0 +1,22 @@
+{
+  "chart": "WindRose",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "wind-rose--silverpoint--cream--precision--lg",
+  "req": "REQ-089",
+  "seed": 1592,
+  "props": {
+    "title": "Wind at DSM",
+    "badge": "Mar 2024",
+    "footerLeft": "knots, hourly METAR",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "wind-rose/wind-rose--silverpoint--cream--precision--lg.canonical.txt"
+}

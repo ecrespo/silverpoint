@@ -1,0 +1,22 @@
+{
+  "chart": "RadarChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "radar-chart--silverpoint--cream--ink--lg",
+  "req": "REQ-076",
+  "seed": 1592,
+  "props": {
+    "title": "Model scores",
+    "badge": "v2",
+    "footerLeft": "out of 10",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radar-chart/radar-chart--silverpoint--cream--ink--lg.canonical.txt"
+}

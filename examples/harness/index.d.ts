@@ -14,7 +14,9 @@ export interface HarnessFixture {
   readonly rows: readonly Record<string, unknown>[] | null;
 }
 
+export declare const ALL_FIXTURES: readonly HarnessFixture[];
 export declare const FIXTURES: readonly HarnessFixture[];
+export declare function sizeOf(fixture: HarnessFixture): 'sm' | 'md' | 'lg';
 export declare function fixtureById(id: string | null | undefined): HarnessFixture | undefined;
 /** A fixture's props: the common ones, typed, plus whatever its chart takes. */
 export type FixtureProps = CommonChartProps & Record<string, unknown>;

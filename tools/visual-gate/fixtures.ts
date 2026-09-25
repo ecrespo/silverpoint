@@ -79,9 +79,15 @@ function jsonFiles(dir: string): string[] {
 }
 
 /** Every fixture under `fixtures/`, sorted by id. */
-export function loadFixtures(): Fixture[] {
+/** Whether a cell belongs to the PR matrix: the `md` size and `tile` fills (Data Model §5). */
+export const inPrMatrix = (fixture: Pick<Fixture, 'hatchFill' | 'size'>): boolean =>
+  fixture.hatchFill === 'tile' && fixture.size.width === SIZES.md.width && fixture.size.height === SIZES.md.height;
+
+/** The committed fixtures: the PR matrix (264) by default, or the nightly one (1,584). */
+export function loadFixtures(scope: 'pr' | 'full' = 'pr'): Fixture[] {
   return jsonFiles(FIXTURES_DIR)
     .map((file) => JSON.parse(readFileSync(file, 'utf8')) as Fixture)
+    .filter((fixture) => scope === 'full' || inPrMatrix(fixture))
     .sort((a, b) => (a.id < b.id ? -1 : 1));
 }
 

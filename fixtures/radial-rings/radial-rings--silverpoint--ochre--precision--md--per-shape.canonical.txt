@@ -1,0 +1,36 @@
+<svg aria-labelledby="radial-rings--silverpoint--ochre--precision--md--per-shape-title radial-rings--silverpoint--ochre--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-rings--silverpoint--ochre--precision--md--per-shape-title">
+    "Daily goals"
+  <desc id="radial-rings--silverpoint--ochre--precision--md--per-shape-desc">
+    "Daily goals. 3 concentric tracks, outermost first: Move 82%, Exercise 64%, Stand 100%."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M99,55.8A63.2,63.2,0,0,1,99,182.2A63.2,63.2,0,0,1,99,55.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,50A69,69,0,0,1,135.97,177.26A69,69,0,0,1,36.57,89.62L47.06,94.56A57.41,57.41,0,0,0,129.76,167.47A57.41,57.41,0,0,0,99,61.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99,71.9A47.1,47.1,0,0,1,99,166.1A47.1,47.1,0,0,1,99,71.9" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,66.1A52.9,52.9,0,0,1,146.87,141.52A52.9,52.9,0,0,1,58.24,152.72L67.17,145.33A41.31,41.31,0,0,0,136.38,136.59A41.31,41.31,0,0,0,99,77.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99,88A31,31,0,0,1,99,150A31,31,0,0,1,99,88" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M99,82.2A36.8,36.8,0,0,1,99,155.8A36.8,36.8,0,0,1,99,82.2L99,93.79A25.21,25.21,0,0,0,99,144.21A25.21,25.21,0,0,0,99,93.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194,101H203V108H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,115H203V122H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,129H203V136H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Daily goals"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "today"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "percent reached"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="108">
+    "Move"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="108">
+    "82%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="122">
+    "Exercise"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="122">
+    "64%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="136">
+    "Stand"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="136">
+    "100%"

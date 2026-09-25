@@ -1,0 +1,22 @@
+{
+  "chart": "RadarChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "radar-chart--silverpoint--ochre--precision--sm",
+  "req": "REQ-076",
+  "seed": 1592,
+  "props": {
+    "title": "Model scores",
+    "badge": "v2",
+    "footerLeft": "out of 10",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radar-chart/radar-chart--silverpoint--ochre--precision--sm.canonical.txt"
+}

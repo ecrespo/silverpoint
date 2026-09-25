@@ -1,7 +1,7 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
@@ -69,7 +69,7 @@ function App() {
     const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
     return (
       <main>
-        <div className="sp-harness" data-gate="" data-size="md">
+        <div className="sp-harness" data-gate="" data-size={sizeOf(fixture)}>
           <FixtureChart {...fixtureProps(fixture)} />
         </div>
       </main>

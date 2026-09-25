@@ -1,0 +1,22 @@
+{
+  "chart": "VolvelleChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "volvelle-chart--silverpoint--green--ink--lg",
+  "req": "REQ-090",
+  "seed": 1592,
+  "props": {
+    "title": "On call",
+    "badge": "rota",
+    "footerLeft": "day · shift · team",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "volvelle-chart/volvelle-chart--silverpoint--green--ink--lg.canonical.txt"
+}

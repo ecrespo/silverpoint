@@ -34,7 +34,7 @@ import { SpWindRose } from '@silverpoint/angular/wind-rose';
 import { SpVolvelleChart } from '@silverpoint/angular/volvelle-chart';
 import { SpChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
-import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 
@@ -48,7 +48,7 @@ const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart
   template: `
     @if (gate) {
       <main>
-        <div class="sp-harness" data-gate="" data-size="md">
+        <div class="sp-harness" data-gate="" [attr.data-size]="gate.size">
           <ng-container *ngComponentOutlet="gate.component; inputs: gate.inputs" />
         </div>
       </main>
@@ -77,7 +77,7 @@ const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart
   `,
 })
 class App {
-  protected readonly gate = fixture ? { component: CHARTS[fixture.chart] as Type<unknown>, inputs: fixtureProps(fixture) } : undefined;
+  protected readonly gate = fixture ? { component: CHARTS[fixture.chart] as Type<unknown>, inputs: fixtureProps(fixture), size: sizeOf(fixture) } : undefined;
   protected readonly gallery = wantsGallery(location.search)
     ? GALLERY.map(({ chart, props }) => ({ chart, component: CHARTS[chart] as Type<unknown>, inputs: props }))
     : undefined;

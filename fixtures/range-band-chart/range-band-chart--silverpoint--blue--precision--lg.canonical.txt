@@ -1,0 +1,45 @@
+<svg aria-labelledby="range-band-chart--silverpoint--blue--precision--lg-title range-band-chart--silverpoint--blue--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="range-band-chart--silverpoint--blue--precision--lg-title">
+    "Temperature"
+  <desc id="range-band-chart--silverpoint--blue--precision--lg-desc">
+    "Temperature. Range band over 7 x values, from a lowest low of 9 to a highest high of 24."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,255.5H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,187H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,118.5H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,324H618" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M64.57,132.2C92.95,117.36,121.33,102.52,149.71,91.1C178.1,79.68,206.48,63.7,234.86,63.7C263.24,63.7,291.62,91.1,320,104.8C348.38,118.5,376.76,145.9,405.14,145.9C433.52,145.9,461.91,129.92,490.29,118.5C518.67,107.08,547.05,92.24,575.43,77.4L575.43,228.1C547.05,248.65,518.67,269.2,490.29,269.2C461.91,269.2,433.52,264.63,405.14,255.5C376.76,246.37,348.38,223.53,320,214.4C291.62,205.27,263.24,200.7,234.86,200.7C206.48,200.7,178.1,221.25,149.71,228.1C121.33,234.95,92.95,238.38,64.57,241.8Z" data-paint="none" data-role="encoding" part="sp-ink-secondary">
+  <path d="M64.57,132.2C92.95,117.36,121.33,102.52,149.71,91.1C178.1,79.68,206.48,63.7,234.86,63.7C263.24,63.7,291.62,91.1,320,104.8C348.38,118.5,376.76,145.9,405.14,145.9C433.52,145.9,461.91,129.92,490.29,118.5C518.67,107.08,547.05,92.24,575.43,77.4" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M64.57,241.8C92.95,238.38,121.33,234.95,149.71,228.1C178.1,221.25,206.48,200.7,234.86,200.7C263.24,200.7,291.62,205.27,320,214.4C348.38,223.53,376.76,246.37,405.14,255.5C433.52,264.63,461.91,269.2,490.29,269.2C518.67,269.2,547.05,248.65,575.43,228.1" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Temperature"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "°C"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "daily range"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="252.5">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="184">
+    "15"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="115.5">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="64.57" y="339">
+    "Mon"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="149.71" y="339">
+    "Tue"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="234.86" y="339">
+    "Wed"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="339">
+    "Thu"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="405.14" y="339">
+    "Fri"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="490.29" y="339">
+    "Sat"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="575.43" y="339">
+    "Sun"

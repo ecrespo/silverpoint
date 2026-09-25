@@ -1,0 +1,40 @@
+<svg aria-labelledby="area-chart--silverpoint--blue--precision--sm--per-shape-title area-chart--silverpoint--blue--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="area-chart--silverpoint--blue--precision--sm--per-shape-title">
+    "Sessions"
+  <desc id="area-chart--silverpoint--blue--precision--sm--per-shape-desc">
+    "Sessions. Area chart of 7 x values; value ranges from 29 to 66."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,120.5H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,97H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,73.5H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M36,106.4C45.33,98.76,54.67,91.13,64,91.13C73.33,91.13,82.67,95.83,92,95.83C101.33,95.83,110.67,80.75,120,75.85C129.33,70.95,138.67,66.45,148,66.45C157.33,66.45,166.67,92.3,176,99.35C185.33,106.4,194.67,108.16,204,109.93L204,144C194.67,144,185.33,144,176,144C166.67,144,157.33,144,148,144C138.67,144,129.33,144,120,144C110.67,144,101.33,144,92,144C82.67,144,73.33,144,64,144C54.67,144,45.33,144,36,144Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M36,106.4C45.33,98.76,54.67,91.13,64,91.13C73.33,91.13,82.67,95.83,92,95.83C101.33,95.83,110.67,80.75,120,75.85C129.33,70.95,138.67,66.45,148,66.45C157.33,66.45,166.67,92.3,176,99.35C185.33,106.4,194.67,108.16,204,109.93" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M200.5,109.93A3.5,3.5,0,1,0,207.5,109.93A3.5,3.5,0,1,0,200.5,109.93Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M200.5,109.93A3.5,3.5,0,1,0,207.5,109.93A3.5,3.5,0,1,0,200.5,109.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Sessions"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Week 26"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "per day"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="117.5">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="94">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="70.5">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="36" y="159">
+    "Mon"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="92" y="159">
+    "Wed"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="148" y="159">
+    "Fri"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="204" y="159">
+    "Sun"

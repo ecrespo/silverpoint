@@ -1,0 +1,22 @@
+{
+  "chart": "KpiCard",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "kpi-card--silverpoint--green--ink--md--per-shape",
+  "req": "REQ-063",
+  "seed": 1592,
+  "props": {
+    "title": "Orders",
+    "badge": "14 days",
+    "footerLeft": "daily",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "kpi-card/kpi-card--silverpoint--green--ink--md--per-shape.canonical.txt"
+}

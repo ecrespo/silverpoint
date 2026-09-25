@@ -1,0 +1,22 @@
+{
+  "chart": "FunnelChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "funnel-chart--silverpoint--blue--precision--md--per-shape",
+  "req": "REQ-068",
+  "seed": 1592,
+  "props": {
+    "title": "Checkout funnel",
+    "badge": "June",
+    "footerLeft": "sessions",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "funnel-chart/funnel-chart--silverpoint--blue--precision--md--per-shape.canonical.txt"
+}

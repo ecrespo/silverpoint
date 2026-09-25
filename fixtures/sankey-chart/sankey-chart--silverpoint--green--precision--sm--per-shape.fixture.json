@@ -1,0 +1,22 @@
+{
+  "chart": "SankeyChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "sankey-chart--silverpoint--green--precision--sm--per-shape",
+  "req": "REQ-086",
+  "seed": 1592,
+  "props": {
+    "title": "Visitor flow",
+    "badge": "June",
+    "footerLeft": "visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sankey-chart/sankey-chart--silverpoint--green--precision--sm--per-shape.canonical.txt"
+}

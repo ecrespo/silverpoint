@@ -1,0 +1,77 @@
+<svg aria-labelledby="volvelle-chart--silverpoint--cream--ink--lg-title volvelle-chart--silverpoint--cream--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="volvelle-chart--silverpoint--cream--ink--lg-title">
+    "On call"
+  <desc id="volvelle-chart--silverpoint--cream--ink--lg-desc">
+    "On call. Volvelle of 3 rings from the inside out; under the index: Day Mon · Shift Early · Team Atlas."
+  <defs>
+    <pattern height="49.5" id="volvelle-chart--silverpoint--cream--ink--lg-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M292.93,137.78A62.4,62.4,0,0,1,347.07,137.78L332.41,168.23A28.6,28.6,0,0,0,307.59,168.23Z" data-paint="tile" data-role="hatch" fill="url(#volvelle-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M292.93,137.78A62.4,62.4,0,0,1,347.07,137.78L332.41,168.23A28.6,28.6,0,0,0,307.59,168.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.07,137.78A62.4,62.4,0,0,1,380.84,180.11L347.88,187.64A28.6,28.6,0,0,0,332.41,168.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M380.84,180.11A62.4,62.4,0,0,1,368.79,232.91L342.36,211.83A28.6,28.6,0,0,0,347.88,187.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M368.79,232.91A62.4,62.4,0,0,1,320,256.4L320,222.6A28.6,28.6,0,0,0,342.36,211.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320,256.4A62.4,62.4,0,0,1,271.21,232.91L297.64,211.83A28.6,28.6,0,0,0,320,222.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M271.21,232.91A62.4,62.4,0,0,1,259.16,180.11L292.12,187.64A28.6,28.6,0,0,0,297.64,211.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M259.16,180.11A62.4,62.4,0,0,1,292.93,137.78L307.59,168.23A28.6,28.6,0,0,0,292.12,187.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M278.26,107.33A96.2,96.2,0,0,1,415.93,201.19L382.23,198.66A62.4,62.4,0,0,0,292.93,137.78Z" data-paint="tile" data-role="hatch" fill="url(#volvelle-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M278.26,107.33A96.2,96.2,0,0,1,415.93,201.19L382.23,198.66A62.4,62.4,0,0,0,292.93,137.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M415.93,201.19A96.2,96.2,0,0,1,265.81,273.48L284.85,245.56A62.4,62.4,0,0,0,382.23,198.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M265.81,273.48A96.2,96.2,0,0,1,278.26,107.33L292.93,137.78A62.4,62.4,0,0,0,284.85,245.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M263.6,76.87A130,130,0,0,1,413.96,104.16L389.53,127.52A96.2,96.2,0,0,0,278.26,107.33Z" data-paint="tile" data-role="hatch" fill="url(#volvelle-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M263.6,76.87A130,130,0,0,1,413.96,104.16L389.53,127.52A96.2,96.2,0,0,0,278.26,107.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M413.96,104.16A130,130,0,0,1,434.48,255.6L404.71,239.59A96.2,96.2,0,0,0,389.53,127.52Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M434.48,255.6A130,130,0,0,1,296.79,321.91L302.82,288.65A96.2,96.2,0,0,0,404.71,239.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M296.79,321.91A130,130,0,0,1,191.18,211.45L224.67,206.91A96.2,96.2,0,0,0,302.82,288.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M191.18,211.45A130,130,0,0,1,263.6,76.87L278.26,107.33A96.2,96.2,0,0,0,224.67,206.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M316,57L324,57L320,63Z" data-paint="fill" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "On call"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "rota"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "day · shift · team"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="320" y="151.5">
+    "Mon"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="355.57" y="168.63">
+    "Tue"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="364.36" y="207.12">
+    "Wed"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="339.74" y="237.99">
+    "Thu"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="300.26" y="237.99">
+    "Fri"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="275.64" y="207.12">
+    "Sat"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="284.43" y="168.63">
+    "Sun"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="364.67" y="131.48">
+    "Early"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="354.41" y="268.45">
+    "Late"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="240.92" y="191.07">
+    "Night"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="340.19" y="85.72">
+    "Atlas"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="456.75" y="178.48">
+    "Borealis"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="369.07" y="298.9">
+    "Cygnus"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="238.25" y="275.16">
+    "Draco"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="198.48" y="131.61">
+    "Eridanus"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="16" y="340">
+    "Day Mon · Shift Early · Team Atlas"

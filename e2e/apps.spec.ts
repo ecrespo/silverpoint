@@ -36,6 +36,23 @@ test.describe('example apps', () => {
     await expect(harness.locator('svg.sp-chart title')).toHaveAttribute('id', 'line-chart--silverpoint--ochre--precision--md-title');
   });
 
+  // The nightly matrix has three sizes (T-092): each cell lays out in a container of its own size,
+  // on the canonical page and in every app, or the screenshots compare different layouts.
+  for (const [id, size, width] of [
+    ['bar-chart--silverpoint--cream--ink--sm', 'sm', 240],
+    ['donut-chart--silverpoint--blue--precision--lg--per-shape', 'lg', 640],
+  ] as const) {
+    test(`REQ-181 · REQ-182 · a ${size} fixture lays out in a ${size} container`, async ({ page }, info) => {
+      for (const url of [`/?fixture=${id}`, ...(info.project.name === 'vite-react' ? [`/canonical.html?fixture=${id}`] : [])]) {
+        await page.goto(url);
+        const harness = page.locator('.sp-harness[data-gate]');
+        await expect(harness, url).toHaveAttribute('data-size', size);
+        await expect(harness.locator('.sp-root'), url).toHaveAttribute('data-status', 'ready');
+        expect(Math.round((await harness.locator('svg.sp-chart').boundingBox())?.width ?? 0), url).toBe(width);
+      }
+    });
+  }
+
   for (const fixture of FIXTURES.filter((f) => f.chart !== 'LineChart' && f.substrate === 'cream' && f.mode === 'ink')) {
     test(`REQ-182 · the fixture page of ${fixture.chart} renders that chart`, async ({ page }) => {
       const errors: string[] = [];

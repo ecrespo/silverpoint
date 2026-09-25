@@ -1,0 +1,43 @@
+<svg aria-labelledby="bullet-chart--silverpoint--ochre--precision--md--per-shape-title bullet-chart--silverpoint--ochre--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="bullet-chart--silverpoint--ochre--precision--md--per-shape-title">
+    "Quarter targets"
+  <desc id="bullet-chart--silverpoint--ochre--precision--md--per-shape-desc">
+    "Quarter targets. Bullet chart of 4 targets on a 0 to 100 scale; 1 of 4 reach their target."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,69.05H298V81.05H22Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,69.05H220.72V81.05H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M242.8,66.05V84.05" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,103.55H298V115.55H22Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,103.55H182.08V115.55H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M201.4,100.55V118.55" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,138.05H298V150.05H22Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,138.05H259.36V150.05H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M229,135.05V153.05" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,172.55H298V184.55H22Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,172.55H135.16V184.55H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M187.6,169.55V187.55" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Quarter targets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "0–100"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="64.05">
+    "Revenue"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="64.05">
+    "72"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="98.55">
+    "Profit"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="98.55">
+    "58"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="133.05">
+    "New users"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="133.05">
+    "86"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="167.55">
+    "Retention"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="167.55">
+    "41"

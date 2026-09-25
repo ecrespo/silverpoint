@@ -1,0 +1,22 @@
+{
+  "chart": "SankeyChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "sankey-chart--silverpoint--blue--ink--lg",
+  "req": "REQ-086",
+  "seed": 1592,
+  "props": {
+    "title": "Visitor flow",
+    "badge": "June",
+    "footerLeft": "visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sankey-chart/sankey-chart--silverpoint--blue--ink--lg.canonical.txt"
+}

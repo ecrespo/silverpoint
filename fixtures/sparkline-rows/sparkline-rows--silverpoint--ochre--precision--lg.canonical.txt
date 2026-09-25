@@ -1,0 +1,35 @@
+<svg aria-labelledby="sparkline-rows--silverpoint--ochre--precision--lg-title sparkline-rows--silverpoint--ochre--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="sparkline-rows--silverpoint--ochre--precision--lg-title">
+    "Service health"
+  <desc id="sparkline-rows--silverpoint--ochre--precision--lg-desc">
+    "Service health. 4 rows: API 99.9%, Queue 17, Cache 84%, Search 170."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M86,96.67C108.86,86,131.71,75.33,154.57,75.33C177.43,75.33,200.29,75.33,223.14,75.33C246,75.33,268.86,118,291.71,118C314.57,118,337.43,86,360.29,75.33C383.14,64.67,406,54,428.86,54C451.71,54,474.57,75.33,497.43,75.33C520.29,75.33,543.14,64.67,566,54" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86,190C108.86,175.23,131.71,160.46,154.57,160.46C177.43,160.46,200.29,175.23,223.14,175.23C246,175.23,268.86,140.77,291.71,140.77C314.57,140.77,337.43,155.54,360.29,155.54C383.14,155.54,406,126,428.86,126C451.71,126,474.57,139.13,497.43,145.69C520.29,152.26,543.14,158.82,566,165.39" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86,262C108.86,260.48,131.71,258.95,154.57,252.86C177.43,246.76,200.29,225.43,223.14,225.43C246,225.43,268.86,239.14,291.71,239.14C314.57,239.14,337.43,222.38,360.29,216.29C383.14,210.19,406,202.57,428.86,202.57C451.71,202.57,474.57,211.71,497.43,211.71C520.29,211.71,543.14,204.86,566,198" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86,284.22C108.86,291.33,131.71,298.44,154.57,298.44C177.43,298.44,200.29,270,223.14,270C246,270,268.86,297.26,291.71,305.56C314.57,313.85,337.43,319.78,360.29,319.78C383.14,319.78,406,309.11,428.86,309.11C451.71,309.11,474.57,322.74,497.43,326.89C520.29,331.04,543.14,332.52,566,334" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Service health"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Live"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "last 8 checks"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="90">
+    "API"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="90">
+    "99.9%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="162">
+    "Queue"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="162">
+    "17"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="234">
+    "Cache"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="234">
+    "84%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="306">
+    "Search"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="618" y="306">
+    "170"

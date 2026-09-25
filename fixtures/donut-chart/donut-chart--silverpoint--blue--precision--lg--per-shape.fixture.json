@@ -1,0 +1,22 @@
+{
+  "chart": "DonutChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "donut-chart--silverpoint--blue--precision--lg--per-shape",
+  "req": "REQ-075",
+  "seed": 1592,
+  "props": {
+    "title": "Budget",
+    "badge": "May",
+    "footerLeft": "share of spend",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "donut-chart/donut-chart--silverpoint--blue--precision--lg--per-shape.canonical.txt"
+}

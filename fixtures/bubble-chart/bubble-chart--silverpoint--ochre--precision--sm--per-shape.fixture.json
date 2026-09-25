@@ -1,0 +1,22 @@
+{
+  "chart": "BubbleChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "bubble-chart--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-083",
+  "seed": 1592,
+  "props": {
+    "title": "Markets",
+    "badge": "2026",
+    "footerLeft": "growth × margin",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bubble-chart/bubble-chart--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "ChordRing",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "chord-ring--silverpoint--green--ink--sm",
+  "req": "REQ-091",
+  "seed": 1592,
+  "props": {
+    "title": "Site journeys",
+    "badge": "June",
+    "footerLeft": "visitors between sections",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "chord-ring/chord-ring--silverpoint--green--ink--sm.canonical.txt"
+}

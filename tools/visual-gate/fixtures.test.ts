@@ -88,3 +88,34 @@ test('REQ-182 · the PR matrix holds every catalog chart × 8 cells', () => {
   expect(loadFixtures()).toHaveLength(CATALOG.length * 8);
   expect(CATALOG).toHaveLength(33);
 });
+
+/** The nightly product of Data Model §5 (T-091): every cell, not only the PR's `md` + `tile` slice. */
+describe('the full matrix', () => {
+  const full = loadFixtures('full');
+  const cell = (f: Fixture) => `${f.chart}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
+
+  test('REQ-182 · 1,584 fixtures: 33 charts × 2 modes × 4 substrates × 2 hatchFill × 3 sizes, each once', () => {
+    expect(full).toHaveLength(1584);
+    expect(new Set(full.map(cell)).size).toBe(1584);
+    expect(new Set(full.map((f) => f.hatchFill))).toEqual(new Set(['tile', 'per-shape']));
+    expect(new Set(full.map((f) => `${f.size.width}x${f.size.height}`))).toEqual(new Set(['240x120', '320x150', '640x300']));
+  });
+
+  test('REQ-182 · the PR matrix is its md + tile slice', () => {
+    expect(loadFixtures().map((f) => f.id)).toEqual(full.filter((f) => f.hatchFill === 'tile' && f.size.width === 320).map((f) => f.id));
+  });
+
+  test('REQ-182 · every fixture of the full matrix validates, and its committed canonical is current', () => {
+    for (const fixture of full) {
+      expect(validateFixture(fixture), fixture.id).toEqual([]);
+      expect(readFileSync(`${FIXTURES_DIR}/${fixture.canonical}`, 'utf8'), fixture.id).toBe(canonicalFor(fixture));
+    }
+  }, 120_000);
+
+  test('REQ-182 · the apps can open any cell: the harness embeds the full matrix beside the PR one', async () => {
+    const harness = await import('../../examples/harness/index.js');
+    expect(harness.ALL_FIXTURES).toHaveLength(1584);
+    expect(harness.FIXTURES).toHaveLength(264);
+    expect(harness.fixtureById('bar-chart--silverpoint--ochre--precision--lg--per-shape')?.hatchFill).toBe('per-shape');
+  });
+});

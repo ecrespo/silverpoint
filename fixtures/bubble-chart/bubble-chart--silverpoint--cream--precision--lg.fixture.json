@@ -1,0 +1,22 @@
+{
+  "chart": "BubbleChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "bubble-chart--silverpoint--cream--precision--lg",
+  "req": "REQ-083",
+  "seed": 1592,
+  "props": {
+    "title": "Markets",
+    "badge": "2026",
+    "footerLeft": "growth × margin",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bubble-chart/bubble-chart--silverpoint--cream--precision--lg.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "WaterfallChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "waterfall-chart--silverpoint--green--precision--sm",
+  "req": "REQ-067",
+  "seed": 1592,
+  "props": {
+    "title": "Cash bridge",
+    "badge": "Q2",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "waterfall-chart/waterfall-chart--silverpoint--green--precision--sm.canonical.txt"
+}

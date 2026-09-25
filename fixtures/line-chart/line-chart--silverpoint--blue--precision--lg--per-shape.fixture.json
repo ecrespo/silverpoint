@@ -1,0 +1,24 @@
+{
+  "chart": "LineChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "line-chart--silverpoint--blue--precision--lg--per-shape",
+  "req": "REQ-060",
+  "seed": 1592,
+  "props": {
+    "title": "Throughput per hour",
+    "badge": "Live",
+    "value": 88,
+    "unit": "requests",
+    "footerLeft": "00–22 h",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "line-chart/line-chart--silverpoint--blue--precision--lg--per-shape.canonical.txt"
+}

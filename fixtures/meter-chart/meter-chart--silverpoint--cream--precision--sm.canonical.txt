@@ -1,0 +1,28 @@
+<svg aria-labelledby="meter-chart--silverpoint--cream--precision--sm-title meter-chart--silverpoint--cream--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="meter-chart--silverpoint--cream--precision--sm-title">
+    "Pressure"
+  <desc id="meter-chart--silverpoint--cream--precision--sm-desc">
+    "Pressure. The value at 72% of the range."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M52,118A68,68,0,0,1,188,118" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M58.8,118L52,118" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M76.73,74.73L71.92,69.92" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,56.8L120,50" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M163.27,74.73L168.08,69.92" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M181.2,118L188,118" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,118L157.28,72.94" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pressure"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "now"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "of the rated maximum"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="52" y="129">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="188" y="129">
+    "100"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="120" y="147">
+    "72%"

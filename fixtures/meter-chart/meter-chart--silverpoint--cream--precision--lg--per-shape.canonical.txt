@@ -1,0 +1,28 @@
+<svg aria-labelledby="meter-chart--silverpoint--cream--precision--lg--per-shape-title meter-chart--silverpoint--cream--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="meter-chart--silverpoint--cream--precision--lg--per-shape-title">
+    "Pressure"
+  <desc id="meter-chart--silverpoint--cream--precision--lg--per-shape-desc">
+    "Pressure. The value at 72% of the range."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M72,298A248,248,0,0,1,568,298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M96.8,298L72,298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M162.17,140.17L144.64,122.64" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M320,74.8L320,50" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M477.83,140.17L495.36,122.64" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M543.2,298L568,298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M320,298L455.95,133.66" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pressure"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "now"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "of the rated maximum"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="72" y="309">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="568" y="309">
+    "100"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="320" y="327">
+    "72%"

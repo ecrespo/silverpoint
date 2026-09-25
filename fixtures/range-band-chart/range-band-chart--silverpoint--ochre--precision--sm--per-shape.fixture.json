@@ -1,0 +1,22 @@
+{
+  "chart": "RangeBandChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "range-band-chart--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-073",
+  "seed": 1592,
+  "props": {
+    "title": "Temperature",
+    "badge": "°C",
+    "footerLeft": "daily range",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "range-band-chart/range-band-chart--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

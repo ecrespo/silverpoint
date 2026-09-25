@@ -1,0 +1,22 @@
+{
+  "chart": "ChordRing",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "chord-ring--silverpoint--blue--precision--md--per-shape",
+  "req": "REQ-091",
+  "seed": 1592,
+  "props": {
+    "title": "Site journeys",
+    "badge": "June",
+    "footerLeft": "visitors between sections",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "chord-ring/chord-ring--silverpoint--blue--precision--md--per-shape.canonical.txt"
+}

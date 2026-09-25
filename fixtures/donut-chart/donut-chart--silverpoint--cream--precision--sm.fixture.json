@@ -1,0 +1,22 @@
+{
+  "chart": "DonutChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "donut-chart--silverpoint--cream--precision--sm",
+  "req": "REQ-075",
+  "seed": 1592,
+  "props": {
+    "title": "Budget",
+    "badge": "May",
+    "footerLeft": "share of spend",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "donut-chart/donut-chart--silverpoint--cream--precision--sm.canonical.txt"
+}

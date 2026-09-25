@@ -1,0 +1,19 @@
+<svg aria-labelledby="gauge-arc--silverpoint--blue--precision--sm--per-shape-title gauge-arc--silverpoint--blue--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="gauge-arc--silverpoint--blue--precision--sm--per-shape-title">
+    "Capacity"
+  <desc id="gauge-arc--silverpoint--blue--precision--sm--per-shape-desc">
+    "Capacity. The value at 72% of the range."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M62.32,155.8A66.6,66.6,0,0,1,120,55.9A66.6,66.6,0,0,1,177.68,155.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M55.91,159.5A74,74,0,0,1,178.94,77.76L167.15,86.71A59.2,59.2,0,0,0,68.73,152.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Capacity"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "live"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "of the cluster"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="120" y="124.5">
+    "72%"

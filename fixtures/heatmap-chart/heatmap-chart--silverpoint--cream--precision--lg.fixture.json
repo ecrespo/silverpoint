@@ -1,0 +1,22 @@
+{
+  "chart": "HeatmapChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "heatmap-chart--silverpoint--cream--precision--lg",
+  "req": "REQ-084",
+  "seed": 1592,
+  "props": {
+    "title": "Load by weekday",
+    "badge": "Week 26",
+    "footerLeft": "of 100",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "heatmap-chart/heatmap-chart--silverpoint--cream--precision--lg.canonical.txt"
+}

@@ -2,13 +2,26 @@
  * The fixture matrix as every example app sees it, plus the props builder the string gate uses.
  * Kept in plain JavaScript so Vite, Next.js and the Angular CLI consume it without a transform.
  */
-import { FIXTURES } from './fixtures.generated.js';
+import { ALL_FIXTURES } from './fixtures.generated.js';
 
-export { FIXTURES };
+/** The nightly matrix (Data Model §5): 1,584 cells. */
+export { ALL_FIXTURES };
 
-/** @param {string | null | undefined} id */
+/** The PR matrix: the `md` + `tile` slice every PR compares. */
+export const FIXTURES = ALL_FIXTURES.filter((fixture) => fixture.hatchFill === 'tile' && fixture.size.width === 320);
+
+/**
+ * The container size a fixture lays out in — `sm`, `md` or `lg` of the harness stylesheet — so the
+ * canonical page and every app screenshot the same layout.
+ * @param {(typeof ALL_FIXTURES)[number]} fixture
+ */
+export function sizeOf(fixture) {
+  return fixture.size.width === 240 ? 'sm' : fixture.size.width === 640 ? 'lg' : 'md';
+}
+
+/** Any cell of the full matrix, by id. @param {string | null | undefined} id */
 export function fixtureById(id) {
-  return FIXTURES.find((fixture) => fixture.id === id);
+  return ALL_FIXTURES.find((fixture) => fixture.id === id);
 }
 
 /**

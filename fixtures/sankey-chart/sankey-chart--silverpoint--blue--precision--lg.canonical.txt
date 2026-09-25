@@ -1,0 +1,42 @@
+<svg aria-labelledby="sankey-chart--silverpoint--blue--precision--lg-title sankey-chart--silverpoint--blue--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="sankey-chart--silverpoint--blue--precision--lg-title">
+    "Visitor flow"
+  <desc id="sankey-chart--silverpoint--blue--precision--lg-desc">
+    "Visitor flow. Sankey diagram of 6 flows between 7 nodes in 4 layers; total flow of 90."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M30,50C124,50,124,60,218,60V202.93C124,202.93,124,192.93,30,192.93Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M30,202.93C124,202.93,124,202.93,218,202.93V283.33C124,283.33,124,283.33,30,283.33Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M30,293.33C124,293.33,124,283.33,218,283.33V328C124,328,124,338,30,338Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M226,60C320,60,320,55,414,55V180.07C320,180.07,320,185.07,226,185.07Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M226,185.07C320,185.07,320,190.07,414,190.07V333C320,333,320,328,226,328Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M422,55C516,55,516,167.2,610,167.2V220.8C516,220.8,516,108.6,422,108.6Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M22,50H30V192.93H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M218,60H226V328H218Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,202.93H30V283.33H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,293.33H30V338H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M414,55H422V180.07H414Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M414,190.07H422V333H414Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M610,167.2H618V220.8H610Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Visitor flow"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "visits"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="125.47">
+    "Search 48"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="230" y="198">
+    "Visit 90"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="247.13">
+    "Social 27"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="319.67">
+    "Email 15"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="426" y="121.53">
+    "Signup 42"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="426" y="265.53">
+    "Bounce 48"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="606" y="198">
+    "Paid 18"

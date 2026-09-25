@@ -1,0 +1,22 @@
+{
+  "chart": "ActivityGrid",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "activity-grid--silverpoint--blue--precision--lg",
+  "req": "REQ-087",
+  "seed": 1592,
+  "props": {
+    "title": "Contributions",
+    "badge": "26 weeks",
+    "footerLeft": "Jan–Jun 2026",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "activity-grid/activity-grid--silverpoint--blue--precision--lg.canonical.txt"
+}

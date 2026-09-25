@@ -1,0 +1,22 @@
+{
+  "chart": "BulletChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "bullet-chart--silverpoint--green--precision--lg",
+  "req": "REQ-069",
+  "seed": 1592,
+  "props": {
+    "title": "Quarter targets",
+    "badge": "Q2",
+    "footerLeft": "0–100",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bullet-chart/bullet-chart--silverpoint--green--precision--lg.canonical.txt"
+}

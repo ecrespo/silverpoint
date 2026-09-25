@@ -1,0 +1,22 @@
+{
+  "chart": "RadialArcGroup",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "radial-arc-group--silverpoint--ochre--precision--lg--per-shape",
+  "req": "REQ-078",
+  "seed": 1592,
+  "props": {
+    "title": "Pipeline",
+    "badge": "Q3",
+    "footerLeft": "by channel",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radial-arc-group/radial-arc-group--silverpoint--ochre--precision--lg--per-shape.canonical.txt"
+}

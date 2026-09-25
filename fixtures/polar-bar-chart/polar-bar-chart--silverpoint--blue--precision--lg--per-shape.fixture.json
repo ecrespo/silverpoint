@@ -1,0 +1,22 @@
+{
+  "chart": "PolarBarChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "polar-bar-chart--silverpoint--blue--precision--lg--per-shape",
+  "req": "REQ-077",
+  "seed": 1592,
+  "props": {
+    "title": "Monthly sales",
+    "badge": "2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-bar-chart/polar-bar-chart--silverpoint--blue--precision--lg--per-shape.canonical.txt"
+}

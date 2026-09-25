@@ -1,0 +1,65 @@
+<svg aria-labelledby="waterfall-chart--silverpoint--blue--precision--lg-title waterfall-chart--silverpoint--blue--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="waterfall-chart--silverpoint--blue--precision--lg-title">
+    "Cash bridge"
+  <desc id="waterfall-chart--silverpoint--blue--precision--lg-desc">
+    "Cash bridge. Waterfall of 6 steps, ending at 124."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,269.2H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,214.4H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,159.6H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,104.8H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,324H618" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M50.11,192.48H93.22V324H50.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M93.22,192.48H149.44" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M149.44,122.34H192.56V192.48H149.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.56,122.34H248.78" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M248.78,98.22H291.89V122.34H248.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M291.89,98.22H348.11" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M348.11,98.22H391.22V161.79H348.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M391.22,161.79H447.44" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M447.44,161.79H490.56V188.1H447.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M546.78,188.1H589.89V324H546.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Cash bridge"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "k€"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="266.2">
+    "50"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="211.4">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="156.6">
+    "150"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="101.8">
+    "200"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "250"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="71.67" y="189.48">
+    "120"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="171" y="119.34">
+    "+64"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="270.33" y="95.22">
+    "+22"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="369.67" y="95.22">
+    "-58"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="469" y="158.79">
+    "-24"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="568.33" y="185.1">
+    "124"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="71.67" y="339">
+    "Opening"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171" y="339">
+    "Sales"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="270.33" y="339">
+    "Services"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="369.67" y="339">
+    "Payroll"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="469" y="339">
+    "Rent"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="568.33" y="339">
+    "Closing"

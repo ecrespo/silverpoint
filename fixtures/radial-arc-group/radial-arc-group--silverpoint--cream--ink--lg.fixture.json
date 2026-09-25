@@ -1,0 +1,22 @@
+{
+  "chart": "RadialArcGroup",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "radial-arc-group--silverpoint--cream--ink--lg",
+  "req": "REQ-078",
+  "seed": 1592,
+  "props": {
+    "title": "Pipeline",
+    "badge": "Q3",
+    "footerLeft": "by channel",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radial-arc-group/radial-arc-group--silverpoint--cream--ink--lg.canonical.txt"
+}

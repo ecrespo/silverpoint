@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DEMO_PROPS, fixtureProps, GALLERY, type HarnessFixture } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, type HarnessFixture } from '@silverpoint/example-harness';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -42,7 +42,7 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
 
 <template>
   <main v-if="props.fixture">
-    <div class="sp-harness" data-gate="" data-size="md">
+    <div class="sp-harness" data-gate="" :data-size="sizeOf(props.fixture)">
       <component :is="CHARTS[props.fixture.chart as keyof typeof CHARTS]" v-bind="fixtureProps(props.fixture)" />
     </div>
   </main>

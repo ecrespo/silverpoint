@@ -1,0 +1,22 @@
+{
+  "chart": "PolarBarChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "polar-bar-chart--silverpoint--ochre--ink--sm",
+  "req": "REQ-077",
+  "seed": 1592,
+  "props": {
+    "title": "Monthly sales",
+    "badge": "2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-bar-chart/polar-bar-chart--silverpoint--ochre--ink--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "StepChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "step-chart--silverpoint--cream--ink--sm",
+  "req": "REQ-061",
+  "seed": 1592,
+  "props": {
+    "title": "Price tier",
+    "badge": "2026",
+    "footerLeft": "per month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "step-chart/step-chart--silverpoint--cream--ink--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "ChordRing",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "chord-ring--silverpoint--ochre--precision--lg",
+  "req": "REQ-091",
+  "seed": 1592,
+  "props": {
+    "title": "Site journeys",
+    "badge": "June",
+    "footerLeft": "visitors between sections",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "chord-ring/chord-ring--silverpoint--ochre--precision--lg.canonical.txt"
+}

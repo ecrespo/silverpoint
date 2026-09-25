@@ -1,0 +1,22 @@
+{
+  "chart": "HeatmapChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "heatmap-chart--silverpoint--green--ink--lg--per-shape",
+  "req": "REQ-084",
+  "seed": 1592,
+  "props": {
+    "title": "Load by weekday",
+    "badge": "Week 26",
+    "footerLeft": "of 100",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "heatmap-chart/heatmap-chart--silverpoint--green--ink--lg--per-shape.canonical.txt"
+}

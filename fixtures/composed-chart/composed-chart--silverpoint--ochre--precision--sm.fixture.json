@@ -1,0 +1,22 @@
+{
+  "chart": "ComposedChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "composed-chart--silverpoint--ochre--precision--sm",
+  "req": "REQ-066",
+  "seed": 1592,
+  "props": {
+    "title": "Revenue and margin",
+    "badge": "H1",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "composed-chart/composed-chart--silverpoint--ochre--precision--sm.canonical.txt"
+}

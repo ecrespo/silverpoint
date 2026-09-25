@@ -1,0 +1,22 @@
+{
+  "chart": "VolvelleChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "volvelle-chart--silverpoint--ochre--precision--lg--per-shape",
+  "req": "REQ-090",
+  "seed": 1592,
+  "props": {
+    "title": "On call",
+    "badge": "rota",
+    "footerLeft": "day · shift · team",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "volvelle-chart/volvelle-chart--silverpoint--ochre--precision--lg--per-shape.canonical.txt"
+}

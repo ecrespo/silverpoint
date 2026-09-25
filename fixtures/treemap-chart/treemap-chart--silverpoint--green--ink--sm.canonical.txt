@@ -1,0 +1,53 @@
+<svg aria-labelledby="treemap-chart--silverpoint--green--ink--sm-title treemap-chart--silverpoint--green--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="treemap-chart--silverpoint--green--ink--sm-title">
+    "Traffic sources"
+  <desc id="treemap-chart--silverpoint--green--ink--sm-desc">
+    "Traffic sources. Treemap of 4 tiles in a 6 by 4 grid; Search 48%, Direct 26%, Social 17%, Email 9%."
+  <defs>
+    <pattern height="50" id="treemap-chart--silverpoint--green--ink--sm-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="treemap-chart--silverpoint--green--ink--sm-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M23.5,51.5H118.5V156.5H23.5Z" data-paint="tile" data-role="hatch" fill="url(#treemap-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M23.5,51.5H118.5V156.5H23.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.5,51.5H216.5V102.5H121.5Z" data-paint="tile" data-role="hatch" fill="url(#treemap-chart--silverpoint--green--ink--sm-tone-2)" part="sp-ink">
+  <path d="M121.5,51.5H216.5V102.5H121.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.5,105.5H183.83V156.5H121.5Z" data-paint="tile" data-role="hatch" fill="url(#treemap-chart--silverpoint--green--ink--sm-tone-1)" part="sp-ink">
+  <path d="M121.5,105.5H183.83V156.5H121.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M186.83,105.5H216.5V156.5H186.83Z" data-paint="tile" data-role="hatch" fill="url(#treemap-chart--silverpoint--green--ink--sm-tone-1)" part="sp-ink">
+  <path d="M186.83,105.5H216.5V156.5H186.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Traffic sources"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "share of visits"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="29.5" y="64.5">
+    "Search"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="29.5" y="77.5">
+    "48%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="127.5" y="64.5">
+    "Direct"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="127.5" y="77.5">
+    "26%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="127.5" y="118.5">
+    "Social"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="127.5" y="131.5">
+    "17%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="192.83" y="118.5">
+    "Email"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="192.83" y="131.5">
+    "9%"

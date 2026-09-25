@@ -2,9 +2,16 @@ import { existsSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { FIXTURES } from '../examples/harness/index.js';
+import { ALL_FIXTURES, FIXTURES } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
 import { CATALOG } from '../tools/visual-gate/catalog';
+import { matrixScope } from '../tools/visual-gate/matrix';
+
+/** The PR matrix on every PR; the full 1,584 cells when the nightly run sets `SP_MATRIX=full`. */
+const FULL = matrixScope() === 'full';
+const MATRIX = FULL ? ALL_FIXTURES : FIXTURES;
+/** Golden images are committed for the PR cells: the `md` + `tile` slice. */
+const hasGolden = (fixture: (typeof ALL_FIXTURES)[number]) => fixture.hatchFill === 'tile' && fixture.size.width === 320;
 
 /** The canonical render is served by the vite-react bench (`canonical.html`), framework-free. */
 const CANONICAL = `http://localhost:${APPS['vite-react'].port}/canonical.html`;
@@ -44,18 +51,19 @@ function gate(adapter: Buffer, canonical: Buffer, golden: Buffer | undefined): s
 
 test.describe('pixel gate', () => {
   // An empty fixture list would create no comparison and pass (T-090): the PR matrix is every
-  // catalog chart × 2 modes × 4 substrates at `md` (Data Model §5).
-  test('REQ-181 · REQ-182 · the gate has the whole PR matrix to compare', () => {
-    expect(FIXTURES.length).toBe(CATALOG.length * 8);
+  // catalog chart × 2 modes × 4 substrates at `md`; the full one adds 2 fills × 3 sizes (Data Model §5).
+  test('REQ-181 · REQ-182 · the gate has the whole matrix to compare', () => {
+    expect(MATRIX.length).toBe(CATALOG.length * (FULL ? 48 : 8));
   });
 
-  for (const fixture of FIXTURES) {
+  for (const fixture of MATRIX) {
     test(`REQ-181 · ${fixture.id} passes the three Art. 3 comparisons`, async ({ page }, info) => {
       const canonical = await shoot(page, `${CANONICAL}?fixture=${fixture.id}`);
-      // The golden image is the canonical render's screenshot, stored once per fixture.
-      expect(canonical).toMatchSnapshot(`${fixture.id}.png`, { threshold: 0.15, maxDiffPixelRatio: 0.005 });
+      // The golden image is the canonical render's screenshot, stored once per PR cell; the other
+      // nightly cells compare each adapter with the canonical page of the same run (T-092 ruling).
+      if (hasGolden(fixture)) expect(canonical).toMatchSnapshot(`${fixture.id}.png`, { threshold: 0.15, maxDiffPixelRatio: 0.005 });
       const goldenPath = info.snapshotPath(`${fixture.id}.png`);
-      const golden = existsSync(goldenPath) ? readFileSync(goldenPath) : undefined;
+      const golden = hasGolden(fixture) && existsSync(goldenPath) ? readFileSync(goldenPath) : undefined;
       const adapter = await shoot(page, `/?fixture=${fixture.id}`);
       expect(gate(adapter, canonical, golden)).toEqual([]);
     });

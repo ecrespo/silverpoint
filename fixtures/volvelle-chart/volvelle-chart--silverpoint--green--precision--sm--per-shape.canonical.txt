@@ -1,0 +1,41 @@
+<svg aria-labelledby="volvelle-chart--silverpoint--green--precision--sm--per-shape-title volvelle-chart--silverpoint--green--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="volvelle-chart--silverpoint--green--precision--sm--per-shape-title">
+    "On call"
+  <desc id="volvelle-chart--silverpoint--green--precision--sm--per-shape-desc">
+    "On call. Volvelle of 3 rings from the inside out; under the index: Day Mon · Shift Early · Team Atlas."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M111.67,86.7A19.2,19.2,0,0,1,128.33,86.7L123.82,96.07A8.8,8.8,0,0,0,116.18,96.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M128.33,86.7A19.2,19.2,0,0,1,138.72,99.73L128.58,102.04A8.8,8.8,0,0,0,123.82,96.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M138.72,99.73A19.2,19.2,0,0,1,135.01,115.97L126.88,109.49A8.8,8.8,0,0,0,128.58,102.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M135.01,115.97A19.2,19.2,0,0,1,120,123.2L120,112.8A8.8,8.8,0,0,0,126.88,109.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M120,123.2A19.2,19.2,0,0,1,104.99,115.97L113.12,109.49A8.8,8.8,0,0,0,120,112.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M104.99,115.97A19.2,19.2,0,0,1,101.28,99.73L111.42,102.04A8.8,8.8,0,0,0,113.12,109.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M101.28,99.73A19.2,19.2,0,0,1,111.67,86.7L116.18,96.07A8.8,8.8,0,0,0,111.42,102.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.16,77.33A29.6,29.6,0,0,1,149.52,106.21L139.15,105.43A19.2,19.2,0,0,0,111.67,86.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M149.52,106.21A29.6,29.6,0,0,1,103.33,128.46L109.18,119.86A19.2,19.2,0,0,0,139.15,105.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M103.33,128.46A29.6,29.6,0,0,1,107.16,77.33L111.67,86.7A19.2,19.2,0,0,0,109.18,119.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M102.64,67.96A40,40,0,0,1,148.91,76.36L141.39,83.54A29.6,29.6,0,0,0,107.16,77.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M148.91,76.36A40,40,0,0,1,155.22,122.95L146.07,118.03A29.6,29.6,0,0,0,141.39,83.54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.22,122.95A40,40,0,0,1,112.86,143.36L114.71,133.12A29.6,29.6,0,0,0,146.07,118.03Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M112.86,143.36A40,40,0,0,1,80.36,109.37L90.67,107.97A29.6,29.6,0,0,0,114.71,133.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M80.36,109.37A40,40,0,0,1,102.64,67.96L107.16,77.33A29.6,29.6,0,0,0,90.67,107.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M116,57L124,57L120,63Z" data-paint="fill" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "On call"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "rota"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "day · shift · team"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="167.57" y="100.56">
+    "Borealis"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="140.83" y="150.25">
+    "Cygnus"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="85.31" y="140.17">
+    "Draco"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="77.73" y="84.25">
+    "Eridanus"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="16" y="160">
+    "Day Mon · Shift Early · Team Atlas"

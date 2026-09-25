@@ -1,0 +1,22 @@
+{
+  "chart": "CandlestickChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "candlestick-chart--silverpoint--cream--precision--sm--per-shape",
+  "req": "REQ-071",
+  "seed": 1592,
+  "props": {
+    "title": "Share price",
+    "badge": "2 weeks",
+    "footerLeft": "daily OHLC",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "candlestick-chart/candlestick-chart--silverpoint--cream--precision--sm--per-shape.canonical.txt"
+}

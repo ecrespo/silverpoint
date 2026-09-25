@@ -27,3 +27,29 @@ jobs:
         with:
           name: bench
           path: bench.json
+
+  # Data Model §5, TD §8: the full 1,584-fixture matrix — 33 charts × 2 modes × 4 substrates ×
+  # 2 hatchFill × 3 sizes — through the string gate (REQ-180) and the pixel gate (REQ-181), on the
+  # same pinned rasteriser as the PR job. The PR runs the md + tile slice only.
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27
+      options: --ipc=host --init
+    env:
+      NG_CLI_ANALYTICS: 'false'
+      NEXT_TELEMETRY_DISABLED: '1'
+      SP_MATRIX: full
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm --filter @silverpoint/visual-gate string-gate
+      - run: pnpm exec playwright test pixel
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pixel-full-matrix
+          path: test-results/

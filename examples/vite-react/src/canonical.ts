@@ -43,14 +43,15 @@ import {
   type ChartRecipe,
   type CommonChartProps,
 } from '@silverpoint/core';
-import { fixtureById, fixtureProps } from '@silverpoint/example-harness';
+import { fixtureById, fixtureProps, sizeOf } from '@silverpoint/example-harness';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
 const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
-const harness = document.querySelector('.sp-harness');
+const harness = document.querySelector<HTMLElement>('.sp-harness');
 if (fixture && harness) {
+  harness.dataset.size = sizeOf(fixture);
   // A fixture's props fit its own chart; the union of recipes cannot say so, hence the widening.
   const recipe = RECIPES[fixture.chart as keyof typeof RECIPES] as ChartRecipe<CommonChartProps>;
   const rendered = renderChart(recipe, fixtureProps(fixture), { id: fixture.id });

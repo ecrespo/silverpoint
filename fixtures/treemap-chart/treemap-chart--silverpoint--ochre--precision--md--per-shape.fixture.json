@@ -1,0 +1,22 @@
+{
+  "chart": "TreemapChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "treemap-chart--silverpoint--ochre--precision--md--per-shape",
+  "req": "REQ-085",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "June",
+    "footerLeft": "share of visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "treemap-chart/treemap-chart--silverpoint--ochre--precision--md--per-shape.canonical.txt"
+}

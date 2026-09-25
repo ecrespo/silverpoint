@@ -4,11 +4,13 @@
  * canonical render. Never adapter against adapter: a failure names the guilty adapter.
  *
  * Usage: pnpm --filter @silverpoint/visual-gate string-gate   (after `pnpm build`)
+ *        SP_MATRIX=full … string-gate                          the nightly 1,584-fixture matrix
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { compareSvg } from '../svg-normalizer/normalize';
 import { FIXTURES_DIR, loadFixtures, type Fixture } from './fixtures';
+import { matrixScope } from './matrix';
 
 export type Adapter = 'react' | 'vue' | 'angular';
 export const ADAPTERS: readonly Adapter[] = ['react', 'vue', 'angular'];
@@ -74,7 +76,7 @@ export async function runStringGate(
 async function main(): Promise<void> {
   await import('@angular/compiler');
   const { adapterRenderers } = await import('./renderers');
-  const results = await runStringGate(loadFixtures(), adapterRenderers);
+  const results = await runStringGate(loadFixtures(matrixScope()), adapterRenderers);
   for (const result of results) {
     console.log(`${result.equal ? 'ok   ' : 'FAIL '} ${result.adapter.padEnd(8)} ${result.fixture}${result.equal ? '' : `\n      ${result.difference}`}`);
   }

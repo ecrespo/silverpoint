@@ -1,0 +1,22 @@
+{
+  "chart": "RadialRings",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "radial-rings--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-079",
+  "seed": 1592,
+  "props": {
+    "title": "Daily goals",
+    "badge": "today",
+    "footerLeft": "percent reached",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radial-rings/radial-rings--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

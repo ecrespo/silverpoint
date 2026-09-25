@@ -1,0 +1,21 @@
+<svg aria-labelledby="radial-rings--silverpoint--ochre--precision--sm--per-shape-title radial-rings--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-rings--silverpoint--ochre--precision--sm--per-shape-title">
+    "Daily goals"
+  <desc id="radial-rings--silverpoint--ochre--precision--sm--per-shape-desc">
+    "Daily goals. 3 concentric tracks, outermost first: Move 82%, Exercise 64%, Stand 100%."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,54.54A49.46,49.46,0,0,1,120,153.46A49.46,49.46,0,0,1,120,54.54" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,50A54,54,0,0,1,148.93,149.59A54,54,0,0,1,71.14,81.01L79.35,84.87A44.93,44.93,0,0,0,144.07,141.93A44.93,44.93,0,0,0,120,59.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M120,67.14A36.86,36.86,0,0,1,120,140.86A36.86,36.86,0,0,1,120,67.14" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,62.6A41.4,41.4,0,0,1,157.46,121.63A41.4,41.4,0,0,1,88.1,130.39L95.09,124.61A32.33,32.33,0,0,0,149.25,117.76A32.33,32.33,0,0,0,120,71.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M120,79.74A24.26,24.26,0,0,1,120,128.26A24.26,24.26,0,0,1,120,79.74" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,75.2A28.8,28.8,0,0,1,120,132.8A28.8,28.8,0,0,1,120,75.2L120,84.27A19.73,19.73,0,0,0,120,123.73A19.73,19.73,0,0,0,120,84.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Daily goals"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "today"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "percent reached"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"

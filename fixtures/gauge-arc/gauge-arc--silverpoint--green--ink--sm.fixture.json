@@ -1,0 +1,22 @@
+{
+  "chart": "GaugeArc",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "gauge-arc--silverpoint--green--ink--sm",
+  "req": "REQ-080",
+  "seed": 1592,
+  "props": {
+    "title": "Capacity",
+    "badge": "live",
+    "footerLeft": "of the cluster",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "gauge-arc/gauge-arc--silverpoint--green--ink--sm.canonical.txt"
+}

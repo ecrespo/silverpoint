@@ -1,0 +1,22 @@
+{
+  "chart": "StepChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "step-chart--silverpoint--cream--precision--lg",
+  "req": "REQ-061",
+  "seed": 1592,
+  "props": {
+    "title": "Price tier",
+    "badge": "2026",
+    "footerLeft": "per month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "step-chart/step-chart--silverpoint--cream--precision--lg.canonical.txt"
+}

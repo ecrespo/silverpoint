@@ -1,0 +1,22 @@
+{
+  "chart": "MeterChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "meter-chart--silverpoint--blue--ink--md--per-shape",
+  "req": "REQ-081",
+  "seed": 1592,
+  "props": {
+    "title": "Pressure",
+    "badge": "now",
+    "footerLeft": "of the rated maximum",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "meter-chart/meter-chart--silverpoint--blue--ink--md--per-shape.canonical.txt"
+}

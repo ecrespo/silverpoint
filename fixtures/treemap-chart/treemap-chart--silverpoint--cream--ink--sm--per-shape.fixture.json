@@ -1,0 +1,22 @@
+{
+  "chart": "TreemapChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "treemap-chart--silverpoint--cream--ink--sm--per-shape",
+  "req": "REQ-085",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "June",
+    "footerLeft": "share of visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "treemap-chart/treemap-chart--silverpoint--cream--ink--sm--per-shape.canonical.txt"
+}

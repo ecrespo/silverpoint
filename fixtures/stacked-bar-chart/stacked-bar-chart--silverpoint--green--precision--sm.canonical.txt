@@ -1,0 +1,61 @@
+<svg aria-labelledby="stacked-bar-chart--silverpoint--green--precision--sm-title stacked-bar-chart--silverpoint--green--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="stacked-bar-chart--silverpoint--green--precision--sm-title">
+    "Signups by plan"
+  <desc id="stacked-bar-chart--silverpoint--green--precision--sm-desc">
+    "Signups by plan. Stacked bars of 3 keys (free, pro, team, bottom to top) over 5 x values; the tallest stack totals 95."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M70.8,48H82.8V55H70.8Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M114.4,48H126.4V55H114.4Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M22,129.6H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,115.2H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,100.8H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,86.4H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,72H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M29.76,115.2H54.99V144H29.76Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M29.76,102.24H54.99V115.2H29.76Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M29.76,97.92H54.99V102.24H29.76Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M68.57,110.88H93.8V144H68.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M68.57,95.76H93.8V110.88H68.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M68.57,89.28H93.8V95.76H68.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.39,116.64H132.61V144H107.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.39,97.92H132.61V116.64H107.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.39,90H132.61V97.92H107.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M146.2,106.56H171.43V144H146.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M146.2,89.28H171.43V106.56H146.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M146.2,79.2H171.43V89.28H146.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.01,108.72H210.24V144H185.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.01,86.4H210.24V108.72H185.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.01,75.6H210.24V86.4H185.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Signups by plan"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "H1"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "per month"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "free"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.8" y="55">
+    "pro"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="130.4" y="55">
+    "team"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="126.6">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="112.2">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="97.8">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="83.4">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="42.38" y="159">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="120" y="159">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="197.62" y="159">
+    "May"

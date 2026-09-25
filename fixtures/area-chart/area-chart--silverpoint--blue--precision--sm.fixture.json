@@ -1,0 +1,22 @@
+{
+  "chart": "AreaChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "area-chart--silverpoint--blue--precision--sm",
+  "req": "REQ-072",
+  "seed": 1592,
+  "props": {
+    "title": "Sessions",
+    "badge": "Week 26",
+    "footerLeft": "per day",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "area-chart/area-chart--silverpoint--blue--precision--sm.canonical.txt"
+}

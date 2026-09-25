@@ -1,0 +1,72 @@
+<svg aria-labelledby="sankey-chart--silverpoint--cream--ink--lg-title sankey-chart--silverpoint--cream--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="sankey-chart--silverpoint--cream--ink--lg-title">
+    "Visitor flow"
+  <desc id="sankey-chart--silverpoint--cream--ink--lg-desc">
+    "Visitor flow. Sankey diagram of 6 flows between 7 nodes in 4 layers; total flow of 90."
+  <defs>
+    <pattern height="50" id="sankey-chart--silverpoint--cream--ink--lg-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="sankey-chart--silverpoint--cream--ink--lg-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M30,50C124,50,124,60,218,60V202.93C124,202.93,124,192.93,30,192.93Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M30,50C124,50,124,60,218,60V202.93C124,202.93,124,192.93,30,192.93Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M30,202.93C124,202.93,124,202.93,218,202.93V283.33C124,283.33,124,283.33,30,283.33Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M30,202.93C124,202.93,124,202.93,218,202.93V283.33C124,283.33,124,283.33,30,283.33Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M30,293.33C124,293.33,124,283.33,218,283.33V328C124,328,124,338,30,338Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M30,293.33C124,293.33,124,283.33,218,283.33V328C124,328,124,338,30,338Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M226,60C320,60,320,55,414,55V180.07C320,180.07,320,185.07,226,185.07Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M226,60C320,60,320,55,414,55V180.07C320,180.07,320,185.07,226,185.07Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M226,185.07C320,185.07,320,190.07,414,190.07V333C320,333,320,328,226,328Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M226,185.07C320,185.07,320,190.07,414,190.07V333C320,333,320,328,226,328Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M422,55C516,55,516,167.2,610,167.2V220.8C516,220.8,516,108.6,422,108.6Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-1)" part="sp-ink-secondary">
+  <path d="M422,55C516,55,516,167.2,610,167.2V220.8C516,220.8,516,108.6,422,108.6Z" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M22,50H30V192.93H22Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M22,50H30V192.93H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M218,60H226V328H218Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M218,60H226V328H218Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,202.93H30V283.33H22Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M22,202.93H30V283.33H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,293.33H30V338H22Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M22,293.33H30V338H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M414,55H422V180.07H414Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M414,55H422V180.07H414Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M414,190.07H422V333H414Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M414,190.07H422V333H414Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M610,167.2H618V220.8H610Z" data-paint="tile" data-role="hatch" fill="url(#sankey-chart--silverpoint--cream--ink--lg-tone-3)" part="sp-ink">
+  <path d="M610,167.2H618V220.8H610Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Visitor flow"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "visits"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="125.47">
+    "Search 48"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="230" y="198">
+    "Visit 90"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="247.13">
+    "Social 27"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="34" y="319.67">
+    "Email 15"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="426" y="121.53">
+    "Signup 42"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="426" y="265.53">
+    "Bounce 48"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="606" y="198">
+    "Paid 18"

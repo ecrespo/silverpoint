@@ -1,0 +1,22 @@
+{
+  "chart": "HeatmapChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "heatmap-chart--silverpoint--ochre--precision--md--per-shape",
+  "req": "REQ-084",
+  "seed": 1592,
+  "props": {
+    "title": "Load by weekday",
+    "badge": "Week 26",
+    "footerLeft": "of 100",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "heatmap-chart/heatmap-chart--silverpoint--ochre--precision--md--per-shape.canonical.txt"
+}

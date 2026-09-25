@@ -1,0 +1,37 @@
+<svg aria-labelledby="coxcomb-chart--silverpoint--green--precision--sm-title coxcomb-chart--silverpoint--green--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="coxcomb-chart--silverpoint--green--precision--sm-title">
+    "Tickets"
+  <desc id="coxcomb-chart--silverpoint--green--precision--sm-desc">
+    "Tickets. Coxcomb of 7 equal-angle sectors whose area is proportional to the value; the largest is Mon at 42."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,64A40,40,0,0,1,120,144A40,40,0,0,1,120,64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,64A40,40,0,0,1,151.27,79.06L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M148.55,81.23A36.51,36.51,0,0,1,155.6,112.13L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M153.5,111.65A34.36,34.36,0,0,1,134.91,134.96L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M136.51,138.28A38.05,38.05,0,0,1,103.49,138.28L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M106.08,132.9A32.07,32.07,0,0,1,88.73,111.14L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.16,108.76A21.38,21.38,0,0,1,103.28,90.67L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M105.52,92.46A18.52,18.52,0,0,1,120,85.48L120,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Tickets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "week"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by weekday"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="140.83" y="63.75">
+    "Mon"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="166.8" y="96.32">
+    "Tue"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="157.53" y="136.93">
+    "Wed"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="120" y="155">
+    "Thu"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="82.47" y="136.93">
+    "Fri"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="73.2" y="96.32">
+    "Sat"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="99.17" y="63.75">
+    "Sun"

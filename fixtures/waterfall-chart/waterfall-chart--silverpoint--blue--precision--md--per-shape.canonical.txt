@@ -1,0 +1,59 @@
+<svg aria-labelledby="waterfall-chart--silverpoint--blue--precision--md--per-shape-title waterfall-chart--silverpoint--blue--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="waterfall-chart--silverpoint--blue--precision--md--per-shape-title">
+    "Cash bridge"
+  <desc id="waterfall-chart--silverpoint--blue--precision--md--per-shape-desc">
+    "Cash bridge. Waterfall of 6 steps, ending at 124."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,149.2H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,124.4H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,99.6H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,74.8H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,174H298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M35.02,114.48H54.98V174H35.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M54.98,114.48H81.02" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M81.02,82.74H100.98V114.48H81.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.98,82.74H127.02" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M127.02,71.82H146.98V82.74H127.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M146.98,71.82H173.02" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M173.02,71.82H192.98V100.59H173.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.98,100.59H219.02" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M219.02,100.59H238.98V112.5H219.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M265.02,112.5H284.98V174H265.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Cash bridge"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "k€"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="146.2">
+    "50"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="121.4">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="96.6">
+    "150"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="71.8">
+    "200"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "250"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="45" y="111.48">
+    "120"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="91" y="79.74">
+    "+64"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="137" y="68.82">
+    "+22"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="183" y="68.82">
+    "-58"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="229" y="97.59">
+    "-24"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="275" y="109.5">
+    "124"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="45" y="189">
+    "Opening"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="137" y="189">
+    "Services"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="229" y="189">
+    "Rent"

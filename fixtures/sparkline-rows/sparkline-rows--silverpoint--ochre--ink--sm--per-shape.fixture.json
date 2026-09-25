@@ -1,0 +1,22 @@
+{
+  "chart": "SparklineRows",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "sparkline-rows--silverpoint--ochre--ink--sm--per-shape",
+  "req": "REQ-062",
+  "seed": 1592,
+  "props": {
+    "title": "Service health",
+    "badge": "Live",
+    "footerLeft": "last 8 checks",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sparkline-rows/sparkline-rows--silverpoint--ochre--ink--sm--per-shape.canonical.txt"
+}

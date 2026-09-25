@@ -1,0 +1,22 @@
+{
+  "chart": "ScatterChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "scatter-chart--silverpoint--green--precision--sm--per-shape",
+  "req": "REQ-082",
+  "seed": 1592,
+  "props": {
+    "title": "Height and weight",
+    "badge": "n = 9",
+    "footerLeft": "cm × kg",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "scatter-chart/scatter-chart--silverpoint--green--precision--sm--per-shape.canonical.txt"
+}

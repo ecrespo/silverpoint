@@ -1,0 +1,188 @@
+<svg aria-labelledby="heatmap-chart--silverpoint--ochre--ink--sm-title heatmap-chart--silverpoint--ochre--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="heatmap-chart--silverpoint--ochre--ink--sm-title">
+    "Load by weekday"
+  <desc id="heatmap-chart--silverpoint--ochre--ink--sm-desc">
+    "Load by weekday. Heatmap of 5 rows by 6 columns, toned against 100; values range from 6 to 93."
+  <defs>
+    <pattern height="50" id="heatmap-chart--silverpoint--ochre--ink--sm-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="heatmap-chart--silverpoint--ochre--ink--sm-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="heatmap-chart--silverpoint--ochre--ink--sm-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="heatmap-chart--silverpoint--ochre--ink--sm-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M63,51H87V70.6H63Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63,51H87V70.6H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,51H113V70.6H89Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M89,51H113V70.6H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,51H139V70.6H115Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M115,51H139V70.6H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,51H165V70.6H141Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M141,51H165V70.6H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,51H191V70.6H167Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M167,51H191V70.6H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,51H217V70.6H193Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M193,51H217V70.6H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,72.6H87V92.2H63Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63,72.6H87V92.2H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,72.6H113V92.2H89Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M89,72.6H113V92.2H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,72.6H139V92.2H115Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-4)" part="sp-ink">
+  <path d="M115,72.6H139V92.2H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,72.6H165V92.2H141Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-4)" part="sp-ink">
+  <path d="M141,72.6H165V92.2H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,72.6H191V92.2H167Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M167,72.6H191V92.2H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,72.6H217V92.2H193Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M193,72.6H217V92.2H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,94.2H87V113.8H63Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63,94.2H87V113.8H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,94.2H113V113.8H89Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M89,94.2H113V113.8H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,94.2H139V113.8H115Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M115,94.2H139V113.8H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,94.2H165V113.8H141Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-4)" part="sp-ink">
+  <path d="M141,94.2H165V113.8H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,94.2H191V113.8H167Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-4)" part="sp-ink">
+  <path d="M167,94.2H191V113.8H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,94.2H217V113.8H193Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M193,94.2H217V113.8H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,115.8H87V135.4H63Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63,115.8H87V135.4H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,115.8H113V135.4H89Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M89,115.8H113V135.4H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,115.8H139V135.4H115Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M115,115.8H139V135.4H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,115.8H165V135.4H141Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M141,115.8H165V135.4H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,115.8H191V135.4H167Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-3)" part="sp-ink">
+  <path d="M167,115.8H191V135.4H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,115.8H217V135.4H193Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M193,115.8H217V135.4H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,137.4H87V157H63Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63,137.4H87V157H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,137.4H113V157H89Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M89,137.4H113V157H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,137.4H139V157H115Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M115,137.4H139V157H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,137.4H165V157H141Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M141,137.4H165V157H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,137.4H191V157H167Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-2)" part="sp-ink">
+  <path d="M167,137.4H191V157H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,137.4H217V157H193Z" data-paint="tile" data-role="hatch" fill="url(#heatmap-chart--silverpoint--ochre--ink--sm-tone-1)" part="sp-ink">
+  <path d="M193,137.4H217V157H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Load by weekday"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Week 26"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "of 100"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="64.8">
+    "Mon"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="64.8">
+    "12"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="64.8">
+    "34"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="64.8">
+    "58"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="64.8">
+    "71"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="64.8">
+    "66"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="64.8">
+    "40"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="86.4">
+    "Tue"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="86.4">
+    "18"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="86.4">
+    "42"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="86.4">
+    "77"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="86.4">
+    "88"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="86.4">
+    "70"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="86.4">
+    "35"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="108">
+    "Wed"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="108">
+    "9"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="108">
+    "38"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="108">
+    "64"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="108">
+    "93"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="108">
+    "81"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="108">
+    "47"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="129.6">
+    "Thu"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="129.6">
+    "15"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="129.6">
+    "29"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="129.6">
+    "55"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="129.6">
+    "68"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="129.6">
+    "59"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="129.6">
+    "31"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="151.2">
+    "Fri"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="151.2">
+    "6"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="151.2">
+    "21"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="151.2">
+    "43"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="151.2">
+    "49"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="151.2">
+    "37"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="151.2">
+    "14"

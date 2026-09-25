@@ -1,0 +1,22 @@
+{
+  "chart": "StepChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "step-chart--silverpoint--blue--precision--lg",
+  "req": "REQ-061",
+  "seed": 1592,
+  "props": {
+    "title": "Price tier",
+    "badge": "2026",
+    "footerLeft": "per month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "step-chart/step-chart--silverpoint--blue--precision--lg.canonical.txt"
+}

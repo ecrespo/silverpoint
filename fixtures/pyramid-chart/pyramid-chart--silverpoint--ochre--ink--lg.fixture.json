@@ -1,0 +1,22 @@
+{
+  "chart": "PyramidChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "pyramid-chart--silverpoint--ochre--ink--lg",
+  "req": "REQ-070",
+  "seed": 1592,
+  "props": {
+    "title": "Headcount by level",
+    "badge": "2026",
+    "footerLeft": "width in %",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "pyramid-chart/pyramid-chart--silverpoint--ochre--ink--lg.canonical.txt"
+}

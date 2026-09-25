@@ -1,0 +1,36 @@
+<svg aria-labelledby="step-chart--silverpoint--ochre--precision--sm-title step-chart--silverpoint--ochre--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="step-chart--silverpoint--ochre--precision--sm-title">
+    "Price tier"
+  <desc id="step-chart--silverpoint--ochre--precision--sm-desc">
+    "Price tier. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,112.67H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,81.33H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M34.25,106.4L58.75,106.4L58.75,106.4L83.25,106.4L83.25,87.6L107.75,87.6L107.75,87.6L132.25,87.6L132.25,97L156.75,97L156.75,68.8L181.25,68.8L181.25,68.8L205.75,68.8L205.75,50" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M202.25,50A3.5,3.5,0,1,0,209.25,50A3.5,3.5,0,1,0,202.25,50Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M202.25,50A3.5,3.5,0,1,0,209.25,50A3.5,3.5,0,1,0,202.25,50Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Price tier"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "per month"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="109.67">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="78.33">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "30"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.25" y="159">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="83.25" y="159">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="132.25" y="159">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="181.25" y="159">
+    "Jul"

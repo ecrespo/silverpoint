@@ -1,0 +1,22 @@
+{
+  "chart": "RadialRings",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "radial-rings--silverpoint--blue--ink--md--per-shape",
+  "req": "REQ-079",
+  "seed": 1592,
+  "props": {
+    "title": "Daily goals",
+    "badge": "today",
+    "footerLeft": "percent reached",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radial-rings/radial-rings--silverpoint--blue--ink--md--per-shape.canonical.txt"
+}

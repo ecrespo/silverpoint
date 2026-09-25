@@ -1,0 +1,28 @@
+<svg aria-labelledby="meter-chart--silverpoint--blue--ink--sm--per-shape-title meter-chart--silverpoint--blue--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="meter-chart--silverpoint--blue--ink--sm--per-shape-title">
+    "Pressure"
+  <desc id="meter-chart--silverpoint--blue--ink--sm--per-shape-desc">
+    "Pressure. The value at 72% of the range."
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M52 118 C51.17 65.37, 109.36 32.64, 154 59.11 M52 118 C51.4 66.54, 109.61 32.95, 154 59.11 M154 59.11 C174.31 70.46, 187.64 94.13, 188 118 M154 59.11 C174.13 72.27, 187.63 93.06, 188 118" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M58.8 118 C57.11 118.08, 56.16 118.04, 52 118 M58.8 118 C56.72 118.01, 54.68 118.09, 52 118" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M76.73 74.73 C75.9 73.47, 74.85 72.54, 71.92 69.92 M76.73 74.73 C75.31 73.18, 73.66 71.73, 71.92 69.92" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120 56.8 C119.99 55.37, 120.04 54.14, 120 50 M120 56.8 C119.9 54.51, 119.91 52.37, 120 50" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M163.27 74.73 C164.1 73.96, 165.27 72.65, 168.08 69.92 M163.27 74.73 C164.84 73.01, 166.57 71.47, 168.08 69.92" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M181.2 118 C182.88 117.9, 183.95 117.71, 188 118 M181.2 118 C183.57 118.12, 185.83 117.86, 188 118" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,118L157.28,72.94" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pressure"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "now"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "of the rated maximum"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="52" y="129">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="188" y="129">
+    "100"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="120" y="147">
+    "72%"

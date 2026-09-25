@@ -1,0 +1,53 @@
+<svg aria-labelledby="composed-chart--silverpoint--cream--precision--lg-title composed-chart--silverpoint--cream--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="composed-chart--silverpoint--cream--precision--lg-title">
+    "Revenue and margin"
+  <desc id="composed-chart--silverpoint--cream--precision--lg-desc">
+    "Revenue and margin. Columns of revenue with a line of margin over 6 x values, on one scale from 17 to 61."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M86.4,48H98.4V55H86.4Z" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M22,261H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,198H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,135H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,72H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,324H618" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M50.81,191.7H92.53V324H50.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M150.14,172.8H191.86V324H150.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M249.47,201.15H291.19V324H249.47Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M348.81,150.75H390.53V324H348.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M448.14,131.85H489.86V324H448.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M547.47,141.3H589.19V324H547.47Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M71.67,267.3C104.78,262.58,137.89,257.85,171,257.85C204.11,257.85,237.22,270.45,270.33,270.45C303.44,270.45,336.56,248.93,369.67,242.1C402.78,235.28,435.89,229.5,469,229.5C502.11,229.5,535.22,234.23,568.33,238.95" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Revenue and margin"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "H1"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "k€"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "revenue"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+    "margin"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="258">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="195">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="132">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="71.67" y="339">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171" y="339">
+    "Feb"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="270.33" y="339">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="369.67" y="339">
+    "Apr"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="469" y="339">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="568.33" y="339">
+    "Jun"

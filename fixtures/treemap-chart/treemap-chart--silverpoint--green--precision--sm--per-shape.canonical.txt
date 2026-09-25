@@ -1,0 +1,35 @@
+<svg aria-labelledby="treemap-chart--silverpoint--green--precision--sm--per-shape-title treemap-chart--silverpoint--green--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="treemap-chart--silverpoint--green--precision--sm--per-shape-title">
+    "Traffic sources"
+  <desc id="treemap-chart--silverpoint--green--precision--sm--per-shape-desc">
+    "Traffic sources. Treemap of 4 tiles in a 6 by 4 grid; Search 48%, Direct 26%, Social 17%, Email 9%."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M23.5,51.5H118.5V156.5H23.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.5,51.5H216.5V102.5H121.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.5,105.5H183.83V156.5H121.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M186.83,105.5H216.5V156.5H186.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Traffic sources"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "share of visits"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="29.5" y="64.5">
+    "Search"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="29.5" y="77.5">
+    "48%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="127.5" y="64.5">
+    "Direct"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="127.5" y="77.5">
+    "26%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="127.5" y="118.5">
+    "Social"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="127.5" y="131.5">
+    "17%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="192.83" y="118.5">
+    "Email"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="192.83" y="131.5">
+    "9%"

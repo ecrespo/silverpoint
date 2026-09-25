@@ -1,0 +1,95 @@
+<svg aria-labelledby="waterfall-chart--silverpoint--blue--ink--lg-title waterfall-chart--silverpoint--blue--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="waterfall-chart--silverpoint--blue--ink--lg-title">
+    "Cash bridge"
+  <desc id="waterfall-chart--silverpoint--blue--ink--lg-desc">
+    "Cash bridge. Waterfall of 6 steps, ending at 124."
+  <defs>
+    <pattern height="50" id="waterfall-chart--silverpoint--blue--ink--lg-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="waterfall-chart--silverpoint--blue--ink--lg-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="waterfall-chart--silverpoint--blue--ink--lg-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 269.2 C145.69 268.5, 269.93 269.03, 618 269.2 M22 269.2 C201.54 269.86, 381.06 269.95, 618 269.2" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 214.4 C145.66 214.66, 270.19 214.61, 618 214.4 M22 214.4 C206.17 214.61, 390.37 214.69, 618 214.4" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 159.6 C146.35 158.82, 270.45 158.91, 618 159.6 M22 159.6 C210.8 159.36, 399.33 159.44, 618 159.6" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 104.8 C146.32 104.99, 270.71 105.21, 618 104.8 M22 104.8 C215.07 104.11, 408.28 104.18, 618 104.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 50 C146.28 49.87, 270.97 49.51, 618 50 M22 50 C219.71 50.14, 417.6 50.21, 618 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 324 C146.97 324.12, 271.23 323.89, 618 324 M22 324 C224.34 324.05, 426.55 323.76, 618 324" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M50.11,192.48H93.22V324H50.11Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-3)" part="sp-ink">
+  <path d="M50.11,192.48H93.22V324H50.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M93.22 192.48 C104.74 191.95, 116.11 192.06, 149.44 192.48 M93.22 192.48 C112.92 192.63, 133.47 192.76, 149.44 192.48" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M149.44,122.34H192.56V192.48H149.44Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-1)" part="sp-ink">
+  <path d="M149.44,122.34H192.56V192.48H149.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.56 122.34 C204.89 121.54, 216.9 122.33, 248.78 122.34 M192.56 122.34 C213.62 122.01, 233.97 122.1, 248.78 122.34" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M248.78,98.22H291.89V122.34H248.78Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-1)" part="sp-ink">
+  <path d="M248.78,98.22H291.89V122.34H248.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M291.89 98.22 C303.24 98.94, 315.87 98.62, 348.11 98.22 M291.89 98.22 C313.4 98.61, 335.36 98.67, 348.11 98.22" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M348.11,98.22H391.22V161.79H348.11Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-2)" part="sp-ink">
+  <path d="M348.11,98.22H391.22V161.79H348.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M391.22 161.79 C403.38 162.24, 414.85 162.59, 447.44 161.79 M391.22 161.79 C402.84 161.69, 413.37 161.72, 447.44 161.79" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M447.44,161.79H490.56V188.1H447.44Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-2)" part="sp-ink">
+  <path d="M447.44,161.79H490.56V188.1H447.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M546.78,188.1H589.89V324H546.78Z" data-paint="tile" data-role="hatch" fill="url(#waterfall-chart--silverpoint--blue--ink--lg-tone-3)" part="sp-ink">
+  <path d="M546.78,188.1H589.89V324H546.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Cash bridge"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Q2"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "k€"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="266.2">
+    "50"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="211.4">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="156.6">
+    "150"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="101.8">
+    "200"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "250"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="71.67" y="189.48">
+    "120"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="171" y="119.34">
+    "+64"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="270.33" y="95.22">
+    "+22"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="369.67" y="95.22">
+    "-58"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="469" y="158.79">
+    "-24"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="568.33" y="185.1">
+    "124"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="71.67" y="339">
+    "Opening"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171" y="339">
+    "Sales"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="270.33" y="339">
+    "Services"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="369.67" y="339">
+    "Payroll"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="469" y="339">
+    "Rent"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="568.33" y="339">
+    "Closing"

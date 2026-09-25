@@ -1,0 +1,22 @@
+{
+  "chart": "StackedBarChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "stacked-bar-chart--silverpoint--blue--ink--md--per-shape",
+  "req": "REQ-065",
+  "seed": 1592,
+  "props": {
+    "title": "Signups by plan",
+    "badge": "H1",
+    "footerLeft": "per month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "stacked-bar-chart/stacked-bar-chart--silverpoint--blue--ink--md--per-shape.canonical.txt"
+}

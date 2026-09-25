@@ -1,0 +1,22 @@
+{
+  "chart": "PyramidChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "pyramid-chart--silverpoint--cream--precision--sm--per-shape",
+  "req": "REQ-070",
+  "seed": 1592,
+  "props": {
+    "title": "Headcount by level",
+    "badge": "2026",
+    "footerLeft": "width in %",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "pyramid-chart/pyramid-chart--silverpoint--cream--precision--sm--per-shape.canonical.txt"
+}

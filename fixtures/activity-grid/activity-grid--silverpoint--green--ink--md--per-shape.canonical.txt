@@ -1,0 +1,330 @@
+<svg aria-labelledby="activity-grid--silverpoint--green--ink--md--per-shape-title activity-grid--silverpoint--green--ink--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="activity-grid--silverpoint--green--ink--md--per-shape-title">
+    "Contributions"
+  <desc id="activity-grid--silverpoint--green--ink--md--per-shape-desc">
+    "Contributions. Activity grid of 26 weeks, 2025-12-31 to 2026-06-30; 530 in total, active on 121 of 182 days."
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M24.89 66.69 C24.89 66.69, 24.89 66.69, 24.89 66.69 M24.89 66.69 C24.89 66.69, 24.89 66.69, 24.89 66.69" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M24.8,66.8H29.82V71.82H24.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M25.48,78.1H29.13V81.75H25.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M24.17 87.27 C24.17 87.27, 24.17 87.27, 24.17 87.27 M24.17 87.27 C24.17 87.27, 24.17 87.27, 24.17 87.27 M28.9 94.02 C29.44 93.45, 29.88 92.9, 30.87 91.76 M28.9 94.02 C29.24 93.54, 29.68 93.16, 30.87 91.76" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M24.11,87.34H30.5V93.73H24.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M24.91 98.51 C24.91 98.51, 24.91 98.51, 24.91 98.51 M24.91 98.51 C24.91 98.51, 24.91 98.51, 24.91 98.51" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M24.8,98.64H29.82V103.66H24.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M24.92 109.12 C24.92 109.12, 24.92 109.12, 24.92 109.12 M24.92 109.12 C24.92 109.12, 24.92 109.12, 24.92 109.12" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M24.8,109.26H29.82V114.28H24.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M25.48,120.56H29.13V124.21H25.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M24.2 129.69 C24.2 129.69, 24.2 129.69, 24.2 129.69 M24.2 129.69 C24.2 129.69, 24.2 129.69, 24.2 129.69 M28.93 136.45 C29.41 135.75, 30.13 135.29, 30.9 134.19 M28.93 136.45 C29.64 135.65, 30.16 134.93, 30.9 134.19" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M24.11,129.8H30.5V136.2H24.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.8 66.03 C34.8 66.03, 34.8 66.03, 34.8 66.03 M34.8 66.03 C34.8 66.03, 34.8 66.03, 34.8 66.03 M39.53 72.79 C40.33 71.83, 40.98 71.09, 41.5 70.52 M39.53 72.79 C39.99 72.26, 40.31 71.82, 41.5 70.52" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M34.73,66.11H41.12V72.5H34.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M35.54 77.27 C35.54 77.27, 35.54 77.27, 35.54 77.27 M35.54 77.27 C35.54 77.27, 35.54 77.27, 35.54 77.27" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M35.41,77.41H40.43V82.43H35.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.09 86.61 C34.09 86.61, 34.09 86.61, 34.09 86.61 M34.09 86.61 C34.09 86.61, 34.09 86.61, 34.09 86.61 M34.68 95.07 C37.52 92.32, 39.91 89.26, 41.9 86.77 M34.68 95.07 C37.54 92.23, 40.07 88.9, 41.9 86.77" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M34.04,86.66H41.8V94.42H34.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M36.1,99.33H39.75V102.98H36.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M35.56 109.09 C35.56 109.09, 35.56 109.09, 35.56 109.09 M35.56 109.09 C35.56 109.09, 35.56 109.09, 35.56 109.09" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M35.41,109.26H40.43V114.28H35.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.84 119.06 C34.84 119.06, 34.84 119.06, 34.84 119.06 M34.84 119.06 C34.84 119.06, 34.84 119.06, 34.84 119.06 M39.57 125.82 C39.97 125.21, 40.71 124.46, 41.53 123.56 M39.57 125.82 C40.03 125.37, 40.36 124.87, 41.53 123.56" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M34.73,119.19H41.12V125.58H34.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M35.57 130.3 C35.57 130.3, 35.57 130.3, 35.57 130.3 M35.57 130.3 C35.57 130.3, 35.57 130.3, 35.57 130.3" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M35.41,130.49H40.43V135.51H35.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46.71,67.48H50.36V71.13H46.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M43.99 75.34 C43.99 75.34, 43.99 75.34, 43.99 75.34 M43.99 75.34 C43.99 75.34, 43.99 75.34, 43.99 75.34 M43.92 84.56 C46.68 80.84, 49.36 77.48, 51.8 75.5 M43.92 84.56 C46.06 82.31, 48.04 80.13, 51.8 75.5 M51.73 84.72 C52.33 84.2, 52.82 83.5, 53.04 83.21 M51.73 84.72 C52.12 84.33, 52.45 83.92, 53.04 83.21 M44.26 84.74 C44.26 84.74, 44.26 84.74, 44.26 84.74 M44.26 84.74 C44.26 84.74, 44.26 84.74, 44.26 84.74 M53.48 84.81 C49.92 81.64, 45.83 77.95, 43.67 76.28 M53.48 84.81 C50.66 81.91, 47.24 79.39, 43.67 76.28 M52.89 76.34 C52.41 76.01, 52.02 75.6, 51.38 75.03 M52.89 76.34 C52.35 75.89, 51.77 75.42, 51.38 75.03" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M43.97,75.36H53.1V84.49H43.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M44.73 86.58 C44.73 86.58, 44.73 86.58, 44.73 86.58 M44.73 86.58 C44.73 86.58, 44.73 86.58, 44.73 86.58 M45.32 95.05 C47.56 92.34, 49.31 90.91, 52.54 86.74 M45.32 95.05 C47.82 92.27, 50.32 89.66, 52.54 86.74" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M44.66,86.66H52.42V94.42H44.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46.71,99.33H50.36V102.98H46.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46.71,109.94H50.36V113.6H46.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M45.48 119.03 C45.48 119.03, 45.48 119.03, 45.48 119.03 M45.48 119.03 C45.48 119.03, 45.48 119.03, 45.48 119.03 M50.2 125.79 C50.84 125.01, 51.52 124.25, 52.17 123.53 M50.2 125.79 C50.96 124.91, 51.67 124.02, 52.17 123.53" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M45.34,119.19H51.73V125.58H45.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M44.76 129.01 C44.76 129.01, 44.76 129.01, 44.76 129.01 M44.76 129.01 C44.76 129.01, 44.76 129.01, 44.76 129.01 M45.35 137.47 C47.4 135.3, 49.19 133.18, 52.57 129.17 M45.35 137.47 C47.26 135.21, 49.12 133, 52.57 129.17" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M44.66,129.12H52.42V136.88H44.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M55.35 65.34 C55.35 65.34, 55.35 65.34, 55.35 65.34 M55.35 65.34 C55.35 65.34, 55.35 65.34, 55.35 65.34 M55.94 73.8 C58.16 70.7, 61.67 67.59, 63.16 65.5 M55.94 73.8 C58.44 70.82, 60.98 68, 63.16 65.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M55.27,65.43H63.03V73.19H55.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M56.09 76.58 C56.09 76.58, 56.09 76.58, 56.09 76.58 M56.09 76.58 C56.09 76.58, 56.09 76.58, 56.09 76.58 M60.81 83.34 C61.34 82.68, 61.83 82.02, 62.78 81.08 M60.81 83.34 C61.26 82.79, 61.75 82.31, 62.78 81.08" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M55.96,76.73H62.35V83.12H55.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M55.36 86.55 C55.36 86.55, 55.36 86.55, 55.36 86.55 M55.36 86.55 C55.36 86.55, 55.36 86.55, 55.36 86.55 M55.96 95.02 C59.05 91.68, 61.59 89.22, 63.17 86.72 M55.96 95.02 C58.14 92.3, 60.11 89.92, 63.17 86.72" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M55.27,86.66H63.03V94.42H55.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M57.33,99.33H60.98V102.98H57.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M57.33,109.94H60.98V113.6H57.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M56.84 119.64 C56.84 119.64, 56.84 119.64, 56.84 119.64 M56.84 119.64 C56.84 119.64, 56.84 119.64, 56.84 119.64" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M56.64,119.87H61.66V124.9H56.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M54.67 128.35 C54.67 128.35, 54.67 128.35, 54.67 128.35 M54.67 128.35 C54.67 128.35, 54.67 128.35, 54.67 128.35 M54.6 137.57 C57.77 134.51, 60.58 131.09, 62.48 128.51 M54.6 137.57 C56.35 135.71, 58.34 133.55, 62.48 128.51 M62.41 137.73 C62.75 137.33, 63.2 136.8, 63.73 136.22 M62.41 137.73 C62.7 137.44, 62.94 137.06, 63.73 136.22 M54.25 137.27 C54.25 137.27, 54.25 137.27, 54.25 137.27 M54.25 137.27 C54.25 137.27, 54.25 137.27, 54.25 137.27 M63.47 137.33 C60.73 134.46, 57.13 132.13, 54.42 129.46 M63.47 137.33 C59.71 134.43, 56.59 131.45, 54.42 129.46 M63.63 129.52 C63.13 129.05, 62.5 128.59, 62.13 128.21 M63.63 129.52 C63.07 129.02, 62.51 128.54, 62.13 128.21" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M54.59,128.44H63.72V137.56H54.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.94,67.48H71.6V71.13H67.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.72 76.55 C66.72 76.55, 66.72 76.55, 66.72 76.55 M66.72 76.55 C66.72 76.55, 66.72 76.55, 66.72 76.55 M71.45 83.31 C72.21 82.48, 72.92 81.81, 73.42 81.05 M71.45 83.31 C72.19 82.46, 72.93 81.59, 73.42 81.05" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M66.57,76.73H72.96V83.12H66.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.01 86.53 C66.01 86.53, 66.01 86.53, 66.01 86.53 M66.01 86.53 C66.01 86.53, 66.01 86.53, 66.01 86.53 M66.6 94.99 C68.15 92.7, 70.04 90.87, 73.81 86.69 M66.6 94.99 C68.46 92.87, 70.4 90.23, 73.81 86.69" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M65.89,86.66H73.65V94.42H65.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.47 98.4 C67.47 98.4, 67.47 98.4, 67.47 98.4 M67.47 98.4 C67.47 98.4, 67.47 98.4, 67.47 98.4" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M67.26,98.64H72.28V103.66H67.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.74 108.37 C66.74 108.37, 66.74 108.37, 66.74 108.37 M66.74 108.37 C66.74 108.37, 66.74 108.37, 66.74 108.37 M71.47 115.13 C71.73 114.67, 72.08 114.27, 72.78 113.62 M71.47 115.13 C71.75 114.79, 72.09 114.39, 72.78 113.62" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M66.57,108.57H72.96V114.96H66.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.94,120.56H71.6V124.21H67.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.03 128.95 C66.03 128.95, 66.03 128.95, 66.03 128.95 M66.03 128.95 C66.03 128.95, 66.03 128.95, 66.03 128.95 M66.63 137.42 C68.93 135.65, 69.87 133.15, 73.84 129.12 M66.63 137.42 C69.35 134.15, 72.58 130.74, 73.84 129.12" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M65.89,129.12H73.65V136.88H65.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M75.9 64.65 C75.9 64.65, 75.9 64.65, 75.9 64.65 M75.9 64.65 C75.9 64.65, 75.9 64.65, 75.9 64.65 M75.83 73.87 C78.53 70.93, 81.44 67.11, 83.71 64.81 M75.83 73.87 C77.82 71.34, 79.98 68.76, 83.71 64.81 M83.64 74.03 C83.96 73.68, 84.4 73.28, 84.95 72.52 M83.64 74.03 C84.09 73.42, 84.58 72.91, 84.95 72.52 M76.06 74.08 C76.06 74.08, 76.06 74.08, 76.06 74.08 M76.06 74.08 C76.06 74.08, 76.06 74.08, 76.06 74.08 M85.28 74.14 C82.28 71.4, 80.09 69.28, 75.47 65.61 M85.28 74.14 C82.06 71.36, 79.04 68.8, 75.47 65.61 M84.69 65.68 C84.17 65.23, 83.49 64.73, 83.18 64.36 M84.69 65.68 C84.2 65.27, 83.71 64.86, 83.18 64.36" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M75.82,64.74H84.95V73.87H75.82Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M77.37 76.53 C77.37 76.53, 77.37 76.53, 77.37 76.53 M77.37 76.53 C77.37 76.53, 77.37 76.53, 77.37 76.53 M82.09 83.29 C82.5 82.92, 82.85 82.59, 83.4 81.78 M82.09 83.29 C82.53 82.74, 83.01 82.2, 83.4 81.78" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M77.19,76.73H83.58V83.12H77.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.56,88.71H82.21V92.36H78.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.1 98.37 C78.1 98.37, 78.1 98.37, 78.1 98.37 M78.1 98.37 C78.1 98.37, 78.1 98.37, 78.1 98.37" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M77.87,98.64H82.9V103.66H77.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.56,109.94H82.21V113.6H78.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.56,120.56H82.21V124.21H78.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.56,131.17H82.21V134.83H78.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88.73 66.53 C88.73 66.53, 88.73 66.53, 88.73 66.53 M88.73 66.53 C88.73 66.53, 88.73 66.53, 88.73 66.53" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M88.49,66.8H93.51V71.82H88.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88 76.5 C88 76.5, 88 76.5, 88 76.5 M88 76.5 C88 76.5, 88 76.5, 88 76.5 M92.07 84.01 C92.64 83.3, 93.39 82.51, 94.04 81.75 M92.07 84.01 C92.78 83.21, 93.36 82.6, 94.04 81.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M87.8,76.73H94.2V83.12H87.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89.17,88.71H92.83V92.36H89.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88.75 98.35 C88.75 98.35, 88.75 98.35, 88.75 98.35 M88.75 98.35 C88.75 98.35, 88.75 98.35, 88.75 98.35" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M88.49,98.64H93.51V103.66H88.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88.76 108.95 C88.76 108.95, 88.76 108.95, 88.76 108.95 M88.76 108.95 C88.76 108.95, 88.76 108.95, 88.76 108.95" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M88.49,109.26H93.51V114.28H88.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M87.3 118.29 C87.3 118.29, 87.3 118.29, 87.3 118.29 M87.3 118.29 C87.3 118.29, 87.3 118.29, 87.3 118.29 M87.89 126.76 C90.79 123.68, 92.58 121.1, 95.11 118.45 M87.89 126.76 C89.89 124.83, 91.39 122.48, 95.11 118.45" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M87.12,118.5H94.88V126.26H87.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89.17,131.17H92.83V134.83H89.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.36 66.5 C99.36 66.5, 99.36 66.5, 99.36 66.5 M99.36 66.5 C99.36 66.5, 99.36 66.5, 99.36 66.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M99.1,66.8H104.13V71.82H99.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.18 75.21 C97.18 75.21, 97.18 75.21, 97.18 75.21 M97.18 75.21 C97.18 75.21, 97.18 75.21, 97.18 75.21 M97.12 84.43 C98.76 82.7, 101.04 80.24, 104.99 75.37 M97.12 84.43 C99.6 81.82, 101.89 79.08, 104.99 75.37 M104.93 84.59 C105.43 84.05, 106 83.49, 106.24 83.08 M104.93 84.59 C105.3 84.16, 105.69 83.68, 106.24 83.08 M97.3 84.7 C97.3 84.7, 97.3 84.7, 97.3 84.7 M97.3 84.7 C97.3 84.7, 97.3 84.7, 97.3 84.7 M106.51 84.77 C102.18 81.67, 98.76 78.56, 96.7 76.24 M106.51 84.77 C103.55 82.41, 100.53 79.67, 96.7 76.24 M105.92 76.3 C105.57 76.02, 105.12 75.56, 104.41 74.99 M105.92 76.3 C105.31 75.77, 104.77 75.33, 104.41 74.99" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M97.05,75.36H106.18V84.49H97.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.38 87.71 C99.38 87.71, 99.38 87.71, 99.38 87.71 M99.38 87.71 C99.38 87.71, 99.38 87.71, 99.38 87.71" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M99.1,88.03H104.13V93.05H99.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.79,99.33H103.44V102.98H99.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.39 108.92 C99.39 108.92, 99.39 108.92, 99.39 108.92 M99.39 108.92 C99.39 108.92, 99.39 108.92, 99.39 108.92" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M99.1,109.26H104.13V114.28H99.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.4 119.53 C99.4 119.53, 99.4 119.53, 99.4 119.53 M99.4 119.53 C99.4 119.53, 99.4 119.53, 99.4 119.53" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M99.1,119.87H104.13V124.9H99.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.95 128.87 C97.95 128.87, 97.95 128.87, 97.95 128.87 M97.95 128.87 C97.95 128.87, 97.95 128.87, 97.95 128.87 M98.55 137.34 C101.01 134.33, 103.88 131.39, 105.76 129.04 M98.55 137.34 C100.77 134.79, 102.91 132.56, 105.76 129.04" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M97.74,129.12H105.5V136.88H97.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110 66.47 C110 66.47, 110 66.47, 110 66.47 M110 66.47 C110 66.47, 110 66.47, 110 66.47" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M109.72,66.8H114.74V71.82H109.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.4,78.1H114.06V81.75H110.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.83 85.79 C107.83 85.79, 107.83 85.79, 107.83 85.79 M107.83 85.79 C107.83 85.79, 107.83 85.79, 107.83 85.79 M107.77 95 C110.02 93.35, 111.31 90.5, 115.64 85.95 M107.77 95 C110.49 91.72, 112.95 88.57, 115.64 85.95 M115.57 95.17 C116.06 94.68, 116.62 94.07, 116.89 93.66 M115.57 95.17 C115.94 94.81, 116.24 94.32, 116.89 93.66 M107.93 95.33 C107.93 95.33, 107.93 95.33, 107.93 95.33 M107.93 95.33 C107.93 95.33, 107.93 95.33, 107.93 95.33 M117.15 95.39 C113.97 92.67, 109.9 88.79, 107.34 86.86 M117.15 95.39 C115.05 93.4, 112.97 91.33, 107.34 86.86 M116.56 86.93 C116.19 86.5, 115.7 86.18, 115.05 85.62 M116.56 86.93 C116.12 86.48, 115.56 86.11, 115.05 85.62" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M107.67,85.97H116.8V95.1H107.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.02 98.29 C110.02 98.29, 110.02 98.29, 110.02 98.29 M110.02 98.29 C110.02 98.29, 110.02 98.29, 110.02 98.29" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M109.72,98.64H114.74V103.66H109.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.4,109.94H114.06V113.6H110.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.4,120.56H114.06V124.21H110.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M108.59 128.85 C108.59 128.85, 108.59 128.85, 108.59 128.85 M108.59 128.85 C108.59 128.85, 108.59 128.85, 108.59 128.85 M109.18 137.31 C111.05 135.34, 112.28 133.03, 116.4 129.01 M109.18 137.31 C111.09 135.32, 113.2 132.82, 116.4 129.01" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M108.35,129.12H116.11V136.88H108.35Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M119.19 65.18 C119.19 65.18, 119.19 65.18, 119.19 65.18 M119.19 65.18 C119.19 65.18, 119.19 65.18, 119.19 65.18 M119.78 73.65 C121.82 70.75, 124.77 68.43, 126.99 65.34 M119.78 73.65 C122.28 70.97, 124.57 67.87, 126.99 65.34" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M118.97,65.43H126.73V73.19H118.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.02,78.1H124.67V81.75H121.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M118.47 85.76 C118.47 85.76, 118.47 85.76, 118.47 85.76 M118.47 85.76 C118.47 85.76, 118.47 85.76, 118.47 85.76 M118.4 94.98 C120.55 91.56, 123.79 88.66, 126.27 85.92 M118.4 94.98 C120.78 92.34, 123.21 89.44, 126.27 85.92 M126.21 95.14 C126.64 94.73, 126.9 94.31, 127.52 93.63 M126.21 95.14 C126.5 94.8, 126.79 94.45, 127.52 93.63 M118.54 95.32 C118.54 95.32, 118.54 95.32, 118.54 95.32 M118.54 95.32 C118.54 95.32, 118.54 95.32, 118.54 95.32 M127.76 95.39 C125.21 92.41, 122.53 90.03, 117.95 86.86 M127.76 95.39 C124.51 92.81, 121.49 90.48, 117.95 86.86 M127.17 86.92 C126.66 86.36, 125.97 86.04, 125.66 85.61 M127.17 86.92 C126.82 86.62, 126.45 86.31, 125.66 85.61" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M118.28,85.97H127.41V95.1H118.28Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.02,99.33H124.67V102.98H121.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.02,109.94H124.67V113.6H121.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.02,120.56H124.67V124.21H121.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.02,131.17H124.67V134.83H121.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M130.62 67.17 C130.62 67.17, 130.62 67.17, 130.62 67.17 M130.62 67.17 C130.62 67.17, 130.62 67.17, 130.62 67.17" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M130.95,66.8H135.97V71.82H130.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M130.63 77.78 C130.63 77.78, 130.63 77.78, 130.63 77.78 M130.63 77.78 C130.63 77.78, 130.63 77.78, 130.63 77.78" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M130.95,77.41H135.97V82.43H130.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M130.64 88.39 C130.64 88.39, 130.64 88.39, 130.64 88.39 M130.64 88.39 C130.64 88.39, 130.64 88.39, 130.64 88.39" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M130.95,88.03H135.97V93.05H130.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M130.64 98.99 C130.64 98.99, 130.64 98.99, 130.64 98.99 M130.64 98.99 C130.64 98.99, 130.64 98.99, 130.64 98.99" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M130.95,98.64H135.97V103.66H130.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M130.65 109.6 C130.65 109.6, 130.65 109.6, 130.65 109.6 M130.65 109.6 C130.65 109.6, 130.65 109.6, 130.65 109.6" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M130.95,109.26H135.97V114.28H130.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.86 118.18 C129.86 118.18, 129.86 118.18, 129.86 118.18 M129.86 118.18 C129.86 118.18, 129.86 118.18, 129.86 118.18 M130.45 126.65 C132.86 124.35, 134.94 120.99, 137.66 118.35 M130.45 126.65 C132.59 123.83, 134.89 121.24, 137.66 118.35" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M129.58,118.5H137.34V126.26H129.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M131.64,131.17H135.29V134.83H131.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141.27 67.15 C141.27 67.15, 141.27 67.15, 141.27 67.15 M141.27 67.15 C141.27 67.15, 141.27 67.15, 141.27 67.15" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M141.57,66.8H146.59V71.82H141.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M139.74 75.1 C139.74 75.1, 139.74 75.1, 139.74 75.1 M139.74 75.1 C139.74 75.1, 139.74 75.1, 139.74 75.1 M139.67 84.32 C141.91 82.36, 143.43 80.12, 147.55 75.26 M139.67 84.32 C142.3 80.79, 145.48 77.78, 147.55 75.26 M147.48 84.48 C147.87 84.15, 148.2 83.68, 148.79 82.97 M147.48 84.48 C148 83.91, 148.46 83.31, 148.79 82.97 M139.72 84.67 C139.72 84.67, 139.72 84.67, 139.72 84.67 M139.72 84.67 C139.72 84.67, 139.72 84.67, 139.72 84.67 M148.94 84.74 C146.52 82.61, 143.44 80.48, 139.88 76.87 M148.94 84.74 C147.17 83.01, 145.08 81.05, 139.88 76.87 M148.35 76.27 C147.77 75.72, 147.35 75.32, 146.84 74.96 M148.35 76.27 C147.97 75.95, 147.49 75.56, 146.84 74.96" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M139.51,75.36H148.64V84.49H139.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.48 86.34 C140.48 86.34, 140.48 86.34, 140.48 86.34 M140.48 86.34 C140.48 86.34, 140.48 86.34, 140.48 86.34 M141.07 94.8 C143.29 92.09, 145.41 89.04, 148.29 86.5 M141.07 94.8 C142.62 93.01, 144.77 90.81, 148.29 86.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M140.2,86.66H147.96V94.42H140.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M142.25,99.33H145.9V102.98H142.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M142.25,109.94H145.9V113.6H142.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141.3 120.18 C141.3 120.18, 141.3 120.18, 141.3 120.18 M141.3 120.18 C141.3 120.18, 141.3 120.18, 141.3 120.18" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M141.57,119.87H146.59V124.9H141.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.58 130.15 C140.58 130.15, 140.58 130.15, 140.58 130.15 M140.58 130.15 C140.58 130.15, 140.58 130.15, 140.58 130.15 M145.3 136.91 C145.85 136.31, 146.44 135.56, 147.27 134.64 M145.3 136.91 C146.08 136.11, 146.75 135.3, 147.27 134.64" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M140.88,129.8H147.27V136.2H140.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.17 66.49 C151.17 66.49, 151.17 66.49, 151.17 66.49 M151.17 66.49 C151.17 66.49, 151.17 66.49, 151.17 66.49 M155.9 73.24 C156.37 72.84, 156.77 72.27, 157.87 70.98 M155.9 73.24 C156.44 72.71, 156.91 72.19, 157.87 70.98" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M151.5,66.11H157.89V72.5H151.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.91 77.72 C151.91 77.72, 151.91 77.72, 151.91 77.72 M151.91 77.72 C151.91 77.72, 151.91 77.72, 151.91 77.72" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M152.18,77.41H157.2V82.43H152.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.87,88.71H156.52V92.36H152.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.2 98.31 C151.2 98.31, 151.2 98.31, 151.2 98.31 M151.2 98.31 C151.2 98.31, 151.2 98.31, 151.2 98.31 M155.92 105.07 C156.41 104.34, 157.28 103.68, 157.89 102.8 M155.92 105.07 C156.54 104.41, 157.04 103.7, 157.89 102.8" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M151.5,97.96H157.89V104.35H151.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.87,109.94H156.52V113.6H152.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.87,120.56H156.52V124.21H152.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.87,131.17H156.52V134.83H152.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M162.54 67.1 C162.54 67.1, 162.54 67.1, 162.54 67.1 M162.54 67.1 C162.54 67.1, 162.54 67.1, 162.54 67.1" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M162.8,66.8H167.82V71.82H162.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.75 75.68 C161.75 75.68, 161.75 75.68, 161.75 75.68 M161.75 75.68 C161.75 75.68, 161.75 75.68, 161.75 75.68 M162.34 84.14 C163.65 82.76, 165.19 80.31, 169.55 75.84 M162.34 84.14 C164.61 81.56, 166.46 79.27, 169.55 75.84" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M161.43,76.04H169.19V83.8H161.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.48,88.71H167.13V92.36H163.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M162.56 98.91 C162.56 98.91, 162.56 98.91, 162.56 98.91 M162.56 98.91 C162.56 98.91, 162.56 98.91, 162.56 98.91" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M162.8,98.64H167.82V103.66H162.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.84 108.88 C161.84 108.88, 161.84 108.88, 161.84 108.88 M161.84 108.88 C161.84 108.88, 161.84 108.88, 161.84 108.88 M166.56 115.64 C167.22 114.94, 167.84 114.18, 168.53 113.38 M166.56 115.64 C167.26 114.81, 167.93 114.14, 168.53 113.38" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M162.11,108.57H168.5V114.96H162.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.48,120.56H167.13V124.21H163.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.48,131.17H167.13V134.83H163.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M173.18 67.07 C173.18 67.07, 173.18 67.07, 173.18 67.07 M173.18 67.07 C173.18 67.07, 173.18 67.07, 173.18 67.07" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M173.41,66.8H178.43V71.82H173.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M174.1,78.1H177.75V81.75H174.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M171.66 85.62 C171.66 85.62, 171.66 85.62, 171.66 85.62 M171.66 85.62 C171.66 85.62, 171.66 85.62, 171.66 85.62 M171.6 94.84 C173.7 93.41, 174.38 91.42, 179.47 85.79 M171.6 94.84 C174.32 91.85, 177.06 88.39, 179.47 85.79 M179.41 95 C179.75 94.59, 180.08 94.13, 180.72 93.5 M179.41 95 C179.77 94.63, 180.12 94.2, 180.72 93.5 M171.57 95.28 C171.57 95.28, 171.57 95.28, 171.57 95.28 M171.57 95.28 C171.57 95.28, 171.57 95.28, 171.57 95.28 M180.79 95.35 C177.72 92.66, 174.79 91.01, 171.74 87.48 M180.79 95.35 C178.24 92.92, 175.29 90.57, 171.74 87.48 M180.2 86.88 C179.65 86.36, 179.25 85.99, 178.69 85.57 M180.2 86.88 C179.78 86.58, 179.38 86.21, 178.69 85.57" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M171.36,85.97H180.49V95.1H171.36Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.47 98.25 C172.47 98.25, 172.47 98.25, 172.47 98.25 M172.47 98.25 C172.47 98.25, 172.47 98.25, 172.47 98.25 M177.2 105.01 C177.77 104.4, 178.41 103.63, 179.17 102.75 M177.2 105.01 C177.65 104.53, 178.12 103.95, 179.17 102.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M172.73,97.96H179.12V104.35H172.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M173.21 109.49 C173.21 109.49, 173.21 109.49, 173.21 109.49 M173.21 109.49 C173.21 109.49, 173.21 109.49, 173.21 109.49" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M173.41,109.26H178.43V114.28H173.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M173.21 120.1 C173.21 120.1, 173.21 120.1, 173.21 120.1 M173.21 120.1 C173.21 120.1, 173.21 120.1, 173.21 120.1" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M173.41,119.87H178.43V124.9H173.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M171.76 129.44 C171.76 129.44, 171.76 129.44, 171.76 129.44 M171.76 129.44 C171.76 129.44, 171.76 129.44, 171.76 129.44 M173.01 137.15 C174.7 135.38, 176.36 133.86, 180.23 128.85 M173.01 137.15 C174.92 134.92, 176.78 132.64, 180.23 128.85" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M172.04,129.12H179.8V136.88H172.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M184.71,67.48H188.36V71.13H184.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M184.71,78.1H188.36V81.75H184.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.1 87.62 C183.1 87.62, 183.1 87.62, 183.1 87.62 M183.1 87.62 C183.1 87.62, 183.1 87.62, 183.1 87.62 M187.83 94.37 C188.31 93.58, 188.97 93.07, 189.79 92.11 M187.83 94.37 C188.42 93.65, 189.09 92.99, 189.79 92.11" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M183.34,87.34H189.73V93.73H183.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.84 98.86 C183.84 98.86, 183.84 98.86, 183.84 98.86 M183.84 98.86 C183.84 98.86, 183.84 98.86, 183.84 98.86" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M184.03,98.64H189.05V103.66H184.03Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.85 109.47 C183.85 109.47, 183.85 109.47, 183.85 109.47 M183.85 109.47 C183.85 109.47, 183.85 109.47, 183.85 109.47" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M184.03,109.26H189.05V114.28H184.03Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.12 119.44 C183.12 119.44, 183.12 119.44, 183.12 119.44 M183.12 119.44 C183.12 119.44, 183.12 119.44, 183.12 119.44 M187.85 126.2 C188.23 125.79, 188.7 125.37, 189.82 123.93 M187.85 126.2 C188.52 125.35, 189.22 124.64, 189.82 123.93" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M183.34,119.19H189.73V125.58H183.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M184.71,131.17H188.36V134.83H184.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193.73 66.38 C193.73 66.38, 193.73 66.38, 193.73 66.38 M193.73 66.38 C193.73 66.38, 193.73 66.38, 193.73 66.38 M198.45 73.14 C198.81 72.68, 199.28 72.17, 200.42 70.87 M198.45 73.14 C199.04 72.36, 199.72 71.64, 200.42 70.87" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M193.96,66.11H200.35V72.5H193.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M195.33,78.1H198.98V81.75H195.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.47 88.22 C194.47 88.22, 194.47 88.22, 194.47 88.22 M194.47 88.22 C194.47 88.22, 194.47 88.22, 194.47 88.22" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M194.64,88.03H199.66V93.05H194.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M195.33,99.33H198.98V102.98H195.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M195.33,109.94H198.98V113.6H195.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.31 118.14 C192.31 118.14, 192.31 118.14, 192.31 118.14 M192.31 118.14 C192.31 118.14, 192.31 118.14, 192.31 118.14 M192.9 126.61 C195.38 124.33, 198.12 121.52, 200.77 117.55 M192.9 126.61 C195.23 123.87, 198.01 120.74, 200.77 117.55 M200.71 126.77 C201.21 126.22, 201.65 125.8, 202.02 125.26 M200.71 126.77 C201.21 126.2, 201.72 125.57, 202.02 125.26 M192.86 127.19 C192.86 127.19, 192.86 127.19, 192.86 127.19 M192.86 127.19 C192.86 127.19, 192.86 127.19, 192.86 127.19 M202.08 127.25 C199.28 124.6, 196.29 122.48, 192.27 118.72 M202.08 127.25 C198.53 124.07, 194.6 120.95, 192.27 118.72 M201.49 118.79 C201.03 118.3, 200.53 117.83, 199.98 117.48 M201.49 118.79 C200.94 118.33, 200.38 117.88, 199.98 117.48" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M192.59,117.82H201.72V126.95H192.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.5 130.65 C194.5 130.65, 194.5 130.65, 194.5 130.65 M194.5 130.65 C194.5 130.65, 194.5 130.65, 194.5 130.65" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M194.64,130.49H199.66V135.51H194.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M203.64 65.72 C203.64 65.72, 203.64 65.72, 203.64 65.72 M203.64 65.72 C203.64 65.72, 203.64 65.72, 203.64 65.72 M204.89 73.43 C206.85 71.32, 209.15 68.67, 211.45 65.88 M204.89 73.43 C206.54 71.35, 208.79 69.14, 211.45 65.88" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M203.89,65.43H211.65V73.19H203.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M202.91 75.69 C202.91 75.69, 202.91 75.69, 202.91 75.69 M202.91 75.69 C202.91 75.69, 202.91 75.69, 202.91 75.69 M203.51 84.15 C207.12 80.61, 209.6 77.43, 211.38 75.1 M203.51 84.15 C206.13 80.91, 209.04 77.6, 211.38 75.1 M211.31 84.32 C211.82 83.77, 212.17 83.31, 212.63 82.81 M211.31 84.32 C211.83 83.73, 212.34 83.19, 212.63 82.81 M203.36 84.63 C203.36 84.63, 203.36 84.63, 203.36 84.63 M203.36 84.63 C203.36 84.63, 203.36 84.63, 203.36 84.63 M212.58 84.69 C210.03 82.4, 208.85 81.12, 203.52 76.82 M212.58 84.69 C209.62 82.37, 207.03 79.98, 203.52 76.82 M211.99 76.23 C211.7 76, 211.44 75.68, 211.23 75.57 M211.99 76.23 C211.81 76.09, 211.65 75.94, 211.23 75.57" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M203.2,75.36H212.33V84.49H203.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M204.38 87.56 C204.38 87.56, 204.38 87.56, 204.38 87.56 M204.38 87.56 C204.38 87.56, 204.38 87.56, 204.38 87.56 M209.1 94.32 C209.66 93.62, 210.36 93.01, 211.07 92.06 M209.1 94.32 C209.66 93.77, 210.05 93.22, 211.07 92.06" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M204.57,87.34H210.96V93.73H204.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M205.94,99.33H209.6V102.98H205.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M205.13 109.41 C205.13 109.41, 205.13 109.41, 205.13 109.41 M205.13 109.41 C205.13 109.41, 205.13 109.41, 205.13 109.41" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M205.26,109.26H210.28V114.28H205.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M205.13 120.02 C205.13 120.02, 205.13 120.02, 205.13 120.02 M205.13 120.02 C205.13 120.02, 205.13 120.02, 205.13 120.02" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M205.26,119.87H210.28V124.9H205.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M205.14 130.63 C205.14 130.63, 205.14 130.63, 205.14 130.63 M205.14 130.63 C205.14 130.63, 205.14 130.63, 205.14 130.63" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M205.26,130.49H210.28V135.51H205.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M215 66.32 C215 66.32, 215 66.32, 215 66.32 M215 66.32 C215 66.32, 215 66.32, 215 66.32 M219.73 73.08 C220.55 72.28, 221.19 71.2, 221.7 70.82 M219.73 73.08 C220.28 72.48, 220.67 71.88, 221.7 70.82" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M215.19,66.11H221.58V72.5H215.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M215.74 77.56 C215.74 77.56, 215.74 77.56, 215.74 77.56 M215.74 77.56 C215.74 77.56, 215.74 77.56, 215.74 77.56" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M215.87,77.41H220.9V82.43H215.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M213.56 86.27 C213.56 86.27, 213.56 86.27, 213.56 86.27 M213.56 86.27 C213.56 86.27, 213.56 86.27, 213.56 86.27 M214.15 94.73 C217.3 91.27, 219.87 87.68, 222.02 85.68 M214.15 94.73 C215.99 92.63, 217.49 90.71, 222.02 85.68 M221.96 94.9 C222.44 94.39, 222.79 93.89, 223.27 93.39 M221.96 94.9 C222.38 94.38, 222.89 93.92, 223.27 93.39 M214 95.26 C214 95.26, 214 95.26, 214 95.26 M214 95.26 C214 95.26, 214 95.26, 214 95.26 M223.22 95.32 C219.96 91.8, 216.37 89.3, 214.16 87.45 M223.22 95.32 C221.05 93.34, 219.34 91.56, 214.16 87.45 M222.63 86.85 C222.48 86.68, 222.26 86.57, 221.87 86.2 M222.63 86.85 C222.34 86.63, 222.1 86.38, 221.87 86.2" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M213.82,85.97H222.95V95.1H213.82Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M215.75 98.78 C215.75 98.78, 215.75 98.78, 215.75 98.78 M215.75 98.78 C215.75 98.78, 215.75 98.78, 215.75 98.78" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M215.87,98.64H220.9V103.66H215.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.56,109.94H220.21V113.6H216.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M214.31 118.72 C214.31 118.72, 214.31 118.72, 214.31 118.72 M214.31 118.72 C214.31 118.72, 214.31 118.72, 214.31 118.72 M214.9 127.18 C217.43 124.51, 219.1 122.54, 222.12 118.88 M214.9 127.18 C216.86 124.8, 218.85 122.88, 222.12 118.88" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M214.5,118.5H222.26V126.26H214.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M215.78 130.6 C215.78 130.6, 215.78 130.6, 215.78 130.6 M215.78 130.6 C215.78 130.6, 215.78 130.6, 215.78 130.6" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M215.87,130.49H220.9V135.51H215.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M225.64 66.29 C225.64 66.29, 225.64 66.29, 225.64 66.29 M225.64 66.29 C225.64 66.29, 225.64 66.29, 225.64 66.29 M230.37 73.05 C231.02 72.53, 231.48 71.63, 232.33 70.79 M230.37 73.05 C230.83 72.61, 231.21 72.07, 232.33 70.79" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M225.8,66.11H232.2V72.5H225.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M224.2 75.64 C224.2 75.64, 224.2 75.64, 224.2 75.64 M224.2 75.64 C224.2 75.64, 224.2 75.64, 224.2 75.64 M224.13 84.86 C227.23 81.51, 231.26 77.59, 232.66 75.05 M224.13 84.86 C226.77 82.12, 229.25 79.08, 232.66 75.05 M232.6 84.27 C233.08 83.76, 233.63 83.01, 233.91 82.76 M232.6 84.27 C232.97 83.8, 233.38 83.36, 233.91 82.76 M224.58 84.61 C224.58 84.61, 224.58 84.61, 224.58 84.61 M224.58 84.61 C224.58 84.61, 224.58 84.61, 224.58 84.61 M233.8 84.67 C231.69 82.5, 229.1 80.26, 224.74 76.8 M233.8 84.67 C231.61 82.85, 229.1 80.48, 224.74 76.8 M233.21 76.21 C232.93 75.98, 232.71 75.79, 232.45 75.55 M233.21 76.21 C233.01 76.04, 232.81 75.85, 232.45 75.55" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M224.44,75.36H233.56V84.49H224.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M224.93 86.88 C224.93 86.88, 224.93 86.88, 224.93 86.88 M224.93 86.88 C224.93 86.88, 224.93 86.88, 224.93 86.88 M225.52 95.34 C227.86 93.2, 229.57 90.55, 232.74 87.04 M225.52 95.34 C228.34 92.31, 231.12 89.12, 232.74 87.04" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M225.12,86.66H232.88V94.42H225.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.39 98.75 C226.39 98.75, 226.39 98.75, 226.39 98.75 M226.39 98.75 C226.39 98.75, 226.39 98.75, 226.39 98.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M226.49,98.64H231.51V103.66H226.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M227.17,109.94H230.83V113.6H227.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M224.95 118.7 C224.95 118.7, 224.95 118.7, 224.95 118.7 M224.95 118.7 C224.95 118.7, 224.95 118.7, 224.95 118.7 M225.54 127.16 C227.93 123.86, 231.38 120.86, 232.76 118.86 M225.54 127.16 C227.18 125.37, 228.64 123.68, 232.76 118.86" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M225.12,118.5H232.88V126.26H225.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M224.96 129.3 C224.96 129.3, 224.96 129.3, 224.96 129.3 M224.96 129.3 C224.96 129.3, 224.96 129.3, 224.96 129.3 M225.55 137.77 C227.65 135.17, 229.4 132.83, 232.77 129.47 M225.55 137.77 C227.78 135.25, 229.92 132.46, 232.77 129.47" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M225.12,129.12H232.88V136.88H225.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.01 66.9 C237.01 66.9, 237.01 66.9, 237.01 66.9 M237.01 66.9 C237.01 66.9, 237.01 66.9, 237.01 66.9" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M237.1,66.8H242.13V71.82H237.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M236.29 76.88 C236.29 76.88, 236.29 76.88, 236.29 76.88 M236.29 76.88 C236.29 76.88, 236.29 76.88, 236.29 76.88 M241.02 83.64 C241.57 82.86, 242.05 82.4, 242.98 81.37 M241.02 83.64 C241.54 83.02, 242.1 82.38, 242.98 81.37" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M236.42,76.73H242.81V83.12H236.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.79,88.71H241.44V92.36H237.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.79,99.33H241.44V102.98H237.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.79,109.94H241.44V113.6H237.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.79,120.56H241.44V124.21H237.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M236.33 129.91 C236.33 129.91, 236.33 129.91, 236.33 129.91 M236.33 129.91 C236.33 129.91, 236.33 129.91, 236.33 129.91 M241.05 136.67 C241.87 135.79, 242.56 134.87, 243.02 134.4 M241.05 136.67 C241.57 136, 242.15 135.43, 243.02 134.4" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M236.42,129.8H242.81V136.2H236.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M247.65 66.88 C247.65 66.88, 247.65 66.88, 247.65 66.88 M247.65 66.88 C247.65 66.88, 247.65 66.88, 247.65 66.88" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M247.72,66.8H252.74V71.82H247.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M246.93 76.85 C246.93 76.85, 246.93 76.85, 246.93 76.85 M246.93 76.85 C246.93 76.85, 246.93 76.85, 246.93 76.85 M251.66 83.61 C252.44 82.67, 253.14 81.93, 253.63 81.35 M251.66 83.61 C252.09 83.01, 252.65 82.57, 253.63 81.35" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M247.04,76.73H253.43V83.12H247.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M245.48 86.19 C245.48 86.19, 245.48 86.19, 245.48 86.19 M245.48 86.19 C245.48 86.19, 245.48 86.19, 245.48 86.19 M245.41 95.41 C247.31 92.19, 250.67 89.76, 253.94 85.6 M245.41 95.41 C247.99 92.6, 250.62 89.38, 253.94 85.6 M253.88 94.82 C254.29 94.43, 254.71 94.01, 255.19 93.31 M253.88 94.82 C254.17 94.44, 254.48 94.12, 255.19 93.31 M245.82 95.23 C245.82 95.23, 245.82 95.23, 245.82 95.23 M245.82 95.23 C245.82 95.23, 245.82 95.23, 245.82 95.23 M255.04 95.29 C251.69 92.79, 247.98 89.64, 245.98 87.42 M255.04 95.29 C252.59 93.31, 250.09 91.32, 245.98 87.42 M254.45 86.83 C254.25 86.69, 254.06 86.51, 253.69 86.17 M254.45 86.83 C254.19 86.64, 253.97 86.39, 253.69 86.17" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M245.67,85.97H254.8V95.1H245.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M246.95 98.07 C246.95 98.07, 246.95 98.07, 246.95 98.07 M246.95 98.07 C246.95 98.07, 246.95 98.07, 246.95 98.07 M251.67 104.82 C252.43 104.09, 253.13 103.26, 253.64 102.56 M251.67 104.82 C252.42 103.98, 253.21 103.07, 253.64 102.56" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M247.04,97.96H253.43V104.35H247.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M246.95 108.67 C246.95 108.67, 246.95 108.67, 246.95 108.67 M246.95 108.67 C246.95 108.67, 246.95 108.67, 246.95 108.67 M251.68 115.43 C252.08 114.89, 252.86 114.24, 253.65 113.16 M251.68 115.43 C252.19 114.85, 252.77 114.23, 253.65 113.16" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M247.04,108.57H253.43V114.96H247.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M247.69 119.91 C247.69 119.91, 247.69 119.91, 247.69 119.91 M247.69 119.91 C247.69 119.91, 247.69 119.91, 247.69 119.91" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M247.72,119.87H252.74V124.9H247.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M248.4,131.17H252.06V134.83H248.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M259.02,67.48H262.67V71.13H259.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M259.02,78.1H262.67V81.75H259.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M257.57 87.43 C257.57 87.43, 257.57 87.43, 257.57 87.43 M257.57 87.43 C257.57 87.43, 257.57 87.43, 257.57 87.43 M262.3 94.19 C262.97 93.27, 263.69 92.43, 264.27 91.92 M262.3 94.19 C262.81 93.55, 263.4 92.87, 264.27 91.92" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M257.65,87.34H264.04V93.73H257.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M258.31 98.67 C258.31 98.67, 258.31 98.67, 258.31 98.67 M258.31 98.67 C258.31 98.67, 258.31 98.67, 258.31 98.67" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M258.34,98.64H263.36V103.66H258.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M258.32 109.28 C258.32 109.28, 258.32 109.28, 258.32 109.28 M258.32 109.28 C258.32 109.28, 258.32 109.28, 258.32 109.28" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M258.34,109.26H263.36V114.28H258.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M257.6 119.25 C257.6 119.25, 257.6 119.25, 257.6 119.25 M257.6 119.25 C257.6 119.25, 257.6 119.25, 257.6 119.25 M262.32 126.01 C262.89 125.49, 263.43 124.74, 264.29 123.74 M262.32 126.01 C262.91 125.26, 263.67 124.54, 264.29 123.74" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M257.65,119.19H264.04V125.58H257.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M257.6 129.85 C257.6 129.85, 257.6 129.85, 257.6 129.85 M257.6 129.85 C257.6 129.85, 257.6 129.85, 257.6 129.85 M262.33 136.61 C262.94 135.84, 263.68 134.82, 264.3 134.35 M262.33 136.61 C262.8 136.12, 263.09 135.68, 264.3 134.35" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M257.65,129.8H264.04V136.2H257.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M266.74 64.92 C266.74 64.92, 266.74 64.92, 266.74 64.92 M266.74 64.92 C266.74 64.92, 266.74 64.92, 266.74 64.92 M266.68 74.14 C268.83 71.83, 270.99 69.52, 274.55 65.09 M266.68 74.14 C269.21 71.44, 271.1 69.02, 274.55 65.09 M275.14 73.55 C275.35 73.27, 275.66 72.99, 275.8 72.8 M275.14 73.55 C275.41 73.26, 275.65 72.97, 275.8 72.8 M266.98 73.94 C266.98 73.94, 266.98 73.94, 266.98 73.94 M266.98 73.94 C266.98 73.94, 266.98 73.94, 266.98 73.94 M276.2 74 C273.39 71.5, 269.86 68.36, 267.14 66.13 M276.2 74 C273.08 71.25, 270.08 68.61, 267.14 66.13 M276.36 66.19 C275.95 65.76, 275.51 65.54, 274.85 64.88 M276.36 66.19 C275.82 65.77, 275.32 65.35, 274.85 64.88" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M266.9,64.74H276.03V73.87H266.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M269.64,78.1H273.29V81.75H269.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M268.94 88.04 C268.94 88.04, 268.94 88.04, 268.94 88.04 M268.94 88.04 C268.94 88.04, 268.94 88.04, 268.94 88.04" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M268.95,88.03H273.97V93.05H268.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M268.22 98.01 C268.22 98.01, 268.22 98.01, 268.22 98.01 M268.22 98.01 C268.22 98.01, 268.22 98.01, 268.22 98.01 M272.95 104.77 C273.78 103.88, 274.26 103.21, 274.92 102.51 M272.95 104.77 C273.66 103.97, 274.3 103.32, 274.92 102.51" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M268.27,97.96H274.66V104.35H268.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M269.64,109.94H273.29V113.6H269.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M268.96 119.85 C268.96 119.85, 268.96 119.85, 268.96 119.85 M268.96 119.85 C268.96 119.85, 268.96 119.85, 268.96 119.85" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M268.95,119.87H273.97V124.9H268.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M268.24 129.83 C268.24 129.83, 268.24 129.83, 268.24 129.83 M268.24 129.83 C268.24 129.83, 268.24 129.83, 268.24 129.83 M272.97 136.59 C273.42 136.1, 273.98 135.52, 274.94 134.32 M272.97 136.59 C273.75 135.81, 274.42 134.84, 274.94 134.32" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M268.27,129.8H274.66V136.2H268.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M278.84 66.16 C278.84 66.16, 278.84 66.16, 278.84 66.16 M278.84 66.16 C278.84 66.16, 278.84 66.16, 278.84 66.16 M283.56 72.92 C284.33 72.17, 285.09 71.31, 285.53 70.66 M283.56 72.92 C284.11 72.39, 284.57 71.72, 285.53 70.66" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M278.88,66.11H285.27V72.5H278.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M280.25,78.1H283.9V81.75H280.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M277.39 86.11 C277.39 86.11, 277.39 86.11, 277.39 86.11 M277.39 86.11 C277.39 86.11, 277.39 86.11, 277.39 86.11 M277.33 95.33 C280.33 92.08, 283.37 88.28, 285.2 86.27 M277.33 95.33 C279.17 93.51, 280.94 91.29, 285.2 86.27 M285.79 94.73 C285.96 94.51, 286.11 94.34, 286.45 93.98 M285.79 94.73 C286 94.46, 286.24 94.22, 286.45 93.98 M277.64 95.21 C277.64 95.21, 277.64 95.21, 277.64 95.21 M277.64 95.21 C277.64 95.21, 277.64 95.21, 277.64 95.21 M286.86 95.28 C283.47 92.67, 280.71 89.94, 277.8 87.4 M286.86 95.28 C284.08 92.71, 281.33 90.49, 277.8 87.4 M287.02 87.47 C286.72 87.22, 286.21 86.75, 285.51 86.15 M287.02 87.47 C286.56 87.07, 286.16 86.75, 285.51 86.15" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M277.51,85.97H286.64V95.1H277.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M279.59 98.62 C279.59 98.62, 279.59 98.62, 279.59 98.62 M279.59 98.62 C279.59 98.62, 279.59 98.62, 279.59 98.62" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M279.57,98.64H284.59V103.66H279.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M278.86 108.59 C278.86 108.59, 278.86 108.59, 278.86 108.59 M278.86 108.59 C278.86 108.59, 278.86 108.59, 278.86 108.59 M283.59 115.35 C284.31 114.47, 285.07 113.7, 285.56 113.08 M283.59 115.35 C284.37 114.51, 285.05 113.62, 285.56 113.08" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M278.88,108.57H285.27V114.96H278.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M280.25,120.56H283.9V124.21H280.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M278.16 129.17 C278.16 129.17, 278.16 129.17, 278.16 129.17 M278.16 129.17 C278.16 129.17, 278.16 129.17, 278.16 129.17 M278.75 137.64 C281.26 134.2, 284.09 132.02, 285.96 129.33 M278.75 137.64 C281.29 134.83, 283.72 132.02, 285.96 129.33" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M278.2,129.12H285.96V136.88H278.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.21 66.77 C290.21 66.77, 290.21 66.77, 290.21 66.77 M290.21 66.77 C290.21 66.77, 290.21 66.77, 290.21 66.77" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M290.18,66.8H295.2V71.82H290.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.87,78.1H294.52V81.75H290.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.87,88.71H294.52V92.36H290.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.87,99.33H294.52V102.98H290.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.87,109.94H294.52V113.6H290.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M290.87,120.56H294.52V124.21H290.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M288.07 128.51 C288.07 128.51, 288.07 128.51, 288.07 128.51 M288.07 128.51 C288.07 128.51, 288.07 128.51, 288.07 128.51 M288 137.73 C290.15 135.12, 292.53 133.43, 295.88 128.67 M288 137.73 C290.43 134.74, 293.04 131.93, 295.88 128.67 M295.81 137.89 C296.12 137.5, 296.52 137.07, 297.12 136.38 M295.81 137.89 C296.16 137.5, 296.53 137.01, 297.12 136.38 M288.35 137.76 C288.35 137.76, 288.35 137.76, 288.35 137.76 M288.35 137.76 C288.35 137.76, 288.35 137.76, 288.35 137.76 M297.57 137.82 C295.09 135.54, 293.17 133.7, 287.76 129.29 M297.57 137.82 C294.38 134.95, 290.94 132.05, 287.76 129.29 M296.98 129.36 C296.54 128.99, 295.99 128.5, 295.47 128.04 M296.98 129.36 C296.59 128.96, 296.09 128.61, 295.47 128.04" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M288.13,128.44H297.26V137.56H288.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Contributions"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "26 weeks"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "Jan–Jun 2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="32.62" y="60">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="75.08" y="60">
+    "Feb"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="117.54" y="60">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="160" y="60">
+    "Apr"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="213.08" y="60">
+    "May"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="255.54" y="60">
+    "Jun"

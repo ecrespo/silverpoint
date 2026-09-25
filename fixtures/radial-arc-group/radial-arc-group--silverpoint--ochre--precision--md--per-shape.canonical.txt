@@ -1,0 +1,43 @@
+<svg aria-labelledby="radial-arc-group--silverpoint--ochre--precision--md--per-shape-title radial-arc-group--silverpoint--ochre--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-arc-group--silverpoint--ochre--precision--md--per-shape-title">
+    "Pipeline"
+  <desc id="radial-arc-group--silverpoint--ochre--precision--md--per-shape-desc">
+    "Pipeline. 4 concentric tracks, outermost first: Direct 84, Partners 62, Online 47, Events 23."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M26.85,186A72.15,72.15,0,0,1,171.15,186" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,186A77,77,0,0,1,176,186L166.3,186A67.3,67.3,0,0,0,31.7,186Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M40.33,186A58.67,58.67,0,0,1,157.67,186" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M35.48,186A63.53,63.53,0,0,1,142.21,139.43L135.61,146.54A53.82,53.82,0,0,0,45.18,186Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M53.8,186A45.2,45.2,0,0,1,144.2,186" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M48.95,186A50.05,50.05,0,0,1,108.3,136.82L106.5,146.36A40.35,40.35,0,0,0,58.65,186Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.28,186A31.72,31.72,0,0,1,130.72,186" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.43,186A36.57,36.57,0,0,1,75.14,158.28L81.47,165.63A26.87,26.87,0,0,0,72.13,186Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194,94H203V101H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,108H203V115H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,122H203V129H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M194,136H203V143H194Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pipeline"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "Q3"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "by channel"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="101">
+    "Direct"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="101">
+    "84"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="115">
+    "Partners"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="115">
+    "62"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="129">
+    "Online"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="129">
+    "47"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="208" y="143">
+    "Events"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="143">
+    "23"

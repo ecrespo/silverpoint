@@ -1,0 +1,22 @@
+{
+  "chart": "CoxcombChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "coxcomb-chart--silverpoint--ochre--ink--lg--per-shape",
+  "req": "REQ-088",
+  "seed": 1592,
+  "props": {
+    "title": "Tickets",
+    "badge": "week",
+    "footerLeft": "by weekday",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "coxcomb-chart/coxcomb-chart--silverpoint--ochre--ink--lg--per-shape.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "SparklineRows",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "sparkline-rows--silverpoint--cream--ink--lg",
+  "req": "REQ-062",
+  "seed": 1592,
+  "props": {
+    "title": "Service health",
+    "badge": "Live",
+    "footerLeft": "last 8 checks",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sparkline-rows/sparkline-rows--silverpoint--cream--ink--lg.canonical.txt"
+}

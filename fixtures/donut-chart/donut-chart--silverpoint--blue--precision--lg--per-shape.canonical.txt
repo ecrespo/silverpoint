@@ -1,0 +1,47 @@
+<svg aria-labelledby="donut-chart--silverpoint--blue--precision--lg--per-shape-title donut-chart--silverpoint--blue--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="donut-chart--silverpoint--blue--precision--lg--per-shape-title">
+    "Budget"
+  <desc id="donut-chart--silverpoint--blue--precision--lg--per-shape-desc">
+    "Budget. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M166,50A144,144,0,0,1,264.57,298.97L227.12,259.08A89.28,89.28,0,0,0,166,104.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M264.57,298.97A144,144,0,0,1,81.36,310.5L113.52,266.23A89.28,89.28,0,0,0,227.12,259.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M81.36,310.5A144,144,0,0,1,22,194L76.72,194A89.28,89.28,0,0,0,113.52,266.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,194A144,144,0,0,1,74.21,83.05L109.09,125.21A89.28,89.28,0,0,0,76.72,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M74.21,83.05A144,144,0,0,1,166,50L166,104.72A89.28,89.28,0,0,0,109.09,125.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M330,162H339V169H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,176H339V183H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,190H339V197H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,204H339V211H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,218H339V225H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "May"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "share of spend"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="value" part="sp-text" text-anchor="middle" x="166" y="200">
+    "100"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="169">
+    "Rent"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="169">
+    "38%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="183">
+    "Food"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="183">
+    "22%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="197">
+    "Savings"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="197">
+    "15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="211">
+    "Transport"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="211">
+    "14%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="225">
+    "Leisure"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="225">
+    "11%"

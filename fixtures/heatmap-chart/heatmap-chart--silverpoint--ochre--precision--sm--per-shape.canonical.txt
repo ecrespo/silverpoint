@@ -1,0 +1,115 @@
+<svg aria-labelledby="heatmap-chart--silverpoint--ochre--precision--sm--per-shape-title heatmap-chart--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="heatmap-chart--silverpoint--ochre--precision--sm--per-shape-title">
+    "Load by weekday"
+  <desc id="heatmap-chart--silverpoint--ochre--precision--sm--per-shape-desc">
+    "Load by weekday. Heatmap of 5 rows by 6 columns, toned against 100; values range from 6 to 93."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M63,51H87V70.6H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,51H113V70.6H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,51H139V70.6H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,51H165V70.6H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,51H191V70.6H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,51H217V70.6H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,72.6H87V92.2H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,72.6H113V92.2H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,72.6H139V92.2H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,72.6H165V92.2H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,72.6H191V92.2H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,72.6H217V92.2H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,94.2H87V113.8H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,94.2H113V113.8H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,94.2H139V113.8H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,94.2H165V113.8H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,94.2H191V113.8H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,94.2H217V113.8H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,115.8H87V135.4H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,115.8H113V135.4H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,115.8H139V135.4H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,115.8H165V135.4H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,115.8H191V135.4H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,115.8H217V135.4H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63,137.4H87V157H63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89,137.4H113V157H89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M115,137.4H139V157H115Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141,137.4H165V157H141Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167,137.4H191V157H167Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193,137.4H217V157H193Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Load by weekday"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Week 26"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "of 100"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="64.8">
+    "Mon"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="64.8">
+    "12"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="64.8">
+    "34"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="64.8">
+    "58"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="64.8">
+    "71"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="64.8">
+    "66"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="64.8">
+    "40"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="86.4">
+    "Tue"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="86.4">
+    "18"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="86.4">
+    "42"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="86.4">
+    "77"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="86.4">
+    "88"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="86.4">
+    "70"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="86.4">
+    "35"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="108">
+    "Wed"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="108">
+    "9"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="108">
+    "38"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="108">
+    "64"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="108">
+    "93"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="108">
+    "81"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="108">
+    "47"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="129.6">
+    "Thu"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="129.6">
+    "15"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="129.6">
+    "29"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="129.6">
+    "55"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="129.6">
+    "68"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="129.6">
+    "59"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="129.6">
+    "31"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="151.2">
+    "Fri"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="75" y="151.2">
+    "6"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="101" y="151.2">
+    "21"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="127" y="151.2">
+    "43"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="153" y="151.2">
+    "49"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="179" y="151.2">
+    "37"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="205" y="151.2">
+    "14"
