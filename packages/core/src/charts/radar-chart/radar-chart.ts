@@ -38,10 +38,13 @@ function buildRadarChart(props: RadarChartProps, context: RecipeContext): ChartM
   const strokes: Stroke[] = [...card.strokes];
   const labels: TextLabel[] = [...card.labels];
   const hitAreas: HitArea[] = [];
-  if (subjects.length === 0) return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, data.length === 0);
+  const pinned = validDomain(props.domain) ? props.domain : undefined;
+  if (subjects.length > 0 && subjects.length < 3) warnValue(CHART, accessorName(subjectKey, 'subject'), `${subjects.length} subjects cannot close a polygon; a radar needs at least three.`);
+  const flat = !pinned && subjects.length > 0 && subjects.every((s) => s.value === 0);
+  if (flat) warnValue(CHART, valueName, `Every ${valueName} is zero and no \`domain\` is given; there is no scale to draw on.`);
+  if (subjects.length === 0 || flat) return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, data.length === 0);
 
   const frame = polarFrame(plot, RIM_LABELS);
-  const pinned = validDomain(props.domain) ? props.domain : undefined;
   const radius = linearScale(pinned ?? [0, Math.max(...subjects.map((s) => s.value))], [0, frame.radius], {
     chart: CHART,
     property: 'domain',

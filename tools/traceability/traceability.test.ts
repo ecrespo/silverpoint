@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { citedIn, coverage, deferredIn, requirementsIn } from './traceability';
+import { citedIn, coverage, deferredIn, passes, requirementsIn } from './traceability';
 
 const prd = `
 | ID | Pattern | Criterion | Priority |
@@ -60,5 +60,20 @@ describe('traceability', () => {
   test('REQ-184 · citing an undefined requirement is reported', () => {
     const report = coverage(requirementsIn(prd), new Set(['REQ-001', 'REQ-777']), new Set());
     expect(report.unknown).toEqual(['REQ-777']);
+  });
+
+  test('REQ-183 · a skipped or todo test verifies nothing, so its title cites nothing (T-090)', () => {
+    const source = `
+      test.skip('REQ-001 · not run', () => {});
+      it.skip('REQ-002 · not run either', () => {});
+      test.todo('REQ-060 · not written');
+      test.only('REQ-061 · run', () => {});
+    `;
+    expect([...citedIn(source)]).toEqual(['REQ-061']);
+  });
+
+  test('REQ-184 · a PRD with no parsable MUST row fails the gate instead of passing it empty (T-090)', () => {
+    expect(passes(coverage(new Map(), new Set(), new Set()))).toBe(false);
+    expect(passes(coverage(requirementsIn(prd), new Set(['REQ-001', 'REQ-002', 'REQ-060']), deferredIn(tasks)))).toBe(true);
   });
 });

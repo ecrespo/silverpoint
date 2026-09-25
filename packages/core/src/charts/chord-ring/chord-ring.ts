@@ -65,16 +65,19 @@ function buildChordRing(props: ChordRingProps, context: RecipeContext): ChartMod
     throughput.set(f.target, (throughput.get(f.target) ?? 0) + f.value);
   }
   const all = [...throughput.keys()];
+  // The merge bucket never takes the name of a real category.
+  let other = OTHER;
+  while (all.includes(other)) other = `${other} (merged)`;
   // A warning (API Spec §11): stripped from production builds like every other.
   if (process.env.NODE_ENV !== 'production' && (all.length > CEILING || all.length > most)) {
     diagnose('SP010', CHART, {
       property: 'maxCategories',
-      message: `${all.length} categories${all.length > most ? `; the ${all.length - most + 1} smallest are merged into "${OTHER}"` : ''}.`,
+      message: `${all.length} categories${all.length > most ? `; the ${all.length - most + 1} smallest are merged into "${other}"` : ''}.`,
     });
   }
   const kept = new Set(all.length > most ? [...all].sort((a, b) => (throughput.get(b) ?? 0) - (throughput.get(a) ?? 0)).slice(0, most - 1) : all);
-  const categories = [...all.filter((c) => kept.has(c)), ...(all.length > most ? [OTHER] : [])];
-  const slot = (name: string) => categories.indexOf(kept.has(name) ? name : OTHER);
+  const categories = [...all.filter((c) => kept.has(c)), ...(all.length > most ? [other] : [])];
+  const slot = (name: string) => categories.indexOf(kept.has(name) ? name : other);
 
   // One ribbon per directed pair of categories, in order of its first row. Rows repeating a pair
   // are summed into one ribbon, and warned; flows merged into "Other" were warned by SP010.
@@ -110,7 +113,8 @@ function buildChordRing(props: ChordRingProps, context: RecipeContext): ChartMod
   const n = categories.length;
   const matrix = Array.from({ length: n }, () => new Array<number>(n).fill(0));
   for (const p of ribbonsInOrder) (matrix[p.i] as number[])[p.j] = p.value;
-  const chords = chordDirected().padAngle(PAD)(matrix);
+  // The gaps never take more than a quarter of the turn, so hundreds of categories keep an extent.
+  const chords = chordDirected().padAngle(Math.min(PAD, (Math.PI / 2) / n))(matrix);
 
   const frame = polarFrame(plot, RIM_LABELS);
   const inner = frame.radius * (1 - BAND);

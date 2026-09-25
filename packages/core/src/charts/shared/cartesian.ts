@@ -101,6 +101,7 @@ export function valueAxis(
     property: options.property,
     padding: options.padding,
     nice: options.nice !== false,
+    fromZero: options.zero !== false,
   });
   const strokes: Stroke[] = [];
   const labels: TextLabel[] = [];
@@ -220,6 +221,7 @@ export function horizontalValueAxis(
     property: options.property,
     padding: options.padding,
     nice: true,
+    fromZero: true,
   });
   const strokes: Stroke[] = [];
   const labels: TextLabel[] = [];

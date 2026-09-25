@@ -145,3 +145,25 @@ describe('renderChart', () => {
     expect(renderChart(lineChart, { id: 'mine' }, env).id).toBe('mine');
   });
 });
+
+/**
+ * T-090 (Phase 0 minor): a consumer `id` becomes the stem of IDREFs (`aria-labelledby`, space-
+ * separated) and of `url(#…)` fills, so whitespace or URL punctuation in it breaks both silently.
+ */
+describe('consumer id', () => {
+  const ids = (svg: string) => [...svg.matchAll(/\bid="([^"]*)"/g)].map((m) => m[1] as string);
+
+  test('REQ-008 · REQ-120 · an id that would break IDREFs and url(#…) is made safe, and warned', () => {
+    const seen = capture();
+    const rendered = renderChart(lineChart, { id: 'sales (2024) #1' }, env);
+    expect(rendered.id).toMatch(/^[A-Za-z0-9_.:-]+$/);
+    for (const id of ids(toSVGString(rendered))) expect(id).toMatch(/^[A-Za-z0-9_.:-]+$/);
+    expect(seen).toContain('SP002');
+  });
+
+  test('REQ-120 · a safe id is kept as given, silently', () => {
+    const seen = capture();
+    expect(renderChart(lineChart, { id: 'sales-2024_q1' }, env).id).toBe('sales-2024_q1');
+    expect(seen).not.toContain('SP002');
+  });
+});

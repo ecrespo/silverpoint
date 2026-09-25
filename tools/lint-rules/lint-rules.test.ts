@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ESLint } from 'eslint';
 import { describe, expect, test } from 'vitest';
@@ -117,5 +119,32 @@ describe('core-allowlist', () => {
     expect(await rulesHit('packages/core/src/y.ts', "import { extent } from 'd3-array';\nexport { extent };")).toEqual([
       'silverpoint/core-allowlist',
     ]);
+  });
+});
+
+/**
+ * TD §6: user text enters as a text node, never as markup — "neither `innerHTML` nor
+ * `dangerouslySetInnerHTML` is used anywhere" (T-090: the canonical page used `innerHTML`).
+ */
+describe('no markup injection', () => {
+  test.each([
+    ['innerHTML', 'examples/vite-react/src/x.ts', 'export function f(el: Element, s: string) { el.innerHTML = s; }'],
+    ['outerHTML', 'packages/grounds/src/x.ts', 'export function f(el: Element, s: string) { el.outerHTML = s; }'],
+    ['insertAdjacentHTML', 'packages/vue/src/x.ts', "export function f(el: Element, s: string) { el.insertAdjacentHTML('beforeend', s); }"],
+    ['dangerouslySetInnerHTML', 'packages/react/src/x.tsx', 'export const C = (p: { s: string }) => <div dangerouslySetInnerHTML={{ __html: p.s }} />;'],
+    ['dangerouslySetInnerHTML in an example', 'examples/nextjs/app/x.tsx', 'export const C = (p: { s: string }) => <div dangerouslySetInnerHTML={{ __html: p.s }} />;'],
+  ])('TD §6 · %s fails', async (_what, path, code) => {
+    expect(await rulesHit(path, code)).toEqual(['no-restricted-syntax']);
+  });
+
+  test('TD §6 · reading innerHTML in a test is allowed', async () => {
+    expect(await rulesHit('packages/react/test/x.test.tsx', 'export const read = (el: Element) => el.innerHTML;')).toEqual([]);
+  });
+
+  test('TD §6 · no Vue template uses v-html', () => {
+    const vue = (dir: string): string[] =>
+      readdirSync(join(root, dir), { recursive: true, encoding: 'utf8' }).filter((f) => f.endsWith('.vue') && !f.includes('node_modules'));
+    const offenders = ['packages/vue/src', 'examples/vite-vue/src'].flatMap((dir) => vue(dir).filter((f) => readFileSync(join(root, dir, f), 'utf8').includes('v-html')));
+    expect(offenders).toEqual([]);
   });
 });

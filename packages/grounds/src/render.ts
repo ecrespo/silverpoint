@@ -43,6 +43,22 @@ export interface RenderedChart extends ChartModel {
 /** Inkers that ship with the grounds package and resolve without registration. */
 const BUILTIN_INKERS = [RoughInker];
 
+/** Characters an id keeps intact in a space-separated IDREF list and inside `url(#…)`. */
+const SAFE_ID = /^[A-Za-z0-9_.:-]+$/;
+
+/**
+ * The chart's id, safe to derive IDREFs and `url(#…)` references from: anything else is replaced
+ * by `-` and warned, rather than breaking the labelling and the fills silently (REQ-008, REQ-120).
+ */
+function safeId(given: string, chart: string): string {
+  if (SAFE_ID.test(given)) return given;
+  const safe = given.replace(/[^A-Za-z0-9_.:-]+/g, '-') || 'sp';
+  if (process.env.NODE_ENV !== 'production') {
+    diagnose('SP002', chart, { property: 'id', message: `"${given}" cannot stem IDREFs and url(#…) references; "${safe}" is used.` });
+  }
+  return safe;
+}
+
 /**
  * The single render pipeline every adapter calls (TD §3.3): resolve the configuration, run the
  * recipe, ink, hold the heightening rules, round, and describe the SVG. Adapters translate the
@@ -56,7 +72,7 @@ export function renderChart<P extends CommonChartProps>(
   const chart = recipe.name;
   const config = resolveConfig(props, environment.provider, environment);
   const ground = resolveGround(config.ground, chart);
-  const id = props.id ?? environment.id;
+  const id = safeId(props.id ?? environment.id, chart);
 
   const model = recipe.build(props, {
     id,

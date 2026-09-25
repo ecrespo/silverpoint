@@ -46,6 +46,7 @@ function buildFunnelChart(props: FunnelChartProps, context: RecipeContext): Char
   const hitAreas: HitArea[] = [];
 
   const largest = Math.max(0, ...stages.map((s) => s.value ?? 0));
+  if (stages.length > 0 && largest <= 0) warnValue(CHART, valueName, `No stage has a ${valueName} above zero; there is no funnel to draw.`);
   if (stages.length === 0 || largest <= 0) {
     return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, stages.length === 0);
   }

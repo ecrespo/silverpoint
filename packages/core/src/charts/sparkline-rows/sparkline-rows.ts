@@ -26,6 +26,7 @@ function buildSparklineRows(props: SparklineRowsProps, context: RecipeContext): 
   const usesDemo = props.data === undefined;
   const all = props.data ?? SPARKLINE_ROWS_DEMO;
   const data = props.rows !== undefined && Number.isInteger(props.rows) && props.rows >= 0 ? all.slice(0, props.rows) : all;
+  if (props.rows !== undefined && !(Number.isInteger(props.rows) && props.rows >= 0)) warnValue(CHART, 'rows', `${String(props.rows)} is not a whole number of rows ≥ 0; every row is shown.`);
   const nameKey = usesDemo ? 'name' : (props.nameKey ?? 'name');
   const readoutKey = usesDemo ? 'readout' : (props.readoutKey ?? 'readout');
   const seriesKey = usesDemo ? 'points' : (props.seriesKey ?? 'points');

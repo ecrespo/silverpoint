@@ -22,7 +22,10 @@ export function formatNumber(
   options: Intl.NumberFormatOptions | undefined,
 ): string {
   const resolved = options ?? { maximumFractionDigits: 2 };
-  const key = `${locale}|${JSON.stringify(resolved)}`;
+  // Every option Intl reads, inherited ones included: JSON.stringify sees own properties only.
+  const read: string[] = [];
+  for (const name in resolved) read.push(`${name}=${JSON.stringify(resolved[name as keyof Intl.NumberFormatOptions])}`);
+  const key = `${locale}|${read.sort().join('&')}`;
   let formatter = FORMATTERS.get(key);
   if (!formatter) {
     if (FORMATTERS.size >= MAX_FORMATTERS) FORMATTERS.clear();

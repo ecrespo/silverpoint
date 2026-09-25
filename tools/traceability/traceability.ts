@@ -27,11 +27,12 @@ export function requirementsIn(prd: string): Map<string, string> {
 
 /**
  * Requirements cited in test names: the first string argument of `test(…)`, `it(…)`, their
- * `.skip` / `.only` forms, and the title call that follows `test.each(…)`.
+ * `.only` / `.concurrent` forms, and the title call that follows `test.each(…)`. A `.skip` or
+ * `.todo` test runs nothing, so its title cites nothing.
  */
 export function citedIn(source: string): Set<string> {
   const cited = new Set<string>();
-  const title = /(?:\b(?:test|it)(?:\.(?:skip|only|concurrent))?|\))\s*\(\s*(['"`])((?:\\.|(?!\1)[^\\])*?)\1/g;
+  const title = /(?:\b(?:test|it)(?:\.(?:only|concurrent))?|\))\s*\(\s*(['"`])((?:\\.|(?!\1)[^\\])*?)\1/g;
   for (const match of source.matchAll(title)) {
     for (const id of (match[2] ?? '').match(REQ) ?? []) cited.add(id);
   }
@@ -63,6 +64,12 @@ export interface CoverageReport {
   readonly deferred: string[];
   /** Identifiers cited by a test but defined nowhere in the PRD. */
   readonly unknown: string[];
+}
+
+/** The Analyze gate's verdict: something to check, every MUST cited or deferred, nothing unknown. */
+export function passes(report: CoverageReport): boolean {
+  const musts = report.covered.length + report.blocking.length + report.deferred.length;
+  return musts > 0 && report.blocking.length === 0 && report.unknown.length === 0;
 }
 
 export function coverage(requirements: Map<string, string>, cited: Set<string>, deferred: Set<string>): CoverageReport {
@@ -131,7 +138,8 @@ function main(): void {
   console.log(`traceability · ${report.covered.length}/${musts} MUST covered · ${report.deferred.length} deferred · ${report.blocking.length} blocking`);
   for (const id of report.blocking) console.error(`blocking  ${id} is a MUST with no test citing it (REQ-184)`);
   for (const id of report.unknown) console.error(`unknown   ${id} is cited by a test but not defined in the PRD`);
-  process.exit(report.blocking.length === 0 && report.unknown.length === 0 ? 0 : 1);
+  if (musts === 0) console.error('no MUST requirement was read from specs/prd.md; the gate has nothing to check');
+  process.exit(passes(report) ? 0 : 1);
 }
 
 if (process.argv[1]?.endsWith('traceability.ts')) main();

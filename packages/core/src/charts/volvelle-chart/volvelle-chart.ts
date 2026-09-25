@@ -2,7 +2,7 @@ import type { ChartModel, ChartRecipe, HitArea, RecipeContext, Stroke, TextLabel
 import { cardLayout } from '../shared/card';
 import { warnValue } from '../shared/cells';
 import { formatCategory } from '../shared/format';
-import { pointAt, polarFrame, polarLabel, RIM_LABELS, sectorPath, type PolarFrame } from '../shared/polar';
+import { checkSectors, pointAt, polarFrame, polarLabel, RIM_LABELS, sectorPath, type PolarFrame } from '../shared/polar';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { VOLVELLE_CHART_DEMO } from './demo';
 
@@ -17,6 +17,8 @@ const CHAR = 5.2;
 interface Ring {
   readonly label: string;
   readonly segments: readonly string[];
+  /** Its place in `data`, which `indexRing` counts, before invalid rings are left out. */
+  readonly given: number;
 }
 
 /** Cap height of a 9.5 px label. */
@@ -61,13 +63,17 @@ function buildVolvelleChart(props: VolvelleChartProps, context: RecipeContext): 
       warnValue(CHART, 'segments', `Ring ${index} has no list of segments; it is omitted.`);
       return;
     }
-    rings.push({ label: formatCategory(datum.label, locale), segments: segments.map((s: unknown) => formatCategory(s, locale)) });
+    checkSectors(CHART, 'segments', segments.length);
+    rings.push({ label: formatCategory(datum.label, locale), segments: segments.map((s: unknown) => formatCategory(s, locale)), given: index });
   });
+  if (usesDemo && (props.indexRing !== undefined || props.indexValue !== undefined)) {
+    warnValue(CHART, props.indexValue !== undefined ? 'indexValue' : 'indexRing', 'Without `data` the demo keeps its own index; `indexRing` and `indexValue` apply to your rings.');
+  }
 
   // The index angle: the middle of `indexValue` on `indexRing`; every ring is read there.
-  let ringIndex = usesDemo ? 0 : (props.indexRing ?? 0);
-  if (!Number.isInteger(ringIndex) || ringIndex < 0 || ringIndex >= rings.length) {
-    if (rings.length > 0) warnValue(CHART, 'indexRing', `Ring ${String(props.indexRing)} does not exist; the index reads ring 0.`);
+  let ringIndex = usesDemo || props.indexRing === undefined ? 0 : rings.findIndex((r) => r.given === props.indexRing);
+  if (ringIndex < 0) {
+    if (rings.length > 0) warnValue(CHART, 'indexRing', `Ring ${String(props.indexRing)} does not exist or has no segments; the index reads the first ring.`);
     ringIndex = 0;
   }
   const turned = rings[ringIndex];

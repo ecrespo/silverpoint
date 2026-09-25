@@ -64,10 +64,11 @@ function buildCandlestickChart(props: CandlestickChartProps, context: RecipeCont
   const hitAreas: HitArea[] = [];
 
   const pinned = props.bounds && Number.isFinite(props.bounds[0]) && Number.isFinite(props.bounds[1]) && props.bounds[0] < props.bounds[1] ? props.bounds : undefined;
+  if (props.bounds !== undefined && !pinned) warnValue(CHART, 'bounds', `[${String(props.bounds)}] is not two finite prices, lowest first; the bounds are derived from the rows.`);
   if (data.length === 0) return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, true);
   if (candles.length === 0) {
     // REQ-097: with no valid row there is nothing to derive the price bounds from.
-    if (!pinned) diagnose('SP009', CHART, { property: 'bounds', message: `None of the ${data.length} rows is a valid candle.` });
+    if (!pinned) diagnose('SP009', CHART, { property: 'bounds', message: `None of the ${data.length} rows is a valid candle: open, high, low and close must be finite numbers with low ≤ min(open, close) ≤ max(open, close) ≤ high.` });
     return emptyModel(base, props, context, { viewBox: card.viewBox, plot, strokes, labels }, false);
   }
 

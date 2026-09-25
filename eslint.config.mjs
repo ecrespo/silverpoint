@@ -33,6 +33,23 @@ export default [
     rules: { 'silverpoint/adapter-boundary': 'error' },
   },
   {
+    // TD §6: user text enters as a text node, never as markup — in the packages and the apps alike.
+    files: [
+      'packages/*/src/**/*.{ts,tsx,vue}',
+      'packages/angular/!(test|dist|node_modules)/**/*.ts',
+      'examples/*/src/**/*.{ts,tsx,vue}',
+      'examples/nextjs/app/**/*.{ts,tsx}',
+    ],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        { selector: "AssignmentExpression > MemberExpression.left[property.name=/^(inner|outer)HTML$/]", message: 'TD §6: no markup injection; build nodes instead.' },
+        { selector: "CallExpression[callee.property.name='insertAdjacentHTML']", message: 'TD §6: no markup injection; build nodes instead.' },
+        { selector: "JSXAttribute[name.name='dangerouslySetInnerHTML']", message: 'TD §6: no markup injection; render elements instead.' },
+      ],
+    },
+  },
+  {
     // REQ-162: the core's runtime allowlist.
     files: ['packages/core/src/**/*.ts'],
     plugins: { silverpoint },

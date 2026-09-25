@@ -48,6 +48,9 @@ export function buildPoints(family: PointFamily, props: PointProps, context: Rec
   const yKey = usesDemo ? 'y' : (props.yKey ?? 'y');
   const sizeKey = usesDemo ? 'size' : (props.sizeKey ?? (family.sizeByDefault ? 'size' : undefined));
   const sizeRange = validRange(props.sizeRange) ? props.sizeRange : family.defaultSizeRange;
+  if (props.sizeRange !== undefined && !validRange(props.sizeRange)) {
+    warnValue(chart, 'sizeRange', `[${String(props.sizeRange)}] is not two finite areas with 0 < smallest ≤ largest; the default [${String(family.defaultSizeRange)}] is used.`);
+  }
   const { locale } = context;
   const numberFormat = props.numberFormat;
   const xName = accessorName(xKey, 'x');

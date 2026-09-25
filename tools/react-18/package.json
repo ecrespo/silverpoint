@@ -1,0 +1,10 @@
+{
+  "name": "@silverpoint/react-18",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React 18 for the react-18 test project: PRD §6 supports React 18.2+ and 19.",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

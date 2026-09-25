@@ -1,8 +1,8 @@
-import type { ChartModel, ChartRecipe, CoxcombChartProps, HitArea, RecipeContext, Stroke, TextLabel } from '../../types';
+import type { ChartModel, ChartRecipe, CoxcombChartProps, HitArea, RecipeContext, Stroke, TextLabel, ToneLevel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { warnValue } from '../shared/cells';
 import { accessorName, formatNumber, formatValue } from '../shared/format';
-import { arcPath, checkSectors, pointAt, polarFrame, readSectors, RIM_LABELS, rimLabels, ringTone, sectorPath } from '../shared/polar';
+import { arcPath, checkSectors, pointAt, polarFrame, readSectors, RIM_LABELS, rimLabels, ringTones, sectorPath } from '../shared/polar';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { COXCOMB_CHART_DEMO } from './demo';
 
@@ -44,12 +44,13 @@ function buildCoxcombChart(props: CoxcombChartProps, context: RecipeContext): Ch
   const slot = (2 * Math.PI) / sectors.length;
   strokes.push({ d: arcPath(frame, frame.radius, 0, 2 * Math.PI), role: 'ornament', part: 'grid' });
 
+  const tones = ringTones(sectors.map((s) => s.value));
   sectors.forEach((s, k) => {
     const from = start + k * slot;
     // Nightingale's rule: the AREA of a sector is proportional to its value, so its radius is ∝ √value.
     const r = frame.radius * Math.sqrt(s.value / largest);
     const d = sectorPath(frame, { inner: 0, outer: r, start: from, end: from + slot });
-    if (d) strokes.push({ d, role: 'encoding', part: 'ink', tone: ringTone(k, sectors.length) });
+    if (d) strokes.push({ d, role: 'encoding', part: 'ink', tone: tones[k] as ToneLevel });
     const at = pointAt(frame, from + slot / 2, r * 0.6);
     hitAreas.push({ seriesKey: valueName, index: s.index, datum: s.datum, value: s.value, x: at.x, y: at.y });
   });

@@ -135,7 +135,9 @@ function buildWindRose(props: WindRoseProps, context: RecipeContext): ChartModel
   const prevailing = totals.indexOf(Math.max(...totals));
   const description =
     props.description ??
-    `${base.name}. Wind rose of ${observed} observations in ${count} sectors; most often from ${compass(prevailing, count, locale)} (${printed(totals[prevailing] as number)}); calm ${printed(calm)}.`;
+    `${base.name}. Wind rose of ${observed} observations in ${count} sectors; ${
+      (totals[prevailing] as number) > 0 ? `most often from ${compass(prevailing, count, locale)} (${printed(totals[prevailing] as number)})` : 'no wind from any direction'
+    }; calm ${printed(calm)}.`;
   return readyModel(base, description, { viewBox: card.viewBox, plot, strokes, labels, hitAreas });
 }
 

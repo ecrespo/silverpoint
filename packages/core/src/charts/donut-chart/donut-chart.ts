@@ -1,8 +1,8 @@
-import type { ChartModel, ChartRecipe, DonutChartProps, HitArea, RecipeContext, Stroke, TextLabel } from '../../types';
+import type { ChartModel, ChartRecipe, DonutChartProps, HitArea, RecipeContext, Stroke, TextLabel, ToneLevel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { warnValue } from '../shared/cells';
 import { accessorName, formatNumber, formatValue } from '../shared/format';
-import { checkSectors, pointAt, polarFrame, readSectors, ringTone, sectorLegend, sectorPath } from '../shared/polar';
+import { checkSectors, pointAt, polarFrame, readSectors, ringTones, sectorLegend, sectorPath } from '../shared/polar';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { DONUT_CHART_DEMO } from './demo';
 
@@ -53,10 +53,11 @@ function buildDonutChart(props: DonutChartProps, context: RecipeContext): ChartM
   const frame = polarFrame(ringArea);
   const inner = frame.radius * HOLE;
 
+  const tones = ringTones(sectors.map((s) => s.value));
   let start = 0;
   sectors.forEach((s, k) => {
     const end = start + (s.value / total) * 2 * Math.PI;
-    const tone = ringTone(k, sectors.length);
+    const tone = tones[k] as ToneLevel;
     const d = sectorPath(frame, { inner, outer: frame.radius, start, end });
     if (d) strokes.push({ d, role: 'encoding', part: 'ink', tone });
     const middle = pointAt(frame, (start + end) / 2, (inner + frame.radius) / 2);
@@ -73,7 +74,7 @@ function buildDonutChart(props: DonutChartProps, context: RecipeContext): ChartM
     const x = ringArea.x + ringArea.width + LEGEND_GAP;
     const key = sectorLegend(
       { x, y: plot.y, width: Math.max(plot.x + plot.width - x, 1), height: plot.height },
-      sectors.map((s, k) => ({ name: s.name, share: share(s.value), tone: ringTone(k, sectors.length) })),
+      sectors.map((s, k) => ({ name: s.name, share: share(s.value), tone: tones[k] as ToneLevel })),
     );
     strokes.push(...key.strokes);
     labels.push(...key.labels);

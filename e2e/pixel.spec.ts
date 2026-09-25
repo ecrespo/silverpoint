@@ -4,6 +4,7 @@ import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import { FIXTURES } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
+import { CATALOG } from '../tools/visual-gate/catalog';
 
 /** The canonical render is served by the vite-react bench (`canonical.html`), framework-free. */
 const CANONICAL = `http://localhost:${APPS['vite-react'].port}/canonical.html`;
@@ -42,6 +43,12 @@ function gate(adapter: Buffer, canonical: Buffer, golden: Buffer | undefined): s
 }
 
 test.describe('pixel gate', () => {
+  // An empty fixture list would create no comparison and pass (T-090): the PR matrix is every
+  // catalog chart × 2 modes × 4 substrates at `md` (Data Model §5).
+  test('REQ-181 · REQ-182 · the gate has the whole PR matrix to compare', () => {
+    expect(FIXTURES.length).toBe(CATALOG.length * 8);
+  });
+
   for (const fixture of FIXTURES) {
     test(`REQ-181 · ${fixture.id} passes the three Art. 3 comparisons`, async ({ page }, info) => {
       const canonical = await shoot(page, `${CANONICAL}?fixture=${fixture.id}`);

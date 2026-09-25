@@ -40,6 +40,8 @@ import {
   volvelleChart,
   chordRing,
   orbitChart,
+  type ChartRecipe,
+  type CommonChartProps,
 } from '@silverpoint/core';
 import { fixtureById, fixtureProps } from '@silverpoint/example-harness';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
@@ -49,12 +51,16 @@ const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector('.sp-harness');
 if (fixture && harness) {
-  const rendered = renderChart(RECIPES[fixture.chart as keyof typeof RECIPES], fixtureProps(fixture), { id: fixture.id });
+  // A fixture's props fit its own chart; the union of recipes cannot say so, hence the widening.
+  const recipe = RECIPES[fixture.chart as keyof typeof RECIPES] as ChartRecipe<CommonChartProps>;
+  const rendered = renderChart(recipe, fixtureProps(fixture), { id: fixture.id });
   const root = document.createElement('div');
   root.className = `sp-root sp-ground-${rendered.ground}`;
   root.dataset.substrate = rendered.substrate;
   root.dataset.status = rendered.status;
-  // The markup is the core's own serialisation — user text inside it is already escaped (TD §6).
-  root.innerHTML = toSVGString(rendered);
+  // The core's own serialisation, parsed inert (an HTML parse places `<svg>` in the SVG namespace,
+  // as inline markup is) and adopted as nodes: no markup injection (TD §6).
+  const svg = new DOMParser().parseFromString(toSVGString(rendered), 'text/html').body.firstElementChild;
+  if (svg) root.append(document.importNode(svg, true));
   harness.append(root);
 }

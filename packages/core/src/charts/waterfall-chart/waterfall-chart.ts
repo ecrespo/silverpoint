@@ -38,6 +38,7 @@ function buildWaterfallChart(props: WaterfallChartProps, context: RecipeContext)
     const total = finite(read(baseKey, datum, index));
     const delta = finite(read(deltaKey, datum, index));
     if (total !== undefined) {
+      if (delta !== undefined) warnValue(CHART, deltaName, `Row ${index} has both a ${baseName} and a ${deltaName}; a total resets the running total, so its ${deltaName} is ignored.`);
       steps.push({ index, datum, kind: 'total', value: total, from: 0, to: total });
       running = total;
     } else if (delta !== undefined) {

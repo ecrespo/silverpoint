@@ -1,8 +1,15 @@
 import vue from '@vitejs/plugin-vue';
+import { realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 const angularDist = fileURLToPath(new URL('./packages/angular/dist/fesm2022/', import.meta.url));
+
+/** React 18 and its react-dom, installed as a pair by the private `tools/react-18` package. */
+const REACT_18 = {
+  react: realpathSync(fileURLToPath(new URL('./tools/react-18/node_modules/react', import.meta.url))),
+  dom: realpathSync(fileURLToPath(new URL('./tools/react-18/node_modules/react-dom', import.meta.url))),
+};
 
 const source = { conditions: ['@silverpoint/source', 'module', 'browser', 'development|production'] };
 
@@ -29,6 +36,28 @@ export default defineConfig({
         resolve: source,
         ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
         test: { name: 'react', root: 'packages/react', environment: 'happy-dom', include: ['test/**/*.test.{ts,tsx}'] },
+      },
+      {
+        // PRD §6 "React 18.2+ and 19": the same suite against React 18, aliased in (T-090).
+        resolve: {
+          ...source,
+          // From tools/react-18, whose react-dom resolves its own React 18, never the workspace's 19.
+          alias: [
+            { find: /^react$/, replacement: REACT_18.react },
+            { find: /^react\/(.*)$/, replacement: `${REACT_18.react}/$1` },
+            { find: /^react-dom$/, replacement: REACT_18.dom },
+            { find: /^react-dom\/(.*)$/, replacement: `${REACT_18.dom}/$1` },
+          ],
+        },
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: {
+          name: 'react-18',
+          root: 'packages/react',
+          environment: 'happy-dom',
+          include: ['test/**/*.test.{ts,tsx}'],
+          // Inlined, so the alias reaches every import of React, not only the tests' own.
+          server: { deps: { inline: [/@silverpoint\//] } },
+        },
       },
       {
         plugins: [vue()],

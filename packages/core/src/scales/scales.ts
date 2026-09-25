@@ -10,16 +10,25 @@ export interface ScaleSite {
 
 /**
  * Expands a zero-length domain by the ground's `domainPadding` instead of dividing by zero
- * (REQ-010). A constant `v` becomes `[v - |v|·p, v + |v|·p]`, or `[-p, p]` around zero.
+ * (REQ-010). A constant `v` becomes `[v - |v|·p, v + |v|·p]`, or `[-p, p]` around zero — `[0, 2p]`
+ * on a zero-based axis, which never shows a value below zero that no datum has.
  */
 export function expandDomain(
   domain: readonly [number, number],
   padding: number,
   site: ScaleSite,
+  /** A zero-based axis (bars, areas): a flat zero domain grows upward only, never below zero. */
+  fromZero = false,
 ): [number, number] {
   const [low, high] = domain;
   if (low !== high) return [low, high];
   const spread = low === 0 ? padding : Math.abs(low) * padding;
+  if (fromZero && low === 0) {
+    if (process.env.NODE_ENV !== 'production') {
+      diagnose('SP004', site.chart, { property: site.property, message: `Domain [0, 0] became [0, ${2 * spread}].` });
+    }
+    return [0, 2 * spread];
+  }
   if (process.env.NODE_ENV !== 'production') {
     diagnose('SP004', site.chart, {
       property: site.property,
@@ -39,9 +48,9 @@ export interface LinearScale {
 export function linearScale(
   domain: readonly [number, number],
   range: readonly [number, number],
-  options: ScaleSite & { readonly padding: number; readonly nice?: boolean },
+  options: ScaleSite & { readonly padding: number; readonly nice?: boolean; readonly fromZero?: boolean },
 ): LinearScale {
-  const expanded = expandDomain(domain, options.padding, options);
+  const expanded = expandDomain(domain, options.padding, options, options.fromZero);
   const scale = scaleLinear().domain(expanded).range(range);
   if (options.nice) scale.nice(4);
   const [low, high] = scale.domain() as [number, number];
