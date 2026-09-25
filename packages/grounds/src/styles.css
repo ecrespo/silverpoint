@@ -276,8 +276,11 @@
   font-style: italic;
 }
 
-/* Hidden for sight, present for assistive technology — never `display: none`. */
-.sp-table[data-visibility='hidden'],
+/*
+ * Hidden for sight, present for assistive technology — never `display: none`. On the table's box,
+ * not the table: a table ignores `width` and `overflow`, and would widen a narrow page (WCAG 1.4.10).
+ */
+.sp-table-box[data-visibility='hidden'],
 .sp-live {
   position: absolute;
   width: 1px;

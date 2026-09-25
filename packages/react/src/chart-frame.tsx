@@ -5,33 +5,35 @@ import { ChartSvg } from './chart-svg';
 
 function Table({ table, id, visibility }: { readonly table: DataTable; readonly id: string; readonly visibility: string }) {
   return (
-    <table className="sp-table" id={id} data-visibility={visibility}>
-      <caption>{table.caption}</caption>
-      <thead>
-        <tr>
-          {table.columns.map((column, index) => (
-            <th key={index} scope="col">
-              {column}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {table.rows.map((row, index) => (
-          <tr key={index}>
-            {row.map((cell, column) =>
-              column === 0 ? (
-                <th key={column} scope="row">
-                  {cell}
-                </th>
-              ) : (
-                <td key={column}>{cell}</td>
-              ),
-            )}
+    <div className="sp-table-box" data-visibility={visibility}>
+      <table className="sp-table" id={id} data-visibility={visibility}>
+        <caption>{table.caption}</caption>
+        <thead>
+          <tr>
+            {table.columns.map((column, index) => (
+              <th key={index} scope="col">
+                {column}
+              </th>
+            ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {table.rows.map((row, index) => (
+            <tr key={index}>
+              {row.map((cell, column) =>
+                column === 0 ? (
+                  <th key={column} scope="row">
+                    {cell}
+                  </th>
+                ) : (
+                  <td key={column}>{cell}</td>
+                ),
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

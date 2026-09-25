@@ -1,4 +1,4 @@
-import { computed, contentChild, Directive, inject, input, output, signal, type Signal } from '@angular/core';
+import { computed, contentChild, Directive, ElementRef, inject, input, output, signal, type Signal } from '@angular/core';
 import {
   instanceId,
   reduceInteraction,
@@ -28,7 +28,7 @@ type Prop<K extends keyof CommonChartProps> = CommonChartProps[K];
  * </sp-chart-frame>
  * ```
  */
-@Directive()
+@Directive({ host: { '(document:keydown)': 'onDocumentKey($event)' } })
 export abstract class SpChart<P extends CommonChartProps> {
   readonly data = input<Prop<'data'>>();
   readonly ground = input<Prop<'ground'>>();
@@ -150,6 +150,15 @@ export abstract class SpChart<P extends CommonChartProps> {
         return;
       case 'keydown':
         if (this.dispatch({ type: 'key', key: (event as KeyboardEvent).key })) event.preventDefault();
+    }
+  };
+
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  /** WCAG 1.4.13: a readout shown by the pointer is dismissible with Escape wherever focus is. */
+  protected readonly onDocumentKey = (event: KeyboardEvent): void => {
+    if (event.key === 'Escape' && this.active() !== null && !this.host.nativeElement.contains(event.target as Node)) {
+      this.dispatch({ type: 'key', key: 'Escape' });
     }
   };
 

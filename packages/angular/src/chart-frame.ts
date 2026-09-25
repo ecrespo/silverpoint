@@ -86,29 +86,31 @@ import type { RenderedChart } from '@silverpoint/grounds';
       </svg>
       <ng-content />
       @if (r.dataTable !== 'none') {
-        <table class="sp-table" [attr.id]="r.ids.table" [attr.data-visibility]="r.dataTable">
-          <caption>{{ r.table.caption }}</caption>
-          <thead>
-            <tr>
-              @for (column of r.table.columns; track $index) {
-                <th scope="col">{{ column }}</th>
-              }
-            </tr>
-          </thead>
-          <tbody>
-            @for (row of r.table.rows; track $index) {
+        <div class="sp-table-box" [attr.data-visibility]="r.dataTable">
+          <table class="sp-table" [attr.id]="r.ids.table" [attr.data-visibility]="r.dataTable">
+            <caption>{{ r.table.caption }}</caption>
+            <thead>
               <tr>
-                @for (cell of row; track $index; let first = $first) {
-                  @if (first) {
-                    <th scope="row">{{ cell }}</th>
-                  } @else {
-                    <td>{{ cell }}</td>
-                  }
+                @for (column of r.table.columns; track $index) {
+                  <th scope="col">{{ column }}</th>
                 }
               </tr>
-            }
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              @for (row of r.table.rows; track $index) {
+                <tr>
+                  @for (cell of row; track $index; let first = $first) {
+                    @if (first) {
+                      <th scope="row">{{ cell }}</th>
+                    } @else {
+                      <td>{{ cell }}</td>
+                    }
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
       }
     </div>
   `,

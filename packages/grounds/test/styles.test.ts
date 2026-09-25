@@ -103,7 +103,8 @@ describe('styles.css', () => {
   });
 
   test('REQ-121 · a hidden data table stays available to assistive technology', () => {
-    const hidden = block(".sp-table[data-visibility='hidden']");
+    // On the table's box: a table ignores `width` and `overflow` (T-096, WCAG 1.4.10).
+    const hidden = block(".sp-table-box[data-visibility='hidden']");
     expect(hidden.position).toBe('absolute');
     expect(hidden.clip).toBe('rect(0 0 0 0)');
     expect(hidden.display).toBeUndefined();

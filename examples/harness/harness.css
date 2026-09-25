@@ -27,6 +27,8 @@ h1 {
 /* The gate container: fixed width, so every adapter lays the chart out identically. */
 .sp-harness {
   width: 320px;
+  /* Never wider than the page (WCAG 1.4.10): inert at the gates' 800 px viewport, where every size fits. */
+  max-width: calc(100% - 32px);
   padding: 16px;
   background: #ffffff;
 }

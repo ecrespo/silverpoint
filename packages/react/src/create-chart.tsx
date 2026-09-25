@@ -12,6 +12,7 @@ import { renderChart, toSVGString } from '@silverpoint/grounds';
 import {
   forwardRef,
   useContext,
+  useEffect,
   useId,
   useImperativeHandle,
   useMemo,
@@ -79,6 +80,18 @@ export function createClientChart<P extends CommonChartProps>(recipe: ChartRecip
       if (result.selected) onSelect?.(result.selected);
       return result.handled;
     };
+    // WCAG 1.4.13: a readout shown by the pointer is dismissible with Escape wherever focus is.
+    const latest = useRef(dispatch);
+    latest.current = dispatch;
+    const showing = active !== null;
+    useEffect(() => {
+      if (!showing) return undefined;
+      const onKey = (event: globalThis.KeyboardEvent) => {
+        if (event.key === 'Escape' && !rootRef.current?.contains(event.target as Node)) latest.current({ type: 'key', key: 'Escape' });
+      };
+      document.addEventListener('keydown', onKey);
+      return () => document.removeEventListener('keydown', onKey);
+    }, [showing]);
     const pointer = (type: 'pointer' | 'click') => (event: PointerEvent<HTMLDivElement>) => {
       const svg = rootRef.current?.querySelector('svg.sp-chart');
       if (!svg) return;

@@ -10,7 +10,7 @@ import {
   type Readout,
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
-import { computed, ref, useId } from 'vue';
+import { computed, onBeforeUnmount, ref, useId, watch } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
 import { useForcedPrecision, useMeasuredWidth, useProvider, useTypefaceCheck } from './environment';
@@ -80,6 +80,19 @@ function onPointer(type: 'pointer' | 'click', event: PointerEvent | MouseEvent):
 function onKeydown(event: KeyboardEvent): void {
   if (dispatch({ type: 'key', key: event.key })) event.preventDefault();
 }
+
+// WCAG 1.4.13: a readout shown by the pointer is dismissible with Escape wherever focus is.
+function onDocumentKey(event: KeyboardEvent): void {
+  if (event.key === 'Escape' && !element.value?.contains(event.target as Node)) dispatch({ type: 'key', key: 'Escape' });
+}
+watch(
+  () => active.value !== null,
+  (showing) => {
+    if (showing) document.addEventListener('keydown', onDocumentKey);
+    else document.removeEventListener('keydown', onDocumentKey);
+  },
+);
+onBeforeUnmount(() => document.removeEventListener('keydown', onDocumentKey));
 
 defineExpose({
   getGeometry: () => rendered.value.geometry,
