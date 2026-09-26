@@ -41,12 +41,20 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
 
 ### 5a — Core
 
-**[ ] T-106 · Layout types and defaults** — REQ-201, REQ-208
+**[x] T-106 · Layout types and defaults** — REQ-201, REQ-208
 - `packages/core/src/dashboard/types.ts` (API delta §2) exported on the internal surface.
 - Tests: no layout → `sm 1 / md 2 / lg 4`, span 1, source order; bare-number `columns` applies to
   all breakpoints; model round-trips through `JSON.stringify` (I-10).
 - **Done:** tests green; the type test proves `DashboardProps` without `title` and `label` fails to
   compile (REQ-214).
+- *Closed 2026-09-26.* `src/dashboard/types.ts` (API delta §2, plus the internal `ResolvedLayout`)
+  and `src/dashboard/defaults.ts`: `DASHBOARD_DEFAULTS` (frozen), `perBreakpoint`, `resolveLayout`.
+  `resolveDashboard` itself is T-107's: T-106 stops at the layout-level defaults, and "source
+  order" for children without a layout cell is rule 3 of the matching, tested there. Tests in
+  `packages/core/test/dashboard.test.ts` (9), including `tsc` type tests (REQ-214, and REQ-209's
+  required `id`). **Mutation checks, all red:** name made optional; `DashboardProps.id` made
+  optional; bare number ignored by `perBreakpoint`; `md` default 3. CI: unit 2877, gates 311, pixel
+  1068 (Docker), e2e 509. Changeset `.changeset/dashboard-layout-types.md` (`minor`).
 
 **[ ] T-107 · `resolveDashboard`: matching, clamping, ids** — REQ-203, REQ-204, REQ-205, REQ-209
 - Tests (RED first): the four matching rules of Data Model §2.13; `colSpan: 5` at `lg 4` → 4 and

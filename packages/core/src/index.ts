@@ -86,3 +86,6 @@ export { rangeBandChart } from './charts/range-band-chart/range-band-chart';
 export { streamChart } from './charts/stream-chart/stream-chart';
 export { scatterChart } from './charts/scatter-chart/scatter-chart';
 export { bubbleChart } from './charts/bubble-chart/bubble-chart';
+
+export type * from './dashboard/types';
+export { DASHBOARD_DEFAULTS, perBreakpoint, resolveLayout } from './dashboard/defaults';
