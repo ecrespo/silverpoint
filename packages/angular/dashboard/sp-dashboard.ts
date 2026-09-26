@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, contentChildren, forwardRef, inject, input, output, signal, viewChild, type Signal, type TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChildren, forwardRef, inject, input, output, signal, viewChild, type OnInit, type Signal, type TemplateRef } from '@angular/core';
 import { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK, type DashboardCellHandle, type DashboardLinkHandle } from '@silverpoint/angular';
 import { dashboardView, type LinkState, type DashboardLayout, type DashboardLink, type DashboardProps, type GroundRef, type InkMode, type SubstrateName } from '@silverpoint/core';
 
@@ -19,7 +19,7 @@ const styleOf = (vars: Readonly<Record<string, string>>) => Object.entries(vars)
   providers: [{ provide: SP_DASHBOARD_CELL, useExisting: forwardRef(() => SpDashboardCell) }],
   template: `<ng-template #content><ng-content /></ng-template>@if (!dashboard) {<ng-container [ngTemplateOutlet]="content" />}`,
 })
-export class SpDashboardCell implements DashboardCellHandle {
+export class SpDashboardCell implements DashboardCellHandle, OnInit {
   /** The layout cell this child fills. Omitted: next in source order, span 1 (API Spec §7.1). */
   readonly cell = input<string>();
   /** @internal The content the dashboard places in the cell's `article`. */
@@ -29,6 +29,12 @@ export class SpDashboardCell implements DashboardCellHandle {
   private attached?: Signal<string | undefined>;
 
   readonly context = computed(() => this.dashboard?.contextOf(this));
+  /** @internal Its inputs are set. A cell an `@for` generates is queried before they are. */
+  readonly ready = signal(false);
+
+  ngOnInit(): void {
+    this.ready.set(true);
+  }
 
   attach(id: Signal<string | undefined>): void {
     this.attached = id;
@@ -101,8 +107,13 @@ export class SpDashboard implements DashboardLinkHandle {
       locale: this.locale(),
       className: this.className(),
     } as DashboardProps;
+    const cells = this.cells();
+    // A cell an `@for` generates can be queried before its inputs are set, while an earlier cell's chart
+    // already renders. Until every cell is ready, children go in source order with no layout, so that
+    // transient state raises no SP015 (REQ-205).
+    if (!cells.every((cell) => cell.ready())) return dashboardView({ ...props, layout: undefined }, cells.map((cell) => ({ id: cell.chartId() })));
     // Signal inputs cannot say "title or label" (REQ-214): the core warns SP002 when neither is set.
-    return dashboardView(props, this.cells().map((cell) => ({ cell: cell.cell(), id: cell.chartId() })));
+    return dashboardView(props, cells.map((cell) => ({ cell: cell.cell(), id: cell.chartId() })));
   });
 
   /** The content of the child at `index`, placed in its cell's `article`. */
