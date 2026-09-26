@@ -1,5 +1,6 @@
-import { dashboardView, type DashboardProps } from '@silverpoint/core';
-import { cloneVNode, Comment, defineComponent, Fragment, h, isVNode, type Slots, type VNode } from 'vue';
+import { dashboardView, type DashboardProps, type LinkState } from '@silverpoint/core';
+import { cloneVNode, Comment, defineComponent, Fragment, h, isVNode, provide, ref, type Slots, type VNode } from 'vue';
+import { DASHBOARD_LINK } from './dashboard-context';
 import { SpDashboardCell } from './SpDashboardCell';
 
 /** The slot's element nodes, fragments (`v-for`) opened and comments (`v-if`) dropped. */
@@ -25,8 +26,20 @@ const PROPS = ['id', 'title', 'label', 'layout', 'description', 'headingLevel', 
  * `dashboardView` for every attribute and cell, and computes nothing itself (Art. 2).
  */
 export const SpDashboard = defineComponent(
-  (props: DashboardProps, { slots }) =>
-    () => {
+  (props: DashboardProps, { slots, emit }) => {
+    // The linked value its charts share, client-side only (REQ-216, REQ-219).
+    const state = ref<LinkState | null>(null);
+    provide(DASHBOARD_LINK, {
+      get key() {
+        return props.link?.key;
+      },
+      state,
+      set(next: LinkState | null) {
+        state.value = next;
+        emit('linkChange', next && { key: next.key, value: next.value });
+      },
+    });
+    return () => {
       const given = elements(slots.default?.() ?? []).map((node) => {
         const marked = node.type === SpDashboardCell;
         return { node, cell: marked ? (node.props?.cell as string | undefined) : undefined, id: marked ? chartIdOf(node) : (node.props?.id as string | undefined) };
@@ -59,6 +72,7 @@ export const SpDashboard = defineComponent(
           ),
         ],
       );
-    },
-  { name: 'SpDashboard', props: [...PROPS] },
+    };
+  },
+  { name: 'SpDashboard', props: [...PROPS], emits: ['linkChange'] },
 );

@@ -114,3 +114,23 @@ export function dashboardFixtureProps(fixture) {
 
 /** The `/dashboard` page of every app: the `ops` reference dashboard as a consumer writes it (REQ-221). */
 export const REFERENCE_DASHBOARD = Object.freeze({ props: DASHBOARD_DEMOS.ops.props, children: DASHBOARD_DEMOS.ops.children });
+
+const HOURS = ['10', '11', '12', '13', '14', '15'];
+
+/**
+ * The `/dashboard?linked` page (REQ-216): three charts of consumer rows that share an `hour` field,
+ * linked on it — the demo datasets carry no common key, so the reference dashboards cannot show it.
+ */
+export const LINKED_DASHBOARD = Object.freeze({
+  props: { id: 'linked', title: 'Linked by hour', link: { key: 'hour' }, layout: { cells: [{ id: 'hits' }, { id: 'errors' }, { id: 'load' }] } },
+  children: [
+    { cell: 'hits', chart: 'LineChart', props: { title: 'Hits', data: HOURS.map((hour, i) => ({ hour, hits: [30, 42, 38, 55, 61, 47][i] })), xKey: 'hour', valueKey: 'hits' } },
+    { cell: 'errors', chart: 'BarChart', props: { title: 'Errors', data: HOURS.map((hour, i) => ({ hour, n: [2, 5, 1, 7, 3, 4][i] })), xKey: 'hour', valueKey: 'n' } },
+    { cell: 'load', chart: 'AreaChart', props: { title: 'Load', data: HOURS.map((hour, i) => ({ hour, v: [20, 35, 30, 48, 52, 40][i] })), xKey: 'hour', valueKey: 'v' } },
+  ],
+});
+
+/** The dashboard a `/dashboard` page shows: the linked one with `?linked`, else the reference `ops`. */
+export function dashboardPage(/** @type {string} */ search) {
+  return new URLSearchParams(search).has('linked') ? LINKED_DASHBOARD : REFERENCE_DASHBOARD;
+}

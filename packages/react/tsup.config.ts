@@ -7,7 +7,7 @@ const shared = {
   sourcemap: true,
   // Rollup's treeshake pass drops module-level directives; esbuild already tree-shakes.
   treeshake: false,
-  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds'],
+  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/react/dashboard-link'],
 };
 
 // Client entries carry the "use client" marker; server entries must not (REQ-104).
@@ -50,6 +50,7 @@ export default defineConfig([
       'volvelle-chart': 'src/volvelle-chart.tsx',
       'chord-ring': 'src/chord-ring.tsx',
       'orbit-chart': 'src/orbit-chart.tsx',
+      'dashboard-link': 'src/dashboard-link.tsx',
     },
     banner: { js: "'use client';" },
   },

@@ -2,6 +2,7 @@ import { computed, contentChild, Directive, ElementRef, inject, input, output, s
 import {
   inCell,
   instanceId,
+  linkFrom,
   reduceInteraction,
   type ActiveItem,
   type ChartRecipe,
@@ -12,7 +13,7 @@ import {
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { SILVERPOINT_CONFIG } from './config';
-import { SP_DASHBOARD_CELL } from './dashboard-cell';
+import { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK } from './dashboard-cell';
 import { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from './environment';
 import { SpTooltip } from './tooltip';
 
@@ -69,6 +70,7 @@ export abstract class SpChart<P extends CommonChartProps> {
   private readonly measured = injectMeasuredWidth(() => this.width() === undefined);
   /** The dashboard cell this chart sits in, if any (REQ-206, REQ-209, REQ-212). */
   private readonly cell = inject(SP_DASHBOARD_CELL, { optional: true });
+  private readonly link = inject(SP_DASHBOARD_LINK, { optional: true });
   constructor(private readonly recipe: ChartRecipe<P>) {
     injectTypefaceCheck(recipe.name);
     this.cell?.attach(this.id);
@@ -125,6 +127,9 @@ export abstract class SpChart<P extends CommonChartProps> {
     if (result.changed) {
       this.active.set(result.active);
       this.activeChange.emit(result.active);
+      // In a linked dashboard this chart becomes the source, or clears the link (REQ-216, REQ-218).
+      const key = this.link?.linkKey();
+      if (key !== undefined) this.link?.setLink(linkFrom(key, this.rendered().id, result.active));
     }
     if (result.selected) this.select.emit(result.selected);
     return result.handled;

@@ -1,6 +1,7 @@
 import {
   inCell,
   instanceId,
+  linkFrom,
   reduceInteraction,
   type ActiveItem,
   type ChartHandle,
@@ -26,6 +27,7 @@ import {
 } from 'react';
 import { ChartFrame } from './chart-frame';
 import type { CellChartProps } from './dashboard-markup';
+import { DashboardLinkContext } from './link-context';
 import { SilverpointContext } from './context';
 import { useForcedPrecision, useMeasuredWidth, useTypefaceCheck } from './environment';
 import { Overlay, type TooltipRenderer } from './overlay';
@@ -53,6 +55,7 @@ export function createClientChart<P extends CommonChartProps>(recipe: ChartRecip
   const Chart = forwardRef<ChartHandle, P & InteractionProps & CellChartProps>(function Chart(allProps, ref) {
     const { onActiveChange, onSelect, tooltip } = allProps;
     const provider = useContext(SilverpointContext);
+    const link = useContext(DashboardLinkContext);
     const generated = useId();
     const rootRef = useRef<HTMLDivElement>(null);
     const forcedPrecision = useForcedPrecision();
@@ -80,6 +83,8 @@ export function createClientChart<P extends CommonChartProps>(recipe: ChartRecip
       if (result.changed) {
         setActive(result.active);
         onActiveChange?.(result.active);
+        // In a linked dashboard this chart becomes the source, or clears the link (REQ-216, REQ-218).
+        link?.set(linkFrom(link.key, rendered.id, result.active));
       }
       if (result.selected) onSelect?.(result.selected);
       return result.handled;

@@ -82,4 +82,23 @@ test.describe('the reference dashboard page', () => {
     const results = await new AxeBuilder({ page }).withTags(WCAG_AA).analyze();
     expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
   });
+
+  test('REQ-216 · REQ-218 · on a linked dashboard, the source’s hour is marked in the other charts, hidden from assistive technology, and clears with it', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/dashboard?linked');
+    await expect(page.locator('section.sp-dashboard .sp-root[data-status="ready"]')).toHaveCount(3);
+    const [line, bars, area] = await page.locator('section.sp-dashboard .sp-root').all();
+    await line!.focus();
+    for (let i = 0; i < 3; i += 1) await page.keyboard.press('ArrowRight');
+    await expect(line!.locator('.sp-live')).toContainText('13');
+    for (const follower of [bars!, area!]) {
+      await expect(follower.locator('svg[part="linked"] path')).toHaveCount(1);
+      await expect(follower.locator('svg[part="linked"]')).toHaveAttribute('aria-hidden', 'true');
+    }
+    await expect(line!.locator('svg[part="linked"]')).toHaveCount(0);
+    await line!.evaluate((element) => (element as HTMLElement).blur());
+    await expect(page.locator('svg[part="linked"]')).toHaveCount(0);
+    expect(errors).toEqual([]);
+  });
 });

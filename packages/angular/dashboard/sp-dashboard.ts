@@ -1,7 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, contentChildren, forwardRef, inject, input, viewChild, type Signal, type TemplateRef } from '@angular/core';
-import { SP_DASHBOARD_CELL, type DashboardCellHandle } from '@silverpoint/angular';
-import { dashboardView, type DashboardLayout, type DashboardLink, type DashboardProps, type GroundRef, type InkMode, type SubstrateName } from '@silverpoint/core';
+import { ChangeDetectionStrategy, Component, computed, contentChildren, forwardRef, inject, input, output, signal, viewChild, type Signal, type TemplateRef } from '@angular/core';
+import { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK, type DashboardCellHandle, type DashboardLinkHandle } from '@silverpoint/angular';
+import { dashboardView, type LinkState, type DashboardLayout, type DashboardLink, type DashboardProps, type GroundRef, type InkMode, type SubstrateName } from '@silverpoint/core';
 
 /** `--name:value;…`, the variables as one `style` attribute. */
 const styleOf = (vars: Readonly<Record<string, string>>) => Object.entries(vars).map(([name, value]) => `${name}:${value}`).join(';');
@@ -49,9 +49,10 @@ export class SpDashboardCell implements DashboardCellHandle {
   selector: 'sp-dashboard',
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{ provide: SP_DASHBOARD_LINK, useExisting: forwardRef(() => SpDashboard) }],
   template: `@let s = view().section;<section [attr.class]="s.className" part="dashboard" [attr.data-substrate]="s.substrate" [attr.aria-labelledby]="s.labelledby" [attr.aria-describedby]="s.describedby" [attr.aria-label]="s.label" [attr.style]="styleOf(s.style)">@if (view().heading; as h) {@switch (h.level) {@case (3) {<h3 class="sp-dashboard-title" part="dashboard-title" [id]="h.id">{{ h.text }}</h3>}@case (4) {<h4 class="sp-dashboard-title" part="dashboard-title" [id]="h.id">{{ h.text }}</h4>}@case (5) {<h5 class="sp-dashboard-title" part="dashboard-title" [id]="h.id">{{ h.text }}</h5>}@case (6) {<h6 class="sp-dashboard-title" part="dashboard-title" [id]="h.id">{{ h.text }}</h6>}@default {<h2 class="sp-dashboard-title" part="dashboard-title" [id]="h.id">{{ h.text }}</h2>}}}@if (view().description; as d) {<p class="sp-dashboard-description" part="dashboard-description" [id]="d.id">{{ d.text }}</p>}<div class="sp-dashboard-grid" part="dashboard-grid">@for (c of view().cells; track c.context.chartId) {<article class="sp-dashboard-cell" part="dashboard-cell" [attr.aria-labelledby]="c.labelledby" [attr.style]="styleOf(c.style)"><ng-container [ngTemplateOutlet]="contentOf(c.child)" /></article>}</div></section>`,
 })
-export class SpDashboard {
+export class SpDashboard implements DashboardLinkHandle {
   /** Stable identifier; seeds of unnamed charts derive from it (REQ-209). */
   readonly id = input.required<string>();
   readonly title = input<string>();
@@ -67,7 +68,21 @@ export class SpDashboard {
   readonly locale = input<string>();
   readonly className = input<string>();
 
+  /** The linked value changed; `null` when the source cleared (API Spec §9, REQ-216). */
+  readonly linkChange = output<{ key: string; value: unknown } | null>();
+
   protected readonly cells = contentChildren(SpDashboardCell);
+  /** The linked value its charts share, client-side only (REQ-219). */
+  readonly linkState = signal<LinkState | null>(null);
+
+  linkKey(): string | undefined {
+    return this.link()?.key;
+  }
+
+  setLink(next: LinkState | null): void {
+    this.linkState.set(next);
+    this.linkChange.emit(next && { key: next.key, value: next.value });
+  }
   protected readonly styleOf = styleOf;
 
   protected readonly view = computed(() => {

@@ -2,7 +2,7 @@ import type { ComponentType } from 'react';
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, REFERENCE_DASHBOARD, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
+import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
@@ -81,7 +81,7 @@ function App() {
     return (
       <main>
         <h1>silverpoint · Vite + React · dashboard</h1>
-        <ReferenceDashboard dashboard={REFERENCE_DASHBOARD} />
+        <ReferenceDashboard dashboard={dashboardPage(location.search)} />
       </main>
     );
   }

@@ -295,10 +295,30 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   no nearest match; SP016 when no datum has the key (deduplicated by the diagnostics channel);
   pure. 4 tests, RED first. The core's full bundle is at 44.44 of 45 kB.
 
-**[ ] T-121 · Link in the three adapters** — REQ-216, REQ-218, REQ-219
+**[x] T-121 · Link in the three adapters** — REQ-216, REQ-218, REQ-219
 - One reactive value per dashboard; `part="linked"` marks, `aria-hidden`; clears with the source;
   no `onActiveChange` in the other charts; server render has no `part="linked"` (I-15).
 - E2E in the four apps: hover `LineChart` hour 14 → bar and heatmap mark hour 14; leave → all clear.
+- *Closed 2026-09-26.*
+  - **Core.** `linkFrom` turns the source's active item into the link state; `linkedMarks` draws, in
+    every other chart, the readout's own marker for each item carrying the value, and nothing for
+    the source.
+  - **React.** The link lives in its own `"use client"` entry, `@silverpoint/react/dashboard-link`,
+    rendered only when `link` is given, and adds no element of its own; `dashboard.js` still carries
+    no `"use client"`.
+  - **Vue and Angular.** Vue provides the value with `provide`; Angular uses the token
+    `SP_DASHBOARD_LINK`, provided by `sp-dashboard`.
+  - **Adapters.** Charts write the link when their active item changes. The overlay draws
+    `svg[part="linked"][aria-hidden]` and fires no `onActiveChange` in the other charts; the
+    dashboard emits `onLinkChange` / `@link-change` / `(linkChange)`. The server render has no
+    linked mark (I-15, tested).
+  - **Deviation from the plan's e2e.** The demo datasets share no `hour` (bar uses quarters,
+    heatmap weekdays), so `ops` cannot show a link. The e2e uses the harness's `LINKED_DASHBOARD`
+    (line, bar and area over the same hours) at `/dashboard?linked`, driven by keyboard in the four
+    apps: hour 13 is marked in the other two, and blur clears it. In `ops`, bar and heatmap
+    correctly warn SP016.
+
+  Unit 3045, gates 315, pixel 1360, e2e 535. **5e closed.**
 
 ### 5f — Close
 

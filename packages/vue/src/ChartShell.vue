@@ -2,6 +2,7 @@
 import {
   inCell,
   instanceId,
+  linkFrom,
   reduceInteraction,
   type ActiveItem,
   type ChartRecipe,
@@ -14,7 +15,7 @@ import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { computed, inject, onBeforeUnmount, ref, useId, watch } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
-import { DASHBOARD_CELL } from './dashboard-context';
+import { DASHBOARD_CELL, DASHBOARD_LINK } from './dashboard-context';
 import { useForcedPrecision, useMeasuredWidth, useProvider, useTypefaceCheck } from './environment';
 
 /**
@@ -43,6 +44,7 @@ const measured = useMeasuredWidth(element, () => props.chartProps.width === unde
 // Inside a dashboard cell: its id, height and config, and its nominal width until measured
 // (REQ-206, REQ-207, REQ-209, REQ-212); the chart's own props win.
 const cell = inject(DASHBOARD_CELL, undefined);
+const link = inject(DASHBOARD_LINK, undefined);
 
 const rendered = computed(() => {
   const fitted = inCell(props.chartProps, cell?.value, props.recipe);
@@ -66,6 +68,8 @@ function dispatch(event: InteractionEvent): boolean {
   if (result.changed) {
     active.value = result.active;
     emit('activeChange', result.active);
+    // In a linked dashboard this chart becomes the source, or clears the link (REQ-216, REQ-218).
+    if (link?.key !== undefined) link.set(linkFrom(link.key, rendered.value.id, result.active));
   }
   if (result.selected) emit('select', result.selected);
   return result.handled;

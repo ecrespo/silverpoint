@@ -423,6 +423,12 @@
       "import": "./dist/server/dashboard.js",
       "default": "./dist/server/dashboard.js"
     },
+    "./dashboard-link": {
+      "@silverpoint/source": "./src/dashboard-link.tsx",
+      "types": "./dist/dashboard-link.d.ts",
+      "import": "./dist/dashboard-link.js",
+      "default": "./dist/dashboard-link.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

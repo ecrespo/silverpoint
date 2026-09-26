@@ -192,3 +192,35 @@ describe('SpDashboard: hydration (T-112)', () => {
     expect(boxes()).toEqual(['0 0 300 240', '0 0 300 240']);
   });
 });
+
+describe('SpDashboard: linked interaction (T-121)', () => {
+  const rows = (offset: number) => ['10', '11', '12'].map((hour, i) => ({ hour, hits: i + offset }));
+  const linked = (onLinkChange?: (link: unknown) => void) => () =>
+    h(SpDashboard, { id: 'lk', title: 'Linked', link: { key: 'hour' }, onLinkChange }, () => [
+      h(SpDashboardCell, { cell: 'a' }, () => [h(SpLineChart, { title: 'Source', data: rows(1), xKey: 'hour', valueKey: 'hits' })]),
+      h(SpDashboardCell, { cell: 'b' }, () => [h(SpLineChart, { title: 'Follower', data: rows(5), xKey: 'hour', valueKey: 'hits' })]),
+    ]);
+
+  test('REQ-216 · REQ-218 · the source’s active item marks the same hour in the other chart; it clears with the source', async () => {
+    capture();
+    const changes: unknown[] = [];
+    const host = mount(linked((link) => changes.push(link)));
+    await nextTick();
+    const [source, other] = host.querySelectorAll<HTMLElement>('.sp-root');
+    source!.dispatchEvent(new FocusEvent('focus'));
+    await nextTick();
+    expect(other!.querySelectorAll('svg[part="linked"] path')).toHaveLength(1);
+    expect(other!.querySelector('svg[part="linked"]')?.getAttribute('aria-hidden')).toBe('true');
+    expect(source!.querySelector('svg[part="linked"]')).toBeNull();
+    expect(changes).toEqual([{ key: 'hour', value: '10' }]);
+    source!.dispatchEvent(new FocusEvent('blur'));
+    await nextTick();
+    expect(host.querySelectorAll('svg[part="linked"]')).toHaveLength(0);
+    expect(changes).toEqual([{ key: 'hour', value: '10' }, null]);
+  });
+
+  test('REQ-219 · I-15 · the server render has no linked mark', async () => {
+    capture();
+    expect(await ssr(linked())).not.toMatch(/part="linked"/);
+  });
+});

@@ -139,6 +139,9 @@ None.
 | REQ-213 | MUST | packages/core/test/dashboard.test.ts<br>packages/grounds/test/dashboard-styles.test.ts |
 | REQ-214 | MUST | packages/angular/test/dashboard.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/react/test/types.test.ts<br>packages/vue/test/dashboard.test.ts<br>packages/vue/test/types.test.ts<br>e2e/dashboard.spec.ts |
 | REQ-215 | MUST | e2e/dashboard.spec.ts |
-| REQ-219 | MUST | packages/react/test/types.test.ts |
+| REQ-216 | SHOULD | packages/angular/test/dashboard-client.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts<br>e2e/dashboard.spec.ts |
+| REQ-217 | SHOULD | packages/core/test/dashboard.test.ts |
+| REQ-218 | SHOULD | packages/angular/test/dashboard-client.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts<br>e2e/dashboard.spec.ts |
+| REQ-219 | MUST | packages/react/test/dashboard.test.tsx<br>packages/react/test/types.test.ts<br>packages/vue/test/dashboard.test.ts |
 | REQ-220 | MUST | tools/bundle-budget/budget.real.test.ts |
 | REQ-221 | MUST | tools/visual-gate/harness.test.ts<br>e2e/dashboard.spec.ts |

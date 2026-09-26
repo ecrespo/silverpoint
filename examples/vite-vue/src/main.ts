@@ -1,7 +1,7 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, REFERENCE_DASHBOARD, wantsGallery } from '@silverpoint/example-harness';
+import { dashboardFixtureById, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, wantsGallery } from '@silverpoint/example-harness';
 import { createApp, createSSRApp } from 'vue';
 import App from './App.vue';
 
@@ -11,6 +11,9 @@ const dashboard = dashboardFixtureById(new URLSearchParams(location.search).get(
 if (dashboard) {
   // A dashboard fixture of the pixel gate, rendered on the client.
   createApp(App, { dashboard: dashboardFixtureProps(dashboard), gate: true }).mount('#app');
+} else if (location.pathname.replace(/\/$/, '') === '/dashboard' && new URLSearchParams(location.search).has('linked')) {
+  // The linked dashboard (REQ-216) is client-rendered: linked state lives on the client only.
+  createApp(App, { dashboard: LINKED_DASHBOARD }).mount('#app');
 } else if (location.pathname.replace(/\/$/, '') === '/dashboard') {
   // The reference dashboard was server-rendered into dashboard.html: hydrate it (REQ-221).
   createSSRApp(App, { dashboard: REFERENCE_DASHBOARD }).mount('#app');

@@ -294,3 +294,40 @@ describe('React Dashboard: entry points (T-111)', () => {
     expect(seen).toContain('SP003');
   });
 });
+
+describe('React Dashboard: linked interaction (T-121)', () => {
+  const rows = (offset: number) => ['10', '11', '12'].map((hour, i) => ({ hour, hits: i + offset }));
+  const linked = (onLinkChange?: (link: { key: string; value: unknown } | null) => void, onActiveChange?: () => void) => (
+    <Dashboard id="lk" title="Linked" link={{ key: 'hour' }} onLinkChange={onLinkChange}>
+      <DashboardCell cell="a">
+        <LineChart title="Source" data={rows(1)} xKey="hour" valueKey="hits" />
+      </DashboardCell>
+      <DashboardCell cell="b">
+        <LineChart title="Follower" data={rows(5)} xKey="hour" valueKey="hits" onActiveChange={onActiveChange} />
+      </DashboardCell>
+    </Dashboard>
+  );
+
+  test('REQ-216 · REQ-218 · the source’s active item marks the same hour in the other chart, hidden from assistive technology; it clears with the source', () => {
+    capture();
+    const changes: unknown[] = [];
+    const follower = vi.fn();
+    const host = mount(linked((link) => changes.push(link), follower));
+    const [source, other] = host.querySelectorAll<HTMLElement>('.sp-root');
+    act(() => source!.focus());
+    const marks = other!.querySelectorAll('svg[part="linked"] path');
+    expect(marks).toHaveLength(1);
+    expect(other!.querySelector('svg[part="linked"]')?.getAttribute('aria-hidden')).toBe('true');
+    expect(source!.querySelector('svg[part="linked"]')).toBeNull();
+    expect(changes).toEqual([{ key: 'hour', value: '10' }]);
+    expect(follower).not.toHaveBeenCalled();
+    act(() => source!.blur());
+    expect(host.querySelectorAll('svg[part="linked"]')).toHaveLength(0);
+    expect(changes).toEqual([{ key: 'hour', value: '10' }, null]);
+  });
+
+  test('REQ-219 · I-15 · linked state lives on the client only: the server render has no linked mark', () => {
+    capture();
+    expect(renderToString(linked())).not.toMatch(/part="linked"/);
+  });
+});

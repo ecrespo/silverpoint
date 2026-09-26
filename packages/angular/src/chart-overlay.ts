@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, input, type TemplateRef } from '@angular/core';
-import { readout, type ActiveItem } from '@silverpoint/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, type TemplateRef } from '@angular/core';
+import { linkedMarks, readout, type ActiveItem } from '@silverpoint/core';
+import { SP_DASHBOARD_LINK } from './dashboard-cell';
 import type { RenderedChart } from '@silverpoint/grounds';
 import type { SpTooltipContext } from './tooltip';
 
@@ -13,6 +14,13 @@ import type { SpTooltipContext } from './tooltip';
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    @if (linked().length > 0) {
+      <svg class="sp-marker" part="linked" [attr.viewBox]="rendered().view.svg.viewBox" aria-hidden="true" focusable="false">
+        @for (d of linked(); track $index) {
+          <path [attr.d]="d" />
+        }
+      </svg>
+    }
     @let current = readoutOf();
     @let item = active();
     @if (current && item) {
@@ -34,6 +42,10 @@ export class SpChartOverlay {
   readonly rendered = input.required<RenderedChart>();
   readonly active = input.required<ActiveItem | null>();
   readonly tooltip = input<TemplateRef<SpTooltipContext> | undefined>(undefined);
+
+  private readonly link = inject(SP_DASHBOARD_LINK, { optional: true });
+  /** Another chart's linked item, marked here and hidden from assistive technology (REQ-216, REQ-218). */
+  protected readonly linked = computed(() => linkedMarks(this.rendered(), this.link?.linkState()));
 
   protected readonly readoutOf = computed(() => {
     const item = this.active();

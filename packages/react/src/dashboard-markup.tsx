@@ -28,7 +28,7 @@ const asStyle = (vars: Readonly<Record<string, string>>) => vars as CSSPropertie
  * nothing: the core's `dashboardView` gives every attribute, and each cell's chart gets its
  * context as a prop, which crosses a Server Components boundary as plain data (Art. 2).
  */
-export function DashboardMarkup({ children, ...props }: DashboardProps & { readonly children?: ReactNode }) {
+export function DashboardMarkup({ children, wrapGrid, ...props }: DashboardProps & { readonly children?: ReactNode; readonly wrapGrid?: (grid: ReactNode) => ReactNode }) {
   const given = Children.toArray(children).map((child) => {
     const marked = isValidElement<DashboardCellProps>(child) && child.type === DashboardCell;
     const content = marked ? child.props.children : child;
@@ -37,6 +37,18 @@ export function DashboardMarkup({ children, ...props }: DashboardProps & { reado
   });
   const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })));
   const Heading = view.heading ? (`h${view.heading.level}` as const) : undefined;
+  const grid = (
+    <div className="sp-dashboard-grid" part="dashboard-grid">
+      {view.cells.map((cell) => {
+        const { chart, content } = given[cell.child]!;
+        return (
+          <article key={cell.context.chartId} className="sp-dashboard-cell" part="dashboard-cell" aria-labelledby={cell.labelledby} style={asStyle(cell.style)}>
+            {chart ? cloneElement(chart as ReactElement<CellChartProps>, { dashboardCell: cell.context }) : content}
+          </article>
+        );
+      })}
+    </div>
+  );
   return (
     <section
       className={view.section.className}
@@ -57,16 +69,7 @@ export function DashboardMarkup({ children, ...props }: DashboardProps & { reado
           {view.description.text}
         </p>
       )}
-      <div className="sp-dashboard-grid" part="dashboard-grid">
-        {view.cells.map((cell) => {
-          const { chart, content } = given[cell.child]!;
-          return (
-            <article key={cell.context.chartId} className="sp-dashboard-cell" part="dashboard-cell" aria-labelledby={cell.labelledby} style={asStyle(cell.style)}>
-              {chart ? cloneElement(chart as ReactElement<CellChartProps>, { dashboardCell: cell.context }) : content}
-            </article>
-          );
-        })}
-      </div>
+      {wrapGrid ? wrapGrid(grid) : grid}
     </section>
   );
 }

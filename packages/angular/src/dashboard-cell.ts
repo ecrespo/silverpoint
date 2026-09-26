@@ -1,5 +1,5 @@
 import { InjectionToken, type Signal } from '@angular/core';
-import type { DashboardCellContext } from '@silverpoint/core';
+import type { DashboardCellContext, LinkState } from '@silverpoint/core';
 
 /**
  * A dashboard cell, as the chart inside it sees it (TD §3.3). Provided by `sp-dashboard-cell`
@@ -13,3 +13,13 @@ export interface DashboardCellHandle {
 }
 
 export const SP_DASHBOARD_CELL = new InjectionToken<DashboardCellHandle>('SP_DASHBOARD_CELL');
+
+/** A linked dashboard's one value, and how a chart sets it (TD DD-016, REQ-216); provided by `sp-dashboard`. */
+export interface DashboardLinkHandle {
+  /** The linked key; `undefined` when the dashboard has no link. */
+  linkKey(): string | undefined;
+  readonly linkState: Signal<LinkState | null>;
+  setLink(next: LinkState | null): void;
+}
+
+export const SP_DASHBOARD_LINK = new InjectionToken<DashboardLinkHandle>('SP_DASHBOARD_LINK');

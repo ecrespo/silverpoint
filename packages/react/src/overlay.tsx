@@ -1,6 +1,7 @@
-import { readout, type ActiveItem, type Readout } from '@silverpoint/core';
+import { linkedMarks, readout, type ActiveItem, type Readout } from '@silverpoint/core';
 import type { RenderedChart } from '@silverpoint/grounds';
-import type { ReactNode } from 'react';
+import { useContext, type ReactNode } from 'react';
+import { DashboardLinkContext } from './link-context';
 
 /** A consumer-supplied readout renderer (REQ-142). */
 export type TooltipRenderer = (active: ActiveItem, readout: Readout) => ReactNode;
@@ -19,8 +20,17 @@ export function Overlay({
   readonly tooltip?: TooltipRenderer;
 }) {
   const current = active ? readout(rendered, active) : null;
+  // Another chart's linked item, marked here and hidden from assistive technology (REQ-216, REQ-218).
+  const linked = linkedMarks(rendered, useContext(DashboardLinkContext)?.state);
   return (
     <>
+      {linked.length > 0 && (
+        <svg className="sp-marker" part="linked" viewBox={rendered.view.svg.viewBox} aria-hidden="true" focusable="false">
+          {linked.map((d, index) => (
+            <path key={index} d={d} />
+          ))}
+        </svg>
+      )}
       {current && active && (
         <>
           <svg className="sp-marker" viewBox={rendered.view.svg.viewBox} aria-hidden="true" focusable="false">

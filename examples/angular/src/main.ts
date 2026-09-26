@@ -34,7 +34,7 @@ import { SpWindRose } from '@silverpoint/angular/wind-rose';
 import { SpVolvelleChart } from '@silverpoint/angular/volvelle-chart';
 import { SpChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
-import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, REFERENCE_DASHBOARD, sizeOf, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
@@ -43,7 +43,7 @@ const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.searc
 const dashboard = dashboardFixture
   ? dashboardFixtureProps(dashboardFixture)
   : location.pathname.replace(/\/$/, '') === '/dashboard'
-    ? REFERENCE_DASHBOARD
+    ? dashboardPage(location.search)
     : undefined;
 
 /** Every chart a fixture can name, by its chart name. */

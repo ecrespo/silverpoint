@@ -45,3 +45,5 @@ export declare const DASHBOARD_FIXTURES: readonly HarnessDashboardFixture[];
 export declare function dashboardFixtureById(id: string | null | undefined): HarnessDashboardFixture | undefined;
 export declare function dashboardFixtureProps(fixture: HarnessDashboardFixture): HarnessDashboard;
 export declare const REFERENCE_DASHBOARD: HarnessDashboard;
+export declare const LINKED_DASHBOARD: HarnessDashboard;
+export declare function dashboardPage(search: string): HarnessDashboard;
