@@ -118,7 +118,7 @@ launch Chromium run alone (never the Docker pixel job beside local e2e). `next d
 - **REQ**: REQ-183, REQ-184 · Implementation Plan §6
 - **Done**: the traceability report shows no uncited MUST.
 
-**[ ] T-101 · Publish `0.1.1` (re-scoped from `1.0.0` by the user, 2026-09-25)** — **needs the user** (Trusted Publishing)
+**[x] T-101 · Publish `0.1.1` (re-scoped from `1.0.0` by the user, 2026-09-25)**
 - **What**: publish the six packages from `release.yml`. Prerequisites outside the repository: the
   `@silverpoint` npm organisation and Trusted Publishing on npmjs.com; and the user's approval of
   the PROPOSED deltas (001-005, 008-010), because `1.0.0` puts the API Spec in force.

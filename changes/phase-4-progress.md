@@ -171,6 +171,13 @@ it. Authentication is npm Trusted Publishing, which the user chose.
   string gate 792/792, size-limit, traceability 99/99. `publish.mjs --dry-run` against the registry
   would publish all six at `0.1.1`, each with its README.
 
-T-101 closes when `release.yml` publishes `0.1.1`. Prerequisite on npmjs.com, for each package:
-Settings → Trusted Publisher → GitHub Actions, `ecrespo/silverpoint`, workflow `release.yml`,
-environment `npm`.
+T-101 closed 2026-09-25: the user set up the six trusted publishers on npmjs.com (GitHub Actions,
+`ecrespo/silverpoint`, `release.yml`, environment `npm`), and release run 36200192810 published all
+six at `0.1.1` with signed provenance, tagged `v0.1.1` and created the GitHub release.
+
+The first CI runs on GitHub brought up two latent defects, both fixed test-first in
+`ci-projects.test.ts`. First, the contrast gate ran before `pnpm build` but imports `dist/`, which a
+clean checkout does not have (2107737). Second, the gate files ran in parallel: `resolution.real.test.ts`
+rewrites `packages/grounds/package.json` while size-limit reads it, and the budget test then failed
+intermittently with a TypeError that hid the cause (8f11e59). The first release run on `main`
+failed there and published nothing.
