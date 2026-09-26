@@ -1,4 +1,5 @@
 import {
+  inCell,
   instanceId,
   reduceInteraction,
   type ActiveItem,
@@ -24,6 +25,7 @@ import {
   type RefAttributes,
 } from 'react';
 import { ChartFrame } from './chart-frame';
+import type { CellChartProps } from './dashboard-markup';
 import { SilverpointContext } from './context';
 import { useForcedPrecision, useMeasuredWidth, useTypefaceCheck } from './environment';
 import { Overlay, type TooltipRenderer } from './overlay';
@@ -48,7 +50,7 @@ export type ClientChart<P> = ForwardRefExoticComponent<P & InteractionProps & Re
  * recipe, so the charts differ only in the recipe (Art. 2).
  */
 export function createClientChart<P extends CommonChartProps>(recipe: ChartRecipe<P>): ClientChart<P> {
-  const Chart = forwardRef<ChartHandle, P & InteractionProps>(function Chart(allProps, ref) {
+  const Chart = forwardRef<ChartHandle, P & InteractionProps & CellChartProps>(function Chart(allProps, ref) {
     const { onActiveChange, onSelect, tooltip } = allProps;
     const provider = useContext(SilverpointContext);
     const generated = useId();
@@ -57,18 +59,20 @@ export function createClientChart<P extends CommonChartProps>(recipe: ChartRecip
     useTypefaceCheck(recipe.name);
     const measured = useMeasuredWidth(rootRef, allProps.width === undefined);
 
-    const rendered = useMemo(
-      () =>
-        renderChart(recipe, allProps as P, {
-          id: instanceId(recipe.name, generated),
-          width: measured,
-          provider,
-          forcedPrecision,
-        }),
+    const rendered = useMemo(() => {
+      // Inside a dashboard cell: its id, height and config, and its nominal width until measured
+      // (REQ-206, REQ-207, REQ-209, REQ-212); the chart's own props win.
+      const { dashboardCell, ...own } = allProps;
+      const fitted = inCell(own as unknown as P, dashboardCell, recipe);
+      return renderChart(recipe, fitted.props, {
+        id: instanceId(recipe.name, generated),
+        width: measured ?? fitted.width,
+        provider,
+        forcedPrecision,
+      });
       // Keyed on the props object React hands in, which is stable across this component's own
       // state changes, so moving the pointer never re-inks the chart.
-      [allProps, generated, measured, provider, forcedPrecision],
-    );
+    }, [allProps, generated, measured, provider, forcedPrecision]);
 
     const [active, setActive] = useState<ActiveItem | null>(null);
     const dispatch = (event: InteractionEvent): boolean => {

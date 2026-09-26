@@ -113,13 +113,36 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   `tools` project (CI unit job). RED on 8 seeded violations first. **Mutations, all red:**
   `font-family: Georgia`; a hex colour; `order: 1` in the shipped file.
 
-**[ ] T-111 · React `Dashboard` / `DashboardCell` + server entry** — REQ-200, REQ-212, REQ-214, REQ-219
+**[x] T-111 · React `Dashboard` / `DashboardCell` + server entry** — REQ-200, REQ-212, REQ-214, REQ-219
 - Wrapper, heading, `article` cells, variables from the model; cell context with box, chart id and
   inherited config; `create-chart.tsx` reads the context (id and size precedence, API delta §3).
 - Tests: markup contract of API delta §7; precedence chart → dashboard → provider; media query not
   overridable; `/server/dashboard` rejects `link` by type; no `"use client"` without `link`
   (REQ-104).
 - **Done:** tests green on React 19 and the `react-18` project.
+- *Closed 2026-09-26.* Design decisions, written into TD §3.3 and API Spec §7.1, §8.1 and §10:
+  - **The cell context is a prop, not a React context.** A context needs a `"use client"` provider,
+    and the dashboard must render in a Server Component with no client boundary (REQ-104).
+    `DashboardCell` hands `{ chartId, box, config }` to its chart with `cloneElement`, so a cell's
+    direct child is its chart. Both entries share `dashboard-markup.tsx`; neither `dist` file has
+    `"use client"` (tested on the build).
+  - **The core computes everything.** `dashboardView` gives every attribute, text and cell;
+    `inCell` applies the id, size and config precedence. The adapter only maps (Art. 2).
+  - **Server charts:** `id`, `width` and `height` are now optional by type, because a cell supplies
+    them. Standing alone, a missing `id` warns SP002 and a missing `width` warns SP003 (deferred,
+    never NaN). The two type tests that required them became these runtime tests.
+  - **Inner `.sp-dashboard-grid`** (`part="dashboard-grid"`).
+  - **Size.** `@silverpoint/core (everything)` went 146 B over its 45 kB entry. `DASHBOARD_DEMOS`
+    moved to the subpath `@silverpoint/core/dashboard-demos` (tested), which brought it to 44.35 kB;
+    the headroom for T-120 is about 650 B.
+
+  Tests (`packages/react/test/dashboard.test.tsx`, 18 × React 19 and 18, plus 5 type tests) cover:
+  the markup contract in both entries, reading order, labels, variables, nominal boxes, own-prop
+  precedence, `headingLevel` and `label`, SP015, no comments, config precedence (chart →
+  dashboard → provider, forced precision wins), and hydration at nominal width with no mismatch,
+  then the measured width. **Mutations, all red:** no injection (8 red); dashboard config beating
+  the chart's; charts emitted in source order, which the first run missed until the test checked
+  each cell's chart title. CI: unit 2972, gates 311, pixel 1068, e2e 509.
 
 **[ ] T-112 · Vue `SpDashboard` / `SpDashboardCell`** — REQ-200, REQ-212, REQ-214 `[P]`
 - `<script setup>`, typed props and emits; `provide`/`inject` for the cell context; slot children

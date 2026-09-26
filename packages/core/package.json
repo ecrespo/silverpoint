@@ -15,6 +15,12 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./dashboard-demos": {
+      "@silverpoint/source": "./src/dashboard-demos.ts",
+      "types": "./dist/dashboard-demos.d.ts",
+      "import": "./dist/dashboard-demos.js",
+      "default": "./dist/dashboard-demos.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

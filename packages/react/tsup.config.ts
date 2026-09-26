@@ -56,6 +56,10 @@ export default defineConfig([
   {
     ...shared,
     entry: {
+      // The client `dashboard` entry carries no "use client" either: it renders in a Server
+      // Component, and only the linked interaction (a separate module) is a client boundary.
+      dashboard: 'src/dashboard.tsx',
+      'server/dashboard': 'src/server/dashboard.tsx',
       'server/line-chart': 'src/server/line-chart.tsx',
       'server/bullet-chart': 'src/server/bullet-chart.tsx',
       'server/pyramid-chart': 'src/server/pyramid-chart.tsx',

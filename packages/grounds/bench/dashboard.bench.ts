@@ -1,4 +1,5 @@
-import { DASHBOARD_DEMOS, resolveDashboard, type DashboardProps } from '@silverpoint/core';
+import { resolveDashboard, type DashboardProps } from '@silverpoint/core';
+import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { test } from 'vitest';
 
 /**

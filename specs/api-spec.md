@@ -509,6 +509,19 @@ export function cellChartBox<P extends CommonChartProps>(cell: { width: number; 
 
 /** Items of `model` whose datum carries `value` under `key` (REQ-216, REQ-217). */
 export function linkedItems(model: ChartModel, key: string, value: unknown): readonly number[];
+
+/** What a cell hands its chart: plain data, so it crosses an RSC boundary as a prop (TD §3.3). */
+export interface DashboardCellContext {
+  readonly chartId: string;
+  readonly box: { readonly width: number; readonly height: number };
+  readonly config: Readonly<ProviderConfig>;
+}
+
+/** Every attribute, text and cell an adapter writes, from `resolveDashboard` (Art. 2). */
+export function dashboardView(props: DashboardProps, children: readonly { cell?: string; id?: string }[]): DashboardView;
+
+/** A chart's props inside a cell (size and config precedence) and its width until measured. */
+export function inCell<P extends CommonChartProps>(props: P, cell: DashboardCellContext | undefined, recipe: ChartRecipe<P>): { props: P; width: number | undefined };
 ```
 
 `childCells` is the `cell` prop of each child in source order — the only thing an adapter reads
@@ -598,7 +611,7 @@ import { LineChart, SilverpointProvider } from '@silverpoint/react';
 | Import | Marker | Interaction | Use |
 |---|---|---|---|
 | `@silverpoint/react/line-chart` | `"use client"` | Yes | Default |
-| `@silverpoint/react/server/line-chart` | No marker | No | RSC; requires explicit `width` and `height` |
+| `@silverpoint/react/server/line-chart` | No marker | No | RSC; standing alone it needs `id`, `width` and `height` (`SP002` / `SP003` without them); inside a `Dashboard` the cell supplies them |
 
 The server variant emits pure SVG with no client JavaScript. It accepts neither
 `onActiveChange` nor `dataTable: 'visible'` with keyboard navigation; the type prevents it.
@@ -740,7 +753,9 @@ SVG and the stylesheet. Overriding a variable re-themes without re-rendering (RE
 | `sp-axis` | `fill` | `--sp-text-muted` |
 
 The dashboard composition (§7.1) adds, on HTML elements: `dashboard` (the `section`),
-`dashboard-title` (the heading), `dashboard-description`, `dashboard-cell` (each `article`), and
+`dashboard-title` (the heading), `dashboard-description`, `dashboard-grid` (the grid inside the
+section: a container query styles descendants, never the container), `dashboard-cell` (each
+`article`), and
 `linked` on a chart item under a linked mark (client only, REQ-219).
 
 ### 10.2 Public CSS custom properties

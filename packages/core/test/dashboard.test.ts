@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, test } from 'vitest';
@@ -8,7 +8,8 @@ import {
   __setDiagnosticSink,
   cellChartBox,
   DASHBOARD_DEFAULTS,
-  DASHBOARD_DEMOS,
+  dashboardView,
+  inCell,
   kpiCard,
   lineChart,
   perBreakpoint,
@@ -21,6 +22,8 @@ import {
   type RecipeContext,
   type SpCode,
 } from '../src';
+import * as core from '../src';
+import { DASHBOARD_DEMOS } from '../src/dashboard-demos';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -409,5 +412,101 @@ describe('reference dashboards (T-109)', () => {
     const model = resolveDashboard(demo.props, demo.children.map((c) => c.cell));
     expect(model.cells.map((c) => c.id)).toEqual(demo.props.layout!.cells!.map((c) => c.id));
     expect(rowEndGaps(model.cells.map((c) => c.span.md.col), 2)).toBeGreaterThan(0);
+  });
+});
+
+describe('dashboardView: what every adapter writes (T-111..T-113)', () => {
+  test('REQ-214 · a titled dashboard is a section labelled by its heading, described by its description', () => {
+    capture();
+    const view = dashboardView({ id: 'ops', title: 'Operations', description: 'Service health.' }, []);
+    expect(view.section).toEqual({
+      className: 'sp-dashboard sp-ground-silverpoint',
+      substrate: 'cream',
+      labelledby: 'ops-title',
+      describedby: 'ops-desc',
+      style: view.model.style,
+    });
+    expect(view.heading).toEqual({ level: 2, id: 'ops-title', text: 'Operations' });
+    expect(view.description).toEqual({ id: 'ops-desc', text: 'Service health.' });
+  });
+
+  test('REQ-214 · headingLevel sets the heading; a label alone names the section with aria-label and no heading', () => {
+    capture();
+    expect(dashboardView({ id: 'ops', title: 'Ops', headingLevel: 4 }, []).heading?.level).toBe(4);
+    const labelled = dashboardView({ id: 'ops', label: 'Operations' }, []);
+    expect(labelled.heading).toBeUndefined();
+    expect(labelled.section.label).toBe('Operations');
+    expect(labelled.section.labelledby).toBeUndefined();
+    expect(labelled.description).toBeUndefined();
+  });
+
+  test('REQ-212 · REQ-213 · the wrapper takes the dashboard’s ground and substrate, and its own className', () => {
+    capture();
+    const view = dashboardView({ id: 'ops', title: 'Ops', substrate: 'green', className: 'mine' }, []);
+    expect(view.section.className).toBe('sp-dashboard sp-ground-silverpoint mine');
+    expect(view.section.substrate).toBe('green');
+  });
+
+  test('REQ-209 · REQ-214 · each cell is labelled by its chart’s name: the derived id, or the chart’s own', () => {
+    capture();
+    const view = dashboardView({ id: 'ops', title: 'Ops', layout: { cells: [{ id: 'a' }, { id: 'b' }] } }, [{ cell: 'b' }, { cell: 'a', id: 'mine' }]);
+    expect(view.cells.map((c) => c.child)).toEqual([1, 0]);
+    expect(view.cells.map((c) => c.labelledby)).toEqual(['mine-title', 'ops--b-title']);
+    expect(view.cells[1]!.context).toEqual({ chartId: 'ops--b', box: view.model.cells[1]!.nominal, config: {} });
+    expect(view.cells[1]!.style).toBe(view.model.cells[1]!.style);
+  });
+
+  test('REQ-212 · the cell context carries only what the dashboard sets', () => {
+    capture();
+    const view = dashboardView({ id: 'ops', title: 'Ops', substrate: 'ochre', mode: 'precision', locale: 'es' }, [{}]);
+    expect(view.cells[0]!.context.config).toEqual({ substrate: 'ochre', mode: 'precision', locale: 'es' });
+  });
+
+  test('REQ-209 · the heading id keeps only IDREF-safe characters', () => {
+    capture();
+    expect(dashboardView({ id: 'my ops', title: 'Ops' }, []).heading?.id).toBe('my-ops-title');
+  });
+});
+
+describe('inCell: a chart inside a cell (T-111..T-113)', () => {
+  const cell = { chartId: 'ops--traffic', box: { width: 288, height: 240 }, config: { substrate: 'green', mode: 'precision' } } as const;
+  const line = lineChart as ChartRecipe<CommonChartProps>;
+
+  test('REQ-209 · REQ-206 · id from the cell, height fitted to the box, width offered as the fallback', () => {
+    capture();
+    const fitted = inCell({ title: 'Traffic' }, cell, line);
+    expect(fitted.props.id).toBe('ops--traffic');
+    expect(fitted.props.height).toBe(cellChartBox(cell.box, { title: 'Traffic' }, line).height);
+    expect(fitted.props.width).toBeUndefined();
+    expect(fitted.width).toBe(288);
+  });
+
+  test('REQ-212 · precedence: the chart’s own prop, then the dashboard', () => {
+    capture();
+    const fitted = inCell({ substrate: 'blue' }, cell, line);
+    expect(fitted.props.substrate).toBe('blue');
+    expect(fitted.props.mode).toBe('precision');
+  });
+
+  test('REQ-206 · the chart’s own id, width and height win', () => {
+    capture();
+    const fitted = inCell({ id: 'mine', width: 500, height: 90 }, cell, line);
+    expect(fitted.props).toMatchObject({ id: 'mine', width: 500, height: 90 });
+    expect(fitted.width).toBe(500);
+  });
+
+  test('REQ-206 · outside a cell nothing changes', () => {
+    const props = { title: 'Alone' };
+    expect(inCell(props, undefined, line)).toEqual({ props, width: undefined });
+  });
+});
+
+describe('the reference dashboards ship apart (T-111)', () => {
+  test('REQ-164 · they live on their own subpath, off the main entry, so no app pays for them', async () => {
+    expect('DASHBOARD_DEMOS' in core).toBe(false);
+    const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as { exports: Record<string, Record<string, string>> };
+    expect(pkg.exports['./dashboard-demos']?.['@silverpoint/source']).toBe('./src/dashboard-demos.ts');
+    expect(pkg.exports['./dashboard-demos']?.import).toBe('./dist/dashboard-demos.js');
+    expect((await import('../src/dashboard-demos')).DASHBOARD_DEMOS).toBe(DASHBOARD_DEMOS);
   });
 });

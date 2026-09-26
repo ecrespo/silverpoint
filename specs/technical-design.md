@@ -145,6 +145,13 @@ DashboardProps + [cell id of each child]  ──►  core.resolveDashboard  ─�
                                                                          │
 chart inside cell: id ?? chartId; size ?? core.cellChartBox(box, props) ─┘──► existing chart pipeline
 
+The cell context reaches the chart as a prop set by the cell (`cloneElement` in React), not through
+a framework context, in React: a context needs a `"use client"` provider, and the dashboard must
+render inside a Server Component with no client boundary of its own (REQ-104). Vue and Angular use
+`provide`/`inject` and DI. Consequence: a cell's direct child is its chart. A server chart's `id`,
+`width` and `height` are optional by type, because a cell supplies them. Standing alone, a missing
+one warns (`SP002`, `SP003`) instead of failing to compile.
+
 client only, when `link`:  chart A active item ─► dashboard link value (one reactive value)
                            ─► each chart: core.linkedItems(model, key, value) ─► `part="linked"` marks
 ```

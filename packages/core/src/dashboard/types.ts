@@ -1,4 +1,5 @@
 import type { InkMode, SubstrateName } from '../types/data';
+import type { ProviderConfig } from '../types/props';
 import type { GroundRef } from '../types/ground';
 
 /** The three container breakpoints; their widths are fixed (TD DD-014). */
@@ -97,4 +98,41 @@ export interface ResolvedCell {
   readonly nominal: { readonly width: number; readonly height: number };
   /** The cell's CSS custom properties, e.g. `--sp-cell-col-lg: 2`. */
   readonly style: Readonly<Record<string, string>>;
+}
+
+/**
+ * What a cell hands its chart (TD §3.3): the derived id, the nominal box and the configuration the
+ * dashboard sets. Plain data, so it crosses a React Server Components boundary as a prop.
+ */
+export interface DashboardCellContext {
+  readonly chartId: string;
+  readonly box: { readonly width: number; readonly height: number };
+  /** Only the keys the dashboard sets; the chart's own props and then the provider come around it. */
+  readonly config: Readonly<ProviderConfig>;
+}
+
+/** Everything an adapter writes for a dashboard: attributes, texts and cells, all from the core (Art. 2). */
+export interface DashboardView {
+  readonly model: DashboardModel;
+  readonly section: {
+    readonly className: string;
+    readonly substrate: SubstrateName;
+    /** The heading's id, when there is a title. */
+    readonly labelledby?: string;
+    readonly describedby?: string;
+    /** `aria-label`, when only `label` names the dashboard. */
+    readonly label?: string;
+    readonly style: Readonly<Record<string, string>>;
+  };
+  readonly heading?: { readonly level: 2 | 3 | 4 | 5 | 6; readonly id: string; readonly text: string };
+  readonly description?: { readonly id: string; readonly text: string };
+  /** In reading order. */
+  readonly cells: readonly {
+    /** Index of the child this cell holds. */
+    readonly child: number;
+    /** The chart's title id: `aria-labelledby` of the `article` (REQ-214). */
+    readonly labelledby: string;
+    readonly style: Readonly<Record<string, string>>;
+    readonly context: DashboardCellContext;
+  }[];
 }

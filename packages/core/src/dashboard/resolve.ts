@@ -13,6 +13,11 @@ const LG_FROM = 1024;
 /** Drawing-area height of the probe build that measures a chart's card chrome. */
 const PROBE = 100;
 
+/** An id with every character unsafe in an IDREF or `url(#…)` replaced by `-`. */
+export function safeIdOf(id: string): string {
+  return id.replace(UNSAFE, '-');
+}
+
 function warn(code: 'SP002' | 'SP015', property: string, message: string): void {
   if (process.env.NODE_ENV !== 'production') diagnose(code, DASHBOARD, { property, message });
 }
@@ -90,7 +95,7 @@ export function resolveDashboard(props: DashboardProps, childCells: readonly (st
   }
 
   const single: ResolvedSpan = { sm: { col: 1, row: 1 }, md: { col: 1, row: 1 }, lg: { col: 1, row: 1 } };
-  const base = props.id.replace(UNSAFE, '-');
+  const base = safeIdOf(props.id);
   const taken = new Set<string>();
   const chartIdOf = (token: string): string => {
     const stem = `${base}--${token.replace(UNSAFE, '-')}`;

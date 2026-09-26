@@ -411,6 +411,18 @@
       "import": "./dist/server/orbit-chart.js",
       "default": "./dist/server/orbit-chart.js"
     },
+    "./dashboard": {
+      "@silverpoint/source": "./src/dashboard.tsx",
+      "types": "./dist/dashboard.d.ts",
+      "import": "./dist/dashboard.js",
+      "default": "./dist/dashboard.js"
+    },
+    "./server/dashboard": {
+      "@silverpoint/source": "./src/server/dashboard.tsx",
+      "types": "./dist/server/dashboard.d.ts",
+      "import": "./dist/server/dashboard.js",
+      "default": "./dist/server/dashboard.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
