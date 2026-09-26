@@ -99,12 +99,12 @@ Task ids continue the global sequence from T-101.
 - Remove the `usesDemo` branches from the index resolution in `volvelle-chart.ts`; drop the warning.
 - **Done:** the tests are green; `tools/visual-gate` reports no canonical changed. *Closed 2026-09-26: core 811, unit job 2796, gates 311, pixel 1068 (Docker), e2e 509 — all green; no canonical changed.*
 
-**[ ] T-103 · The props reference says what the demo ignores** — REQ-099 `[P]`
+**[x] T-103 · The props reference says what the demo ignores** — REQ-099 `[P]`
 - Test-first in `docs/site/test/props.test.ts`: every own prop whose name ends in `Key`, plus
   `keys` and `names`, has a `doc` ending "Ignored without `data`."; `CommonChartProps.data`'s doc
   states the rule; `VolvelleChart.indexRing`'s doc names the demo's rings.
 - Edit the JSDoc in `packages/core/src/types/props.ts`; regenerate `docs/site/generated/props.json`.
-- **Done:** test green; the site's VolvelleChart page shows the note.
+- **Done:** test green; the site's VolvelleChart page shows the note. *Closed 2026-09-26: 77 accessor props (67 new JSDoc lines, 10 extended) end in "Ignored without `data`."; `data` states the rule; the site bundle carries the Volvelle note. Found on the way: `tools/traceability` never read `docs/` test files, so REQ-099's test did not count; `TEST_ROOTS` now includes `docs`, held by a test that every vitest project root is scanned (RED on `docs/site` first). Traceability 101/120, 0 blocking; unit 2801, gates 311, pixel 1068 (Docker), e2e 509 — all green.*
 
 **[ ] T-104 · The catalog keeps the rule** — REQ-098 `[P]`
 - Catalog-driven test in `packages/core/test/catalog-contract.test.ts`: each catalog row declares

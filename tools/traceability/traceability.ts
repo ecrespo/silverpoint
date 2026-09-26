@@ -84,7 +84,10 @@ export function coverage(requirements: Map<string, string>, cited: Set<string>, 
 
 const TEST_FILE = /\.(test|spec)\.(ts|tsx|mts|mjs|js)$/;
 
-function testFiles(dir: string): string[] {
+/** The directories whose test files are read: every vitest project and the e2e suite lie under one. */
+export const TEST_ROOTS: readonly string[] = ['packages', 'tools', 'docs', 'e2e'];
+
+export function testFiles(dir: string): string[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     if (['node_modules', 'dist', '.next', '.angular', '__golden__'].includes(entry.name)) return [];
@@ -97,7 +100,7 @@ function main(): void {
   const root = fileURLToPath(new URL('../..', import.meta.url));
   const requirements = requirementsIn(readFileSync(join(root, 'specs/prd.md'), 'utf8'));
   const deferred = deferredIn(readFileSync(join(root, 'specs/tasks.md'), 'utf8'));
-  const files = ['packages', 'tools', 'e2e'].flatMap((dir) => testFiles(join(root, dir)));
+  const files = TEST_ROOTS.flatMap((dir) => testFiles(join(root, dir)));
   const citations = new Map<string, string[]>();
   for (const file of files) {
     for (const id of citedIn(readFileSync(file, 'utf8'))) {

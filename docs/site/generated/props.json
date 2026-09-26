@@ -4,7 +4,7 @@
       "name": "data",
       "type": "readonly Datum[]",
       "optional": true,
-      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093)."
+      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`) are ignored, every other prop applies."
     },
     {
       "name": "ground",
@@ -141,19 +141,19 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "secondaryKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "curve",
@@ -182,19 +182,19 @@
           "name": "titleKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "actualKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "targetKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -205,19 +205,19 @@
           "name": "labelKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "widthKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "toneKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -228,13 +228,13 @@
           "name": "labelKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valuesKey",
           "type": "Accessor<readonly (number | null)[] | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "scaleMax",
@@ -257,13 +257,13 @@
           "name": "labelKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "shareKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "columns",
@@ -286,19 +286,19 @@
           "name": "sourceKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "targetKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -309,19 +309,19 @@
           "name": "dateKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "countKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "levelKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "weeks",
@@ -338,13 +338,13 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "step",
@@ -367,25 +367,25 @@
           "name": "nameKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "readoutKey",
           "type": "Accessor<string | number | null | undefined>",
           "optional": true,
-          "doc": "The printed readout; the last value of the series by default."
+          "doc": "The printed readout; the last value of the series by default. Ignored without `data`."
         },
         {
           "name": "seriesKey",
           "type": "Accessor<readonly unknown[] | null | undefined>",
           "optional": true,
-          "doc": "The row's points: an array."
+          "doc": "The row's points: an array. Ignored without `data`."
         },
         {
           "name": "pointKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "The value of one point; the point itself when it is a number, else its `value`."
+          "doc": "The value of one point; the point itself when it is a number, else its `value`. Ignored without `data`."
         }
       ]
     },
@@ -396,7 +396,7 @@
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "metric",
@@ -425,19 +425,19 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "secondaryKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "orientation",
@@ -454,19 +454,19 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "keys",
           "type": "readonly string[]",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "names",
           "type": "readonly string[]",
           "optional": true,
-          "doc": "Display names of the keys, in order; the keys themselves by default."
+          "doc": "Display names of the keys, in order; the keys themselves by default. Ignored without `data`."
         }
       ]
     },
@@ -477,19 +477,19 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "barKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "lineKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "showLine",
@@ -506,19 +506,19 @@
           "name": "stepKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "baseKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "An absolute total: the bar starts at zero and resets the running total."
+          "doc": "An absolute total: the bar starts at zero and resets the running total. Ignored without `data`."
         },
         {
           "name": "deltaKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "A change from the running total."
+          "doc": "A change from the running total. Ignored without `data`."
         }
       ]
     },
@@ -529,13 +529,13 @@
           "name": "stageKey",
           "type": "Accessor<string>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -546,31 +546,31 @@
           "name": "timeKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "openKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "highKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "lowKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "closeKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "bounds",
@@ -587,13 +587,13 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "curve",
@@ -610,19 +610,19 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "lowKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "highKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -633,13 +633,13 @@
           "name": "xKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "keys",
           "type": "readonly string[]",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "stacked",
@@ -656,19 +656,19 @@
           "name": "xKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "yKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "sizeKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "sizeRange",
@@ -685,19 +685,19 @@
           "name": "xKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "yKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "sizeKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "sizeRange",
@@ -714,13 +714,13 @@
           "name": "nameKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "centerValue",
@@ -749,13 +749,13 @@
           "name": "subjectKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "domain",
@@ -772,13 +772,13 @@
           "name": "nameKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -789,13 +789,13 @@
           "name": "nameKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -806,13 +806,13 @@
           "name": "nameKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         }
       ]
     },
@@ -869,13 +869,13 @@
           "name": "nameKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "startAngle",
@@ -892,13 +892,13 @@
           "name": "bearingKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "Where the wind blows from, in degrees clockwise from north."
+          "doc": "Where the wind blows from, in degrees clockwise from north. Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "The wind speed; 0 is a calm, which has no direction."
+          "doc": "The wind speed; 0 is a calm, which has no direction. Ignored without `data`."
         },
         {
           "name": "sectors",
@@ -927,13 +927,13 @@
           "name": "indexRing",
           "type": "number",
           "optional": true,
-          "doc": "The ring whose segment is brought under the index, 0-based; 0 by default."
+          "doc": "The ring whose segment is brought under the index, 0-based; 0 by default. Without `data`, it addresses the demo’s rings: `Day`, `Shift`, `Team`."
         },
         {
           "name": "indexValue",
           "type": "string",
           "optional": true,
-          "doc": "The segment of `indexRing` under the index; its first segment by default."
+          "doc": "The segment of `indexRing` under the index; its first segment by default. Without `data`, it addresses the demo’s rings: `Day`, `Shift`, `Team`."
         }
       ]
     },
@@ -944,19 +944,19 @@
           "name": "sourceKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "targetKey",
           "type": "Accessor<string | number>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "valueKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": ""
+          "doc": "Ignored without `data`."
         },
         {
           "name": "maxCategories",
@@ -979,13 +979,13 @@
           "name": "markerKey",
           "type": "Accessor<readonly unknown[] | null | undefined>",
           "optional": true,
-          "doc": "A row's markers; `'markers'` by default."
+          "doc": "A row's markers; `'markers'` by default. Ignored without `data`."
         },
         {
           "name": "periodKey",
           "type": "Accessor<number | null | undefined>",
           "optional": true,
-          "doc": "A marker's period, 0-1 over the cycle; `'period'` by default."
+          "doc": "A marker's period, 0-1 over the cycle; `'period'` by default. Ignored without `data`."
         }
       ]
     }

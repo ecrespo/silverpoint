@@ -1,5 +1,7 @@
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
-import { citedIn, coverage, deferredIn, passes, requirementsIn } from './traceability';
+import { citedIn, coverage, deferredIn, passes, requirementsIn, TEST_ROOTS, testFiles } from './traceability';
 
 const prd = `
 | ID | Pattern | Criterion | Priority |
@@ -75,5 +77,14 @@ describe('traceability', () => {
   test('REQ-184 · a PRD with no parsable MUST row fails the gate instead of passing it empty (T-090)', () => {
     expect(passes(coverage(new Map(), new Set(), new Set()))).toBe(false);
     expect(passes(coverage(requirementsIn(prd), new Set(['REQ-001', 'REQ-002', 'REQ-060']), deferredIn(tasks)))).toBe(true);
+  });
+
+  test('REQ-183 · every vitest project lies under a scanned root, so no project’s citations are lost (T-103)', () => {
+    const root = fileURLToPath(new URL('../..', import.meta.url));
+    const projects = [...readFileSync(`${root}vitest.config.ts`, 'utf8').matchAll(/root: '([^']+)'/g)].map((m) => m[1]!);
+    expect(projects).toContain('docs/site');
+    const lost = projects.filter((project) => !TEST_ROOTS.some((dir) => project === dir || project.startsWith(`${dir}/`)));
+    expect(lost).toEqual([]);
+    expect(TEST_ROOTS.flatMap((dir) => testFiles(`${root}${dir}`))).toContain(`${root}docs/site/test/props.test.ts`);
   });
 });
