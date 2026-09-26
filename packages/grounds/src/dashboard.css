@@ -1,0 +1,69 @@
+
+/* ── Dashboard (API Spec §7.1, §10; TD DD-014) ───────────────────────────────────────── */
+
+/* The wrapper is a container: its own width, never the viewport's, chooses the breakpoint. It
+   stands on the substrate so its title and description are the text-on-substrate pairs the
+   contrast gate proves (REQ-213). Every number comes from the resolved model as a variable. */
+.sp-dashboard {
+  container-type: inline-size;
+  container-name: sp-dashboard;
+  display: block;
+  padding: var(--sp-dashboard-gap, var(--sp-dashboard-layout-gap, 16px));
+  background: var(--sp-substrate);
+  color: var(--sp-text);
+  font-family: var(--sp-font-display);
+  border-radius: var(--sp-radius);
+}
+
+.sp-dashboard-title {
+  margin: 0 0 4px;
+  color: var(--sp-text);
+  font-size: calc(20px * var(--sp-type-scale, 1));
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.sp-dashboard-description {
+  margin: 0;
+  color: var(--sp-text-muted);
+  font-size: calc(13px * var(--sp-type-scale, 1));
+  font-style: italic;
+}
+
+/* Cells flow in DOM order, which is the reading order: no `order`, no dense packing, no line
+   placement (REQ-203). A wide cell that does not fit leaves a gap at the row end. */
+.sp-dashboard-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(var(--sp-dashboard-columns-sm, 1), minmax(0, 1fr));
+  grid-auto-rows: var(--sp-dashboard-row-height, 240px);
+  gap: var(--sp-dashboard-gap, var(--sp-dashboard-layout-gap, 16px));
+  margin-top: var(--sp-dashboard-gap, var(--sp-dashboard-layout-gap, 16px));
+}
+
+.sp-dashboard-cell {
+  grid-column: span var(--sp-cell-col-sm, 1);
+  grid-row: span var(--sp-cell-row-sm, 1);
+  min-width: 0;
+  margin: 0;
+}
+
+@container sp-dashboard (min-width: 640px) {
+  .sp-dashboard-grid {
+    grid-template-columns: repeat(var(--sp-dashboard-columns-md, 2), minmax(0, 1fr));
+  }
+  .sp-dashboard-cell {
+    grid-column: span var(--sp-cell-col-md, 1);
+    grid-row: span var(--sp-cell-row-md, 1);
+  }
+}
+
+@container sp-dashboard (min-width: 1024px) {
+  .sp-dashboard-grid {
+    grid-template-columns: repeat(var(--sp-dashboard-columns-lg, 4), minmax(0, 1fr));
+  }
+  .sp-dashboard-cell {
+    grid-column: span var(--sp-cell-col-lg, 1);
+    grid-row: span var(--sp-cell-row-lg, 1);
+  }
+}

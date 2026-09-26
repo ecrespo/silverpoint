@@ -97,12 +97,21 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
 
 ### 5b — Adapters
 
-**[ ] T-110 · Stylesheet** — REQ-202, REQ-203, REQ-213 `[P]`
+**[x] T-110 · Stylesheet** — REQ-202, REQ-203, REQ-213 `[P]`
 - `dashboard.css`: grid, `container-type: inline-size`, `@container` at 640 / 1024, variables of
   API delta §7, heading type and gap from ground tokens.
 - Lint rule in `tools/lint-rules`: the dashboard stylesheet may not contain `order`, `dense`,
   `grid-row-start`, `grid-column-start`, `grid-area` (RED on a seeded violation first).
 - **Done:** lint green; the contrast gate covers the heading and description text.
+- *Closed 2026-09-26.* `packages/grounds/src/dashboard.css`, appended to `dist/styles.css` by the
+  grounds build, so apps keep one import (2.8 kB of 4 kB). The grid is an inner element
+  (`.sp-dashboard-grid`): a container query styles descendants only, never the container. The
+  wrapper stands on `--sp-substrate` and its title and description use `--sp-text` /
+  `--sp-text-muted`, exactly the pairs the contrast gate proves on every substrate; a test pins
+  that. The root `package.json` is read-only, so the placement lint is
+  `tools/lint-rules/check-dashboard-css.mjs`, enforced by its test over the shipped file in the
+  `tools` project (CI unit job). RED on 8 seeded violations first. **Mutations, all red:**
+  `font-family: Georgia`; a hex colour; `order: 1` in the shipped file.
 
 **[ ] T-111 · React `Dashboard` / `DashboardCell` + server entry** — REQ-200, REQ-212, REQ-214, REQ-219
 - Wrapper, heading, `article` cells, variables from the model; cell context with box, chart id and
