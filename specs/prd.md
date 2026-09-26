@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.7 |
+| **Version** | 1.8 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-09-13 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
+| **Last updated** | 2026-09-25 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
 
 ---
 
@@ -29,6 +29,11 @@ have no way to share a charting system between the two.
 The difference from the existing hand-drawn stroke libraries is an engineering decision, not
 a matter of taste: **irregularity lives only in the ornament**. The geometry of the data is
 exact, and every chart offers a `precision` mode that disables inking entirely.
+
+Charts are rarely used alone. A **dashboard composition** (§6.10) arranges cards in a
+responsive grid whose layout is resolved in the core, server-renders, and is held to the same
+parity gate as the charts — something no dashboard layer surveyed offers across frameworks. It is
+a declarative layout, not an interactive builder.
 
 ## 2. Context and Problem
 
@@ -113,6 +118,8 @@ with `recharts`.
 | Real accessibility | WCAG 2.1 AA audit over the example apps | 0 level A and AA issues | Release v1.0 |
 | Low adoption cost | Weight of `@silverpoint/react` + `core` with one chart, minified and compressed | < 45 KB | Release v1.0 |
 | Engine extensibility | Add the second ground without touching chart code | 0 chart files modified | Release v1.1 |
+| Dashboards need no consumer CSS | App-level layout CSS in the reference dashboard of the four example apps | 0 rules | Release 0.2.0 |
+| Parity extends to the arrangement | Differences on the dashboard fixtures, three adapters, against canonical renders | 0 | Release 0.2.0 |
 
 ### 4.2 User Objectives
 
@@ -140,6 +147,8 @@ with `recharts`.
       REQ-033 and REQ-034, Next.js under REQ-103.
 - [ ] Cross visual regression harness and the Art. 3 CI gates.
 - [ ] Documentation site with a gallery and a grounds playground.
+- [ ] Dashboard composition in `@silverpoint/react`, `@silverpoint/vue` and `@silverpoint/angular`,
+      with its layout resolved in `@silverpoint/core` (§6.10).
 
 ### 5.2 Out of Scope
 
@@ -147,7 +156,10 @@ with `recharts`.
 - Grounds other than `silverpoint` in v1 — specified, implemented later.
 - Geographic charts and maps — another family of problems (projections, topology).
 - Canvas or WebGL rendering — v1 is SVG; the target data volume does not demand it.
-- Visual editor or dashboard builder.
+- Visual editor or interactive dashboard builder: drag, resize, add or remove cells at runtime,
+  persisted layout state. A declarative dashboard layout is in scope (§6.10).
+- Data layer for dashboards: fetching, shared data pools, filters, cross-filtering.
+- Nested dashboards, tabs and pages inside a dashboard.
 - Transition animations between datasets — v1 animates entry only, and in a way that can be disabled.
 
 ### 5.3 Future Considerations
@@ -156,6 +168,10 @@ with `recharts`.
 - Export to PDF and printable SVG, where this style has a natural advantage.
 - A web components adapter to cover the rest of the frameworks with a single effort.
 - A canvas backend for long series, behind the same API.
+- Shared scales across the cards of a dashboard, on Vega-Lite's `resolve` model
+  (`{ y: 'shared' }`), computed in the core; it needs a common domain prop on the cartesian
+  charts first.
+- Exporting a whole dashboard to PDF or printable SVG.
 
 ## 6. Functional Requirements
 
@@ -266,6 +282,8 @@ Cross-cutting catalog requirements:
 | REQ-095 | optional | WHERE the consumer asks for it, THE SYSTEM SHALL render only the drawing area, without the card frame. | MUST |
 | REQ-096 | unwanted | IF the data exceeds the point threshold declared for its family, THEN THE SYSTEM SHALL warn in development and recommend aggregation, without degrading silently. | SHOULD |
 | REQ-097 | unwanted | IF a chart requires a scale that cannot be derived from the data —price bounds in candlesticks, flow total in sankey— and it is not supplied, THEN THE SYSTEM SHALL derive it from the data present and document the derivation, or fail with a message naming the missing property. | MUST |
+| REQ-098 | state | WHILE a chart renders its demo dataset, THE SYSTEM SHALL ignore the chart's accessor props and SHALL apply every other own prop as it would to consumer data. | MUST |
+| REQ-099 | ubiquitous | The props reference SHALL state, for every accessor prop, that it is ignored without `data`. | MUST |
 
 ### 6.5 Framework adapters
 
@@ -279,7 +297,7 @@ Cross-cutting catalog requirements:
 | REQ-105 | ubiquitous | The Angular adapter SHALL be published in Angular Package Format. | MUST |
 | REQ-106 | unwanted | IF an adapter package imports `d3-*` or the inking engine, THEN CI SHALL fail. | MUST |
 | REQ-107 | ubiquitous | Each chart SHALL be importable by its own subpath, so that an app using one does not include all 33. | MUST |
-| REQ-108 | ubiquitous | The Vue adapter SHALL expose components authored with `<script setup>`, declaring typed props and typed emits, with no component-local reactive state beyond the measured container size. | MUST |
+| REQ-108 | ubiquitous | The Vue adapter SHALL expose components authored with `<script setup>`, declaring typed props and typed emits, with no component-local reactive state beyond the measured container size and the active item of the interaction engine. | MUST |
 | REQ-109 | event | WHEN a Vue application server-renders a chart with `@vue/server-renderer` and then hydrates it, THE SYSTEM SHALL produce the same markup, with no hydration mismatches. | MUST |
 
 ### 6.6 Accessibility
@@ -327,6 +345,70 @@ Cross-cutting catalog requirements:
 | REQ-183 | ubiquitous | Every `MUST` requirement SHALL have at least one automated test citing its `REQ-NNN`. | MUST |
 | REQ-184 | unwanted | IF a `MUST` requirement has no test citing it, THEN the Analyze gate SHALL report it as a blocking finding. | MUST |
 
+### 6.10 Dashboard composition
+
+A declarative grid of chart cards: layout resolved in the core, placed by CSS Grid and
+container queries, server-renderable, held to the parity gate, accessible as a labelled region.
+Linked interaction between charts is optional (SHOULD).
+
+#### Layout
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-200 | ubiquitous | THE SYSTEM SHALL provide a dashboard composition in each adapter — React `Dashboard` / `DashboardCell`, Vue `SpDashboard` / `SpDashboardCell`, Angular `sp-dashboard` / `sp-dashboard-cell` — importable by its own `dashboard` subpath. | MUST |
+| REQ-201 | ubiquitous | THE SYSTEM SHALL resolve a dashboard's layout —columns per breakpoint, spans, cell order and each cell's nominal box— in `@silverpoint/core`, as a pure function of a serialisable `DashboardLayout`; adapters SHALL only translate the resolved model into elements. | MUST |
+| REQ-202 | ubiquitous | THE SYSTEM SHALL place cells with CSS Grid driven by `--sp-` custom properties and container queries on the dashboard's own width, and SHALL NOT measure the DOM to place cells. | MUST |
+| REQ-203 | ubiquitous | The DOM order of the cells SHALL equal their reading order at every breakpoint; the layout SHALL NOT use `order`, `grid-auto-flow: dense` or explicit line placement. | MUST |
+| REQ-204 | unwanted | IF a cell's span exceeds the columns of a breakpoint, THEN THE SYSTEM SHALL clamp it to that breakpoint's columns and SHALL warn `SP014` in development. | MUST |
+| REQ-205 | unwanted | IF the layout names a cell that has no child, a child names a cell absent from the layout, or two cells share an id, THEN THE SYSTEM SHALL warn `SP015`, render every child in source order with span 1 for the unmatched ones, and SHALL NOT throw. | MUST |
+| REQ-206 | ubiquitous | THE SYSTEM SHALL give each chart inside a cell a nominal width and a drawing-area height computed in the core from the layout and the chart's own card chrome, so that every card in a row with equal `rowSpan` has the same outer height; a chart's explicit `height` or `width` prop SHALL take precedence. | MUST |
+| REQ-207 | event | WHEN a server-rendered dashboard hydrates, THE SYSTEM SHALL hydrate every chart at its nominal width, without mismatches, and only then re-render it at its measured width (REQ-103, REQ-109). | MUST |
+| REQ-208 | ubiquitous | WHERE `Dashboard` is given no `layout`, THE SYSTEM SHALL lay its children out in source order with span 1 over the default columns (1 / 2 / 4). | MUST |
+
+#### Determinism and parity
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-209 | ubiquitous | WHERE a chart inside a dashboard has no `id`, THE SYSTEM SHALL derive it from the dashboard's id and the cell's id, so that no seed depends on the framework's mount order. | MUST |
+| REQ-210 | event | WHEN a dashboard fixture is rendered by any adapter, THE SYSTEM SHALL produce a parsed markup tree —dashboard wrapper and every chart's SVG— identical to the fixture's canonical render. | MUST |
+| REQ-211 | ubiquitous | CI SHALL run the three pixel gates of Art. 3 on every dashboard fixture at each of the three breakpoint widths. | MUST |
+
+#### Theming
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-212 | optional | WHERE the dashboard sets `ground`, `substrate`, `mode` or `locale`, the charts inside it SHALL inherit them with the precedence chart prop → dashboard → application provider → library default; the media query forcing `precision` (REQ-123) SHALL still not be overridable. | MUST |
+| REQ-213 | ubiquitous | The dashboard's own chrome —title, description, gap— SHALL take colour and type only from the ground's tokens and `--sp-` custom properties, with no CSS framework. | MUST |
+
+#### Accessibility
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-214 | ubiquitous | THE SYSTEM SHALL render a dashboard as a `section` labelled by a heading carrying its `title` (level configurable, `2` by default) and described by its `description` when given; each cell SHALL be an `article` labelled by its chart's accessible name. | MUST |
+| REQ-215 | ubiquitous | Keyboard focus SHALL traverse the cells in reading order, each chart keeping its own navigation (REQ-122); the dashboard SHALL add no tab stop of its own and no keyboard trap. | MUST |
+
+A dashboard's name is enforced by the type —`title` **or** `label` is required (API delta §2)— not
+by a runtime warning.
+
+#### Linked interaction
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-216 | optional | WHERE the dashboard declares a link on a key, WHEN the active item of one chart changes, THE SYSTEM SHALL mark, in every other chart of the dashboard, the items whose datum carries the same value of that key, resolved in the core as a pure function of the models (REQ-140). | SHOULD |
+| REQ-217 | unwanted | IF a linked chart has no item carrying that value, THEN it SHALL show no linked mark —no interpolation, no nearest match— and SHALL warn `SP016` once in development if the key is absent from its data altogether. | SHOULD |
+| REQ-218 | ubiquitous | Linked marks SHALL NOT be announced to assistive technology —only the chart holding focus announces— and SHALL clear in every chart when the source's active item clears (REQ-143). | SHOULD |
+| REQ-219 | ubiquitous | Linked state SHALL exist only on the client and SHALL NOT alter the server-rendered markup. | MUST |
+
+#### Budgets and integration
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds more than 2 KB min+gzip to its one-chart budget, THEN CI SHALL fail (REQ-164). | MUST |
+| REQ-221 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include the reference dashboard page, verified end to end: no hydration mismatch, no axe A/AA issue, pixel gates green at the three breakpoints. | MUST |
+
+A dashboard's name is enforced by the type —`title` or `label` is required (API Spec §7.1)—, not
+by a runtime warning.
+
 ## 7. Non-Functional Requirements
 
 The template assumes a service; silverpoint is a client library, so two headings are
@@ -337,6 +419,9 @@ reinterpreted and the original is stated.
 - Geometry computation for a 100-point chart in `@silverpoint/core`: < 2 ms on reference
   hardware.
 - Full initial render of a card, inking included: < 16 ms, so as not to drop a frame.
+- Resolving a 24-cell dashboard layout in the core: < 0.5 ms.
+- The 12-card reference dashboard (demo data, `hatchFill: 'tile'`): server HTML ≤ 480 KB,
+  twelve times the per-chart path budget.
 - **Path data weight**: measured on `rough.js`, inking emits only 2 `<path>` elements per
   shape whatever the density, so element count was never the relevant magnitude. What grows
   is the **bytes inside the `d` attribute**: a 33×110 px bar with cross-hatching at gap 4.5
@@ -353,10 +438,10 @@ reinterpreted and the original is stated.
 ### Compatibility *(in place of "Availability")*
 
 - Browsers: the last two major versions of Chrome, Firefox, Safari and Edge.
-- React 18.2+ and 19. Angular: the two most recent majors. Vue 3.4+. Node 20+ for the build.
+- React 18.2+ and 19. Angular: the two most recent majors. Vue 3.5+. Node 20+ for the build.
 - Vite: the two most recent majors, as the dev server and bundler of the React example and,
   underneath, of the Angular CLI.
-- TypeScript 5.x; the published types SHALL resolve under `moduleResolution: bundler` and
+- TypeScript 5.9+, and 6.x where a supported framework requires it (Angular 22); the published types SHALL resolve under `moduleResolution: bundler` and
   `node16`.
 
 ### Data volume *(in place of "Scalability")*
@@ -437,6 +522,16 @@ chart looks hand-drawn.
   - [ ] With system high contrast, `precision` turns itself on (REQ-123).
   - [ ] A screen reader can traverse the data as a table (REQ-121).
 
+### Epic E — Dashboards
+
+**US-005:** As a product developer, I want to arrange a strip of KPIs and a grid of charts from
+one layout object, identical in React, Vue and Angular and rendered on the server, so that I stop
+writing a grid around the cards in every app.
+- Acceptance criteria:
+  - [ ] One `layout` object places the cards at three container widths with no app CSS (REQ-201, REQ-202).
+  - [ ] The dashboard is a labelled region and focus follows reading order (REQ-203, REQ-214, REQ-215).
+  - [ ] The same fixture renders identically in all three adapters (REQ-210).
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -458,6 +553,10 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | 33 charts are too many for a one-person team | High | Medium | The families share engines: one scale engine serves 15 charts and one arc engine 10; the plan groups them by engine, not by chart. Outside that amortisation are the chord ring and the orbits (REQ-091, REQ-092), which carry their own geometry and are planned as separate work |
 | The aesthetic turns out to be too niche | Medium | Medium | The multi-ground engine is the cover: `cyanotype` and `plotter` are different registers on the same core |
 | Insufficient ink-on-substrate contrast in some ground | Medium | High | REQ-126 and REQ-127: contrast is verified in CI before publishing the ground |
+| A server render cannot know a dashboard's container width, so the first paint may be at the wrong width on a phone | High | Medium | Nominal width from `ssrWidth` (default the `lg` design width); charts re-render at their measured width after hydration (REQ-207) |
+| Extending parity from SVG to the dashboard's HTML reopens the gate's normaliser | Medium | High | The wrapper is small and fixed; it is parsed and compared as a tree like the SVG (DD-017), with no string normalisation |
+| Linked interaction becomes a state machine per adapter | Medium | Medium | Matching in the core; one reactive value per dashboard; SHOULD, so it can slip to a later minor |
+| Scope creep toward a dashboard builder | Medium | High | §5.2 names what is out; there are no `row`, `col` or `order` props to extend |
 
 ## 12. Estimated Timeline
 
@@ -472,6 +571,7 @@ commitments.
 | Phase 2 — scale engine | 4-5 weeks | 15 cartesian charts on a common engine; includes candlesticks and sparklines, which do need a scale |
 | Phase 3 — arc engine | 4-5 weeks | 10 charts on a common arc engine, plus the chord ring and the armillary orbits with their own geometry |
 | Phase 4 — closing | 2-3 weeks | Accessibility audited, documentation, budgets, release v1.0 |
+| Phase 5 — dashboard | 3-4 weeks | Dashboard composition in three adapters, parity and pixel gates per breakpoint, released in 0.2.0 |
 
 ---
 
@@ -479,6 +579,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.8 | 2026-09-25 | Ernesto Crespo | Deltas folded: REQ-108 admits the active item as Vue component state (delta-004); Vue 3.5+ and TypeScript 6.x where required (deltas 001, 005); REQ-098 and REQ-099 (view props apply to the demo, delta-011); §6.10 Dashboard composition, REQ-200..REQ-221, with the §5.2 scope amendment (feature-001) |
 | 1.7 | 2026-09-13 | Ernesto Crespo | Vue added as a third supported framework: REQ-108 and REQ-109 enter, `@silverpoint/vue` joins REQ-160 and REQ-161, REQ-100 reformulated against a canonical render |
 | 1.6 | 2026-09-13 | Ernesto Crespo | Vite raised to a first-class validated integration: REQ-033 and REQ-034 added, compatibility floor stated, scope wording corrected |
 | 1.5 | 2026-09-13 | Ernesto Crespo | Converted to English; REQ-032 added to cover typeface load failure (Analyze finding A-05) |
@@ -507,4 +608,7 @@ commitments.
   foresees.
 - **Art. 7** — REQ-040 and REQ-044, the latter with mechanical verification over the files
   touched by the PR.
+- **Art. 3** (v1.5) — REQ-210 and REQ-211 extend the gates to the dashboard's wrapper markup
+  and to one pixel comparison per breakpoint.
+- **Art. 4** — REQ-209 derives chart ids from the dashboard, not from the framework's mount order.
 - **Requested exception:** none.

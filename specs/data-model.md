@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.3 |
-| **Date** | 2026-09-13 |
+| **Version** | 1.4 |
+| **Date** | 2026-09-25 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.4 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.5 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -24,7 +24,7 @@
 ```
         ┌──────────────────┐
         │  Input contract  │   what the consumer passes in `data`
-        │  (§2)            │   10 input shapes for the 33 charts
+        │  (§2)            │   12 input shapes for the 33 charts; §2.13 for the dashboard layout
         └────────┬─────────┘
                  │  accessors
                  ▼
@@ -44,10 +44,11 @@ makes it possible to version the fixtures and compare outputs.
 
 ## 2. Input data contracts
 
-Ten input shapes cover the 33 charts. The field names are the **defaults**: all of them
+Twelve input shapes cover the 33 charts, and a thirteenth contract (§2.13) describes the dashboard
+layout. The field names are the **defaults**: all of them
 are redefined with the `*Key` accessors of API Spec §7.
 
-### 2.1 `CategorySeries` — 15 cartesian charts
+### 2.1 `CategorySeries` — 14 cartesian charts
 
 ```ts
 type CategorySeries = ReadonlyArray<{
@@ -56,7 +57,7 @@ type CategorySeries = ReadonlyArray<{
 }>;
 ```
 Used by: line, step chart, area, bars, stacked bars, composed, stream, waterfall, funnel,
-scatter, bubble, sparkline rows, KPI card, range band, coxcomb.
+scatter, bubble, KPI card, range band, coxcomb. Sparkline rows have their own shape (§2.11).
 
 | Field | Type | Required | Validation |
 |---|---|---|---|
@@ -96,6 +97,11 @@ type MatrixRows = ReadonlyArray<{ label: string; values: readonly number[] }>;
 ```
 All rows MUST have the same length; if they differ the shortest is used and a warning is
 issued. The value is normalised against `scaleMax`, 100 by default.
+
+`columnLabels?: readonly string[]` (a prop, not a field of the rows) names the columns in order:
+they head the table columns, the keyboard announcement and the readout, and are drawn above the
+cells. Missing names fall back to `#k`; names beyond the drawn columns are ignored with `SP002`.
+Without it the output is unchanged.
 
 ### 2.5 `TileShares` — treemap
 
@@ -158,6 +164,68 @@ type Orbits = ReadonlyArray<{
 ```
 `period` normalised to 0-1 over the cycle. Each orbit is a concentric ring, from the
 inside out in array order.
+
+How the props read it: `data` holds the orbit rows; `orbits` caps the orbits shown, from the
+inside out; `markerKey` reads a row's markers (default `'markers'`); `periodKey` reads a marker's
+period (default `'period'`). A marker's `value` and an orbit's `label` are read from those fields.
+A period outside 0-1, or a non-finite or negative value, raises `SP002` and drops the marker.
+
+### 2.11 `SparklineRows` — sparkline rows
+
+```ts
+type SparklineRowsData = ReadonlyArray<{
+  name: string;               // nameKey
+  readout?: string | number;  // readoutKey; the last value when absent
+  points: readonly unknown[]; // seriesKey; each read through pointKey
+}>;
+```
+`rows` caps the rows shown, from the first. `pointKey` reads a point's value; by default a point
+that is a number is its own value, and an object's `value` field is read.
+
+### 2.12 `VolvelleData` — volvelle
+
+```ts
+type VolvelleData = ReadonlyArray<{
+  label: string;               // the ring's name
+  segments: readonly string[]; // its categories, clockwise, in equal angles
+}>;
+```
+- `data` holds the rings, from the inside out; `rings` caps how many are shown.
+- The rings share one angle frame: ring *k*'s *n* segments each span 360°/*n*, the first starting
+  at 12 o'clock.
+- `indexRing` (0-based, default 0) and `indexValue` (default: that ring's first segment) choose
+  the **index angle**: the middle of that segment. The drawing is turned so the index angle faces
+  12 o'clock, under a fixed pointer. They apply to the demo rings as to the consumer's (REQ-098).
+- The **combined readout** is, for every ring, the segment that contains the index angle
+  (half-open spans, `[start, end)`), printed as `label segment` pairs and marked on each ring.
+- An `indexRing` out of range or an `indexValue` absent from its ring raises `SP002` and falls
+  back to the default.
+
+### 2.13 `DashboardLayout` — the layout contract
+
+The type is in API Spec §7.1. Its rules:
+
+| Field | Domain | Default | Invalid value |
+|---|---|---|---|
+| `columns[bp]` | integer 1..12 | `sm 1, md 2, lg 4` | Non-integer or out of range → the default for that breakpoint, `SP002` |
+| `rowHeight` | number > 0 | `240` | → default, `SP002` |
+| `gap` | number ≥ 0 | `16` | → default, `SP002` |
+| `cells[].id` | non-empty string, unique | — | Duplicate → the later ones are unplaced, `SP015` |
+| `colSpan[bp]` | integer ≥ 1 | `1` | > `columns[bp]` → clamped, `SP014`; < 1 or non-integer → `1`, `SP002` |
+| `rowSpan[bp]` | integer 1..6 | `1` | → clamped to range, `SP002` |
+
+A bare number in `colSpan` / `rowSpan` / `columns` applies to all three breakpoints.
+
+**Matching children to cells** (REQ-205), in order:
+
+1. Children with a `cell` id found in `layout.cells` take that cell's spans.
+2. The reading order is the order of `layout.cells`; children whose cell is placed follow it.
+3. Children with no `cell`, or an unknown one, are appended in source order with span 1 (`SP015`
+   for an unknown id).
+4. Layout cells with no child are dropped (`SP015`); they leave no hole.
+
+**Chart ids** (REQ-209): `${dashboard.id}--${cell.id}`; for an unplaced child,
+`${dashboard.id}--${index}` with its source index. The existing consumer-id sanitiser applies.
 
 ## 3. The `silverpoint` ground
 
@@ -265,6 +333,21 @@ midnight. `today` is used only when the consumer supplies their own data. Passin
 `seed: null` restores the random behaviour, at the cost of breaking hydration. This closes
 Analyze finding A-02 against REQ-005 and REQ-103.
 
+Under the demo, a chart ignores its accessor props and applies every other own prop (REQ-098):
+`VolvelleChart`'s `indexRing` and `indexValue` turn the demo's rings (`Day`, `Shift`, `Team`)
+exactly as they turn a consumer's.
+
+**Reference dashboards.** Frozen, like every demo dataset, and used by the fixtures, the example apps and the docs site.
+
+| Name | Cells | Purpose |
+|---|---|---|
+| `kpi-strip` | 4 × `KpiCard` + 1 `LineChart` spanning `lg 4 / md 2` | The most common shape: a strip of numbers over a trend |
+| `ops` | 12 cards: 4 KPI, `LineChart` (col 3, row 2), `BarChart`, `HeatmapChart` (col 2), `DonutChart`, `SparklineRows`, `ActivityGrid` (col 2), `GaugeArc` | The DD-007 weight reference; linked on `hour` across line, bar and heatmap |
+| `mixed-spans` | 7 cells with spans chosen to leave a row-end gap at `md` | Proves REQ-203: gap left, no reordering |
+
+All charts render their demo data (REQ-093), so no dashboard fixture carries consumer data.
+
+
 ## 5. The fixture matrix
 
 The unit the Art. 3 gates compare. It lives versioned in `fixtures/`.
@@ -303,6 +386,21 @@ the two values of `hatchFill` and three sizes = **1,584 fixtures**.
 | `md` | 320 × 150 | Reference |
 | `lg` | 640 × 300 | Where the path budget pinches hardest |
 
+**Dashboard fixtures** (Constitution Art. 3, "chart or composition"). Same `Fixture` shape, with
+`chart` naming the reference dashboard and `size` the container width.
+
+| Axis | Values | Count |
+|---|---|---|
+| Dashboard | `kpi-strip`, `ops`, `mixed-spans` | 3 |
+| Substrate | the four of the `silverpoint` ground | 4 |
+| Mode | `ink`, `precision` | 2 |
+| Breakpoint width | 375, 800, 1280 px | 3 |
+
+**72 dashboard fixtures**, beside the 1,584 chart fixtures. The parity (string/tree) gate uses the
+nominal render at `ssrWidth` 1280 — one per dashboard × substrate × mode, **24** — because the
+markup does not depend on the container width; the pixel gates use all 72.
+
+
 ## 6. Invariants
 
 Verifiable, and each one with its test.
@@ -318,6 +416,12 @@ Verifiable, and each one with its test.
 | I-7 | Every ink of every registered ground meets its contrast threshold | REQ-126 |
 | I-8 | `Geometry` is serializable to JSON without loss | REQ-011 |
 | I-9 | The demo datasets are frozen at runtime | §4 |
+| I-10 | `resolveDashboard` is pure: the same props and child ids give a deep-equal model; the model is JSON-serialisable. | REQ-011, REQ-201 |
+| I-11 | `model.cells` is in reading order, and the adapter emits the cells in exactly that order. | REQ-203 |
+| I-12 | For every cell and breakpoint, `1 ≤ span.col ≤ columns[bp]`. | REQ-204 |
+| I-13 | Every cell in the same row of the `lg` nominal layout, with equal `rowSpan`, gets the same outer height. | REQ-206 |
+| I-14 | No two resolved cells share a `chartId`. | REQ-209 |
+| I-15 | A dashboard's server render contains no `part="linked"`. | REQ-219 |
 
 ---
 
@@ -328,6 +432,7 @@ Verifiable, and each one with its test.
 | 1.0 | 2026-09-13 | Ernesto Crespo | Initial version. Palette adjusted after verifying contrast: the original seed failed on `rule`, `textMuted` and `heighten` |
 | 1.3 | 2026-09-13 | Ernesto Crespo | `Fixture` gains `canonical`, the reference render every adapter is compared against, after Vue made pairwise comparison untenable |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Sibling version references realigned after the Vite integration change; no content change |
+| 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 
 ## Constitution check
@@ -339,5 +444,6 @@ Verifiable, and each one with its test.
 - **Art. 7** — everything in §3 is declarative; no value lives in the code of a chart.
 - **Art. 4** — §4 pins the seed and the end date of the only generated dataset, so that
   hydration is not broken.
+- **Art. 3** (v1.5) — §5 adds the dashboard compositions to the declared matrix.
 - **Exception requested:** none. The heightening is **not** an exception to Art. 5: it
   complies by outline, not by dispensation.

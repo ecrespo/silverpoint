@@ -6,18 +6,18 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.3 |
-| **Date** | 2026-09-13 |
-| **PRD** | [`prd.md`](prd.md) v1.7 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.4 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.3 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
+| **Version** | 1.4 |
+| **Date** | 2026-09-25 |
+| **PRD** | [`prd.md`](prd.md) v1.8 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.5 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.4 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
 
 ---
 
 ## 1. Implementation Summary
 
-Five phases. The first delivers no catalog: it delivers **a single chart travelling
+Five phases for the catalog, and a sixth —Phase 5— for the dashboard composition. The first delivers no catalog: it delivers **a single chart travelling
 through the entire system** — core, inking, interaction, all three adapters and the gates — to
 retire the risks that could invalidate the architecture. If that slice closes, the three
 that follow are repetition over engines that are already proven.
@@ -151,7 +151,35 @@ with markers positioned along the path.
 - The 2 ms and 16 ms benchmarks green.
 - Documentation site with gallery, ground playground and the 10-minute quickstart.
 - The full 1,584-fixture matrix green on the nightly run.
-- `1.0.0` published; the API Spec comes into force.
+- Published from CI. *As executed:* `0.1.1` was published on 2026-09-25; `1.0.0`, which puts the
+  API Spec in force, is deferred by decision (the line stays on `0.x`, next release `0.2.0`).
+
+### Phase 5 — Dashboard composition, and the demo rule
+
+**Effort:** 3-4 weeks. **Goal:** a consumer composes a server-renderable, accessible, responsive
+grid of cards in React, Vue or Angular from one data-only layout, with parity held across the
+three adapters (PRD §6.10, API Spec §7.1, DD-013..DD-018, Data Model §2.13). Released in `0.2.0`,
+together with REQ-098 and REQ-099 (view props apply to the demo; the props reference says what
+the demo ignores).
+
+**Tasks:** `changes/feature-001-dashboard/plan-and-tasks.md` (dashboard) and
+`changes/delta-011-volvelle-demo-index.md` (demo rule), continuing the global task sequence.
+
+| Step | Content | Exit |
+|---|---|---|
+| 5a | Core: types, `resolveDashboard`, `cellChartBox`, diagnostics, reference layouts | Core unit tests and the 0.5 ms benchmark green |
+| 5b | Adapters ×3, stylesheet, server entry points | Adapter unit and type tests |
+| 5c | Dashboard fixtures, tree gate over the wrapper, pixel gate per breakpoint | 24 parity and 72 pixel fixtures green |
+| 5d | Example apps: hydration, axe, reading order | Four apps green |
+| 5e | Linked interaction (SHOULD) | May slip to a later minor without blocking 5f |
+| 5f | Docs, budgets, changeset | `0.2.0` from CI |
+
+**Done criteria**
+- Every MUST in REQ-098, REQ-099 and REQ-200..REQ-221 cited by a test; traceability 0 blocking.
+- Parity gate green on the 24 dashboard parity fixtures; pixel gates green on all 72.
+- The four example apps have the reference dashboard page, green in e2e and axe.
+- `dashboard` subpath ≤ 2 KB min+gzip over the one-chart budget in each adapter.
+- No canonical chart fixture changed by the demo rule.
 
 ## 4. Dependency Map
 
@@ -162,8 +190,10 @@ Phase 0 ── vertical slice, gates operational
    │                                   │
    ├──▶ Phase 2 ── scale engine       ─┼──▶ Phase 4 ── close-out
    │                                   │
-   └──▶ Phase 3 ── arc engine         ─┘
+   └──▶ Phase 3 ── arc engine         ─┘            │
             └── chord and orbits (own geometry, inside the phase)
+                                                       ▼
+                                          Phase 5 ── dashboard composition
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -180,6 +210,8 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | Phase 3 overruns because of chord and orbits | High | Medium | They are isolated: if they slip, the other 10 ship anyway |
 | Angular 23 lands mid-project and moves the floor | High | Low | The two-majors policy already anticipates it; the cost is updating the CI matrix |
 | Interaction in the core proves impractical | Low | High | Now surfaced in Phase 0 rather than Phase 2; if it fails, only the line chart has to be reworked |
+| The dashboard's server render cannot know the container width | High | Medium | Nominal boxes at `ssrWidth`, re-render after hydration (DD-015) |
+| Linked interaction grows into per-adapter state machines | Medium | Medium | Matching in the core (DD-016); it is SHOULD and may slip without blocking the release |
 | The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
@@ -208,6 +240,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.4 | 2026-09-25 | Ernesto Crespo | Phase 5 added: dashboard composition and the demo rule, released in `0.2.0`; Phase 4's `1.0.0` criterion recorded as deferred by decision |
 | 1.3 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: Phase 0 covers all three, effort revised to 19-26 weeks, a fourth example app |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Vite raised to a validated integration: bundler-resolution Done criterion added to Phase 0 (REQ-033, REQ-034) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; interaction pulled into Phase 0 (Analyze finding A-03), REQ-124 given a verification point per phase (finding A-06), effort revised to 15-21 weeks |
@@ -219,4 +252,6 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 - **Art. 5** — accessibility is a Done criterion in every phase, not a final pass; Phase 4
   only audits what should already hold.
 - **Art. 9** — §6 fixes the procedure on a deviation: stop and update the spec.
+- **Art. 3** (v1.5) — Phase 5's Done includes the tree and pixel gates over the dashboard
+  compositions.
 - **Exception requested:** none.

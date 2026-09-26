@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); **folded into `specs/` on 2026-09-25** |
 | **Affects** | PRD REQ-108 |
 | **Raised by** | T-018, 2026-09-24 |
 

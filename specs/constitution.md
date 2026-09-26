@@ -1,6 +1,6 @@
 # Constitution — silverpoint
 
-> Version 1.4 · Ratified: 2026-09-12 · Last amended: 2026-09-13
+> Version 1.5 · Ratified: 2026-09-12 · Last amended: 2026-09-25
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
 > `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
 > documentation site.
@@ -45,7 +45,8 @@ that sinks multi-framework libraries.*
 ### Art. 3 — Visual parity across frameworks
 
 THE SYSTEM SHALL produce, for the same data, configuration, ground, mode and seed, a
-normalised SVG output —attributes ordered, numbers to 2 decimals, whitespace collapsed—
+normalised markup —the SVG of every chart and any wrapper markup the library emits around
+charts; attributes ordered, numbers to 2 decimals, whitespace collapsed—
 **character-for-character identical across every adapter**. Each adapter is compared
 against the canonical serialisation stored with the fixture, not against its siblings, so
 that adding a framework costs one comparison rather than one per pair. CI SHALL verify
@@ -67,7 +68,7 @@ The comparisons are only valid under declared conditions of determinism: a singl
 browser pinned by version, `deviceScaleFactor: 1`, fixed viewport, animations disabled,
 self-hosted fonts preloaded and awaiting `document.fonts.ready`, a fixed seed and a
 stylesheet shared by every example app. The gate operates over a declared fixture
-matrix —chart × ground × mode × size—, never over the example apps in free evolution.
+matrix —chart or composition × ground × mode × size—, never over the example apps in free evolution.
 
 *Rationale: with Art. 2 the geometry is identical by construction, so the strong gate is
 the string comparison, which has no rasterisation noise; the pixel thresholds only
@@ -141,13 +142,13 @@ Decided, not re-litigated per feature:
 
 | Area | Decision |
 |---|---|
-| Language | TypeScript 5.x in `strict` mode, ESM first |
+| Language | TypeScript 5.9+ (6.x where a supported framework requires it, as Angular 22 does) in `strict` mode, ESM first |
 | Monorepo | pnpm workspaces + Nx (chosen for its Angular support) |
 | Geometry engine | `d3-scale` + `d3-shape` (only the subset used) |
 | Inking engine | `rough.js`, isolated behind the core's `Inker` interface |
 | React | 18.2+ and 19; RSC-compatible (`"use client"` only where indispensable) |
 | Angular | The two most recent majors; standalone components, signal inputs and `ChangeDetectionStrategy.OnPush`. Exact versions pinned in the Technical Design |
-| Vue | 3.4+; `<script setup>` with typed props and emits, and `@vue/server-renderer` for the string gate |
+| Vue | 3.5+ (hydration-safe `useId`); `<script setup>` with typed props and emits, and `@vue/server-renderer` for the string gate |
 | Build | `tsup` for core, react and vue; `ng-packagr` (Angular Package Format) for angular |
 | Testing | Vitest (core, react, vue), Angular TestBed, Playwright for cross-framework visual regression |
 | Supported frameworks | **React, Angular and Vue.** Those three contribute a component layer, and each gets an adapter package |
@@ -183,6 +184,8 @@ explicitly in its tonal mechanism token.
 | 2026-09-13 | Art. 3 | Vue added as a third supported framework; parity now compares each adapter against a canonical render rather than pairwise | A pairwise formulation costs one comparison per pair and does not survive a third adapter; a canonical reference makes the cost linear | Ernesto Crespo |
 | 2026-09-13 | — | Stack constraints now separate supported frameworks from validated integrations | Vite was listed only as an example app, which left it ambiguous whether it was a third framework; it is a build tool, and the distinction is worth fixing in the one place nobody re-litigates | Ernesto Crespo |
 | 2026-09-13 | — | Document converted to English | The project is an open-source library with an international audience | Ernesto Crespo |
+| 2026-09-25 | — | Stack: TypeScript 5.9+ (6.x where a framework requires it); Vue floor 3.5 | Angular 22's compiler requires TypeScript 6.0; hydration-safe ids need Vue 3.5's `useId` (deltas 001, 005) | Ernesto Crespo |
+| 2026-09-25 | Art. 3 | Parity covers normalised markup, wrappers included, and the fixture matrix admits compositions | The dashboard composition emits HTML around the charts; the gate must hold it to the same zero tolerance (feature-001, Analyze A-01) | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

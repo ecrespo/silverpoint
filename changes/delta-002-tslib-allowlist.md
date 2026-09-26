@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); **folded into `specs/` on 2026-09-25** |
 | **Affects** | Technical Design §5.3 (runtime dependency allowlist) |
 | **Raised by** | T-001, 2026-09-24; batch-1 review |
 

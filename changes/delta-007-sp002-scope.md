@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-24 ("resuelve los pendientes menores"); fold into `specs/` when it is writable |
+| **Status** | `APPROVED` by the user on 2026-09-24 ("resuelve los pendientes menores"); **folded into `specs/` on 2026-09-25** |
 | **Affects** | API Spec §11 (row `SP002`) |
 | **Raised by** | Phase 1 final review, 2026-09-24 |
 

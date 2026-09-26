@@ -72,8 +72,10 @@ version** (Changesets `fixed` group) and are published **only by CI**, never by 
    curl -s https://registry.npmjs.org/@silverpoint%2Freact/X.Y.Z -o /dev/null -w "%{http_code}\n"
    ```
 
-**`1.0.0`** puts the API Spec in force. Its changeset waits in
-`changes/release-1.0.0-changeset.md`; move it back into `.changeset/` to cut it.
+**The line stays on 0.x** (user decision, 2026-09-25): the next release is **`0.2.0`**, a
+changeset `minor` from `0.1.1`. Do not propose cutting `1.0.0` — it puts the API Spec in force, and
+its changeset stays parked in `changes/release-1.0.0-changeset.md` until the user asks for it (then
+move it back into `.changeset/`).
 If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Actions,
 `ecrespo/silverpoint`, `release.yml`, environment `npm`) before its first CI release.
 
@@ -81,25 +83,28 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 
 | Artifact | Status |
 |---|---|
-| Constitution | ✅ v1.4 ratified |
-| PRD (EARS criteria) | ✅ v1.7 approved — 105 requirements, REQ-001..REQ-184 |
-| API Spec | ✅ v1.5 approved — 33 components, 13 diagnostic codes |
-| Technical Design | ✅ v1.4 approved — 12 decisions, DD-001..DD-012 |
-| Data Model | ✅ v1.3 approved — verified palette, 9 invariants |
-| Implementation Plan | ✅ v1.3 — 5 phases grouped by shared engine |
-| Deltas | ✅ `changes/delta-001..010` all approved; **not yet folded into `specs/`** |
+| Constitution | ✅ v1.5 — Art. 3 now covers normalised markup (wrappers included), amended 2026-09-25 |
+| PRD (EARS criteria) | ✅ v1.8 approved — 129 requirements, REQ-001..REQ-221 (§6.10 Dashboard) |
+| API Spec | ✅ v1.6 approved — 33 charts + the Dashboard composition (§7.1), 16 diagnostic codes |
+| Technical Design | ✅ v1.5 approved — 18 decisions, DD-001..DD-018 |
+| Data Model | ✅ v1.4 approved — verified palette, 15 invariants, dashboard layout §2.13 |
+| Implementation Plan | ✅ v1.4 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) |
+| Deltas | ✅ `changes/delta-001..011` approved and **folded into `specs/`** (2026-09-25) |
+| Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; tasks T-106..T-123 in `changes/feature-001-dashboard/plan-and-tasks.md`; **not implemented** |
 | Implementation | ✅ Phases 0–4 closed — 33 charts × 3 adapters; ledgers in `changes/phase-N-progress.md` |
-| Traceability | ✅ 99/99 MUST cited by a test, 0 blocking (`reports/traceability.md`) |
+| Traceability | ✅ 99/120 MUST cited, 21 deferred to Phase 5 (`specs/tasks.md` Deferred table), 0 blocking (`reports/traceability.md`) |
 | Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
 
 Where things stand:
 
 - **Published:** `@silverpoint/*@0.1.1`, tag `v0.1.1`. `develop` is ahead of `main` by
   documentation only.
-- **Open:** `1.0.0`. It puts the API Spec in force. The changeset is ready in
-  `changes/release-1.0.0-changeset.md`, and it waits on the user's go-ahead.
-- **Open:** folding the ten approved deltas into `specs/`, once the user makes `specs/`
-  writable.
+- **Next release: `0.2.0`.** It carries delta-011 (Volvelle's index turns the demo, T-102..T-105)
+  and feature-001 (Dashboard composition, Phase 5, T-106..T-123; first run T-106..T-109). Both are
+  approved and not yet implemented. `1.0.0` stays parked.
+- **Folded** (2026-09-25): deltas 001..011, feature-001 and the Art. 3 amendment are in `specs/`.
+  When a Phase 5 requirement gets its test, remove it from the Deferred table of `specs/tasks.md`.
+  `specs/` is kept read-only (`chmod a-w`); the user unlocks it when a fold is approved.
 - The deferred minors from the phase reviews are closed or ruled (see the Phase 4 ledger).
   `REQ-028` (SHOULD) and `REQ-047` (COULD) are deferred "After v1".
 

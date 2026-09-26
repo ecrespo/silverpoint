@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); fold into `specs/` when it is writable |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo los deltas puedes continuar"); **folded into `specs/` on 2026-09-25** |
 | **Affects** | Data Model §2.10; API Spec §7 (`OrbitChart` row) |
 | **Raised by** | Phase 3, T-083, 2026-09-24 |
 

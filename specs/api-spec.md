@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.5 |
-| **Date** | 2026-09-13 |
-| **Related PRD** | [`prd.md`](prd.md) v1.7 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
+| **API version** | v1.6 |
+| **Date** | 2026-09-25 |
+| **Related PRD** | [`prd.md`](prd.md) v1.8 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
 | **Surface** | npm packages — there is no network API |
 
 ---
@@ -51,6 +51,11 @@ import { LineChart } from '@silverpoint/react';            // barrel
 import { LineChart } from '@silverpoint/react/line-chart';  // subpath
 import '@silverpoint/grounds/styles.css';                   // once only, in the app
 ```
+
+The dashboard composition (§7.1) follows the same rule, under a `dashboard` subpath in each
+adapter: `@silverpoint/react/dashboard` (and `/server/dashboard`), `@silverpoint/vue/dashboard`,
+`@silverpoint/angular/dashboard`. It ships inside the existing packages; there is no dashboard
+package.
 
 ### 1.1 Consuming under a bundler
 
@@ -208,7 +213,10 @@ Present in all 33 charts, with identical names across React, Vue and Angular (RE
 
 ```ts
 export interface CommonChartProps {
-  /** Rows to draw. If omitted, the demo dataset is rendered (REQ-093). */
+  /**
+   * Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props
+   * (`…Key`, `keys`, `names`) are ignored, every other prop applies (REQ-098).
+   */
   data?: readonly Datum[];
 
   /** Style ground. Defaults to the app provider's, or `silverpoint`. */
@@ -272,7 +280,7 @@ Part of the contract: changing them observably is a *major* change (§13).
 | `dataTable` | `'hidden'` | Present for assistive technology, visually hidden |
 | `height` | `160` | Drawing area, without the frame |
 | `width` | container width | Except in the server entry points, where it is mandatory |
-| `locale` | the environment's | `navigator.language` on the client, `'en'` on the server |
+| `locale` | the provider's, else `'en'` | Identical on server and client, so hydration matches; pass `navigator.language` to the provider to follow the browser |
 | `curve` | `'monotone'` | Line and area charts |
 | `orientation` | `'columns'` | `BarChart` |
 | `series` | `'all'` | `LineChart` |
@@ -281,9 +289,10 @@ Part of the contract: changing them observably is a *major* change (§13).
 | `legend` | `true` | `DonutChart` |
 | `sizeRange` | `[60, 240]` | `ScatterChart`; `[100, 500]` in `BubbleChart` |
 
-**Resolution precedence** for `ground`, `substrate` and `mode`, highest to lowest: chart
-prop → application provider (§8.1, §8.2) → media query forcing `precision` (REQ-123) →
-library default value. The media query **cannot** be overridden by prop: it is an
+**Resolution precedence** for `ground`, `substrate`, `mode` and `locale`, highest to lowest:
+chart prop → dashboard (§7.1) → application provider (§8.1, §8.2) → library default value.
+The media query forcing `precision` (REQ-123) is **not a level in that chain**: it is an
+override applied after resolution, so no prop, dashboard or provider can undo it. It is an
 accessibility requirement, not a preference.
 
 ## 6. Token schema of a ground
@@ -358,15 +367,208 @@ The 33 charts. The `REQ` column is the traceability back to the PRD. All of them
 | REQ-081 | `MeterChart` | `SpMeterChart` | `sp-meter-chart` | `percent`, `caption?`, `readout?` |
 | REQ-082 | `ScatterChart` | `SpScatterChart` | `sp-scatter-chart` | `xKey`, `yKey`, `sizeKey?`, `sizeRange` |
 | REQ-083 | `BubbleChart` | `SpBubbleChart` | `sp-bubble-chart` | `xKey`, `yKey`, `sizeKey`, `sizeRange` |
-| REQ-084 | `HeatmapChart` | `SpHeatmapChart` | `sp-heatmap-chart` | `labelKey`, `valuesKey`, `scaleMax` |
+| REQ-084 | `HeatmapChart` | `SpHeatmapChart` | `sp-heatmap-chart` | `labelKey`, `valuesKey`, `scaleMax`, `columnLabels?` |
 | REQ-085 | `TreemapChart` | `SpTreemapChart` | `sp-treemap-chart` | `labelKey`, `shareKey`, `columns`, `rows` |
 | REQ-086 | `SankeyChart` | `SpSankeyChart` | `sp-sankey-chart` | `sourceKey`, `targetKey`, `valueKey` |
 | REQ-087 | `ActivityGrid` | `SpActivityGrid` | `sp-activity-grid` | `dateKey`, `countKey`, `levelKey`, `weeks` |
 | REQ-088 | `CoxcombChart` | `SpCoxcombChart` | `sp-coxcomb-chart` | `nameKey`, `valueKey`, `startAngle` |
 | REQ-089 | `WindRose` | `SpWindRose` | `sp-wind-rose` | `bearingKey`, `valueKey`, `sectors`, `bins` |
-| REQ-090 | `VolvelleChart` | `SpVolvelleChart` | `sp-volvelle-chart` | `rings`, `indexRing`, `indexValue` |
+| REQ-090 | `VolvelleChart` | `SpVolvelleChart` | `sp-volvelle-chart` | `rings`, `indexRing`, `indexValue` (they apply to the demo's rings too, REQ-098) |
 | REQ-091 | `ChordRing` | `SpChordRing` | `sp-chord-ring` | `sourceKey`, `targetKey`, `valueKey`, `maxCategories` |
 | REQ-092 | `OrbitChart` | `SpOrbitChart` | `sp-orbit-chart` | `orbits`, `periodKey`, `markerKey` |
+
+Own props that the table leaves implicit:
+
+- **`HeatmapChart.columnLabels?: readonly string[]`** names the columns in order; they head the
+  table columns, the keyboard announcement and the readout, and are drawn above the cells.
+  Missing names fall back to `#k`; names beyond the drawn columns are ignored with `SP002`.
+- **`OrbitChart`**: `data` holds the orbit rows (Data Model §2.10); `orbits` caps the orbits
+  shown, from the inside out; `markerKey` reads a row's markers (default `'markers'`) and
+  `periodKey` a marker's period (default `'period'`, 0-1 over the cycle).
+- **`VolvelleChart`**: `data` holds the rings from the inside out (Data Model §2.12); `rings`
+  caps them; `indexRing` (0-based, default 0) and `indexValue` (default: that ring's first
+  segment) choose the index angle. Without `data` they address the demo's rings `Day`, `Shift`,
+  `Team` (REQ-098).
+
+### 7.1 Composition: Dashboard
+
+| REQ | React | Vue | Angular selector | Own props |
+|---|---|---|---|---|
+| REQ-200 | `Dashboard` | `SpDashboard` | `sp-dashboard` | `DashboardProps` |
+| REQ-200 | `DashboardCell` | `SpDashboardCell` | `sp-dashboard-cell` | `cell?` |
+
+A declarative grid of cards (PRD §6.10). Charts are children; the layout is a data-only object
+matched to children by cell id (DD-013). It is not a builder: there are no placement
+coordinates, no `order`, no drag or resize.
+
+**Types** (public):
+
+```ts
+/** The three container breakpoints; their widths are fixed (TD DD-014). */
+export type DashboardBreakpoint = 'sm' | 'md' | 'lg';
+
+/** A value that may differ per breakpoint; a bare number applies to all three. */
+export type PerBreakpoint<T> = T | Partial<Record<DashboardBreakpoint, T>>;
+
+/** Serialisable layout (REQ-201). No functions, no DOM, no chart references. */
+export interface DashboardLayout {
+  /** Columns per breakpoint. Default `{ sm: 1, md: 2, lg: 4 }` (REQ-208). */
+  columns?: PerBreakpoint<number>;
+  /** Height of one row unit, in px, card chrome included. Default `240`. */
+  rowHeight?: number;
+  /** Gap between cells, in px. Default `16`. */
+  gap?: number;
+  /** Cells in reading order (REQ-203). Omitted: every child, span 1. */
+  cells?: readonly DashboardCellLayout[];
+}
+
+export interface DashboardCellLayout {
+  /** Matches `DashboardCell`'s `cell` prop; unique within the dashboard (REQ-205). */
+  id: string;
+  /** Default `1`. Clamped to the breakpoint's columns with `SP014` (REQ-204). */
+  colSpan?: PerBreakpoint<number>;
+  /** Default `1`. */
+  rowSpan?: PerBreakpoint<number>;
+}
+
+/** Link on a category key across the dashboard's charts (REQ-216). */
+export interface DashboardLink {
+  /** The datum field whose value is matched, e.g. `'hour'`. */
+  key: string;
+}
+
+/** Name is required by the type: `title` or `label` (REQ-214). */
+type DashboardName = { title: string; label?: string } | { title?: undefined; label: string };
+
+export type DashboardProps = DashboardName & {
+  /** Stable identifier; seeds of unnamed charts derive from it (REQ-209). Required. */
+  id: string;
+  layout?: DashboardLayout;
+  /** Long description, exposed as the region's description (REQ-214). */
+  description?: string;
+  /** Heading level of `title`. Default `2`. */
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+  /** Width in px used for nominal cell boxes on the server and at hydration (REQ-207). Default `1200`. */
+  ssrWidth?: number;
+  /** Linked interaction (REQ-216); client entry points only. */
+  link?: DashboardLink;
+
+  /** Inherited by every chart inside, below the chart's own prop (REQ-212). */
+  ground?: GroundRef;
+  substrate?: SubstrateName;
+  mode?: InkMode;
+  locale?: string;
+
+  className?: string;
+};
+
+export interface DashboardCellProps {
+  /** The layout cell this child fills. Omitted: next in source order, span 1. */
+  cell?: string;
+}
+```
+
+**`id` is required.** Charts may omit theirs because a single chart's derived id is harmless; in a
+dashboard, every unnamed chart's seed hangs off this id (REQ-209), so it must be stable and chosen
+by the consumer.
+
+**`id` is required.** Every unnamed chart's seed hangs off it (REQ-209), so it must be stable
+and chosen by the consumer. **`title` or `label` is required** by the type (REQ-214).
+
+**Resolved model** (internal surface, §2):
+
+```ts
+export interface DashboardModel {
+  readonly id: string;
+  /** In reading order. */
+  readonly cells: readonly ResolvedCell[];
+  /** The CSS custom properties of the wrapper, e.g. `--sp-dashboard-columns-md: 2`. */
+  readonly style: Readonly<Record<string, string>>;
+}
+
+export interface ResolvedCell {
+  readonly id: string;
+  /** Derived chart id: `${dashboard.id}--${cell.id}` (REQ-209). */
+  readonly chartId: string;
+  readonly span: Readonly<Record<DashboardBreakpoint, { col: number; row: number }>>;
+  /** Outer box at `ssrWidth`, 2 decimals (REQ-002, REQ-206). */
+  readonly nominal: { readonly width: number; readonly height: number };
+  /** The cell's CSS custom properties, e.g. `--sp-cell-col-lg: 2`. */
+  readonly style: Readonly<Record<string, string>>;
+}
+
+/** Pure; emits SP014 / SP015 through the diagnostics channel. */
+export function resolveDashboard(props: DashboardProps, childCells: readonly (string | undefined)[]): DashboardModel;
+
+/** The chart's width and drawing-area height inside a cell box, card chrome subtracted (REQ-206). */
+export function cellChartBox(cell: { width: number; height: number }, chartProps: CommonChartProps): { width: number; height: number };
+
+/** Items of `model` whose datum carries `value` under `key` (REQ-216, REQ-217). */
+export function linkedItems(model: ChartModel, key: string, value: unknown): readonly number[];
+```
+
+`childCells` is the `cell` prop of each child in source order — the only thing an adapter reads
+from its children, and something every framework can read synchronously during render.
+
+**Default values** (part of the contract, like §5.1):
+
+| Prop | Default | Note |
+|---|---|---|
+| `layout.columns` | `{ sm: 1, md: 2, lg: 4 }` | Collapses 4 → 2 → 1 (REQ-208) |
+| `layout.rowHeight` | `240` | 160 drawing area + the default card chrome, rounded up |
+| `layout.gap` | `16` | |
+| `colSpan`, `rowSpan` | `1` | |
+| `headingLevel` | `2` | |
+| `ssrWidth` | `1200` | Nominal boxes use the breakpoint `ssrWidth` falls in: `lg` at ≥ 1024, `md` at 640–1023, `sm` below (DD-015) |
+
+**Size precedence** of a chart inside a cell: its own `width`/`height` → the cell box from
+`cellChartBox` → the chart defaults.
+
+**By adapter.** React:
+
+```tsx
+import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
+import { KpiCard } from '@silverpoint/react/kpi-card';
+import { LineChart } from '@silverpoint/react/line-chart';
+import { BarChart } from '@silverpoint/react/bar-chart';
+
+const layout = {
+  columns: { sm: 1, md: 2, lg: 4 },
+  cells: [
+    { id: 'revenue' }, { id: 'users' }, { id: 'churn' }, { id: 'nps' },
+    { id: 'traffic', colSpan: { md: 2, lg: 3 }, rowSpan: 2 },
+    { id: 'errors' },
+  ],
+} satisfies DashboardLayout;
+
+<Dashboard id="ops" title="Operations" layout={layout} link={{ key: 'hour' }}>
+  <DashboardCell cell="revenue"><KpiCard title="Revenue" … /></DashboardCell>
+  …
+  <DashboardCell cell="traffic"><LineChart data={rows} xKey="hour" valueKey="hits" title="Traffic" /></DashboardCell>
+  <DashboardCell cell="errors"><BarChart data={errs} xKey="hour" valueKey="count" title="Errors" /></DashboardCell>
+</Dashboard>
+```
+
+`Dashboard` from `/server/dashboard` renders with no client JavaScript and rejects `link` by
+type. The client `Dashboard` renders a `"use client"` link boundary only when `link` is given
+(REQ-104 holds: no link, no client boundary).
+
+Vue:
+
+```vue
+<SpDashboard id="ops" title="Operations" :layout="layout" :link="{ key: 'hour' }">
+  <SpDashboardCell cell="traffic"><SpLineChart … /></SpDashboardCell>
+</SpDashboard>
+```
+
+Angular — signal inputs, `OnPush`, standalone (REQ-101); cell ids are read from
+`contentChildren`, available during server rendering:
+
+```html
+<sp-dashboard id="ops" title="Operations" [layout]="layout" [link]="{ key: 'hour' }">
+  <sp-dashboard-cell cell="traffic"><sp-line-chart … /></sp-dashboard-cell>
+</sp-dashboard>
+```
 
 ## 8. API by adapter
 
@@ -491,6 +693,10 @@ does not alter any signature in this specification.
 |---|---|---|---|---|
 | `onActiveChange` | `@active-change` | `activeChange` | `ActiveItem \| null` | The pointer enters or leaves an item, or keyboard focus moves (REQ-141) |
 | `onSelect` | `@select` | `select` | `ActiveItem` | Click, `Enter` or `Space` on an item |
+| `onLinkChange` | `@link-change` | `linkChange` | `{ key: string; value: unknown } \| null` | On a `Dashboard` with `link`: the linked value changes (REQ-216); `null` when the source clears (REQ-218) |
+
+Charts inside a linked dashboard keep their own `onActiveChange`; a linked mark is **not** an
+active item and fires no `onActiveChange` in the other charts.
 
 `onActiveChange` emits `null` when leaving the area or losing focus, leaving no residual
 state (REQ-143). The active item is resolved by the core as a pure function of position
@@ -529,6 +735,10 @@ SVG and the stylesheet. Overriding a variable re-themes without re-rendering (RE
 | `sp-grid` | `stroke` | `--sp-grid` |
 | `sp-axis` | `fill` | `--sp-text-muted` |
 
+The dashboard composition (§7.1) adds, on HTML elements: `dashboard` (the `section`),
+`dashboard-title` (the heading), `dashboard-description`, `dashboard-cell` (each `article`), and
+`linked` on a chart item under a linked mark (client only, REQ-219).
+
 ### 10.2 Public CSS custom properties
 
 ```css
@@ -551,6 +761,11 @@ SVG and the stylesheet. Overriding a variable re-themes without re-rendering (RE
 The exact values of the four substrates are fixed by the Data Model. Any variable not
 listed here is internal and may change in a minor version.
 
+The dashboard composition adds `--sp-dashboard-gap` (default `16px`, overrides `layout.gap`), and
+the variables the adapter writes from the resolved model: `--sp-dashboard-columns-sm/md/lg` on the
+wrapper, `--sp-cell-col-sm/md/lg` and `--sp-cell-row-sm/md/lg` on each cell. Container
+breakpoints are fixed in the stylesheet: `sm` < 640 px ≤ `md` < 1024 px ≤ `lg` (DD-014).
+
 **There is no monospace variable.** The system uses a single family: monospace is an
 invention of the typewriter and has no place in a Renaissance ground. What motivated its
 use —aligning figures— is solved by EB Garamond's `tnum` feature, verified present. Small
@@ -566,6 +781,11 @@ deterministic in any engine; the Google Fonts build of EB Garamond does not incl
 | Data points | Traversable with `Tab` and arrow keys; each announces series, category and value (REQ-122) |
 | Forced mode | `prefers-contrast: more` or `forced-colors: active` force `precision` (REQ-123) |
 | Motion | `prefers-reduced-motion: reduce` omits the entrance animation (REQ-125) |
+| Dashboard wrapper | `<section part="dashboard" aria-labelledby="{id}-title">`, `aria-describedby` when `description` is given; `aria-label` when only `label` is (REQ-214) |
+| Dashboard heading | `<h{headingLevel} id="{id}-title">` |
+| Dashboard cell | `<article part="dashboard-cell">` labelled by its chart's accessible name (REQ-214) |
+| Dashboard order | DOM order = reading order at every breakpoint (REQ-203); the dashboard adds no tab stop (REQ-215) |
+| Linked marks | `aria-hidden`; no live-region update (REQ-218) |
 
 `dataTable: 'none'` is only legitimate when the consumer supplies their own accessible
 alternative; the documentation says so and development mode warns about it.
@@ -578,7 +798,7 @@ production bundle; those with `error` severity are always thrown.
 | Code | Severity | Requirement | Condition |
 |---|---|---|---|
 | `SP001` | warn | REQ-007 | Empty dataset; the ground's empty state is drawn |
-| `SP002` | warn | REQ-008 | `null`, `undefined` or `NaN` value; the point is omitted from the stroke |
+| `SP002` | warn | REQ-008 | A value cannot be drawn as given — `null`, not finite, or outside the chart's data contract — so it is corrected or omitted. The generic message names no remedy; each chart states what happened and its own remedy in the diagnostic's specifics |
 | `SP003` | warn | REQ-009 | Zero-dimension container; the render is deferred |
 | `SP004` | warn | REQ-010 | Degenerate scale domain; it is expanded with `domainPadding` |
 | `SP005` | error (dev) / warn (prod) | REQ-025 | More than one item marked with heightening; the first one is applied |
@@ -589,6 +809,9 @@ production bundle; those with `error` severity are always thrown.
 | `SP010` | warn | REQ-091 | `ChordRing` above 12 categories |
 | `SP011` | warn | NFR §7 | Path byte budget exceeded; `hatchFill: 'tile'` or a larger gap is suggested |
 | `SP012` | error (CI) | REQ-127 | A ground does not reach the minimum contrast |
+| `SP014` | warn | REQ-204 | A dashboard cell spans more columns than a breakpoint has; clamped |
+| `SP015` | warn | REQ-205 | A dashboard's layout and children disagree (unknown cell, unplaced child, duplicate id); unmatched children rendered in source order, span 1 |
+| `SP016` | warn | REQ-217 | A chart in a linked dashboard has no field named by `link.key` |
 | `SP013` | warn | REQ-032 | The `@silverpoint/fonts` face failed to load; rendering fell back to the system stack and golden images will no longer match |
 
 Every diagnostic includes the chart name, the property involved and the `REQ-NNN` that
@@ -604,6 +827,10 @@ motivates it.
 | Path data per chart | 40 KB | `SP011` |
 | Weight of `@silverpoint/core` + `react` with one chart | 45 KB min+gzip | CI fails (REQ-164) |
 | Geometry computation, 100 points | 2 ms | The CI benchmark fails |
+| `dashboard` subpath, per adapter, over its one-chart budget | 2 KB min+gzip | CI fails (REQ-220) |
+| Cells per dashboard | 24 (advisory) | No diagnostic; documented guidance, rendered anyway |
+| Dashboard layout resolution, 24 cells | 0.5 ms | The CI benchmark fails |
+| Reference 12-card dashboard, server HTML | 480 KB | `tools/path-weight` fails the PR |
 
 ## 13. Versioning and deprecation
 
@@ -632,6 +859,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
+| 1.6 | 2026-09-25 | Deltas folded: `locale` default identical on server and client (003); `HeatmapChart.columnLabels` (006); `SP002` covers every value a chart cannot draw as given (007); how `OrbitChart` and `VolvelleChart` props read their data (009, 010); view props apply to the demo (011). §7.1 Dashboard composition with `onLinkChange`, parts, CSS variables, accessibility contract, `SP014`–`SP016` and budgets (feature-001). The media query forcing `precision` is stated as an override after resolution (Analyze A-06) |
 
 ## Constitution check
 
@@ -645,4 +873,6 @@ version.
   only way to register one.
 - **Art. 8** — §3.1 and §10 implement the consequence of not depending on Tailwind: the
   `Inker` emits shape without paint, and color enters through CSS by way of `part`.
+- **Art. 3** (v1.5) — §7.1 requires a dashboard `id` and derives chart ids from it, so the
+  wrapper and every chart inside are comparable across adapters.
 - **Requested exception:** none.

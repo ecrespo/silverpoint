@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.4 |
-| **Date** | 2026-09-13 |
-| **Related PRD** | [`prd.md`](prd.md) v1.7 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.5 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.4 |
+| **Version** | 1.5 |
+| **Date** | 2026-09-25 |
+| **Related PRD** | [`prd.md`](prd.md) v1.8 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -91,6 +91,10 @@ except the measured dimensions of the container.
 | `grounds` | `roughjs` | Declarative tokens, `RoughInker`, `styles.css` |
 | `react` | React 18.2+/19 | Translation to JSX; client/server boundaries |
 | `angular` | Angular, `ng-packagr` | Translation to template; signals and `OnPush` |
+| `core/dashboard` | in-house | `resolveDashboard` (defaults, span clamping, cell matching, chart ids, CSS variables, nominal boxes) and `cellChartBox` (cell box → chart size, reusing `cardLayout`'s chrome measure) |
+| `core/interaction/linked` | in-house | `linkedItems`: the items of a model whose datum matches a linked value |
+| Dashboard components | react, vue, angular | Call the core, write the wrapper, heading and variables; give the charts below the cell box, chart id and inherited config |
+| `.sp-dashboard` rules | `grounds` stylesheet | CSS Grid, the three `@container` breakpoints, gap and heading type from ground tokens |
 | `tools/svg-normalizer` | in-house | Canonical form for the string gate |
 | `tools/visual-gate` | Playwright | Art. 3 pixel gates |
 | `tools/lint-rules` | in-house ESLint | Forbids `Math.random`, `Date.now` and cross imports |
@@ -130,6 +134,24 @@ except the measured dimensions of the container.
 
 Every degradation is *fail-soft* except `SP009`, which is a programming error on the
 consumer's side and must break early and with a message that says what is missing.
+
+**Dashboard flow** (API Spec §7.1)
+
+```
+DashboardProps + [cell id of each child]  ──►  core.resolveDashboard  ──►  DashboardModel
+                                                                         │
+            adapter writes <section> + --sp-* vars; per cell <article>   │
+                         and a cell context { box, chartId, config } ◄───┘
+                                                                         │
+chart inside cell: id ?? chartId; size ?? core.cellChartBox(box, props) ─┘──► existing chart pipeline
+
+client only, when `link`:  chart A active item ─► dashboard link value (one reactive value)
+                           ─► each chart: core.linkedItems(model, key, value) ─► `part="linked"` marks
+```
+
+Degradation: a span wider than its breakpoint is clamped (`SP014`); layout and children that
+disagree are reconciled in source order (`SP015`); a linked chart without the key shows no mark
+(`SP016`). None throws.
 
 ## 4. Design Decisions
 
@@ -365,6 +387,82 @@ consumer's side and must break early and with a message that says what is missin
   being a principle and starts paying: the Vue adapter is the same translation written a
   third time, and none of the geometry, interaction or inking is touched.
 
+### DD-013: Composition by children, layout matched by cell id
+
+- **Decision:** charts are children (`<DashboardCell cell="traffic"><LineChart/></DashboardCell>`);
+  the layout is a separate, data-only object matched to children by `cell` id.
+- **Options:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. Children + layout by id (chosen)** | Each chart is imported by its own subpath (REQ-107 holds); the layout is JSON and becomes the fixture; framework-idiomatic | Two things to keep in step — mismatches are warned, never thrown (REQ-205) |
+| B. JSON cells naming chart types (`{ chart: 'LineChart', props }`) | One object describes everything (Highcharts, Grafana) | Needs a registry of all 33 charts, which defeats tree-shaking; props lose their per-chart types; functions (tooltip renderers) cannot live in JSON |
+| C. Coordinates (`row`, `col`, `x/y/w/h`) | Precise placement | Serves drag-and-drop, which is out of scope; lets visual order diverge from DOM order (WCAG 1.3.2) |
+
+### DD-014: CSS Grid with container queries, three fixed breakpoints
+
+- **Decision:** the wrapper is `display: grid; container-type: inline-size`. Columns and spans are
+  CSS variables written from the model; the stylesheet switches between the `sm`/`md`/`lg`
+  variables with `@container` at 640 px and 1024 px.
+- **Context:** `@container` conditions cannot read `var()`, so breakpoint widths cannot be
+  per-dashboard props; they are fixed and documented, while columns and spans per breakpoint stay
+  configurable.
+- **Rejected:** viewport media queries (a dashboard in a sidebar is narrow on a wide screen);
+  JS-measured placement or masonry (DOM measurement to place cells — REQ-202 — and a server render
+  that cannot match the client).
+- **No `order`, no `dense`, no line placement** (REQ-203): `grid-auto-flow: row`. A wide cell that
+  does not fit leaves a gap at the row end rather than pulling a later cell forward. The
+  documentation shows how to order cells to avoid gaps.
+
+### DD-015: Nominal boxes in the core; hydrate at nominal, then measure
+
+- **Decision:** the core computes each cell's box at `ssrWidth` for the `lg` breakpoint — when
+  `ssrWidth` is under 1024 px, for the breakpoint it falls in —
+  `width = (ssrWidth − gap·(cols−1)) / cols · span + gap·(span−1)`,
+  `height = rowHeight·rowSpan + gap·(rowSpan−1)`, 2 decimals. `cellChartBox` subtracts the chart's
+  card chrome (title, value, footers — already known to `cardLayout`) from the height.
+  The server and the hydration pass render at that box; after hydration, the chart's existing
+  container measurement takes over (REQ-207).
+- **Rejected:** requiring `width` on every chart in a server-rendered dashboard (unusable); scaling
+  one SVG by `viewBox` to fill the cell (scales text off the type scale of DD-010 and the 9.5 px
+  label rules, and breaks the golden images).
+- **Consequence:** a phone that receives a server render sees one re-render after hydration; the
+  first paint is still a correct chart, only at the nominal width. Documented, and `ssrWidth` lets
+  a mobile-first app choose `360`.
+
+### DD-016: Linked interaction — one value per dashboard, matching in the core
+
+- **Decision:** the dashboard holds one reactive value `{ key, value } | null`. A chart publishes
+  its active item's `datum[key]`; every other chart asks `linkedItems(model, key, value)` and marks
+  those items with `part="linked"`. Matching is by **value**, like Recharts' `syncMethod: 'value'`,
+  never by index — charts with different rows still line up, and a chart without the value shows
+  nothing (REQ-217).
+- **Why value, not index:** index matching is right only when every chart shares the same rows,
+  which a dashboard rarely does.
+- **Not an active item:** the linked mark fires no `onActiveChange`, no readout, and no
+  announcement (REQ-218); it is `aria-hidden` decoration over the chart.
+- **Client only** (REQ-219): the React server entry point rejects `link` by type; the Vue and
+  Angular server renders never hold a value.
+
+### DD-017: Parity extends to the wrapper markup
+
+- **Decision:** dashboard fixtures render wrapper + charts. The DD-004 tree comparison parses the
+  whole fragment (HTML wrapper and inline SVG) with the same parser and compares element names,
+  attributes (sorted) and text; numbers in `style` variables are compared at 2 decimals like
+  coordinates. No string normalisation is added.
+- **Pixel gates** run each dashboard fixture at three container widths — 375, 800, 1280 px — one
+  per breakpoint (REQ-211).
+- **Framework noise:** adapters must not emit comments or empty text nodes in the wrapper; the
+  existing rule that strips framework hydration markers from chart SVG is applied to the wrapper
+  too, and it is the only stripping allowed.
+
+### DD-018: No new package; `dashboard` subpath in each adapter
+
+- **Decision:** the code lives in the existing packages behind a `dashboard` subpath each.
+- **Why:** the six packages share one version (Changesets `fixed`), and a new package would need its
+  own trusted publisher before its first release; the dashboard depends on internals of each
+  adapter (chart context, measurement) that a separate package would have to make public.
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -374,6 +472,7 @@ silverpoint/
 ├── packages/
 │   ├── core/src/
 │   │   ├── types/          # the public types of API Spec §3
+│   │   ├── dashboard/      # resolveDashboard, cellChartBox, reference layouts (DD-013..DD-015)
 │   │   ├── scales/         # band, linear, time, radial
 │   │   ├── geometry/
 │   │   │   ├── cartesian/  # line, area, bar, stack, step, candlestick, waterfall
@@ -392,7 +491,7 @@ silverpoint/
 │   ├── vue/src/            # <script setup> SFCs, same props as react
 │   └── angular/src/
 ├── examples/{vite-react,nextjs,angular}/
-├── fixtures/               # the declared matrix of Art. 3, versioned
+├── fixtures/               # the declared matrix of Art. 3, versioned; fixtures/dashboard/ for compositions
 ├── tools/{svg-normalizer,visual-gate,lint-rules}/
 ├── docs/
 ├── specs/  changes/
@@ -422,7 +521,7 @@ Closes REQ-162. Any addition requires an amendment to this document.
 | `@silverpoint/grounds` | `@silverpoint/core`, `roughjs` |
 | `@silverpoint/react` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `react`, `react-dom` |
 | `@silverpoint/vue` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `vue` |
-| `@silverpoint/angular` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `@angular/core`, `@angular/common` |
+| `@silverpoint/angular` | `@silverpoint/core`, `@silverpoint/grounds`, `tslib` (the compiler helpers `ng-packagr` emits imports of); `peer`: `@angular/core`, `@angular/common` |
 | `@silverpoint/fonts` | none — only woff2 and CSS |
 
 Forbidden in all of them: `d3-selection` and any d3 module that touches the DOM. `d3-array`
@@ -468,6 +567,7 @@ developer doing the integration.
 | `SP008`, `SP010`, `SP011` | `core/charts`, `core/render` | Yes |
 | `SP009` | `core/charts` | No — always throws |
 | `SP012` | Contrast script in CI | Not applicable at runtime |
+| `SP014`–`SP016` | `core/dashboard`, `core/interaction` | Yes |
 
 The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what to do>. (REQ-NNN)`.
 
@@ -490,6 +590,18 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Bundler resolution | Vite dev and build | Vite plus resolution assertions | REQ-033, REQ-034: every subpath in both modes, stylesheet survives tree-shaking | Every PR |
 | Performance | Geometry and render | Vitest benchmarks | The 2 ms and 16 ms of §2 | Nightly |
 | Boundary rules | The whole repo | In-house ESLint | REQ-004 and REQ-106: no `Math.random`, no `Date.now`, no cross imports | Every PR |
+
+**Dashboard composition** (DD-013..DD-018) adds:
+
+| Level | What | REQ |
+|---|---|---|
+| Core unit | Defaults, clamping (`SP014`), mismatch (`SP015`), chart ids, nominal boxes, chrome subtraction, `linkedItems` with missing values, 24-cell benchmark | 201, 204–206, 208, 209, 216, 217 |
+| Adapter unit | Wrapper markup, variables, precedence of inherited config, name required by type (type test), no link on the server entry | 200, 212–214, 219 |
+| Parity (Node) | Parsed-tree gate on the dashboard fixtures, three adapters vs canonical | 210 |
+| Pixel (Docker) | Three widths per fixture | 211 |
+| E2E (four apps) | Hydration without mismatch, then measured re-render; axe; Tab order = reading order; linked marks appear and clear | 207, 215, 216, 218, 221 |
+| Budget | size-limit on each `dashboard` subpath; path-weight on the 12-card reference | 220, NFR |
+| Lint | No `order`/`dense`/`grid-row-start`/`grid-column-start` in the dashboard stylesheet | 203 |
 
 **Traceability (REQ-183).** Every test cites its requirement in the name:
 `test('REQ-006 · identical vertices between ink and precision', …)`. A CI script extracts
@@ -518,8 +630,11 @@ report that feeds the Analyze gate (REQ-184).
 | Ground typography | DD-010: EB Garamond, SIL OFL, three self-hosted cuts in `@silverpoint/fonts`; `tnum` verified present, `smcp` absent and replaced by uppercase with tracking; no monospace |
 | Area threshold for `<pattern>` | DD-007: there is no threshold. The tile per tonal level is the default, because a threshold would produce data-dependent inconsistency |
 | Robustness of the string gate | DD-004: string normalization is replaced by parsed-tree comparison, immune by construction to the three measured differences |
-| Angular versions | **21 and 22**. Angular 22 is the current stable (22.1.5, September 2026); two majors a year implies reviewing the floor every six months |
+| Angular versions | **21 and 22**. Angular 22 is the current stable (22.1.5, September 2026); two majors a year implies reviewing the floor every six months. Angular 22's compiler requires TypeScript 6.0, so the build uses TypeScript 6.x where that major requires it, and CI runs an Angular 22 consumer job (Constitution v1.5 stack table) |
 | `d3-array` | Out of the allowlist. It enters as a transitive of `d3-scale`, but `extent`, `max` and `min` are implemented in `core/scales/util` |
+
+| Dashboard heightening | One white heightening **per chart**, as Art. 6 says; the dashboard adds no cap and no diagnostic (decided 2026-09-25) |
+| Dashboard release | Ships in `0.2.0`; the line stays on `0.x` and `1.0.0` is not cut yet (decided 2026-09-25) |
 
 ### Open
 
@@ -530,6 +645,11 @@ report that feeds the Analyze gate (REQ-184).
       over bars and areas. The matrix families —contribution grid, density heatmap— have
       many small shapes instead of a few large ones, and the tile helps less there. They
       have to be measured in Phase 1, which is when they are implemented. *— Phase 1.*
+- [ ] **Shared hatch tiles across a dashboard.** DD-007 scopes tiles per instance (REQ-030); a
+      dashboard could share one `<defs>` across its cards and cut weight further, at the cost of
+      per-chart stroke variation. *— measure on the reference dashboard first.*
+- [ ] **Shared scales across a dashboard's cards** (Vega-Lite `resolve`). Needs a common domain
+      prop on the cartesian charts. *— PRD §5.3.*
 
 ---
 
@@ -541,13 +661,15 @@ report that feeds the Analyze gate (REQ-184).
 | 1.1 | 2026-09-13 | Ernesto Crespo | DD-004 moves to parsed-tree comparison; DD-007 moves to tile per tonal level with the measurements that motivate it; DD-010 (typography) enters; `d3-array` leaves the allowlist; Angular pinned to 21 and 22; the exception to Art. 6 is withdrawn |
 | 1.4 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: DD-012, DD-009 extended to cover it, DD-004 amended to compare against a canonical render instead of pairwise |
 | 1.3 | 2026-09-13 | Ernesto Crespo | DD-011 added: package resolution under a bundler, with Vite raised to a validated integration alongside Next.js |
+| 1.5 | 2026-09-25 | Ernesto Crespo | Deltas folded: `tslib` in the Angular allowlist (002); TypeScript 6.x for Angular 22 (001). Dashboard composition: DD-013..DD-018, components, flow, structure, tests and open questions (feature-001) |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check
 
 - **Art. 2** — DD-001 and the structure of §5.1 materialize it; the ESLint rule of §8 turns
   it into a gate.
-- **Art. 3** — DD-003 and DD-004 define how it is run, and §8 when.
+- **Art. 3** — DD-003 and DD-004 define how it is run, and §8 when; DD-017 extends it to the
+  dashboard's wrapper markup, as Constitution v1.5 requires.
 - **Art. 4** — DD-006 fixes the seed derivation and freezes it by SemVer.
 - **Art. 5** — §8 includes `axe-core` and the contrast script as PR gates.
 - **Art. 6** — met without exception. The tile of DD-007 still builds the tonal value with
