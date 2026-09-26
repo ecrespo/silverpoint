@@ -10,8 +10,12 @@ export const GEOMETRY_BUDGET_MS = 2;
 /** PRD NFR Performance: full initial render of a card, inking included, in < 16 ms (one frame). */
 export const RENDER_BUDGET_MS = 16;
 
-/** Render benchmarks are named `render · <Chart>`; every other one times geometry. */
-const budgetOf = (name: string) => (name.startsWith('render · ') ? RENDER_BUDGET_MS : GEOMETRY_BUDGET_MS);
+/** API Spec §12: resolving the layout of a 24-cell dashboard in < 0.5 ms. */
+export const DASHBOARD_BUDGET_MS = 0.5;
+
+/** Render benchmarks are named `render · <Chart>`, dashboard ones `dashboard · …`; every other one times geometry. */
+const budgetOf = (name: string) =>
+  name.startsWith('render · ') ? RENDER_BUDGET_MS : name.startsWith('dashboard · ') ? DASHBOARD_BUDGET_MS : GEOMETRY_BUDGET_MS;
 
 interface Latency {
   readonly mean: number;
@@ -46,7 +50,7 @@ export function benchReport(json: BenchJson): BenchReport {
     .map((task) => ({ name: task.name, mean: task.latency.mean, p99: task.latency.p99, samplesCount: task.latency.samplesCount }))
     .sort((a, b) => b.mean - a.mean);
   const over = rows.filter((r) => r.mean > budgetOf(r.name)).map((r) => r.name);
-  const head = `# Performance benchmarks — TD §2\n\nBudgets (PRD NFR Performance): ${GEOMETRY_BUDGET_MS} ms of geometry for a 100-point chart; ${RENDER_BUDGET_MS} ms for the full initial render of a card, inking included (\`render · …\`). Reported, not enforced.\n\n`;
+  const head = `# Performance benchmarks — TD §2\n\nBudgets (PRD NFR Performance, API Spec §12): ${GEOMETRY_BUDGET_MS} ms of geometry for a 100-point chart; ${RENDER_BUDGET_MS} ms for the full initial render of a card, inking included (\`render · …\`); ${DASHBOARD_BUDGET_MS} ms to resolve a 24-cell dashboard (\`dashboard · …\`). Reported, not enforced.\n\n`;
   if (rows.length === 0) return { rows, over, markdown: `${head}No benchmark results in this run.\n` };
   const table = [
     '| Benchmark | mean (ms) | p99 (ms) | samples | budget | verdict |',

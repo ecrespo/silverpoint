@@ -83,10 +83,17 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   test covers the 33 catalog charts × 7 card options × 2 cell sizes. **Mutation:** chrome not
   subtracted → 3 tests red.
 
-**[ ] T-109 · Reference layouts and benchmark** — REQ-201, NFR `[P]`
+**[x] T-109 · Reference layouts and benchmark** — REQ-201, NFR `[P]`
 - `kpi-strip`, `ops`, `mixed-spans` frozen in `packages/core/src/dashboard/demo.ts` (I-9 extended).
 - Benchmark: 24 cells < 0.5 ms in `packages/grounds/bench`.
 - **Done:** benchmark in the nightly report.
+- *Closed 2026-09-26.* `DASHBOARD_DEMOS` (kpi-strip 5, ops 12, mixed-spans 7) are plain data,
+  deep-frozen: each child names its catalog chart and props, never rows. Data Model §4 lists 11
+  charts for ops's "12 cards"; the twelfth is a `MeterChart` (capacity). Tests: every reference
+  cell resolves and renders at its nominal height with no diagnostic; mixed-spans leaves a row-end
+  gap at `md` in layout order. Benchmark `packages/grounds/bench/dashboard.bench.ts`; the nightly
+  report holds `dashboard · …` to 0.5 ms (tested first). Local run: 24 cells 0.027 ms, ops 0.014 ms.
+  **5a closed.**
 
 ### 5b — Adapters
 

@@ -8,6 +8,7 @@ import {
   __setDiagnosticSink,
   cellChartBox,
   DASHBOARD_DEFAULTS,
+  DASHBOARD_DEMOS,
   kpiCard,
   lineChart,
   perBreakpoint,
@@ -344,5 +345,69 @@ describe('nominal boxes and cellChartBox (T-108)', () => {
         }
       }
     }
+  });
+});
+
+describe('reference dashboards (T-109)', () => {
+  const context: RecipeContext = { id: 'sp-t109', width: 320, locale: 'en', emptyState: { text: 'No data', rule: true }, domainPadding: 0.1 };
+  const byName = new Map(CATALOG.map((entry) => [entry.chart, entry.recipe]));
+
+  /** Where each cell of a rowSpan-1 layout lands under `grid-auto-flow: row` with `cols` columns. */
+  function rowEndGaps(spans: readonly number[], cols: number): number {
+    let gaps = 0;
+    let used = 0;
+    for (const span of spans) {
+      if (used + span > cols) {
+        gaps += cols - used;
+        used = 0;
+      }
+      used += span;
+    }
+    return gaps;
+  }
+
+  test('Data Model §4 · three reference dashboards: kpi-strip (5 cells), ops (12), mixed-spans (7)', () => {
+    expect(Object.keys(DASHBOARD_DEMOS)).toEqual(['kpi-strip', 'ops', 'mixed-spans']);
+    expect(DASHBOARD_DEMOS['kpi-strip'].children).toHaveLength(5);
+    expect(DASHBOARD_DEMOS.ops.children).toHaveLength(12);
+    expect(DASHBOARD_DEMOS['mixed-spans'].children).toHaveLength(7);
+  });
+
+  test('Data Model §4 · ops holds the DD-007 card mix, links on hour, and names catalog charts only', () => {
+    const charts = DASHBOARD_DEMOS.ops.children.map((c) => c.chart);
+    expect(charts.filter((c) => c === 'KpiCard')).toHaveLength(4);
+    for (const chart of ['LineChart', 'BarChart', 'HeatmapChart', 'DonutChart', 'SparklineRows', 'ActivityGrid', 'GaugeArc']) expect(charts).toContain(chart);
+    expect(DASHBOARD_DEMOS.ops.props.link).toEqual({ key: 'hour' });
+    for (const demo of Object.values(DASHBOARD_DEMOS)) for (const child of demo.children) expect(byName.has(child.chart), child.chart).toBe(true);
+  });
+
+  test('REQ-201 · I-9 · the reference dashboards are data only, and frozen all the way down', () => {
+    const frozen = (value: unknown): boolean => value === null || typeof value !== 'object' || (Object.isFrozen(value) && Object.values(value).every(frozen));
+    expect(frozen(DASHBOARD_DEMOS)).toBe(true);
+    expect(JSON.parse(JSON.stringify(DASHBOARD_DEMOS))).toEqual(DASHBOARD_DEMOS);
+  });
+
+  test('REQ-205 · REQ-206 · each resolves and renders every cell without a diagnostic', () => {
+    const seen = capture();
+    for (const demo of Object.values(DASHBOARD_DEMOS)) {
+      const model = resolveDashboard(demo.props, demo.children.map((c) => c.cell));
+      expect(model.cells).toHaveLength(demo.children.length);
+      for (const cell of model.cells) {
+        const child = demo.children[cell.child]!;
+        const recipe = byName.get(child.chart)!;
+        const box = cellChartBox(cell.nominal, child.props, recipe);
+        const built = recipe.build({ ...child.props, ...box }, { ...context, id: cell.chartId, width: box.width });
+        expect(built.geometry.viewBox.height, `${demo.props.id} ${cell.id}`).toBe(cell.nominal.height);
+      }
+    }
+    expect(seen).toEqual([]);
+  });
+
+  test('REQ-203 · mixed-spans leaves a row-end gap at md and keeps its order', () => {
+    capture();
+    const demo = DASHBOARD_DEMOS['mixed-spans'];
+    const model = resolveDashboard(demo.props, demo.children.map((c) => c.cell));
+    expect(model.cells.map((c) => c.id)).toEqual(demo.props.layout!.cells!.map((c) => c.id));
+    expect(rowEndGaps(model.cells.map((c) => c.span.md.col), 2)).toBeGreaterThan(0);
   });
 });

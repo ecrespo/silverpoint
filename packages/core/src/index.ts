@@ -90,3 +90,4 @@ export { bubbleChart } from './charts/bubble-chart/bubble-chart';
 export type * from './dashboard/types';
 export { DASHBOARD_DEFAULTS, perBreakpoint, resolveLayout } from './dashboard/defaults';
 export { breakpointOf, cellChartBox, resolveDashboard } from './dashboard/resolve';
+export { DASHBOARD_DEMOS, type DashboardDemo, type DashboardDemoChild } from './dashboard/demo';

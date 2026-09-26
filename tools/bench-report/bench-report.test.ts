@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { benchReport, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS } from './bench-report';
+import { benchReport, DASHBOARD_BUDGET_MS, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS } from './bench-report';
 
 /** The shape `vitest bench --reporter=json` writes: each test case carries its benchmarks. */
 const run = (means: Record<string, number>) => ({
@@ -38,5 +38,12 @@ describe('bench report (TD §2, run nightly)', () => {
     expect(report.over.sort()).toEqual(['LineChart', 'render · WindRose']);
     expect(report.markdown).toContain('| render · DonutChart | 9.500 | 19.000 | 500 | 16 ms | within |');
     expect(report.markdown).toContain('| LineChart | 2.500 | 5.000 | 500 | 2 ms | **over** |');
+  });
+
+  test('API Spec §12 · resolving a 24-cell dashboard is held to 0.5 ms (T-109)', () => {
+    expect(DASHBOARD_BUDGET_MS).toBe(0.5);
+    const report = benchReport(run({ 'dashboard · resolve 24 cells': 0.6, 'dashboard · resolve ops': 0.1 }));
+    expect(report.over).toEqual(['dashboard · resolve 24 cells']);
+    expect(report.markdown).toContain('| dashboard · resolve ops | 0.100 | 0.200 | 500 | 0.5 ms | within |');
   });
 });
