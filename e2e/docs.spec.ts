@@ -67,6 +67,27 @@ test.describe('documentation site', () => {
     expect(errors).toEqual([]);
   });
 
+  test('REQ-028 · the ground playground switches to cyanotype: Prussian blue, tone by weight, no hatching', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/playground');
+    const svg = page.locator('main svg.sp-chart');
+    await page.getByLabel('Chart', { exact: true }).selectOption('StackedBarChart');
+    await page.getByLabel('Ground', { exact: true }).selectOption('cyanotype');
+    await expect(svg).toHaveClass(/sp-ground-cyanotype/);
+    await expect(svg).toHaveAttribute('data-substrate', 'prussian');
+    await expect(page.getByLabel('Substrate', { exact: true }).locator('option')).toHaveText(['prussian']);
+    await expect(page.getByLabel('Hatch fill', { exact: true })).toBeDisabled();
+    await expect(svg.locator('pattern')).toHaveCount(0);
+    await expect(svg.locator('path[data-weight]').first()).toBeVisible();
+    // Painted by the ground's variables: the substrate is Prussian blue.
+    expect(await svg.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgb(27, 63, 107)');
+    await expect(page.locator('main pre')).toContainText('ground="cyanotype"');
+    await page.getByLabel('Ground', { exact: true }).selectOption('silverpoint');
+    await expect(svg).toHaveAttribute('data-substrate', 'cream');
+    await expect(svg.locator('pattern').first()).toBeAttached();
+    expect(errors).toEqual([]);
+  });
+
   test('PRD §5.1 · a chart page draws the chart and lists its own props from the types', async ({ page }) => {
     await page.goto('/#/chart/donut-chart');
     await expect(page.locator('h2')).toHaveText('DonutChart');
