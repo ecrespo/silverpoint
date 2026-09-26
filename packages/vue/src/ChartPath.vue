@@ -11,6 +11,7 @@ defineProps<{ path: PathView }>();
     :data-role="path.role"
     :data-paint="path.paint"
     :data-dash="path.dash ?? undefined"
+    :data-weight="path.weight ?? undefined"
     :fill="path.fill ?? undefined"
   />
 </template>

@@ -36,6 +36,8 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('%s', (_name, 
     'demo, precision': { ...fixed, mode: 'precision' },
     'consumer data': { ...fixed, ...entry.sample },
     bare: { ...fixed, chrome: 'bare' },
+    // REQ-028: a weight ground's toned shapes carry `data-weight`, which the template must map.
+    cyanotype: { ...fixed, ground: 'cyanotype' },
   } as const;
 
   test('REQ-100 · the client component is exported from the package root', () => {

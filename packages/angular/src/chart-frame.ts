@@ -57,6 +57,7 @@ import type { RenderedChart } from '@silverpoint/grounds';
                     [attr.data-role]="path.role"
                     [attr.data-paint]="path.paint"
                     [attr.data-dash]="path.dash"
+                    [attr.data-weight]="path.weight"
                     [attr.fill]="path.fill"
                   />
                 }
@@ -71,6 +72,7 @@ import type { RenderedChart } from '@silverpoint/grounds';
             [attr.data-role]="path.role"
             [attr.data-paint]="path.paint"
             [attr.data-dash]="path.dash"
+            [attr.data-weight]="path.weight"
             [attr.fill]="path.fill"
           />
         }

@@ -23,6 +23,8 @@ describe.each(AFTER_LINE_CHART.map((e) => [`sp-${e.slug}`, e] as const))('%s', (
     'demo, precision': { ...fixed, mode: 'precision' },
     'consumer data': { ...fixed, ...entry.sample },
     bare: { ...fixed, chrome: 'bare' },
+    // REQ-028: a weight ground's toned shapes carry `data-weight`, which the template must map.
+    cyanotype: { ...fixed, ground: 'cyanotype' },
   } as const;
 
   test.each(Object.entries(variants))('REQ-100 · server-rendered, %s: identical to the canonical render', async (_v, props) => {
