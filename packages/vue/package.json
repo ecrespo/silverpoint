@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/vue",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Vue 3 adapter of silverpoint: <script setup> components that translate core geometry into nodes.",
   "license": "MIT",
   "type": "module",

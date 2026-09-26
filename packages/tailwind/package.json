@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/tailwind",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Optional. A Tailwind preset naming silverpoint's public --sp- variables as theme tokens, for Tailwind 4 (theme.css) and 3.4 (JS preset). No dependencies.",
   "license": "MIT",
   "type": "module",
