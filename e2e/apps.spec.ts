@@ -78,7 +78,7 @@ test.describe('example apps', () => {
     expect(await tiled.evaluate((el) => getComputedStyle(el).fill)).toMatch(/url\(/);
   });
 
-  test('REQ-103 · REQ-109 · server-rendered apps ship the chart in the HTML and hydrate with no mismatch', async ({ page, request }, info) => {
+  test('REQ-103 · REQ-109 · REQ-222 · server-rendered apps ship the chart in the HTML and hydrate with no mismatch', async ({ page, request }, info) => {
     test.skip(!appOf(info.project.name).ssr, 'client-rendered app');
     const html = await (await request.get('/')).text();
     expect(html).toMatch(/<svg[^>]*class="sp-chart/);
@@ -90,7 +90,8 @@ test.describe('example apps', () => {
     await page.waitForFunction(() => document.documentElement.dataset.hydrated === 'true');
     const hydrated = await page.locator('.sp-harness svg.sp-chart').evaluate((el) => el.outerHTML);
     expect(compareSvg(hydrated, demoCanonical), 'after hydration').toEqual({ equal: true });
-    expect(messages.filter((m) => /hydrat|mismatch|did not match/i.test(m))).toEqual([]);
+    // Angular's production hydration errors are coded NG05xx (NG0500 a node mismatch).
+    expect(messages.filter((m) => /hydrat|mismatch|did not match|NG05\d\d/i.test(m))).toEqual([]);
   });
 
   test('REQ-042 · overriding --sp-ink in a consumer stylesheet recolours without re-rendering', async ({ page }) => {

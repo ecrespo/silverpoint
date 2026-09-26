@@ -8,7 +8,7 @@ export const APPS = {
   'vite-react': { port: 4101, framework: 'React', ssr: false },
   'vite-vue': { port: 4102, framework: 'Vue', ssr: true },
   nextjs: { port: 4103, framework: 'React', ssr: true },
-  angular: { port: 4104, framework: 'Angular', ssr: false },
+  angular: { port: 4104, framework: 'Angular', ssr: true },
 } as const;
 
 export type AppName = keyof typeof APPS;

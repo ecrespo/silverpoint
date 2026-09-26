@@ -32,7 +32,7 @@ test.describe('the reference dashboard page', () => {
     expect(errors).toEqual([]);
   });
 
-  test('REQ-221 · REQ-207 · REQ-103 · REQ-109 · a server-rendered dashboard ships its charts and hydrates with no mismatch, then fits its cells', async ({ page, request }, info) => {
+  test('REQ-221 · REQ-207 · REQ-103 · REQ-109 · REQ-222 · a server-rendered dashboard ships its charts and hydrates with no mismatch, then fits its cells', async ({ page, request }, info) => {
     test.skip(!appOf(info.project.name).ssr, 'client-rendered app');
     const html = await (await request.get('/dashboard')).text();
     expect(html).toMatch(/<section[^>]*class="sp-dashboard/);
@@ -45,7 +45,7 @@ test.describe('the reference dashboard page', () => {
     await page.goto('/dashboard');
     await page.waitForFunction(() => document.documentElement.dataset.hydrated === 'true');
     await ready(page);
-    expect(messages.filter((m) => /hydrat|mismatch|did not match/i.test(m))).toEqual([]);
+    expect(messages.filter((m) => /hydrat|mismatch|did not match|NG05\d\d/i.test(m))).toEqual([]);
     // Then measured: at 800 px the dashboard is md, two columns; every chart is as wide as its card.
     await expect
       .poll(() =>

@@ -11,5 +11,5 @@
     "outDir": "out-tsc"
   },
   "angularCompilerOptions": { "strictTemplates": true },
-  "files": ["src/main.ts"]
+  "files": ["src/main.ts", "src/main.server.ts", "src/server.ts"]
 }
