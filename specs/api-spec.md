@@ -6,9 +6,9 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.7 |
+| **API version** | v1.8 |
 | **Date** | 2026-09-26 |
-| **Related PRD** | [`prd.md`](prd.md) v1.9 |
+| **Related PRD** | [`prd.md`](prd.md) v1.10 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
 | **Surface** | npm packages — there is no network API |
 
@@ -42,6 +42,7 @@ that the Analyze gate does not read it as an omission:
 | `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common` |
 | `@silverpoint/vue` | Vue 3 components authored with `<script setup>` | `peer`: `vue` |
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
+| `@silverpoint/tailwind` | **Optional.** A Tailwind preset naming the public `--sp-` variables as theme tokens (§10.4, REQ-047) | none, not even a peer |
 
 Every chart is importable by subpath, so that an app using one does not drag in all 33
 (REQ-107):
@@ -854,6 +855,31 @@ deterministic in any engine; the Google Fonts build of EB Garamond does not incl
 `dataTable: 'none'` is only legitimate when the consumer supplies their own accessible
 alternative; the documentation says so and development mode warns about it.
 
+### 10.4 Tailwind preset (`@silverpoint/tailwind`, optional)
+
+For a consumer who already uses Tailwind (REQ-047). It names the public variables of §10.2; the
+values stay in `@silverpoint/grounds`, so the utilities follow the chart's ground, substrate and any
+override. It has no dependencies and no peers: Tailwind is never required (Art. 8, REQ-043).
+
+```css
+/* Tailwind 4 */
+@import 'tailwindcss';
+@import '@silverpoint/tailwind/theme.css';
+```
+
+```js
+// Tailwind 3.4
+export default { presets: [require('@silverpoint/tailwind')] };
+```
+
+| Utility family | Tokens | Variable |
+|---|---|---|
+| Colour (`bg-`, `text-`, `border-`, …) | `sp-substrate`, `sp-ink`, `sp-ink-secondary`, `sp-heighten`, `sp-rule`, `sp-grid`, `sp-text`, `sp-text-muted` | `--sp-<token>` |
+| Font | `font-sp-display` | `--sp-font-display` |
+| Radius | `rounded-sp` | `--sp-radius` |
+
+Under Tailwind 3.4 a variable colour takes no opacity modifier (`bg-sp-ink/50`); under 4 it does.
+
 ## 11. Catalog of errors and warnings
 
 Stable codes, part of the public surface. Those with `warn` severity are stripped from the
@@ -923,6 +949,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
+| 1.8 | 2026-09-26 | Delta-013: `@silverpoint/tailwind` in §1 and §10.4 |
 | 1.7 | 2026-09-26 | Delta-012: `ToneSpec` gains the `weight` variant and `Ground` shows its `tonalRamp`; the built-in grounds table adds `cyanotype` with `WeightInker`; a toned shape's tonal weight level is written as `data-weight` (§10.1) with `--sp-weight-1..4` (§10.2) — an internal stroke field, distinct from `Stroke.weight`; REQ-220's allowance is 3 KB for Angular (§12) |
 | 1.6 | 2026-09-25 | Deltas folded: `locale` default identical on server and client (003); `HeatmapChart.columnLabels` (006); `SP002` covers every value a chart cannot draw as given (007); how `OrbitChart` and `VolvelleChart` props read their data (009, 010); view props apply to the demo (011). §7.1 Dashboard composition with `onLinkChange`, parts, CSS variables, accessibility contract, `SP014`–`SP016` and budgets (feature-001). The media query forcing `precision` is stated as an override after resolution (Analyze A-06) |
 

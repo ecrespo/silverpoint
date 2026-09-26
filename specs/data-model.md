@@ -9,8 +9,8 @@
 | **Version** | 1.5 |
 | **Date** | 2026-09-26 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.6 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.7 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input

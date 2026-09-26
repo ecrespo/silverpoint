@@ -6,7 +6,7 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.9 |
+| **Version** | 1.10 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
 | **Last updated** | 2026-09-26 |
@@ -224,7 +224,7 @@ citing it (Constitution, Art. 9). Retired identifiers are not reused.
 | REQ-044 | event | WHEN a ground is added, THE SYSTEM SHALL NOT require changes to the code of any chart; verifiable because the PR does not touch `packages/core/src/charts/**`. | MUST |
 | REQ-045 | unwanted | IF an unregistered ground is requested, THEN THE SYSTEM SHALL use `silverpoint`, warn in development and continue. | MUST |
 | REQ-046 | ubiquitous | The `silverpoint` ground SHALL offer at least four historical prepared substrates: cream, grey-green, pale blue and ochre. | MUST |
-| REQ-047 | optional | WHERE the consumer uses Tailwind, THE SYSTEM MAY offer an optional preset in a separate package that maps the `--sp-` variables to theme tokens, without the core depending on it. | COULD |
+| REQ-047 | optional | WHERE the consumer uses Tailwind, THE SYSTEM MAY offer an optional preset in a separate package that maps the `--sp-` variables to theme tokens, without the core depending on it. The preset is `@silverpoint/tailwind`. | COULD |
 
 ### 6.4 Chart catalog
 
@@ -329,7 +329,7 @@ Cross-cutting catalog requirements:
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-160 | ubiquitous | THE SYSTEM SHALL be published as `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/react`, `@silverpoint/angular`, `@silverpoint/vue` and `@silverpoint/fonts` (optional). | MUST |
+| REQ-160 | ubiquitous | THE SYSTEM SHALL be published as `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/react`, `@silverpoint/angular`, `@silverpoint/vue`, `@silverpoint/fonts` (optional) and `@silverpoint/tailwind` (optional). | MUST |
 | REQ-161 | ubiquitous | React, Angular and Vue SHALL be declared as `peerDependencies`, never as dependencies. | MUST |
 | REQ-162 | ubiquitous | `@silverpoint/core` SHALL NOT declare runtime dependencies outside the Technical Design's allowlist. | MUST |
 | REQ-163 | ubiquitous | Every package SHALL publish an `exports` map, types, and `sideEffects: false` except for the stylesheet. | MUST |
@@ -582,6 +582,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.10 | 2026-09-26 | Ernesto Crespo | Delta-013: REQ-047 names `@silverpoint/tailwind`; REQ-160 lists it (optional) |
 | 1.9 | 2026-09-26 | Ernesto Crespo | Delta-012: every "v1" target becomes `0.2.0` (the line stays on `0.x`); `cyanotype` enters scope and REQ-028 names it; REQ-222 (Angular CLI SSR hydration) enters; REQ-220 gives each adapter an allowance, 3 KB for Angular; REQ-221 names the three server-rendered apps |
 | 1.8 | 2026-09-25 | Ernesto Crespo | Deltas folded: REQ-108 admits the active item as Vue component state (delta-004); Vue 3.5+ and TypeScript 6.x where required (deltas 001, 005); REQ-098 and REQ-099 (view props apply to the demo, delta-011); §6.10 Dashboard composition, REQ-200..REQ-221, with the §5.2 scope amendment (feature-001) |
 | 1.7 | 2026-09-13 | Ernesto Crespo | Vue added as a third supported framework: REQ-108 and REQ-109 enter, `@silverpoint/vue` joins REQ-160 and REQ-161, REQ-100 reformulated against a canonical render |

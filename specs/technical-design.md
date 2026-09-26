@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.6 |
+| **Version** | 1.7 |
 | **Date** | 2026-09-26 |
-| **Related PRD** | [`prd.md`](prd.md) v1.9 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
+| **Related PRD** | [`prd.md`](prd.md) v1.10 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
@@ -514,6 +514,28 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
   declares its colours on the ground-wide rule, so an unnamed or foreign `substrate` still
   paints it.
 
+### DD-020: The Tailwind preset — a package of names, with no dependencies
+
+- **Decision:** `@silverpoint/tailwind` is a seventh package in the `fixed` group. It has two
+  entry points: `theme.css` (`@theme inline`, Tailwind 4) and a JS preset (`theme.extend`,
+  Tailwind 3.4). Both are generated from, or held equal to, one mapping in `src/tokens.ts`. It
+  declares no `dependencies` and no `peerDependencies`, and no package depends on it.
+- **Context:** REQ-047 wants the preset "in a separate package … without the core depending on
+  it". Art. 8 and REQ-043 forbid requiring Tailwind, and the Phase 0 exit criterion was "no Tailwind
+  anywhere in the dependency tree".
+- **Alternatives:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. Separate package, names only, no peers (chosen)** | Nothing reaches a consumer who does not install it; the values stay in the grounds, so variable overrides and ground switches keep working | One more package to publish, with its own trusted publisher |
+| B. A subpath of `@silverpoint/grounds` | No new package | Every grounds consumer would ship Tailwind-shaped files, and REQ-047 says "separate package" |
+| C. Copy the colours into the preset | Works with opacity modifiers under 3.4 | Two sources for one palette, against Art. 7 and the contrast gate; overrides and grounds would stop reaching the utilities |
+
+- **Consequences:** under 3.4 a variable colour takes no opacity modifier. The tests compile both
+  entry points with real Tailwind, as dev-dependencies of the tests only. The first version is
+  published by hand, so that npm knows the name and its trusted publisher can be set; CI publishes
+  every later version (§9).
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -713,6 +735,7 @@ report that feeds the Analyze gate (REQ-184).
 | 1.1 | 2026-09-13 | Ernesto Crespo | DD-004 moves to parsed-tree comparison; DD-007 moves to tile per tonal level with the measurements that motivate it; DD-010 (typography) enters; `d3-array` leaves the allowlist; Angular pinned to 21 and 22; the exception to Art. 6 is withdrawn |
 | 1.4 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: DD-012, DD-009 extended to cover it, DD-004 amended to compare against a canonical render instead of pairwise |
 | 1.3 | 2026-09-13 | Ernesto Crespo | DD-011 added: package resolution under a bundler, with Vite raised to a validated integration alongside Next.js |
+| 1.7 | 2026-09-26 | Ernesto Crespo | Delta-013: DD-020, the Tailwind preset package |
 | 1.6 | 2026-09-26 | Ernesto Crespo | Delta-012: DD-019 (the `weight` tonal mechanism, `WeightInker`, `data-weight`); DD-002 names the second inker; DD-018 records the measured dashboard cost per adapter; hydration tests cover the Angular CLI SSR app (REQ-222); `0.2.0` scope in §10 |
 | 1.5 | 2026-09-25 | Ernesto Crespo | Deltas folded: `tslib` in the Angular allowlist (002); TypeScript 6.x for Angular 22 (001). Dashboard composition: DD-013..DD-018, components, flow, structure, tests and open questions (feature-001) |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |

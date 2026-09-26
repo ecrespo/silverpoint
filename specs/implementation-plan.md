@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.5 |
+| **Version** | 1.6 |
 | **Date** | 2026-09-26 |
-| **PRD** | [`prd.md`](prd.md) v1.9 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.6 |
+| **PRD** | [`prd.md`](prd.md) v1.10 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.7 |
 | **Data Model** | [`data-model.md`](data-model.md) v1.5 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
 
 ---
 
@@ -174,6 +174,7 @@ the demo ignores).
 | 5d | Example apps: hydration, axe, reading order | Four apps green |
 | 5e | Linked interaction (SHOULD) | May slip to a later minor without blocking 5f |
 | 5f | Docs, budgets, changeset | `0.2.0` from CI |
+| 5h | Delta-013: `@silverpoint/tailwind`, the optional preset (REQ-047) | Both Tailwind majors compile its utilities; first version published by hand, then by CI |
 | 5g | Delta-012: the `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222) | Tree and pixel gates green with `cyanotype`; four apps hydrate |
 
 **Done criteria**
@@ -245,6 +246,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.6 | 2026-09-26 | Ernesto Crespo | Step 5h (delta-013): the Tailwind preset package |
 | 1.5 | 2026-09-26 | Ernesto Crespo | Step 5g (delta-012): the `cyanotype` ground, REQ-220 per adapter and Angular CLI SSR join `0.2.0` |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Phase 5 added: dashboard composition and the demo rule, released in `0.2.0`; Phase 4's `1.0.0` criterion recorded as deferred by decision |
 | 1.3 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: Phase 0 covers all three, effort revised to 19-26 weeks, a fourth example app |
