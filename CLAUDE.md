@@ -93,16 +93,14 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
 | Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
 | Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |
-| Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
+| Release | ✅ **0.2.0** on npm (2026-09-26), all seven packages (`@silverpoint/tailwind` new; its 0.1.1 was published by hand to register the name), from CI with provenance |
 
 Where things stand:
 
-- **Published:** `@silverpoint/*@0.1.1`, tag `v0.1.1`. `develop` is ahead of `main` by
-  delta-011, feature-001 and delta-012 (unreleased).
-- **Next release: `0.2.0`, ready and not published.** It carries delta-011 (the demo applies view
-  props), feature-001 (the Dashboard composition, with linked charts) and delta-012 (the `cyanotype`
-  ground, REQ-220 per adapter, Angular CLI SSR) and delta-013 (`@silverpoint/tailwind`), each change with its changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
-  `push develop:main`). Publishing is the user's call. `1.0.0` stays parked.
+- **Published:** `@silverpoint/*@0.2.0`, tag `v0.2.0` (2026-09-26): delta-011, feature-001,
+  delta-012 and delta-013, released from `main` at `bae8132`. Every package, `tailwind`
+  included, has its npm trusted publisher, so the next release is the steps above and nothing else.
+  `1.0.0` stays parked.
 - **Dashboard decisions to know.**
   - React hands a cell's context to its chart as a prop (`cloneElement`), because a React context
     would need a client boundary; Vue uses `provide`/`inject`; Angular uses the `SP_DASHBOARD_CELL`
