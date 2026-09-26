@@ -56,18 +56,32 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   optional; bare number ignored by `perBreakpoint`; `md` default 3. CI: unit 2877, gates 311, pixel
   1068 (Docker), e2e 509. Changeset `.changeset/dashboard-layout-types.md` (`minor`).
 
-**[ ] T-107 · `resolveDashboard`: matching, clamping, ids** — REQ-203, REQ-204, REQ-205, REQ-209
+**[x] T-107 · `resolveDashboard`: matching, clamping, ids** — REQ-203, REQ-204, REQ-205, REQ-209
 - Tests (RED first): the four matching rules of Data Model §2.13; `colSpan: 5` at `lg 4` → 4 and
   `SP014`; duplicate / unknown / childless ids → `SP015`, never a throw; chart ids
   `ops--traffic`, unplaced `ops--3`; no two equal chart ids (I-14); model order is reading order
   (I-11); invalid numbers → defaults with `SP002`.
 - **Done:** tests green; mutation: drop the clamp → I-12 red.
+- *Closed 2026-09-26 with T-108 (one module, `src/dashboard/resolve.ts`).* Validation and clamping
+  live in `resolveLayout` (it knows the columns); `resolveDashboard` matches, orders, derives ids
+  and writes the variables. Adds `ResolvedCell.child` (the source index, which the adapter needs to
+  emit children in reading order) and the wrapper variables `--sp-dashboard-row-height` and
+  `--sp-dashboard-layout-gap` (the fallback of the public `--sp-dashboard-gap`); API Spec §7.1 and
+  §10 amended. A bare `colSpan` also applies at `sm` (1 column) and warns SP014 there, as REQ-204
+  reads; the docs (T-122) recommend per-breakpoint spans. **Mutations, all red:** clamp dropped
+  (REQ-204, I-12); layout order replaced by source order (rules 1-2, 3); chart-id deduplication
+  removed (I-14).
 
-**[ ] T-108 · Nominal boxes and `cellChartBox`** — REQ-206, REQ-207 `[P]`
+**[x] T-108 · Nominal boxes and `cellChartBox`** — REQ-206, REQ-207 `[P]`
 - Tests: the DD-015 formulas at `ssrWidth` 1200 and 360, 2 decimals; equal outer height across a
   row (I-13) for a `KpiCard` beside a `LineChart` with footers; a chart's own `height` wins;
   chrome subtracted equals what `cardLayout` adds (property test over the catalog's card options).
 - **Done:** tests green; no chrome constant duplicated outside `card.ts`.
+- *Closed 2026-09-26.* `cellChartBox(cell, chartProps, recipe?)` measures the chrome by building the
+  recipe at a probe height (KpiCard adds its own value line, which `cardLayout` cannot see from the
+  props); without a recipe it asks `cardLayout`. No chrome constant outside `card.ts`. The property
+  test covers the 33 catalog charts × 7 card options × 2 cell sizes. **Mutation:** chrome not
+  subtracted → 3 tests red.
 
 **[ ] T-109 · Reference layouts and benchmark** — REQ-201, NFR `[P]`
 - `kpi-strip`, `ops`, `mixed-spans` frozen in `packages/core/src/dashboard/demo.ts` (I-9 extended).

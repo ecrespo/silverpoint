@@ -487,7 +487,10 @@ export interface DashboardModel {
 }
 
 export interface ResolvedCell {
+  /** The layout cell's id; for a child placed in source order, its source index. */
   readonly id: string;
+  /** The child this cell holds, as its index in `childCells`, so the adapter emits it here (I-11). */
+  readonly child: number;
   /** Derived chart id: `${dashboard.id}--${cell.id}` (REQ-209). */
   readonly chartId: string;
   readonly span: Readonly<Record<DashboardBreakpoint, { col: number; row: number }>>;
@@ -501,7 +504,8 @@ export interface ResolvedCell {
 export function resolveDashboard(props: DashboardProps, childCells: readonly (string | undefined)[]): DashboardModel;
 
 /** The chart's width and drawing-area height inside a cell box, card chrome subtracted (REQ-206). */
-export function cellChartBox(cell: { width: number; height: number }, chartProps: CommonChartProps): { width: number; height: number };
+/** `recipe`, when given, is built at a probe height to measure chrome the recipe adds itself (KpiCard's value line). */
+export function cellChartBox<P extends CommonChartProps>(cell: { width: number; height: number }, chartProps: P, recipe?: ChartRecipe<P>): { width: number; height: number };
 
 /** Items of `model` whose datum carries `value` under `key` (REQ-216, REQ-217). */
 export function linkedItems(model: ChartModel, key: string, value: unknown): readonly number[];
@@ -762,8 +766,9 @@ The exact values of the four substrates are fixed by the Data Model. Any variabl
 listed here is internal and may change in a minor version.
 
 The dashboard composition adds `--sp-dashboard-gap` (default `16px`, overrides `layout.gap`), and
-the variables the adapter writes from the resolved model: `--sp-dashboard-columns-sm/md/lg` on the
-wrapper, `--sp-cell-col-sm/md/lg` and `--sp-cell-row-sm/md/lg` on each cell. Container
+the variables the adapter writes from the resolved model: `--sp-dashboard-columns-sm/md/lg`,
+`--sp-dashboard-row-height` and `--sp-dashboard-layout-gap` (the value `--sp-dashboard-gap` falls back
+to, so the public property still overrides it from CSS) on the wrapper, `--sp-cell-col-sm/md/lg` and `--sp-cell-row-sm/md/lg` on each cell. Container
 breakpoints are fixed in the stylesheet: `sm` < 640 px ≤ `md` < 1024 px ≤ `lg` (DD-014).
 
 **There is no monospace variable.** The system uses a single family: monospace is an

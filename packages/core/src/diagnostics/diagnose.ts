@@ -12,7 +12,10 @@ export type SpCode =
   | 'SP010'
   | 'SP011'
   | 'SP012'
-  | 'SP013';
+  | 'SP013'
+  | 'SP014'
+  | 'SP015'
+  | 'SP016';
 
 export interface Detail {
   /** The property involved. */
@@ -158,6 +161,21 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
     req: 'NFR §7',
     what: 'the path byte budget of 40 KB is exceeded',
     todo: "Use `hatchFill: 'tile'` or a larger hatch gap",
+  },
+  SP014: {
+    req: 'REQ-204',
+    what: 'a dashboard cell spans more columns than the breakpoint has; it is clamped',
+    todo: 'Lower the span, or give that breakpoint more columns',
+  },
+  SP015: {
+    req: 'REQ-205',
+    what: 'the dashboard layout and its children disagree; unmatched children are placed in source order, span 1',
+    todo: 'Give every child a `cell` the layout declares, once',
+  },
+  SP016: {
+    req: 'REQ-217',
+    what: 'a chart in a linked dashboard has no field named by `link.key`; it shows no linked mark',
+    todo: 'Link on a field every linked chart carries, or leave this chart out of the link',
   },
   SP013: {
     req: 'REQ-032',

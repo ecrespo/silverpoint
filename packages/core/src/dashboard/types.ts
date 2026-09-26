@@ -86,7 +86,10 @@ export interface DashboardModel {
 }
 
 export interface ResolvedCell {
+  /** The layout cell's id; for a child placed in source order, its source index. */
   readonly id: string;
+  /** The child this cell holds: its index in `childCells`, so the adapter emits it here (I-11). */
+  readonly child: number;
   /** Derived chart id: `${dashboard.id}--${cell.id}` (REQ-209). */
   readonly chartId: string;
   readonly span: ResolvedSpan;
