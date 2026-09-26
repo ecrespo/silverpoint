@@ -90,19 +90,29 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Data Model | ✅ v1.4 approved — verified palette, 15 invariants, dashboard layout §2.13 |
 | Implementation Plan | ✅ v1.4 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) |
 | Deltas | ✅ `changes/delta-001..011` approved and **folded into `specs/`** (2026-09-25) |
-| Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; tasks T-106..T-123 in `changes/feature-001-dashboard/plan-and-tasks.md`; **not implemented** |
-| Implementation | ✅ Phases 0–4 closed — 33 charts × 3 adapters; ledgers in `changes/phase-N-progress.md` |
-| Traceability | ✅ 101/120 MUST cited, 19 deferred to Phase 5 (REQ-200..221, `specs/tasks.md` Deferred table), 0 blocking (`reports/traceability.md`) |
+| Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
+| Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
+| Traceability | ✅ 120/120 MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); only REQ-028 (SHOULD) and REQ-047 (COULD) remain, "After v1" |
 | Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
 
 Where things stand:
 
 - **Published:** `@silverpoint/*@0.1.1`, tag `v0.1.1`. `develop` is ahead of `main` by
   delta-011 (unreleased).
-- **Next release: `0.2.0`.** It carries delta-011 (**done** 2026-09-26: the demo applies view
-  props, Volvelle's index turns it; T-102..T-105, changeset `.changeset/demo-applies-view-props.md`)
-  and feature-001 (Dashboard composition, Phase 5, T-106..T-123; first run T-106..T-109; approved,
-  **not yet implemented**). `1.0.0` stays parked.
+- **Next release: `0.2.0`, ready and not published.** It carries delta-011 (the demo applies view
+  props) and feature-001 (the Dashboard composition, with linked charts), each change with its
+  changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
+  `push develop:main`). Publishing is the user's call. `1.0.0` stays parked.
+- **Dashboard decisions to know.**
+  - React hands a cell's context to its chart as a prop (`cloneElement`), because a React context
+    would need a client boundary; Vue uses `provide`/`inject`; Angular uses the `SP_DASHBOARD_CELL`
+    and `SP_DASHBOARD_LINK` tokens.
+  - `DASHBOARD_DEMOS` live on `@silverpoint/core/dashboard-demos`, which keeps the core's full
+    bundle under 45 kB.
+  - Dashboard fixtures are `fixtures/dashboard/*.dashboard.json`, compared as trees by
+    `tools/visual-gate/dashboard-gate.ts` (DD-017 rules) and by the pixel gate at 375, 800 and
+    1280 px.
+  - The Angular example app stays client-rendered.
 - **Folded** (2026-09-25): deltas 001..011, feature-001 and the Art. 3 amendment are in `specs/`.
   When a Phase 5 requirement gets its test, remove it from the Deferred table of `specs/tasks.md`.
   `specs/` was read-only until 2026-09-26, when the user made it writable and chose to keep it so;

@@ -3,7 +3,7 @@
 > Source specs: [`prd-delta.md`](prd-delta.md) §6 (REQ-200..REQ-221) · [`api-delta.md`](api-delta.md)
 > · [`technical-design-delta.md`](technical-design-delta.md) DD-013..DD-018 ·
 > [`data-model-delta.md`](data-model-delta.md) §2.13, §4–§6.
-> Generated: 2026-09-25. Gate 4 **approved** by the user on 2026-09-25; **not started**. The Analyze findings are all
+> Generated: 2026-09-25. Gate 4 **approved** by the user on 2026-09-25; **implemented 2026-09-26** (release `0.2.0` pending). The Analyze findings are all
 > dispositioned ([`analyze.md`](analyze.md)). Task ids continue the global
 > sequence after delta-011's T-102..T-105.
 
@@ -338,9 +338,18 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   Tests: the reference is read from the types and current (docs project); e2e for the page, and
   axe plus reflow at 320 px on it (18 green). **5f: T-123 remains.**
 
-**[ ] T-123 · Fold and release** — Art. 9
+**[x] T-123 · Fold and release** (release pending the user's go-ahead) — Art. 9
 - *Folding done on 2026-09-25* (PRD v1.8, API v1.6, TD v1.5, DM v1.4, Constitution v1.5); on close, move REQ-200..221 out of the Deferred table of `specs/tasks.md`; run the
   Analyze gate again; changeset `minor`; release `0.2.0` per CLAUDE.md.
+- *Closed 2026-09-26, but for publishing.*
+  - REQ-200..221 left the Deferred table of `specs/tasks.md`, as did the rows of phases 1–3, which
+    tests already cited. Only REQ-028 (SHOULD) and REQ-047 (COULD) remain, "After v1".
+  - Analyze: `spec-check` 0 errors; traceability 120/120 MUST, 0 deferred, 0 blocking.
+  - Changesets: 11 in `.changeset/`; `changeset status` bumps all six packages `minor`, to `0.2.0`.
+  - CLAUDE.md status and the README (a dashboard snippet) updated.
+  - Full CI chain green: unit 3046, gates 315, pixel 1360, e2e 538.
+  - **Not done, waiting for the user:** `version-packages` and `push develop:main`, which publish to
+    npm. Phase 5 is complete otherwise.
 
 ## Traceability — MUST → task
 

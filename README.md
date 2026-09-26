@@ -63,6 +63,18 @@ Then `npm run dev`. Vue and Angular take the same three steps; the documentation
 (`pnpm --filter @silverpoint/docs dev`) gives them, with the gallery of all 33 charts, the ground
 playground and every chart's props. A bundler is required (Vite, Next.js or the Angular CLI).
 
+Charts compose into a **dashboard**, a responsive grid of cards laid out by the core from plain
+data, identical in the three adapters and server-renderable:
+
+```tsx
+import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
+
+<Dashboard id="ops" title="Operations" layout={{ cells: [{ id: 'kpi' }, { id: 'trend', colSpan: { md: 2, lg: 3 } }] }}>
+  <DashboardCell cell="kpi"><KpiCard title="Orders" /></DashboardCell>
+  <DashboardCell cell="trend"><LineChart title="Hits per hour" data={data} xKey="hour" valueKey="hits" /></DashboardCell>
+</Dashboard>
+```
+
 The specifications live in [`specs/`](specs/): eight Spec-Driven Design artifacts, from the
 constitution through to the Analyze gate.
 
