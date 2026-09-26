@@ -50,6 +50,15 @@ describe('props reference', () => {
     });
   });
 
+  test('REQ-200 · the dashboard reference is read from the core’s dashboard types', () => {
+    const names = (props: readonly { name: string }[]) => props.map((p) => p.name);
+    expect(names(reference.dashboard.props)).toEqual(expect.arrayContaining(['id', 'title', 'label', 'layout', 'description', 'headingLevel', 'ssrWidth', 'link', 'ground', 'substrate', 'mode', 'locale', 'className']));
+    expect(names(reference.dashboard.layout)).toEqual(['columns', 'rowHeight', 'gap', 'cells']);
+    expect(names(reference.dashboard.cell)).toEqual(['id', 'colSpan', 'rowSpan']);
+    expect(reference.dashboard.layout.find((p) => p.name === 'columns')?.doc).toMatch(/sm: 1, md: 2, lg: 4/);
+    expect(reference.dashboard.props.find((p) => p.name === 'id')?.optional).toBe(false);
+  });
+
   test('PRD §5.1 · the committed reference is current', () => {
     expect(JSON.parse(readFileSync(new URL('../generated/props.json', import.meta.url), 'utf8'))).toEqual(reference);
   });

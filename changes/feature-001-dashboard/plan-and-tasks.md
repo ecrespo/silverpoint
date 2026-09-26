@@ -322,9 +322,21 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
 
 ### 5f — Close
 
-**[ ] T-122 · Documentation** — REQ-200
+**[x] T-122 · Documentation** — REQ-200
 - Docs site Dashboard page: example per adapter, layout reference (generated from the types),
   breakpoint table, how to order cells to avoid row-end gaps, `ssrWidth` guidance.
+- *Closed 2026-09-26.* `docs/site/src/pages/dashboard.tsx` at `#/dashboard`:
+  - a live `kpi-strip`, and the code for React, Vue and Angular;
+  - a breakpoint table built from `DASHBOARD_DEFAULTS`;
+  - guidance on ordering cells, row-end gaps and why a bare span warns SP014 at `sm`; on
+    `ssrWidth` (360 for mobile-first apps); and on linked charts;
+  - the reference tables for `DashboardProps`, `DashboardLayout` and `DashboardCellLayout`,
+    **generated** from `packages/core/src/dashboard/types.ts`. The generator now reads object type
+    aliases through intersections, unions and local aliases, so `title` and `label` come out
+    optional and `id` required.
+
+  Tests: the reference is read from the types and current (docs project); e2e for the page, and
+  axe plus reflow at 320 px on it (18 green). **5f: T-123 remains.**
 
 **[ ] T-123 · Fold and release** — Art. 9
 - *Folding done on 2026-09-25* (PRD v1.8, API v1.6, TD v1.5, DM v1.4, Constitution v1.5); on close, move REQ-200..221 out of the Deferred table of `specs/tasks.md`; run the

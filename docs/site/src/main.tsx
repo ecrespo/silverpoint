@@ -5,6 +5,7 @@ import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Adapters } from './pages/adapters';
 import { ChartPage } from './pages/chart';
+import { DashboardPage } from './pages/dashboard';
 import { Gallery } from './pages/gallery';
 import { Home } from './pages/home';
 import { Playground } from './pages/playground';
@@ -25,12 +26,14 @@ const NAV = [
   ['/gallery', 'Gallery'],
   ['/playground', 'Playground'],
   ['/adapters', 'Three adapters'],
+  ['/dashboard', 'Dashboard'],
 ] as const;
 
 function Page({ route }: { route: string }) {
   if (route === '/gallery') return <Gallery />;
   if (route === '/playground') return <Playground />;
   if (route === '/adapters') return <Adapters />;
+  if (route === '/dashboard') return <DashboardPage />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;
   return <Home />;
 }

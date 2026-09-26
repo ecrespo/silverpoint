@@ -77,6 +77,15 @@ test.describe('documentation site', () => {
     await expect(rows.filter({ hasText: 'legend' })).toContainText(own.find((p) => p.name === 'legend')!.doc);
   });
 
+  test('REQ-200 · the dashboard page draws a live dashboard, its code in every adapter and its reference from the types', async ({ page }) => {
+    await page.goto('/#/dashboard');
+    await expect(page.locator('section.sp-dashboard .sp-root[data-status="ready"]').first()).toBeVisible();
+    for (const adapter of ['React', 'Vue', 'Angular']) await expect(page.getByRole('heading', { name: adapter })).toBeVisible();
+    await expect(page.getByRole('table', { name: /Dashboard props/ })).toContainText('ssrWidth');
+    await expect(page.getByRole('table', { name: /Breakpoints/ })).toContainText('1024');
+    await expect(page.getByText(/row end/)).toBeVisible();
+  });
+
   test('REQ-100 · the parity page shows one fixture rendered identically by React, Vue and Angular', async ({ page }) => {
     await page.goto('/#/adapters');
     const figures = page.locator('figure[data-adapter]');
@@ -101,7 +110,7 @@ test.describe('documentation site', () => {
     }
   });
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard']) {
     test(`WCAG 1.4.10 · ${route} reflows at 320 CSS px without horizontal scrolling`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(route);
@@ -110,7 +119,7 @@ test.describe('documentation site', () => {
     });
   }
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard']) {
     test(`REQ-120 · WCAG 2.1 AA · axe finds no A or AA issue on ${route}`, async ({ page }) => {
       await page.goto(route);
       await expect(page.locator('main')).toBeVisible();

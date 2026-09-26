@@ -989,5 +989,133 @@
         }
       ]
     }
-  ]
+  ],
+  "dashboard": {
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "optional": false,
+        "doc": "Stable identifier; seeds of unnamed charts derive from it (REQ-209). Required."
+      },
+      {
+        "name": "layout",
+        "type": "DashboardLayout",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "optional": true,
+        "doc": "Long description, exposed as the region's description (REQ-214)."
+      },
+      {
+        "name": "headingLevel",
+        "type": "2 | 3 | 4 | 5 | 6",
+        "optional": true,
+        "doc": "Heading level of `title`. Default `2`."
+      },
+      {
+        "name": "ssrWidth",
+        "type": "number",
+        "optional": true,
+        "doc": "Width in px used for nominal cell boxes on the server and at hydration (REQ-207). Default `1200`."
+      },
+      {
+        "name": "link",
+        "type": "DashboardLink",
+        "optional": true,
+        "doc": "Linked interaction (REQ-216); client entry points only."
+      },
+      {
+        "name": "ground",
+        "type": "GroundRef",
+        "optional": true,
+        "doc": "Inherited by every chart inside, below the chart's own prop (REQ-212)."
+      },
+      {
+        "name": "substrate",
+        "type": "SubstrateName",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "mode",
+        "type": "InkMode",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "optional": true,
+        "doc": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "optional": true,
+        "doc": ""
+      }
+    ],
+    "layout": [
+      {
+        "name": "columns",
+        "type": "PerBreakpoint<number>",
+        "optional": true,
+        "doc": "Columns per breakpoint. Default `{ sm: 1, md: 2, lg: 4 }` (REQ-208)."
+      },
+      {
+        "name": "rowHeight",
+        "type": "number",
+        "optional": true,
+        "doc": "Height of one row unit, in px, card chrome included. Default `240`."
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "optional": true,
+        "doc": "Gap between cells, in px. Default `16`."
+      },
+      {
+        "name": "cells",
+        "type": "readonly DashboardCellLayout[]",
+        "optional": true,
+        "doc": "Cells in reading order (REQ-203). Omitted: every child, span 1."
+      }
+    ],
+    "cell": [
+      {
+        "name": "id",
+        "type": "string",
+        "optional": false,
+        "doc": "Matches `DashboardCell`'s `cell` prop; unique within the dashboard (REQ-205)."
+      },
+      {
+        "name": "colSpan",
+        "type": "PerBreakpoint<number>",
+        "optional": true,
+        "doc": "Default `1`. Clamped to the breakpoint's columns with `SP014` (REQ-204)."
+      },
+      {
+        "name": "rowSpan",
+        "type": "PerBreakpoint<number>",
+        "optional": true,
+        "doc": "Default `1`."
+      }
+    ]
+  }
 }
