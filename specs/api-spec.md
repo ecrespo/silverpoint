@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.6 |
-| **Date** | 2026-09-25 |
-| **Related PRD** | [`prd.md`](prd.md) v1.8 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
+| **API version** | v1.7 |
+| **Date** | 2026-09-26 |
+| **Related PRD** | [`prd.md`](prd.md) v1.9 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
 | **Surface** | npm packages — there is no network API |
 
 ---
@@ -140,7 +140,11 @@ export interface Stroke {
   readonly role: 'encoding' | 'ornament' | 'hatch';
   /** Semantic paint slot; maps to a CSS variable in §10. */
   readonly part: StrokePart;
-  /** Relative weight, resolved against the ground's token. */
+  /**
+   * Tonal weight level, 1-4, that a `weight` ground's Inker gives a toned shape in place of
+   * hatching; written as `data-weight` and resolved by the stylesheet to a stroke width
+   * (REQ-028, §10).
+   */
   readonly weight?: number;
 }
 
@@ -319,6 +323,8 @@ export interface Ground {
   readonly inkOptions: Omit<InkOptions, 'seed' | 'nodeBudget'>;
   /** Hatch density bound, to stay within the node budget. */
   readonly maxHatchDensity: number;
+  /** Tonal levels 1-4: hatch steps under `hatch`, stroke-width multipliers under `weight`. */
+  readonly tonalRamp: Readonly<Record<1 | 2 | 3 | 4, ToneSpec>>;
 
   readonly typography: Readonly<{ display: string; mono: string; scale: number }>;
   /** What to draw when there is no data (REQ-007). */
@@ -327,6 +333,23 @@ export interface Ground {
   readonly domainPadding: number;
 }
 ```
+
+```ts
+export type ToneSpec =
+  | { readonly style: 'hachure' | 'cross-hatch'; readonly gap: number; readonly angle: number }
+  /** A `weight` ground: the stroke width of a toned shape's outline, times `--sp-stroke-width`. */
+  | { readonly style: 'weight'; readonly weight: number };
+```
+
+**Built-in grounds.** `@silverpoint/grounds` registers two, and exports both with their inkers:
+
+| Ground | `tonalMechanism` | Inker | Substrates | Data Model |
+|---|---|---|---|---|
+| `silverpoint` (default) | `hatch` | `RoughInker` (`'rough'`) | `cream`, `green`, `blue`, `ochre` | §3.1–§3.6 |
+| `cyanotype` | `weight` | `WeightInker` (`'weight'`) | `prussian` | §3.7 |
+
+A ground with a single substrate paints it whatever `substrate` names, so `ground="cyanotype"`
+needs no `substrate`.
 
 Registering a ground is a declarative call, and it does not touch the code of any chart
 (REQ-044):
@@ -691,7 +714,7 @@ so `@active-change` carries `ActiveItem | null` and nothing else.
 **Server rendering.** The adapter renders under `@vue/server-renderer` with no DOM access,
 which is what the string gate of DD-003 consumes and what REQ-109 verifies after
 hydration. There is no Nuxt-specific code: a Nuxt app consumes the package like any other
-Vue app, and Nuxt is not a validated integration in v1.
+Vue app, and Nuxt is not a validated integration in the `0.x` line.
 
 **Imperative API** by template ref, identical to `ChartHandle`:
 
@@ -761,6 +784,10 @@ section: a container query styles descendants, never the container), `dashboard-
 `article`), and
 `linked` on a chart item under a linked mark (client only, REQ-219).
 
+Besides `part`, a `path` carries `data-role`, `data-paint`, and when set `data-dash` and
+`data-weight`. `data-weight="1".."4"` is the tonal weight of a `weight` ground (REQ-028); the
+stylesheet sets its `stroke-width` to `calc(var(--sp-stroke-width) * var(--sp-weight-N))`.
+
 ### 10.2 Public CSS custom properties
 
 ```css
@@ -780,7 +807,25 @@ section: a container query styles descendants, never the container), `dashboard-
 }
 ```
 
-The exact values of the four substrates are fixed by the Data Model. Any variable not
+```css
+.sp-ground-cyanotype {
+  --sp-substrate:      #1B3F6B;  /* prussian, the ground's only substrate */
+  --sp-ink:            #E2EAF2;
+  --sp-ink-secondary:  #DCCBA8;
+  --sp-heighten:       #0C2240;  /* a reserve: the heightened element is the deepest blue */
+  --sp-rule:           #8AA8C7;
+  --sp-grid:           #8AA8C7;
+  --sp-text:           #F4F6F8;
+  --sp-text-muted:     #B8CBDE;
+  --sp-stroke-width:   0.9;
+  --sp-weight-1:       1.5;
+  --sp-weight-2:       2.25;
+  --sp-weight-3:       3;
+  --sp-weight-4:       4;
+}
+```
+
+The exact values of the substrates are fixed by the Data Model. Any variable not
 listed here is internal and may change in a minor version.
 
 The dashboard composition adds `--sp-dashboard-gap` (default `16px`, overrides `layout.gap`), and
@@ -842,7 +887,7 @@ motivates it.
 
 ## 12. Limits and budgets
 
-| Limit | v1 value | Behaviour on exceeding it |
+| Limit | `0.x` value | Behaviour on exceeding it |
 |---|---|---|
 | Points per series, cartesian families | 500 | `SP008` |
 | Sectors, polar families | 60 | `SP008` |
@@ -850,7 +895,7 @@ motivates it.
 | Path data per chart | 40 KB | `SP011` |
 | Weight of `@silverpoint/core` + `react` with one chart | 45 KB min+gzip | CI fails (REQ-164) |
 | Geometry computation, 100 points | 2 ms | The CI benchmark fails |
-| `dashboard` subpath, per adapter, over its one-chart budget | 2 KB min+gzip | CI fails (REQ-220) |
+| `dashboard` subpath, per adapter, over its one-chart build | 2 KB min+gzip for React and Vue, 3 KB for Angular | CI fails (REQ-220) |
 | Cells per dashboard | 24 (advisory) | No diagnostic; documented guidance, rendered anyway |
 | Dashboard layout resolution, 24 cells | 0.5 ms | The CI benchmark fails |
 | Reference 12-card dashboard, server HTML | 480 KB | `tools/path-weight` fails the PR |
@@ -882,6 +927,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
+| 1.7 | 2026-09-26 | Delta-012: `ToneSpec` gains the `weight` variant and `Ground` shows its `tonalRamp`; the built-in grounds table adds `cyanotype` with `WeightInker`; `Stroke.weight` is the tonal weight level, written as `data-weight` (§10.1) with `--sp-weight-1..4` (§10.2); REQ-220's allowance is 3 KB for Angular (§12) |
 | 1.6 | 2026-09-25 | Deltas folded: `locale` default identical on server and client (003); `HeatmapChart.columnLabels` (006); `SP002` covers every value a chart cannot draw as given (007); how `OrbitChart` and `VolvelleChart` props read their data (009, 010); view props apply to the demo (011). §7.1 Dashboard composition with `onLinkChange`, parts, CSS variables, accessibility contract, `SP014`–`SP016` and budgets (feature-001). The media query forcing `precision` is stated as an override after resolution (Analyze A-06) |
 
 ## Constitution check

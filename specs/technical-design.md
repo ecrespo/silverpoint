@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.5 |
-| **Date** | 2026-09-25 |
-| **Related PRD** | [`prd.md`](prd.md) v1.8 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
+| **Version** | 1.6 |
+| **Date** | 2026-09-26 |
+| **Related PRD** | [`prd.md`](prd.md) v1.9 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -192,7 +192,8 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
   package. A consumer who only uses `mode="precision"` does not download it, which is money
   straight against the 45 KB budget.
 - **Consequences:** the runtime allowlist of `core` is reduced to `d3-*`. If `rough.js`
-  were left unmaintained, one package gets replaced, not the core.
+  were left unmaintained, one package gets replaced, not the core. The second inker,
+  `WeightInker` (DD-019), lives beside it and does not use `rough.js` at all.
 
 ### DD-003: The equality gate runs in Node, with the server renderers
 
@@ -387,7 +388,7 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
   cost and `tsup` absorbs it. Option B would have been defensible on symmetry alone, but a
   Vue library that does not look like Vue is not adopted.
 - **No Nuxt.** A Nuxt app consumes the package like any other Vue app. Nuxt is **not** a
-  validated integration in v1: SSR parity is verified directly with `@vue/server-renderer`
+  validated integration in the `0.x` line: SSR parity is verified directly with `@vue/server-renderer`
   (REQ-109), which is what the gate needs and what a meta-framework would only wrap. Adding
   Nuxt later is an example app and a CI job, not an architectural change.
 - **Consequences:** three adapters is where the thin-adapter discipline of Art. 2 stops
@@ -480,6 +481,37 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
 - **Why:** the six packages share one version (Changesets `fixed`), and a new package would need its
   own trusted publisher before its first release; the dashboard depends on internals of each
   adapter (chart context, measurement) that a separate package would have to make public.
+- **Cost, measured (2026-09-26).** Over its one-chart build, min+gzip: React client 1,872 B,
+  React server 1,731 B, Vue 1,929 B, Angular 2,492 B. Angular's own code is as small as React's;
+  its partial-compilation output (APF) carries each component's template twice (the declaration
+  and the class metadata) and a record for each of its 13 signal inputs. REQ-220 therefore
+  allows 2 KB for React and Vue and 3 KB for Angular (delta-012), and CI measures the increment
+  itself, not only the total.
+
+### DD-019: The `weight` tonal mechanism — a second inker, and the tone written as `data-weight`
+
+- **Decision:** the `cyanotype` ground declares `tonalMechanism: 'weight'` and the inker
+  `'weight'`. `WeightInker` (in `@silverpoint/grounds`) turns each toned shape into its own
+  outline, `paint: 'stroke'`, with `Stroke.weight` set to its tonal level, and returns every
+  other stroke untouched. The view writes the level as `data-weight`; the stylesheet turns it
+  into `stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-N))`, with the four
+  multipliers declared by the ground (its `tonalRamp` of `{ style: 'weight' }` steps).
+- **Context:** REQ-028 asks for value by line weight and no hatching. A cyanotype is a contact
+  print: its line is exact, white on Prussian blue, so the inker does not roughen ornament
+  either.
+- **Alternatives:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. Level in `data-weight`, width in CSS (chosen)** | Width is paint, and paint lives in CSS (REQ-042); a consumer re-weights with one variable; the SVG stays identical across themes | One more attribute for the three adapters to map |
+| B. `stroke-width` attribute on the path | No CSS rule | Paint in the markup, against REQ-042 and Art. 8; the width could not follow `--sp-stroke-width` |
+| C. Keep hatching, thicken the hatch lines | Reuses `RoughInker` | Still hatching, against REQ-028's "SHALL omit all hatching" |
+
+- **Consequences:** under `weight`, `hatchFill` has no effect, so the fixture matrix collapses
+  that axis for `cyanotype`. `precision` mode is still `NullInker`: no hatch under `hatch`, no
+  weight under `weight`, the same encoding vertices (REQ-006). A single-substrate ground
+  declares its colours on the ground-wide rule, so an unnamed or foreign `substrate` still
+  paints it.
 
 ## 5. Patterns and Conventions
 
@@ -601,7 +633,7 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Angular adapter | Happy path and accessibility | TestBed | Signal inputs, outputs, `OnPush` | Every PR |
 | **String gate** | Full matrix | Node, SSR of all three adapters plus `svg-normalizer` | REQ-180, zero tolerance | Every PR |
 | **Pixel gate** | Reduced matrix on PR, full at night | Playwright, container pinned by digest | REQ-181, the three thresholds of Art. 3 | PR and nightly |
-| Hydration | Next.js and Vue SSR apps | Playwright | REQ-103 and REQ-109: no server/client mismatches | Every PR |
+| Hydration | Next.js, Vue and Angular CLI SSR apps | Playwright | REQ-103, REQ-109 and REQ-222: no server/client mismatches | Every PR |
 | Accessibility | The four example apps | `axe-core` | REQ-120 to REQ-125; zero A and AA issues | Every PR |
 | Ground contrast | Every registered ground | In-house script over the tokens | REQ-126, REQ-127; fails before publishing | Every PR |
 | Budgets | The five packages | `size-limit` | REQ-164 | Every PR |
@@ -618,7 +650,7 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Parity (Node) | Parsed-tree gate on the dashboard fixtures, three adapters vs canonical | 210 |
 | Pixel (Docker) | Three widths per fixture | 211 |
 | E2E (four apps) | Hydration without mismatch, then measured re-render; axe; Tab order = reading order; linked marks appear and clear | 207, 215, 216, 218, 221 |
-| Budget | size-limit on each `dashboard` subpath; path-weight on the 12-card reference | 220, NFR |
+| Budget | size-limit on each `dashboard` subpath, and the increment over its one-chart entry within the adapter's allowance; path-weight on the 12-card reference | 220, NFR |
 | Lint | No `order`/`dense`/`grid-row-start`/`grid-column-start` in the dashboard stylesheet | 203 |
 
 **Traceability (REQ-183).** Every test cites its requirement in the name:
@@ -653,12 +685,13 @@ report that feeds the Analyze gate (REQ-184).
 
 | Dashboard heightening | One white heightening **per chart**, as Art. 6 says; the dashboard adds no cap and no diagnostic (decided 2026-09-25) |
 | Dashboard release | Ships in `0.2.0`; the line stays on `0.x` and `1.0.0` is not cut yet (decided 2026-09-25) |
+| What else ships in `0.2.0` | Delta-012 (decided 2026-09-26): the `cyanotype` ground (DD-019), REQ-220 per adapter, and the Angular example app server-rendered with `@angular/ssr` (REQ-222) |
 
 ### Open
 
 - [ ] **Concrete family for the small-caps subset.** If real small caps are wanted later,
       the CTAN original has to be subset and the derivative renamed, because of the OFL's
-      Reserved Font Name clause. It does not block v1. *— after v1.*
+      Reserved Font Name clause. It does not block `0.2.0`. *— after `0.2.0`.*
 - [ ] **The 40 KB budget against the full catalog.** The number comes from the measurement
       over bars and areas. The matrix families —contribution grid, density heatmap— have
       many small shapes instead of a few large ones, and the tile helps less there. They
@@ -679,6 +712,7 @@ report that feeds the Analyze gate (REQ-184).
 | 1.1 | 2026-09-13 | Ernesto Crespo | DD-004 moves to parsed-tree comparison; DD-007 moves to tile per tonal level with the measurements that motivate it; DD-010 (typography) enters; `d3-array` leaves the allowlist; Angular pinned to 21 and 22; the exception to Art. 6 is withdrawn |
 | 1.4 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: DD-012, DD-009 extended to cover it, DD-004 amended to compare against a canonical render instead of pairwise |
 | 1.3 | 2026-09-13 | Ernesto Crespo | DD-011 added: package resolution under a bundler, with Vite raised to a validated integration alongside Next.js |
+| 1.6 | 2026-09-26 | Ernesto Crespo | Delta-012: DD-019 (the `weight` tonal mechanism, `WeightInker`, `data-weight`); DD-002 names the second inker; DD-018 records the measured dashboard cost per adapter; hydration tests cover the Angular CLI SSR app (REQ-222); `0.2.0` scope in §10 |
 | 1.5 | 2026-09-25 | Ernesto Crespo | Deltas folded: `tslib` in the Angular allowlist (002); TypeScript 6.x for Angular 22 (001). Dashboard composition: DD-013..DD-018, components, flow, structure, tests and open questions (feature-001) |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 

@@ -1,6 +1,6 @@
 # Constitution — silverpoint
 
-> Version 1.5 · Ratified: 2026-09-12 · Last amended: 2026-09-25
+> Version 1.6 · Ratified: 2026-09-12 · Last amended: 2026-09-26
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
 > `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
 > documentation site.
@@ -164,9 +164,9 @@ chosen for having a **distinct tonal mechanism**, not just another palette.
 
 | Ground | Period / technique | Tonal mechanism | Status |
 |---|---|---|---|
-| `silverpoint` | Silverpoint, 15th c. | Hatching over a mid-tone substrate, white heightening | v1 |
+| `silverpoint` | Silverpoint, 15th c. | Hatching over a mid-tone substrate, white heightening | `0.1` |
 | `burin` | Copperplate engraving, 16th c. | Cross-hatching and stippling on white; line of variable thickness | planned |
-| `cyanotype` | Cyanotype, 1842 | White line on Prussian blue; value by thickness, not by hatching | planned |
+| `cyanotype` | Cyanotype, 1842 | White line on Prussian blue; value by thickness, not by hatching | `0.2.0` |
 | `woodcut` | Woodcut, 16th c. | High-contrast block, coarse hatching, no fine gradation | planned |
 | `wash` | Bistre / sepia wash | Translucent washes: the only ground where the fill **is** the mechanism | planned |
 | `plotter` | Pen plotter, 20th c. | Single-thickness pen, fill by hatching, deterministic paths | planned |
@@ -186,6 +186,7 @@ explicitly in its tonal mechanism token.
 | 2026-09-13 | — | Document converted to English | The project is an open-source library with an international audience | Ernesto Crespo |
 | 2026-09-25 | — | Stack: TypeScript 5.9+ (6.x where a framework requires it); Vue floor 3.5 | Angular 22's compiler requires TypeScript 6.0; hydration-safe ids need Vue 3.5's `useId` (deltas 001, 005) | Ernesto Crespo |
 | 2026-09-25 | Art. 3 | Parity covers normalised markup, wrappers included, and the fixture matrix admits compositions | The dashboard composition emits HTML around the charts; the gate must hold it to the same zero tolerance (feature-001, Analyze A-01) | Ernesto Crespo |
+| 2026-09-26 | — | Planned grounds (non-normative): `cyanotype` ships in `0.2.0`; statuses name releases, not "v1" | The line stays on `0.x`; the second ground is what proves Art. 7 (delta-012) | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.4 |
-| **Date** | 2026-09-25 |
+| **Version** | 1.5 |
+| **Date** | 2026-09-26 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.5 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.6 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -316,6 +316,47 @@ activates the `tnum` feature verified present in the subset. Small-caps lines us
 `text-transform: uppercase` with a tracking of 0.18em, because the distributed build does
 not include `smcp`.
 
+### 3.7 The `cyanotype` ground
+
+Herschel's cyanotype (1842), as Anna Atkins printed it: a white line on Prussian blue. Its tonal
+mechanism is **line weight** (REQ-028, TD DD-019), so it hatches nothing: a toned shape is drawn
+as its own outline, and the tone is how thick that outline is.
+
+**Substrate.** One: `prussian`, `#1B3F6B`. With a single substrate, the ground declares its
+colours on the ground-wide rule, so a chart that names another substrate (`cream` is the library
+default) is still painted on Prussian blue.
+
+**Inks, with verified contrast** against `prussian`:
+
+| Token | Value | Ratio | Threshold | Role |
+|---|---|---|---|---|
+| `text` | `#F4F6F8` | 9.84 | 4.5 (text) | The large metric and the primary labels |
+| `primary` | `#E2EAF2` | 8.77 | 4.5 (text) | The white line: main series |
+| `secondary` | `#DCCBA8` | 6.68 | 4.5 (text) | Tea-toned: second series |
+| `textMuted` | `#B8CBDE` | 6.41 | 4.5 (text) | Axis labels. A dark substrate leaves room for a value of its own (§3.2) |
+| `rule` | `#8AA8C7` | 4.32 | 3.0 (object) | Rules and baseline |
+| `grid` | `#8AA8C7` | 4.32 | 3.0 (object) | Grid |
+| `heighten` | `#0C2240` | 13.11 vs `primary` | 3.0 (object, vs its outline) | **A reserve** |
+
+**Heightening inverts.** On a light ground the heightened element is white; here white is the
+ink, so it is the deepest blue, where the print was left longest in the sun. The rule of §3.3
+holds unchanged: its outline is drawn in `primary`, and that outline carries the contrast.
+
+**Weight ramp.** Each level multiplies `--sp-stroke-width` (0.9) for a toned shape's outline:
+
+| Level | `style` | `weight` | Width |
+|---|---|---|---|
+| 0 | — | — | The shape's own stroke, if any |
+| 1 | `weight` | 1.5 | 1.35 |
+| 2 | `weight` | 2.25 | 2.03 |
+| 3 | `weight` | 3 | 2.7 |
+| 4 | `weight` | 4 | 3.6 |
+
+**Inking parameters.** The `WeightInker` redraws nothing by hand, since a contact print has an exact line.
+`roughness`, `bowing`, `hatchAngle`, `hatchGap` and `fillWeight` are therefore 0, and
+`maxHatchDensity` is 0: there is no hatching to bound. Typography, `emptyState` and
+`domainPadding` are those of `silverpoint` (§3.5, §3.6).
+
 ## 4. Demo datasets
 
 Each of the 33 charts has a default dataset that is used when it is invoked without
@@ -376,9 +417,10 @@ interface Fixture {
 }
 ```
 
-**Coverage.** On every PR: the 33 charts × the 2 modes × ground `silverpoint` × substrate
-`cream` × size `md` = **66 fixtures**. Nightly, the full product with the four substrates,
-the two values of `hatchFill` and three sizes = **1,584 fixtures**.
+**Coverage.** On every PR: the 33 charts × the 2 modes × size `md` × `tile`, over every ground
+and substrate —`silverpoint`'s four and `cyanotype` × `prussian`— = **330 fixtures**. Nightly, the full product: `silverpoint` with its four substrates, the two
+values of `hatchFill` and three sizes (1,584), plus `cyanotype` with its one substrate and three
+sizes, `tile` only (198): `hatchFill` has no effect under `weight`. **1,782 fixtures.**
 
 | Size | Dimensions | Why |
 |---|---|---|
@@ -392,13 +434,13 @@ the two values of `hatchFill` and three sizes = **1,584 fixtures**.
 | Axis | Values | Count |
 |---|---|---|
 | Dashboard | `kpi-strip`, `ops`, `mixed-spans` | 3 |
-| Substrate | the four of the `silverpoint` ground | 4 |
+| Ground × substrate | the four of `silverpoint`, plus `cyanotype` × `prussian` | 5 |
 | Mode | `ink`, `precision` | 2 |
 | Breakpoint width | 375, 800, 1280 px | 3 |
 
-**72 dashboard fixtures**, beside the 1,584 chart fixtures. The parity (string/tree) gate uses the
-nominal render at `ssrWidth` 1280 — one per dashboard × substrate × mode, **24** — because the
-markup does not depend on the container width; the pixel gates use all 72.
+**90 dashboard fixtures**, beside the 1,782 chart fixtures. The parity (string/tree) gate uses the
+nominal render at `ssrWidth` 1280 — one per dashboard × substrate × mode, **30** — because the
+markup does not depend on the container width; the pixel gates use all 90.
 
 
 ## 6. Invariants
@@ -422,6 +464,7 @@ Verifiable, and each one with its test.
 | I-13 | Every cell in the same row of the `lg` nominal layout, with equal `rowSpan`, gets the same outer height. | REQ-206 |
 | I-14 | No two resolved cells share a `chartId`. | REQ-209 |
 | I-15 | A dashboard's server render contains no `part="linked"`. | REQ-219 |
+| I-16 | Under a `weight` ground, a chart emits no `data-role="hatch"` and no `<pattern>`, and every `data-weight` is 1-4. | REQ-028 |
 
 ---
 
@@ -432,6 +475,7 @@ Verifiable, and each one with its test.
 | 1.0 | 2026-09-13 | Ernesto Crespo | Initial version. Palette adjusted after verifying contrast: the original seed failed on `rule`, `textMuted` and `heighten` |
 | 1.3 | 2026-09-13 | Ernesto Crespo | `Fixture` gains `canonical`, the reference render every adapter is compared against, after Vue made pairwise comparison untenable |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Sibling version references realigned after the Vite integration change; no content change |
+| 1.5 | 2026-09-26 | Ernesto Crespo | Delta-012: §3.7 the `cyanotype` ground (one substrate, verified inks, inverted heightening, weight ramp); §5 matrix gains `cyanotype` (1,782 chart fixtures, 330 on PR; 90 dashboard fixtures); I-16 |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 

@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.4 |
-| **Date** | 2026-09-25 |
-| **PRD** | [`prd.md`](prd.md) v1.8 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.5 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.4 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.6 |
+| **Version** | 1.5 |
+| **Date** | 2026-09-26 |
+| **PRD** | [`prd.md`](prd.md) v1.9 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.6 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.5 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.7 |
 
 ---
 
@@ -162,8 +162,9 @@ three adapters (PRD §6.10, API Spec §7.1, DD-013..DD-018, Data Model §2.13). 
 together with REQ-098 and REQ-099 (view props apply to the demo; the props reference says what
 the demo ignores).
 
-**Tasks:** `changes/feature-001-dashboard/plan-and-tasks.md` (dashboard) and
-`changes/delta-011-volvelle-demo-index.md` (demo rule), continuing the global task sequence.
+**Tasks:** `changes/feature-001-dashboard/plan-and-tasks.md` (dashboard),
+`changes/delta-011-volvelle-demo-index.md` (demo rule) and
+`changes/delta-012-everything-in-0-2-0.md` (step 5g), continuing the global task sequence.
 
 | Step | Content | Exit |
 |---|---|---|
@@ -173,12 +174,16 @@ the demo ignores).
 | 5d | Example apps: hydration, axe, reading order | Four apps green |
 | 5e | Linked interaction (SHOULD) | May slip to a later minor without blocking 5f |
 | 5f | Docs, budgets, changeset | `0.2.0` from CI |
+| 5g | Delta-012: the `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222) | Tree and pixel gates green with `cyanotype`; four apps hydrate |
 
 **Done criteria**
 - Every MUST in REQ-098, REQ-099 and REQ-200..REQ-221 cited by a test; traceability 0 blocking.
 - Parity gate green on the 24 dashboard parity fixtures; pixel gates green on all 72.
 - The four example apps have the reference dashboard page, green in e2e and axe.
-- `dashboard` subpath ≤ 2 KB min+gzip over the one-chart budget in each adapter.
+- `dashboard` subpath within its allowance over the one-chart build: 2 KB for React and Vue, 3 KB
+  for Angular (REQ-220, delta-012).
+- Delta-012: REQ-028 and REQ-222 cited by tests; `cyanotype` in the fixture matrix (330 PR, 1,782
+  nightly; 30 parity and 90 pixel dashboard fixtures); the Angular example app server-rendered.
 - No canonical chart fixture changed by the demo rule.
 
 ## 4. Dependency Map
@@ -240,6 +245,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.5 | 2026-09-26 | Ernesto Crespo | Step 5g (delta-012): the `cyanotype` ground, REQ-220 per adapter and Angular CLI SSR join `0.2.0` |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Phase 5 added: dashboard composition and the demo rule, released in `0.2.0`; Phase 4's `1.0.0` criterion recorded as deferred by decision |
 | 1.3 | 2026-09-13 | Ernesto Crespo | Vue added as a third adapter: Phase 0 covers all three, effort revised to 19-26 weeks, a fourth example app |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Vite raised to a validated integration: bundler-resolution Done criterion added to Phase 0 (REQ-033, REQ-034) |

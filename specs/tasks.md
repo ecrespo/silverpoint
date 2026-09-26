@@ -273,12 +273,11 @@ generated as each preceding phase closes.
 
 Requirements not yet implemented, with their target. Closes Analyze finding A-12. Rows leave the
 table when their requirement is cited by a test: the catalog (Phases 1-3) and the Dashboard
-composition (Phase 5, `0.2.0`, closed 2026-09-26) have left it.
+composition (Phase 5, `0.2.0`, closed 2026-09-26) and REQ-028 (`cyanotype`, delta-012) have left it.
 
 | REQ | Priority | Target | Reason |
 |---|---|---|---|
-| REQ-028 | SHOULD | After v1 | `tonalMechanism: 'weight'` belongs to the `cyanotype` ground, which is not in v1 |
-| REQ-047 | COULD | After v1 | The optional Tailwind preset is a convenience, not a dependency |
+| REQ-047 | COULD | After 0.2.0 | The optional Tailwind preset is a convenience, not a dependency; it needs a new package and its npm trusted publisher (delta-012) |
 
 ## Execution log
 

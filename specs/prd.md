@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.8 |
+| **Version** | 1.9 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-09-25 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.5 |
+| **Last updated** | 2026-09-26 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
 
 ---
 
@@ -113,11 +113,11 @@ with `recharts`.
 
 | Objective | Metric | Target | Deadline |
 |---|---|---|---|
-| Verifiable parity across all three adapters | Art. 3 gates green over the full matrix | 100% | Release v1.0 |
-| Do not charge for the style in accuracy | Identical vertices between `ink` and `precision` | 100% of the charts | Release v1.0 |
-| Real accessibility | WCAG 2.1 AA audit over the example apps | 0 level A and AA issues | Release v1.0 |
-| Low adoption cost | Weight of `@silverpoint/react` + `core` with one chart, minified and compressed | < 45 KB | Release v1.0 |
-| Engine extensibility | Add the second ground without touching chart code | 0 chart files modified | Release v1.1 |
+| Verifiable parity across all three adapters | Art. 3 gates green over the full matrix | 100% | Release 0.2.0 |
+| Do not charge for the style in accuracy | Identical vertices between `ink` and `precision` | 100% of the charts | Release 0.2.0 |
+| Real accessibility | WCAG 2.1 AA audit over the example apps | 0 level A and AA issues | Release 0.2.0 |
+| Low adoption cost | Weight of `@silverpoint/react` + `core` with one chart, minified and compressed | < 45 KB | Release 0.2.0 |
+| Engine extensibility | Add the second ground without touching chart code | 0 chart files modified | Release 0.2.0 |
 | Dashboards need no consumer CSS | App-level layout CSS in the reference dashboard of the four example apps | 0 rules | Release 0.2.0 |
 | Parity extends to the arrangement | Differences on the dashboard fixtures, three adapters, against canonical renders | 0 | Release 0.2.0 |
 
@@ -135,7 +135,8 @@ with `recharts`.
 ### 5.1 In Scope
 
 - [ ] `@silverpoint/core`: geometry, scales, interaction engine and the `Inker` interface.
-- [ ] `@silverpoint/grounds`: declarative style tokens; complete `silverpoint` ground.
+- [ ] `@silverpoint/grounds`: declarative style tokens; complete `silverpoint` ground, and the
+      `cyanotype` ground, whose tonal mechanism is line weight (REQ-028).
 - [ ] `@silverpoint/react`: React adapter, compatible with Vite and Next.js (SSR included).
 - [ ] `@silverpoint/angular`: standalone adapter with signals, packaged in APF.
 - [ ] `@silverpoint/vue`: Vue 3 adapter with `<script setup>`, typed props and emits.
@@ -144,7 +145,7 @@ with `recharts`.
 - [ ] Accessibility layer: roles, names, tabular alternative and keyboard navigation.
 - [ ] `vite-react`, `vite-vue`, `nextjs` and `angular` example apps as an integration bench. All four
       are **validated integrations with requirements of their own**, not demos: Vite under
-      REQ-033 and REQ-034, Next.js under REQ-103.
+      REQ-033 and REQ-034, Next.js under REQ-103, the Angular CLI under REQ-222.
 - [ ] Cross visual regression harness and the Art. 3 CI gates.
 - [ ] Documentation site with a gallery and a grounds playground.
 - [ ] Dashboard composition in `@silverpoint/react`, `@silverpoint/vue` and `@silverpoint/angular`,
@@ -152,19 +153,19 @@ with `recharts`.
 
 ### 5.2 Out of Scope
 
-- Vue, Svelte, Solid and web components — no adapter in v1; the architecture does not preclude it.
-- Grounds other than `silverpoint` in v1 — specified, implemented later.
+- Svelte, Solid and web components — no adapter in the `0.x` line; the architecture does not preclude it.
+- Grounds other than `silverpoint` and `cyanotype` in `0.2.0` — specified, implemented later.
 - Geographic charts and maps — another family of problems (projections, topology).
-- Canvas or WebGL rendering — v1 is SVG; the target data volume does not demand it.
+- Canvas or WebGL rendering — the `0.x` line is SVG; the target data volume does not demand it.
 - Visual editor or interactive dashboard builder: drag, resize, add or remove cells at runtime,
   persisted layout state. A declarative dashboard layout is in scope (§6.10).
 - Data layer for dashboards: fetching, shared data pools, filters, cross-filtering.
 - Nested dashboards, tabs and pages inside a dashboard.
-- Transition animations between datasets — v1 animates entry only, and in a way that can be disabled.
+- Transition animations between datasets — the `0.x` line animates entry only, and in a way that can be disabled.
 
 ### 5.3 Future Considerations
 
-- `burin`, `cyanotype`, `woodcut`, `wash` and `plotter` grounds.
+- `burin`, `woodcut`, `wash` and `plotter` grounds.
 - Export to PDF and printable SVG, where this style has a natural advantage.
 - A web components adapter to cover the rest of the frameworks with a single effort.
 - A canvas backend for long series, behind the same API.
@@ -206,7 +207,7 @@ citing it (Constitution, Art. 9). Retired identifiers are not reused.
 | REQ-025 | unwanted | IF a configuration declares heightening on more than one element, THEN THE SYSTEM SHALL throw an error in development and apply only the first in production. | MUST |
 | REQ-026 | unwanted | IF a ground declares an unregistered inker, THEN THE SYSTEM SHALL fall back to `NullInker`, warn and continue the render. | MUST |
 | REQ-027 | ubiquitous | No adapter SHALL import the inking engine; only the core resolves it. | MUST |
-| REQ-028 | optional | WHERE the ground declares `tonalMechanism: "weight"`, THE SYSTEM SHALL encode value with line weight and SHALL omit all hatching. | SHOULD |
+| REQ-028 | optional | WHERE the ground declares `tonalMechanism: "weight"`, THE SYSTEM SHALL encode value with line weight and SHALL omit all hatching. The `cyanotype` ground declares it (Data Model §3.7). | SHOULD |
 | REQ-029 | ubiquitous | THE SYSTEM SHALL fill areas with a hatch tile shared per tonal level, and SHALL offer shape-by-shape hatching as an explicit consumer option. | MUST |
 | REQ-030 | unwanted | IF two charts on the same page share a tonal level, THEN each one SHALL reference its own tile, with an identifier scoped to the instance. | MUST |
 | REQ-031 | ubiquitous | THE SYSTEM SHALL stroke the outline of every white-heightened element with the main ink, so that its boundary reaches the minimum contrast even when the fill cannot. | MUST |
@@ -293,6 +294,7 @@ Cross-cutting catalog requirements:
 | REQ-101 | ubiquitous | The Angular adapter SHALL expose standalone components with signal inputs and `ChangeDetectionStrategy.OnPush`. | MUST |
 | REQ-102 | ubiquitous | No adapter SHALL contain computation of scales, axes, arcs or paths. | MUST |
 | REQ-103 | event | WHEN the Next.js app renders on the server, THE SYSTEM SHALL produce markup that hydrates without mismatches. | MUST |
+| REQ-222 | event | WHEN the Angular CLI app renders on the server with `@angular/ssr`, THE SYSTEM SHALL produce markup that hydrates without mismatches. | MUST |
 | REQ-104 | ubiquitous | The React adapter SHALL mark `"use client"` only on the components that require state or effects; fixed-size, non-interactive charts SHALL render entirely on the server. | MUST |
 | REQ-105 | ubiquitous | The Angular adapter SHALL be published in Angular Package Format. | MUST |
 | REQ-106 | unwanted | IF an adapter package imports `d3-*` or the inking engine, THEN CI SHALL fail. | MUST |
@@ -403,8 +405,8 @@ by a runtime warning.
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds more than 2 KB min+gzip to its one-chart budget, THEN CI SHALL fail (REQ-164). | MUST |
-| REQ-221 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include the reference dashboard page, verified end to end: no hydration mismatch, no axe A/AA issue, pixel gates green at the three breakpoints. | MUST |
+| REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds to its one-chart build more than its allowance min+gzip —2 KB for React (client and server) and Vue, 3 KB for Angular, whose partial-compilation output carries each component's template and input metadata— THEN CI SHALL fail (REQ-164). | MUST |
+| REQ-221 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include the reference dashboard page, verified end to end, the three server-rendered apps (`vite-vue`, `nextjs`, `angular`) hydrating it: no hydration mismatch, no axe A/AA issue, pixel gates green at the three breakpoints. | MUST |
 
 A dashboard's name is enforced by the type —`title` or `label` is required (API Spec §7.1)—, not
 by a runtime warning.
@@ -446,11 +448,11 @@ reinterpreted and the original is stated.
 
 ### Data volume *(in place of "Scalability")*
 
-- v1 target: up to 500 points per series in cartesian families and 60 sectors in polar ones,
+- `0.x` target: up to 500 points per series in cartesian families and 60 sectors in polar ones,
   while keeping the node budget. Above that, a warning and a recommendation to aggregate
   (REQ-096).
 - The chord ring (REQ-091) is bounded by number of categories, not points: the ribbons grow
-  quadratically. v1 ceiling: 12 categories.
+  quadratically. `0.x` ceiling: 12 categories.
 
 ### Observability
 
@@ -464,7 +466,7 @@ reinterpreted and the original is stated.
 ### Technical Constraints
 
 - All geometry in the core; adapters do not compute (Constitution, Art. 2).
-- SVG as the only render backend in v1.
+- SVG as the only render backend in the `0.x` line.
 - No Tailwind and no CSS framework (Art. 8).
 - `stroke` and `fill` must be applied as CSS properties, not as presentation attributes, so
   that the `--sp-` variables re-theme without re-rendering. This constrains the `Inker`'s
@@ -570,8 +572,9 @@ commitments.
 | Phase 1 — layout engine | 2-3 weeks | The 6 charts without scales: bullet, pyramid, treemap, density heatmap, sankey, activity grid |
 | Phase 2 — scale engine | 4-5 weeks | 15 cartesian charts on a common engine; includes candlesticks and sparklines, which do need a scale |
 | Phase 3 — arc engine | 4-5 weeks | 10 charts on a common arc engine, plus the chord ring and the armillary orbits with their own geometry |
-| Phase 4 — closing | 2-3 weeks | Accessibility audited, documentation, budgets, release v1.0 |
+| Phase 4 — closing | 2-3 weeks | Accessibility audited, documentation, budgets, release `0.1.1` (published 2026-09-25) |
 | Phase 5 — dashboard | 3-4 weeks | Dashboard composition in three adapters, parity and pixel gates per breakpoint, released in 0.2.0 |
+| Phase 5, delta-012 | 1 week | The `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222), in 0.2.0 |
 
 ---
 
@@ -579,6 +582,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.9 | 2026-09-26 | Ernesto Crespo | Delta-012: every "v1" target becomes `0.2.0` (the line stays on `0.x`); `cyanotype` enters scope and REQ-028 names it; REQ-222 (Angular CLI SSR hydration) enters; REQ-220 gives each adapter an allowance, 3 KB for Angular; REQ-221 names the three server-rendered apps |
 | 1.8 | 2026-09-25 | Ernesto Crespo | Deltas folded: REQ-108 admits the active item as Vue component state (delta-004); Vue 3.5+ and TypeScript 6.x where required (deltas 001, 005); REQ-098 and REQ-099 (view props apply to the demo, delta-011); §6.10 Dashboard composition, REQ-200..REQ-221, with the §5.2 scope amendment (feature-001) |
 | 1.7 | 2026-09-13 | Ernesto Crespo | Vue added as a third supported framework: REQ-108 and REQ-109 enter, `@silverpoint/vue` joins REQ-160 and REQ-161, REQ-100 reformulated against a canonical render |
 | 1.6 | 2026-09-13 | Ernesto Crespo | Vite raised to a first-class validated integration: REQ-033 and REQ-034 added, compatibility floor stated, scope wording corrected |
