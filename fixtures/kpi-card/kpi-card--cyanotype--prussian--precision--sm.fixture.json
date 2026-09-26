@@ -1,0 +1,22 @@
+{
+  "chart": "KpiCard",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "kpi-card--cyanotype--prussian--precision--sm",
+  "req": "REQ-063",
+  "seed": 1592,
+  "props": {
+    "title": "Orders",
+    "badge": "14 days",
+    "footerLeft": "daily",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "kpi-card/kpi-card--cyanotype--prussian--precision--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "CoxcombChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "coxcomb-chart--cyanotype--prussian--ink--md",
+  "req": "REQ-088",
+  "seed": 1592,
+  "props": {
+    "title": "Tickets",
+    "badge": "week",
+    "footerLeft": "by weekday",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "coxcomb-chart/coxcomb-chart--cyanotype--prussian--ink--md.canonical.txt"
+}

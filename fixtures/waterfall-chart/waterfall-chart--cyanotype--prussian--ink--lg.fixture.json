@@ -1,0 +1,22 @@
+{
+  "chart": "WaterfallChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "waterfall-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-067",
+  "seed": 1592,
+  "props": {
+    "title": "Cash bridge",
+    "badge": "Q2",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "waterfall-chart/waterfall-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

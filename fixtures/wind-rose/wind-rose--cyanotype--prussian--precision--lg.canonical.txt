@@ -1,0 +1,148 @@
+<svg aria-labelledby="wind-rose--cyanotype--prussian--precision--lg-title wind-rose--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="wind-rose--cyanotype--prussian--precision--lg-title">
+    "Wind at DSM"
+  <desc id="wind-rose--cyanotype--prussian--precision--lg-desc">
+    "Wind at DSM. Wind rose of 742 observations in 16 sectors; most often from E (13%); calm 3%."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M166,150.67A43.33,43.33,0,0,1,166,237.33A43.33,43.33,0,0,1,166,150.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M166,107.33A86.67,86.67,0,0,1,166,280.67A86.67,86.67,0,0,1,166,107.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M166,64A130,130,0,0,1,166,324A130,130,0,0,1,166,64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M163.89,181.33A12.85,12.85,0,0,1,168.11,181.33L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.6,137.54A57.23,57.23,0,0,1,175.4,137.54L168.11,181.33A12.85,12.85,0,0,0,163.89,181.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.23,105.28A89.94,89.94,0,0,1,180.77,105.28L175.4,137.54A57.23,57.23,0,0,0,156.6,137.54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.04,104.13A91.11,91.11,0,0,1,180.96,104.13L180.77,105.28A89.94,89.94,0,0,0,151.23,105.28Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167.85,186.04A8.18,8.18,0,0,1,170.33,187.06L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M174.18,158.73A36.21,36.21,0,0,1,185.16,163.28L170.33,187.06A8.18,8.18,0,0,0,167.85,186.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M178.92,138.25A57.23,57.23,0,0,1,196.29,145.44L185.16,163.28A36.21,36.21,0,0,0,174.18,158.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M179.45,135.97A59.57,59.57,0,0,1,197.52,143.46L196.29,145.44A57.23,57.23,0,0,0,178.92,138.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M166.68,193.05A1.17,1.17,0,0,1,166.95,193.32L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M175.51,180.7A16.35,16.35,0,0,1,179.3,184.49L166.95,193.32A1.17,1.17,0,0,0,166.68,193.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M182.98,170.24A29.2,29.2,0,0,1,189.76,177.02L179.3,184.49A16.35,16.35,0,0,0,175.51,180.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.01,167.39A32.7,32.7,0,0,1,192.61,174.99L189.76,177.02A29.2,29.2,0,0,0,182.98,170.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.69,166.44A33.87,33.87,0,0,1,193.56,174.31L192.61,174.99A32.7,32.7,0,0,0,185.01,167.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M171.95,190.29A7.01,7.01,0,0,1,172.83,192.42L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.76,177.31A31.54,31.54,0,0,1,196.72,186.88L172.83,192.42A7.01,7.01,0,0,0,171.95,190.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M197.71,174.22A37.38,37.38,0,0,1,202.41,185.56L196.72,186.88A31.54,31.54,0,0,0,192.76,177.31Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M198.71,173.6A38.54,38.54,0,0,1,203.55,185.3L202.41,185.56A37.38,37.38,0,0,0,197.71,174.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167.15,193.81A1.17,1.17,0,0,1,167.15,194.19L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M225.91,184.03A60.74,60.74,0,0,1,225.91,203.97L167.15,194.19A1.17,1.17,0,0,0,167.15,193.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M272,176.36A107.46,107.46,0,0,1,272,211.64L225.91,203.97A60.74,60.74,0,0,0,225.91,184.03Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M273.15,176.17A108.63,108.63,0,0,1,273.15,211.83L272,211.64A107.46,107.46,0,0,0,272,176.36Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M184.21,198.22A18.69,18.69,0,0,1,181.86,203.89L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M209.24,204.02A44.38,44.38,0,0,1,203.66,217.49L181.86,203.89A18.69,18.69,0,0,0,184.21,198.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M173.6,199.43A9.34,9.34,0,0,1,171.43,201.6L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M188.81,210.3A28.03,28.03,0,0,1,182.3,216.81L171.43,201.6A9.34,9.34,0,0,0,173.6,199.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.61,213.01A32.7,32.7,0,0,1,185.01,220.61L182.3,216.81A28.03,28.03,0,0,0,188.81,210.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167.85,196.97A3.5,3.5,0,0,1,166.79,197.41L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.83,217.79A28.03,28.03,0,0,1,172.33,221.31L166.79,197.41A3.5,3.5,0,0,0,167.85,196.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M186.4,226.71A38.54,38.54,0,0,1,174.7,231.55L172.33,221.31A28.03,28.03,0,0,0,180.83,217.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M191.96,235.63A49.06,49.06,0,0,1,177.08,241.79L174.7,231.55A38.54,38.54,0,0,0,186.4,226.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.58,236.62A50.22,50.22,0,0,1,177.34,242.93L177.08,241.79A49.06,49.06,0,0,0,191.96,235.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M166.38,196.3A2.34,2.34,0,0,1,165.62,196.3L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M169.64,215.89A22.19,22.19,0,0,1,162.36,215.89L165.62,196.3A2.34,2.34,0,0,0,166.38,196.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.71,234.33A40.88,40.88,0,0,1,159.29,234.33L162.36,215.89A22.19,22.19,0,0,0,169.64,215.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M174.63,245.85A52.56,52.56,0,0,1,157.37,245.85L159.29,234.33A40.88,40.88,0,0,0,172.71,234.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M175.97,253.91A60.74,60.74,0,0,1,156.03,253.91L157.37,245.85A52.56,52.56,0,0,0,174.63,245.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.63,204.24A10.51,10.51,0,0,1,160.44,202.92L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M157.82,229.27A36.21,36.21,0,0,1,146.84,224.72L160.44,202.92A10.51,10.51,0,0,0,163.63,204.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M157.3,231.55A38.54,38.54,0,0,1,145.6,226.71L146.84,224.72A36.21,36.21,0,0,0,157.82,229.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.24,236.1A43.22,43.22,0,0,1,143.13,230.67L145.6,226.71A38.54,38.54,0,0,0,157.3,231.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M159.21,203.5A11.68,11.68,0,0,1,156.5,200.79L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.13,209.2A18.69,18.69,0,0,1,150.8,204.87L156.5,200.79A11.68,11.68,0,0,0,159.21,203.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.06,214.91A25.7,25.7,0,0,1,145.09,208.94L150.8,204.87A18.69,18.69,0,0,0,155.13,209.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M150.38,215.86A26.86,26.86,0,0,1,144.14,209.62L145.09,208.94A25.7,25.7,0,0,0,151.06,214.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M165.01,194.62A1.17,1.17,0,0,1,164.86,194.26L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M160.05,197.71A7.01,7.01,0,0,1,159.17,195.58L164.86,194.26A1.17,1.17,0,0,0,165.01,194.62Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.1,200.8A12.85,12.85,0,0,1,153.48,196.9L159.17,195.58A7.01,7.01,0,0,0,160.05,197.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M153.12,202.04A15.18,15.18,0,0,1,151.21,197.43L153.48,196.9A12.85,12.85,0,0,0,155.1,200.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.12,202.65A16.35,16.35,0,0,1,150.07,197.69L151.21,197.43A15.18,15.18,0,0,0,153.12,202.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M160.24,194.96A5.84,5.84,0,0,1,160.24,193.04L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.17,196.3A14.02,14.02,0,0,1,152.17,191.7L160.24,193.04A5.84,5.84,0,0,0,160.24,194.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.65,198.22A25.7,25.7,0,0,1,140.65,189.78L152.17,191.7A14.02,14.02,0,0,0,152.17,196.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M138.35,198.6A28.03,28.03,0,0,1,138.35,189.4L140.65,189.78A25.7,25.7,0,0,0,140.65,198.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M137.2,198.79A29.2,29.2,0,0,1,137.2,189.21L138.35,189.4A28.03,28.03,0,0,0,138.35,198.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M162.59,193.21A3.5,3.5,0,0,1,163.03,192.15L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M153.48,191.1A12.85,12.85,0,0,1,155.1,187.2L163.03,192.15A3.5,3.5,0,0,0,162.59,193.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M134.14,186.62A32.7,32.7,0,0,1,138.25,176.69L155.1,187.2A12.85,12.85,0,0,0,153.48,191.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.62,183.71A45.55,45.55,0,0,1,127.35,169.89L138.25,176.69A32.7,32.7,0,0,0,134.14,186.62Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M112.52,181.6A54.9,54.9,0,0,1,119.42,164.95L127.35,169.89A45.55,45.55,0,0,0,121.62,183.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M164.1,192.64A2.34,2.34,0,0,1,164.64,192.1L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.09,179.06A25.7,25.7,0,0,1,151.06,173.09L164.64,192.1A2.34,2.34,0,0,0,164.1,192.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M114.68,157.33A63.07,63.07,0,0,1,129.33,142.68L151.06,173.09A25.7,25.7,0,0,0,145.09,179.06Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M94.73,143.07A87.6,87.6,0,0,1,115.07,122.73L129.33,142.68A63.07,63.07,0,0,0,114.68,157.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M87.12,137.63A96.95,96.95,0,0,1,109.63,115.12L115.07,122.73A87.6,87.6,0,0,0,94.73,143.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M153.02,173.19A24.53,24.53,0,0,1,160.46,170.11L166,194Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.04,152.37A49.06,49.06,0,0,1,154.92,146.21L160.46,170.11A24.53,24.53,0,0,0,153.02,173.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M137.57,148.41A53.73,53.73,0,0,1,153.87,141.66L154.92,146.21A49.06,49.06,0,0,0,140.04,152.37Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M330,154H339V161H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,168H339V175H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,182H339V189H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,196H339V203H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M330,210H339V217H330Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Wind at DSM"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Mar 2024"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "knots, hourly METAR"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="176.45" y="149.5">
+    "5%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="184.91" y="107">
+    "10%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="166" y="59">
+    "N"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="218.81" y="69.5">
+    "NNE"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="263.58" y="99.42">
+    "NE"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="293.5" y="144.19">
+    "ENE"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="304" y="197">
+    "E"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="293.5" y="249.81">
+    "ESE"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="263.58" y="294.58">
+    "SE"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="218.81" y="324.5">
+    "SSE"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="166" y="335">
+    "S"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="113.19" y="324.5">
+    "SSW"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="68.42" y="294.58">
+    "SW"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="38.5" y="249.81">
+    "WSW"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="28" y="197">
+    "W"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="38.5" y="144.19">
+    "WNW"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="68.42" y="99.42">
+    "NW"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="113.19" y="69.5">
+    "NNW"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="161">
+    "< 5"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="161">
+    "6%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="175">
+    "5–10"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="175">
+    "39%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="189">
+    "10–15"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="189">
+    "37%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="203">
+    "15–20"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="203">
+    "11%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="344" y="217">
+    "≥ 20"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="217">
+    "4%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="344" y="340">
+    "calm 3%"

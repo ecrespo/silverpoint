@@ -50,17 +50,27 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
 };
 
 /**
- * The nightly matrix: every catalog chart × 2 modes × 4 substrates × 2 `hatchFill` × 3 sizes =
- * 1,584 cells; its `md` + `tile` slice is the PR matrix (Data Model §5).
+ * Each ground with its substrates and the `hatchFill` values that change its render: `silverpoint`
+ * hatches, so both do; `cyanotype` inks by weight, so only `tile` is drawn (Data Model §5, REQ-028).
+ */
+const GROUNDS = [
+  { ground: 'silverpoint', substrates: ['cream', 'green', 'blue', 'ochre'], fills: ['tile', 'per-shape'] },
+  { ground: 'cyanotype', substrates: ['prussian'], fills: ['tile'] },
+] as const;
+
+/**
+ * The nightly matrix: every catalog chart × 2 modes × 3 sizes × each ground's substrates and fills
+ * = 1,584 `silverpoint` cells and 198 `cyanotype` ones; its `md` + `tile` slice is the PR matrix
+ * (Data Model §5).
  */
 function matrix(): Fixture[] {
   const fixtures: Fixture[] = [];
   for (const { chart, req, slug } of CATALOG) {
     for (const size of [SIZES.sm, SIZES.md, SIZES.lg]) {
-      for (const hatchFill of ['tile', 'per-shape'] as const) {
+      for (const { ground, substrates, fills } of GROUNDS) for (const hatchFill of fills) {
         for (const mode of ['ink', 'precision'] as const) {
-          for (const substrate of ['cream', 'green', 'blue', 'ochre']) {
-            const cell = { chart, ground: 'silverpoint', substrate, mode, hatchFill, size } as const;
+          for (const substrate of substrates) {
+            const cell = { chart, ground, substrate, mode, hatchFill, size } as const;
             const id = fixtureId(cell);
             fixtures.push({
               ...cell,

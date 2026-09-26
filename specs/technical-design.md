@@ -492,8 +492,9 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
 
 - **Decision:** the `cyanotype` ground declares `tonalMechanism: 'weight'` and the inker
   `'weight'`. `WeightInker` (in `@silverpoint/grounds`) turns each toned shape into its own
-  outline, `paint: 'stroke'`, with `Stroke.weight` set to its tonal level, and returns every
-  other stroke untouched. The view writes the level as `data-weight`; the stylesheet turns it
+  outline, `paint: 'stroke'`, with the internal `Stroke.tonalWeight` set to its tonal level, and
+  returns every other stroke untouched. `Stroke.weight` keeps its own meaning, a relative weight
+  that `BulletChart`'s target tick already carries and that the view does not write. The view writes the level as `data-weight`; the stylesheet turns it
   into `stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-N))`, with the four
   multipliers declared by the ground (its `tonalRamp` of `{ style: 'weight' }` steps).
 - **Context:** REQ-028 asks for value by line weight and no hatching. A cyanotype is a contact

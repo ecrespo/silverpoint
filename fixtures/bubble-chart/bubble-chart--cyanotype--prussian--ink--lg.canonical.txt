@@ -1,0 +1,47 @@
+<svg aria-labelledby="bubble-chart--cyanotype--prussian--ink--lg-title bubble-chart--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="bubble-chart--cyanotype--prussian--ink--lg-title">
+    "Markets"
+  <desc id="bubble-chart--cyanotype--prussian--ink--lg-desc">
+    "Markets. 5 points; x from 2 to 14, y from 12 to 30, size from 40 to 210 as marker area."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M34.62,249.19H605.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,187H605.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,124.81H605.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,62.62H605.38" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M34.62,311.38H605.38" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M456.83,62.62A12.62,12.62,0,1,0,482.06,62.62A12.62,12.62,0,1,0,456.83,62.62Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M187.99,137.25A9.58,9.58,0,1,0,207.15,137.25A9.58,9.58,0,1,0,187.99,137.25Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M597.06,174.56A8.32,8.32,0,1,0,613.71,174.56A8.32,8.32,0,1,0,597.06,174.56Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M326.4,286.51A7.11,7.11,0,1,0,340.62,286.51A7.11,7.11,0,1,0,326.4,286.51Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M55.99,211.88A5.64,5.64,0,1,0,67.27,211.88A5.64,5.64,0,1,0,55.99,211.88Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Markets"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "growth × margin"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="246.19">
+    "15"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="184">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="121.81">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.62" y="59.62">
+    "30"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="61.63" y="339">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="152.26" y="339">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="242.88" y="339">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="333.51" y="339">
+    "8"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="424.13" y="339">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="514.76" y="339">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="605.38" y="339">
+    "14"

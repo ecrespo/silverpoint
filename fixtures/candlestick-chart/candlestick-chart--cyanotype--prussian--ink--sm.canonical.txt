@@ -1,0 +1,55 @@
+<svg aria-labelledby="candlestick-chart--cyanotype--prussian--ink--sm-title candlestick-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="candlestick-chart--cyanotype--prussian--ink--sm-title">
+    "Share price"
+  <desc id="candlestick-chart--cyanotype--prussian--ink--sm-desc">
+    "Share price. Candlestick chart of 8 sessions, prices from 96 to 116, from the lowest low to the highest high; 5 rise and 3 fall."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,125.2H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,106.4H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,87.6H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,68.8H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M33.71,95.12V128.96" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M28.16,102.64H39.26V117.68H28.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M58.36,91.36V121.44" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M52.82,102.64H63.91V113.92H52.82Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M83.02,106.4V136.48" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M77.47,113.92H88.57V128.96H77.47Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M107.67,110.16V140.24" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M102.13,113.92H113.22V128.96H102.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M132.33,83.84V117.68" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M126.78,87.6H137.87V113.92H126.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.98,72.56V98.88" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.43,87.6H162.53V95.12H151.43Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M181.64,87.6V110.16" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M176.09,91.36H187.18V95.12H176.09Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M206.29,65.04V95.12" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M200.74,68.8H211.84V91.36H200.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Share price"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2 weeks"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "daily OHLC"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="122.2">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="103.4">
+    "105"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="84.6">
+    "110"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="65.8">
+    "115"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "120"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="33.71" y="159">
+    "Mon"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="83.02" y="159">
+    "Wed"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="132.33" y="159">
+    "Fri"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="181.64" y="159">
+    "Tue"

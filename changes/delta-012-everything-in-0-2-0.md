@@ -15,7 +15,7 @@
    may never come, and it hides the one deferred requirement the engine was built for.
 2. **REQ-028** (`tonalMechanism: 'weight'`, SHOULD) is the requirement that proves Art. 7: a second
    ground, with a different tonal mechanism, added without touching a chart. The `Ground` type has
-   carried `'weight'` since Phase 0, and `Stroke.weight` has been in the API Spec, unused, just as long.
+   carried `'weight'` since Phase 0.
 3. **REQ-220 and Angular.** Measured on the built packages (2026-09-26), a dashboard adds this much
    over the one-chart build, min+gzip: React client 1,872 B, React server 1,731 B, Vue 1,929 B,
    **Angular 2,492 B**. The test holds every dashboard entry at 47 kB, so it passes, but it does not
@@ -52,13 +52,16 @@
   cyanotype ramp is 1.5, 2.25, 3 and 4 times the stroke width, for levels 1 to 4.
 - **`WeightInker`** (`@silverpoint/grounds`, name `'weight'`). It does not use rough.js: a cyanotype
   is a contact print, so its line is exact. It returns every stroke untouched, except that a toned
-  shape becomes its own outline with `paint: 'stroke'` and `weight` set to its tonal level. It emits
+  shape becomes its own outline with `paint: 'stroke'` and the internal `tonalWeight` set to its
+  tonal level. It emits
   no hatch, no tile and no `<pattern>` (REQ-028: "SHALL omit all hatching"). The vertices do not move
   (Art. 1).
 - **The view.** `PathView` gains `weight`, written as `data-weight` and omitted when `null`, like
   `data-dash`. The three adapters map it one to one (Art. 2). The stylesheet resolves it:
   `.sp-chart [data-weight='n'] { stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-n)) }`,
-  with `--sp-weight-1..4` declared by the ground. `Stroke.weight`'s JSDoc says what it now is.
+  with `--sp-weight-1..4` declared by the ground. `Stroke.weight` is left alone: it is a relative
+  weight that `BulletChart`'s target tick already sets and the view never wrote, and giving it the new
+  meaning would have changed 48 `silverpoint` canonicals (found while regenerating, T-128).
 - **Precision mode** is the `NullInker`, as in every ground: no hatch there, no weight here. The
   encoding vertices are identical in both modes (REQ-006).
 - **Registered by default** beside `silverpoint`; `cyanotype` and `WeightInker` are exported.
@@ -98,7 +101,7 @@
 ## Blast radius
 
 - **Canonical fixtures: none of the existing 1,584 + 24 change.** `data-weight` is omitted when
-  `null`, and no `silverpoint` stroke carries a weight.
+  `null`, and no `silverpoint` stroke carries a tonal weight.
 - **Adapters:** one attribute each, in React `chart-svg.tsx`, Vue `ChartPath.vue` and Angular `chart-frame.ts`.
 - **Chart recipes: none touched** (PRD §4.1 "0 chart files modified", REQ-044).
 - **Budgets:** the core view gains one field, and grounds gains a ground and an inker. Every budget
@@ -114,7 +117,7 @@ Task ids continue the global sequence from T-123.
 
 **[ ] T-125 · The weight tonal mechanism** — REQ-028, REQ-006, REQ-022
 - Test-first: `ToneSpec`'s `weight` variant; `WeightInker` turns a toned shape into its outline
-  with `weight` = tone and `paint: 'stroke'`, emits no hatch, no tile, no pattern, and leaves
+  with `tonalWeight` = tone and `paint: 'stroke'`, emits no hatch, no tile, no pattern, and leaves
   every vertex and every untoned stroke as given; `toSvgView` writes `weight` and `svgString`
   writes `data-weight` (omitted when absent).
 

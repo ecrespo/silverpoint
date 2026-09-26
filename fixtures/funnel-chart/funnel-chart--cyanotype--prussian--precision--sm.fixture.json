@@ -1,0 +1,22 @@
+{
+  "chart": "FunnelChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "funnel-chart--cyanotype--prussian--precision--sm",
+  "req": "REQ-068",
+  "seed": 1592,
+  "props": {
+    "title": "Checkout funnel",
+    "badge": "June",
+    "footerLeft": "sessions",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "funnel-chart/funnel-chart--cyanotype--prussian--precision--sm.canonical.txt"
+}

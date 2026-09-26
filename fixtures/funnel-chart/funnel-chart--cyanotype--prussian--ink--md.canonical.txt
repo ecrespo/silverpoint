@@ -1,0 +1,50 @@
+<svg aria-labelledby="funnel-chart--cyanotype--prussian--ink--md-title funnel-chart--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="funnel-chart--cyanotype--prussian--ink--md-title">
+    "Checkout funnel"
+  <desc id="funnel-chart--cyanotype--prussian--ink--md-desc">
+    "Checkout funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M86,51.5H234V76.1H86Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+  <path d="M119.42,79.1H200.58V103.7H119.42Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+  <path d="M142.69,106.7H177.31V131.3H142.69Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M151.05,134.3H168.95V158.9H151.05Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M154.15,161.9H165.85V186.5H154.15Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Checkout funnel"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "June"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "sessions"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="67.8">
+    "Visits"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="61.8">
+    "12,400"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="72.8">
+    "100%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="95.4">
+    "Product"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="89.4">
+    "6,800"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="100.4">
+    "55%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="123">
+    "Cart"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="117">
+    "2,900"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="128">
+    "23%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="150.6">
+    "Checkout"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="144.6">
+    "1,500"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="155.6">
+    "12%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="178.2">
+    "Paid"
+  <text data-kind="tick" part="sp-text" text-anchor="end" x="298" y="172.2">
+    "980"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="298" y="183.2">
+    "8%"

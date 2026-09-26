@@ -1,0 +1,10 @@
+{
+  "dashboard": "kpi-strip",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "id": "kpi-strip--cyanotype--prussian--precision",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/kpi-strip--cyanotype--prussian--precision.canonical.txt"
+}

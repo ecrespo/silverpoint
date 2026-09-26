@@ -1,0 +1,22 @@
+{
+  "chart": "StackedBarChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "stacked-bar-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-065",
+  "seed": 1592,
+  "props": {
+    "title": "Signups by plan",
+    "badge": "H1",
+    "footerLeft": "per month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "stacked-bar-chart/stacked-bar-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

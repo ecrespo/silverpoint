@@ -23,10 +23,7 @@ export interface Stroke {
   readonly d: string;
   readonly role: StrokeRole;
   readonly part: StrokePart;
-  /**
-   * Tonal weight level, 1-4, that a `weight` ground's Inker gives a toned shape in place of
-   * hatching; written as `data-weight` and resolved by the stylesheet to a stroke width (REQ-028).
-   */
+  /** Relative weight, resolved against the ground's token. */
   readonly weight?: number;
   /** @internal Defaults to `'stroke'`. */
   readonly paint?: StrokePaint;
@@ -36,6 +33,11 @@ export interface Stroke {
   readonly tone?: ToneLevel;
   /** @internal Id of the tile in `Geometry.defs` that fills this shape. */
   readonly tile?: string;
+  /**
+   * @internal The tonal level a `weight` ground's Inker drew as line weight in place of hatching;
+   * written as `data-weight` and resolved by the stylesheet to a stroke width (REQ-028).
+   */
+  readonly tonalWeight?: Exclude<ToneLevel, 0>;
 }
 
 /** Kind of text a label carries; the stylesheet sets type by it. */

@@ -1,0 +1,43 @@
+<svg aria-labelledby="radial-arc-group--cyanotype--prussian--precision--lg-title radial-arc-group--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-arc-group--cyanotype--prussian--precision--lg-title">
+    "Pipeline"
+  <desc id="radial-arc-group--cyanotype--prussian--precision--lg-desc">
+    "Pipeline. 4 concentric tracks, outermost first: Direct 84, Partners 62, Online 47, Events 23."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M36.93,336A222.07,222.07,0,0,1,481.07,336" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,336A237,237,0,0,1,496,336L466.14,336A207.14,207.14,0,0,0,51.86,336Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.41,336A180.59,180.59,0,0,1,439.59,336" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M63.47,336A195.53,195.53,0,0,1,391.99,192.67L371.68,214.56A165.66,165.66,0,0,0,93.34,336Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M119.88,336A139.12,139.12,0,0,1,398.12,336" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M104.95,336A154.05,154.05,0,0,1,287.64,184.64L282.09,213.98A124.19,124.19,0,0,0,134.81,336Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.36,336A97.64,97.64,0,0,1,356.64,336" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M146.43,336A112.57,112.57,0,0,1,185.57,250.67L205.05,273.31A82.71,82.71,0,0,0,176.29,336Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M514,169H523V176H514Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M514,183H523V190H514Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M514,197H523V204H514Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M514,211H523V218H514Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Pipeline"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "Q3"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "by channel"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="176">
+    "Direct"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="176">
+    "84"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="190">
+    "Partners"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="190">
+    "62"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="204">
+    "Online"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="204">
+    "47"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="218">
+    "Events"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="218">
+    "23"

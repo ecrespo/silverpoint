@@ -1,0 +1,36 @@
+<svg aria-labelledby="orbit-chart--cyanotype--prussian--ink--sm-title orbit-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="orbit-chart--cyanotype--prussian--ink--sm-title">
+    "Releases"
+  <desc id="orbit-chart--cyanotype--prussian--ink--sm-desc">
+    "Releases. 3 orbits from the inside out (2023, 2024, 2025) with 12 markers placed by period over the cycle; the largest is 50."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,92.41A27.6,11.59,0,1,1,120,115.59A27.6,11.59,0,1,1,120,92.41Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,78.88A59.8,25.12,0,1,1,120,129.12A59.8,25.12,0,1,1,120,78.88Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,65.36A92,38.64,0,1,1,120,142.64A92,38.64,0,1,1,120,65.36Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M130.36,93.84A2.94,2.94,0,1,0,136.24,93.84A2.94,2.94,0,1,0,130.36,93.84Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M139.54,109.58A4.65,4.65,0,1,0,148.83,109.58A4.65,4.65,0,1,0,139.54,109.58Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M98.81,112.93A3.6,3.6,0,1,0,106.01,112.93A3.6,3.6,0,1,0,98.81,112.93Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M99.62,94.62A4.16,4.16,0,1,0,107.93,94.62A4.16,4.16,0,1,0,99.62,94.62Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M157.14,85.69A3.79,3.79,0,1,0,164.73,85.69A3.79,3.79,0,1,0,157.14,85.69Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M149.65,124.32A5.5,5.5,0,1,0,160.65,124.32A5.5,5.5,0,1,0,149.65,124.32Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M66.22,117.46A3.29,3.29,0,1,0,72.8,117.46A3.29,3.29,0,1,0,66.22,117.46Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M71.53,86.81A4.87,4.87,0,1,0,81.28,86.81A4.87,4.87,0,1,0,71.53,86.81Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M144.1,67.25A4.33,4.33,0,1,0,152.76,67.25A4.33,4.33,0,1,0,144.1,67.25Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M203.88,113.61A5.23,5.23,0,1,0,214.34,113.61A5.23,5.23,0,1,0,203.88,113.61Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M85.57,140.75A6,6,0,1,0,97.57,140.75A6,6,0,1,0,85.57,140.75Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <path d="M30.57,89.78A3.89,3.89,0,1,0,38.35,89.78A3.89,3.89,0,1,0,30.57,89.78Z" data-paint="fill" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Releases"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "3 years"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by day of the year"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="95.4" y="107">
+    "2023"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="63.2" y="107">
+    "2024"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="31" y="107">
+    "2025"

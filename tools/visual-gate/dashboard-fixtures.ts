@@ -1,6 +1,6 @@
 /**
- * The dashboard fixtures of Data Model §5 (REQ-210): 3 reference dashboards × 4 substrates ×
- * 2 modes = 24, rendered at `ssrWidth` 1280 for the tree gate; the pixel gate draws the same 24 at
+ * The dashboard fixtures of Data Model §5 (REQ-210): 3 reference dashboards × 5 ground substrates
+ * × 2 modes = 30, rendered at `ssrWidth` 1280 for the tree gate; the pixel gate draws the same 30 at
  * three container widths. Each carries its canonical render, computed from the core alone.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
@@ -24,17 +24,21 @@ export interface DashboardFixture {
   readonly canonical: string;
 }
 
-export const SUBSTRATES = ['cream', 'green', 'blue', 'ochre'] as const;
+/** Each ground with its substrates: `silverpoint`'s four, and `cyanotype`'s one (REQ-028). */
+export const GROUND_SUBSTRATES = [
+  ...(['cream', 'green', 'blue', 'ochre'] as const).map((substrate) => ({ ground: 'silverpoint', substrate })),
+  { ground: 'cyanotype', substrate: 'prussian' },
+] as const;
 export const PARITY_WIDTH = 1280;
 
 export const dashboardFixtureId = (f: Pick<DashboardFixture, 'dashboard' | 'ground' | 'substrate' | 'mode'>) => `${f.dashboard}--${f.ground}--${f.substrate}--${f.mode}`;
 
-/** The 24 fixtures, in a stable order. */
+/** The 30 fixtures, in a stable order. */
 export function dashboardMatrix(): DashboardFixture[] {
   return DASHBOARDS.flatMap((dashboard) =>
-    SUBSTRATES.flatMap((substrate) =>
+    GROUND_SUBSTRATES.flatMap(({ ground, substrate }) =>
       (['ink', 'precision'] as const).map((mode) => {
-        const cell = { dashboard, ground: 'silverpoint', substrate, mode } as const;
+        const cell = { dashboard, ground, substrate, mode } as const;
         const id = dashboardFixtureId(cell);
         return { ...cell, id, req: 'REQ-210', ssrWidth: PARITY_WIDTH, canonical: `dashboard/${id}.canonical.txt` };
       }),

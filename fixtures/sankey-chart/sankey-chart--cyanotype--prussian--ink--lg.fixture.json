@@ -1,0 +1,22 @@
+{
+  "chart": "SankeyChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "sankey-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-086",
+  "seed": 1592,
+  "props": {
+    "title": "Visitor flow",
+    "badge": "June",
+    "footerLeft": "visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sankey-chart/sankey-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

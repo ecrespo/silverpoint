@@ -1,0 +1,2577 @@
+<section aria-describedby="ops-desc" aria-labelledby="ops-title" class="sp-dashboard sp-ground-cyanotype" data-substrate="prussian" part="dashboard" style="--sp-dashboard-columns-sm:1;--sp-dashboard-columns-md:2;--sp-dashboard-columns-lg:4;--sp-dashboard-row-height:240px;--sp-dashboard-layout-gap:16px">
+  <h2 class="sp-dashboard-title" id="ops-title" part="dashboard-title">
+    "Operations"
+  <p class="sp-dashboard-description" id="ops-desc" part="dashboard-description">
+    "Service health over the last day: headline figures, traffic, errors and load."
+  <div class="sp-dashboard-grid" part="dashboard-grid">
+    <article aria-labelledby="ops--revenue-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Revenue" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--revenue-title ops--revenue-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--revenue-title">
+            "Revenue"
+          <desc id="ops--revenue-desc">
+            "Revenue. thousands at 171, change +6.4; 14 points from 118 to 171."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M250.6,112L254.1,105L257.6,112Z" data-paint="fill" data-role="encoding" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120L286,218C279.23,218,272.46,218,265.69,218C258.92,218,252.15,218,245.39,218C238.62,218,231.85,218,225.08,218C218.31,218,211.54,218,204.77,218C198,218,191.23,218,184.46,218C177.69,218,170.92,218,164.15,218C157.39,218,150.62,218,143.85,218C137.08,218,130.31,218,123.54,218C116.77,218,110,218,103.23,218C96.46,218,89.69,218,82.92,218C76.15,218,69.39,218,62.62,218C55.85,218,49.08,218,42.31,218C35.54,218,28.77,218,22,218Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Revenue"
+          <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+            "171"
+          <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+            "thousands"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="113">
+            "+6.4"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--revenue-table">
+            <caption>
+              "Revenue"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "point"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "1"
+                <td>
+                  "118"
+              <tr>
+                <th scope="row">
+                  "2"
+                <td>
+                  "124"
+              <tr>
+                <th scope="row">
+                  "3"
+                <td>
+                  "121"
+              <tr>
+                <th scope="row">
+                  "4"
+                <td>
+                  "132"
+              <tr>
+                <th scope="row">
+                  "5"
+                <td>
+                  "140"
+              <tr>
+                <th scope="row">
+                  "6"
+                <td>
+                  "136"
+              <tr>
+                <th scope="row">
+                  "7"
+                <td>
+                  "129"
+              <tr>
+                <th scope="row">
+                  "8"
+                <td>
+                  "142"
+              <tr>
+                <th scope="row">
+                  "9"
+                <td>
+                  "151"
+              <tr>
+                <th scope="row">
+                  "10"
+                <td>
+                  "147"
+              <tr>
+                <th scope="row">
+                  "11"
+                <td>
+                  "155"
+              <tr>
+                <th scope="row">
+                  "12"
+                <td>
+                  "162"
+              <tr>
+                <th scope="row">
+                  "13"
+                <td>
+                  "158"
+              <tr>
+                <th scope="row">
+                  "14"
+                <td>
+                  "171"
+    <article aria-labelledby="ops--users-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Active users" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--users-title ops--users-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--users-title">
+            "Active users"
+          <desc id="ops--users-desc">
+            "Active users. hundreds at 171, change +2.1; 14 points from 118 to 171."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M250.6,112L254.1,105L257.6,112Z" data-paint="fill" data-role="encoding" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120L286,218C279.23,218,272.46,218,265.69,218C258.92,218,252.15,218,245.39,218C238.62,218,231.85,218,225.08,218C218.31,218,211.54,218,204.77,218C198,218,191.23,218,184.46,218C177.69,218,170.92,218,164.15,218C157.39,218,150.62,218,143.85,218C137.08,218,130.31,218,123.54,218C116.77,218,110,218,103.23,218C96.46,218,89.69,218,82.92,218C76.15,218,69.39,218,62.62,218C55.85,218,49.08,218,42.31,218C35.54,218,28.77,218,22,218Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Active users"
+          <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+            "171"
+          <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+            "hundreds"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="113">
+            "+2.1"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--users-table">
+            <caption>
+              "Active users"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "point"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "1"
+                <td>
+                  "118"
+              <tr>
+                <th scope="row">
+                  "2"
+                <td>
+                  "124"
+              <tr>
+                <th scope="row">
+                  "3"
+                <td>
+                  "121"
+              <tr>
+                <th scope="row">
+                  "4"
+                <td>
+                  "132"
+              <tr>
+                <th scope="row">
+                  "5"
+                <td>
+                  "140"
+              <tr>
+                <th scope="row">
+                  "6"
+                <td>
+                  "136"
+              <tr>
+                <th scope="row">
+                  "7"
+                <td>
+                  "129"
+              <tr>
+                <th scope="row">
+                  "8"
+                <td>
+                  "142"
+              <tr>
+                <th scope="row">
+                  "9"
+                <td>
+                  "151"
+              <tr>
+                <th scope="row">
+                  "10"
+                <td>
+                  "147"
+              <tr>
+                <th scope="row">
+                  "11"
+                <td>
+                  "155"
+              <tr>
+                <th scope="row">
+                  "12"
+                <td>
+                  "162"
+              <tr>
+                <th scope="row">
+                  "13"
+                <td>
+                  "158"
+              <tr>
+                <th scope="row">
+                  "14"
+                <td>
+                  "171"
+    <article aria-labelledby="ops--churn-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Churn" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--churn-title ops--churn-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--churn-title">
+            "Churn"
+          <desc id="ops--churn-desc">
+            "Churn. per cent at 171, change -0.4; 14 points from 118 to 171."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M250.6,105L254.1,112L257.6,105Z" data-paint="fill" data-role="encoding" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120L286,218C279.23,218,272.46,218,265.69,218C258.92,218,252.15,218,245.39,218C238.62,218,231.85,218,225.08,218C218.31,218,211.54,218,204.77,218C198,218,191.23,218,184.46,218C177.69,218,170.92,218,164.15,218C157.39,218,150.62,218,143.85,218C137.08,218,130.31,218,123.54,218C116.77,218,110,218,103.23,218C96.46,218,89.69,218,82.92,218C76.15,218,69.39,218,62.62,218C55.85,218,49.08,218,42.31,218C35.54,218,28.77,218,22,218Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Churn"
+          <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+            "171"
+          <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+            "per cent"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="113">
+            "-0.4"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--churn-table">
+            <caption>
+              "Churn"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "point"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "1"
+                <td>
+                  "118"
+              <tr>
+                <th scope="row">
+                  "2"
+                <td>
+                  "124"
+              <tr>
+                <th scope="row">
+                  "3"
+                <td>
+                  "121"
+              <tr>
+                <th scope="row">
+                  "4"
+                <td>
+                  "132"
+              <tr>
+                <th scope="row">
+                  "5"
+                <td>
+                  "140"
+              <tr>
+                <th scope="row">
+                  "6"
+                <td>
+                  "136"
+              <tr>
+                <th scope="row">
+                  "7"
+                <td>
+                  "129"
+              <tr>
+                <th scope="row">
+                  "8"
+                <td>
+                  "142"
+              <tr>
+                <th scope="row">
+                  "9"
+                <td>
+                  "151"
+              <tr>
+                <th scope="row">
+                  "10"
+                <td>
+                  "147"
+              <tr>
+                <th scope="row">
+                  "11"
+                <td>
+                  "155"
+              <tr>
+                <th scope="row">
+                  "12"
+                <td>
+                  "162"
+              <tr>
+                <th scope="row">
+                  "13"
+                <td>
+                  "158"
+              <tr>
+                <th scope="row">
+                  "14"
+                <td>
+                  "171"
+    <article aria-labelledby="ops--nps-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="NPS" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--nps-title ops--nps-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--nps-title">
+            "NPS"
+          <desc id="ops--nps-desc">
+            "NPS. points at 171, change +3; 14 points from 118 to 171."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M261.8,112L265.3,105L268.8,112Z" data-paint="fill" data-role="encoding" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120L286,218C279.23,218,272.46,218,265.69,218C258.92,218,252.15,218,245.39,218C238.62,218,231.85,218,225.08,218C218.31,218,211.54,218,204.77,218C198,218,191.23,218,184.46,218C177.69,218,170.92,218,164.15,218C157.39,218,150.62,218,143.85,218C137.08,218,130.31,218,123.54,218C116.77,218,110,218,103.23,218C96.46,218,89.69,218,82.92,218C76.15,218,69.39,218,62.62,218C55.85,218,49.08,218,42.31,218C35.54,218,28.77,218,22,218Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M22,218C28.77,212.45,35.54,206.91,42.31,206.91C49.08,206.91,55.85,212.45,62.62,212.45C69.39,212.45,76.15,197.97,82.92,192.11C89.69,186.26,96.46,177.32,103.23,177.32C110,177.32,116.77,181.33,123.54,184.72C130.31,188.11,137.08,197.66,143.85,197.66C150.62,197.66,157.39,180.4,164.15,173.62C170.92,166.84,177.69,156.98,184.46,156.98C191.23,156.98,198,164.38,204.77,164.38C211.54,164.38,218.31,154.21,225.08,149.59C231.85,144.96,238.62,136.64,245.39,136.64C252.15,136.64,258.92,144.04,265.69,144.04C272.46,144.04,279.23,132.02,286,120" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "NPS"
+          <text data-kind="value" part="sp-text" text-anchor="start" x="16" y="66">
+            "171"
+          <text data-kind="unit" part="sp-axis" text-anchor="start" x="16" y="82">
+            "points"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="113">
+            "+3"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--nps-table">
+            <caption>
+              "NPS"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "point"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "1"
+                <td>
+                  "118"
+              <tr>
+                <th scope="row">
+                  "2"
+                <td>
+                  "124"
+              <tr>
+                <th scope="row">
+                  "3"
+                <td>
+                  "121"
+              <tr>
+                <th scope="row">
+                  "4"
+                <td>
+                  "132"
+              <tr>
+                <th scope="row">
+                  "5"
+                <td>
+                  "140"
+              <tr>
+                <th scope="row">
+                  "6"
+                <td>
+                  "136"
+              <tr>
+                <th scope="row">
+                  "7"
+                <td>
+                  "129"
+              <tr>
+                <th scope="row">
+                  "8"
+                <td>
+                  "142"
+              <tr>
+                <th scope="row">
+                  "9"
+                <td>
+                  "151"
+              <tr>
+                <th scope="row">
+                  "10"
+                <td>
+                  "147"
+              <tr>
+                <th scope="row">
+                  "11"
+                <td>
+                  "155"
+              <tr>
+                <th scope="row">
+                  "12"
+                <td>
+                  "162"
+              <tr>
+                <th scope="row">
+                  "13"
+                <td>
+                  "158"
+              <tr>
+                <th scope="row">
+                  "14"
+                <td>
+                  "171"
+    <article aria-labelledby="ops--traffic-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:3;--sp-cell-row-sm:2;--sp-cell-row-md:2;--sp-cell-row-lg:2">
+      <div aria-label="Traffic" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--traffic-title ops--traffic-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="496" role="img" viewBox="0 0 956 496" width="956" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--traffic-title">
+            "Traffic"
+          <desc id="ops--traffic-desc">
+            "Traffic. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
+          <path d="M0.5,0.5H955.5V495.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M16,458H940" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,354H934" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,278H934" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,202H934" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,126H934" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,50H934" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,430H934" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M60,346.4C85.33,351.78,110.67,357.17,136,361.6C161.33,366.03,186.67,373,212,373C237.33,373,262.67,370.47,288,365.4C313.33,360.33,338.67,335.63,364,316C389.33,296.37,414.67,266.6,440,247.6C465.33,228.6,490.67,207.07,516,202C541.33,196.93,566.67,196.93,592,194.4C617.33,191.87,642.67,191.87,668,186.8C693.33,181.73,718.67,164,744,164C769.33,164,794.67,202,820,221C845.33,240,870.67,259,896,278" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <path d="M60,361.6C85.33,366.98,110.67,372.37,136,376.8C161.33,381.23,186.67,388.2,212,388.2C237.33,388.2,262.67,381.87,288,369.2C313.33,356.53,338.67,327.4,364,300.8C389.33,274.2,414.67,233.03,440,209.6C465.33,186.17,490.67,160.2,516,160.2C541.33,160.2,566.67,179.2,592,179.2C617.33,179.2,642.67,162.73,668,148.8C693.33,134.87,718.67,95.6,744,95.6C769.33,95.6,794.67,164.63,820,194.4C845.33,224.17,870.67,249.18,896,274.2" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M892.5,274.2A3.5,3.5,0,1,0,899.5,274.2A3.5,3.5,0,1,0,892.5,274.2Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+          <path d="M892.5,274.2A3.5,3.5,0,1,0,899.5,274.2A3.5,3.5,0,1,0,892.5,274.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Traffic"
+          <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="476">
+            "hits per hour"
+          <text data-kind="footer" part="sp-axis" text-anchor="end" x="940" y="476">
+            "last 24 h"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="351">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="275">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="199">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="123">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+            "100"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="60" y="445">
+            "00"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="136" y="445">
+            "02"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="212" y="445">
+            "04"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="288" y="445">
+            "06"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="364" y="445">
+            "08"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="440" y="445">
+            "10"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="516" y="445">
+            "12"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="592" y="445">
+            "14"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="668" y="445">
+            "16"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="744" y="445">
+            "18"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="820" y="445">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="896" y="445">
+            "22"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--traffic-table">
+            <caption>
+              "Traffic"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "hour"
+                <th scope="col">
+                  "hits"
+                <th scope="col">
+                  "baseline"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "00"
+                <td>
+                  "18"
+                <td>
+                  "22"
+              <tr>
+                <th scope="row">
+                  "02"
+                <td>
+                  "14"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "04"
+                <td>
+                  "11"
+                <td>
+                  "15"
+              <tr>
+                <th scope="row">
+                  "06"
+                <td>
+                  "16"
+                <td>
+                  "17"
+              <tr>
+                <th scope="row">
+                  "08"
+                <td>
+                  "34"
+                <td>
+                  "30"
+              <tr>
+                <th scope="row">
+                  "10"
+                <td>
+                  "58"
+                <td>
+                  "48"
+              <tr>
+                <th scope="row">
+                  "12"
+                <td>
+                  "71"
+                <td>
+                  "60"
+              <tr>
+                <th scope="row">
+                  "14"
+                <td>
+                  "66"
+                <td>
+                  "62"
+              <tr>
+                <th scope="row">
+                  "16"
+                <td>
+                  "74"
+                <td>
+                  "64"
+              <tr>
+                <th scope="row">
+                  "18"
+                <td>
+                  "88"
+                <td>
+                  "70"
+              <tr>
+                <th scope="row">
+                  "20"
+                <td>
+                  "62"
+                <td>
+                  "55"
+              <tr>
+                <th scope="row">
+                  "22"
+                <td>
+                  "41"
+                <td>
+                  "40"
+    <article aria-labelledby="ops--errors-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Errors" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--errors-title ops--errors-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--errors-title">
+            "Errors"
+          <desc id="ops--errors-desc">
+            "Errors. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+          <path d="M76,48H88V55H76Z" data-dash="dotted" data-paint="stroke" data-role="ornament" data-weight="1" part="sp-ink-secondary">
+          <path d="M22,171H286" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,138H286" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,105H286" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,72H286" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,204H286" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M38.83,142.79A8.08,8.08,0,0,1,46.91,134.7H46.91A8.08,8.08,0,0,1,55,142.79V195.92A8.08,8.08,0,0,1,46.91,204H46.91A8.08,8.08,0,0,1,38.83,195.92Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M104.83,116.39A8.08,8.08,0,0,1,112.91,108.3H112.92A8.08,8.08,0,0,1,121,116.39V195.92A8.08,8.08,0,0,1,112.92,204H112.91A8.08,8.08,0,0,1,104.83,195.92Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M170.83,127.93A8.08,8.08,0,0,1,178.92,119.85H178.91A8.08,8.08,0,0,1,187,127.93V195.92A8.08,8.08,0,0,1,178.91,204H178.92A8.08,8.08,0,0,1,170.83,195.92Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M236.83,91.64A8.08,8.08,0,0,1,244.92,83.55H244.91A8.08,8.08,0,0,1,253,91.64V195.92A8.08,8.08,0,0,1,244.91,204H244.92A8.08,8.08,0,0,1,236.83,195.92Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M55,154.34A8.08,8.08,0,0,1,63.08,146.25H63.08A8.08,8.08,0,0,1,71.17,154.34V195.92A8.08,8.08,0,0,1,63.08,204H63.08A8.08,8.08,0,0,1,55,195.92Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M121,139.49A8.08,8.08,0,0,1,129.08,131.4H129.08A8.08,8.08,0,0,1,137.17,139.49V195.92A8.08,8.08,0,0,1,129.08,204H129.08A8.08,8.08,0,0,1,121,195.92Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M187,131.24A8.08,8.08,0,0,1,195.08,123.15H195.08A8.08,8.08,0,0,1,203.17,131.24V195.92A8.08,8.08,0,0,1,195.08,204H195.08A8.08,8.08,0,0,1,187,195.92Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M253,113.09A8.08,8.08,0,0,1,261.08,105H261.08A8.08,8.08,0,0,1,269.17,113.09V195.92A8.08,8.08,0,0,1,261.08,204H261.08A8.08,8.08,0,0,1,253,195.92Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Errors"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+            "value"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+            "previous"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="168">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="102">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="55" y="219">
+            "Q1"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="121" y="219">
+            "Q2"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="187" y="219">
+            "Q3"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="253" y="219">
+            "Q4"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--errors-table">
+            <caption>
+              "Errors"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "previous"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Q1"
+                <td>
+                  "42"
+                <td>
+                  "35"
+              <tr>
+                <th scope="row">
+                  "Q2"
+                <td>
+                  "58"
+                <td>
+                  "44"
+              <tr>
+                <th scope="row">
+                  "Q3"
+                <td>
+                  "51"
+                <td>
+                  "49"
+              <tr>
+                <th scope="row">
+                  "Q4"
+                <td>
+                  "73"
+                <td>
+                  "60"
+    <article aria-labelledby="ops--share-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Traffic share" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--share-title ops--share-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--share-title">
+            "Traffic share"
+          <desc id="ops--share-desc">
+            "Traffic share. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M106,50A84,84,0,0,1,163.5,195.23L141.65,171.96A52.08,52.08,0,0,0,106,81.92Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M163.5,195.23A84,84,0,0,1,56.63,201.96L75.39,176.13A52.08,52.08,0,0,0,141.65,171.96Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M56.63,201.96A84,84,0,0,1,22,134L53.92,134A52.08,52.08,0,0,0,75.39,176.13Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M22,134A84,84,0,0,1,52.46,69.28L72.8,93.87A52.08,52.08,0,0,0,53.92,134Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M52.46,69.28A84,84,0,0,1,106,50L106,81.92A52.08,52.08,0,0,0,72.8,93.87Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M210,102H219V109H210Z" data-paint="stroke" data-role="ornament" data-weight="1" part="sp-ink">
+          <path d="M210,116H219V123H210Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+          <path d="M210,130H219V137H210Z" data-paint="stroke" data-role="ornament" data-weight="3" part="sp-ink">
+          <path d="M210,144H219V151H210Z" data-paint="stroke" data-role="ornament" data-weight="4" part="sp-ink">
+          <path d="M210,158H219V165H210Z" data-paint="stroke" data-role="ornament" data-weight="3" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Traffic share"
+          <text data-kind="value" part="sp-text" text-anchor="middle" x="106" y="140">
+            "100"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="224" y="109">
+            "Rent"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="292" y="109">
+            "38%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="224" y="123">
+            "Food"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="292" y="123">
+            "22%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="224" y="137">
+            "Savings"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="292" y="137">
+            "15%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="224" y="151">
+            "Transport"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="292" y="151">
+            "14%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="224" y="165">
+            "Leisure"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="292" y="165">
+            "11%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--share-table">
+            <caption>
+              "Traffic share"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "name"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "share"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Rent"
+                <td>
+                  "38"
+                <td>
+                  "38%"
+              <tr>
+                <th scope="row">
+                  "Food"
+                <td>
+                  "22"
+                <td>
+                  "22%"
+              <tr>
+                <th scope="row">
+                  "Savings"
+                <td>
+                  "15"
+                <td>
+                  "15%"
+              <tr>
+                <th scope="row">
+                  "Transport"
+                <td>
+                  "14"
+                <td>
+                  "14%"
+              <tr>
+                <th scope="row">
+                  "Leisure"
+                <td>
+                  "11"
+                <td>
+                  "11%"
+    <article aria-labelledby="ops--load-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Load by hour" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--load-title ops--load-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 632 240" width="632" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--load-title">
+            "Load by hour"
+          <desc id="ops--load-desc">
+            "Load by hour. Heatmap of 5 rows by 6 columns, toned against 100; values range from 6 to 93."
+          <path d="M0.5,0.5H631.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M63,51H152.33V82.6H63Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M154.33,51H243.67V82.6H154.33Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M245.67,51H335V82.6H245.67Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M337,51H426.33V82.6H337Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M428.33,51H517.67V82.6H428.33Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M519.67,51H609V82.6H519.67Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M63,84.6H152.33V116.2H63Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M154.33,84.6H243.67V116.2H154.33Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M245.67,84.6H335V116.2H245.67Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M337,84.6H426.33V116.2H337Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M428.33,84.6H517.67V116.2H428.33Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M519.67,84.6H609V116.2H519.67Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M63,118.2H152.33V149.8H63Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M154.33,118.2H243.67V149.8H154.33Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M245.67,118.2H335V149.8H245.67Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M337,118.2H426.33V149.8H337Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M428.33,118.2H517.67V149.8H428.33Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M519.67,118.2H609V149.8H519.67Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M63,151.8H152.33V183.4H63Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M154.33,151.8H243.67V183.4H154.33Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M245.67,151.8H335V183.4H245.67Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M337,151.8H426.33V183.4H337Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M428.33,151.8H517.67V183.4H428.33Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M519.67,151.8H609V183.4H519.67Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M63,185.4H152.33V217H63Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M154.33,185.4H243.67V217H154.33Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M245.67,185.4H335V217H245.67Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M337,185.4H426.33V217H337Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M428.33,185.4H517.67V217H428.33Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M519.67,185.4H609V217H519.67Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Load by hour"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="70.8">
+            "Mon"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="107.67" y="70.8">
+            "12"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="199" y="70.8">
+            "34"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="290.33" y="70.8">
+            "58"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.67" y="70.8">
+            "71"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="473" y="70.8">
+            "66"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="564.33" y="70.8">
+            "40"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="104.4">
+            "Tue"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="107.67" y="104.4">
+            "18"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="199" y="104.4">
+            "42"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="290.33" y="104.4">
+            "77"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.67" y="104.4">
+            "88"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="473" y="104.4">
+            "70"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="564.33" y="104.4">
+            "35"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="138">
+            "Wed"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="107.67" y="138">
+            "9"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="199" y="138">
+            "38"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="290.33" y="138">
+            "64"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.67" y="138">
+            "93"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="473" y="138">
+            "81"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="564.33" y="138">
+            "47"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="171.6">
+            "Thu"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="107.67" y="171.6">
+            "15"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="199" y="171.6">
+            "29"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="290.33" y="171.6">
+            "55"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.67" y="171.6">
+            "68"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="473" y="171.6">
+            "59"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="564.33" y="171.6">
+            "31"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="205.2">
+            "Fri"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="107.67" y="205.2">
+            "6"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="199" y="205.2">
+            "21"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="290.33" y="205.2">
+            "43"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.67" y="205.2">
+            "49"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="473" y="205.2">
+            "37"
+          <text data-kind="tick" part="sp-text" text-anchor="middle" x="564.33" y="205.2">
+            "14"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--load-table">
+            <caption>
+              "Load by hour"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "label"
+                <th scope="col">
+                  "#1"
+                <th scope="col">
+                  "#2"
+                <th scope="col">
+                  "#3"
+                <th scope="col">
+                  "#4"
+                <th scope="col">
+                  "#5"
+                <th scope="col">
+                  "#6"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Mon"
+                <td>
+                  "12"
+                <td>
+                  "34"
+                <td>
+                  "58"
+                <td>
+                  "71"
+                <td>
+                  "66"
+                <td>
+                  "40"
+              <tr>
+                <th scope="row">
+                  "Tue"
+                <td>
+                  "18"
+                <td>
+                  "42"
+                <td>
+                  "77"
+                <td>
+                  "88"
+                <td>
+                  "70"
+                <td>
+                  "35"
+              <tr>
+                <th scope="row">
+                  "Wed"
+                <td>
+                  "9"
+                <td>
+                  "38"
+                <td>
+                  "64"
+                <td>
+                  "93"
+                <td>
+                  "81"
+                <td>
+                  "47"
+              <tr>
+                <th scope="row">
+                  "Thu"
+                <td>
+                  "15"
+                <td>
+                  "29"
+                <td>
+                  "55"
+                <td>
+                  "68"
+                <td>
+                  "59"
+                <td>
+                  "31"
+              <tr>
+                <th scope="row">
+                  "Fri"
+                <td>
+                  "6"
+                <td>
+                  "21"
+                <td>
+                  "43"
+                <td>
+                  "49"
+                <td>
+                  "37"
+                <td>
+                  "14"
+    <article aria-labelledby="ops--hosts-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Hosts" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--hosts-title ops--hosts-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--hosts-title">
+            "Hosts"
+          <desc id="ops--hosts-desc">
+            "Hosts. 4 rows: API 99.9%, Queue 17, Cache 84%, Search 170."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M86,76.67C93.05,71,100.1,65.33,107.14,65.33C114.19,65.33,121.24,65.33,128.29,65.33C135.33,65.33,142.38,88,149.43,88C156.48,88,163.52,71,170.57,65.33C177.62,59.67,184.67,54,191.71,54C198.76,54,205.81,65.33,212.86,65.33C219.91,65.33,226.95,59.67,234,54" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M86,130C93.05,122.15,100.1,114.31,107.14,114.31C114.19,114.31,121.24,122.15,128.29,122.15C135.33,122.15,142.38,103.85,149.43,103.85C156.48,103.85,163.52,111.69,170.57,111.69C177.62,111.69,184.67,96,191.71,96C198.76,96,205.81,102.97,212.86,106.46C219.91,109.95,226.95,113.44,234,116.92" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M86,172C93.05,171.19,100.1,170.38,107.14,167.14C114.19,163.91,121.24,152.57,128.29,152.57C135.33,152.57,142.38,159.86,149.43,159.86C156.48,159.86,163.52,150.95,170.57,147.71C177.62,144.48,184.67,140.43,191.71,140.43C198.76,140.43,205.81,145.29,212.86,145.29C219.91,145.29,226.95,141.64,234,138" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M86,187.56C93.05,191.33,100.1,195.11,107.14,195.11C114.19,195.11,121.24,180,128.29,180C135.33,180,142.38,194.48,149.43,198.89C156.48,203.3,163.52,206.44,170.57,206.44C177.62,206.44,184.67,200.78,191.71,200.78C198.76,200.78,205.81,208.02,212.86,210.22C219.91,212.43,226.95,213.21,234,214" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Hosts"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="75">
+            "API"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="75">
+            "99.9%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="117">
+            "Queue"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="117">
+            "17"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="159">
+            "Cache"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="159">
+            "84%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="201">
+            "Search"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="286" y="201">
+            "170"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--hosts-table">
+            <caption>
+              "Hosts"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "name"
+                <th scope="col">
+                  "readout"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "API"
+                <td>
+                  "99.9%"
+              <tr>
+                <th scope="row">
+                  "Queue"
+                <td>
+                  "17"
+              <tr>
+                <th scope="row">
+                  "Cache"
+                <td>
+                  "84%"
+              <tr>
+                <th scope="row">
+                  "Search"
+                <td>
+                  "170"
+    <article aria-labelledby="ops--uptime-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Uptime" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--uptime-title ops--uptime-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--uptime-title">
+            "Uptime"
+          <desc id="ops--uptime-desc">
+            "Uptime. The value at 72% of the range."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M65.15,213.8A102.6,102.6,0,0,1,154,59.9A102.6,102.6,0,0,1,242.85,213.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M55.27,219.5A114,114,0,0,1,244.8,93.58L226.64,107.36A91.2,91.2,0,0,0,75.02,208.1Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Uptime"
+          <text data-kind="value" part="sp-text" text-anchor="middle" x="154" y="164.5">
+            "72%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--uptime-table">
+            <caption>
+              "Uptime"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "measure"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "value"
+                <td>
+                  "72%"
+    <article aria-labelledby="ops--activity-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Deploys" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--activity-title ops--activity-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 632 240" width="632" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--activity-title">
+            "Deploys"
+          <desc id="ops--activity-desc">
+            "Deploys. Activity grid of 26 weeks, 2025-12-31 to 2026-06-30; 530 in total, active on 121 of 182 days."
+          <path d="M0.5,0.5H631.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M27.8,69.8H38.2V80.2H27.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M29.22,93.22H36.78V100.78H29.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M26.38,112.38H39.62V125.62H26.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M27.8,135.8H38.2V146.2H27.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M27.8,157.8H38.2V168.2H27.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M29.22,181.22H36.78V188.78H29.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M26.38,200.38H39.62V213.62H26.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M48.38,68.38H61.62V81.62H48.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M49.8,91.8H60.2V102.2H49.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M46.96,110.96H63.04V127.04H46.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M51.22,137.22H58.78V144.78H51.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M49.8,157.8H60.2V168.2H49.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M48.38,178.38H61.62V191.62H48.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M49.8,201.8H60.2V212.2H49.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M73.22,71.22H80.78V78.78H73.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M67.54,87.54H86.46V106.46H67.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M68.96,110.96H85.04V127.04H68.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M73.22,137.22H80.78V144.78H73.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M73.22,159.22H80.78V166.78H73.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M70.38,178.38H83.62V191.62H70.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M68.96,198.96H85.04V215.04H68.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M90.96,66.96H107.04V83.04H90.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M92.38,90.38H105.62V103.62H92.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M90.96,110.96H107.04V127.04H90.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M95.22,137.22H102.78V144.78H95.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M95.22,159.22H102.78V166.78H95.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M93.8,179.8H104.2V190.2H93.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M89.54,197.54H108.46V216.46H89.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M117.22,71.22H124.78V78.78H117.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M114.38,90.38H127.62V103.62H114.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M112.96,110.96H129.04V127.04H112.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M115.8,135.8H126.2V146.2H115.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M114.38,156.38H127.62V169.62H114.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M117.22,181.22H124.78V188.78H117.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M112.96,198.96H129.04V215.04H112.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M133.54,65.54H152.46V84.46H133.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M136.38,90.38H149.62V103.62H136.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M139.22,115.22H146.78V122.78H139.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M137.8,135.8H148.2V146.2H137.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M139.22,159.22H146.78V166.78H139.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M139.22,181.22H146.78V188.78H139.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M139.22,203.22H146.78V210.78H139.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M159.8,69.8H170.2V80.2H159.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M158.38,90.38H171.62V103.62H158.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M161.22,115.22H168.78V122.78H161.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M159.8,135.8H170.2V146.2H159.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M159.8,157.8H170.2V168.2H159.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M156.96,176.96H173.04V193.04H156.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M161.22,203.22H168.78V210.78H161.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M181.8,69.8H192.2V80.2H181.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M177.54,87.54H196.46V106.46H177.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M181.8,113.8H192.2V124.2H181.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M183.22,137.22H190.78V144.78H183.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M181.8,157.8H192.2V168.2H181.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M181.8,179.8H192.2V190.2H181.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M178.96,198.96H195.04V215.04H178.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M203.8,69.8H214.2V80.2H203.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M205.22,93.22H212.78V100.78H205.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M199.54,109.54H218.46V128.46H199.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M203.8,135.8H214.2V146.2H203.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M205.22,159.22H212.78V166.78H205.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M205.22,181.22H212.78V188.78H205.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M200.96,198.96H217.04V215.04H200.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M222.96,66.96H239.04V83.04H222.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M227.22,93.22H234.78V100.78H227.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M221.54,109.54H240.46V128.46H221.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M227.22,137.22H234.78V144.78H227.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M227.22,159.22H234.78V166.78H227.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M227.22,181.22H234.78V188.78H227.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M227.22,203.22H234.78V210.78H227.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M247.8,69.8H258.2V80.2H247.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M247.8,91.8H258.2V102.2H247.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M247.8,113.8H258.2V124.2H247.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M247.8,135.8H258.2V146.2H247.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M247.8,157.8H258.2V168.2H247.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M244.96,176.96H261.04V193.04H244.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M249.22,203.22H256.78V210.78H249.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M269.8,69.8H280.2V80.2H269.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M265.54,87.54H284.46V106.46H265.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M266.96,110.96H283.04V127.04H266.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M271.22,137.22H278.78V144.78H271.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M271.22,159.22H278.78V166.78H271.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M269.8,179.8H280.2V190.2H269.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M268.38,200.38H281.62V213.62H268.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M290.38,68.38H303.62V81.62H290.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M291.8,91.8H302.2V102.2H291.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M293.22,115.22H300.78V122.78H293.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M290.38,134.38H303.62V147.62H290.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M293.22,159.22H300.78V166.78H293.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M293.22,181.22H300.78V188.78H293.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M293.22,203.22H300.78V210.78H293.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M313.8,69.8H324.2V80.2H313.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M310.96,88.96H327.04V105.04H310.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M315.22,115.22H322.78V122.78H315.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M313.8,135.8H324.2V146.2H313.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M312.38,156.38H325.62V169.62H312.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M315.22,181.22H322.78V188.78H315.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M315.22,203.22H322.78V210.78H315.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M335.8,69.8H346.2V80.2H335.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M337.22,93.22H344.78V100.78H337.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M331.54,109.54H350.46V128.46H331.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M334.38,134.38H347.62V147.62H334.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M335.8,157.8H346.2V168.2H335.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M335.8,179.8H346.2V190.2H335.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M332.96,198.96H349.04V215.04H332.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M359.22,71.22H366.78V78.78H359.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M359.22,93.22H366.78V100.78H359.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M356.38,112.38H369.62V125.62H356.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M357.8,135.8H368.2V146.2H357.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M357.8,157.8H368.2V168.2H357.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M356.38,178.38H369.62V191.62H356.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M359.22,203.22H366.78V210.78H359.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M378.38,68.38H391.62V81.62H378.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M381.22,93.22H388.78V100.78H381.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M379.8,113.8H390.2V124.2H379.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M381.22,137.22H388.78V144.78H381.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M381.22,159.22H388.78V166.78H381.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M375.54,175.54H394.46V194.46H375.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M379.8,201.8H390.2V212.2H379.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M398.96,66.96H415.04V83.04H398.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M397.54,87.54H416.46V106.46H397.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M400.38,112.38H413.62V125.62H400.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M403.22,137.22H410.78V144.78H403.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M401.8,157.8H412.2V168.2H401.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M401.8,179.8H412.2V190.2H401.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M401.8,201.8H412.2V212.2H401.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M422.38,68.38H435.62V81.62H422.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M423.8,91.8H434.2V102.2H423.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M419.54,109.54H438.46V128.46H419.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M423.8,135.8H434.2V146.2H423.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M425.22,159.22H432.78V166.78H425.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M420.96,176.96H437.04V193.04H420.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M423.8,201.8H434.2V212.2H423.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M444.38,68.38H457.62V81.62H444.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M441.54,87.54H460.46V106.46H441.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M442.96,110.96H459.04V127.04H442.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M445.8,135.8H456.2V146.2H445.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M447.22,159.22H454.78V166.78H447.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M442.96,176.96H459.04V193.04H442.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M442.96,198.96H459.04V215.04H442.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M467.8,69.8H478.2V80.2H467.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M466.38,90.38H479.62V103.62H466.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M469.22,115.22H476.78V122.78H469.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M469.22,137.22H476.78V144.78H469.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M469.22,159.22H476.78V166.78H469.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M469.22,181.22H476.78V188.78H469.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M466.38,200.38H479.62V213.62H466.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M489.8,69.8H500.2V80.2H489.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M488.38,90.38H501.62V103.62H488.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M485.54,109.54H504.46V128.46H485.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M488.38,134.38H501.62V147.62H488.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M488.38,156.38H501.62V169.62H488.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M489.8,179.8H500.2V190.2H489.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M491.22,203.22H498.78V210.78H491.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M513.22,71.22H520.78V78.78H513.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M513.22,93.22H520.78V100.78H513.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M510.38,112.38H523.62V125.62H510.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M511.8,135.8H522.2V146.2H511.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M511.8,157.8H522.2V168.2H511.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M510.38,178.38H523.62V191.62H510.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M510.38,200.38H523.62V213.62H510.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M529.54,65.54H548.46V84.46H529.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M535.22,93.22H542.78V100.78H535.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M533.8,113.8H544.2V124.2H533.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M532.38,134.38H545.62V147.62H532.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M535.22,159.22H542.78V166.78H535.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M533.8,179.8H544.2V190.2H533.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M532.38,200.38H545.62V213.62H532.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M554.38,68.38H567.62V81.62H554.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M557.22,93.22H564.78V100.78H557.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M551.54,109.54H570.46V128.46H551.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M555.8,135.8H566.2V146.2H555.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M554.38,156.38H567.62V169.62H554.38Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M557.22,181.22H564.78V188.78H557.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M552.96,198.96H569.04V215.04H552.96Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M577.8,69.8H588.2V80.2H577.8Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M579.22,93.22H586.78V100.78H579.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M579.22,115.22H586.78V122.78H579.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M579.22,137.22H586.78V144.78H579.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M579.22,159.22H586.78V166.78H579.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M579.22,181.22H586.78V188.78H579.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M573.54,197.54H592.46V216.46H573.54Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Deploys"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="44" y="60">
+            "Jan"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="132" y="60">
+            "Feb"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="220" y="60">
+            "Mar"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="308" y="60">
+            "Apr"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="418" y="60">
+            "May"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="506" y="60">
+            "Jun"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--activity-table">
+            <caption>
+              "Deploys"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "date"
+                <th scope="col">
+                  "count"
+                <th scope="col">
+                  "level"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "2025-12-31"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-01"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-02"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-03"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-04"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-05"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-06"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-07"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-08"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-09"
+                <td>
+                  "8"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-10"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-11"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-12"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-13"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-14"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-15"
+                <td>
+                  "12"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-01-16"
+                <td>
+                  "7"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-17"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-18"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-19"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-20"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-21"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-22"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-23"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-24"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-25"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-26"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-01-27"
+                <td>
+                  "10"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-01-28"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-01-29"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-01-30"
+                <td>
+                  "9"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-01-31"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-01"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-02-02"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-03"
+                <td>
+                  "8"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-02-04"
+                <td>
+                  "10"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-02-05"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-02-06"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-07"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-08"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-09"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-10"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-11"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-12"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-02-13"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-14"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-15"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-16"
+                <td>
+                  "9"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-02-17"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-18"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-19"
+                <td>
+                  "13"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-02-20"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-21"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-22"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-23"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-24"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-02-25"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-02-26"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-02-27"
+                <td>
+                  "11"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-02-28"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-01"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-02"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-03"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-03-04"
+                <td>
+                  "9"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-03-05"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-06"
+                <td>
+                  "10"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-03-07"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-08"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-09"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-10"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-11"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-12"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-13"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-14"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-15"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-16"
+                <td>
+                  "9"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-03-17"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-18"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-19"
+                <td>
+                  "10"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-03-20"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-03-21"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-22"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-23"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-24"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-03-25"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-03-26"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-03-27"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-28"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-03-29"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-30"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-03-31"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-01"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-02"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-04-03"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-04"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-05"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-04-06"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-07"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-08"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-09"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-10"
+                <td>
+                  "13"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-04-11"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-04-12"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-13"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-14"
+                <td>
+                  "7"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-04-15"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-16"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-17"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-04-18"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-19"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-20"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-04-21"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-22"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-04-23"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-24"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-25"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-26"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-04-27"
+                <td>
+                  "12"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-04-28"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-04-29"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-04-30"
+                <td>
+                  "11"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-05-01"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-02"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-03"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-04"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-05"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-06"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-07"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-08"
+                <td>
+                  "11"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-05-09"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-10"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-11"
+                <td>
+                  "7"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-05-12"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-13"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-14"
+                <td>
+                  "11"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-05-15"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-05-16"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-17"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-18"
+                <td>
+                  "8"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-05-19"
+                <td>
+                  "6"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-05-20"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-21"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-22"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-23"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-24"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-25"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-05-26"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-27"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-05-28"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-29"
+                <td>
+                  "13"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-05-30"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-05-31"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-01"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-02"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-03"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-04"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-05"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-06"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-07"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-08"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-09"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-10"
+                <td>
+                  "10"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-06-11"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-12"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-13"
+                <td>
+                  "3"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-14"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-15"
+                <td>
+                  "2"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-16"
+                <td>
+                  "5"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-17"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-18"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-19"
+                <td>
+                  "12"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "2026-06-20"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-21"
+                <td>
+                  "4"
+                <td>
+                  "2"
+              <tr>
+                <th scope="row">
+                  "2026-06-22"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-23"
+                <td>
+                  "7"
+                <td>
+                  "3"
+              <tr>
+                <th scope="row">
+                  "2026-06-24"
+                <td>
+                  "1"
+                <td>
+                  "1"
+              <tr>
+                <th scope="row">
+                  "2026-06-25"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-26"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-27"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-28"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-29"
+                <td>
+                  "0"
+                <td>
+                  "0"
+              <tr>
+                <th scope="row">
+                  "2026-06-30"
+                <td>
+                  "13"
+                <td>
+                  "4"
+    <article aria-labelledby="ops--capacity-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Capacity" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="ops--capacity-title ops--capacity-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
+          <title id="ops--capacity-title">
+            "Capacity"
+          <desc id="ops--capacity-desc">
+            "Capacity. The value at 72% of the range."
+          <path d="M0.5,0.5H307.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M26,178A128,128,0,0,1,282,178" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M38.8,178L26,178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M72.54,96.54L63.49,87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M154,62.8L154,50" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M235.46,96.54L244.51,87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M269.2,178L282,178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M154,178L224.17,93.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Capacity"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="26" y="189">
+            "0"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="282" y="189">
+            "100"
+          <text data-kind="value" part="sp-text" text-anchor="middle" x="154" y="207">
+            "72%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="ops--capacity-table">
+            <caption>
+              "Capacity"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "measure"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "value"
+                <td>
+                  "72%"

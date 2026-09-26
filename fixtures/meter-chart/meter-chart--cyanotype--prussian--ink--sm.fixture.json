@@ -1,0 +1,22 @@
+{
+  "chart": "MeterChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "meter-chart--cyanotype--prussian--ink--sm",
+  "req": "REQ-081",
+  "seed": 1592,
+  "props": {
+    "title": "Pressure",
+    "badge": "now",
+    "footerLeft": "of the rated maximum",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "meter-chart/meter-chart--cyanotype--prussian--ink--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "BarChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "bar-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-064",
+  "seed": 1592,
+  "props": {
+    "title": "Orders per quarter",
+    "badge": "vs 2025",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bar-chart/bar-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

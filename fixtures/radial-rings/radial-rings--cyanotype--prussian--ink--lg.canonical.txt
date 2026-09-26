@@ -1,0 +1,36 @@
+<svg aria-labelledby="radial-rings--cyanotype--prussian--ink--lg-title radial-rings--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="radial-rings--cyanotype--prussian--ink--lg-title">
+    "Daily goals"
+  <desc id="radial-rings--cyanotype--prussian--ink--lg-desc">
+    "Daily goals. 3 concentric tracks, outermost first: Move 82%, Exercise 64%, Stand 100%."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M259,62.1A131.9,131.9,0,0,1,259,325.9A131.9,131.9,0,0,1,259,62.1" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M259,50A144,144,0,0,1,336.16,315.58A144,144,0,0,1,128.7,132.69L150.59,142.99A119.81,119.81,0,0,0,323.2,295.16A119.81,119.81,0,0,0,259,74.19Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M259,95.7A98.3,98.3,0,0,1,259,292.3A98.3,98.3,0,0,1,259,95.7" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M259,83.6A110.4,110.4,0,0,1,358.89,241.01A110.4,110.4,0,0,1,173.94,264.37L192.58,248.95A86.21,86.21,0,0,0,337,230.71A86.21,86.21,0,0,0,259,107.79Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M259,129.3A64.7,64.7,0,0,1,259,258.7A64.7,64.7,0,0,1,259,129.3" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M259,117.2A76.8,76.8,0,0,1,259,270.8A76.8,76.8,0,0,1,259,117.2L259,141.39A52.61,52.61,0,0,0,259,246.61A52.61,52.61,0,0,0,259,141.39Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M514,176H523V183H514Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+  <path d="M514,190H523V197H514Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+  <path d="M514,204H523V211H514Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Daily goals"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "today"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "percent reached"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="183">
+    "Move"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="183">
+    "82%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="197">
+    "Exercise"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="197">
+    "64%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="528" y="211">
+    "Stand"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="211">
+    "100%"

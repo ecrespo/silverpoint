@@ -140,11 +140,7 @@ export interface Stroke {
   readonly role: 'encoding' | 'ornament' | 'hatch';
   /** Semantic paint slot; maps to a CSS variable in §10. */
   readonly part: StrokePart;
-  /**
-   * Tonal weight level, 1-4, that a `weight` ground's Inker gives a toned shape in place of
-   * hatching; written as `data-weight` and resolved by the stylesheet to a stroke width
-   * (REQ-028, §10).
-   */
+  /** Relative weight, resolved against the ground's token. */
   readonly weight?: number;
 }
 
@@ -927,7 +923,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
-| 1.7 | 2026-09-26 | Delta-012: `ToneSpec` gains the `weight` variant and `Ground` shows its `tonalRamp`; the built-in grounds table adds `cyanotype` with `WeightInker`; `Stroke.weight` is the tonal weight level, written as `data-weight` (§10.1) with `--sp-weight-1..4` (§10.2); REQ-220's allowance is 3 KB for Angular (§12) |
+| 1.7 | 2026-09-26 | Delta-012: `ToneSpec` gains the `weight` variant and `Ground` shows its `tonalRamp`; the built-in grounds table adds `cyanotype` with `WeightInker`; a toned shape's tonal weight level is written as `data-weight` (§10.1) with `--sp-weight-1..4` (§10.2) — an internal stroke field, distinct from `Stroke.weight`; REQ-220's allowance is 3 KB for Angular (§12) |
 | 1.6 | 2026-09-25 | Deltas folded: `locale` default identical on server and client (003); `HeatmapChart.columnLabels` (006); `SP002` covers every value a chart cannot draw as given (007); how `OrbitChart` and `VolvelleChart` props read their data (009, 010); view props apply to the demo (011). §7.1 Dashboard composition with `onLinkChange`, parts, CSS variables, accessibility contract, `SP014`–`SP016` and budgets (feature-001). The media query forcing `precision` is stated as an override after resolution (Analyze A-06) |
 
 ## Constitution check

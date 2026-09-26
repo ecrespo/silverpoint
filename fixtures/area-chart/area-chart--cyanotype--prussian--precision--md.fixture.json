@@ -1,0 +1,22 @@
+{
+  "chart": "AreaChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "area-chart--cyanotype--prussian--precision--md",
+  "req": "REQ-072",
+  "seed": 1592,
+  "props": {
+    "title": "Sessions",
+    "badge": "Week 26",
+    "footerLeft": "per day",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "area-chart/area-chart--cyanotype--prussian--precision--md.canonical.txt"
+}

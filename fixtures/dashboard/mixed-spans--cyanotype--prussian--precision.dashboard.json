@@ -1,0 +1,10 @@
+{
+  "dashboard": "mixed-spans",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "id": "mixed-spans--cyanotype--prussian--precision",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/mixed-spans--cyanotype--prussian--precision.canonical.txt"
+}

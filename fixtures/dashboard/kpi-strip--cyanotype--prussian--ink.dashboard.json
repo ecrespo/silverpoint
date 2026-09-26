@@ -1,0 +1,10 @@
+{
+  "dashboard": "kpi-strip",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "id": "kpi-strip--cyanotype--prussian--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/kpi-strip--cyanotype--prussian--ink.canonical.txt"
+}

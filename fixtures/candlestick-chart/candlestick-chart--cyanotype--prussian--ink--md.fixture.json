@@ -1,0 +1,22 @@
+{
+  "chart": "CandlestickChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "candlestick-chart--cyanotype--prussian--ink--md",
+  "req": "REQ-071",
+  "seed": 1592,
+  "props": {
+    "title": "Share price",
+    "badge": "2 weeks",
+    "footerLeft": "daily OHLC",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "candlestick-chart/candlestick-chart--cyanotype--prussian--ink--md.canonical.txt"
+}

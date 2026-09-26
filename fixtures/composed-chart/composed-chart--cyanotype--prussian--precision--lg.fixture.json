@@ -1,0 +1,22 @@
+{
+  "chart": "ComposedChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "composed-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-066",
+  "seed": 1592,
+  "props": {
+    "title": "Revenue and margin",
+    "badge": "H1",
+    "footerLeft": "k€",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "composed-chart/composed-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

@@ -1,0 +1,590 @@
+<section aria-labelledby="mixed-spans-title" class="sp-dashboard sp-ground-cyanotype" data-substrate="prussian" part="dashboard" style="--sp-dashboard-columns-sm:1;--sp-dashboard-columns-md:2;--sp-dashboard-columns-lg:3;--sp-dashboard-row-height:240px;--sp-dashboard-layout-gap:16px">
+  <h2 class="sp-dashboard-title" id="mixed-spans-title" part="dashboard-title">
+    "Mixed spans"
+  <div class="sp-dashboard-grid" part="dashboard-grid">
+    <article aria-labelledby="mixed-spans--one-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Step" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--one-title mixed-spans--one-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--one-title">
+            "Step"
+          <desc id="mixed-spans--one-desc">
+            "Step. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."
+          <path d="M0.5,0.5H415.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,152.67H394" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,101.33H394" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,50H394" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,204H394" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M45.25,142.4L91.75,142.4L91.75,142.4L138.25,142.4L138.25,111.6L184.75,111.6L184.75,111.6L231.25,111.6L231.25,127L277.75,127L277.75,80.8L324.25,80.8L324.25,80.8L370.75,80.8L370.75,50" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M367.25,50A3.5,3.5,0,1,0,374.25,50A3.5,3.5,0,1,0,367.25,50Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+          <path d="M367.25,50A3.5,3.5,0,1,0,374.25,50A3.5,3.5,0,1,0,367.25,50Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Step"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="149.67">
+            "10"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="98.33">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+            "30"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="45.25" y="219">
+            "Jan"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="138.25" y="219">
+            "Mar"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="231.25" y="219">
+            "May"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="324.25" y="219">
+            "Jul"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--one-table">
+            <caption>
+              "Step"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Jan"
+                <td>
+                  "12"
+              <tr>
+                <th scope="row">
+                  "Feb"
+                <td>
+                  "12"
+              <tr>
+                <th scope="row">
+                  "Mar"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "Apr"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "May"
+                <td>
+                  "15"
+              <tr>
+                <th scope="row">
+                  "Jun"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Jul"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Aug"
+                <td>
+                  "30"
+    <article aria-labelledby="mixed-spans--two-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Area" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--two-title mixed-spans--two-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--two-title">
+            "Area"
+          <desc id="mixed-spans--two-desc">
+            "Area. Area chart of 7 x values; value ranges from 29 to 66."
+          <path d="M0.5,0.5H847.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,165.5H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,127H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,88.5H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,50H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,204H826" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M79.43,142.4C117.71,129.89,156,117.38,194.29,117.38C232.57,117.38,270.86,125.08,309.14,125.08C347.43,125.08,385.71,100.37,424,92.35C462.29,84.33,500.57,76.95,538.86,76.95C577.14,76.95,615.43,119.3,653.71,130.85C692,142.4,730.29,145.29,768.57,148.18L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M79.43,142.4C117.71,129.89,156,117.38,194.29,117.38C232.57,117.38,270.86,125.08,309.14,125.08C347.43,125.08,385.71,100.37,424,92.35C462.29,84.33,500.57,76.95,538.86,76.95C577.14,76.95,615.43,119.3,653.71,130.85C692,142.4,730.29,145.29,768.57,148.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M765.07,148.17A3.5,3.5,0,1,0,772.07,148.17A3.5,3.5,0,1,0,765.07,148.17Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+          <path d="M765.07,148.17A3.5,3.5,0,1,0,772.07,148.17A3.5,3.5,0,1,0,765.07,148.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Area"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="162.5">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="124">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="85.5">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="79.43" y="219">
+            "Mon"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="194.29" y="219">
+            "Tue"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="309.14" y="219">
+            "Wed"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="424" y="219">
+            "Thu"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="538.86" y="219">
+            "Fri"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="653.71" y="219">
+            "Sat"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="768.57" y="219">
+            "Sun"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--two-table">
+            <caption>
+              "Area"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Mon"
+                <td>
+                  "32"
+              <tr>
+                <th scope="row">
+                  "Tue"
+                <td>
+                  "45"
+              <tr>
+                <th scope="row">
+                  "Wed"
+                <td>
+                  "41"
+              <tr>
+                <th scope="row">
+                  "Thu"
+                <td>
+                  "58"
+              <tr>
+                <th scope="row">
+                  "Fri"
+                <td>
+                  "66"
+              <tr>
+                <th scope="row">
+                  "Sat"
+                <td>
+                  "38"
+              <tr>
+                <th scope="row">
+                  "Sun"
+                <td>
+                  "29"
+    <article aria-labelledby="mixed-spans--three-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Funnel" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--three-title mixed-spans--three-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--three-title">
+            "Funnel"
+          <desc id="mixed-spans--three-desc">
+            "Funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."
+          <path d="M0.5,0.5H415.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M86,51.5H330V82.1H86Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+          <path d="M141.1,85.1H274.9V115.7H141.1Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+          <path d="M179.47,118.7H236.53V149.3H179.47Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M193.24,152.3H222.76V182.9H193.24Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M198.36,185.9H217.64V216.5H198.36Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Funnel"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="70.8">
+            "Visits"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="64.8">
+            "12,400"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="75.8">
+            "100%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="104.4">
+            "Product"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="98.4">
+            "6,800"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="109.4">
+            "55%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="138">
+            "Cart"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="132">
+            "2,900"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="143">
+            "23%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="171.6">
+            "Checkout"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="165.6">
+            "1,500"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="176.6">
+            "12%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="205.2">
+            "Paid"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="199.2">
+            "980"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="210.2">
+            "8%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--three-table">
+            <caption>
+              "Funnel"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "stage"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "share"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Visits"
+                <td>
+                  "12,400"
+                <td>
+                  "100%"
+              <tr>
+                <th scope="row">
+                  "Product"
+                <td>
+                  "6,800"
+                <td>
+                  "55%"
+              <tr>
+                <th scope="row">
+                  "Cart"
+                <td>
+                  "2,900"
+                <td>
+                  "23%"
+              <tr>
+                <th scope="row">
+                  "Checkout"
+                <td>
+                  "1,500"
+                <td>
+                  "12%"
+              <tr>
+                <th scope="row">
+                  "Paid"
+                <td>
+                  "980"
+                <td>
+                  "8%"
+    <article aria-labelledby="mixed-spans--four-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:3;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Bars" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--four-title mixed-spans--four-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 1280 240" width="1280" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--four-title">
+            "Bars"
+          <desc id="mixed-spans--four-desc">
+            "Bars. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+          <path d="M0.5,0.5H1279.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+          <path d="M76,48H88V55H76Z" data-dash="dotted" data-paint="stroke" data-role="ornament" data-weight="1" part="sp-ink-secondary">
+          <path d="M22,171H1258" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,138H1258" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,105H1258" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,72H1258" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,204H1258" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M100.8,169.35A34.65,34.65,0,0,1,135.45,134.7H141.85A34.65,34.65,0,0,1,176.5,169.35V169.35A34.65,34.65,0,0,1,141.85,204H135.45A34.65,34.65,0,0,1,100.8,169.35Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M409.8,146.15A37.85,37.85,0,0,1,447.65,108.3H447.65A37.85,37.85,0,0,1,485.5,146.15V166.15A37.85,37.85,0,0,1,447.65,204H447.65A37.85,37.85,0,0,1,409.8,166.15Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M718.8,157.7A37.85,37.85,0,0,1,756.65,119.85H756.65A37.85,37.85,0,0,1,794.5,157.7V166.15A37.85,37.85,0,0,1,756.65,204H756.65A37.85,37.85,0,0,1,718.8,166.15Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M1027.8,121.4A37.85,37.85,0,0,1,1065.65,83.55H1065.65A37.85,37.85,0,0,1,1103.5,121.4V166.15A37.85,37.85,0,0,1,1065.65,204H1065.65A37.85,37.85,0,0,1,1027.8,166.15Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+          <path d="M176.5,175.13A28.88,28.88,0,0,1,205.38,146.25H223.33A28.88,28.88,0,0,1,252.21,175.13V175.13A28.88,28.88,0,0,1,223.33,204H205.38A28.88,28.88,0,0,1,176.5,175.13Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M485.5,167.7A36.3,36.3,0,0,1,521.8,131.4H524.91A36.3,36.3,0,0,1,561.2,167.7V167.7A36.3,36.3,0,0,1,524.91,204H521.8A36.3,36.3,0,0,1,485.5,167.7Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M794.5,161A37.85,37.85,0,0,1,832.35,123.15H832.35A37.85,37.85,0,0,1,870.21,161V166.15A37.85,37.85,0,0,1,832.35,204H832.35A37.85,37.85,0,0,1,794.5,166.15Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <path d="M1103.5,142.85A37.85,37.85,0,0,1,1141.35,105H1141.35A37.85,37.85,0,0,1,1179.21,142.85V166.15A37.85,37.85,0,0,1,1141.35,204H1141.35A37.85,37.85,0,0,1,1103.5,166.15Z" data-dash="dotted" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink-secondary">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Bars"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+            "value"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+            "previous"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="168">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="102">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="176.5" y="219">
+            "Q1"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="485.5" y="219">
+            "Q2"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="794.5" y="219">
+            "Q3"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="1103.5" y="219">
+            "Q4"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--four-table">
+            <caption>
+              "Bars"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "previous"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Q1"
+                <td>
+                  "42"
+                <td>
+                  "35"
+              <tr>
+                <th scope="row">
+                  "Q2"
+                <td>
+                  "58"
+                <td>
+                  "44"
+              <tr>
+                <th scope="row">
+                  "Q3"
+                <td>
+                  "51"
+                <td>
+                  "49"
+              <tr>
+                <th scope="row">
+                  "Q4"
+                <td>
+                  "73"
+                <td>
+                  "60"
+    <article aria-labelledby="mixed-spans--five-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Radar" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--five-title mixed-spans--five-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--five-title">
+            "Radar"
+          <desc id="mixed-spans--five-desc">
+            "Radar. Radar of 6 subjects on a scale from 0 to 10; highest Safety at 9, lowest Cost at 4."
+          <path d="M0.5,0.5H415.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208,120L220.12,127L220.12,141L208,148L195.88,141L195.88,127Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,106L232.25,120L232.25,148L208,162L183.75,148L183.75,120Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,92L244.37,113L244.37,155L208,176L171.63,155L171.63,113Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,78L256.5,106L256.5,162L208,190L159.5,162L159.5,106Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,64L268.62,99L268.62,169L208,204L147.38,169L147.38,99Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L208,64" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L268.62,99" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L268.62,169" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L208,204" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L147.38,169" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,134L147.38,99" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,78L244.37,113L250.44,158.5L208,197L183.75,148L171.63,113Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Radar"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="118">
+            "2"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="104">
+            "4"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="90">
+            "6"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="76">
+            "8"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="208" y="59">
+            "Speed"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="275.55" y="98">
+            "Range"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="275.55" y="176">
+            "Comfort"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="208" y="215">
+            "Safety"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="140.45" y="176">
+            "Cost"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="140.45" y="98">
+            "Style"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--five-table">
+            <caption>
+              "Radar"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "subject"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Speed"
+                <td>
+                  "8"
+              <tr>
+                <th scope="row">
+                  "Range"
+                <td>
+                  "6"
+              <tr>
+                <th scope="row">
+                  "Comfort"
+                <td>
+                  "7"
+              <tr>
+                <th scope="row">
+                  "Safety"
+                <td>
+                  "9"
+              <tr>
+                <th scope="row">
+                  "Cost"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "Style"
+                <td>
+                  "6"
+    <article aria-labelledby="mixed-spans--six-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Stream" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--six-title mixed-spans--six-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--six-title">
+            "Stream"
+          <desc id="mixed-spans--six-desc">
+            "Stream. Overlaid stream of 2 waves over 7 x values; organic totals 199; paid totals 134."
+          <path d="M0.5,0.5H847.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" data-weight="1" part="sp-ink">
+          <path d="M86.4,48H98.4V55H86.4Z" data-dash="dotted" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink-secondary">
+          <path d="M22,171H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,138H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,105H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,72H826" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22,204H826" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M79.43,131.4C117.71,125.08,156,118.75,194.29,111.6C232.57,104.45,270.86,88.5,309.14,88.5C347.43,88.5,385.71,101.7,424,101.7C462.29,101.7,500.57,78.6,538.86,78.6C577.14,78.6,615.43,107.75,653.71,118.2C692,128.65,730.29,134.98,768.57,141.3L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+          <path d="M79.43,131.4C117.71,125.08,156,118.75,194.29,111.6C232.57,104.45,270.86,88.5,309.14,88.5C347.43,88.5,385.71,101.7,424,101.7C462.29,101.7,500.57,78.6,538.86,78.6C577.14,78.6,615.43,107.75,653.71,118.2C692,128.65,730.29,134.98,768.57,141.3" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M79.43,157.8C117.71,151.2,156,144.6,194.29,144.6C232.57,144.6,270.86,151.2,309.14,151.2C347.43,151.2,385.71,131.95,424,124.8C462.29,117.65,500.57,108.3,538.86,108.3C577.14,108.3,615.43,125.35,653.71,134.7C692,144.05,730.29,154.23,768.57,164.4L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink-secondary">
+          <path d="M79.43,157.8C117.71,151.2,156,144.6,194.29,144.6C232.57,144.6,270.86,151.2,309.14,151.2C347.43,151.2,385.71,131.95,424,124.8C462.29,117.65,500.57,108.3,538.86,108.3C577.14,108.3,615.43,125.35,653.71,134.7C692,144.05,730.29,154.23,768.57,164.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Stream"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+            "organic"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+            "paid"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="168">
+            "10"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="102">
+            "30"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="79.43" y="219">
+            "Mon"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="194.29" y="219">
+            "Tue"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="309.14" y="219">
+            "Wed"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="424" y="219">
+            "Thu"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="538.86" y="219">
+            "Fri"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="653.71" y="219">
+            "Sat"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="768.57" y="219">
+            "Sun"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--six-table">
+            <caption>
+              "Stream"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "organic"
+                <th scope="col">
+                  "paid"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Mon"
+                <td>
+                  "22"
+                <td>
+                  "14"
+              <tr>
+                <th scope="row">
+                  "Tue"
+                <td>
+                  "28"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "Wed"
+                <td>
+                  "35"
+                <td>
+                  "16"
+              <tr>
+                <th scope="row">
+                  "Thu"
+                <td>
+                  "31"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Fri"
+                <td>
+                  "38"
+                <td>
+                  "29"
+              <tr>
+                <th scope="row">
+                  "Sat"
+                <td>
+                  "26"
+                <td>
+                  "21"
+              <tr>
+                <th scope="row">
+                  "Sun"
+                <td>
+                  "19"
+                <td>
+                  "12"
+    <article aria-labelledby="mixed-spans--seven-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Meter" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--seven-title mixed-spans--seven-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--seven-title">
+            "Meter"
+          <desc id="mixed-spans--seven-desc">
+            "Meter. The value at 72% of the range."
+          <path d="M0.5,0.5H415.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M80,178A128,128,0,0,1,336,178" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M92.8,178L80,178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M126.54,96.54L117.49,87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208,62.8L208,50" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M289.46,96.54L298.51,87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M323.2,178L336,178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208,178L278.17,93.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Meter"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="80" y="189">
+            "0"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="336" y="189">
+            "100"
+          <text data-kind="value" part="sp-text" text-anchor="middle" x="208" y="207">
+            "72%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--seven-table">
+            <caption>
+              "Meter"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "measure"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "value"
+                <td>
+                  "72%"

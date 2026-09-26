@@ -1,0 +1,22 @@
+{
+  "chart": "TreemapChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "treemap-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-085",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "June",
+    "footerLeft": "share of visits",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "treemap-chart/treemap-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

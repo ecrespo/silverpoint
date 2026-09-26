@@ -13,8 +13,11 @@ describe('dashboard fixtures', () => {
     expect(DASHBOARDS).toEqual(['kpi-strip', 'ops', 'mixed-spans']);
   });
 
-  test('REQ-210 · 24 fixtures: 3 dashboards × 4 substrates × 2 modes, at ssrWidth 1280', () => {
-    expect(committed).toHaveLength(24);
+  test('REQ-210 · REQ-028 · 30 fixtures: 3 dashboards × (4 silverpoint substrates + cyanotype) × 2 modes, at ssrWidth 1280', () => {
+    expect(committed).toHaveLength(30);
+    expect(committed.filter((f) => f.ground === 'cyanotype').map((f) => f.id)).toEqual(
+      ['kpi-strip', 'mixed-spans', 'ops'].flatMap((d) => ['ink', 'precision'].map((m) => `${d}--cyanotype--prussian--${m}`)),
+    );
     expect(committed).toEqual([...dashboardMatrix()].sort((a, b) => (a.id < b.id ? -1 : 1)));
     for (const fixture of committed) expect(fixture.ssrWidth).toBe(1280);
   });

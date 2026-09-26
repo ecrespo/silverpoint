@@ -39,9 +39,9 @@ describe('WeightInker', () => {
   test('REQ-028 · a toned shape becomes its own outline, weighted by its tonal level', () => {
     const inked = WeightInker.ink(geometry([bar(10, 1), bar(40, 4), bar(70, 2, { paint: 'none', part: 'ink-secondary' })]), options());
     expect(inked.strokes).toEqual([
-      { d: 'M10,90V40H30V90Z', role: 'encoding', part: 'ink', paint: 'stroke', weight: 1 },
-      { d: 'M40,90V40H60V90Z', role: 'encoding', part: 'ink', paint: 'stroke', weight: 4 },
-      { d: 'M70,90V40H90V90Z', role: 'encoding', part: 'ink-secondary', paint: 'stroke', weight: 2 },
+      { d: 'M10,90V40H30V90Z', role: 'encoding', part: 'ink', paint: 'stroke', tonalWeight: 1 },
+      { d: 'M40,90V40H60V90Z', role: 'encoding', part: 'ink', paint: 'stroke', tonalWeight: 4 },
+      { d: 'M70,90V40H90V90Z', role: 'encoding', part: 'ink-secondary', paint: 'stroke', tonalWeight: 2 },
     ]);
   });
 

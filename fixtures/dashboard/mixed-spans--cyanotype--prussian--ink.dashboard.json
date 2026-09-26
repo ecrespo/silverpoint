@@ -1,0 +1,10 @@
+{
+  "dashboard": "mixed-spans",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "id": "mixed-spans--cyanotype--prussian--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/mixed-spans--cyanotype--prussian--ink.canonical.txt"
+}

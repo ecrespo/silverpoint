@@ -20,7 +20,7 @@ describe('example harness', () => {
 });
 
 describe('the harness’s dashboards (T-117, T-118)', () => {
-  test('REQ-211 · the apps open the same 24 dashboard fixtures the tree gate compares', async () => {
+  test('REQ-211 · the apps open the same 30 dashboard fixtures the tree gate compares', async () => {
     const harness = await import('../../examples/harness/index.js');
     const { dashboardMatrix, dashboardFixtureProps } = await import('./dashboard-fixtures');
     expect(harness.DASHBOARD_FIXTURES.map((f: { id: string }) => f.id)).toEqual(dashboardMatrix().map((f) => f.id));

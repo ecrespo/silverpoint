@@ -5,7 +5,7 @@
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { ALL_FIXTURES } from './fixtures.generated.js';
 
-/** The nightly matrix (Data Model §5): 1,584 cells. */
+/** The nightly matrix (Data Model §5): 1,782 cells. */
 export { ALL_FIXTURES };
 
 /** The PR matrix: the `md` + `tile` slice every PR compares. */
@@ -78,17 +78,21 @@ export function wantsGallery(/** @type {string} */ search) {
 /** The container widths of the dashboard pixel gate, one per breakpoint (REQ-211, Data Model §5). */
 export const DASHBOARD_WIDTHS = Object.freeze([375, 800, 1280]);
 
-const SUBSTRATES = ['cream', 'green', 'blue', 'ochre'];
+/** Each ground with its substrates: `silverpoint`'s four, and `cyanotype`'s one (REQ-028). */
+const GROUND_SUBSTRATES = [
+  ...['cream', 'green', 'blue', 'ochre'].map((substrate) => ({ ground: 'silverpoint', substrate })),
+  { ground: 'cyanotype', substrate: 'prussian' },
+];
 
 /**
- * The 24 dashboard fixtures, as `tools/visual-gate/dashboard-fixtures.ts#dashboardMatrix` declares
- * them — a test holds the two equal. Each is a reference dashboard in one substrate and mode.
+ * The 30 dashboard fixtures, as `tools/visual-gate/dashboard-fixtures.ts#dashboardMatrix` declares
+ * them — a test holds the two equal. Each is a reference dashboard in one ground substrate and mode.
  */
 export const DASHBOARD_FIXTURES = Object.freeze(
   Object.keys(DASHBOARD_DEMOS).flatMap((dashboard) =>
-    SUBSTRATES.flatMap((substrate) =>
+    GROUND_SUBSTRATES.flatMap(({ ground, substrate }) =>
       ['ink', 'precision'].map((mode) =>
-        Object.freeze({ id: `${dashboard}--silverpoint--${substrate}--${mode}`, dashboard, ground: 'silverpoint', substrate, mode, ssrWidth: 1280 }),
+        Object.freeze({ id: `${dashboard}--${ground}--${substrate}--${mode}`, dashboard, ground, substrate, mode, ssrWidth: 1280 }),
       ),
     ),
   ),

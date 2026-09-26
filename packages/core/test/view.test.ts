@@ -73,12 +73,17 @@ describe('SVG view model', () => {
   test('REQ-028 · a weighted stroke keeps its tonal weight as data for the stylesheet', () => {
     const weighted = withGeometry(model, {
       strokes: [
-        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', weight: 3 },
+        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', tonalWeight: 3 },
         { d: 'M0,20H10', role: 'encoding', part: 'ink' },
       ],
     });
     const view = toSvgView(weighted, style);
     expect(view.paths.map((path) => path.weight)).toEqual(['3', null]);
+  });
+
+  test('REQ-028 · a relative weight is not a tonal weight: BulletChart\'s target tick writes no data-weight', () => {
+    const relative = withGeometry(model, { strokes: [{ d: 'M5,0V10', role: 'encoding', part: 'ink', weight: 2 }] });
+    expect(toSvgView(relative, style).paths[0]?.weight).toBeNull();
   });
 
   test('REQ-094 · labels keep their kind, anchor and paint slot', () => {
@@ -112,7 +117,7 @@ describe('canonical SVG string', () => {
   test('REQ-028 · a weighted path writes data-weight after data-dash; an unweighted one omits it', () => {
     const weighted = withGeometry(model, {
       strokes: [
-        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', dash: 'dotted', weight: 2 },
+        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', dash: 'dotted', tonalWeight: 2 },
         { d: 'M0,20H10', role: 'encoding', part: 'ink' },
       ],
     });

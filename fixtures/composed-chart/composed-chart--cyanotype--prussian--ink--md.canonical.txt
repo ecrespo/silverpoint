@@ -1,0 +1,47 @@
+<svg aria-labelledby="composed-chart--cyanotype--prussian--ink--md-title composed-chart--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="composed-chart--cyanotype--prussian--ink--md-title">
+    "Revenue and margin"
+  <desc id="composed-chart--cyanotype--prussian--ink--md-desc">
+    "Revenue and margin. Columns of revenue with a line of margin over 6 x values, on one scale from 17 to 61."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+  <path d="M86.4,48H98.4V55H86.4Z" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M22,148.5H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,123H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,97.5H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,72H298" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,174H298" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M35.34,120.45H54.66V174H35.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M81.34,112.8H100.66V174H81.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M127.34,124.28H146.66V174H127.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M173.34,103.88H192.66V174H173.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M219.34,96.23H238.66V174H219.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M265.34,100.05H284.66V174H265.34Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M45,151.05C60.33,149.14,75.67,147.23,91,147.23C106.33,147.23,121.67,152.32,137,152.32C152.33,152.32,167.67,143.61,183,140.85C198.33,138.09,213.67,135.75,229,135.75C244.33,135.75,259.67,137.66,275,139.57" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Revenue and margin"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "H1"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "k€"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "revenue"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+    "margin"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="145.5">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="120">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="94.5">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="45" y="189">
+    "Jan"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="137" y="189">
+    "Mar"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="229" y="189">
+    "May"

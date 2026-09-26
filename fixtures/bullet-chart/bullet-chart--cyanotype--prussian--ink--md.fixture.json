@@ -1,0 +1,22 @@
+{
+  "chart": "BulletChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "bullet-chart--cyanotype--prussian--ink--md",
+  "req": "REQ-069",
+  "seed": 1592,
+  "props": {
+    "title": "Quarter targets",
+    "badge": "Q2",
+    "footerLeft": "0–100",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bullet-chart/bullet-chart--cyanotype--prussian--ink--md.canonical.txt"
+}

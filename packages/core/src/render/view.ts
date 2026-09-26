@@ -82,7 +82,7 @@ function pathView(stroke: Stroke): PathView {
     role: stroke.role,
     paint,
     dash: stroke.dash ?? null,
-    weight: stroke.weight === undefined ? null : String(stroke.weight),
+    weight: stroke.tonalWeight === undefined ? null : String(stroke.tonalWeight),
     fill: paint === 'tile' && stroke.tile ? `url(#${stroke.tile})` : null,
   };
 }

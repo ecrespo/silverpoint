@@ -1,0 +1,22 @@
+{
+  "chart": "DonutChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "donut-chart--cyanotype--prussian--precision--md",
+  "req": "REQ-075",
+  "seed": 1592,
+  "props": {
+    "title": "Budget",
+    "badge": "May",
+    "footerLeft": "share of spend",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "donut-chart/donut-chart--cyanotype--prussian--precision--md.canonical.txt"
+}

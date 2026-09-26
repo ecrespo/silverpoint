@@ -1,0 +1,22 @@
+{
+  "chart": "StreamChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "stream-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-074",
+  "seed": 1592,
+  "props": {
+    "title": "Traffic sources",
+    "badge": "Week 26",
+    "footerLeft": "thousands",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "stream-chart/stream-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

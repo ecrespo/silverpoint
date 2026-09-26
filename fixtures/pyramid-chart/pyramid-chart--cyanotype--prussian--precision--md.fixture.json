@@ -1,0 +1,22 @@
+{
+  "chart": "PyramidChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "pyramid-chart--cyanotype--prussian--precision--md",
+  "req": "REQ-070",
+  "seed": 1592,
+  "props": {
+    "title": "Headcount by level",
+    "badge": "2026",
+    "footerLeft": "width in %",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "pyramid-chart/pyramid-chart--cyanotype--prussian--precision--md.canonical.txt"
+}

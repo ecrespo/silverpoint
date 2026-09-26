@@ -1,0 +1,22 @@
+{
+  "chart": "RadarChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "radar-chart--cyanotype--prussian--ink--md",
+  "req": "REQ-076",
+  "seed": 1592,
+  "props": {
+    "title": "Model scores",
+    "badge": "v2",
+    "footerLeft": "out of 10",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "radar-chart/radar-chart--cyanotype--prussian--ink--md.canonical.txt"
+}

@@ -18,6 +18,11 @@ const valid: Fixture = {
   canonical: 'line-chart/line-chart--silverpoint--cream--ink--md.canonical.txt',
 };
 
+/** The PR cells of one chart (Data Model §5): each mode on every ground and substrate, at `md`. */
+const PR_CELLS = ['ink', 'precision']
+  .flatMap((mode) => [...['blue', 'cream', 'green', 'ochre'].map((s) => `silverpoint/${s}`), 'cyanotype/prussian'].map((gs) => `${mode}/${gs}/320x150`))
+  .sort();
+
 describe('fixture schema', () => {
   test('REQ-182 · a fixture following Data Model §5 validates', () => {
     expect(validateFixture(valid)).toEqual([]);
@@ -38,12 +43,10 @@ describe('fixture schema', () => {
 describe('the line-chart fixtures', () => {
   const fixtures = loadFixtures().filter((fixture) => fixture.chart === 'LineChart');
 
-  test('REQ-182 · 8 fixtures cover 2 modes × 4 substrates at the md size', () => {
-    expect(fixtures).toHaveLength(8);
-    const cells = fixtures.map((f) => `${f.mode}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
-    expect(cells).toEqual(
-      ['ink', 'precision'].flatMap((mode) => ['blue', 'cream', 'green', 'ochre'].map((s) => `${mode}/${s}/320x150`)).sort(),
-    );
+  test('REQ-182 · REQ-028 · 10 fixtures cover 2 modes × (4 silverpoint substrates + cyanotype) at the md size', () => {
+    expect(fixtures).toHaveLength(10);
+    const cells = fixtures.map((f) => `${f.mode}/${f.ground}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
+    expect(cells).toEqual(PR_CELLS);
   });
 
   test('REQ-182 · every fixture validates against the schema', () => {
@@ -61,12 +64,10 @@ describe('the line-chart fixtures', () => {
 describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtures', (chart, entry) => {
   const fixtures = loadFixtures().filter((fixture) => fixture.chart === chart);
 
-  test('REQ-182 · 8 fixtures cover 2 modes × 4 substrates at the md size', () => {
-    expect(fixtures).toHaveLength(8);
-    const cells = fixtures.map((f) => `${f.mode}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
-    expect(cells).toEqual(
-      ['ink', 'precision'].flatMap((mode) => ['blue', 'cream', 'green', 'ochre'].map((s) => `${mode}/${s}/320x150`)).sort(),
-    );
+  test('REQ-182 · REQ-028 · 10 fixtures cover 2 modes × (4 silverpoint substrates + cyanotype) at the md size', () => {
+    expect(fixtures).toHaveLength(10);
+    const cells = fixtures.map((f) => `${f.mode}/${f.ground}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
+    expect(cells).toEqual(PR_CELLS);
   });
 
   test('REQ-182 · every fixture validates and traces to the chart requirement', () => {
@@ -84,20 +85,24 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
   });
 });
 
-test('REQ-182 · the PR matrix holds every catalog chart × 8 cells', () => {
-  expect(loadFixtures()).toHaveLength(CATALOG.length * 8);
+test('REQ-182 · the PR matrix holds every catalog chart × 10 cells', () => {
+  expect(loadFixtures()).toHaveLength(CATALOG.length * 10);
   expect(CATALOG).toHaveLength(33);
 });
 
 /** The nightly product of Data Model §5 (T-091): every cell, not only the PR's `md` + `tile` slice. */
 describe('the full matrix', () => {
   const full = loadFixtures('full');
-  const cell = (f: Fixture) => `${f.chart}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
 
-  test('REQ-182 · 1,584 fixtures: 33 charts × 2 modes × 4 substrates × 2 hatchFill × 3 sizes, each once', () => {
-    expect(full).toHaveLength(1584);
-    expect(new Set(full.map(cell)).size).toBe(1584);
+  const cell = (f: Fixture) => `${f.chart}/${f.ground}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
+
+  test('REQ-182 · 1,782 fixtures: 33 charts × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
+    expect(full).toHaveLength(1782);
+    expect(new Set(full.map(cell)).size).toBe(1782);
+    expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(1584);
     expect(new Set(full.map((f) => f.hatchFill))).toEqual(new Set(['tile', 'per-shape']));
+    // REQ-028: hatchFill has no effect under `weight`, so cyanotype's axis collapses to `tile`.
+    expect(new Set(full.filter((f) => f.ground === 'cyanotype').map((f) => `${f.substrate}/${f.hatchFill}`))).toEqual(new Set(['prussian/tile']));
     expect(new Set(full.map((f) => `${f.size.width}x${f.size.height}`))).toEqual(new Set(['240x120', '320x150', '640x300']));
   });
 
@@ -114,8 +119,8 @@ describe('the full matrix', () => {
 
   test('REQ-182 · the apps can open any cell: the harness embeds the full matrix beside the PR one', async () => {
     const harness = await import('../../examples/harness/index.js');
-    expect(harness.ALL_FIXTURES).toHaveLength(1584);
-    expect(harness.FIXTURES).toHaveLength(264);
+    expect(harness.ALL_FIXTURES).toHaveLength(1782);
+    expect(harness.FIXTURES).toHaveLength(330);
     expect(harness.fixtureById('bar-chart--silverpoint--ochre--precision--lg--per-shape')?.hatchFill).toBe('per-shape');
   });
 });

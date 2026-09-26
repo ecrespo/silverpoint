@@ -1,0 +1,22 @@
+{
+  "chart": "RangeBandChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "range-band-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-073",
+  "seed": 1592,
+  "props": {
+    "title": "Temperature",
+    "badge": "°C",
+    "footerLeft": "daily range",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "range-band-chart/range-band-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

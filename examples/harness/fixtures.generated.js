@@ -2,6 +2,132 @@
 export const ALL_FIXTURES = [
   {
     "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "activity-grid--cyanotype--prussian--ink--lg",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "activity-grid--cyanotype--prussian--ink--md",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "activity-grid--cyanotype--prussian--ink--sm",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "activity-grid--cyanotype--prussian--precision--lg",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "activity-grid--cyanotype--prussian--precision--md",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "activity-grid--cyanotype--prussian--precision--sm",
+    "req": "REQ-087",
+    "seed": 1592,
+    "props": {
+      "title": "Contributions",
+      "badge": "26 weeks",
+      "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ActivityGrid",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -1004,6 +1130,132 @@ export const ALL_FIXTURES = [
       "title": "Contributions",
       "badge": "26 weeks",
       "footerLeft": "Jan–Jun 2026",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "area-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "area-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "area-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "area-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "area-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "AreaChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "area-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-072",
+    "seed": 1592,
+    "props": {
+      "title": "Sessions",
+      "badge": "Week 26",
+      "footerLeft": "per day",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -2018,6 +2270,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-064",
+    "seed": 1592,
+    "props": {
+      "title": "Orders per quarter",
+      "badge": "vs 2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BarChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -3020,6 +3398,132 @@ export const ALL_FIXTURES = [
       "title": "Orders per quarter",
       "badge": "vs 2025",
       "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bubble-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bubble-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bubble-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bubble-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bubble-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BubbleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bubble-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-083",
+    "seed": 1592,
+    "props": {
+      "title": "Markets",
+      "badge": "2026",
+      "footerLeft": "growth × margin",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -4034,6 +4538,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bullet-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bullet-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bullet-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bullet-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bullet-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bullet-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-069",
+    "seed": 1592,
+    "props": {
+      "title": "Quarter targets",
+      "badge": "Q2",
+      "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BulletChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -5036,6 +5666,132 @@ export const ALL_FIXTURES = [
       "title": "Quarter targets",
       "badge": "Q2",
       "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "candlestick-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "candlestick-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "candlestick-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "candlestick-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "candlestick-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CandlestickChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "candlestick-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-071",
+    "seed": 1592,
+    "props": {
+      "title": "Share price",
+      "badge": "2 weeks",
+      "footerLeft": "daily OHLC",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -6050,6 +6806,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "chord-ring--cyanotype--prussian--ink--lg",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--cyanotype--prussian--ink--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "chord-ring--cyanotype--prussian--ink--sm",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "chord-ring--cyanotype--prussian--precision--lg",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "chord-ring--cyanotype--prussian--precision--md",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "chord-ring--cyanotype--prussian--precision--sm",
+    "req": "REQ-091",
+    "seed": 1592,
+    "props": {
+      "title": "Site journeys",
+      "badge": "June",
+      "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ChordRing",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -7052,6 +7934,132 @@ export const ALL_FIXTURES = [
       "title": "Site journeys",
       "badge": "June",
       "footerLeft": "visitors between sections",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "composed-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "composed-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "composed-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "composed-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "composed-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ComposedChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "composed-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-066",
+    "seed": 1592,
+    "props": {
+      "title": "Revenue and margin",
+      "badge": "H1",
+      "footerLeft": "k€",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -8066,6 +9074,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "coxcomb-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-088",
+    "seed": 1592,
+    "props": {
+      "title": "Tickets",
+      "badge": "week",
+      "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "CoxcombChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -9068,6 +10202,132 @@ export const ALL_FIXTURES = [
       "title": "Tickets",
       "badge": "week",
       "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "donut-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "donut-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "donut-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "donut-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DonutChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "donut-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-075",
+    "seed": 1592,
+    "props": {
+      "title": "Budget",
+      "badge": "May",
+      "footerLeft": "share of spend",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -10082,6 +11342,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "funnel-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "funnel-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "funnel-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "funnel-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "funnel-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "funnel-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-068",
+    "seed": 1592,
+    "props": {
+      "title": "Checkout funnel",
+      "badge": "June",
+      "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "FunnelChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -11084,6 +12470,132 @@ export const ALL_FIXTURES = [
       "title": "Checkout funnel",
       "badge": "June",
       "footerLeft": "sessions",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "gauge-arc--cyanotype--prussian--ink--lg",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--cyanotype--prussian--ink--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "gauge-arc--cyanotype--prussian--ink--sm",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "gauge-arc--cyanotype--prussian--precision--lg",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "gauge-arc--cyanotype--prussian--precision--md",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "GaugeArc",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "gauge-arc--cyanotype--prussian--precision--sm",
+    "req": "REQ-080",
+    "seed": 1592,
+    "props": {
+      "title": "Capacity",
+      "badge": "live",
+      "footerLeft": "of the cluster",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -12098,6 +13610,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "heatmap-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "heatmap-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "heatmap-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "heatmap-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "heatmap-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "heatmap-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-084",
+    "seed": 1592,
+    "props": {
+      "title": "Load by weekday",
+      "badge": "Week 26",
+      "footerLeft": "of 100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HeatmapChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -13106,6 +14744,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "kpi-card--cyanotype--prussian--ink--lg",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "kpi-card--cyanotype--prussian--ink--md",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "kpi-card--cyanotype--prussian--ink--sm",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "kpi-card--cyanotype--prussian--precision--lg",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "kpi-card--cyanotype--prussian--precision--md",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "kpi-card--cyanotype--prussian--precision--sm",
+    "req": "REQ-063",
+    "seed": 1592,
+    "props": {
+      "title": "Orders",
+      "badge": "14 days",
+      "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "KpiCard",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -14108,6 +15872,144 @@ export const ALL_FIXTURES = [
       "title": "Orders",
       "badge": "14 days",
       "footerLeft": "daily",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "line-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "line-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "line-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "line-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "line-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "line-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-060",
+    "seed": 1592,
+    "props": {
+      "title": "Throughput per hour",
+      "badge": "Live",
+      "value": 88,
+      "unit": "requests",
+      "footerLeft": "00–22 h",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -15218,6 +17120,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "meter-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "meter-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "meter-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "meter-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "meter-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-081",
+    "seed": 1592,
+    "props": {
+      "title": "Pressure",
+      "badge": "now",
+      "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MeterChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -16220,6 +18248,132 @@ export const ALL_FIXTURES = [
       "title": "Pressure",
       "badge": "now",
       "footerLeft": "of the rated maximum",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "orbit-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "orbit-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "orbit-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "orbit-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "OrbitChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "orbit-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-092",
+    "seed": 1592,
+    "props": {
+      "title": "Releases",
+      "badge": "3 years",
+      "footerLeft": "by day of the year",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -17234,6 +19388,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-bar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-077",
+    "seed": 1592,
+    "props": {
+      "title": "Monthly sales",
+      "badge": "2025",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarBarChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -18236,6 +20516,132 @@ export const ALL_FIXTURES = [
       "title": "Monthly sales",
       "badge": "2025",
       "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "pyramid-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "pyramid-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "pyramid-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "pyramid-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "pyramid-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PyramidChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "pyramid-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-070",
+    "seed": 1592,
+    "props": {
+      "title": "Headcount by level",
+      "badge": "2026",
+      "footerLeft": "width in %",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -19250,6 +21656,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-076",
+    "seed": 1592,
+    "props": {
+      "title": "Model scores",
+      "badge": "v2",
+      "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadarChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -20252,6 +22784,132 @@ export const ALL_FIXTURES = [
       "title": "Model scores",
       "badge": "v2",
       "footerLeft": "out of 10",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radial-arc-group--cyanotype--prussian--ink--lg",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--cyanotype--prussian--ink--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radial-arc-group--cyanotype--prussian--ink--sm",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radial-arc-group--cyanotype--prussian--precision--lg",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-arc-group--cyanotype--prussian--precision--md",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialArcGroup",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radial-arc-group--cyanotype--prussian--precision--sm",
+    "req": "REQ-078",
+    "seed": 1592,
+    "props": {
+      "title": "Pipeline",
+      "badge": "Q3",
+      "footerLeft": "by channel",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -21266,6 +23924,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radial-rings--cyanotype--prussian--ink--lg",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--cyanotype--prussian--ink--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radial-rings--cyanotype--prussian--ink--sm",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "radial-rings--cyanotype--prussian--precision--lg",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "radial-rings--cyanotype--prussian--precision--md",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "radial-rings--cyanotype--prussian--precision--sm",
+    "req": "REQ-079",
+    "seed": 1592,
+    "props": {
+      "title": "Daily goals",
+      "badge": "today",
+      "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RadialRings",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -22268,6 +25052,132 @@ export const ALL_FIXTURES = [
       "title": "Daily goals",
       "badge": "today",
       "footerLeft": "percent reached",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "range-band-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "range-band-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "range-band-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "range-band-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "range-band-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RangeBandChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "range-band-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-073",
+    "seed": 1592,
+    "props": {
+      "title": "Temperature",
+      "badge": "°C",
+      "footerLeft": "daily range",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -23282,6 +26192,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sankey-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sankey-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sankey-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sankey-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sankey-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sankey-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-086",
+    "seed": 1592,
+    "props": {
+      "title": "Visitor flow",
+      "badge": "June",
+      "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SankeyChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -24284,6 +27320,132 @@ export const ALL_FIXTURES = [
       "title": "Visitor flow",
       "badge": "June",
       "footerLeft": "visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "scatter-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "scatter-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "scatter-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "scatter-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "scatter-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "scatter-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-082",
+    "seed": 1592,
+    "props": {
+      "title": "Height and weight",
+      "badge": "n = 9",
+      "footerLeft": "cm × kg",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -25298,6 +28460,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sparkline-rows--cyanotype--prussian--ink--lg",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sparkline-rows--cyanotype--prussian--ink--md",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sparkline-rows--cyanotype--prussian--ink--sm",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sparkline-rows--cyanotype--prussian--precision--lg",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sparkline-rows--cyanotype--prussian--precision--md",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sparkline-rows--cyanotype--prussian--precision--sm",
+    "req": "REQ-062",
+    "seed": 1592,
+    "props": {
+      "title": "Service health",
+      "badge": "Live",
+      "footerLeft": "last 8 checks",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SparklineRows",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -26306,6 +29594,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "stacked-bar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-065",
+    "seed": 1592,
+    "props": {
+      "title": "Signups by plan",
+      "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StackedBarChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -27307,6 +30721,132 @@ export const ALL_FIXTURES = [
     "props": {
       "title": "Signups by plan",
       "badge": "H1",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "step-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "step-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "step-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "step-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "step-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
+      "footerLeft": "per month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StepChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "step-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-061",
+    "seed": 1592,
+    "props": {
+      "title": "Price tier",
+      "badge": "2026",
       "footerLeft": "per month",
       "footerRight": "silverpoint"
     },
@@ -28322,6 +31862,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "stream-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "stream-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "stream-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "stream-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "stream-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "stream-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-074",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "Week 26",
+      "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "StreamChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -29324,6 +32990,132 @@ export const ALL_FIXTURES = [
       "title": "Traffic sources",
       "badge": "Week 26",
       "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "treemap-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "treemap-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "treemap-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "treemap-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "treemap-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreemapChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "treemap-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-085",
+    "seed": 1592,
+    "props": {
+      "title": "Traffic sources",
+      "badge": "June",
+      "footerLeft": "share of visits",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -30338,6 +34130,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "volvelle-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "volvelle-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "volvelle-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "volvelle-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "volvelle-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-090",
+    "seed": 1592,
+    "props": {
+      "title": "On call",
+      "badge": "rota",
+      "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VolvelleChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -31346,6 +35264,132 @@ export const ALL_FIXTURES = [
   },
   {
     "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waterfall-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waterfall-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waterfall-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waterfall-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waterfall-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waterfall-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-067",
+    "seed": 1592,
+    "props": {
+      "title": "Cash bridge",
+      "badge": "Q2",
+      "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaterfallChart",
     "ground": "silverpoint",
     "substrate": "blue",
     "mode": "ink",
@@ -32348,6 +36392,132 @@ export const ALL_FIXTURES = [
       "title": "Cash bridge",
       "badge": "Q2",
       "footerLeft": "k€",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "wind-rose--cyanotype--prussian--ink--lg",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--cyanotype--prussian--ink--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "wind-rose--cyanotype--prussian--ink--sm",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "wind-rose--cyanotype--prussian--precision--lg",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "wind-rose--cyanotype--prussian--precision--md",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WindRose",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "wind-rose--cyanotype--prussian--precision--sm",
+    "req": "REQ-089",
+    "seed": 1592,
+    "props": {
+      "title": "Wind at DSM",
+      "badge": "Mar 2024",
+      "footerLeft": "knots, hourly METAR",
       "footerRight": "silverpoint"
     },
     "rows": null
