@@ -2,9 +2,9 @@ import { existsSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { ALL_FIXTURES, FIXTURES } from '../examples/harness/index.js';
+import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
-import { CATALOG } from '../tools/visual-gate/catalog';
+import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
 
 /** The PR matrix on every PR; the full 1,584 cells when the nightly run sets `SP_MATRIX=full`. */
@@ -93,4 +93,51 @@ test.describe('pixel gate', () => {
     const second = await shoot(page, `/?fixture=${fixture?.id}`);
     expect(compare(first, second, 0).pixels).toBe(0);
   });
+});
+
+/**
+ * Screenshot of a dashboard fixture at a container width: once fonts are ready and every chart is
+ * drawn at its measured width — the state after hydration, which the canonical page reproduces.
+ */
+async function shootDashboard(page: Page, url: string, width: number, cells: number): Promise<Buffer> {
+  await page.setViewportSize({ width, height: 900 });
+  await page.goto(url);
+  const section = page.locator('.sp-dashboard-harness[data-gate] section.sp-dashboard');
+  await expect(section.locator('.sp-root[data-status="ready"]')).toHaveCount(cells);
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+  });
+  await expect
+    .poll(() =>
+      section.locator('article').evaluateAll((articles) =>
+        articles.every((article) => {
+          const box = article.querySelector('svg.sp-chart')?.getAttribute('viewBox')?.split(' ');
+          return box !== undefined && Math.abs(Number(box[2]) - article.getBoundingClientRect().width) < 1;
+        }),
+      ),
+    )
+    .toBe(true);
+  return section.screenshot({ animations: 'disabled' });
+}
+
+test.describe('dashboard pixel gate', () => {
+  test('REQ-211 · the gate has every dashboard fixture at every breakpoint width', () => {
+    expect(DASHBOARD_FIXTURES.length * DASHBOARD_WIDTHS.length).toBe(DASHBOARDS.length * 8 * 3);
+  });
+
+  for (const fixture of DASHBOARD_FIXTURES) {
+    for (const width of DASHBOARD_WIDTHS) {
+      test(`REQ-211 · ${fixture.id} at ${width} px passes the three Art. 3 comparisons`, async ({ page }, info) => {
+        const cells = dashboardFixtureProps(fixture).children.length;
+        // Path segments, not a `/` in one name: Playwright flattens that into the file name.
+        const name = ['dashboard', `${fixture.id}--${width}.png`];
+        const canonical = await shootDashboard(page, `${CANONICAL}?dashboard=${fixture.id}`, width, cells);
+        expect(canonical).toMatchSnapshot(name, { threshold: 0.15, maxDiffPixelRatio: 0.005 });
+        const goldenPath = info.snapshotPath(...name);
+        const golden = existsSync(goldenPath) ? readFileSync(goldenPath) : undefined;
+        const adapter = await shootDashboard(page, `/?dashboard=${fixture.id}`, width, cells);
+        expect(gate(adapter, canonical, golden)).toEqual([]);
+      });
+    }
+  }
 });

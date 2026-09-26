@@ -2,6 +2,7 @@
  * The fixture matrix as every example app sees it, plus the props builder the string gate uses.
  * Kept in plain JavaScript so Vite, Next.js and the Angular CLI consume it without a transform.
  */
+import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { ALL_FIXTURES } from './fixtures.generated.js';
 
 /** The nightly matrix (Data Model §5): 1,584 cells. */
@@ -72,3 +73,44 @@ export const GALLERY = Object.freeze(
 export function wantsGallery(/** @type {string} */ search) {
   return new URLSearchParams(search).has('gallery');
 }
+
+
+/** The container widths of the dashboard pixel gate, one per breakpoint (REQ-211, Data Model §5). */
+export const DASHBOARD_WIDTHS = Object.freeze([375, 800, 1280]);
+
+const SUBSTRATES = ['cream', 'green', 'blue', 'ochre'];
+
+/**
+ * The 24 dashboard fixtures, as `tools/visual-gate/dashboard-fixtures.ts#dashboardMatrix` declares
+ * them — a test holds the two equal. Each is a reference dashboard in one substrate and mode.
+ */
+export const DASHBOARD_FIXTURES = Object.freeze(
+  Object.keys(DASHBOARD_DEMOS).flatMap((dashboard) =>
+    SUBSTRATES.flatMap((substrate) =>
+      ['ink', 'precision'].map((mode) =>
+        Object.freeze({ id: `${dashboard}--silverpoint--${substrate}--${mode}`, dashboard, ground: 'silverpoint', substrate, mode, ssrWidth: 1280 }),
+      ),
+    ),
+  ),
+);
+
+/** A dashboard fixture by id. @param {string | null | undefined} id */
+export function dashboardFixtureById(id) {
+  return DASHBOARD_FIXTURES.find((fixture) => fixture.id === id);
+}
+
+/**
+ * What every app renders for a dashboard fixture: its dashboard's props with the fixture's
+ * substrate and mode set on the dashboard, and its children (the same builder as the tree gate's).
+ * @param {(typeof DASHBOARD_FIXTURES)[number]} fixture
+ */
+export function dashboardFixtureProps(fixture) {
+  const demo = DASHBOARD_DEMOS[/** @type {keyof typeof DASHBOARD_DEMOS} */ (fixture.dashboard)];
+  return {
+    props: { ...demo.props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, ssrWidth: fixture.ssrWidth },
+    children: demo.children,
+  };
+}
+
+/** The `/dashboard` page of every app: the `ops` reference dashboard as a consumer writes it (REQ-221). */
+export const REFERENCE_DASHBOARD = Object.freeze({ props: DASHBOARD_DEMOS.ops.props, children: DASHBOARD_DEMOS.ops.children });

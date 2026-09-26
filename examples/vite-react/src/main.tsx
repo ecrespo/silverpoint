@@ -2,7 +2,8 @@ import type { ComponentType } from 'react';
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/example-harness/harness.css';
-import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, REFERENCE_DASHBOARD, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
+import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
@@ -44,12 +45,46 @@ import { createRoot } from 'react-dom/client';
 // Every subpath this app imports — the barrel, the client entry and the server entry — must
 // resolve the same way under `vite dev` and `vite build` (REQ-033, T-024).
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
+const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
 
 /** Every chart a fixture can name, by its chart name. */
 /** Every chart a fixture can name. A fixture's props fit its own chart; the union cannot say so. */
 const CHARTS: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
 
+/** A reference dashboard as a consumer writes it: cells by id, a chart in each (API Spec §7.1). */
+function ReferenceDashboard({ dashboard }: { dashboard: HarnessDashboard }) {
+  return (
+    <Dashboard {...dashboard.props}>
+      {dashboard.children.map((child) => {
+        const Chart = CHARTS[child.chart]!;
+        return (
+          <DashboardCell key={child.cell} cell={child.cell}>
+            <Chart {...child.props} />
+          </DashboardCell>
+        );
+      })}
+    </Dashboard>
+  );
+}
+
 function App() {
+  if (dashboardFixture) {
+    return (
+      <main>
+        <div className="sp-dashboard-harness" data-gate="">
+          <ReferenceDashboard dashboard={dashboardFixtureProps(dashboardFixture)} />
+        </div>
+      </main>
+    );
+  }
+  if (location.pathname === '/dashboard') {
+    return (
+      <main>
+        <h1>silverpoint · Vite + React · dashboard</h1>
+        <ReferenceDashboard dashboard={REFERENCE_DASHBOARD} />
+      </main>
+    );
+  }
   if (wantsGallery(location.search)) {
     return (
       <main>

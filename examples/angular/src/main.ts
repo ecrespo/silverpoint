@@ -34,19 +34,46 @@ import { SpWindRose } from '@silverpoint/angular/wind-rose';
 import { SpVolvelleChart } from '@silverpoint/angular/volvelle-chart';
 import { SpChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
-import { DEMO_PROPS, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, REFERENCE_DASHBOARD, sizeOf, wantsGallery } from '@silverpoint/example-harness';
+import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
+const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
+/** The pixel gate's dashboard fixture, or the `/dashboard` page's reference dashboard (REQ-221). */
+const dashboard = dashboardFixture
+  ? dashboardFixtureProps(dashboardFixture)
+  : location.pathname.replace(/\/$/, '') === '/dashboard'
+    ? REFERENCE_DASHBOARD
+    : undefined;
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart };
 
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart, NgComponentOutlet],
+  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (gate) {
+    @if (dashboard) {
+      <main>
+        @if (!dashboardGate) {
+          <h1>silverpoint · Angular · dashboard</h1>
+        }
+        <div [attr.class]="dashboardGate ? 'sp-dashboard-harness' : null" [attr.data-gate]="dashboardGate ? '' : null">
+          <sp-dashboard
+            [id]="dashboard.props.id" [title]="dashboard.props.title" [label]="dashboard.props.label" [description]="dashboard.props.description"
+            [layout]="dashboard.props.layout" [link]="dashboard.props.link" [ground]="dashboard.props.ground" [substrate]="dashboard.props.substrate"
+            [mode]="dashboard.props.mode" [ssrWidth]="dashboard.props.ssrWidth"
+          >
+            @for (child of dashboard.children; track child.cell) {
+              <sp-dashboard-cell [cell]="child.cell">
+                <ng-container *ngComponentOutlet="charts[child.chart]; inputs: child.props" />
+              </sp-dashboard-cell>
+            }
+          </sp-dashboard>
+        </div>
+      </main>
+    } @else if (gate) {
       <main>
         <div class="sp-harness" data-gate="" [attr.data-size]="gate.size">
           <ng-container *ngComponentOutlet="gate.component; inputs: gate.inputs" />
@@ -82,6 +109,9 @@ class App {
     ? GALLERY.map(({ chart, props }) => ({ chart, component: CHARTS[chart] as Type<unknown>, inputs: props }))
     : undefined;
   protected readonly demo = DEMO_PROPS;
+  protected readonly dashboard = dashboard;
+  protected readonly dashboardGate = dashboardFixture !== undefined;
+  protected readonly charts = CHARTS;
 }
 
 bootstrapApplication(App, { providers: [provideZonelessChangeDetection()] }).catch((error: unknown) => console.error(error));

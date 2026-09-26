@@ -222,18 +222,43 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   on the guilty adapter only. **Real mutation:** `data-x` added to React's grid, rebuilt, and
   exactly React's 24 comparisons failed. Result: 72 / 72 green.
 
-**[ ] T-117 · Pixel gate per breakpoint** — REQ-211
+**[x] T-117 · Pixel gate per breakpoint** — REQ-211
 - Goldens at 375 / 800 / 1280 px (72); run in the pinned Playwright image.
 - **Done:** 72 × 3 green; goldens via `--update-snapshots=missing` only.
+- *Closed 2026-09-26.* Every app serves `/?dashboard=<fixture>` in a `.sp-dashboard-harness`
+  container; `vite-react`'s `canonical.html?dashboard=` draws the wrapper from `dashboardView` and
+  each chart by the pipeline at its **measured** cell width, the state every adapter reaches after
+  hydration (REQ-207). The measuring belongs to the harness, not the library. At the three
+  viewport widths (375 / 800 / 1280), the page padding puts the dashboard's container at 295 / 720
+  / 1200 px, one per breakpoint. The 72 goldens (11 MB) are in `e2e/__golden__/dashboard/`, written
+  in the pinned image with `--update-snapshots=missing`; the snapshot name is given as path
+  segments, because Playwright flattens a `/`. Compare-only: 4 apps × 72 = 288 green.
+  **Mutation:** the dashboard's padding set to 20 px, which moves the canonical and the adapters
+  alike, and the golden comparison failed in all four apps.
 
 ### 5d — Integration
 
-**[ ] T-118 · Example apps** — REQ-221, REQ-207, REQ-215 `[P per app]`
+**[x] T-118 · Example apps** — REQ-221, REQ-207, REQ-215 `[P per app]`
 - A `/dashboard` page with `ops` in `vite-react`, `vite-vue`, `nextjs` (RSC + client), `angular`
   (SSR).
 - E2E: no hydration warning; the chart re-renders at measured width after hydration; Tab visits the
   cells in reading order at each breakpoint; axe 0 A/AA.
 - **Done:** e2e green in the four apps.
+- *Closed 2026-09-26.* `/dashboard` shows `ops` in the four apps (`e2e/dashboard.spec.ts`):
+  - no error;
+  - `vite-vue` and `nextjs` ship the 12 charts at nominal width (`0 0 288 240`) in the server HTML,
+    hydrate with no mismatch, and then fit every chart to its card;
+  - Tab visits the cards in reading order at 375 / 800 / 1280 px, and leaves;
+  - axe finds no A/AA issue.
+
+  Next.js renders the dashboard in a Server Component with client charts. Vue prerenders
+  `dist/dashboard.html`, because `vite preview` looks for `<path>.html` before its SPA fallback,
+  which had served the home page and caused a hydration mismatch.
+  **Ruled deviation:** the `angular` example stays client-rendered, as it has been for every chart
+  since 0.1.x (`APPS.angular.ssr: false`), so its SSR test is skipped. Angular's server render is
+  proved by the platform-server tree gate (T-116, 24/24) and the adapter's SSR tests. Making the
+  example app SSR means adding `@angular/ssr`, a router and a server bootstrap; that is an
+  example-infrastructure change, left for the user to decide. **5d closed** (REQ-220 is T-119).
 
 **[ ] T-119 · Weight** — NFR, REQ-220
 - `tools/path-weight`: `ops` server HTML ≤ 480 KB; size-limit entries for the three `dashboard`

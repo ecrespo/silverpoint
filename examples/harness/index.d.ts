@@ -24,3 +24,24 @@ export declare function fixtureProps(fixture: HarnessFixture): FixtureProps;
 export declare const DEMO_PROPS: Readonly<LineChartProps>;
 export declare const GALLERY: readonly { readonly chart: string; readonly props: FixtureProps }[];
 export declare function wantsGallery(search: string): boolean;
+
+import type { DashboardProps } from '@silverpoint/core';
+import type { DashboardDemoChild } from '@silverpoint/core/dashboard-demos';
+
+export interface HarnessDashboardFixture {
+  readonly id: string;
+  readonly dashboard: 'kpi-strip' | 'ops' | 'mixed-spans';
+  readonly ground: string;
+  readonly substrate: 'cream' | 'green' | 'blue' | 'ochre';
+  readonly mode: 'ink' | 'precision';
+  readonly ssrWidth: number;
+}
+export interface HarnessDashboard {
+  readonly props: DashboardProps;
+  readonly children: readonly DashboardDemoChild[];
+}
+export declare const DASHBOARD_WIDTHS: readonly number[];
+export declare const DASHBOARD_FIXTURES: readonly HarnessDashboardFixture[];
+export declare function dashboardFixtureById(id: string | null | undefined): HarnessDashboardFixture | undefined;
+export declare function dashboardFixtureProps(fixture: HarnessDashboardFixture): HarnessDashboard;
+export declare const REFERENCE_DASHBOARD: HarnessDashboard;

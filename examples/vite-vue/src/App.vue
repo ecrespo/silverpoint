@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, type HarnessFixture } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, type HarnessDashboard, type HarnessFixture } from '@silverpoint/example-harness';
+import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -34,7 +35,8 @@ import { SpVolvelleChart } from '@silverpoint/vue/volvelle-chart';
 import { SpChordRing } from '@silverpoint/vue/chord-ring';
 import { SpOrbitChart } from '@silverpoint/vue/orbit-chart';
 
-const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean }>();
+/** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
+const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean }>();
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart } as const;
@@ -44,6 +46,16 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
   <main v-if="props.fixture">
     <div class="sp-harness" data-gate="" :data-size="sizeOf(props.fixture)">
       <component :is="CHARTS[props.fixture.chart as keyof typeof CHARTS]" v-bind="fixtureProps(props.fixture)" />
+    </div>
+  </main>
+  <main v-else-if="props.dashboard">
+    <h1 v-if="!props.gate">silverpoint · Vite + Vue · dashboard</h1>
+    <div :class="props.gate ? 'sp-dashboard-harness' : undefined" :data-gate="props.gate ? '' : undefined">
+      <SpDashboard v-bind="props.dashboard.props">
+        <SpDashboardCell v-for="child in props.dashboard.children" :key="child.cell" :cell="child.cell">
+          <component :is="CHARTS[child.chart as keyof typeof CHARTS]" v-bind="child.props" />
+        </SpDashboardCell>
+      </SpDashboard>
     </div>
   </main>
   <main v-else-if="props.gallery">

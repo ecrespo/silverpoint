@@ -52,3 +52,9 @@ h1 {
   flex-wrap: wrap;
   gap: 16px;
 }
+
+/* The dashboard gate container: as wide as the page, so the viewport width picks the breakpoint
+   (375 → sm, 800 → md, 1280 → lg, after main's 24 px padding and the dashboard's own). */
+.sp-dashboard-harness[data-gate] .sp-chart {
+  animation: none;
+}
