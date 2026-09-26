@@ -50,6 +50,8 @@ export interface PathView {
   readonly paint: StrokePaint;
   /** `data-dash` attribute, omitted when `null`. */
   readonly dash: string | null;
+  /** `data-weight` attribute: a `weight` ground's tonal level (REQ-028), omitted when `null`. */
+  readonly weight: string | null;
   /** `fill` attribute — only ever a `url(#tile)` reference, omitted when `null`. */
   readonly fill: string | null;
 }
@@ -80,6 +82,7 @@ function pathView(stroke: Stroke): PathView {
     role: stroke.role,
     paint,
     dash: stroke.dash ?? null,
+    weight: stroke.weight === undefined ? null : String(stroke.weight),
     fill: paint === 'tile' && stroke.tile ? `url(#${stroke.tile})` : null,
   };
 }
@@ -140,6 +143,7 @@ function pathString(path: PathView): string {
     ['data-role', path.role],
     ['data-paint', path.paint],
     ['data-dash', path.dash],
+    ['data-weight', path.weight],
     ['fill', path.fill],
   ])}></path>`;
 }

@@ -13,7 +13,7 @@ export type {
   ToneLevel,
 } from './geometry';
 export type { Ground, GroundName, GroundRef } from './ground';
-export type { Inker, InkOptions, TonalRamp, ToneSpec } from './ink';
+export type { HatchToneSpec, Inker, InkOptions, TonalRamp, ToneSpec, WeightToneSpec } from './ink';
 export type {
   ActivityGridProps,
   AreaChartProps,

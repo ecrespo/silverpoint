@@ -1,4 +1,4 @@
-import { round2, roundPathData, type Geometry, type Inker, type InkOptions, type Stroke, type Tile, type ToneLevel, type ToneSpec } from '@silverpoint/core';
+import { round2, roundPathData, type Geometry, type Inker, type InkOptions, type Stroke, type Tile, type HatchToneSpec, type ToneLevel } from '@silverpoint/core';
 import rough from 'roughjs';
 
 /** Seeds live in [1, 2^31 - 2]: far enough from 0 and 2^32 that rough.js's own `seed + k` steps never wrap. */
@@ -46,7 +46,7 @@ function linesPerSide(gap: number): number {
  * perpendicular layer at level 4. Lines run edge to edge with preserved vertices, so tiles
  * join without seams.
  */
-function buildTile(generator: Generator, id: string, spec: ToneSpec, options: InkOptions, seed: number): Tile {
+function buildTile(generator: Generator, id: string, spec: HatchToneSpec, options: InkOptions, seed: number): Tile {
   const count = linesPerSide(spec.gap);
   const size = spec.gap * count;
   const strokes: Stroke[] = [];
@@ -65,7 +65,7 @@ function buildTile(generator: Generator, id: string, spec: ToneSpec, options: In
   return { id, width: round2(size), height: round2(size), angle: round2(spec.angle), strokes };
 }
 
-function hatchPerShape(generator: Generator, shape: Stroke, spec: ToneSpec, options: InkOptions, seed: number): Stroke {
+function hatchPerShape(generator: Generator, shape: Stroke, spec: HatchToneSpec, options: InkOptions, seed: number): Stroke {
   const drawable = generator.path(shape.d, {
     ...roughOptions(options, seed),
     fill: 'hatch',
@@ -94,7 +94,9 @@ function ink(geometry: Geometry, options: InkOptions): Geometry {
 
   geometry.strokes.forEach((stroke, index) => {
     const seed = seedFor(options, index * 64);
-    const spec = stroke.tone && ramp ? ramp[stroke.tone as Exclude<ToneLevel, 0>] : undefined;
+    const step = stroke.tone && ramp ? ramp[stroke.tone as Exclude<ToneLevel, 0>] : undefined;
+    // A weight step is not a hatch: this inker hatches only the steps it knows how to draw.
+    const spec = step?.style === 'weight' ? undefined : step;
     if (spec && stroke.tone) {
       if (perShape) {
         strokes.push(hatchPerShape(generator, stroke, spec, options, seed));

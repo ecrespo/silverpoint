@@ -23,7 +23,10 @@ export interface Stroke {
   readonly d: string;
   readonly role: StrokeRole;
   readonly part: StrokePart;
-  /** Relative weight, resolved against the ground's token. */
+  /**
+   * Tonal weight level, 1-4, that a `weight` ground's Inker gives a toned shape in place of
+   * hatching; written as `data-weight` and resolved by the stylesheet to a stroke width (REQ-028).
+   */
   readonly weight?: number;
   /** @internal Defaults to `'stroke'`. */
   readonly paint?: StrokePaint;

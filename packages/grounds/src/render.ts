@@ -18,6 +18,7 @@ import {
   type SvgView,
 } from '@silverpoint/core';
 import { RoughInker } from './ink/rough-inker';
+import { WeightInker } from './ink/weight-inker';
 import { resolveGround } from './registry';
 
 /** What an adapter knows about where the chart is mounted; everything else comes from props. */
@@ -41,7 +42,7 @@ export interface RenderedChart extends ChartModel {
 }
 
 /** Inkers that ship with the grounds package and resolve without registration. */
-const BUILTIN_INKERS = [RoughInker];
+const BUILTIN_INKERS = [RoughInker, WeightInker];
 
 /** Characters an id keeps intact in a space-separated IDREF list and inside `url(#…)`. */
 const SAFE_ID = /^[A-Za-z0-9_.:-]+$/;

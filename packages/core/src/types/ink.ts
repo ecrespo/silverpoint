@@ -1,12 +1,22 @@
 import type { Geometry, ToneLevel } from './geometry';
 
-/** One step of a ground's tonal ramp (Data Model §3.4). */
-export interface ToneSpec {
+/** One step of a `hatch` ground's tonal ramp (Data Model §3.4). */
+export interface HatchToneSpec {
   readonly style: 'hachure' | 'cross-hatch';
   readonly gap: number;
   /** Hatch angle in degrees; cross-hatch adds the perpendicular. */
   readonly angle: number;
 }
+
+/** One step of a `weight` ground's tonal ramp (Data Model §3.7, REQ-028). */
+export interface WeightToneSpec {
+  readonly style: 'weight';
+  /** Stroke width of a toned shape's outline, times `--sp-stroke-width`. */
+  readonly weight: number;
+}
+
+/** One step of a ground's tonal ramp: a hatch under `hatch`, a line weight under `weight`. */
+export type ToneSpec = HatchToneSpec | WeightToneSpec;
 
 export type TonalRamp = Readonly<Record<Exclude<ToneLevel, 0>, ToneSpec>>;
 

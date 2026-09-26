@@ -60,7 +60,7 @@ describe('SVG view model', () => {
         width: '45',
         height: '45',
         transform: 'rotate(-41)',
-        paths: [{ d: 'M0 3.75L45 3.75', part: 'sp-ink', role: 'hatch', paint: 'stroke', dash: null, fill: null }],
+        paths: [{ d: 'M0 3.75L45 3.75', part: 'sp-ink', role: 'hatch', paint: 'stroke', dash: null, weight: null, fill: null }],
       },
     ]);
   });
@@ -68,6 +68,17 @@ describe('SVG view model', () => {
   test('REQ-060 · the dotted baseline series keeps its dash as data for the stylesheet', () => {
     const view = toSvgView(model, style);
     expect(view.paths.some((path) => path.part === 'sp-ink-secondary' && path.dash === 'dotted')).toBe(true);
+  });
+
+  test('REQ-028 · a weighted stroke keeps its tonal weight as data for the stylesheet', () => {
+    const weighted = withGeometry(model, {
+      strokes: [
+        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', weight: 3 },
+        { d: 'M0,20H10', role: 'encoding', part: 'ink' },
+      ],
+    });
+    const view = toSvgView(weighted, style);
+    expect(view.paths.map((path) => path.weight)).toEqual(['3', null]);
   });
 
   test('REQ-094 · labels keep their kind, anchor and paint slot', () => {
@@ -96,6 +107,19 @@ describe('canonical SVG string', () => {
     expect(svg).toMatch(/<path d="[^"]+" part="sp-ink" data-role="encoding" data-paint="stroke"/);
     expect(svg).not.toMatch(/\s(stroke|color)="/);
     expect(svg).not.toMatch(/\sfill="(?!url\()/);
+  });
+
+  test('REQ-028 · a weighted path writes data-weight after data-dash; an unweighted one omits it', () => {
+    const weighted = withGeometry(model, {
+      strokes: [
+        { d: 'M0,0H10V10Z', role: 'encoding', part: 'ink', paint: 'stroke', dash: 'dotted', weight: 2 },
+        { d: 'M0,20H10', role: 'encoding', part: 'ink' },
+      ],
+    });
+    const svg = svgString(toSvgView(weighted, style));
+    expect(svg).toContain('<path d="M0,0H10V10Z" part="sp-ink" data-role="encoding" data-paint="stroke" data-dash="dotted" data-weight="2"></path>');
+    expect(svg).toContain('<path d="M0,20H10" part="sp-ink" data-role="encoding" data-paint="stroke"></path>');
+    expect(svgString(toSvgView(model, style))).not.toContain('data-weight');
   });
 
   test('REQ-120 · title and desc are the first children, as assistive technology expects', () => {

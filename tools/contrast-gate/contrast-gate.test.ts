@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { silverpoint } from '../../packages/grounds/src';
-import { auditGround, contrastRatio, lighten } from './contrast-gate';
+import { cyanotype, silverpoint } from '../../packages/grounds/src';
+import { auditBuiltins, auditGround, contrastRatio, lighten } from './contrast-gate';
 
 function minimum(rows: ReturnType<typeof auditGround>, token: string): number | undefined {
   return rows.find((row) => row.token === token)?.min;
@@ -34,6 +34,23 @@ describe('contrast gate', () => {
 
   test('REQ-126 · every ink of the silverpoint ground passes', () => {
     expect(auditGround(silverpoint).filter((row) => !row.pass)).toEqual([]);
+  });
+
+  test('REQ-126 · every ink of the cyanotype ground passes, with the ratios of Data Model §3.7', () => {
+    const rows = auditGround(cyanotype);
+    expect(rows.filter((row) => !row.pass)).toEqual([]);
+    expect(Object.fromEntries(rows.map((row) => [row.token, row.min]))).toEqual({
+      text: 9.84, textMuted: 6.41, primary: 8.77, secondary: 6.68, rule: 4.32, grid: 4.32, heighten: 13.11,
+    });
+  });
+
+  test('REQ-127 · the gate audits every built-in ground', () => {
+    expect([...new Set(auditBuiltins().map((row) => row.ground))]).toEqual(['silverpoint', 'cyanotype']);
+  });
+
+  test('REQ-127 · darkening cyanotype\'s rule toward its substrate fails the gate', () => {
+    const altered = { ...cyanotype, ink: { ...cyanotype.ink, rule: '#4A6B90' } };
+    expect(auditGround(altered).filter((row) => !row.pass).map((row) => row.token)).toEqual(['rule']);
   });
 
   test('REQ-127 · lightening ink by 5% fails the gate', () => {

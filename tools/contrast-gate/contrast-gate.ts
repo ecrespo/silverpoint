@@ -6,6 +6,7 @@
  * Usage: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
  */
 import type { Ground } from '@silverpoint/core';
+import { cyanotype, silverpoint } from '../../packages/grounds/src';
 
 type InkToken = keyof Ground['ink'];
 
@@ -95,9 +96,13 @@ export function auditGround(ground: Ground): AuditRow[] {
   return rows;
 }
 
-async function main(): Promise<void> {
-  const { silverpoint } = await import('../../packages/grounds/src');
-  const rows = [silverpoint].flatMap(auditGround);
+/** Audits every ground `@silverpoint/grounds` registers by default (REQ-127). */
+export function auditBuiltins(): AuditRow[] {
+  return [silverpoint, cyanotype].flatMap(auditGround);
+}
+
+function main(): void {
+  const rows = auditBuiltins();
   for (const row of rows) {
     const status = row.pass ? 'ok   ' : 'error';
     console.log(`${status} ${row.ground}.${row.token.padEnd(10)} ${row.min.toFixed(2)} ≥ ${row.threshold} (worst: ${row.worst}, vs ${row.against})`);
@@ -111,4 +116,4 @@ async function main(): Promise<void> {
   }
 }
 
-if (process.argv[1]?.endsWith('contrast-gate.ts')) void main();
+if (process.argv[1]?.endsWith('contrast-gate.ts')) main();

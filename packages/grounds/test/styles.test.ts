@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
-import { silverpoint } from '../src';
+import { cyanotype, silverpoint } from '../src';
 
 const css = readFileSync(fileURLToPath(new URL('../src/styles.css', import.meta.url)), 'utf8');
 const lockfile = readFileSync(fileURLToPath(new URL('../../../pnpm-lock.yaml', import.meta.url)), 'utf8');
@@ -50,6 +50,28 @@ describe('styles.css', () => {
     expect(vars['--sp-hatch-gap']).toBe(String(silverpoint.inkOptions.hatchGap));
     expect(vars['--sp-radius']).toBe('2px');
     expect(css).not.toMatch(/--sp-font-mono/);
+  });
+
+  test('REQ-041 · REQ-028 · cyanotype declares its colours and weights on the ground-wide rule, whatever the substrate', () => {
+    const vars = block(':where(.sp-ground-cyanotype:not(.sp-root .sp-chart))');
+    expect(vars).toEqual({
+      '--sp-font-display': cyanotype.typography.display,
+      '--sp-stroke-width': '0.9',
+      '--sp-radius': '2px',
+      '--sp-substrate': cyanotype.substrates.prussian,
+      '--sp-ink': cyanotype.ink.primary,
+      '--sp-ink-secondary': cyanotype.ink.secondary,
+      '--sp-heighten': cyanotype.ink.heighten,
+      '--sp-rule': cyanotype.ink.rule,
+      '--sp-grid': cyanotype.ink.grid,
+      '--sp-text': cyanotype.ink.text,
+      '--sp-text-muted': cyanotype.ink.textMuted,
+      ...Object.fromEntries(Object.entries(cyanotype.tonalRamp).map(([level, step]) => [`--sp-weight-${level}`, String('weight' in step ? step.weight : NaN)])),
+    });
+  });
+
+  test.each([1, 2, 3, 4])('REQ-028 · data-weight="%i" sets the stroke width from its ground variable', (level) => {
+    expect(block(`.sp-chart [data-weight='${level}']`)).toEqual({ 'stroke-width': `calc(var(--sp-stroke-width) * var(--sp-weight-${level}))` });
   });
 
   test('REQ-042 · every part is painted from its variable', () => {

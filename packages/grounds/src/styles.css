@@ -65,6 +65,30 @@
   --sp-text-muted: #5A5E65;
 }
 
+/* ── Ground: cyanotype (Data Model §3.7) ────────────────────────────────────────────────── */
+
+/* One substrate, so its colours sit on the ground-wide rule: a chart that names another substrate
+   (`cream` is the library default) is still printed on Prussian blue. The weights are its tonal
+   ramp: a toned shape's outline is --sp-stroke-width times --sp-weight-N (REQ-028, DD-019). */
+
+:where(.sp-ground-cyanotype:not(.sp-root .sp-chart)) {
+  --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --sp-stroke-width: 0.9;
+  --sp-radius: 2px;
+  --sp-substrate: #1B3F6B;
+  --sp-ink: #E2EAF2;
+  --sp-ink-secondary: #DCCBA8;
+  --sp-heighten: #0C2240;
+  --sp-rule: #8AA8C7;
+  --sp-grid: #8AA8C7;
+  --sp-text: #F4F6F8;
+  --sp-text-muted: #B8CBDE;
+  --sp-weight-1: 1.5;
+  --sp-weight-2: 2.25;
+  --sp-weight-3: 3;
+  --sp-weight-4: 4;
+}
+
 /* ── Chart root ──────────────────────────────────────────────────────────────────────── */
 
 .sp-root {
@@ -157,6 +181,23 @@
 /* A tile-painted shape: the pattern is its fill (REQ-029); the outline is its own stroke. */
 .sp-chart [data-paint='tile'] {
   stroke: none;
+}
+
+/* Tone by line weight, under a `weight` ground (REQ-028): the level is data, the width is paint. */
+.sp-chart [data-weight='1'] {
+  stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-1));
+}
+
+.sp-chart [data-weight='2'] {
+  stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-2));
+}
+
+.sp-chart [data-weight='3'] {
+  stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-3));
+}
+
+.sp-chart [data-weight='4'] {
+  stroke-width: calc(var(--sp-stroke-width) * var(--sp-weight-4));
 }
 
 .sp-chart [data-dash='dotted'] {
