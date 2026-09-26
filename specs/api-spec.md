@@ -579,7 +579,10 @@ Vue:
 ```
 
 Angular — signal inputs, `OnPush`, standalone (REQ-101); cell ids are read from
-`contentChildren`, available during server rendering:
+`contentChildren`, available during server rendering. Signal inputs cannot say "`title` or
+`label`", so where React and Vue reject a nameless dashboard by type, `sp-dashboard` warns `SP002`
+(REQ-214); `id` is a required input. Each `sp-dashboard-cell` keeps its content in a template the
+dashboard instantiates inside the cell's `article`, in reading order:
 
 ```html
 <sp-dashboard id="ops" title="Operations" [layout]="layout" [link]="{ key: 'hour' }">

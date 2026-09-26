@@ -43,3 +43,4 @@ export type {
   SankeyChartProps,
   TreemapChartProps,
 } from '@silverpoint/core';
+export { SP_DASHBOARD_CELL, type DashboardCellHandle } from './dashboard-cell';

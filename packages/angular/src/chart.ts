@@ -1,5 +1,6 @@
 import { computed, contentChild, Directive, ElementRef, inject, input, output, signal, type Signal } from '@angular/core';
 import {
+  inCell,
   instanceId,
   reduceInteraction,
   type ActiveItem,
@@ -11,6 +12,7 @@ import {
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 import { SILVERPOINT_CONFIG } from './config';
+import { SP_DASHBOARD_CELL } from './dashboard-cell';
 import { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from './environment';
 import { SpTooltip } from './tooltip';
 
@@ -65,8 +67,11 @@ export abstract class SpChart<P extends CommonChartProps> {
   private readonly generated = inject(SilverpointIds).next();
   private readonly forcedPrecision = injectForcedPrecision();
   private readonly measured = injectMeasuredWidth(() => this.width() === undefined);
+  /** The dashboard cell this chart sits in, if any (REQ-206, REQ-209, REQ-212). */
+  private readonly cell = inject(SP_DASHBOARD_CELL, { optional: true });
   constructor(private readonly recipe: ChartRecipe<P>) {
     injectTypefaceCheck(recipe.name);
+    this.cell?.attach(this.id);
   }
 
   private readonly props = computed<CommonChartProps>(() => ({
@@ -94,14 +99,17 @@ export abstract class SpChart<P extends CommonChartProps> {
     className: this.className(),
   }));
 
-  protected readonly rendered = computed(() =>
-    renderChart(this.recipe, { ...this.props(), ...this.ownProps() } as P, {
+  protected readonly rendered = computed(() => {
+    // Inside a dashboard cell: its id, height and config, and its nominal width until measured
+    // (REQ-206, REQ-207, REQ-209, REQ-212); the chart's own inputs win.
+    const fitted = inCell({ ...this.props(), ...this.ownProps() } as P, this.cell?.context(), this.recipe);
+    return renderChart(this.recipe, fitted.props, {
       id: instanceId(this.recipe.name, this.generated),
-      width: this.measured(),
+      width: this.measured() ?? fitted.width,
       provider: this.provider,
       forcedPrecision: this.forcedPrecision(),
-    }),
-  );
+    });
+  });
 
   protected readonly rootClass = computed(() =>
     ['sp-root', `sp-ground-${this.rendered().ground}`, this.className()].filter(Boolean).join(' '),

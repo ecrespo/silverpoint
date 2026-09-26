@@ -160,10 +160,28 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   SP015, no comments, config precedence, hydration then measure) and 3 `vue-tsc` type tests.
   **Mutations, all red:** loose props type (2 type tests); no `provide` (6); source order (1).
 
-**[ ] T-113 · Angular `sp-dashboard` / `sp-dashboard-cell`** — REQ-200, REQ-212, REQ-214 `[P]`
+**[x] T-113 · Angular `sp-dashboard` / `sp-dashboard-cell`** — REQ-200, REQ-212, REQ-214 `[P]`
 - Standalone, signal inputs, `OnPush`; cell ids from `contentChildren`; DI token for the cell
   context; APF subpath `@silverpoint/angular/dashboard`.
 - Tests: the same contract in TestBed and under Angular SSR.
+- *Closed 2026-09-26.* Secondary entry `@silverpoint/angular/dashboard`; the main entry declares the
+  token `SP_DASHBOARD_CELL`, so the charts need not import the dashboard entry.
+  - **Reading order.** `sp-dashboard-cell` keeps its content in an `<ng-template>`, and the dashboard
+    instantiates it inside each `article` with `ngTemplateOutlet` in reading order; `<ng-content>`
+    cannot reorder.
+  - **The chart registers itself.** `SpChart` injects the token, registers its `id` input with the
+    cell in its constructor, and renders through `inCell`. Content children exist, with their
+    inputs set, before the dashboard's view is checked, so the cell can label itself with the
+    chart's own id.
+  - **Variables** go through `[attr.style]` as one string.
+  - **REQ-214.** Signal inputs cannot express "title or label", so a nameless dashboard warns SP002
+    (tested), noted in API §7.1; `id` is `input.required`.
+
+  Tests: 10 under platform-server (the markup contract, order, variables, boxes, own id and height,
+  `headingLevel` and `label`, SP015, config precedence including the provider, a nameless
+  dashboard) and 1 in the browser (nominal width, then measured). Hydration without mismatch is
+  proved end to end in the example app (T-118). **Mutations, all red:** the chart does not
+  register (own-id test); cells in source order (2).
 
 **[ ] T-114 · Adapters contain no layout maths** — REQ-201, Art. 2
 - Extend the existing adapter lint (REQ-102/106) to the dashboard files: no arithmetic on sizes,
