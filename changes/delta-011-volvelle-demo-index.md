@@ -106,12 +106,29 @@ Task ids continue the global sequence from T-101.
 - Edit the JSDoc in `packages/core/src/types/props.ts`; regenerate `docs/site/generated/props.json`.
 - **Done:** test green; the site's VolvelleChart page shows the note. *Closed 2026-09-26: 77 accessor props (67 new JSDoc lines, 10 extended) end in "Ignored without `data`."; `data` states the rule; the site bundle carries the Volvelle note. Found on the way: `tools/traceability` never read `docs/` test files, so REQ-099's test did not count; `TEST_ROOTS` now includes `docs`, held by a test that every vitest project root is scanned (RED on `docs/site` first). Traceability 101/120, 0 blocking; unit 2801, gates 311, pixel 1068 (Docker), e2e 509 — all green.*
 
-**[ ] T-104 · The catalog keeps the rule** — REQ-098 `[P]`
+**[x] T-104 · The catalog keeps the rule** — REQ-098 `[P]`
 - Catalog-driven test in `packages/core/test/catalog-contract.test.ts`: each catalog row declares
   one view-prop probe (a value other than the default); building the chart without `data` with
   and without the probe yields different geometry, and emits no diagnostic.
 - Mutation-check: reinstate the `usesDemo` guard in Volvelle → the test goes red.
 - **Done:** 33 rows covered; mutation check recorded in the ledger.
+- *Closed 2026-09-26.* Each row of `tools/visual-gate/catalog.ts` declares `demoProbe` (required by
+  the type). 23 charts carry a probe; 10 have no own view prop and declare `null`, which the test
+  checks against the props reference, so a view prop added later must bring a probe. Two
+  refinements, both closer to REQ-098's "as it would to consumer data":
+  - the comparison is the whole model (geometry, description, table) in the default card chrome,
+    because KpiCard's `metric` reaches only the text under `bare`;
+  - a probe may raise what it raises with consumer data too: `demoProbeWarns: ['SP010']` for
+    ChordRing, whose 5-category demo folds under any `maxCategories` < 5. Every other diagnostic
+    fails.
+
+  A second catalog-driven test holds the other half: the sample's accessor props leave the demo
+  unchanged. DonutChart's first probe (`legend: false`) was replaced by `centerLabel`. The legend
+  only draws when the plot is wide enough, which 320×200 card is not, with or without `data`.
+  **Mutation checks, all red then restored:** M1 reinstated the `usesDemo` guard in Volvelle, so
+  the VolvelleChart probe failed; M2 made KpiCard ignore `metric` under the demo, so the KpiCard
+  probe failed; M3 made DonutChart apply `nameKey` under the demo, so the DonutChart accessor test
+  failed. CI: unit 2868, gates 311, pixel 1068 (Docker), e2e 509, all green.
 
 **[ ] T-105 · Release note** — Art. 9
 - Changeset `minor` for `@silverpoint/core` (the fixed group bumps all six to `0.2.0`) naming the

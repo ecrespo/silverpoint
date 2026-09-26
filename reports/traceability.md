@@ -88,7 +88,7 @@ None.
 | REQ-095 | MUST | packages/angular/test/line-chart.test.ts<br>packages/core/test/catalog-contract.test.ts<br>packages/core/test/line-chart.test.ts<br>packages/react/test/line-chart.test.tsx<br>packages/vue/test/line-chart.test.ts |
 | REQ-096 | SHOULD | packages/core/test/cartesian.test.ts<br>packages/core/test/catalog-contract.test.ts<br>packages/core/test/close-out-minors.test.ts<br>packages/core/test/polar.test.ts |
 | REQ-097 | MUST | packages/core/test/catalog-charts.test.ts<br>packages/core/test/close-out-minors.test.ts<br>packages/core/test/diagnostics.test.ts<br>packages/core/test/phase2-charts.test.ts |
-| REQ-098 | MUST | packages/core/test/close-out-minors.test.ts<br>packages/core/test/phase3-charts.test.ts<br>docs/site/test/props.test.ts |
+| REQ-098 | MUST | packages/core/test/catalog-contract.test.ts<br>packages/core/test/close-out-minors.test.ts<br>packages/core/test/phase3-charts.test.ts<br>docs/site/test/props.test.ts |
 | REQ-099 | MUST | docs/site/test/props.test.ts |
 | REQ-100 | MUST | packages/angular/test/catalog.test.ts<br>packages/angular/test/client.test.ts<br>packages/angular/test/line-chart.test.ts<br>packages/react/test/catalog.test.tsx<br>packages/react/test/line-chart.test.tsx<br>packages/vue/test/catalog.test.ts<br>packages/vue/test/line-chart.test.ts<br>tools/visual-gate/harness.test.ts<br>tools/visual-gate/parity.real.test.ts<br>tools/visual-gate/string-gate.real.test.ts<br>tools/visual-gate/string-gate.test.ts<br>e2e/docs.spec.ts |
 | REQ-101 | MUST | packages/angular/test/catalog.test.ts<br>packages/angular/test/line-chart.test.ts |

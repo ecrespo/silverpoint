@@ -1,4 +1,6 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, test } from 'vitest';
+import { CATALOG } from '../../../tools/visual-gate/catalog';
 import {
   __setDiagnosticSink,
   activityGrid,
@@ -558,5 +560,51 @@ describe.each(SCALAR.map((r) => [r.name, r] as const))('%s contract', (_name, re
 describe('demo snapshots', () => {
   test.each([...[...CASES, ...CARTESIAN, ...POLAR].map((c) => c.recipe), ...SCALAR].map((r) => [r.name, r] as const))('REQ-093 · REQ-005 · %s demo geometry is stable', (_name, recipe) => {
     expect(serializeGeometry(recipe.build({ width: 320, height: 150 }, { ...context, id: 'sp-demo' }).geometry)).toMatchSnapshot();
+  });
+});
+
+/**
+ * T-104 (delta-011): under the demo dataset a chart ignores its accessor props and applies every
+ * other own prop (REQ-098). Each catalog row declares a view-prop probe, or `null` when the chart
+ * has no own view prop — which is checked, so a view prop added later must bring its probe.
+ */
+describe('the demo applies view props and ignores accessors (REQ-098)', () => {
+  const reference = JSON.parse(readFileSync(new URL('../../../docs/site/generated/props.json', import.meta.url), 'utf8')) as {
+    charts: { chart: string; own: { name: string }[] }[];
+  };
+  const isAccessor = (name: string) => name.endsWith('Key') || name === 'keys' || name === 'names';
+  const viewPropsOf = (chart: string) => reference.charts.find((c) => c.chart === chart)!.own.map((p) => p.name).filter((name) => !isAccessor(name));
+  // The whole model, in the default card chrome: a view prop may reach only the text (KpiCard's `metric`).
+  const drawn = (entry: (typeof CATALOG)[number], props: Record<string, unknown>) => {
+    const model = entry.recipe.build({ height: 200, ...props }, context);
+    return serializeGeometry(model.geometry) + model.description + JSON.stringify(model.table);
+  };
+
+  test('REQ-098 · the probes cover the whole catalog', () => {
+    expect(CATALOG).toHaveLength(33);
+    expect(CATALOG.filter((entry) => entry.demoProbe !== null).length).toBeGreaterThan(20);
+  });
+
+  test.each(CATALOG.map((entry) => [entry.chart, entry] as const))('REQ-098 · %s · a view prop changes the demo, silently', (_chart, entry) => {
+    const own = viewPropsOf(entry.chart);
+    if (entry.demoProbe === null) {
+      expect(own, 'a chart with a view prop declares a probe').toEqual([]);
+      return;
+    }
+    expect(Object.keys(entry.demoProbe).length).toBeGreaterThan(0);
+    for (const name of Object.keys(entry.demoProbe)) expect(own, `${name} is one of the chart's own view props`).toContain(name);
+    const seen = capture();
+    const turned = drawn(entry, entry.demoProbe);
+    expect(seen, 'only what the probe raises with consumer data too').toEqual(entry.demoProbeWarns ?? []);
+    expect(turned).not.toBe(drawn(entry, {}));
+  });
+
+  test.each(CATALOG.map((entry) => [entry.chart, entry] as const))('REQ-098 · %s · accessor props leave the demo as it is', (_chart, entry) => {
+    const accessors = Object.fromEntries(Object.entries(entry.sample).filter(([name]) => isAccessor(name)));
+    // Every chart with accessor props shows some in its sample; GaugeArc, MeterChart and VolvelleChart have none.
+    const declared = reference.charts.find((c) => c.chart === entry.chart)!.own.some((p) => isAccessor(p.name));
+    expect(Object.keys(accessors).length > 0).toBe(declared);
+    capture();
+    expect(drawn(entry, accessors)).toBe(drawn(entry, {}));
   });
 });
