@@ -150,10 +150,12 @@ describe('Phase 3 minors', () => {
     expect(texts(model)).toContain('A a1 · B b2');
   });
 
-  test('M-6 · REQ-090 · `indexRing` or `indexValue` without `data` is warned: the demo keeps its own index', () => {
+  // Superseded by delta-011 (T-102): the demo no longer keeps its own index, it turns.
+  test('M-6 · REQ-098 · REQ-090 · `indexValue` without `data` turns the demo, and warns nothing', () => {
     const seen = capture();
-    volvelleChart.build({ ...bare, indexValue: 'Tue' }, context);
-    expect(seen.some((d) => d.code === 'SP002' && d.message.includes('indexValue'))).toBe(true);
+    const model = volvelleChart.build({ ...bare, indexValue: 'Tue' }, context);
+    expect(texts(model).join(' ')).toContain('Day Tue');
+    expect(codes(seen)).toEqual([]);
   });
 
   test('M-8 · REQ-075 · a sector without a name is warned', () => {

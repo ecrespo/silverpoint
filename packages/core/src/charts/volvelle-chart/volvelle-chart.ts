@@ -50,7 +50,6 @@ function fits(frame: PolarFrame, name: string, at: { x: number; y: number }, inn
 }
 
 function buildVolvelleChart(props: VolvelleChartProps, context: RecipeContext): ChartModel {
-  const usesDemo = props.data === undefined;
   const all = props.data ?? VOLVELLE_CHART_DEMO;
   const { locale } = context;
   const cap = props.rings !== undefined && Number.isInteger(props.rings) && props.rings > 0 ? props.rings : all.length;
@@ -66,18 +65,16 @@ function buildVolvelleChart(props: VolvelleChartProps, context: RecipeContext): 
     checkSectors(CHART, 'segments', segments.length);
     rings.push({ label: formatCategory(datum.label, locale), segments: segments.map((s: unknown) => formatCategory(s, locale)), given: index });
   });
-  if (usesDemo && (props.indexRing !== undefined || props.indexValue !== undefined)) {
-    warnValue(CHART, props.indexValue !== undefined ? 'indexValue' : 'indexRing', 'Without `data` the demo keeps its own index; `indexRing` and `indexValue` apply to your rings.');
-  }
 
-  // The index angle: the middle of `indexValue` on `indexRing`; every ring is read there.
-  let ringIndex = usesDemo || props.indexRing === undefined ? 0 : rings.findIndex((r) => r.given === props.indexRing);
+  // The index angle: the middle of `indexValue` on `indexRing`; every ring is read there. The demo's
+  // rings are addressed like the consumer's: the index is a view prop (REQ-098).
+  let ringIndex = props.indexRing === undefined ? 0 : rings.findIndex((r) => r.given === props.indexRing);
   if (ringIndex < 0) {
     if (rings.length > 0) warnValue(CHART, 'indexRing', `Ring ${String(props.indexRing)} does not exist or has no segments; the index reads the first ring.`);
     ringIndex = 0;
   }
   const turned = rings[ringIndex];
-  let segment = turned && !usesDemo && props.indexValue !== undefined ? turned.segments.indexOf(props.indexValue) : 0;
+  let segment = turned && props.indexValue !== undefined ? turned.segments.indexOf(props.indexValue) : 0;
   if (segment < 0) {
     warnValue(CHART, 'indexValue', `"${String(props.indexValue)}" is not on ring "${turned?.label}"; the index reads its first segment.`);
     segment = 0;

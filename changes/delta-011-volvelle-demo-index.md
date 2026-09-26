@@ -90,14 +90,14 @@ rings as to the consumer's (REQ-098)."*
 
 Task ids continue the global sequence from T-101.
 
-**[ ] T-102 · Volvelle's index turns the demo** — REQ-098, REQ-090
+**[x] T-102 · Volvelle's index turns the demo** — REQ-098, REQ-090
 - Test-first in `packages/core/test/close-out-minors.test.ts` (M-6 rewritten) and
   `phase3-charts.test.ts`: without `data`, `indexRing: 1, indexValue: 'Night'` puts `Shift Night`
   in the readout and the description; out-of-range `indexRing: 9` and absent `indexValue: 'Nope'`
   on the demo warn `SP002` with the same message as with consumer data and fall back; no
   `indexRing`/`indexValue` leaves the demo's SVG byte-identical to today's canonical render.
 - Remove the `usesDemo` branches from the index resolution in `volvelle-chart.ts`; drop the warning.
-- **Done:** the tests are green; `tools/visual-gate` reports no canonical changed.
+- **Done:** the tests are green; `tools/visual-gate` reports no canonical changed. *Closed 2026-09-26: core 811, unit job 2796, gates 311, pixel 1068 (Docker), e2e 509 — all green; no canonical changed.*
 
 **[ ] T-103 · The props reference says what the demo ignores** — REQ-099 `[P]`
 - Test-first in `docs/site/test/props.test.ts`: every own prop whose name ends in `Key`, plus

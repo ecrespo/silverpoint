@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, test } from 'vitest';
 import { __setDiagnosticSink, chordRing, coxcombChart, donutChart, gaugeArc, meterChart, orbitChart, polarBarChart, radarChart, radialArcGroup, radialRings, readout, stepActive, volvelleChart, windRose, type ActiveItem, type ChartModel, type HitArea, type RecipeContext, type SpCode } from '../src';
+import { VOLVELLE_CHART_DEMO } from '../src/charts/volvelle-chart/demo';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -596,6 +597,53 @@ describe('VolvelleChart', () => {
     const model = volvelleChart.build({ ...bare, data, indexRing: 5, indexValue: 'Sun' }, context);
     expect(texts(model)).toContain('Day Mon · Shift Early');
     expect(seen.filter((c) => c === 'SP002').length).toBeGreaterThanOrEqual(1);
+  });
+
+  describe('under the demo (delta-011)', () => {
+    /** Every diagnostic of one build, with its message. */
+    function messagesOf(props: Parameters<typeof volvelleChart.build>[0]): string[] {
+      const seen: string[] = [];
+      restore = __setDiagnosticSink((code, message) => seen.push(`${code} ${message}`));
+      volvelleChart.build(props, context);
+      return seen;
+    }
+
+    test('REQ-098 · REQ-090 · `indexRing` and `indexValue` turn the demo as they turn consumer rings', () => {
+      capture();
+      const model = volvelleChart.build({ ...bare, indexRing: 1, indexValue: 'Night' }, context);
+      // Night is the third of three: its middle, 5/6 of the turn, falls in Day's sixth of seven
+      // (Sat) and Team's fifth of five (Eridanus).
+      expect(texts(model)).toContain('Day Sat · Shift Night · Team Eridanus');
+      expect(model.description).toContain('Day Sat · Shift Night · Team Eridanus');
+      const night = segmentsOf(model, 1)[2]!;
+      close(night.x, centreOf(model).cx, 0.01);
+    });
+
+    test('REQ-098 · an out-of-range ring or an absent value warns SP002 as with consumer data, and falls back', () => {
+      const demoRing = messagesOf({ ...bare, indexRing: 9 });
+      const ownRing = messagesOf({ ...bare, data: VOLVELLE_CHART_DEMO.map((r) => ({ ...r })), indexRing: 9 });
+      expect(demoRing).toEqual(ownRing);
+      expect(demoRing.some((m) => m.startsWith('SP002'))).toBe(true);
+
+      const demoValue = messagesOf({ ...bare, indexRing: 1, indexValue: 'Nope' });
+      const ownValue = messagesOf({ ...bare, data: VOLVELLE_CHART_DEMO.map((r) => ({ ...r })), indexRing: 1, indexValue: 'Nope' });
+      expect(demoValue).toEqual(ownValue);
+      expect(demoValue.some((m) => m.startsWith('SP002') && m.includes('Nope'))).toBe(true);
+
+      capture();
+      expect(texts(volvelleChart.build({ ...bare, indexRing: 9 }, context))).toContain('Day Mon · Shift Early · Team Atlas');
+      // An absent value on an existing ring reads that ring's first segment, exactly as with consumer rings.
+      const demoFallback = volvelleChart.build({ ...bare, indexRing: 1, indexValue: 'Nope' }, context);
+      expect(texts(demoFallback)).toContain('Day Tue · Shift Early · Team Atlas');
+      expect(demoFallback.geometry).toEqual(volvelleChart.build({ ...bare, data: VOLVELLE_CHART_DEMO.map((r) => ({ ...r })), indexRing: 1, indexValue: 'Nope' }, context).geometry);
+    });
+
+    test('REQ-005 · with no index the demo is unchanged: it reads the default index, first segment of the first ring', () => {
+      capture();
+      const bareDemo = volvelleChart.build({ ...bare }, context);
+      expect(bareDemo).toEqual(volvelleChart.build({ ...bare, indexRing: 0, indexValue: 'Mon' }, context));
+      expect(texts(bareDemo)).toContain('Day Mon · Shift Early · Team Atlas');
+    });
   });
 });
 
