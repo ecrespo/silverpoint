@@ -5,7 +5,8 @@ Charts for React, Vue and Angular whose visual language is historical drawing te
 The first style reproduces the mechanics of Renaissance **silverpoint**: a prepared
 middle-tone substrate, a fine silver line, tonal value built from hatch density, and white
 heightening reserved for the live value. The engine supports several *grounds*; the
-Renaissance one is the first.
+Renaissance one is the first, and `cyanotype` the second: a white line on Prussian blue, whose
+tone is the weight of the line (`ground="cyanotype"`).
 
 Unlike every other hand-drawn charting library, the irregularity here lives only in the
 ornament: the geometry of the data is exact, and every chart offers a `precision` mode with

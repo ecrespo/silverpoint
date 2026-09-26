@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-26 ("Modifica los Specs para ajustar el versionado, la idea es implementar todo en la versión 0.2: implementa el REQ-028 ajustando los specs, implementa el dashboard en angular mitigando el requerimiento para angular, resuelve la app de ejemplo de angular, añade angular ssr"); ships in `0.2.0`; **folded into `specs/` on 2026-09-26** |
+| **Status** | `APPROVED` by the user on 2026-09-26 ("Modifica los Specs para ajustar el versionado, la idea es implementar todo en la versión 0.2: implementa el REQ-028 ajustando los specs, implementa el dashboard en angular mitigando el requerimiento para angular, resuelve la app de ejemplo de angular, añade angular ssr"); ships in `0.2.0`; **folded into `specs/` on 2026-09-26**; **implemented 2026-09-26** (T-124..T-131) |
 | **Affects** | Constitution (planned-grounds table, non-normative); PRD §4.1, §5, §6.2 (REQ-028), §6.5 (new REQ-222), §6.10 (REQ-220, REQ-221), §7, §12; API Spec §3.1, §6, §10, §12; Technical Design DD-002, new DD-019, §8, §10; Data Model §3 (new §3.7), §5; Implementation Plan Phase 5; `specs/tasks.md` Deferred table |
 | **Raised by** | The user, 2026-09-26, after Phase 5 closed: the release line is `0.x`, so "After v1" means nothing; what is worth shipping ships in `0.2.0` |
 | **Release** | `0.2.0` (changeset `minor`). The normalised SVG of every existing fixture is unchanged (§"Blast radius"); a new ground and a new optional attribute are a minor under API Spec §13 |
@@ -111,39 +111,69 @@
 
 Task ids continue the global sequence from T-123.
 
-**[ ] T-124 · Specs** — Art. 9
+**[x] T-124 · Specs** — Art. 9
 - Fold §A–§D into `specs/`, with version bumps and history rows. Remove REQ-028 from the
   Deferred table once T-127 cites it; retarget REQ-047.
 
-**[ ] T-125 · The weight tonal mechanism** — REQ-028, REQ-006, REQ-022
+**[x] T-125 · The weight tonal mechanism** — REQ-028, REQ-006, REQ-022
 - Test-first: `ToneSpec`'s `weight` variant; `WeightInker` turns a toned shape into its outline
   with `tonalWeight` = tone and `paint: 'stroke'`, emits no hatch, no tile, no pattern, and leaves
   every vertex and every untoned stroke as given; `toSvgView` writes `weight` and `svgString`
   writes `data-weight` (omitted when absent).
 
-**[ ] T-126 · `data-weight` in the three adapters** — REQ-028, REQ-100, REQ-102
+**[x] T-126 · `data-weight` in the three adapters** — REQ-028, REQ-100, REQ-102
 - Test-first per adapter: a weighted stroke renders `data-weight`; an unweighted one does not.
 
-**[ ] T-127 · The `cyanotype` ground** — REQ-028, REQ-040, REQ-041, REQ-044, REQ-126, REQ-127
+**[x] T-127 · The `cyanotype` ground** — REQ-028, REQ-040, REQ-041, REQ-044, REQ-126, REQ-127
 - Test-first: tokens of Data Model §3.7; JSON round-trip; registered by default; the stylesheet
   declares its variables and the weight rule; the contrast gate passes both grounds and bites
   on a lightened substrate; rendering every catalog chart in `cyanotype` emits no `hatch` role
   and no `<pattern>`, and touches no chart file.
 
-**[ ] T-128 · Fixtures and goldens** — REQ-100, REQ-180, REQ-181, REQ-210, REQ-211
+**[x] T-128 · Fixtures and goldens** — REQ-100, REQ-180, REQ-181, REQ-210, REQ-211
 - Extend the fixture generator and the dashboard fixtures; regenerate; the tree gate and the
   pixel gate (Docker) pass with the new goldens.
 
-**[ ] T-129 · REQ-220 per adapter** — REQ-220
+**[x] T-129 · REQ-220 per adapter** — REQ-220
 - Test-first: the increment of each dashboard entry over its one-chart entry is within its
   allowance (RED against a 2 KB Angular allowance); Angular's budget becomes 48 kB.
 
-**[ ] T-130 · Angular CLI SSR** — REQ-222, REQ-103, REQ-109, REQ-207, REQ-221
+**[x] T-130 · Angular CLI SSR** — REQ-222, REQ-103, REQ-109, REQ-207, REQ-221
 - `@angular/ssr` in `examples/angular`; `APPS.angular.ssr: true` (RED: the hydration tests
   now run and fail before the server exists); e2e green on all four apps.
 
-**[ ] T-131 · Close** — Art. 9
+**[x] T-131 · Close** — Art. 9
 - Changeset `minor`; docs site lists the ground; CLAUDE.md status, README, ledgers.
+
+## Execution log
+
+*Closed 2026-09-26.* All eight tasks, test-first.
+
+- **Found while regenerating (T-128).** `Stroke.weight` was not unused. `BulletChart`'s target tick
+  sets `weight: 2`, a relative weight the view never wrote. Writing it as `data-weight` changed 48
+  `silverpoint` canonicals, and the diff caught it. The tonal level now travels as the internal
+  `Stroke.tonalWeight`, a test holds the difference, and no existing canonical changed. §B is
+  amended to match.
+- **Found running the Angular example under SSR (T-130).** A cell that an `@for` generates is
+  queried before its inputs are set, while an earlier cell's chart already renders. The dashboard
+  resolved the layout with that cell unnamed and warned a transient `SP015` for every layout cell.
+  The HTML was right, and no gate saw the warning. Fixed test-first (`e650762`): until every cell's
+  `ngOnInit` has run, children go in source order with no layout.
+- **Also needed by Angular SSR.** A router with one component-less `'**'` route, because without a
+  router the SSR engine serves only `/`. `allowedHosts: ['localhost', '127.0.0.1']`, because
+  Angular 21 guards against SSRF.
+- **REQ-220 measured:** React client +1,872 B, React server +1,731 B, Vue +1,929 B, Angular +2,479 B.
+  The mutation check fails a 2 KB Angular allowance.
+- **Weight:** `ops` server HTML is 78 KB in `cyanotype` against 130 KB in `silverpoint`, because there
+  is no hatching.
+- **CI:**
+  - unit: 3,329 tests.
+  - gates: 316 tests. The tree gate covers 330 PR chart fixtures and 30 dashboard fixtures × 3
+    adapters.
+  - traceability: 121/121 MUST, 0 deferred, 0 blocking.
+  - pixel (Docker): 1,696, with 84 new `cyanotype` goldens, reviewed by eye.
+  - e2e: 541 passed. The 2 skipped are `vite-react`'s hydration tests; that app is client-rendered by
+    design.
 
 ## Constitution check
 

@@ -83,25 +83,25 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 
 | Artifact | Status |
 |---|---|
-| Constitution | ✅ v1.5 — Art. 3 now covers normalised markup (wrappers included), amended 2026-09-25 |
-| PRD (EARS criteria) | ✅ v1.8 approved — 129 requirements, REQ-001..REQ-221 (§6.10 Dashboard) |
-| API Spec | ✅ v1.6 approved — 33 charts + the Dashboard composition (§7.1), 16 diagnostic codes |
-| Technical Design | ✅ v1.5 approved — 18 decisions, DD-001..DD-018 |
-| Data Model | ✅ v1.4 approved — verified palette, 15 invariants, dashboard layout §2.13 |
-| Implementation Plan | ✅ v1.4 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) |
-| Deltas | ✅ `changes/delta-001..011` approved and **folded into `specs/`** (2026-09-25) |
+| Constitution | ✅ v1.6 — Art. 3 covers normalised markup (wrappers included, 2026-09-25); `cyanotype` ships in `0.2.0` (planned-grounds table, 2026-09-26) |
+| PRD (EARS criteria) | ✅ v1.9 approved — 130 requirements, REQ-001..REQ-222 (§6.10 Dashboard; REQ-222 Angular CLI SSR) |
+| API Spec | ✅ v1.7 approved — 33 charts + the Dashboard composition (§7.1), two built-in grounds (§6), 16 diagnostic codes |
+| Technical Design | ✅ v1.6 approved — 19 decisions, DD-001..DD-019 (DD-019: the `weight` tonal mechanism) |
+| Data Model | ✅ v1.5 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), 16 invariants, dashboard layout §2.13 |
+| Implementation Plan | ✅ v1.5 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) and its step 5g (delta-012) |
+| Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) folded and implemented 2026-09-26 |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
 | Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
-| Traceability | ✅ 120/120 MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); only REQ-028 (SHOULD) and REQ-047 (COULD) remain, "After v1" |
+| Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 implemented; only REQ-047 (COULD, Tailwind preset) remains, "After 0.2.0" |
 | Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
 
 Where things stand:
 
 - **Published:** `@silverpoint/*@0.1.1`, tag `v0.1.1`. `develop` is ahead of `main` by
-  delta-011 (unreleased).
+  delta-011, feature-001 and delta-012 (unreleased).
 - **Next release: `0.2.0`, ready and not published.** It carries delta-011 (the demo applies view
-  props) and feature-001 (the Dashboard composition, with linked charts), each change with its
-  changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
+  props), feature-001 (the Dashboard composition, with linked charts) and delta-012 (the `cyanotype`
+  ground, REQ-220 per adapter, Angular CLI SSR), each change with its changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
   `push develop:main`). Publishing is the user's call. `1.0.0` stays parked.
 - **Dashboard decisions to know.**
   - React hands a cell's context to its chart as a prop (`cloneElement`), because a React context
@@ -112,13 +112,22 @@ Where things stand:
   - Dashboard fixtures are `fixtures/dashboard/*.dashboard.json`, compared as trees by
     `tools/visual-gate/dashboard-gate.ts` (DD-017 rules) and by the pixel gate at 375, 800 and
     1280 px.
-  - The Angular example app stays client-rendered.
-- **Folded** (2026-09-25): deltas 001..011, feature-001 and the Art. 3 amendment are in `specs/`.
+  - The Angular example app is server-rendered with `@angular/ssr` (`outputMode: 'server'`, one
+    `'**'` route per request, `node dist/server/server.mjs`, `allowedHosts` localhost).
+  - REQ-220 allows 2 KB over the one-chart build for React and Vue, 3 KB for Angular (its APF
+    carries template and input metadata); CI measures the increment itself.
+- **Ground decisions to know.** `cyanotype` (Data Model §3.7, DD-019) has one substrate,
+  `prussian`, painted from the ground-wide CSS rule whatever `substrate` says. Its `WeightInker`
+  sets the internal `Stroke.tonalWeight`, written as `data-weight`. `Stroke.weight` is a different,
+  older field (BulletChart's target tick), so do not reuse it: doing so changes 48 canonicals. The
+  fixture matrix is 1,782 nightly and 330 on PR, and the dashboard fixtures are 30.
+- **Folded** (2026-09-25/26): deltas 001..012, feature-001 and the Art. 3 amendment are in `specs/`.
   When a Phase 5 requirement gets its test, remove it from the Deferred table of `specs/tasks.md`.
   `specs/` was read-only until 2026-09-26, when the user made it writable and chose to keep it so;
   edit it only for an approved change (Art. 9).
 - The deferred minors from the phase reviews are closed or ruled (see the Phase 4 ledger).
-  `REQ-028` (SHOULD) and `REQ-047` (COULD) are deferred "After v1".
+  `REQ-047` (COULD, a Tailwind preset package) is deferred "After 0.2.0": it needs a new package and
+  its npm trusted publisher.
 
 Working rules:
 

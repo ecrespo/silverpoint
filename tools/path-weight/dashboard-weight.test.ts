@@ -8,10 +8,11 @@ describe('dashboard weight', () => {
 
   test('API Spec §12 · the budget is 480 KB of server HTML for the ops reference dashboard', () => {
     expect(DASHBOARD_HTML_BUDGET).toBe(480 * 1_024);
-    expect(ops).toHaveLength(8);
+    // Four silverpoint substrates and cyanotype's one, in both modes (Data Model §5, delta-012).
+    expect(ops).toHaveLength(10);
   });
 
-  test('API Spec §12 · NFR · ops stays under 480 KB in every substrate and mode', () => {
+  test('API Spec §12 · NFR · ops stays under 480 KB in every ground, substrate and mode', () => {
     for (const fixture of ops) expect(measureDashboardHtml(fixture), fixture.id).toBeLessThanOrEqual(DASHBOARD_HTML_BUDGET);
     expect(dashboardWeightProblems()).toEqual([]);
   });

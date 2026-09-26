@@ -1,8 +1,17 @@
 # @silverpoint/grounds
 
 The style *grounds* of **silverpoint**, meaning the prepared substrate, the inks and the hand
-drawing, together with the stylesheet that colours every chart. The first ground is the
-Renaissance one, `silverpoint`, with four substrates: `cream`, `green`, `blue` and `ochre`.
+drawing, together with the stylesheet that colours every chart. Two ship, both registered by
+default:
+
+| Ground | Tone is built by | Substrates |
+|---|---|---|
+| `silverpoint` (default) | Hatching, drawn by hand (`RoughInker`) | `cream`, `green`, `blue`, `ochre` |
+| `cyanotype` | The weight of an exact white line on Prussian blue (`WeightInker`); nothing is hatched | `prussian` |
+
+```tsx
+<BarChart ground="cyanotype" />
+```
 
 ## Installation
 
@@ -41,8 +50,9 @@ re-themes the charts without re-rendering them:
 
 Public properties: `--sp-substrate`, `--sp-ink`, `--sp-ink-secondary`, `--sp-heighten`,
 `--sp-rule`, `--sp-grid`, `--sp-text`, `--sp-text-muted`, `--sp-font-display`,
-`--sp-stroke-width`, `--sp-hatch-gap`, `--sp-radius`. The palette is computed for WCAG contrast,
-so check the contrast again if you change an ink.
+`--sp-stroke-width`, `--sp-hatch-gap`, `--sp-radius`, and under `cyanotype` the line weights of
+its four tonal levels, `--sp-weight-1` to `--sp-weight-4` (times `--sp-stroke-width`). The palette
+is computed for WCAG contrast, so check the contrast again if you change an ink.
 
 See [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react),
 [`@silverpoint/vue`](https://www.npmjs.com/package/@silverpoint/vue) and

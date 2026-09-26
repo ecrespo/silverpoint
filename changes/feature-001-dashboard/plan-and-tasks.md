@@ -259,6 +259,10 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   proved by the platform-server tree gate (T-116, 24/24) and the adapter's SSR tests. Making the
   example app SSR means adding `@angular/ssr`, a router and a server bootstrap; that is an
   example-infrastructure change, left for the user to decide. **5d closed** (REQ-220 is T-119).
+  *Superseded 2026-09-26 by delta-012 (T-130):* the user chose SSR. The `angular` example is an
+  `@angular/ssr` app and its hydration tests run (REQ-222). Running it surfaced a real adapter
+  defect, fixed test-first: a cell an `@for` generates is queried before its inputs are set, and the
+  dashboard warned a transient `SP015` for every layout cell.
 
 **[x] T-119 · Weight** — NFR, REQ-220
 - `tools/path-weight`: `ops` server HTML ≤ 480 KB; size-limit entries for the three `dashboard`
@@ -277,6 +281,9 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
     §12 measure against the one-chart **budget**, so all three pass. A stricter reading, "the
     increment itself ≤ 2 KB", would fail Angular; if that is the intent, it needs a smaller Angular
     template (for example without the five-branch heading) or an amended REQ-220.
+    *Resolved 2026-09-26 by delta-012 (T-129):* REQ-220 is amended to an allowance per adapter,
+    2 KB for React and Vue and 3 KB for Angular. CI now measures the increment itself (Angular
+    +2,479 B, budget 48 kB).
   - **Trimmed on the way.** The Angular cell and dashboard share one module (no token), and the
     "title or label" SP002 moved into the core's `dashboardView` (tested; Angular's signal inputs
     cannot express it). Together they took 348 B off the Angular increment.
