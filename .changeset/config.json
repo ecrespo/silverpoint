@@ -9,7 +9,8 @@
       "@silverpoint/react",
       "@silverpoint/angular",
       "@silverpoint/vue",
-      "@silverpoint/fonts"
+      "@silverpoint/fonts",
+      "@silverpoint/tailwind"
     ]
   ],
   "access": "public",

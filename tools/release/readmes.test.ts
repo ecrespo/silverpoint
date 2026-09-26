@@ -10,7 +10,7 @@ import { QUICKSTARTS } from '../../docs/site/src/quickstart';
  * word for word, and every `@silverpoint/*` import in a code sample is an entry point that exists.
  */
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const SIX = ['angular', 'core', 'fonts', 'grounds', 'react', 'vue'];
+const PACKAGES = ['angular', 'core', 'fonts', 'grounds', 'react', 'tailwind', 'vue'];
 const ADAPTERS = { react: 'React', vue: 'Vue', angular: 'Angular' } as const;
 
 const readme = (pkg: string) => readFileSync(join(ROOT, 'packages', pkg, 'README.md'), 'utf8');
@@ -35,7 +35,7 @@ function imports(markdown: string): string[] {
 }
 
 describe('package READMEs (the npm pages)', () => {
-  test.each(SIX)('REQ-160 · @silverpoint/%s has a README that names its install command', (pkg) => {
+  test.each(PACKAGES)('REQ-160 · @silverpoint/%s has a README that names its install command', (pkg) => {
     expect(existsSync(join(ROOT, 'packages', pkg, 'README.md')), pkg).toBe(true);
     const text = readme(pkg);
     expect(text).toMatch(new RegExp(`^# @silverpoint/${pkg}$`, 'm'));
@@ -53,12 +53,12 @@ describe('package READMEs (the npm pages)', () => {
     }
   });
 
-  test.each(SIX)('REQ-107 · every @silverpoint import in the %s README is an entry point that exists', (pkg) => {
+  test.each(PACKAGES)('REQ-107 · every @silverpoint import in the %s README is an entry point that exists', (pkg) => {
     const found = imports(readme(pkg));
     expect(found.length, `${pkg}: no code sample imports silverpoint`).toBeGreaterThan(0);
     for (const specifier of found) {
       const [, name, rest] = specifier.match(/^@silverpoint\/([\w-]+)(\/.*)?$/)!;
-      expect(SIX, specifier).toContain(name);
+      expect(PACKAGES, specifier).toContain(name);
       expect([...entryPoints(name!)], specifier).toContain(rest ? `.${rest}` : '.');
     }
   });

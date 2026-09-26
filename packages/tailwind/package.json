@@ -1,0 +1,54 @@
+{
+  "name": "@silverpoint/tailwind",
+  "version": "0.1.1",
+  "description": "Optional. A Tailwind preset naming silverpoint's public --sp- variables as theme tokens, for Tailwind 4 (theme.css) and 3.4 (JS preset). No dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./theme.css": "./theme.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "theme.css"
+  ],
+  "keywords": [
+    "tailwindcss",
+    "tailwind-preset",
+    "silverpoint",
+    "charts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/tailwind"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@tailwindcss/node": "4.3.3",
+    "postcss": "^8.5.28",
+    "tailwindcss": "4.3.3",
+    "tailwindcss-v3": "npm:tailwindcss@3.4.19",
+    "tsup": "^8.5.1"
+  }
+}

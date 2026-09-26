@@ -42,7 +42,7 @@ the requirement it implements or verifies.
 
 ## Releasing the next version
 
-The six packages (`core`, `grounds`, `react`, `vue`, `angular`, `fonts`) share **one
+The seven packages (`core`, `grounds`, `react`, `vue`, `angular`, `fonts`, `tailwind`) share **one
 version** (Changesets `fixed` group) and are published **only by CI**, never by hand.
 
 1. **Every change that touches `packages/` adds a changeset** on its branch (CI refuses a PR
@@ -52,7 +52,7 @@ version** (Changesets `fixed` group) and are published **only by CI**, never by 
    pnpm --filter @silverpoint/release exec changeset --empty  # nothing to release
    ```
    A change to the normalised SVG output is **never a patch**.
-2. **Release commit, on `develop`.** It consumes the changesets, bumps all six and writes the
+2. **Release commit, on `develop`.** It consumes the changesets, bumps all seven and writes the
    changelogs:
    ```sh
    pnpm --filter @silverpoint/release run version-packages   # NOT `exec changeset version`
@@ -89,10 +89,10 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Technical Design | ✅ v1.6 approved — 19 decisions, DD-001..DD-019 (DD-019: the `weight` tonal mechanism) |
 | Data Model | ✅ v1.5 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), 16 invariants, dashboard layout §2.13 |
 | Implementation Plan | ✅ v1.5 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) and its step 5g (delta-012) |
-| Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) folded and implemented 2026-09-26 |
+| Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) and `delta-013` (`@silverpoint/tailwind`) folded and implemented 2026-09-26 |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
 | Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
-| Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 implemented; only REQ-047 (COULD, Tailwind preset) remains, "After 0.2.0" |
+| Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |
 | Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
 
 Where things stand:
@@ -101,7 +101,7 @@ Where things stand:
   delta-011, feature-001 and delta-012 (unreleased).
 - **Next release: `0.2.0`, ready and not published.** It carries delta-011 (the demo applies view
   props), feature-001 (the Dashboard composition, with linked charts) and delta-012 (the `cyanotype`
-  ground, REQ-220 per adapter, Angular CLI SSR), each change with its changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
+  ground, REQ-220 per adapter, Angular CLI SSR) and delta-013 (`@silverpoint/tailwind`), each change with its changeset in `.changeset/`. Release it with the steps above (`version-packages` on `develop`, then
   `push develop:main`). Publishing is the user's call. `1.0.0` stays parked.
 - **Dashboard decisions to know.**
   - React hands a cell's context to its chart as a prop (`cloneElement`), because a React context
@@ -126,8 +126,10 @@ Where things stand:
   `specs/` was read-only until 2026-09-26, when the user made it writable and chose to keep it so;
   edit it only for an approved change (Art. 9).
 - The deferred minors from the phase reviews are closed or ruled (see the Phase 4 ledger).
-  `REQ-047` (COULD, a Tailwind preset package) is deferred "After 0.2.0": it needs a new package and
-  its npm trusted publisher.
+  Nothing is deferred. `REQ-047` is `@silverpoint/tailwind` (delta-013, DD-020): a preset of names,
+  with no dependencies and no peers, in the `fixed` group. **Its first version is published by hand**
+  (`npm publish --provenance=false` from `packages/tailwind`, after `npm login`), only so that
+  npm knows the name. The user then adds its trusted publisher, and CI publishes every later version.
 
 Working rules:
 

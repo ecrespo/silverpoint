@@ -41,6 +41,11 @@ function valid(): Manifest[] {
       peerDependencies: { '@angular/core': '>=21', '@angular/common': '>=21' },
     },
     { name: '@silverpoint/fonts', sideEffects: ['*.css'], exports: { '.': './fonts.css' } },
+    {
+      name: '@silverpoint/tailwind',
+      sideEffects: ['*.css'],
+      exports: { '.': { types: './dist/index.d.ts', import: './dist/index.js', require: './dist/index.cjs', default: './dist/index.js' }, './theme.css': './theme.css' },
+    },
   ];
 }
 
@@ -49,8 +54,13 @@ function replace(manifests: Manifest[], name: string, change: (m: Manifest) => M
 }
 
 describe('check-deps', () => {
-  test('REQ-160 · the six packages of the allowlist pass', () => {
+  test('REQ-160 · the seven packages of the allowlist pass', () => {
     expect(checkManifests(valid())).toEqual([]);
+  });
+
+  test('REQ-160 · REQ-162 · a package outside the allowlist is reported, not skipped', () => {
+    const problems = checkManifests([...valid(), { name: '@silverpoint/stray', sideEffects: false, exports: { '.': './index.js' } }]);
+    expect(problems.join('\n')).toMatch(/REQ-162.*@silverpoint\/stray/);
   });
 
   test('REQ-160 · a missing package is reported', () => {

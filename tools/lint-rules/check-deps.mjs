@@ -17,6 +17,8 @@ const ALLOWLIST = {
   // tslib is the runtime helper every Angular Package Format library ships with.
   '@silverpoint/angular': ['@silverpoint/core', '@silverpoint/grounds', 'tslib'],
   '@silverpoint/fonts': [],
+  // A preset of names: not even Tailwind as a peer (DD-020, Art. 8).
+  '@silverpoint/tailwind': [],
 };
 
 /** Frameworks each adapter must declare as peers, and nobody may declare as dependencies. */
@@ -28,7 +30,7 @@ const PEERS = {
 const FRAMEWORKS = Object.values(PEERS).flat();
 
 /** Packages that ship a stylesheet and must keep it as a side effect (REQ-034). */
-const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts'];
+const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts', '@silverpoint/tailwind'];
 
 function checkConditionOrder(name, exports, problems) {
   if (typeof exports !== 'object' || exports === null) return;
@@ -66,7 +68,10 @@ export function checkManifests(manifests) {
 
   for (const [name, manifest] of byName) {
     const allowed = ALLOWLIST[name];
-    if (!allowed) continue;
+    if (!allowed) {
+      problems.push(`REQ-162 · ${name} has no entry in the dependency allowlist (TD §5.3); add one before it can be published.`);
+      continue;
+    }
     const dependencies = Object.keys(manifest.dependencies ?? {});
 
     const declared = [

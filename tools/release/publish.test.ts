@@ -6,7 +6,7 @@ import { afterEach, describe, expect, test } from 'vitest';
 import { packProblems, planPublish, publishablePackages } from './publish.mjs';
 
 /**
- * TD §9, REQ-160: `release.yml` publishes from CI, on a push to main, whatever version of the six
+ * TD §9, REQ-160: `release.yml` publishes from CI, on a push to main, whatever version of the seven
  * packages is not on npm yet. Re-running it publishes nothing twice, and a package is published
  * only after the packages it depends on.
  */
@@ -21,10 +21,10 @@ afterEach(() => {
 });
 
 describe('publish (TD §9)', () => {
-  test('REQ-160 · the six public packages, one version, each after its @silverpoint dependencies', () => {
+  test('REQ-160 · REQ-047 · the seven public packages, one version, each after its @silverpoint dependencies', () => {
     const packages: Pkg[] = publishablePackages(ROOT);
     expect(packages.map((p) => p.name).sort()).toEqual(
-      ['angular', 'core', 'fonts', 'grounds', 'react', 'vue'].map((p) => `@silverpoint/${p}`),
+      ['angular', 'core', 'fonts', 'grounds', 'react', 'tailwind', 'vue'].map((p) => `@silverpoint/${p}`),
     );
     expect(new Set(packages.map((p) => p.version)).size).toBe(1);
     const position = new Map(packages.map((p, i) => [p.name, i]));

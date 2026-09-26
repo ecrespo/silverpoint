@@ -32,7 +32,7 @@ const config = JSON.parse(readFileSync(join(repo, '.size-limit.json'), 'utf8')) 
 
 describe('bundle budgets (size-limit)', () => {
   test('REQ-164 · every package declares a budget', () => {
-    const packages = ['core', 'grounds', 'react', 'vue', 'angular', 'fonts'];
+    const packages = ['core', 'grounds', 'react', 'vue', 'angular', 'fonts', 'tailwind'];
     for (const pkg of packages) {
       expect(config.some((e) => e.path?.startsWith(`packages/${pkg}/`) && e.limit), pkg).toBe(true);
     }

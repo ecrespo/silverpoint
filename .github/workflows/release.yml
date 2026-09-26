@@ -1,12 +1,12 @@
 name: release
 
-# Publishes the six packages with one version on every push to main, from CI, with no token in the
+# Publishes the seven packages with one version on every push to main, from CI, with no token in the
 # repository: npm Trusted Publishing authenticates this workflow through GitHub's OIDC token
 # (TD §9). Only the versions npm does not have yet are published (tools/release/publish.mjs), so a
 # merge into main that does not bump the version publishes nothing, and a re-run is harmless.
 #
 # The release flow: on develop, `pnpm --filter @silverpoint/release run version-packages` consumes
-# the changesets and bumps the six packages; merge develop into main; this workflow runs every CI
+# the changesets and bumps the seven packages; merge develop into main; this workflow runs every CI
 # gate, publishes, then tags `v<version>` and opens the GitHub release from the changelog.
 #
 # Prerequisite outside the repository: each package on npmjs.com trusts this repository, this

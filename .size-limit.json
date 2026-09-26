@@ -1564,5 +1564,11 @@
     "rolldown": false,
     "gzip": false,
     "limit": "76 kB"
+  },
+  {
+    "name": "@silverpoint/tailwind (the Tailwind 3 preset)",
+    "path": "packages/tailwind/dist/index.js",
+    "gzip": true,
+    "limit": "1 kB"
   }
 ]

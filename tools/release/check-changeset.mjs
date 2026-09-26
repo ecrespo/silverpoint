@@ -1,5 +1,5 @@
 /**
- * TD §9, REQ-160: every pull request that touches `packages/` carries a changeset, so the six
+ * TD §9, REQ-160: every pull request that touches `packages/` carries a changeset, so the seven
  * packages' shared version and changelog account for it. A change with nothing to release adds an
  * empty one (`changeset --empty`).
  *

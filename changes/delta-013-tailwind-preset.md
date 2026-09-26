@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-26, who chose "Preset Tailwind (REQ-047)" as the new package: create it, publish its first version by hand, then configure its npm trusted publisher so CI releases the rest. Ships in `0.2.0`; **folded into `specs/` on 2026-09-26** |
+| **Status** | `APPROVED` by the user on 2026-09-26, who chose "Preset Tailwind (REQ-047)" as the new package: create it, publish its first version by hand, then configure its npm trusted publisher so CI releases the rest. Ships in `0.2.0`; **folded into `specs/` on 2026-09-26**; **implemented 2026-09-26** (T-132, T-133; T-134's manual publish is pending the user's `npm login`) |
 | **Affects** | PRD §6.3 (REQ-047 names the package), §6.9 (REQ-160 lists it); API Spec §2, new §10.4; Technical Design new DD-020, §9; Implementation Plan step 5h; `specs/tasks.md` Deferred table |
 | **Release** | Joins the Changesets `fixed` group at the group's version, so the next release (`0.2.0`) publishes it with the other six. Its first version is published by hand, only so that npm knows the name and a trusted publisher can be configured for it (CLAUDE.md, "If a new package is added") |
 
@@ -54,9 +54,9 @@ dev-dependencies of the package's tests only.
 
 Task ids continue from T-131.
 
-**[ ] T-132 · Specs** — Art. 9. Fold this delta; REQ-047 leaves the Deferred table.
+**[x] T-132 · Specs** — Art. 9. Fold this delta; REQ-047 leaves the Deferred table.
 
-**[ ] T-133 · The package** — REQ-047, REQ-043, REQ-160, REQ-163, REQ-164
+**[x] T-133 · The package** — REQ-047, REQ-043, REQ-160, REQ-163, REQ-164
 - Test-first: mapping ⇔ `theme.css`; every variable is public in both grounds; Tailwind 4 and
   3.4 compile the utilities to `var(--sp-…)`; the manifest has no dependencies and no peers;
   nothing depends on it; the metadata gate, the README gate and a size budget cover it; the
@@ -64,6 +64,28 @@ Task ids continue from T-131.
 
 **[ ] T-134 · Close** — changeset `minor`; README, CLAUDE.md; the manual first publish is the user's
 step (npm login), then the trusted publisher.
+
+## Execution log
+
+- **Test-first throughout.** Mutation checks, each red and then restored:
+  - `@theme` without `inline` fails the Tailwind 4 compile;
+  - a non-public variable fails the "public in both grounds" test;
+  - a preset that drops the radius fails the mapping test;
+  - tsup's `cjsInterop` appends a second `module.exports`, which gives `require()` `undefined`. The
+    built-package test in `gates` fails on it, so the option is off;
+  - a Tailwind dependency in `packages/react` fails the lockfile test. `pnpm exec` rewrites a
+    mutated lockfile before it runs, so this mutation was run with `node_modules/.bin/vitest`.
+- **Found on the way.** `tools/lint-rules/check-deps.mjs` skipped any package missing from its
+  allowlist, so a new package would have escaped the metadata gate. It now reports one (REQ-162),
+  test-first.
+- **REQ-043's Phase 0 test** forbade `tailwindcss` anywhere in the lockfile. It now reads each
+  lockfile importer and allows only DD-020's exception: `packages/tailwind`'s devDependencies.
+- **CI:**
+  - unit: 3,339.
+  - gates: 317.
+  - traceability: 121/121 MUST, 0 deferred.
+  - size: the preset is 197 B gzip, against a 1 kB budget.
+  - `npm publish --dry-run`: 7 files, 2.4 kB.
 
 ## Constitution check
 

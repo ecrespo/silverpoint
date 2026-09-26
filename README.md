@@ -76,6 +76,10 @@ import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 </Dashboard>
 ```
 
+Using Tailwind? The optional [`@silverpoint/tailwind`](packages/tailwind/README.md) preset names the
+same variables as utilities (`bg-sp-substrate`, `text-sp-ink`, `font-sp-display`); silverpoint itself
+never requires it.
+
 The specifications live in [`specs/`](specs/): eight Spec-Driven Design artifacts, from the
 constitution through to the Analyze gate.
 

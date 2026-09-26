@@ -1,0 +1,21 @@
+/*
+ * @silverpoint/tailwind — theme.css, for Tailwind 4 (REQ-047, API Spec §10.4).
+ *
+ *   @import 'tailwindcss';
+ *   @import '@silverpoint/tailwind/theme.css';
+ *
+ * Names only: every token reads a public --sp- variable, whose value @silverpoint/grounds sets
+ * per ground and substrate. `inline` makes each utility read the variable where the element is.
+ */
+@theme inline {
+  --color-sp-substrate: var(--sp-substrate);
+  --color-sp-ink: var(--sp-ink);
+  --color-sp-ink-secondary: var(--sp-ink-secondary);
+  --color-sp-heighten: var(--sp-heighten);
+  --color-sp-rule: var(--sp-rule);
+  --color-sp-grid: var(--sp-grid);
+  --color-sp-text: var(--sp-text);
+  --color-sp-text-muted: var(--sp-text-muted);
+  --font-sp-display: var(--sp-font-display);
+  --radius-sp: var(--sp-radius);
+}

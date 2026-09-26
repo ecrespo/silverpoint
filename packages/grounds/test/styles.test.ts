@@ -132,10 +132,24 @@ describe('styles.css', () => {
     expect(hidden.display).toBeUndefined();
   });
 
-  test('REQ-043 · no Tailwind: neither directives in the sheet nor the package anywhere in the tree', () => {
+  test('REQ-043 · no Tailwind: neither directives in the sheet, nor a workspace package that installs it but the preset\'s tests', () => {
     expect(css).not.toMatch(/@tailwind|@apply/);
-    // An optional peer declaration (ng-packagr has one) is not an installed package.
-    expect(lockfile).not.toMatch(/^\s+'?tailwindcss@\d/m);
+    // Each importer of the lockfile, and the dependency section each Tailwind package sits in. The
+    // one exception is DD-020's: `@silverpoint/tailwind` compiles its preset with real Tailwind in
+    // its tests, as devDependencies, and publishes no dependency at all.
+    const found: string[] = [];
+    for (const section of lockfile.split(/^importers:\n/m).slice(1)) {
+      for (const block of (section.split(/^\S/m)[0] ?? '').split(/^(?=  \S)/m)) {
+        const importer = /^  (\S+):/.exec(block)?.[1];
+        let kind = '';
+        for (const line of block.split('\n')) {
+          kind = /^    (\w+):$/.exec(line)?.[1] ?? kind;
+          if (/^      '?(@tailwindcss\/|tailwindcss\b)/.test(line)) found.push(`${importer} ${kind}`);
+        }
+      }
+    }
+    expect(found.length).toBeGreaterThan(0);
+    expect([...new Set(found)]).toEqual(['packages/tailwind devDependencies']);
   });
 });
 
