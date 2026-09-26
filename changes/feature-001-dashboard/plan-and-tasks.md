@@ -183,10 +183,17 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   proved end to end in the example app (T-118). **Mutations, all red:** the chart does not
   register (own-id test); cells in source order (2).
 
-**[ ] T-114 · Adapters contain no layout maths** — REQ-201, Art. 2
+**[x] T-114 · Adapters contain no layout maths** — REQ-201, Art. 2
 - Extend the existing adapter lint (REQ-102/106) to the dashboard files: no arithmetic on sizes,
   every number written comes from the model.
 - **Done:** RED on a seeded `width / cols` in an adapter, then green.
+- *Closed 2026-09-26.* A new rule, `silverpoint/dashboard-no-layout-maths`, applies to the 10
+  dashboard files of the three adapters only. It rejects every arithmetic operator (binary,
+  compound, `++`, unary `±`) and every numeric literal outside a type position. RED first on seeded
+  size computations in React, React server, Vue and Angular, and on four other forms; the shipped
+  files are linted clean in the test. It caught one real `[0]` index in `SpDashboard.ts`, now
+  destructuring. Charts' own files (overlay placement) are untouched. Full CI including browser:
+  unit 3009, gates 311, pixel 1068, e2e 509. **5b closed.**
 
 ### 5c — Parity
 

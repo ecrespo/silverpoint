@@ -51,6 +51,17 @@ export default [
     },
   },
   {
+    // REQ-201, Art. 2: a dashboard adapter writes the numbers of the core's model, and computes none.
+    files: [
+      'packages/react/src/**/dashboard*.tsx',
+      'packages/vue/src/**/{SpDashboard,SpDashboardCell,dashboard,dashboard-context}.ts',
+      'packages/angular/dashboard/**/*.ts',
+      'packages/angular/src/dashboard-cell.ts',
+    ],
+    plugins: { silverpoint },
+    rules: { 'silverpoint/dashboard-no-layout-maths': 'error' },
+  },
+  {
     // REQ-162: the core's runtime allowlist.
     files: ['packages/core/src/**/*.ts'],
     plugins: { silverpoint },

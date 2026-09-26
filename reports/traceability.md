@@ -124,7 +124,7 @@ None.
 | REQ-183 | MUST | tools/traceability/ci-projects.test.ts<br>tools/traceability/traceability.test.ts |
 | REQ-184 | MUST | tools/traceability/traceability.test.ts |
 | REQ-200 | MUST | packages/angular/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts |
-| REQ-201 | MUST | packages/core/test/dashboard.test.ts |
+| REQ-201 | MUST | packages/core/test/dashboard.test.ts<br>tools/lint-rules/lint-rules.test.ts |
 | REQ-202 | MUST | packages/angular/test/dashboard.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/grounds/test/dashboard-styles.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts |
 | REQ-203 | MUST | packages/angular/test/dashboard.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts<br>tools/lint-rules/check-dashboard-css.test.ts |
 | REQ-204 | MUST | packages/core/test/dashboard.test.ts |

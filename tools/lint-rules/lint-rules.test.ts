@@ -121,6 +121,55 @@ describe('adapter-boundary', () => {
   });
 });
 
+describe('dashboard-no-layout-maths (T-114)', () => {
+  const RULE = 'silverpoint/dashboard-no-layout-maths';
+
+  test.each([
+    ['React', 'packages/react/src/dashboard-markup.tsx', 'export const w = (width: number, cols: number) => width / cols;'],
+    ['React server', 'packages/react/src/server/dashboard.tsx', 'export const h = (row: number, gap: number) => row * 240 + gap;'],
+    ['Vue', 'packages/vue/src/SpDashboard.ts', 'export const w = (width: number, gap: number) => width - gap;'],
+    ['Angular', 'packages/angular/dashboard/sp-dashboard.ts', 'export const span = (n: number) => n % 4;'],
+  ])('REQ-201 · Art. 2 · a seeded size computation in the %s dashboard fails', async (_adapter, path, code) => {
+    expect(await rulesHit(path, code)).toContain(RULE);
+  });
+
+  test.each([
+    ['a numeric literal', 'export const gap = 16;'],
+    ['a compound assignment', 'export function f(x: number) { x += 1; return x; }'],
+    ['an increment', 'export function f(x: number) { x++; return x; }'],
+    ['a unary minus', 'export const f = (x: number) => -x;'],
+  ])('REQ-201 · %s in a dashboard file fails: every number comes from the model', async (_what, code) => {
+    expect(await rulesHit('packages/angular/dashboard/x.ts', code)).toContain(RULE);
+  });
+
+  test('REQ-201 · numbers in type positions and template strings are allowed', async () => {
+    const code = "export type Level = 2 | 3 | 4;\nexport const tag = (level: Level) => `h${level}`;\nexport const none = null;";
+    expect(await rulesHit('packages/react/src/dashboard-markup.tsx', code)).toEqual([]);
+  });
+
+  test('REQ-201 · the rule covers the dashboard files only: a chart’s overlay may place its readout', async () => {
+    expect(await rulesHit('packages/react/src/overlay.tsx', 'export const x = (a: number) => a / 2;')).not.toContain(RULE);
+  });
+
+  test('REQ-201 · the shipped dashboard files hold to it', async () => {
+    const files = [
+      'packages/react/src/dashboard-markup.tsx',
+      'packages/react/src/dashboard.tsx',
+      'packages/react/src/server/dashboard.tsx',
+      'packages/vue/src/SpDashboard.ts',
+      'packages/vue/src/SpDashboardCell.ts',
+      'packages/vue/src/dashboard.ts',
+      'packages/vue/src/dashboard-context.ts',
+      'packages/angular/dashboard/sp-dashboard.ts',
+      'packages/angular/dashboard/sp-dashboard-cell.ts',
+      'packages/angular/src/dashboard-cell.ts',
+    ];
+    const results = await eslint.lintFiles(files.map((file) => `${root}${file}`));
+    expect(results).toHaveLength(files.length);
+    expect(results.flatMap((r) => r.messages.map((m) => `${r.filePath}: ${m.ruleId} ${m.message}`))).toEqual([]);
+  });
+});
+
 describe('core-allowlist', () => {
   test('REQ-162 · the core may import the allowlisted d3 modules and relative files', async () => {
     const code = "import { scaleLinear } from 'd3-scale';\nimport { line } from 'd3-shape';\nimport { x } from './x';\nexport { scaleLinear, line, x };";

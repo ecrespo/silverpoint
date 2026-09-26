@@ -12,7 +12,7 @@ function elements(nodes: readonly unknown[]): VNode[] {
 
 /** The `id` of the chart inside a cell, when its slot gives one: the cell's label points at it. */
 function chartIdOf(cell: VNode): string | undefined {
-  const inner = elements(((cell.children as Slots | null)?.default?.() as unknown[]) ?? [])[0];
+  const [inner] = elements(((cell.children as Slots | null)?.default?.() as unknown[]) ?? []);
   const id = inner?.props?.id;
   return typeof id === 'string' ? id : undefined;
 }

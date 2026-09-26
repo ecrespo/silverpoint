@@ -7,6 +7,8 @@
  *   inking engine, and declare no maths of their own.
  * - `core-allowlist`    — REQ-162: the core imports only relative modules and the runtime
  *   allowlist of Technical Design §5.3.
+ * - `dashboard-no-layout-maths` — REQ-201, Art. 2: an adapter's dashboard writes the numbers of
+ *   the core's model and computes none: no arithmetic, no numeric literal outside a type.
  */
 
 /** Runtime allowlist of `@silverpoint/core` (TD §5.3). */
@@ -206,11 +208,47 @@ const coreAllowlist = {
   },
 };
 
+const ARITHMETIC = new Set(['+', '-', '*', '/', '%', '**']);
+
+const dashboardNoLayoutMaths = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'A dashboard adapter writes the numbers of the resolved model and computes none (REQ-201, Art. 2).' },
+    messages: {
+      arithmetic: 'Dashboard adapters compute no sizes (REQ-201, Art. 2): `{{operator}}` belongs in @silverpoint/core (resolveDashboard, cellChartBox).',
+      literal: 'Dashboard adapters write no numbers of their own (REQ-201, Art. 2): {{value}} must come from the resolved model.',
+    },
+    schema: [],
+  },
+  create(context) {
+    const arithmetic = (node, operator) => context.report({ node, messageId: 'arithmetic', data: { operator } });
+    return {
+      BinaryExpression(node) {
+        if (ARITHMETIC.has(node.operator)) arithmetic(node, node.operator);
+      },
+      AssignmentExpression(node) {
+        if (node.operator !== '=' && ARITHMETIC.has(node.operator.slice(0, -1))) arithmetic(node, node.operator);
+      },
+      UpdateExpression: (node) => arithmetic(node, node.operator),
+      UnaryExpression(node) {
+        if (node.operator === '-' || node.operator === '+') arithmetic(node, `unary ${node.operator}`);
+      },
+      Literal(node) {
+        // A number in a type (`2 | 3 | 4`) describes a value; it writes none.
+        if (typeof node.value === 'number' && node.parent?.type !== 'TSLiteralType') {
+          context.report({ node, messageId: 'literal', data: { value: String(node.value) } });
+        }
+      },
+    };
+  },
+};
+
 export default {
   meta: { name: '@silverpoint/lint-rules' },
   rules: {
     'no-nondeterminism': noNondeterminism,
     'adapter-boundary': adapterBoundary,
     'core-allowlist': coreAllowlist,
+    'dashboard-no-layout-maths': dashboardNoLayoutMaths,
   },
 };
