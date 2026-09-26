@@ -288,9 +288,12 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
 
 ### 5e — Linked interaction (SHOULD)
 
-**[ ] T-120 · `linkedItems` in the core** — REQ-216, REQ-217
+**[x] T-120 · `linkedItems` in the core** — REQ-216, REQ-217
 - Tests: matches by value across charts with different rows; no match → empty; key absent →
   `SP016` once; pure.
+- *Closed 2026-09-26.* `src/dashboard/link.ts`: exact matches by the hit areas' datum, by index;
+  no nearest match; SP016 when no datum has the key (deduplicated by the diagnostics channel);
+  pure. 4 tests, RED first. The core's full bundle is at 44.44 of 45 kB.
 
 **[ ] T-121 · Link in the three adapters** — REQ-216, REQ-218, REQ-219
 - One reactive value per dashboard; `part="linked"` marks, `aria-hidden`; clears with the source;

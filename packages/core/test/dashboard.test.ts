@@ -10,6 +10,8 @@ import {
   DASHBOARD_DEFAULTS,
   dashboardView,
   inCell,
+  linkedItems,
+  barChart,
   kpiCard,
   lineChart,
   perBreakpoint,
@@ -525,5 +527,40 @@ describe('the reference dashboards ship apart (T-111)', () => {
     expect(pkg.exports['./dashboard-demos']?.['@silverpoint/source']).toBe('./src/dashboard-demos.ts');
     expect(pkg.exports['./dashboard-demos']?.import).toBe('./dist/dashboard-demos.js');
     expect((await import('../src/dashboard-demos')).DASHBOARD_DEMOS).toBe(DASHBOARD_DEMOS);
+  });
+});
+
+describe('linkedItems: the linked interaction, in the core (T-120)', () => {
+  const context: RecipeContext = { id: 'sp-t120', width: 320, locale: 'en', emptyState: { text: 'No data', rule: true }, domainPadding: 0.1 };
+  const hours = (values: number[]) => values.map((hits, i) => ({ hour: String(10 + i), hits }));
+  const line = lineChart.build({ data: hours([3, 5, 4, 6]), xKey: 'hour', valueKey: 'hits' }, context);
+  const bars = barChart.build({ data: [{ hour: '12', n: 2 }, { hour: '13', n: 7 }, { hour: '15', n: 1 }], xKey: 'hour', valueKey: 'n' }, context);
+
+  test('REQ-216 · items are matched by the value of the key, across charts with different rows', () => {
+    capture();
+    const hitsAt = (indices: readonly number[]) => indices.map((i) => bars.geometry.hitAreas[i]!.datum.hour);
+    expect(hitsAt(linkedItems(bars, 'hour', '13'))).toEqual(['13']);
+    expect(linkedItems(line, 'hour', '12').map((i) => line.geometry.hitAreas[i]!.datum.hour)).toEqual(['12']);
+  });
+
+  test('REQ-217 · no item carries the value: no mark at all, no nearest match', () => {
+    const seen = capture();
+    expect(linkedItems(bars, 'hour', '14')).toEqual([]);
+    expect(linkedItems(bars, 'hour', 13)).toEqual([]);
+    expect(seen).toEqual([]);
+  });
+
+  test('REQ-217 · a chart whose data lacks the key altogether warns SP016, once', () => {
+    const seen = capture();
+    expect(linkedItems(bars, 'minute', '13')).toEqual([]);
+    expect(linkedItems(bars, 'minute', '14')).toEqual([]);
+    expect(codes(seen)).toEqual(['SP016']);
+  });
+
+  test('REQ-216 · pure: the model is not touched, and the same question gives the same answer', () => {
+    capture();
+    const before = JSON.stringify(bars);
+    expect(linkedItems(bars, 'hour', '12')).toEqual(linkedItems(bars, 'hour', '12'));
+    expect(JSON.stringify(bars)).toBe(before);
   });
 });
