@@ -50,8 +50,11 @@ export function dashboardView(props: DashboardProps, children: readonly { readon
 export function inCell<P extends CommonChartProps>(props: P, cell: DashboardCellContext | undefined, recipe: ChartRecipe<P>): { props: P; width: number | undefined } {
   if (!cell) return { props, width: props.width };
   const box = cellChartBox(cell.box, props, recipe);
+  // An own prop wins only when it has a value: Vue hands every declared prop, absent ones undefined.
+  const merged: Record<string, unknown> = { ...(props as Record<string, unknown>) };
+  for (const [key, value] of Object.entries(cell.config)) merged[key] ??= value;
   return {
-    props: { ...cell.config, ...props, id: props.id ?? cell.chartId, height: props.height ?? box.height } as P,
+    props: { ...merged, id: props.id ?? cell.chartId, height: props.height ?? box.height } as P,
     width: props.width ?? box.width,
   };
 }

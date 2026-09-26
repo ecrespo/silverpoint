@@ -488,6 +488,14 @@ describe('inCell: a chart inside a cell (T-111..T-113)', () => {
     expect(fitted.props.mode).toBe('precision');
   });
 
+  test('REQ-212 · an own prop present but undefined (as Vue passes every declared prop) does not hide the dashboard’s', () => {
+    capture();
+    const fitted = inCell({ substrate: undefined, mode: undefined, id: undefined, height: undefined }, cell, line);
+    expect(fitted.props.substrate).toBe('green');
+    expect(fitted.props.mode).toBe('precision');
+    expect(fitted.props.id).toBe('ops--traffic');
+  });
+
   test('REQ-206 · the chart’s own id, width and height win', () => {
     capture();
     const fitted = inCell({ id: 'mine', width: 500, height: 90 }, cell, line);

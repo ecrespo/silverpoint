@@ -144,10 +144,21 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   the chart's; charts emitted in source order, which the first run missed until the test checked
   each cell's chart title. CI: unit 2972, gates 311, pixel 1068, e2e 509.
 
-**[ ] T-112 · Vue `SpDashboard` / `SpDashboardCell`** — REQ-200, REQ-212, REQ-214 `[P]`
+**[x] T-112 · Vue `SpDashboard` / `SpDashboardCell`** — REQ-200, REQ-212, REQ-214 `[P]`
 - `<script setup>`, typed props and emits; `provide`/`inject` for the cell context; slot children
   read for their `cell` prop during render.
 - Tests: the same contract as T-111, rendered with `@vue/server-renderer` and on the client.
+- *Closed 2026-09-26.* Both are TS components with render functions, because the dashboard must
+  read and clone its slot's VNodes during render; `SpDashboard` is typed by the core's
+  `DashboardProps`, and `vue-tsc` enforces the name and the `id` (type tests). `SpDashboardCell`
+  renders the `article` itself and `provide`s the cell context, which `ChartShell` `inject`s
+  (so a nested chart still gets it). The wrapper has no fragment markers (DD-017).
+  **Found by the Vue tests, fixed in the core:** `inCell` spread the chart's props over the
+  dashboard's config, and Vue passes every declared prop, the absent ones as `undefined`, which hid
+  the dashboard's `substrate`. There is now a core test for it (RED first), and an own prop wins
+  only when it has a value. Tests: 11 (markup contract, order, variables, boxes, precedence,
+  SP015, no comments, config precedence, hydration then measure) and 3 `vue-tsc` type tests.
+  **Mutations, all red:** loose props type (2 type tests); no `provide` (6); source order (1).
 
 **[ ] T-113 · Angular `sp-dashboard` / `sp-dashboard-cell`** — REQ-200, REQ-212, REQ-214 `[P]`
 - Standalone, signal inputs, `OnPush`; cell ids from `contentChildren`; DI token for the cell

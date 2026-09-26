@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  inCell,
   instanceId,
   reduceInteraction,
   type ActiveItem,
@@ -10,9 +11,10 @@ import {
   type Readout,
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
-import { computed, onBeforeUnmount, ref, useId, watch } from 'vue';
+import { computed, inject, onBeforeUnmount, ref, useId, watch } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
+import { DASHBOARD_CELL } from './dashboard-context';
 import { useForcedPrecision, useMeasuredWidth, useProvider, useTypefaceCheck } from './environment';
 
 /**
@@ -38,15 +40,19 @@ useTypefaceCheck(props.recipe.name);
 const root = ref<{ $el: HTMLElement }>();
 const element = computed(() => root.value?.$el);
 const measured = useMeasuredWidth(element, () => props.chartProps.width === undefined);
+// Inside a dashboard cell: its id, height and config, and its nominal width until measured
+// (REQ-206, REQ-207, REQ-209, REQ-212); the chart's own props win.
+const cell = inject(DASHBOARD_CELL, undefined);
 
-const rendered = computed(() =>
-  renderChart(props.recipe, props.chartProps, {
+const rendered = computed(() => {
+  const fitted = inCell(props.chartProps, cell?.value, props.recipe);
+  return renderChart(props.recipe, fitted.props, {
     id: instanceId(props.recipe.name, generated),
-    width: measured.value,
+    width: measured.value ?? fitted.width,
     provider,
     forcedPrecision: forcedPrecision.value,
-  }),
-);
+  });
+});
 
 const rootClass = computed(() =>
   ['sp-root', `sp-ground-${rendered.value.ground}`, props.chartProps.className].filter(Boolean).join(' '),

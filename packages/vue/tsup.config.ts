@@ -6,6 +6,7 @@ import Vue from 'unplugin-vue/esbuild';
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
+    dashboard: 'src/dashboard.ts',
     'line-chart': 'src/line-chart.ts',
     'bullet-chart': 'src/bullet-chart.ts',
     'pyramid-chart': 'src/pyramid-chart.ts',

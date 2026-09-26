@@ -13,12 +13,12 @@ const repo = fileURLToPath(new URL('../../..', import.meta.url));
 const COMPONENTS = ['SpLineChart', ...AFTER_LINE_CHART.map((e) => `Sp${e.chart}`)].join(', ');
 
 /** Runs vue-tsc on a component snippet placed in a scratch directory inside the package. */
-function vueTypeErrors(template: string): string {
+function vueTypeErrors(template: string, extra = ''): string {
   const dir = mkdtempSync(join(root, 'test/.types-'));
   try {
     writeFileSync(
       join(dir, 'Use.vue'),
-      `<script setup lang="ts">\nimport { ${COMPONENTS} } from '../../src';\nimport type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem; void [${COMPONENTS}];\n</script>\n<template>${template}</template>\n`,
+      `<script setup lang="ts">\nimport { ${COMPONENTS} } from '../../src';\n${extra}import type { ActiveItem } from '@silverpoint/core';\nfunction onNumber(n: number) { return n; }\nfunction onItem(i: ActiveItem | null) { return i; }\nvoid onNumber; void onItem; void [${COMPONENTS}];\n</script>\n<template>${template}</template>\n`,
     );
     writeFileSync(
       join(dir, 'tsconfig.json'),
@@ -69,3 +69,20 @@ describe('Phase 1 component types', () => {
     expect(errors.match(/error TS/g)?.length ?? 0).toBeGreaterThanOrEqual(AFTER_LINE_CHART.length);
   }, 60_000);
 });
+
+describe('SpDashboard types (T-112)', () => {
+  const dashboard = "import { SpDashboard, SpDashboardCell } from '../../src/dashboard';\nvoid [SpDashboard, SpDashboardCell];\n";
+
+  test('REQ-214 · a dashboard with a title, or a label, type-checks', () => {
+    expect(vueTypeErrors('<SpDashboard id="ops" title="Ops"><SpDashboardCell cell="t"><SpLineChart /></SpDashboardCell></SpDashboard><SpDashboard id="b" label="B" />', dashboard)).toBe('');
+  }, 60_000);
+
+  test('REQ-214 · a dashboard with neither title nor label is a type error', () => {
+    expect(vueTypeErrors('<SpDashboard id="ops" />', dashboard)).toMatch(/error TS/);
+  }, 60_000);
+
+  test('REQ-209 · a dashboard without an id is a type error', () => {
+    expect(vueTypeErrors('<SpDashboard title="Ops" />', dashboard)).toMatch(/error TS/);
+  }, 60_000);
+});
+

@@ -213,6 +213,12 @@
       "import": "./dist/orbit-chart.js",
       "default": "./dist/orbit-chart.js"
     },
+    "./dashboard": {
+      "@silverpoint/source": "./src/dashboard.ts",
+      "types": "./dist/dashboard.d.ts",
+      "import": "./dist/dashboard.js",
+      "default": "./dist/dashboard.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
