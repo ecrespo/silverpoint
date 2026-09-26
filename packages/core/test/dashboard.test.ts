@@ -11,6 +11,9 @@ import {
   dashboardView,
   inCell,
   linkedItems,
+  linkedMarks,
+  linkFrom,
+  readout,
   barChart,
   kpiCard,
   lineChart,
@@ -562,5 +565,31 @@ describe('linkedItems: the linked interaction, in the core (T-120)', () => {
     const before = JSON.stringify(bars);
     expect(linkedItems(bars, 'hour', '12')).toEqual(linkedItems(bars, 'hour', '12'));
     expect(JSON.stringify(bars)).toBe(before);
+  });
+});
+
+describe('link state and linked marks (T-121)', () => {
+  const context: RecipeContext = { id: 'sp-bars', width: 320, locale: 'en', emptyState: { text: 'No data', rule: true }, domainPadding: 0.1 };
+  const bars = barChart.build({ data: [{ hour: '12', n: 2 }, { hour: '13', n: 7 }], xKey: 'hour', valueKey: 'n' }, context);
+
+  test('REQ-216 · REQ-218 · the source’s active item becomes the link; no active item clears it', () => {
+    const hit = bars.geometry.hitAreas[1]!;
+    const active = { seriesKey: hit.seriesKey, index: hit.index, datum: hit.datum, value: hit.value, point: { x: hit.x, y: hit.y } };
+    expect(linkFrom('hour', 'sp-line', active)).toEqual({ key: 'hour', value: '13', source: 'sp-line' });
+    expect(linkFrom('hour', 'sp-line', null)).toBeNull();
+  });
+
+  test('REQ-216 · every other chart draws the marker of each matching item, as its readout would', () => {
+    capture();
+    const marks = linkedMarks(bars, { key: 'hour', value: '13', source: 'sp-line' });
+    const hit = bars.geometry.hitAreas[linkedItems(bars, 'hour', '13')[0]!]!;
+    const expected = readout(bars, { seriesKey: hit.seriesKey, index: hit.index, datum: hit.datum, value: hit.value, point: { x: hit.x, y: hit.y } }).marker.d;
+    expect(marks).toEqual([expected]);
+  });
+
+  test('REQ-218 · the source itself, and a cleared link, draw no linked mark', () => {
+    capture();
+    expect(linkedMarks(bars, { key: 'hour', value: '13', source: 'sp-bars' })).toEqual([]);
+    expect(linkedMarks(bars, null)).toEqual([]);
   });
 });

@@ -91,4 +91,4 @@ export type * from './dashboard/types';
 export { DASHBOARD_DEFAULTS, perBreakpoint, resolveLayout } from './dashboard/defaults';
 export { breakpointOf, cellChartBox, resolveDashboard } from './dashboard/resolve';
 export { dashboardView, inCell } from './dashboard/view';
-export { linkedItems } from './dashboard/link';
+export { linkedItems, linkedMarks, linkFrom, type LinkState } from './dashboard/link';

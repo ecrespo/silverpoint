@@ -7,7 +7,8 @@ export type PointerKind = 'mouse' | 'pen' | 'touch';
 /** Minimum touch target, in px (REQ-144). */
 export const MIN_TOUCH_TARGET = 24;
 
-function toActiveItem(hit: HitArea): ActiveItem {
+/** The active item a hit area stands for. @internal */
+export function toActiveItem(hit: HitArea): ActiveItem {
   return {
     seriesKey: hit.seriesKey,
     index: hit.index,
