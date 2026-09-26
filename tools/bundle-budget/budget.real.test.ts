@@ -72,20 +72,33 @@ describe('bundle budgets (size-limit)', () => {
     }
   }, 120_000);
 
-  /** Each dashboard entry and the one-chart entry it is measured against (REQ-220). */
+  /**
+   * Each dashboard entry, the one-chart entry it is measured against, and the adapter's allowance
+   * in bytes (REQ-220): 2 KB for React and Vue, 3 KB for Angular, whose partial-compilation output
+   * carries each component's template and input metadata (TD DD-018, delta-012).
+   */
   const DASHBOARD_PAIRS = [
-    ['@silverpoint/react + core, Dashboard + LineChart (client)', '@silverpoint/react + core, LineChart (client)'],
-    ['@silverpoint/react + core, Dashboard + LineChart (server)', '@silverpoint/react + core, LineChart (server)'],
-    ['@silverpoint/vue + core, SpDashboard + SpLineChart', '@silverpoint/vue + core, SpLineChart'],
-    ['@silverpoint/angular + core, SpDashboard + SpLineChart', '@silverpoint/angular + core, SpLineChart'],
+    ['@silverpoint/react + core, Dashboard + LineChart (client)', '@silverpoint/react + core, LineChart (client)', 2000],
+    ['@silverpoint/react + core, Dashboard + LineChart (server)', '@silverpoint/react + core, LineChart (server)', 2000],
+    ['@silverpoint/vue + core, SpDashboard + SpLineChart', '@silverpoint/vue + core, SpLineChart', 2000],
+    ['@silverpoint/angular + core, SpDashboard + SpLineChart', '@silverpoint/angular + core, SpLineChart', 3000],
   ] as const;
 
-  test('REQ-220 · each adapter’s dashboard subpath is budgeted at its one-chart budget plus 2 KB', () => {
-    for (const [dashboard, alone] of DASHBOARD_PAIRS) {
+  test('REQ-220 · each adapter’s dashboard subpath is budgeted at its one-chart budget plus its allowance', () => {
+    for (const [dashboard, alone, allowance] of DASHBOARD_PAIRS) {
       expect(config.find((e) => e.name === alone)?.limit, alone).toBe('45 kB');
-      expect(config.find((e) => e.name === dashboard)?.limit, dashboard).toBe('47 kB');
+      expect(config.find((e) => e.name === dashboard)?.limit, dashboard).toBe(`${45 + allowance / 1000} kB`);
     }
   });
+
+  test('REQ-220 · the dashboard adds no more than its adapter’s allowance over the one-chart build', () => {
+    const sizes = new Map(sizeLimit().results.map((r) => [r.name, r.size]));
+    const over = DASHBOARD_PAIRS.flatMap(([dashboard, alone, allowance]) => {
+      const added = (sizes.get(dashboard) ?? Number.NaN) - (sizes.get(alone) ?? Number.NaN);
+      return added <= allowance ? [] : [`${dashboard}: +${added} B > ${allowance} B`];
+    });
+    expect(over).toEqual([]);
+  }, 120_000);
 
   test('REQ-220 · every dashboard budget holds on the built packages', () => {
     const names = DASHBOARD_PAIRS.map(([dashboard]) => dashboard);

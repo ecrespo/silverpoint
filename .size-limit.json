@@ -95,7 +95,7 @@
       "tslib"
     ],
     "gzip": true,
-    "limit": "47 kB"
+    "limit": "48 kB"
   },
   {
     "name": "@silverpoint/react + core, BulletChart (client)",
