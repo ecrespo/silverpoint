@@ -161,7 +161,6 @@ describe('dashboard-no-layout-maths (T-114)', () => {
       'packages/vue/src/dashboard.ts',
       'packages/vue/src/dashboard-context.ts',
       'packages/angular/dashboard/sp-dashboard.ts',
-      'packages/angular/dashboard/sp-dashboard-cell.ts',
       'packages/angular/src/dashboard-cell.ts',
     ];
     const results = await eslint.lintFiles(files.map((file) => `${root}${file}`));

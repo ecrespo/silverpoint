@@ -11,6 +11,19 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, Dashboard + LineChart (client)",
+    "import": {
+      "packages/react/dist/dashboard.js": "{ Dashboard, DashboardCell }",
+      "packages/react/dist/line-chart.js": "{ LineChart }"
+    },
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "47 kB"
+  },
+  {
     "name": "@silverpoint/react + core, LineChart (server)",
     "path": "packages/react/dist/server/line-chart.js",
     "import": "{ LineChart }",
@@ -22,6 +35,19 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, Dashboard + LineChart (server)",
+    "import": {
+      "packages/react/dist/server/dashboard.js": "{ Dashboard, DashboardCell }",
+      "packages/react/dist/server/line-chart.js": "{ LineChart }"
+    },
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "47 kB"
+  },
+  {
     "name": "@silverpoint/vue + core, SpLineChart",
     "path": "packages/vue/dist/line-chart.js",
     "import": "{ SpLineChart }",
@@ -30,6 +56,18 @@
     ],
     "gzip": true,
     "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDashboard + SpLineChart",
+    "import": {
+      "packages/vue/dist/dashboard.js": "{ SpDashboard, SpDashboardCell }",
+      "packages/vue/dist/line-chart.js": "{ SpLineChart }"
+    },
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "47 kB"
   },
   {
     "name": "@silverpoint/angular + core, SpLineChart",
@@ -43,6 +81,21 @@
     ],
     "gzip": true,
     "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDashboard + SpLineChart",
+    "import": {
+      "packages/angular/dist/fesm2022/silverpoint-angular-dashboard.mjs": "{ SpDashboard, SpDashboardCell }",
+      "packages/angular/dist/fesm2022/silverpoint-angular-line-chart.mjs": "{ SpLineChart }"
+    },
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "47 kB"
   },
   {
     "name": "@silverpoint/react + core, BulletChart (client)",

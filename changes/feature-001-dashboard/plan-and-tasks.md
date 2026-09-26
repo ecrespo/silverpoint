@@ -260,10 +260,31 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
   example app SSR means adding `@angular/ssr`, a router and a server bootstrap; that is an
   example-infrastructure change, left for the user to decide. **5d closed** (REQ-220 is T-119).
 
-**[ ] T-119 · Weight** — NFR, REQ-220
+**[x] T-119 · Weight** — NFR, REQ-220
 - `tools/path-weight`: `ops` server HTML ≤ 480 KB; size-limit entries for the three `dashboard`
   subpaths.
 - **Done:** both gates in CI, RED first on a lowered limit.
+- *Closed 2026-09-26.*
+  - **Bundles (REQ-220).** Four `size-limit` entries, dashboard + `LineChart` in React client,
+    React server, Vue and Angular, each at **47 kB**: the one-chart budget of 45 kB plus 2 KB. A
+    test holds each at one-chart budget + 2 KB. RED first: with a limit lowered to the one-chart
+    build's own measured size, size-limit fails.
+  - **Measured.** React client 29.98 kB, React server 27.12, Vue 31.55, Angular 34.06.
+  - **Observation for the user.** Measured as the *increment* over the chart alone, the dashboard
+    adds React 1,705 B, Vue 1,841 B, and Angular 2,405 B in the published partial APF, or 2,618 B
+    once linked as the Angular CLI builds it. About 1.3 KB of each is the core's
+    `dashboardView`/`resolveDashboard`; Angular's compiled templates cost the rest. REQ-220 and API
+    §12 measure against the one-chart **budget**, so all three pass. A stricter reading, "the
+    increment itself ≤ 2 KB", would fail Angular; if that is the intent, it needs a smaller Angular
+    template (for example without the five-branch heading) or an amended REQ-220.
+  - **Trimmed on the way.** The Angular cell and dashboard share one module (no token), and the
+    "title or label" SP002 moved into the core's `dashboardView` (tested; Angular's signal inputs
+    cannot express it). Together they took 348 B off the Angular increment.
+  - **Server HTML.** `ops` stays under 480 KB in all 8 substrate × mode cells
+    (`tools/path-weight/dashboard-weight.test.ts`, measured on the canonical render), and a lowered
+    budget fails, naming the fixtures.
+
+  Traceability 120/120 MUST, 0 deferred.
 
 ### 5e — Linked interaction (SHOULD)
 

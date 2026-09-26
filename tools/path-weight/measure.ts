@@ -4,6 +4,8 @@
  */
 import { lineChart, pathBytes, type ChartModel, type ChartRecipe, type CommonChartProps, type Stroke } from '@silverpoint/core';
 import { renderChart } from '@silverpoint/grounds';
+import { canonicalDashboardMarkup } from '../visual-gate/dashboard-canonical';
+import { dashboardMatrix, type DashboardFixture } from '../visual-gate/dashboard-fixtures';
 
 const SIZES = { sm: { width: 240, height: 120 }, md: { width: 320, height: 150 }, lg: { width: 640, height: 300 } } as const;
 
@@ -74,4 +76,21 @@ export function measureChart(
     tile: bytes({ mode: 'ink', hatchFill: 'tile' }),
     perShape: bytes({ mode: 'ink', hatchFill: 'per-shape' }),
   };
+}
+
+/** API Spec §12: server HTML of the 12-card reference dashboard, `ops`. */
+export const DASHBOARD_HTML_BUDGET = 480 * 1_024;
+
+/** Bytes of a dashboard fixture's server HTML, as its canonical render writes it (UTF-8). */
+export function measureDashboardHtml(fixture: DashboardFixture): number {
+  return Buffer.byteLength(canonicalDashboardMarkup(fixture), 'utf8');
+}
+
+/** One line per `ops` fixture whose HTML is over `budget`; empty when every one fits. */
+export function dashboardWeightProblems(budget = DASHBOARD_HTML_BUDGET): string[] {
+  return dashboardMatrix()
+    .filter((fixture) => fixture.dashboard === 'ops')
+    .map((fixture) => [fixture.id, measureDashboardHtml(fixture)] as const)
+    .filter(([, bytes]) => bytes > budget)
+    .map(([id, bytes]) => `${id}: ${bytes} B of HTML, over ${budget} B (API Spec §12)`);
 }

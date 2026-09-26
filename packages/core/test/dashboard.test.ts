@@ -462,6 +462,15 @@ describe('dashboardView: what every adapter writes (T-111..T-113)', () => {
     expect(view.cells[0]!.context.config).toEqual({ substrate: 'ochre', mode: 'precision', locale: 'es' });
   });
 
+  test('REQ-214 · a dashboard named by neither title nor label warns SP002 at runtime, where a type cannot prevent it', () => {
+    const seen = capture();
+    dashboardView({ id: 'ops' } as unknown as DashboardProps, []);
+    expect(codes(seen)).toEqual(['SP002']);
+    const named = capture();
+    dashboardView({ id: 'ops', label: 'Ops' }, []);
+    expect(named).toEqual([]);
+  });
+
   test('REQ-209 · the heading id keeps only IDREF-safe characters', () => {
     capture();
     expect(dashboardView({ id: 'my ops', title: 'Ops' }, []).heading?.id).toBe('my-ops-title');

@@ -8,7 +8,7 @@ import { CATALOG } from '../visual-gate/catalog';
 const repo = fileURLToPath(new URL('../..', import.meta.url));
 const bin = join(repo, 'node_modules/.bin/size-limit');
 
-interface Entry { name: string; path: string; limit?: string }
+interface Entry { name: string; path?: string; import?: string | Record<string, string>; limit?: string }
 interface Result { name: string; passed: boolean; size: number }
 
 function sizeLimit(config?: string): { status: number; results: Result[] } {
@@ -34,7 +34,7 @@ describe('bundle budgets (size-limit)', () => {
   test('REQ-164 · every package declares a budget', () => {
     const packages = ['core', 'grounds', 'react', 'vue', 'angular', 'fonts'];
     for (const pkg of packages) {
-      expect(config.some((e) => e.path.startsWith(`packages/${pkg}/`) && e.limit), pkg).toBe(true);
+      expect(config.some((e) => e.path?.startsWith(`packages/${pkg}/`) && e.limit), pkg).toBe(true);
     }
   });
 
@@ -66,6 +66,43 @@ describe('bundle budgets (size-limit)', () => {
       const tight = join(dir, 'tight.json');
       const entry = config.find((e) => e.path === 'packages/react/dist/line-chart.js');
       writeFileSync(tight, JSON.stringify([{ ...entry, path: join(repo, entry?.path ?? ''), limit: '1 kB' }]));
+      expect(sizeLimit(tight).status).not.toBe(0);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  /** Each dashboard entry and the one-chart entry it is measured against (REQ-220). */
+  const DASHBOARD_PAIRS = [
+    ['@silverpoint/react + core, Dashboard + LineChart (client)', '@silverpoint/react + core, LineChart (client)'],
+    ['@silverpoint/react + core, Dashboard + LineChart (server)', '@silverpoint/react + core, LineChart (server)'],
+    ['@silverpoint/vue + core, SpDashboard + SpLineChart', '@silverpoint/vue + core, SpLineChart'],
+    ['@silverpoint/angular + core, SpDashboard + SpLineChart', '@silverpoint/angular + core, SpLineChart'],
+  ] as const;
+
+  test('REQ-220 · each adapter’s dashboard subpath is budgeted at its one-chart budget plus 2 KB', () => {
+    for (const [dashboard, alone] of DASHBOARD_PAIRS) {
+      expect(config.find((e) => e.name === alone)?.limit, alone).toBe('45 kB');
+      expect(config.find((e) => e.name === dashboard)?.limit, dashboard).toBe('47 kB');
+    }
+  });
+
+  test('REQ-220 · every dashboard budget holds on the built packages', () => {
+    const names = DASHBOARD_PAIRS.map(([dashboard]) => dashboard);
+    const results = sizeLimit().results.filter((r) => names.includes(r.name as (typeof names)[number]));
+    expect(results.map((r) => r.name).sort()).toEqual([...names].sort());
+    expect(results.filter((r) => !r.passed).map((r) => `${r.name}: ${r.size} B`)).toEqual([]);
+  }, 120_000);
+
+  test('REQ-220 · exceeding the dashboard budget breaks the build', () => {
+    const dir = mkdtempSync(join(repo, '.size-limit-'));
+    try {
+      const tight = join(dir, 'tight.json');
+      const entry = config.find((e) => e.name === DASHBOARD_PAIRS[0][0]);
+      const imports = Object.fromEntries(Object.entries((entry?.import ?? {}) as Record<string, string>).map(([file, names]) => [join(repo, file), names]));
+      // Lowered to the one-chart build's own size: the dashboard's bytes alone push it over.
+      const alone = sizeLimit().results.find((r) => r.name === DASHBOARD_PAIRS[0][1])?.size ?? 0;
+      writeFileSync(tight, JSON.stringify([{ ...entry, import: imports, limit: `${alone} B` }]));
       expect(sizeLimit(tight).status).not.toBe(0);
     } finally {
       rmSync(dir, { recursive: true, force: true });

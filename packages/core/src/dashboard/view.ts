@@ -1,4 +1,5 @@
 import { DEFAULTS } from '../config/resolve';
+import { diagnose } from '../diagnostics/diagnose';
 import type { ChartRecipe, CommonChartProps, ProviderConfig } from '../types';
 import { DASHBOARD_DEFAULTS } from './defaults';
 import { cellChartBox, resolveDashboard, safeIdOf } from './resolve';
@@ -12,6 +13,10 @@ import type { DashboardCellContext, DashboardProps, DashboardView } from './type
  */
 export function dashboardView(props: DashboardProps, children: readonly { readonly cell?: string; readonly id?: string }[]): DashboardView {
   const model = resolveDashboard(props, children.map((c) => c.cell));
+  // React and Vue reject a nameless dashboard by type; Angular's signal inputs cannot (REQ-214).
+  if (props.title === undefined && props.label === undefined && process.env.NODE_ENV !== 'production') {
+    diagnose('SP002', 'Dashboard', { property: 'title', message: 'Name the region with `title` or `label`.' });
+  }
   const base = safeIdOf(props.id);
   const ground = props.ground ?? DEFAULTS.ground;
   const groundName = typeof ground === 'string' ? ground : ground.name;
