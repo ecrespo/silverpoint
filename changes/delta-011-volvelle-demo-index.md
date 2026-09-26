@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo el cambio que mencionas, las 4 puertas del dashboard y el delta-011"); ships in `0.2.0`; **folded into `specs/` on 2026-09-25** |
+| **Status** | `APPROVED` by the user on 2026-09-25 ("Apruebo el cambio que mencionas, las 4 puertas del dashboard y el delta-011"); ships in `0.2.0`; **folded into `specs/` on 2026-09-25**; **implemented 2026-09-26** (T-102..T-105) |
 | **Affects** | PRD §6.4 (new REQ-098, REQ-099 under the cross-cutting catalog requirements); API Spec §5 (`data` JSDoc), §7 (`VolvelleChart` row, a note); Data Model §4 (demo datasets); delta-010 (the `indexRing`/`indexValue` bullet) |
 | **Supersedes** | The Phase 3 minor **M-6** (`changes/phase-3-progress.md`), fixed in T-090 by warning `SP002` rather than by applying the index |
 | **Raised by** | User report, 2026-09-25: "someone who tries the prop without data believes it does not work, and the warning is only seen in the console" |
@@ -130,10 +130,14 @@ Task ids continue the global sequence from T-101.
   probe failed; M3 made DonutChart apply `nameKey` under the demo, so the DonutChart accessor test
   failed. CI: unit 2868, gates 311, pixel 1068 (Docker), e2e 509, all green.
 
-**[ ] T-105 · Release note** — Art. 9
+**[x] T-105 · Release note** — Art. 9
 - Changeset `minor` for `@silverpoint/core` (the fixed group bumps all six to `0.2.0`) naming the
   behaviour change. (REQ-098/099 and the delta-010 amendment were folded into `specs/` on
   2026-09-25; on close, move REQ-098/099 out of the Deferred table of `specs/tasks.md`.)
+- *Closed 2026-09-26.* `.changeset/demo-applies-view-props.md` (`minor`, core; `changeset status`
+  bumps all six to `0.2.0`). REQ-098/099 left the Deferred table of `specs/tasks.md` (unlocked by
+  the user); traceability 101/120, 0 blocking, both REQs cited. `check-changeset` RED before the
+  changeset, green after. **Delta-011 is implemented; it ships with `0.2.0`.**
 
 ## Decision
 

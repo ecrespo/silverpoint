@@ -92,19 +92,21 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Deltas | ✅ `changes/delta-001..011` approved and **folded into `specs/`** (2026-09-25) |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; tasks T-106..T-123 in `changes/feature-001-dashboard/plan-and-tasks.md`; **not implemented** |
 | Implementation | ✅ Phases 0–4 closed — 33 charts × 3 adapters; ledgers in `changes/phase-N-progress.md` |
-| Traceability | ✅ 99/120 MUST cited, 21 deferred to Phase 5 (`specs/tasks.md` Deferred table), 0 blocking (`reports/traceability.md`) |
+| Traceability | ✅ 101/120 MUST cited, 19 deferred to Phase 5 (REQ-200..221, `specs/tasks.md` Deferred table), 0 blocking (`reports/traceability.md`) |
 | Release | ✅ **0.1.1** on npm (2026-09-25), all six packages, published from CI with provenance |
 
 Where things stand:
 
 - **Published:** `@silverpoint/*@0.1.1`, tag `v0.1.1`. `develop` is ahead of `main` by
-  documentation only.
-- **Next release: `0.2.0`.** It carries delta-011 (Volvelle's index turns the demo, T-102..T-105)
-  and feature-001 (Dashboard composition, Phase 5, T-106..T-123; first run T-106..T-109). Both are
-  approved and not yet implemented. `1.0.0` stays parked.
+  delta-011 (unreleased).
+- **Next release: `0.2.0`.** It carries delta-011 (**done** 2026-09-26: the demo applies view
+  props, Volvelle's index turns it; T-102..T-105, changeset `.changeset/demo-applies-view-props.md`)
+  and feature-001 (Dashboard composition, Phase 5, T-106..T-123; first run T-106..T-109; approved,
+  **not yet implemented**). `1.0.0` stays parked.
 - **Folded** (2026-09-25): deltas 001..011, feature-001 and the Art. 3 amendment are in `specs/`.
   When a Phase 5 requirement gets its test, remove it from the Deferred table of `specs/tasks.md`.
-  `specs/` is kept read-only (`chmod a-w`); the user unlocks it when a fold is approved.
+  `specs/` was read-only until 2026-09-26, when the user made it writable and chose to keep it so;
+  edit it only for an approved change (Art. 9).
 - The deferred minors from the phase reviews are closed or ruled (see the Phase 4 ledger).
   `REQ-028` (SHOULD) and `REQ-047` (COULD) are deferred "After v1".
 

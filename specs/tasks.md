@@ -280,7 +280,6 @@ Explicitly out of Phase 0, with their target phase. Closes Analyze finding A-12.
 | REQ-061 … REQ-092 | MUST, except REQ-090 (SHOULD) | Phases 1-3 | The catalog, minus the line chart built here. REQ-090, the volvelle, is the one SHOULD among them and is the first candidate to drop if Phase 3 overruns |
 | REQ-096 | SHOULD | Phase 2 | The data-volume ceiling only becomes observable with the cartesian family |
 | REQ-097 | MUST | Phase 2 | Missing scale bounds are candlestick- and sankey-specific |
-| REQ-098 … REQ-099 | MUST | Phase 5 (`0.2.0`) | View props apply to the demo, and the props reference says what the demo ignores; tasks in `changes/delta-011-volvelle-demo-index.md` |
 | REQ-200 … REQ-221 | MUST, except REQ-216, REQ-217, REQ-218 (SHOULD) | Phase 5 (`0.2.0`) | Dashboard composition; tasks in `changes/feature-001-dashboard/plan-and-tasks.md` |
 
 ## Execution log
