@@ -29,7 +29,7 @@ function committedCanonical(fixture: Fixture): string {
 }
 
 /** Rebuilds markup from the one-node-per-line canonical form, so both sides parse the same way. */
-function markupOf(canonical: string): string {
+export function markupOf(canonical: string): string {
   const out: string[] = [];
   const open: { tag: string; depth: number }[] = [];
   for (const line of canonical.split('\n')) {

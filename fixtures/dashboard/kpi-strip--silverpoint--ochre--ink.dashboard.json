@@ -1,0 +1,10 @@
+{
+  "dashboard": "kpi-strip",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "id": "kpi-strip--silverpoint--ochre--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/kpi-strip--silverpoint--ochre--ink.canonical.txt"
+}

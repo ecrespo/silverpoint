@@ -7,7 +7,9 @@
   "scripts": {
     "string-gate": "tsx string-gate.ts",
     "canonical": "tsx --conditions=@silverpoint/source canonical.ts",
-    "parity": "tsx parity.ts"
+    "parity": "tsx parity.ts",
+    "dashboard-canonical": "tsx --conditions=@silverpoint/source dashboard-canonical.ts",
+    "dashboard-gate": "tsx dashboard-gate.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",

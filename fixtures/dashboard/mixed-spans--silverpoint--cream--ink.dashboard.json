@@ -1,0 +1,10 @@
+{
+  "dashboard": "mixed-spans",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "id": "mixed-spans--silverpoint--cream--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/mixed-spans--silverpoint--cream--ink.canonical.txt"
+}

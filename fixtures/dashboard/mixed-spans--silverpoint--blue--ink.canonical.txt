@@ -1,0 +1,690 @@
+<section aria-labelledby="mixed-spans-title" class="sp-dashboard sp-ground-silverpoint" data-substrate="blue" part="dashboard" style="--sp-dashboard-columns-sm:1;--sp-dashboard-columns-md:2;--sp-dashboard-columns-lg:3;--sp-dashboard-row-height:240px;--sp-dashboard-layout-gap:16px">
+  <h2 class="sp-dashboard-title" id="mixed-spans-title" part="dashboard-title">
+    "Mixed spans"
+  <div class="sp-dashboard-grid" part="dashboard-grid">
+    <article aria-labelledby="mixed-spans--one-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Step" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--one-title mixed-spans--one-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--one-title">
+            "Step"
+          <desc id="mixed-spans--one-desc">
+            "Step. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."
+          <path d="M0.5 0.5 C90.09 0.98, 179.67 0.15, 415.5 0.5 M0.5 0.5 C87.9 0.47, 175.29 0.44, 415.5 0.5 M415.5 0.5 C415.59 72.03, 415.25 144.65, 415.5 239.5 M415.5 0.5 C415.59 92.14, 415.28 184.24, 415.5 239.5 M415.5 239.5 C291.42 239.93, 168.11 239.84, 0.5 239.5 M415.5 239.5 C277.99 238.87, 140.18 239.2, 0.5 239.5 M0.5 239.5 C1.09 143.56, 0.26 48.17, 0.5 0.5 M0.5 239.5 C0.35 155.28, 0.15 71.13, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22 152.67 C102.15 151.97, 182.8 152.34, 394 152.67 M22 152.67 C103.34 152.16, 184.2 152.67, 394 152.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 101.33 C101.95 101.73, 182.88 101.21, 394 101.33 M22 101.33 C105.77 102.14, 189.69 102.09, 394 101.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 50 C102.85 49.17, 182.97 49.95, 394 50 M22 50 C108.76 50.35, 195.73 50.28, 394 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 204 C102.64 204.27, 183.06 204.16, 394 204 M22 204 C111.74 203.88, 201.22 203.81, 394 204" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M45.25,142.4L91.75,142.4L91.75,142.4L138.25,142.4L138.25,111.6L184.75,111.6L184.75,111.6L231.25,111.6L231.25,127L277.75,127L277.75,80.8L324.25,80.8L324.25,80.8L370.75,80.8L370.75,50" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M367.25,50A3.5,3.5,0,1,0,374.25,50A3.5,3.5,0,1,0,367.25,50Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+          <path d="M367.25,50A3.5,3.5,0,1,0,374.25,50A3.5,3.5,0,1,0,367.25,50Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Step"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="149.67">
+            "10"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="98.33">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+            "30"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="45.25" y="219">
+            "Jan"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="138.25" y="219">
+            "Mar"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="231.25" y="219">
+            "May"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="324.25" y="219">
+            "Jul"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--one-table">
+            <caption>
+              "Step"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Jan"
+                <td>
+                  "12"
+              <tr>
+                <th scope="row">
+                  "Feb"
+                <td>
+                  "12"
+              <tr>
+                <th scope="row">
+                  "Mar"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "Apr"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "May"
+                <td>
+                  "15"
+              <tr>
+                <th scope="row">
+                  "Jun"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Jul"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Aug"
+                <td>
+                  "30"
+    <article aria-labelledby="mixed-spans--two-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Area" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--two-title mixed-spans--two-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--two-title">
+            "Area"
+          <desc id="mixed-spans--two-desc">
+            "Area. Area chart of 7 x values; value ranges from 29 to 66."
+          <defs>
+            <pattern height="45" id="mixed-spans--two-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+              <path d="M0 3.75 C11.46 3.56, 22.35 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 11.25 C10.94 10.45, 23.11 11.71, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 18.75 C12.23 19.38, 22.07 18.93, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 26.25 C11.72 26.51, 22.82 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 33.75 C11.2 33.4, 23.58 33.13, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 41.25 C10.69 40.53, 22.54 42.15, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+          <path d="M0.5 0.5 C222.19 0.93, 443.95 1, 847.5 0.5 M0.5 0.5 C228.49 1.02, 456.36 1.19, 847.5 0.5 M847.5 0.5 C847.07 62.39, 846.84 122.92, 847.5 239.5 M847.5 0.5 C847.72 67.96, 847.91 136, 847.5 239.5 M847.5 239.5 C556.61 240.3, 265.7 240.22, 0.5 239.5 M847.5 239.5 C549.4 240.12, 251.67 240.01, 0.5 239.5 M0.5 239.5 C1.28 145.68, 1.11 50.12, 0.5 0.5 M0.5 239.5 C-0.18 165.51, 0.14 91.58, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22 165.5 C232.46 165.37, 443.32 164.85, 826 165.5 M22 165.5 C244.63 165.76, 467.19 165.56, 826 165.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 127 C233.21 127.35, 443.7 127.69, 826 127 M22 127 C250.48 126.68, 479.31 126.47, 826 127" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 88.5 C233.24 88.31, 444.08 88.07, 826 88.5 M22 88.5 C256.69 89.33, 491.42 89.12, 826 88.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 50 C233.26 50.29, 444.46 50.18, 826 50 M22 50 C262.91 50.24, 503.54 50.38, 826 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 204 C233.29 203.75, 444.84 203.78, 826 204 M22 204 C269.12 203.66, 516.02 203.79, 826 204" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M79.43,142.4C117.71,129.89,156,117.38,194.29,117.38C232.57,117.38,270.86,125.08,309.14,125.08C347.43,125.08,385.71,100.37,424,92.35C462.29,84.33,500.57,76.95,538.86,76.95C577.14,76.95,615.43,119.3,653.71,130.85C692,142.4,730.29,145.29,768.57,148.18L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--two-tone-2)" part="sp-ink">
+          <path d="M79.43,142.4C117.71,129.89,156,117.38,194.29,117.38C232.57,117.38,270.86,125.08,309.14,125.08C347.43,125.08,385.71,100.37,424,92.35C462.29,84.33,500.57,76.95,538.86,76.95C577.14,76.95,615.43,119.3,653.71,130.85C692,142.4,730.29,145.29,768.57,148.18L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M79.43,142.4C117.71,129.89,156,117.38,194.29,117.38C232.57,117.38,270.86,125.08,309.14,125.08C347.43,125.08,385.71,100.37,424,92.35C462.29,84.33,500.57,76.95,538.86,76.95C577.14,76.95,615.43,119.3,653.71,130.85C692,142.4,730.29,145.29,768.57,148.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M765.07,148.17A3.5,3.5,0,1,0,772.07,148.17A3.5,3.5,0,1,0,765.07,148.17Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+          <path d="M765.07,148.17A3.5,3.5,0,1,0,772.07,148.17A3.5,3.5,0,1,0,765.07,148.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Area"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="162.5">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="124">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="85.5">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="79.43" y="219">
+            "Mon"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="194.29" y="219">
+            "Tue"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="309.14" y="219">
+            "Wed"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="424" y="219">
+            "Thu"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="538.86" y="219">
+            "Fri"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="653.71" y="219">
+            "Sat"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="768.57" y="219">
+            "Sun"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--two-table">
+            <caption>
+              "Area"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Mon"
+                <td>
+                  "32"
+              <tr>
+                <th scope="row">
+                  "Tue"
+                <td>
+                  "45"
+              <tr>
+                <th scope="row">
+                  "Wed"
+                <td>
+                  "41"
+              <tr>
+                <th scope="row">
+                  "Thu"
+                <td>
+                  "58"
+              <tr>
+                <th scope="row">
+                  "Fri"
+                <td>
+                  "66"
+              <tr>
+                <th scope="row">
+                  "Sat"
+                <td>
+                  "38"
+              <tr>
+                <th scope="row">
+                  "Sun"
+                <td>
+                  "29"
+    <article aria-labelledby="mixed-spans--three-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Funnel" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--three-title mixed-spans--three-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--three-title">
+            "Funnel"
+          <desc id="mixed-spans--three-desc">
+            "Funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."
+          <defs>
+            <pattern height="50" id="mixed-spans--three-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+              <path d="M0 5 C14.7 5.57, 30.65 5.23, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 15 C15.99 15.21, 31.41 14.96, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 25 C15.48 24.58, 30.37 24.42, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35 C14.96 34.22, 31.12 34.15, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 45 C16.25 45.39, 30.08 45.41, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+            <pattern height="49.5" id="mixed-spans--three-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+              <path d="M0 2.75 C14.13 2.97, 30.57 1.84, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 8.25 C15.42 8.11, 29.53 8.87, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 13.75 C14.9 12.99, 30.28 13.83, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 19.25 C14.39 19.93, 29.24 19.06, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 24.75 C15.67 25.07, 30 24.29, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 30.25 C15.16 29.94, 28.95 31.05, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35.75 C14.65 35.08, 29.71 36.28, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 41.25 C14.13 41.75, 30.46 41.25, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 46.75 C15.42 46.89, 29.42 46.48, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+            <pattern height="49.5" id="mixed-spans--three-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+              <path d="M0 2.75 C18.87 1.9, 39.68 2.17, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 8.25 C20.16 8.84, 38.64 9.2, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 13.75 C19.64 13.72, 39.39 14.16, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 19.25 C19.13 18.86, 38.35 19.39, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 24.75 C20.42 24, 39.11 24.62, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 30.25 C19.9 30.67, 39.86 29.59, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35.75 C19.39 35.81, 38.82 36.62, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 41.25 C18.87 40.68, 39.58 41.58, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 46.75 C20.16 47.62, 38.53 46.81, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M2.75 0 C2.72 20.01, 2.75 38.9, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M8.25 0 C7.73 19.54, 9.03 38.52, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M13.75 0 C14.54 19.08, 13.51 39.95, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M19.25 0 C19.55 20.41, 19.79 39.57, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M24.75 0 C24.56 19.94, 24.27 39.19, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M30.25 0 C29.56 19.48, 30.55 38.82, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M35.75 0 C36.37 19.01, 35.02 38.44, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M41.25 0 C41.38 20.35, 41.3 39.87, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M46.75 0 C46.39 19.88, 47.58 39.49, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+          <path d="M0.5 0.5 C88.82 0.35, 178.01 0.38, 415.5 0.5 M0.5 0.5 C84.24 1.14, 168.01 1.22, 415.5 0.5 M415.5 0.5 C414.51 64.21, 414.59 128.11, 415.5 239.5 M415.5 0.5 C415.56 92.76, 415.36 185.46, 415.5 239.5 M415.5 239.5 C265.67 239.25, 115.91 239.51, 0.5 239.5 M415.5 239.5 C249.74 239.36, 84.02 238.9, 0.5 239.5 M0.5 239.5 C-0.45 145.49, 0.1 50.05, 0.5 0.5 M0.5 239.5 C0.61 186.24, 0.09 132.79, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M86,51.5H330V82.1H86Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--three-tone-4)" part="sp-ink">
+          <path d="M86,51.5H330V82.1H86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M141.1,85.1H274.9V115.7H141.1Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--three-tone-3)" part="sp-ink">
+          <path d="M141.1,85.1H274.9V115.7H141.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M179.47,118.7H236.53V149.3H179.47Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--three-tone-1)" part="sp-ink">
+          <path d="M179.47,118.7H236.53V149.3H179.47Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M193.24,152.3H222.76V182.9H193.24Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--three-tone-1)" part="sp-ink">
+          <path d="M193.24,152.3H222.76V182.9H193.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M198.36,185.9H217.64V216.5H198.36Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--three-tone-1)" part="sp-ink">
+          <path d="M198.36,185.9H217.64V216.5H198.36Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Funnel"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="70.8">
+            "Visits"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="64.8">
+            "12,400"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="75.8">
+            "100%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="104.4">
+            "Product"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="98.4">
+            "6,800"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="109.4">
+            "55%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="138">
+            "Cart"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="132">
+            "2,900"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="143">
+            "23%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="171.6">
+            "Checkout"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="165.6">
+            "1,500"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="176.6">
+            "12%"
+          <text data-kind="tick" part="sp-text" text-anchor="start" x="22" y="205.2">
+            "Paid"
+          <text data-kind="tick" part="sp-text" text-anchor="end" x="394" y="199.2">
+            "980"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="394" y="210.2">
+            "8%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--three-table">
+            <caption>
+              "Funnel"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "stage"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "share"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Visits"
+                <td>
+                  "12,400"
+                <td>
+                  "100%"
+              <tr>
+                <th scope="row">
+                  "Product"
+                <td>
+                  "6,800"
+                <td>
+                  "55%"
+              <tr>
+                <th scope="row">
+                  "Cart"
+                <td>
+                  "2,900"
+                <td>
+                  "23%"
+              <tr>
+                <th scope="row">
+                  "Checkout"
+                <td>
+                  "1,500"
+                <td>
+                  "12%"
+              <tr>
+                <th scope="row">
+                  "Paid"
+                <td>
+                  "980"
+                <td>
+                  "8%"
+    <article aria-labelledby="mixed-spans--four-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:3;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Bars" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--four-title mixed-spans--four-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 1280 240" width="1280" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--four-title">
+            "Bars"
+          <desc id="mixed-spans--four-desc">
+            "Bars. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+          <defs>
+            <pattern height="50" id="mixed-spans--four-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+              <path d="M0 5 C12.51 4.22, 22.67 4.4, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 15 C12 15.66, 23.43 15.93, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 25 C11.48 25.03, 24.19 25.39, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35 C10.97 34.68, 23.14 35.12, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 45 C12.25 44.32, 23.9 44.85, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+            <pattern height="45" id="mixed-spans--four-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+              <path d="M0 3.75 C15.65 3.71, 30.38 3.49, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 11.25 C15.13 10.84, 29.34 10.71, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 18.75 C14.62 19.52, 30.1 19.48, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 26.25 C14.11 26.66, 29.05 26.7, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 33.75 C15.39 33.79, 29.81 33.92, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 41.25 C14.88 40.67, 30.57 40.9, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+          <path d="M0.5 0.5 C434.07 0.11, 866.85 -0.38, 1279.5 0.5 M0.5 0.5 C362.65 -0.81, 724.54 -0.75, 1279.5 0.5 M1279.5 0.5 C1279 50.25, 1278.52 98.81, 1279.5 239.5 M1279.5 0.5 C1278.91 83.22, 1279.13 165.32, 1279.5 239.5 M1279.5 239.5 C952.65 238.78, 625.48 238.99, 0.5 239.5 M1279.5 239.5 C879.12 240.52, 478.56 240.27, 0.5 239.5 M0.5 239.5 C1.01 179.93, 1.02 119.12, 0.5 0.5 M0.5 239.5 C0.46 192.01, 0.16 143.82, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,48H34V55H22Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-2)" part="sp-ink">
+          <path d="M22 48 C26.23 47.6, 29.77 48.15, 34 48 M22 48 C25.72 48.21, 29.13 47.76, 34 48 M34 48 C33.97 49.91, 34.25 51.26, 34 55 M34 48 C34.03 50.54, 34.03 52.95, 34 55 M34 55 C29.67 54.86, 24.2 55.16, 22 55 M34 55 C30.01 54.86, 26.29 55.24, 22 55 M22 55 C21.76 53.12, 22.07 51.52, 22 48 M22 55 C21.9 52.87, 21.87 50.93, 22 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+          <path d="M76,48H88V55H76Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-1)" part="sp-ink-secondary">
+          <path d="M76 48 C79.93 48.03, 83.65 47.7, 88 48 M76 48 C79.42 48.1, 83.14 48.18, 88 48 M88 48 C87.97 50.1, 88.11 52.21, 88 55 M88 48 C88.11 50.54, 88.02 53.39, 88 55 M88 55 C83.61 55.01, 79.59 55.28, 76 55 M88 55 C83.65 55.14, 79.59 55.2, 76 55 M76 55 C75.97 53.5, 75.96 51.2, 76 48 M76 55 C75.97 52.31, 76.05 49.35, 76 48" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+          <path d="M22 171 C441.46 172.27, 861.83 172.19, 1258 171 M22 171 C400.11 170.15, 778.12 170.2, 1258 171" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 138 C442.33 137.56, 862.45 137.61, 1258 138 M22 138 C409.61 138.95, 797.17 139, 1258 138" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 105 C442.48 106.24, 863.08 105.71, 1258 105 M22 105 C418.75 105.09, 815.86 105.12, 1258 105" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 72 C442.63 71.53, 863.71 71.85, 1258 72 M22 72 C428.25 71.22, 834.54 71.25, 1258 72" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 204 C443.5 205.21, 864.34 204.95, 1258 204 M22 204 C437.75 205.38, 853.59 205.4, 1258 204" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M100.8,169.35A34.65,34.65,0,0,1,135.45,134.7H141.85A34.65,34.65,0,0,1,176.5,169.35V169.35A34.65,34.65,0,0,1,141.85,204H135.45A34.65,34.65,0,0,1,100.8,169.35Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-2)" part="sp-ink">
+          <path d="M100.8,169.35A34.65,34.65,0,0,1,135.45,134.7H141.85A34.65,34.65,0,0,1,176.5,169.35V169.35A34.65,34.65,0,0,1,141.85,204H135.45A34.65,34.65,0,0,1,100.8,169.35Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M409.8,146.15A37.85,37.85,0,0,1,447.65,108.3H447.65A37.85,37.85,0,0,1,485.5,146.15V166.15A37.85,37.85,0,0,1,447.65,204H447.65A37.85,37.85,0,0,1,409.8,166.15Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-2)" part="sp-ink">
+          <path d="M409.8,146.15A37.85,37.85,0,0,1,447.65,108.3H447.65A37.85,37.85,0,0,1,485.5,146.15V166.15A37.85,37.85,0,0,1,447.65,204H447.65A37.85,37.85,0,0,1,409.8,166.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M718.8,157.7A37.85,37.85,0,0,1,756.65,119.85H756.65A37.85,37.85,0,0,1,794.5,157.7V166.15A37.85,37.85,0,0,1,756.65,204H756.65A37.85,37.85,0,0,1,718.8,166.15Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-2)" part="sp-ink">
+          <path d="M718.8,157.7A37.85,37.85,0,0,1,756.65,119.85H756.65A37.85,37.85,0,0,1,794.5,157.7V166.15A37.85,37.85,0,0,1,756.65,204H756.65A37.85,37.85,0,0,1,718.8,166.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M1027.8,121.4A37.85,37.85,0,0,1,1065.65,83.55H1065.65A37.85,37.85,0,0,1,1103.5,121.4V166.15A37.85,37.85,0,0,1,1065.65,204H1065.65A37.85,37.85,0,0,1,1027.8,166.15Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-2)" part="sp-ink">
+          <path d="M1027.8,121.4A37.85,37.85,0,0,1,1065.65,83.55H1065.65A37.85,37.85,0,0,1,1103.5,121.4V166.15A37.85,37.85,0,0,1,1065.65,204H1065.65A37.85,37.85,0,0,1,1027.8,166.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M176.5,175.13A28.88,28.88,0,0,1,205.38,146.25H223.33A28.88,28.88,0,0,1,252.21,175.13V175.13A28.88,28.88,0,0,1,223.33,204H205.38A28.88,28.88,0,0,1,176.5,175.13Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-1)" part="sp-ink-secondary">
+          <path d="M176.5,175.13A28.88,28.88,0,0,1,205.38,146.25H223.33A28.88,28.88,0,0,1,252.21,175.13V175.13A28.88,28.88,0,0,1,223.33,204H205.38A28.88,28.88,0,0,1,176.5,175.13Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <path d="M485.5,167.7A36.3,36.3,0,0,1,521.8,131.4H524.91A36.3,36.3,0,0,1,561.2,167.7V167.7A36.3,36.3,0,0,1,524.91,204H521.8A36.3,36.3,0,0,1,485.5,167.7Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-1)" part="sp-ink-secondary">
+          <path d="M485.5,167.7A36.3,36.3,0,0,1,521.8,131.4H524.91A36.3,36.3,0,0,1,561.2,167.7V167.7A36.3,36.3,0,0,1,524.91,204H521.8A36.3,36.3,0,0,1,485.5,167.7Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <path d="M794.5,161A37.85,37.85,0,0,1,832.35,123.15H832.35A37.85,37.85,0,0,1,870.21,161V166.15A37.85,37.85,0,0,1,832.35,204H832.35A37.85,37.85,0,0,1,794.5,166.15Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-1)" part="sp-ink-secondary">
+          <path d="M794.5,161A37.85,37.85,0,0,1,832.35,123.15H832.35A37.85,37.85,0,0,1,870.21,161V166.15A37.85,37.85,0,0,1,832.35,204H832.35A37.85,37.85,0,0,1,794.5,166.15Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <path d="M1103.5,142.85A37.85,37.85,0,0,1,1141.35,105H1141.35A37.85,37.85,0,0,1,1179.21,142.85V166.15A37.85,37.85,0,0,1,1141.35,204H1141.35A37.85,37.85,0,0,1,1103.5,166.15Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--four-tone-1)" part="sp-ink-secondary">
+          <path d="M1103.5,142.85A37.85,37.85,0,0,1,1141.35,105H1141.35A37.85,37.85,0,0,1,1179.21,142.85V166.15A37.85,37.85,0,0,1,1141.35,204H1141.35A37.85,37.85,0,0,1,1103.5,166.15Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Bars"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+            "value"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+            "previous"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="168">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="102">
+            "60"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+            "80"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="176.5" y="219">
+            "Q1"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="485.5" y="219">
+            "Q2"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="794.5" y="219">
+            "Q3"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="1103.5" y="219">
+            "Q4"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--four-table">
+            <caption>
+              "Bars"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "value"
+                <th scope="col">
+                  "previous"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Q1"
+                <td>
+                  "42"
+                <td>
+                  "35"
+              <tr>
+                <th scope="row">
+                  "Q2"
+                <td>
+                  "58"
+                <td>
+                  "44"
+              <tr>
+                <th scope="row">
+                  "Q3"
+                <td>
+                  "51"
+                <td>
+                  "49"
+              <tr>
+                <th scope="row">
+                  "Q4"
+                <td>
+                  "73"
+                <td>
+                  "60"
+    <article aria-labelledby="mixed-spans--five-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Radar" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--five-title mixed-spans--five-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--five-title">
+            "Radar"
+          <desc id="mixed-spans--five-desc">
+            "Radar. Radar of 6 subjects on a scale from 0 to 10; highest Safety at 9, lowest Cost at 4."
+          <defs>
+            <pattern height="50" id="mixed-spans--five-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+              <path d="M0 5 C15.08 4.94, 28.75 4.81, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 15 C14.57 14.58, 29.51 14.54, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 25 C14.06 25.75, 28.46 24, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35 C13.54 35.39, 29.22 35.53, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 45 C14.83 45.03, 28.18 45.26, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+          <path d="M0.5 0.5 C163.09 -0.09, 325.12 0.05, 415.5 0.5 M0.5 0.5 C128.61 0.69, 256.79 0.68, 415.5 0.5 M415.5 0.5 C414.68 51.68, 415.59 103.87, 415.5 239.5 M415.5 0.5 C415.61 57.31, 415.04 114.64, 415.5 239.5 M415.5 239.5 C284.18 238.74, 152.32 239.44, 0.5 239.5 M415.5 239.5 C315.48 239.38, 215.44 239.06, 0.5 239.5 M0.5 239.5 C1.35 145.92, 0.29 50.88, 0.5 0.5 M0.5 239.5 C0.8 177.51, 0.26 114.88, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208 120 C212.91 122.77, 217.66 125.93, 220.12 127 M208 120 C212.03 122.02, 215.63 124.22, 220.12 127 M220.12 127 C219.61 131.23, 220.08 134.92, 220.12 141 M220.12 127 C219.94 130.69, 219.91 134.45, 220.12 141 M220.12 141 C217.62 142.53, 213.65 145.19, 208 148 M220.12 141 C216.72 142.62, 213.92 144.9, 208 148 M208 148 C202.78 145.17, 198.95 142.69, 195.88 141 M208 148 C203.44 145.37, 199.48 143.18, 195.88 141 M195.88 141 C196.31 138.5, 195.35 135.34, 195.88 127 M195.88 141 C195.8 136.95, 196 132.99, 195.88 127 M195.88 127 C199.43 125.1, 203.13 122.17, 208 120 M195.88 127 C198.97 124.99, 202.14 123.53, 208 120" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 106 C217.25 112.23, 227.06 116.86, 232.25 120 M208 106 C215.51 110.07, 223.41 115.46, 232.25 120 M232.25 120 C231.52 129.1, 231.78 137.25, 232.25 148 M232.25 120 C232.22 127.47, 231.92 135.4, 232.25 148 M232.25 148 C222.29 153.27, 212.69 158.16, 208 162 M232.25 148 C225.8 151.97, 218.43 155.97, 208 162 M208 162 C203.16 158.5, 198.77 155.99, 183.75 148 M208 162 C201.69 158.59, 195.44 154.48, 183.75 148 M183.75 148 C183.2 138.99, 183.7 131, 183.75 120 M183.75 148 C183.45 141.53, 183.93 135.21, 183.75 120 M183.75 120 C189.38 117.26, 194.45 114.7, 208 106 M183.75 120 C191.88 114.98, 200.31 110.86, 208 106" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 92 C221.45 100.03, 236.31 107.75, 244.37 113 M208 92 C219.89 99.36, 232.37 106.26, 244.37 113 M244.37 113 C243.8 128.1, 243.65 143.87, 244.37 155 M244.37 113 C244.53 125.6, 243.96 137.24, 244.37 155 M244.37 155 C232.4 161.79, 219.71 168.07, 208 176 M244.37 155 C233.72 160.88, 223.01 167.57, 208 176 M208 176 C201.17 172.21, 193.27 168.08, 171.63 155 M208 176 C195.26 168.2, 182.67 161.07, 171.63 155 M171.63 155 C171.85 138.78, 172.42 123.76, 171.63 113 M171.63 155 C172.06 139.12, 171.83 122.51, 171.63 113 M171.63 113 C182.49 106.35, 193.82 99.87, 208 92 M171.63 113 C179.49 108, 186.93 104.16, 208 92" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 78 C227.56 89.44, 245.69 100.24, 256.5 106 M208 78 C224.56 87.68, 240.9 97.1, 256.5 106 M256.5 106 C255.86 117.26, 257.09 129.01, 256.5 162 M256.5 106 C256.18 123.35, 256.25 140.99, 256.5 162 M256.5 162 C244.02 169.4, 231.57 176.17, 208 190 M256.5 162 C241.1 170.74, 225.71 179.46, 208 190 M208 190 C197.42 184.06, 187.72 178.26, 159.5 162 M208 190 C196.17 182.96, 183.67 176.15, 159.5 162 M159.5 162 C158.74 147.46, 159.39 132.49, 159.5 106 M159.5 162 C159.74 142.78, 159.71 124.65, 159.5 106 M159.5 106 C170.08 99.83, 180.38 93.65, 208 78 M159.5 106 C173.94 98.18, 188.11 89.78, 208 78" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 64 C231.72 77.32, 254.92 91.21, 268.62 99 M208 64 C229.44 76.07, 249.82 88.11, 268.62 99 M268.62 99 C268.21 117.98, 269.03 135.47, 268.62 169 M268.62 99 C268.44 121.59, 268.25 144.85, 268.62 169 M268.62 169 C257.33 176.42, 244.86 182.8, 208 204 M268.62 169 C248.18 180.21, 228.56 192.12, 208 204 M208 204 C195.24 195.87, 181.83 188.33, 147.38 169 M208 204 C186.56 192.16, 166.32 180.11, 147.38 169 M147.38 169 C147.12 145.42, 147.84 121.58, 147.38 99 M147.38 169 C147.43 148.71, 147.6 128.64, 147.38 99 M147.38 99 C165.74 87.46, 184.7 75.97, 208 64 M147.38 99 C170.19 86.07, 193.05 72.88, 208 64" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C207.43 106.73, 207.15 79.76, 208 64 M208 134 C207.55 109.09, 208.2 84.18, 208 64" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C232.67 119.57, 256.5 106.67, 268.62 99 M208 134 C229.96 121.1, 252.02 108.31, 268.62 99" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C232.1 147.68, 256.26 160.82, 268.62 169 M208 134 C230.66 146.44, 252.66 160.14, 268.62 169" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C207.94 162.23, 208.56 189.49, 208 204 M208 134 C207.76 160.73, 207.73 186.97, 208 204" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C183.37 147.43, 160.43 161.27, 147.38 169 M208 134 C184.47 147.59, 161.5 160.88, 147.38 169" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208 134 C184.58 120.78, 160.13 107.4, 147.38 99 M208 134 C184.29 120.34, 160.34 106.42, 147.38 99" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M208,78L244.37,113L250.44,158.5L208,197L183.75,148L171.63,113Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--five-tone-1)" part="sp-ink">
+          <path d="M208,78L244.37,113L250.44,158.5L208,197L183.75,148L171.63,113Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Radar"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="118">
+            "2"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="104">
+            "4"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="90">
+            "6"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="211" y="76">
+            "8"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="208" y="59">
+            "Speed"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="275.55" y="98">
+            "Range"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="275.55" y="176">
+            "Comfort"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="208" y="215">
+            "Safety"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="140.45" y="176">
+            "Cost"
+          <text data-kind="tick" part="sp-axis" text-anchor="end" x="140.45" y="98">
+            "Style"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--five-table">
+            <caption>
+              "Radar"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "subject"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Speed"
+                <td>
+                  "8"
+              <tr>
+                <th scope="row">
+                  "Range"
+                <td>
+                  "6"
+              <tr>
+                <th scope="row">
+                  "Comfort"
+                <td>
+                  "7"
+              <tr>
+                <th scope="row">
+                  "Safety"
+                <td>
+                  "9"
+              <tr>
+                <th scope="row">
+                  "Cost"
+                <td>
+                  "4"
+              <tr>
+                <th scope="row">
+                  "Style"
+                <td>
+                  "6"
+    <article aria-labelledby="mixed-spans--six-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Stream" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--six-title mixed-spans--six-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--six-title">
+            "Stream"
+          <desc id="mixed-spans--six-desc">
+            "Stream. Overlaid stream of 2 waves over 7 x values; organic totals 199; paid totals 134."
+          <defs>
+            <pattern height="50" id="mixed-spans--six-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+              <path d="M0 5 C19.38 5.71, 38.17 4.84, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 15 C18.87 15.35, 37.13 14.57, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 25 C18.35 24.99, 37.89 24.3, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 35 C17.84 34.37, 36.84 35.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 45 C19.13 45.81, 37.6 45.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+            <pattern height="45" id="mixed-spans--six-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+              <path d="M0 3.75 C12.83 3.4, 24.69 3.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 11.25 C12.31 10.53, 23.65 11.15, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 18.75 C11.8 19.46, 24.41 18.37, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 26.25 C11.28 26.35, 23.36 25.35, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 33.75 C12.57 33.48, 24.12 34.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+              <path d="M0 41.25 C12.05 40.37, 24.88 41.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+          <path d="M0.5 0.5 C236.08 -0.16, 470.85 -0.35, 847.5 0.5 M0.5 0.5 C257.47 -0.36, 514.57 -0.3, 847.5 0.5 M847.5 0.5 C847.44 70.53, 847.82 138.84, 847.5 239.5 M847.5 0.5 C847.37 67.2, 848.02 133.35, 847.5 239.5 M847.5 239.5 C566.9 239.38, 286.18 239.46, 0.5 239.5 M847.5 239.5 C546.9 238.6, 246.11 238.57, 0.5 239.5 M0.5 239.5 C1.32 165.35, 1.15 90.07, 0.5 0.5 M0.5 239.5 C0.73 151.68, 0.67 63.11, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M22,48H34V55H22Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--six-tone-1)" part="sp-ink">
+          <path d="M22 48 C25.45 48.52, 28.18 48.43, 34 48 M22 48 C25.78 47.96, 29.28 48.04, 34 48 M34 48 C34.05 50.44, 34.06 52.73, 34 55 M34 48 C33.94 50.09, 34.12 52.07, 34 55 M34 55 C30.97 55.22, 27.11 55.32, 22 55 M34 55 C29.49 55.1, 25.24 55.27, 22 55 M22 55 C21.9 52.74, 22.14 50.8, 22 48 M22 55 C22.11 53.04, 21.87 51.25, 22 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+          <path d="M86.4,48H98.4V55H86.4Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--six-tone-2)" part="sp-ink-secondary">
+          <path d="M86.4 48 C89.55 47.86, 93.54 47.98, 98.4 48 M86.4 48 C90.42 47.85, 94.24 47.92, 98.4 48 M98.4 48 C98.45 50.63, 98.32 53.68, 98.4 55 M98.4 48 C98.46 50.08, 98.55 52.51, 98.4 55 M98.4 55 C96.39 55.37, 93.98 55.45, 86.4 55 M98.4 55 C93.54 54.85, 88.93 55.23, 86.4 55 M86.4 55 C86.51 52.49, 86.43 50.49, 86.4 48 M86.4 55 C86.27 52.48, 86.45 49.98, 86.4 48" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+          <path d="M22 171 C245.71 171.51, 470.32 171.01, 826 171 M22 171 C284.2 170.16, 546.68 170.21, 826 171" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 138 C246.46 137.25, 470.7 137.61, 826 138 M22 138 C290.42 138.67, 558.8 138.35, 826 138" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 105 C246.49 105.45, 471.07 105.22, 826 105 M22 105 C296.63 105.09, 571.28 105.12, 826 105" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 72 C246.52 71.19, 471.45 71.82, 826 72 M22 72 C302.84 71.5, 583.4 71.53, 826 72" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M22 204 C247.26 204.39, 471.83 204.43, 826 204 M22 204 C308.7 204.65, 595.51 204.67, 826 204" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M79.43,131.4C117.71,125.08,156,118.75,194.29,111.6C232.57,104.45,270.86,88.5,309.14,88.5C347.43,88.5,385.71,101.7,424,101.7C462.29,101.7,500.57,78.6,538.86,78.6C577.14,78.6,615.43,107.75,653.71,118.2C692,128.65,730.29,134.98,768.57,141.3L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--six-tone-1)" part="sp-ink">
+          <path d="M79.43,131.4C117.71,125.08,156,118.75,194.29,111.6C232.57,104.45,270.86,88.5,309.14,88.5C347.43,88.5,385.71,101.7,424,101.7C462.29,101.7,500.57,78.6,538.86,78.6C577.14,78.6,615.43,107.75,653.71,118.2C692,128.65,730.29,134.98,768.57,141.3L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="none" data-role="encoding" part="sp-ink">
+          <path d="M79.43,131.4C117.71,125.08,156,118.75,194.29,111.6C232.57,104.45,270.86,88.5,309.14,88.5C347.43,88.5,385.71,101.7,424,101.7C462.29,101.7,500.57,78.6,538.86,78.6C577.14,78.6,615.43,107.75,653.71,118.2C692,128.65,730.29,134.98,768.57,141.3" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <path d="M79.43,157.8C117.71,151.2,156,144.6,194.29,144.6C232.57,144.6,270.86,151.2,309.14,151.2C347.43,151.2,385.71,131.95,424,124.8C462.29,117.65,500.57,108.3,538.86,108.3C577.14,108.3,615.43,125.35,653.71,134.7C692,144.05,730.29,154.23,768.57,164.4L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="tile" data-role="hatch" fill="url(#mixed-spans--six-tone-2)" part="sp-ink-secondary">
+          <path d="M79.43,157.8C117.71,151.2,156,144.6,194.29,144.6C232.57,144.6,270.86,151.2,309.14,151.2C347.43,151.2,385.71,131.95,424,124.8C462.29,117.65,500.57,108.3,538.86,108.3C577.14,108.3,615.43,125.35,653.71,134.7C692,144.05,730.29,154.23,768.57,164.4L768.57,204C730.29,204,692,204,653.71,204C615.43,204,577.14,204,538.86,204C500.57,204,462.29,204,424,204C385.71,204,347.43,204,309.14,204C270.86,204,232.57,204,194.29,204C156,204,117.71,204,79.43,204Z" data-paint="none" data-role="encoding" part="sp-ink-secondary">
+          <path d="M79.43,157.8C117.71,151.2,156,144.6,194.29,144.6C232.57,144.6,270.86,151.2,309.14,151.2C347.43,151.2,385.71,131.95,424,124.8C462.29,117.65,500.57,108.3,538.86,108.3C577.14,108.3,615.43,125.35,653.71,134.7C692,144.05,730.29,154.23,768.57,164.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Stream"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+            "organic"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+            "paid"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="168">
+            "10"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135">
+            "20"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="102">
+            "30"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+            "40"
+          <text data-kind="tick" part="sp-axis" text-anchor="start" x="79.43" y="219">
+            "Mon"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="194.29" y="219">
+            "Tue"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="309.14" y="219">
+            "Wed"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="424" y="219">
+            "Thu"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="538.86" y="219">
+            "Fri"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="653.71" y="219">
+            "Sat"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="768.57" y="219">
+            "Sun"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--six-table">
+            <caption>
+              "Stream"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "x"
+                <th scope="col">
+                  "organic"
+                <th scope="col">
+                  "paid"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "Mon"
+                <td>
+                  "22"
+                <td>
+                  "14"
+              <tr>
+                <th scope="row">
+                  "Tue"
+                <td>
+                  "28"
+                <td>
+                  "18"
+              <tr>
+                <th scope="row">
+                  "Wed"
+                <td>
+                  "35"
+                <td>
+                  "16"
+              <tr>
+                <th scope="row">
+                  "Thu"
+                <td>
+                  "31"
+                <td>
+                  "24"
+              <tr>
+                <th scope="row">
+                  "Fri"
+                <td>
+                  "38"
+                <td>
+                  "29"
+              <tr>
+                <th scope="row">
+                  "Sat"
+                <td>
+                  "26"
+                <td>
+                  "21"
+              <tr>
+                <th scope="row">
+                  "Sun"
+                <td>
+                  "19"
+                <td>
+                  "12"
+    <article aria-labelledby="mixed-spans--seven-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
+      <div aria-label="Meter" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
+        <svg aria-labelledby="mixed-spans--seven-title mixed-spans--seven-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
+          <title id="mixed-spans--seven-title">
+            "Meter"
+          <desc id="mixed-spans--seven-desc">
+            "Meter. The value at 72% of the range."
+          <path d="M0.5 0.5 C148.5 -0.05, 297.16 0.47, 415.5 0.5 M0.5 0.5 C121.83 0.73, 243.04 1.03, 415.5 0.5 M415.5 0.5 C415.22 77.2, 414.54 152.96, 415.5 239.5 M415.5 0.5 C415.89 88.19, 415.91 175.63, 415.5 239.5 M415.5 239.5 C282.52 239.98, 150.56 239.98, 0.5 239.5 M415.5 239.5 C299.62 239.67, 183.51 239.42, 0.5 239.5 M0.5 239.5 C1.13 161.2, -0.09 82.26, 0.5 0.5 M0.5 239.5 C0.65 190.79, 0.17 141.8, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M80 178 C80.52 79.48, 186.37 18.33, 272 67.15 M80 178 C80.62 78.71, 186.71 17.88, 272 67.15 M272 67.15 C312.31 90.11, 335.16 131.72, 336 178 M272 67.15 C311.54 90.6, 336.7 132.3, 336 178" data-paint="stroke" data-role="ornament" part="sp-grid">
+          <path d="M92.8 178 C88.18 177.7, 83.07 177.6, 80 178 M92.8 178 C88.76 177.75, 84.74 178.08, 80 178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M126.54 96.54 C122.93 93.45, 120.52 90.32, 117.49 87.49 M126.54 96.54 C123.74 93.88, 121.05 90.78, 117.49 87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208 62.8 C208.44 57.7, 208.31 53.44, 208 50 M208 62.8 C208.19 58.78, 208.01 54.39, 208 50" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M289.46 96.54 C292.85 93.28, 296.17 90.58, 298.51 87.49 M289.46 96.54 C292.26 93.55, 295.31 90.29, 298.51 87.49" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M323.2 178 C327.61 178.45, 332.46 178.07, 336 178 M323.2 178 C327.48 177.95, 332.1 178.24, 336 178" data-paint="stroke" data-role="ornament" part="sp-rule">
+          <path d="M208,178L278.17,93.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+          <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+            "Meter"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="80" y="189">
+            "0"
+          <text data-kind="tick" part="sp-axis" text-anchor="middle" x="336" y="189">
+            "100"
+          <text data-kind="value" part="sp-text" text-anchor="middle" x="208" y="207">
+            "72%"
+        <div aria-live="polite" class="sp-live">
+        <div class="sp-table-box" data-visibility="hidden">
+          <table class="sp-table" data-visibility="hidden" id="mixed-spans--seven-table">
+            <caption>
+              "Meter"
+            <thead>
+              <tr>
+                <th scope="col">
+                  "measure"
+                <th scope="col">
+                  "value"
+            <tbody>
+              <tr>
+                <th scope="row">
+                  "value"
+                <td>
+                  "72%"

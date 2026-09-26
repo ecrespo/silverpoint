@@ -197,16 +197,30 @@ catalog row in its own `DASHBOARDS` list; every gate iterates it.
 
 ### 5c — Parity
 
-**[ ] T-115 · Dashboard fixtures and canonical renders** — REQ-210, REQ-182
+**[x] T-115 · Dashboard fixtures and canonical renders** — REQ-210, REQ-182
 - `fixtures/dashboard/…`: 3 dashboards × 4 substrates × 2 modes = 24 parity fixtures, canonical
   from the core-driven reference render.
 - **Done:** `DASHBOARDS` catalog added to `tools/visual-gate/catalog`; fixtures committed.
+- *Closed 2026-09-26.* `fixtures/dashboard/`: 24 `.dashboard.json` + `.canonical.txt` (not `.fixture.json`: the chart matrix loader reads every one of those) (3 dashboards
+  × 4 substrates × 2 modes, `ssrWidth` 1280). The fixture's substrate and mode are set on the
+  **dashboard**, so every chart inherits them (REQ-212, tested). The canonical is the reference
+  render of `tools/visual-gate/dashboard-canonical.ts`, from the core alone (`dashboardView` +
+  `inCell` + `renderChart`); `pnpm --filter @silverpoint/visual-gate dashboard-canonical` writes
+  it. `DASHBOARDS` is in `catalog.ts`. A test holds the committed canonicals current.
 
-**[ ] T-116 · Tree gate over the wrapper** — REQ-210, DD-017
+**[x] T-116 · Tree gate over the wrapper** — REQ-210, DD-017
 - The DD-004 comparator parses the whole fragment; the only stripping is the existing hydration
   marker rule. Tests: RED on a wrapper attribute changed in one adapter; RED on an extra comment
   node.
 - **Done:** 24 × 3 adapters green.
+- *Closed 2026-09-26.* `compareDashboard` in `tools/svg-normalizer`, with the three rules written
+  into DD-017 (comments kept except versioned hydration markers; `style` as declarations; Angular
+  hosts transparent). The gate is `dashboard-gate.ts`, and `dashboard-gate.real.test.ts` runs in
+  the CI gates project. React renders its **client** `Dashboard` and charts, the Next.js server
+  pass, because every adapter's chart root carries the same focusable, labelled group.
+  RED first with stand-in renderers: a changed wrapper attribute, and an extra comment, each named
+  on the guilty adapter only. **Real mutation:** `data-x` added to React's grid, rebuilt, and
+  exactly React's 24 comparisons failed. Result: 72 / 72 green.
 
 **[ ] T-117 · Pixel gate per breakpoint** — REQ-211
 - Goldens at 375 / 800 / 1280 px (72); run in the pinned Playwright image.

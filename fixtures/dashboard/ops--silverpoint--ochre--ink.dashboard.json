@@ -1,0 +1,10 @@
+{
+  "dashboard": "ops",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "id": "ops--silverpoint--ochre--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/ops--silverpoint--ochre--ink.canonical.txt"
+}

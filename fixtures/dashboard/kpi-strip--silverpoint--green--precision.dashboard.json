@@ -1,0 +1,10 @@
+{
+  "dashboard": "kpi-strip",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "id": "kpi-strip--silverpoint--green--precision",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/kpi-strip--silverpoint--green--precision.canonical.txt"
+}

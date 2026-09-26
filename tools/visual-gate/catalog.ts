@@ -40,6 +40,7 @@ import {
   type ChartRecipe,
   type CommonChartProps,
 } from '@silverpoint/core';
+import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 
 export interface CatalogEntry {
   /** Recipe name, React component name, and the suffix of the Vue `Sp*` name. */
@@ -386,3 +387,6 @@ export function catalogEntry(chart: string): CatalogEntry {
   if (!found) throw new Error(`No catalog entry for ${chart}`);
   return found;
 }
+
+/** The reference dashboards (Data Model §4), a catalog every dashboard gate iterates like `CATALOG`. */
+export const DASHBOARDS = Object.keys(DASHBOARD_DEMOS) as (keyof typeof DASHBOARD_DEMOS)[];

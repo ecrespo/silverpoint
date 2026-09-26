@@ -462,6 +462,17 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
 - **Framework noise:** adapters must not emit comments or empty text nodes in the wrapper; the
   existing rule that strips framework hydration markers from chart SVG is applied to the wrapper
   too, and it is the only stripping allowed.
+- **As implemented, three rules, each a parse and none a string patch:**
+  1. **Comments.** Comments are kept, except the hydration markers on an explicit, versioned
+     list: Vue's `[`, `]`, `v-if` and the empty comment; Angular's `container`, `ng-container`,
+     `ngh` and `bindings={…}`. Any other comment is a difference.
+  2. **Style.** `style` is compared as its declarations, in order, with numbers at 2 decimals, so
+     Vue's trailing `;` is serialisation, not content.
+  3. **Angular hosts.** Angular's component host elements (`sp-*`, e.g. `<sp-line-chart>`,
+     `<sp-chart-frame>`) are transparent, because React and Vue write no `sp-` element.
+
+  The canonical render is drawn from the core alone (`dashboardView`, `inCell`, the render
+  pipeline) and serialised by a reference writer in `tools/visual-gate`, never by an adapter.
 
 ### DD-018: No new package; `dashboard` subpath in each adapter
 

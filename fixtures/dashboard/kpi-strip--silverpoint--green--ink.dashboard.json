@@ -1,0 +1,10 @@
+{
+  "dashboard": "kpi-strip",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "id": "kpi-strip--silverpoint--green--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/kpi-strip--silverpoint--green--ink.canonical.txt"
+}

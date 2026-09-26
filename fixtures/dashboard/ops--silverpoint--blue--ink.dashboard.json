@@ -1,0 +1,10 @@
+{
+  "dashboard": "ops",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "id": "ops--silverpoint--blue--ink",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/ops--silverpoint--blue--ink.canonical.txt"
+}

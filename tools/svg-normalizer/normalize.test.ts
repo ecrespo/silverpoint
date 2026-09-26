@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { compareSvg, normalizeSvg } from './normalize';
+import { compareDashboard, compareSvg, normalizeDashboard, normalizeSvg } from './normalize';
 
 const svg = (inner: string, attrs = 'viewBox="0 0 10 10" class="sp-chart"') => `<svg ${attrs}>${inner}</svg>`;
 
@@ -78,5 +78,57 @@ describe('svg-normalizer', () => {
       ].join('\n'),
     );
     expect(normalizeSvg(text.length > 0 ? svg('<text x="1">A &amp; B</text><path d="M0,0" part="sp-ink"/>') : '')).not.toBe(text);
+  });
+});
+
+/** A dashboard wrapper around one cell, as React writes it. */
+const wrapper = (cellStyle = '--sp-cell-col-sm:1;--sp-cell-col-md:1', extra = '') =>
+  `<section class="sp-dashboard sp-ground-silverpoint" part="dashboard" data-substrate="cream" aria-labelledby="d-title" style="--sp-dashboard-columns-sm:1;--sp-dashboard-row-height:240px"><h2 class="sp-dashboard-title" part="dashboard-title" id="d-title">D</h2><div class="sp-dashboard-grid" part="dashboard-grid"><article class="sp-dashboard-cell" part="dashboard-cell" aria-labelledby="d--0-title" style="${cellStyle}">${extra}<div class="sp-root" data-substrate="cream">${svg('<path d="M0,0"></path>')}</div></article></div></section>`;
+
+describe('dashboard tree comparison (DD-017, T-116)', () => {
+  test('REQ-210 · the whole wrapper is compared, from the section down, charts included', () => {
+    expect(compareDashboard(wrapper(), wrapper())).toEqual({ equal: true });
+    expect(normalizeDashboard(wrapper())).toMatch(/^<section /);
+  });
+
+  test('REQ-210 · a wrapper attribute changed by one adapter fails, naming it', () => {
+    const changed = wrapper().replace('part="dashboard-grid"', 'part="grid"');
+    const result = compareDashboard(changed, wrapper());
+    expect(result.equal).toBe(false);
+    expect(result.difference).toMatch(/part/);
+  });
+
+  test('REQ-210 · a chart inside the wrapper that differs fails', () => {
+    expect(compareDashboard(wrapper().replace('M0,0', 'M0,1'), wrapper()).equal).toBe(false);
+  });
+
+  test('DD-017 · an extra comment node in the wrapper fails', () => {
+    const result = compareDashboard(wrapper(undefined, '<!-- note -->'), wrapper());
+    expect(result.equal).toBe(false);
+  });
+
+  test('DD-017 · Vue’s and Angular’s hydration markers are the only comments stripped', () => {
+    for (const marker of ['<!--[-->', '<!--]-->', '<!--v-if-->', '<!---->', '<!--container-->', '<!--ng-container-->', '<!--ngh-->']) {
+      expect(compareDashboard(wrapper(undefined, marker), wrapper()), marker).toEqual({ equal: true });
+    }
+  });
+
+  test('DD-017 · style is compared as declarations: a trailing semicolon is serialisation, not content', () => {
+    expect(compareDashboard(wrapper('--sp-cell-col-sm:1;--sp-cell-col-md:1;'), wrapper()).equal).toBe(true);
+    expect(compareDashboard(wrapper('--sp-cell-col-sm: 1; --sp-cell-col-md: 1'), wrapper()).equal).toBe(true);
+    expect(compareDashboard(wrapper('--sp-cell-col-sm:1;--sp-cell-col-md:2'), wrapper()).equal).toBe(false);
+    expect(compareDashboard(wrapper('--sp-cell-col-md:1;--sp-cell-col-sm:1'), wrapper()).equal).toBe(false);
+  });
+
+  test('DD-017 · REQ-002 · numbers in style are compared at 2 decimals', () => {
+    const at = (w: string) => wrapper(`--sp-cell-col-sm:1;--sp-cell-col-md:1;--w:${w}`);
+    expect(compareDashboard(at('288.004px'), at('288px')).equal).toBe(true);
+    expect(compareDashboard(at('288.01px'), at('288px')).equal).toBe(false);
+  });
+
+  test('DD-017 · Angular’s component hosts are transparent: React and Vue never write an sp- element', () => {
+    const angular = wrapper().replace(/<div class="sp-root"/, '<sp-line-chart><sp-chart-frame><div class="sp-root"').replace(/<\/div><\/article>/, '</div></sp-chart-frame></sp-line-chart></article>');
+    expect(angular).toContain('<sp-line-chart>');
+    expect(compareDashboard(angular, wrapper())).toEqual({ equal: true });
   });
 });

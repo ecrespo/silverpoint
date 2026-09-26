@@ -182,7 +182,7 @@ const VUE: Readonly<Record<string, VueComponent>> = {
   ChordRing: VueChordRing as VueComponent,
   OrbitChart: VueOrbitChart as VueComponent,
 };
-const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
+export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   LineChart: AngularLineChart,
   BulletChart: AngularBulletChart,
   PyramidChart: AngularPyramidChart,

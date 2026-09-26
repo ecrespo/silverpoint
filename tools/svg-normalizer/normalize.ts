@@ -14,7 +14,24 @@ export interface NormalElement {
   readonly attrs: readonly (readonly [string, string])[];
   readonly children: readonly NormalNode[];
 }
-export type NormalNode = NormalElement | { readonly text: string };
+export type NormalNode = NormalElement | { readonly text: string } | { readonly comment: string };
+
+/**
+ * Comments that are a framework's hydration markers, by explicit, versioned list (DD-017): Vue's
+ * fragment and `v-if` anchors, Angular's container anchors and hydration marks. Any other comment
+ * in a dashboard is content, and a difference.
+ */
+const HYDRATION_MARKERS = new Set(['[', ']', 'v-if', '', 'container', 'ng-container', 'ngh']);
+const HYDRATION_MARKER_PATTERNS = [/^bindings=\{/];
+const isHydrationMarker = (text: string) => HYDRATION_MARKERS.has(text.trim()) || HYDRATION_MARKER_PATTERNS.some((p) => p.test(text.trim()));
+
+/** Angular's component host elements (`<sp-line-chart>`, `<sp-chart-frame>`…): React and Vue write none. */
+const ANGULAR_HOST = /^sp-[a-z-]+$/;
+
+interface TreeOptions {
+  /** DD-017: keep non-marker comments, unwrap Angular hosts, compare `style` as declarations. */
+  readonly dashboard: boolean;
+}
 
 /**
  * Attributes a framework injects, filtered by explicit, versioned list. A new one breaks the
@@ -64,12 +81,44 @@ function filtered(name: string): boolean {
   return FILTERED_NAMES.has(name) || FILTERED_PREFIXES.some((prefix) => name.startsWith(prefix));
 }
 
-function toTree(element: ParsedElement, ids: Map<string, string>): NormalElement {
+/** `style` as its declarations, in order, each `name:value` with numbers at 2 decimals (DD-017). */
+function styleDeclarations(value: string): string {
+  return value
+    .split(';')
+    .map((declaration) => declaration.trim())
+    .filter(Boolean)
+    .map((declaration) => {
+      const colon = declaration.indexOf(':');
+      const name = declaration.slice(0, colon).trim();
+      const body = declaration.slice(colon + 1).trim().replace(NUMBER, (token) => round2(Number(token)));
+      return `${name}:${body}`;
+    })
+    .join(';');
+}
+
+function childNodes(element: ParsedElement, options: TreeOptions, ids: Map<string, string>): NormalNode[] {
+  const children: NormalNode[] = [];
+  for (const child of element.childNodes) {
+    if (isElement(child)) {
+      if (options.dashboard && ANGULAR_HOST.test(child.tagName)) children.push(...childNodes(child, options, ids));
+      else children.push(toTree(child, ids, options));
+    } else if (child.nodeName === '#text' && 'value' in child) {
+      const text = child.value.replace(/\s+/g, ' ').trim();
+      if (text.length > 0) children.push({ text });
+    } else if (options.dashboard && child.nodeName === '#comment' && 'data' in child && !isHydrationMarker(child.data)) {
+      children.push({ comment: child.data.trim() });
+    }
+  }
+  return children;
+}
+
+function toTree(element: ParsedElement, ids: Map<string, string>, options: TreeOptions = { dashboard: false }): NormalElement {
   const attrs = element.attrs
     .filter((attr) => !filtered(attr.name))
     .map((attr) => {
       let value = attr.value.trim().replace(/\s+/g, ' ');
       if (NUMERIC.has(attr.name)) value = value.replace(NUMBER, (token) => round2(Number(token)));
+      if (options.dashboard && attr.name === 'style') value = styleDeclarations(value);
       for (const pattern of GENERATED_ID_TOKENS) {
         value = value.replace(pattern, (token) => {
           if (!ids.has(token)) ids.set(token, `gen${ids.size}`);
@@ -79,16 +128,7 @@ function toTree(element: ParsedElement, ids: Map<string, string>): NormalElement
       return [attr.name, value] as const;
     })
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
-  const children: NormalNode[] = [];
-  for (const child of element.childNodes) {
-    if (isElement(child)) {
-      children.push(toTree(child, ids));
-    } else if (child.nodeName === '#text' && 'value' in child) {
-      const text = child.value.replace(/\s+/g, ' ').trim();
-      if (text.length > 0) children.push({ text });
-    }
-  }
-  return { tag: element.tagName, attrs, children };
+  return { tag: element.tagName, attrs, children: childNodes(element, options, ids) };
 }
 
 /** Parses markup and returns the normalised tree of its chart `<svg>`. */
@@ -100,6 +140,10 @@ export function parseSvg(markup: string): NormalElement {
 
 function lines(node: NormalNode, depth: number, out: string[]): void {
   const indent = '  '.repeat(depth);
+  if ('comment' in node) {
+    out.push(`${indent}<!--${node.comment}-->`);
+    return;
+  }
   if ('text' in node) {
     out.push(`${indent}${JSON.stringify(node.text)}`);
     return;
@@ -117,10 +161,14 @@ export function normalizeSvg(markup: string): string {
 }
 
 function label(node: NormalNode): string {
-  return 'text' in node ? '#text' : node.tag;
+  return 'comment' in node ? '#comment' : 'text' in node ? '#text' : node.tag;
 }
 
 function difference(actual: NormalNode, expected: NormalNode, path: string): string | undefined {
+  if ('comment' in actual || 'comment' in expected) {
+    if ('comment' in actual && 'comment' in expected && actual.comment === expected.comment) return undefined;
+    return `${path}: ${label(actual)} ≠ ${label(expected)}`;
+  }
   if ('text' in actual || 'text' in expected) {
     if ('text' in actual && 'text' in expected && actual.text === expected.text) return undefined;
     return `${path}: ${JSON.stringify('text' in actual ? actual.text : `<${actual.tag}>`)} ≠ ${JSON.stringify('text' in expected ? expected.text : `<${expected.tag}>`)}`;
@@ -151,5 +199,34 @@ function difference(actual: NormalNode, expected: NormalNode, path: string): str
 /** Compares two renders as normalised trees, reporting the first difference. */
 export function compareSvg(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
   const found = difference(parseSvg(actual), parseSvg(expected), 'svg');
+  return found === undefined ? { equal: true } : { equal: false, difference: found };
+}
+
+function findDashboard(node: ParsedNode): ParsedElement | undefined {
+  if (isElement(node) && node.tagName === 'section' && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-dashboard')) return node;
+  for (const child of 'childNodes' in node ? node.childNodes : []) {
+    const found = findDashboard(child);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+/** Parses markup and returns the normalised tree of its dashboard `<section>`, charts included (DD-017). */
+export function parseDashboard(markup: string): NormalElement {
+  const section = findDashboard(parseFragment(markup));
+  if (!section) throw new Error('No <section class="sp-dashboard"> in the markup.');
+  return toTree(section, new Map(), { dashboard: true });
+}
+
+/** The normalised dashboard as text, one node per line: what a dashboard fixture's canonical file holds. */
+export function normalizeDashboard(markup: string): string {
+  const out: string[] = [];
+  lines(parseDashboard(markup), 0, out);
+  return out.join('\n');
+}
+
+/** Compares two dashboard renders as normalised trees, reporting the first difference (REQ-210). */
+export function compareDashboard(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
+  const found = difference(parseDashboard(actual), parseDashboard(expected), 'section');
   return found === undefined ? { equal: true } : { equal: false, difference: found };
 }

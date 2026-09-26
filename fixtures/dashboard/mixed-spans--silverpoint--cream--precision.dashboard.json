@@ -1,0 +1,10 @@
+{
+  "dashboard": "mixed-spans",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "id": "mixed-spans--silverpoint--cream--precision",
+  "req": "REQ-210",
+  "ssrWidth": 1280,
+  "canonical": "dashboard/mixed-spans--silverpoint--cream--precision.canonical.txt"
+}
