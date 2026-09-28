@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
-import { citedIn, coverage, deferredIn, passes, requirementsIn, TEST_ROOTS, testFiles } from './traceability';
+import { citedIn, coverage, deferredIn, passes, pendingIn, requirementsIn, TEST_ROOTS, testFiles } from './traceability';
 
 const prd = `
 | ID | Pattern | Criterion | Priority |
@@ -86,5 +86,40 @@ describe('traceability', () => {
     const lost = projects.filter((project) => !TEST_ROOTS.some((dir) => project === dir || project.startsWith(`${dir}/`)));
     expect(lost).toEqual([]);
     expect(TEST_ROOTS.flatMap((dir) => testFiles(`${root}${dir}`))).toContain(`${root}docs/site/test/props.test.ts`);
+  });
+  const delta = (status: string) => `
+| Field | Value |
+|---|---|
+| **Status** | ${status} |
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-300 | ubiquitous | THE SYSTEM SHALL provide. | MUST |
+| REQ-333 | optional | WHERE provider. | SHOULD |
+`;
+
+  test('REQ-183 · an approved delta PRD not yet folded yields pending requirements (feature-002 Phase 1)', () => {
+    expect(pendingIn(delta('`APPROVED` — gate 1, approved 2026-09-28'))).toEqual(
+      new Map([
+        ['REQ-300', 'MUST'],
+        ['REQ-333', 'SHOULD'],
+      ]),
+    );
+    expect(pendingIn(delta('`PROPOSED` — gate 1, awaiting the user'))).toEqual(new Map());
+  });
+
+  test('REQ-184 · a pending requirement may be cited without being unknown, and is never blocking', () => {
+    const pending = pendingIn(delta('`APPROVED`'));
+    const report = coverage(requirementsIn(prd), new Set(['REQ-001', 'REQ-002', 'REQ-060', 'REQ-300', 'REQ-777']), deferredIn(tasks), pending);
+    expect(report.unknown).toEqual(['REQ-777']);
+    expect(report.pending).toEqual(['REQ-300']);
+    expect(report.blocking).toEqual([]);
+    expect(passes(coverage(requirementsIn(prd), new Set(['REQ-001', 'REQ-002', 'REQ-060', 'REQ-300']), deferredIn(tasks), pending))).toBe(true);
+  });
+
+  test('REQ-183 · a requirement already folded into the PRD is not pending', () => {
+    const report = coverage(requirementsIn(prd), new Set(['REQ-001']), new Set(), new Map([['REQ-001', 'MUST']]));
+    expect(report.pending).toEqual([]);
+    expect(report.covered).toEqual(['REQ-001']);
   });
 });

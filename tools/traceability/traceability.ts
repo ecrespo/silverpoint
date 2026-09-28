@@ -26,6 +26,16 @@ export function requirementsIn(prd: string): Map<string, string> {
 }
 
 /**
+ * Requirements of a delta PRD (`changes/<change>/prd-delta.md`) whose gate is approved but which
+ * is not folded into `specs/prd.md` yet. Tests may cite them while the change is implemented;
+ * they are neither unknown nor blocking until the fold makes them ordinary requirements.
+ */
+export function pendingIn(prdDelta: string): Map<string, string> {
+  const status = /^\|\s*\*\*Status\*\*\s*\|\s*`APPROVED`/m;
+  return status.test(prdDelta) ? requirementsIn(prdDelta) : new Map();
+}
+
+/**
  * Requirements cited in test names: the first string argument of `test(…)`, `it(…)`, their
  * `.only` / `.concurrent` forms, and the title call that follows `test.each(…)`. A `.skip` or
  * `.todo` test runs nothing, so its title cites nothing.
@@ -64,6 +74,8 @@ export interface CoverageReport {
   readonly deferred: string[];
   /** Identifiers cited by a test but defined nowhere in the PRD. */
   readonly unknown: string[];
+  /** Identifiers cited by a test and defined by an approved delta not yet folded. */
+  readonly pending: string[];
 }
 
 /** The Analyze gate's verdict: something to check, every MUST cited or deferred, nothing unknown. */
@@ -72,13 +84,19 @@ export function passes(report: CoverageReport): boolean {
   return musts > 0 && report.blocking.length === 0 && report.unknown.length === 0;
 }
 
-export function coverage(requirements: Map<string, string>, cited: Set<string>, deferred: Set<string>): CoverageReport {
+export function coverage(
+  requirements: Map<string, string>,
+  cited: Set<string>,
+  deferred: Set<string>,
+  pending: Map<string, string> = new Map(),
+): CoverageReport {
   const musts = [...requirements].filter(([, priority]) => priority === 'MUST').map(([id]) => id).sort();
   return {
     covered: musts.filter((id) => cited.has(id)),
     blocking: musts.filter((id) => !cited.has(id) && !deferred.has(id)),
     deferred: musts.filter((id) => !cited.has(id) && deferred.has(id)),
-    unknown: [...cited].filter((id) => !requirements.has(id)).sort(),
+    unknown: [...cited].filter((id) => !requirements.has(id) && !pending.has(id)).sort(),
+    pending: [...cited].filter((id) => !requirements.has(id) && pending.has(id)).sort(),
   };
 }
 
@@ -100,6 +118,11 @@ function main(): void {
   const root = fileURLToPath(new URL('../..', import.meta.url));
   const requirements = requirementsIn(readFileSync(join(root, 'specs/prd.md'), 'utf8'));
   const deferred = deferredIn(readFileSync(join(root, 'specs/tasks.md'), 'utf8'));
+  const pending = new Map(
+    readdirSync(join(root, 'changes'), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && existsSync(join(root, 'changes', entry.name, 'prd-delta.md')))
+      .flatMap((entry) => [...pendingIn(readFileSync(join(root, 'changes', entry.name, 'prd-delta.md'), 'utf8'))]),
+  );
   const files = TEST_ROOTS.flatMap((dir) => testFiles(join(root, dir)));
   const citations = new Map<string, string[]>();
   for (const file of files) {
@@ -107,7 +130,7 @@ function main(): void {
       citations.set(id, [...(citations.get(id) ?? []), relative(root, file)]);
     }
   }
-  const report = coverage(requirements, new Set(citations.keys()), deferred);
+  const report = coverage(requirements, new Set(citations.keys()), deferred, pending);
   const musts = report.covered.length + report.blocking.length + report.deferred.length;
   const lines = [
     '# Traceability — REQ-183 / REQ-184',
@@ -121,6 +144,10 @@ function main(): void {
     '## Deferred to a later phase',
     '',
     report.deferred.join(', ') || 'None.',
+    '',
+    '## Pending — cited, defined by an approved delta not yet folded',
+    '',
+    report.pending.join(', ') || 'None.',
     '',
     '## Cited but undefined',
     '',

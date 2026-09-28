@@ -12,7 +12,7 @@ No new package (DD-021): the components ship inside the existing seven, under on
 
 | Package | Subpath | Exports |
 |---|---|---|
-| `@silverpoint/core` | internal surface (§2) | `ui/*`: value geometry, keyboard transitions, frame variant, item validation, types below |
+| `@silverpoint/core` | `@silverpoint/core/ui` (internal surface, §2) and `@silverpoint/core/ui-demos` | `ui/*`: value geometry, keyboard transitions, frame variant, item validation, types below. A subpath of its own, so the charts' entry and its 45 kB budget are unchanged, and the UI runtime is measured apart (REQ-330) |
 | `@silverpoint/grounds` | `@silverpoint/grounds/ui.css` | The components' stylesheet: frame and tone pieces per ground, sizes, focus, states (§10.2). Opt-in (REQ-301) |
 | `@silverpoint/react` | `@silverpoint/react/ui/<name>` and the barrel `@silverpoint/react/ui` | `SpButton`, `SpInput`, `SpCheckbox`, `SpRadioGroup`, `SpSwitch`, `SpSlider`, `SpRate`, `SpSegmented`, `SpTabs`, `SpTabPanel`, `SpSteps`, `SpCard`, `SpTag`, `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert`, `SpSkeleton` |
 | `@silverpoint/vue` | `@silverpoint/vue/ui/<name>` and `@silverpoint/vue/ui` | The same names as React (`SpButton`, `SpTabPanel`, …) |
@@ -112,17 +112,30 @@ diagnostic — a key that disappears from `items` is an ordinary state of dynami
 /** 0..variants-1, from seed ?? id ?? 0 (REQ-307). Pure. */
 export function uiFrameVariant(seed: Seed | undefined, id: string | undefined, variants: number): number;
 
-/** Exact outline of a frame kind, the input the grounds build inks into pieces (DD-022). Build time only. */
-export function uiFrameOutline(kind: 'control' | 'pill' | 'box' | 'card' | 'round'): Geometry;
+/** Box, slice and radius of each frame kind, the geometry the grounds build cuts (DD-022). */
+export const UI_FRAME_KINDS: Record<UiFrameKind, { size: number; slice: number; radius: number }>;
 
-/** Value → exact fraction in [0, 1], 2 decimals, after clamping and step rounding (REQ-324). */
-export function uiValue(value: number, range: { min: number; max: number; step: number }): { value: number; fraction: number; corrected: boolean };
+/**
+ * Exact outline of a frame kind, the input the grounds build inks into pieces (DD-022). Build time
+ * only. One `ornament` stroke: a frame carries no value, so the ground's inker may draw it, with
+ * its vertices preserved (Art. 1 as amended).
+ */
+export function uiFrameOutline(kind: UiFrameKind): Geometry;
+
+/**
+ * Value → exact fraction in [0, 1], 2 decimals, after clamping and step rounding (REQ-324).
+ * Without `step` the value is only clamped (Progress). `component` names the `SP017` warning.
+ */
+export function uiValue(value: number, range: { min: number; max: number; step?: number }, component?: string): { value: number; fraction: number; corrected: boolean };
+
+/** A Rate's `count`: integer in 1..10, default 5; corrected with `SP017`. */
+export function uiRateCount(count: number | undefined, component?: string): number;
 
 /** Circle progress: the exact arc of the existing polar engine, in a 100 × 100 view box. */
 export function uiProgressArc(fraction: number, stroke: number): { track: Stroke; fill: Stroke };  // both `role: 'encoding'`
 
-/** Steps: status per item and the connector fractions; a connector's status is the status of the step it leads to. */
-export function uiSteps(items: readonly StepItem[], current: number): readonly { key: string; status: StepItem['status']; connector: number }[];
+/** Steps: status per item, and the status of the connector after it —that of the step it leads to (C-4); `null` after the last. */
+export function uiSteps(items: readonly StepItem[], current: number, component?: string): readonly { key: string; status: StepStatus; connector: StepStatus | null }[];
 
 /** WAI-ARIA APG transitions for roving focus (REQ-315). Pure. */
 export function uiRovingKey(
@@ -132,12 +145,17 @@ export function uiRovingKey(
   dir: 'ltr' | 'rtl',
 ): number;
 
-/** Keeps the first of each key, reports the rest (REQ-325, SP019). */
+/** Keeps the first of each key, skips the rest and any empty key (REQ-325, SP019). */
 export function uiItems<T extends { key: string }>(items: readonly T[], component: string): readonly T[];
 
 /** Accessible-name check (REQ-319, SP018). */
 export function uiRequireName(component: string, text: string | undefined, label: string | undefined): void;
 ```
+
+**Framework-neutral props and demos.** The core also declares each component's own props as
+`Sp<Name>Props` (value binding and slots excepted, being each adapter's idiom), the catalog
+`UI_COMPONENTS` (17 rows: name, slug, component, group, states), and, on the subpath
+`@silverpoint/core/ui-demos` so no application ships them, the frozen `UI_DEMOS` (Data Model §4).
 
 ## 3. Default values (§5.1) — additions
 

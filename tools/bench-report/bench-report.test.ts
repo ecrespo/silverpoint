@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { benchReport, DASHBOARD_BUDGET_MS, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS } from './bench-report';
+import { benchReport, DASHBOARD_BUDGET_MS, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS, UI_BUDGET_MS } from './bench-report';
 
 /** The shape `vitest bench --reporter=json` writes: each test case carries its benchmarks. */
 const run = (means: Record<string, number>) => ({
@@ -45,5 +45,12 @@ describe('bench report (TD §2, run nightly)', () => {
     const report = benchReport(run({ 'dashboard · resolve 24 cells': 0.6, 'dashboard · resolve ops': 0.1 }));
     expect(report.over).toEqual(['dashboard · resolve 24 cells']);
     expect(report.markdown).toContain('| dashboard · resolve ops | 0.100 | 0.200 | 500 | 0.5 ms | within |');
+  });
+
+  test('REQ-302 · a UI component computation or keyboard transition is held to 0.05 ms (feature-002 T-136)', () => {
+    expect(UI_BUDGET_MS).toBe(0.05);
+    const report = benchReport(run({ 'ui · uiRovingKey': 0.01, 'ui · uiProgressArc': 0.06 }));
+    expect(report.over).toEqual(['ui · uiProgressArc']);
+    expect(report.markdown).toContain('| ui · uiRovingKey | 0.010 | 0.020 | 500 | 0.05 ms | within |');
   });
 });

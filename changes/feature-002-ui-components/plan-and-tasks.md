@@ -43,28 +43,29 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 
 ### 6a — Core
 
-**[ ] T-135 · UI types and the component catalog row** — REQ-300, REQ-302
+**[x] T-135 · UI types and the component catalog row** — REQ-300, REQ-302
 - `packages/core/src/ui/types.ts` (API delta §2) on the internal surface; `UI_COMPONENTS` (17 rows:
   name, slug, group, states).
 - Tests: the catalog has 17 entries in the PRD's groups; every row names ≥ 1 state; types compile
   (type tests for required `items`/`label`/`name` where the API delta requires them).
 - **Done:** tests green; mutation: drop a component → red.
 
-**[ ] T-136 · `uiValue`, `uiProgressArc`, `uiSteps`** — REQ-302, REQ-304, REQ-324 `[P]`
+**[x] T-136 · `uiValue`, `uiProgressArc`, `uiSteps`** — REQ-302, REQ-304, REQ-324 `[P]`
 - Tests (RED first): clamping, step rounding from `min`, fraction to 2 decimals, exact ends
   (I-22); invalid `min/max/step/count` → defaults + `SP017`; circle arc strokes are
   `role: 'encoding'` and match the polar engine; step statuses from `current`; `current` clamped.
 - **Done:** tests green; benchmark < 0.05 ms per call.
 
-**[ ] T-137 · `uiRovingKey`** — REQ-315, REQ-321, REQ-326 `[P]`
+**[x] T-137 · `uiRovingKey`** — REQ-315, REQ-321, REQ-326 `[P]`
 - Tests: every key × orientation × `ltr`/`rtl` × disabled patterns (all disabled, gaps, ends);
   Home/End skip disabled items; arrows wrap at the ends, as the APG tabs and radio-group patterns
   do (Rate and Segmented are radio groups).
 - **Done:** tests green; mutation: ignore `dir` → RTL cases red.
 
-**[ ] T-138 · `uiFrameVariant`, `uiFrameOutline`, `uiItems`, `uiRequireName`, `UI_DEMOS`** — REQ-307, REQ-319, REQ-325 `[P]`
+**[x] T-138 · `uiFrameVariant`, `uiFrameOutline`, `uiItems`, `uiRequireName`, `UI_DEMOS`** — REQ-307, REQ-319, REQ-325 `[P]`
 - Tests: variant purity and range, `0` without seed and id (I-21); outline per kind is exact
-  (`role: 'encoding'` vertices at 2 decimals); duplicate keys → first kept + `SP019`; missing name →
+  (vertices at 2 decimals, inside the box; one `ornament` stroke, so the ground's inker can draw it —
+  corrected in Phase 1 from `encoding`, which no inker touches); duplicate keys → first kept + `SP019`; missing name →
   `SP018`; `UI_DEMOS` deep-frozen with one entry per declared state (45).
 - **Done:** tests green. **6a closed.**
 
@@ -214,3 +215,9 @@ Every task cites at least one REQ; no orphan task.
 - **Art. 9** — no task before gate 4; the deltas fold in T-162; every task cites its REQ.
 - **Art. 2 / Art. 3** — 6a before 6c: adapters consume the core; 6d holds them to parity per batch.
 - **Exception requested:** none.
+
+## Progress
+
+| Step | Closed | Ledger |
+|---|---|---|
+| 6a — Core (T-135..T-138) | 2026-09-28 | `packages/core/src/ui/`: types and `Sp<Name>Props`, `UI_COMPONENTS` (17 rows, 45 states), `uiValue`, `uiRateCount`, `uiProgressArc`, `uiSteps`, `uiRovingKey`, `uiFrameVariant`, `UI_FRAME_KINDS`, `uiFrameOutline`, `uiItems`, `uiRequireName`; all on the subpath `@silverpoint/core/ui` —exported from the main entry they took the core's full bundle to 46.16 kB, over its 45 kB— and `UI_DEMOS` on `@silverpoint/core/ui-demos`; diagnostics `SP017`..`SP019`. Tests written first, then mutation-checked (8 mutations, all red). Benchmarks `ui · …` against a 0.05 ms budget in `tools/bench-report`: the slowest, `uiProgressArc`, 0.006 ms mean. `tools/traceability` reads approved, unfolded delta PRDs as *pending*: citable, never unknown or blocking, until T-162 folds them |

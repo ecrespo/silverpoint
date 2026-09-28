@@ -21,6 +21,18 @@
       "import": "./dist/dashboard-demos.js",
       "default": "./dist/dashboard-demos.js"
     },
+    "./ui": {
+      "@silverpoint/source": "./src/ui/index.ts",
+      "types": "./dist/ui.d.ts",
+      "import": "./dist/ui.js",
+      "default": "./dist/ui.js"
+    },
+    "./ui-demos": {
+      "@silverpoint/source": "./src/ui-demos.ts",
+      "types": "./dist/ui-demos.d.ts",
+      "import": "./dist/ui-demos.js",
+      "default": "./dist/ui-demos.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

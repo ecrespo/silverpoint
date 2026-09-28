@@ -15,7 +15,10 @@ export type SpCode =
   | 'SP013'
   | 'SP014'
   | 'SP015'
-  | 'SP016';
+  | 'SP016'
+  | 'SP017'
+  | 'SP018'
+  | 'SP019';
 
 export interface Detail {
   /** The property involved. */
@@ -176,6 +179,21 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
     req: 'REQ-217',
     what: 'a chart in a linked dashboard has no field named by `link.key`; it shows no linked mark',
     todo: 'Link on a field every linked chart carries, or leave this chart out of the link',
+  },
+  SP017: {
+    req: 'REQ-324',
+    what: 'a value or a range cannot be drawn as given; it is clamped, rounded to its step or defaulted',
+    todo: 'Keep the value within `min`..`max` and on `step`, with `min < max` and `step > 0`',
+  },
+  SP018: {
+    req: 'REQ-319',
+    what: 'the component has no accessible name: no text content and no `label`',
+    todo: 'Give it visible text, or a `label` for an icon-only control',
+  },
+  SP019: {
+    req: 'REQ-325',
+    what: 'items share a key, or have none; the first is kept and the later ones are skipped',
+    todo: 'Give every item a unique, non-empty `key`',
   },
   SP013: {
     req: 'REQ-032',
