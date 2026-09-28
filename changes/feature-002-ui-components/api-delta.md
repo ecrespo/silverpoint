@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — gate 2, awaiting the user's approval |
+| **Status** | `APPROVED` — gate 2, approved 2026-09-28 by Ernesto Crespo, with OQ-U2 (`Sp` prefix), C-1, C-2, C-4, C-6, C-7, A-03 and A-06 of [`analyze.md`](analyze.md) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.8 → v1.9: §1, §2, §3, §5.1, §6, new §7.2, §8.1–8.3, §9, §10.1–10.3, §11, §12 |
 | **SemVer** | `minor` — new subpaths, components, a stylesheet, optional tokens and codes (§13) |
 
@@ -14,19 +14,23 @@ No new package (DD-021): the components ship inside the existing seven, under on
 |---|---|---|
 | `@silverpoint/core` | internal surface (§2) | `ui/*`: value geometry, keyboard transitions, frame variant, item validation, types below |
 | `@silverpoint/grounds` | `@silverpoint/grounds/ui.css` | The components' stylesheet: frame and tone pieces per ground, sizes, focus, states (§10.2). Opt-in (REQ-301) |
-| `@silverpoint/react` | `@silverpoint/react/ui/<name>` and the barrel `@silverpoint/react/ui` | `Button`, `Input`, `Checkbox`, `RadioGroup`, `Switch`, `Slider`, `Rate`, `Segmented`, `Tabs`, `TabPanel`, `Steps`, `Card`, `Tag`, `Badge`, `Divider`, `Progress`, `Alert`, `Skeleton` |
-| `@silverpoint/vue` | `@silverpoint/vue/ui/<name>` and `@silverpoint/vue/ui` | The same, prefixed `Sp` (`SpButton`, `SpTabPanel`, …) |
+| `@silverpoint/react` | `@silverpoint/react/ui/<name>` and the barrel `@silverpoint/react/ui` | `SpButton`, `SpInput`, `SpCheckbox`, `SpRadioGroup`, `SpSwitch`, `SpSlider`, `SpRate`, `SpSegmented`, `SpTabs`, `SpTabPanel`, `SpSteps`, `SpCard`, `SpTag`, `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert`, `SpSkeleton` |
+| `@silverpoint/vue` | `@silverpoint/vue/ui/<name>` and `@silverpoint/vue/ui` | The same names as React (`SpButton`, `SpTabPanel`, …) |
 | `@silverpoint/angular` | `@silverpoint/angular/ui/<name>` (secondary entry points) and `@silverpoint/angular/ui` | `SpButton` (`button[spButton], a[spButton]`), `SpInput` (`input[spInput]`), and `sp-checkbox`, `sp-radio-group`, `sp-switch`, `sp-slider`, `sp-rate`, `sp-segmented`, `sp-tabs`, `sp-tab-panel`, `sp-steps`, `sp-card`, `sp-tag`, `sp-badge`, `sp-divider`, `sp-progress`, `sp-alert`, `sp-skeleton` |
 
-`<name>` is kebab-case: `ui/button`, `ui/radio-group`, `ui/tabs` (which also exports `TabPanel`).
+`<name>` is kebab-case: `ui/button`, `ui/radio-group`, `ui/tabs` (which also exports `SpTabPanel`).
+Every component is named `Sp<Name>` in the three adapters (OQ-U2, decided 2026-09-28): unlike the
+charts, component names such as `Button` and `Input` collide with every application's own, and one
+name per component keeps the docs and the parity fixtures adapter-neutral. The component tables
+below use the bare `<Name>` for brevity.
 The React client boundary (`"use client"`) is set only on components with state or effects:
-`Card`, `Tag` (non-closable), `Badge`, `Divider`, `Progress`, `Alert` (non-closable) and `Skeleton`
+`SpCard`, `SpTag` (non-closable), `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert` (non-closable) and `SpSkeleton`
 are server-safe (REQ-104 extended).
 
 ```ts
 import '@silverpoint/grounds/styles.css';   // as today
 import '@silverpoint/grounds/ui.css';       // once, only if the app uses components
-import { Segmented } from '@silverpoint/react/ui/segmented';
+import { SpSegmented } from '@silverpoint/react/ui/segmented';
 ```
 
 ## 2. Types (§3)
@@ -63,7 +67,8 @@ export interface StepItem {
   status?: 'wait' | 'process' | 'finish' | 'error';
 }
 
-export type UiTone = 'default' | 'primary' | 'danger';
+/** Button emphasis. Not a tone: `tone` names only a level 1-4 of the ground's ramp (A-07). */
+export type UiVariant = 'default' | 'primary' | 'danger';
 export type AlertKind = 'info' | 'success' | 'warning' | 'error';
 ```
 
@@ -71,13 +76,13 @@ export type AlertKind = 'info' | 'success' | 'warning' | 'error';
 
 | Component | Props | Value / events |
 |---|---|---|
-| **Button** | `tone?: UiTone` (`default`), `type?: 'button' \| 'submit' \| 'reset'` (`button`), `disabled?`, `label?` (accessible name for icon-only), `block?: boolean`, `href?` (renders `<a>`) | `onClick` / `@click` / `(click)` — native |
-| **Input** | `type?: 'text' \| 'search' \| 'email' \| 'url' \| 'tel' \| 'password' \| 'number'`, `placeholder?`, `name?`, `disabled?`, `readOnly?`, `invalid?: boolean`, `prefix?`/`suffix?` (slots) | value: `string` |
+| **Button** | `variant?: UiVariant` (`default`; `danger` also draws the exact ✕ glyph, REQ-310), `type?: 'button' \| 'submit' \| 'reset'` (`button`), `disabled?`, `label?` (accessible name for icon-only), `block?: boolean`, `href?` (renders `<a>`) | `onClick` / `@click` / `(click)` — native |
+| **Input** | `type?: 'text' \| 'search' \| 'email' \| 'url' \| 'tel' \| 'password' \| 'number'`, `placeholder?`, `name?`, `disabled?`, `readOnly?`, `invalid?: boolean` (sets `aria-invalid="true"` and draws the exact ⚠ glyph), `message?: string` (help or error text under the control, `${id}--message`, referenced by `aria-describedby`; REQ-334), `prefix?`/`suffix?` (slots) | value: `string` |
 | **Checkbox** | `label`, `name?`, `disabled?`, `indeterminate?: boolean` | value: `boolean` (`checked`) |
 | **RadioGroup** | `items: UiItem[]`, `name` (required), `label` (group name), `orientation?: 'horizontal' \| 'vertical'` (`vertical`) | value: `string \| null` (a key) |
 | **Switch** | `label`, `name?`, `disabled?` | value: `boolean` |
 | **Slider** | `label`, `min?` (`0`), `max?` (`100`), `step?` (`1`), `name?`, `disabled?`, `marks?: number[]` | value: `number` |
-| **Rate** | `label`, `count?` (`5`, 1..10), `name?`, `disabled?`, `readOnly?` | value: `number` (0..count, integer) |
+| **Rate** | `label`, `count?` (`5`, 1..10; each mark an exact lozenge), `name?`, `disabled?`, `readOnly?` | value: `number` (0..count, integer) |
 | **Segmented** | `items: UiItem[]`, `label`, `name?`, `block?` | value: `string` (a key) |
 | **Tabs** | `items: UiItem[]`, `label?`, `orientation?` (`horizontal`), `activation?: 'automatic' \| 'manual'` (`automatic`) | value: `string` (the active key); panels are `TabPanel value="key"` children |
 | **Steps** | `items: StepItem[]`, `current: number` (0-based), `orientation?` (`horizontal`), `label?` | — (display only in `0.3.0`) |
@@ -97,6 +102,10 @@ export type AlertKind = 'info' | 'success' | 'warning' | 'error';
 | Vue | `v-model` (`modelValue`) | omit `v-model`, `default-value` | `update:modelValue`, and `change` after commit (Slider: pointer up / key) |
 | Angular | `[(value)]` (`model()` signal), or any forms directive through `ControlValueAccessor` (REQ-323) | `[defaultValue]` | `(valueChange)` |
 
+**Values outside their domain** (Data Model §2.14). A number out of range or off step is clamped
+and rounded with `SP017` (REQ-324). An unknown key is not a range error, and is corrected silently: RadioGroup falls back to `null`, Segmented and Tabs to their first enabled key, with no
+diagnostic — a key that disappears from `items` is an ordinary state of dynamic data (A-06).
+
 ### Core internal surface (§2)
 
 ```ts
@@ -112,7 +121,7 @@ export function uiValue(value: number, range: { min: number; max: number; step: 
 /** Circle progress: the exact arc of the existing polar engine, in a 100 × 100 view box. */
 export function uiProgressArc(fraction: number, stroke: number): { track: Stroke; fill: Stroke };  // both `role: 'encoding'`
 
-/** Steps: status per item and the connector fractions. */
+/** Steps: status per item and the connector fractions; a connector's status is the status of the step it leads to. */
 export function uiSteps(items: readonly StepItem[], current: number): readonly { key: string; status: StepItem['status']; connector: number }[];
 
 /** WAI-ARIA APG transitions for roving focus (REQ-315). Pure. */
@@ -153,26 +162,30 @@ elements with a `part`:
 
 | Component | Root | Native / semantic core | Drawn parts |
 |---|---|---|---|
-| Button | `<button>` (or `<a>` with `href`) | itself | `sp-frame`, `sp-tone` (for `primary`/`danger`) |
-| Input | `<span class="sp-ui sp-input">` | `<input>` | `sp-frame` |
+| Button | `<button>` (or `<a>` with `href`) | itself | `sp-frame`, `sp-tone` (for `primary`/`danger`), `sp-mark` (✕ glyph, exact, for `danger`) |
+| Input | `<span class="sp-ui sp-input">` | `<input>` (`aria-invalid`, `aria-describedby` when `message`), then `<span id="${id}--message">` | `sp-frame`, `sp-mark` (⚠ glyph, exact, when `invalid`) |
 | Checkbox | `<label>` | `<input type="checkbox">` visually hidden | `sp-frame` (box), `sp-mark` (tick or dash, exact), `sp-tone` |
 | RadioGroup | `<fieldset>` + `<legend>` | `<input type="radio">` per item | per item `sp-frame`, `sp-mark` (dot, exact) |
 | Switch | `<label>` | `<input type="checkbox" role="switch">` | `sp-frame` (track), `sp-knob` (exact), `sp-tone` |
 | Slider | `<label>` | `<input type="range">` over the drawing | `sp-track`, `sp-fill` (exact length), `sp-thumb` (exact, heightened), `sp-mark` |
-| Rate | `<fieldset>` | `<input type="radio">` per value 1..count | per item `sp-mark` (exact), `sp-tone` when filled |
+| Rate | `<fieldset>` | `<input type="radio">` per value 1..count | per item `sp-mark` (exact lozenge), `sp-tone` when filled |
 | Segmented | `<fieldset>` | `<input type="radio">` per item | `sp-frame`, `sp-tone` + `sp-heighten` on the selected |
 | Tabs | `<div>` | `role="tablist"` of `<button role="tab">`, `role="tabpanel"` | `sp-rule`, `sp-heighten` on the active tab |
-| Steps | `<ol>` | `<li aria-current="step">` on current | `sp-mark` per step (exact), `sp-connector` (exact), `sp-heighten` on current |
+| Steps | `<ol>` | `<li aria-current="step">` on current | `sp-mark` per step (exact), `sp-connector` (exact) with `data-status` (`wait` connectors are dashed, the others solid), `sp-heighten` on current |
 | Card | `<article>` (`<section>` without title) | heading at `headingLevel` | `sp-frame`, `sp-rule` under header |
 | Tag | `<span>` | close `<button>` when closable | `sp-frame`, `sp-tone` |
 | Badge | `<span>` | count as text | `sp-frame` |
 | Divider | `<div role="separator">` | — | `sp-rule` |
 | Progress | `<div role="progressbar">` | — | `sp-track`, `sp-fill` (exact), value text |
-| Alert | `<div role="alert|status">` | close `<button>` when closable | `sp-frame`, `sp-mark` (kind glyph), `sp-tone` |
+| Alert | `<div role="alert|status">` | close `<button>` when closable | `sp-frame`, `sp-mark` (kind glyph: i, ✓, ⚠, ✕; exact), `sp-tone` for `error` only (ground `ui.tone.alertError`) |
 | Skeleton | `<div aria-busy="true">` | a visually-hidden label | `sp-tone` blocks, `aria-hidden` |
 
 Rules: no framework comments or empty text nodes in the emitted markup (DD-017's rule); element
 order is reading order; ids are `${id}--${part}` (REQ-329).
+
+**`ink` and `precision`** emit the same elements; only `data-mode` differs.
+In `precision` the frame becomes an exact border and the tone is unchanged (DD-022, C-7): hatch
+tiles, or line weights under a `weight` ground, stay, since tone is value, not ornament.
 
 ## 5. API by adapter (§8) — additions
 
@@ -211,15 +224,19 @@ item (REQ-326). Composite keyboard transitions come from `uiRovingKey` (REQ-315)
 
 ### 10.3 Accessibility contract — additions
 
-As in REQ-314..REQ-320 and the markup table above. The drawing never takes focus and never carries
-a name; the native or semantic element does.
+As in REQ-314..REQ-320, REQ-334 and the markup table above. The drawing never takes focus and never
+carries a name; the native or semantic element does.
+
+Parity holds for the markup the library emits. With the Angular attribute components (DD-024)
+the host is the consumer's own `<button>` or `<input>`: attributes the consumer adds to it are
+theirs, outside the contract and outside the gate (A-03).
 
 ## 8. Catalog of errors and warnings (§11) — additions
 
 | Code | Severity | Requirement | Condition |
 |---|---|---|---|
 | `SP017` | warn | REQ-324 | A Slider, Rate or Progress value or a Steps `current` is out of range or off step, or a Slider/Rate range is invalid; clamped, rounded or defaulted |
-| `SP018` | warn | REQ-319 | A Button or Badge has no accessible name (no text, no `label`) |
+| `SP018` | warn | REQ-319 | An `SpButton` or `SpBadge` has no accessible name (no text, no `label`) |
 | `SP019` | warn | REQ-325 | Items of a Tabs, Segmented, RadioGroup or Steps share a key; later ones skipped |
 
 `SP002` keeps its meaning for charts and is not reused (each diagnostic names its own REQ).

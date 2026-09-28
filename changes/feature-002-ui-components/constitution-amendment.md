@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — to be approved with gate 1; folded into `specs/constitution.md` only after approval |
+| **Status** | `APPROVED` — with gate 1, 2026-09-28 by Ernesto Crespo; folded into `specs/constitution.md` in T-162 |
 | **Raised by** | feature-002 UI components |
 | **Nature** | Widens four articles to a second kind of artefact; relaxes nothing |
 
@@ -51,7 +51,7 @@ size—" becomes "—chart, composition or component state × ground × mode × 
 
 | Date | Article | Change | Reason | Approved by |
 |---|---|---|---|---|
-| _on approval_ | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
+| 2026-09-28 | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
 
-The header becomes `Version 1.7 · … · Last amended: <date of approval>`, and `CLAUDE.md`'s status
+The header becomes `Version 1.7 · … · Last amended: <date of folding>`, and `CLAUDE.md`'s status
 table "Constitution ✅ v1.6" becomes v1.7 on folding.

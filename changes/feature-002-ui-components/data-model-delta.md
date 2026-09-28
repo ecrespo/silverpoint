@@ -2,14 +2,14 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — gate 3 with the Technical Design delta, awaiting the user's approval |
+| **Status** | `APPROVED` — gate 3 with the Technical Design delta, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1, C-3, C-5 of [`analyze.md`](analyze.md) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.5 → v1.6: new §2.14, new §3.8, §3.7, §4, §5, §6 |
 
 ## §2.14 Component value contracts
 
 | Component | Value | Domain | Invalid value |
 |---|---|---|---|
-| Input | `string` | any | — |
+| Input | `string`; `message?: string` | any; an empty `message` is no message | Empty `message` → no message element and no `aria-describedby` |
 | Checkbox, Switch | `boolean` | — | Non-boolean → `Boolean(v)`, no warning |
 | RadioGroup, Segmented, Tabs | a key of `items` | existing, enabled key; `null` only for RadioGroup | Unknown key → RadioGroup `null`; Segmented and Tabs the first enabled key; `SP017` is not used (not a range) — silent, documented |
 | Slider | `number` | `[min, max]`, on `step` from `min` | → clamped, rounded to the nearest step, `SP017` (REQ-324) |
@@ -41,7 +41,14 @@ readonly ui?: Readonly<{
   /** Focus indicator width, px; ≥ 2 (REQ-316). */
   focusWidth: number;
   /** Tone level per state (DD-026). */
-  tone: Readonly<{ selected: 1 | 2 | 3 | 4; primary: 1 | 2 | 3 | 4; danger: 1 | 2 | 3 | 4; disabled: 1 | 2 | 3 | 4 }>;
+  tone: Readonly<{
+    selected: 1 | 2 | 3 | 4;
+    primary: 1 | 2 | 3 | 4;
+    danger: 1 | 2 | 3 | 4;
+    disabled: 1 | 2 | 3 | 4;
+    /** The box fill of an Alert of kind `error` (C-3); the other kinds take no tone. */
+    alertError: 1 | 2 | 3 | 4;
+  }>;
 }>;
 ```
 
@@ -52,11 +59,11 @@ readonly ui?: Readonly<{
 | `controlHeight` | 24 / 32 / 40 | 24 / 32 / 40 | 24 / 32 / 40 |
 | `radius` | 2 (= `--sp-radius`) | 2 | 2 |
 | `focusWidth` | 2 | 2 | 2 |
-| `tone` | selected 3, primary 2, danger 4, disabled 1 | same (as weights) | same |
+| `tone` | selected 3, primary 2, danger 4, disabled 1, alertError 1 | same (as weights) | same |
 
 **Contrast pairs added to the gate** (REQ-313), on every substrate: control text on substrate
 (4.5:1); frame ink, mark ink and focus colour on substrate (3:1); text on the level-3 tone (4.5:1,
-measured on the tile's darkest line as for chart labels); heightened item's ink outline (3:1, as
+measured on the tile's darkest line as for chart labels); text on the `alertError` tone (4.5:1, measured the same way; C-3); heightened item's ink outline (3:1, as
 §3.3). Disabled text is exempt by WCAG 1.4.3 but must still reach 3:1 here, so disabled stays legible.
 
 ## §4 Demo — the UI reference page (addition)
@@ -64,6 +71,10 @@ measured on the tile's darkest line as for chart labels); heightened item's ink 
 Frozen, like every demo dataset, and used by the fixtures, the example apps and the docs site:
 `UI_DEMOS` in `packages/core/src/ui/demo.ts`, one entry per component with its props per state
 (§5), plain data, deep-frozen (I-9 extended).
+
+The UI page composes as the concept drawing does: its Card holds a KPI and a Sparkline chart (C-5).
+The Card fixtures hold no chart: text content only, so a component fixture tests the component and
+the chart keeps its own fixtures and gates.
 
 ## §5 Fixture matrix — addition
 
@@ -74,7 +85,7 @@ Same `Fixture` shape; `chart` names the component, `props` the state, `size` the
 | Component | States | # |
 |---|---|---|
 | Button | default, primary, danger, disabled | 4 |
-| Input | empty (placeholder), filled, invalid, disabled | 4 |
+| Input | empty (placeholder), filled, invalid with `message`, disabled | 4 |
 | Checkbox | unchecked, checked, indeterminate, disabled | 4 |
 | RadioGroup | selected, with a disabled item | 2 |
 | Switch | off, on, disabled | 3 |
@@ -83,7 +94,7 @@ Same `Fixture` shape; `chart` names the component, `props` the state, `size` the
 | Segmented | first selected, middle selected | 2 |
 | Tabs | first active, with a disabled tab | 2 |
 | Steps | current 2 of 4, with an error step | 2 |
-| Card | plain, with title and extra | 2 |
+| Card | plain, with title and extra (text content only, no chart) | 2 |
 | Tag | tone 1, closable tone 3 | 2 |
 | Badge | count, dot, overflow (`99+`) | 3 |
 | Divider | plain, with text | 2 |

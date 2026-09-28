@@ -84,12 +84,13 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Artifact | Status |
 |---|---|
 | Constitution | ✅ v1.6 — Art. 3 covers normalised markup (wrappers included, 2026-09-25); `cyanotype` ships in `0.2.0` (planned-grounds table, 2026-09-26) |
-| PRD (EARS criteria) | ✅ v1.9 approved — 130 requirements, REQ-001..REQ-222 (§6.10 Dashboard; REQ-222 Angular CLI SSR) |
-| API Spec | ✅ v1.7 approved — 33 charts + the Dashboard composition (§7.1), two built-in grounds (§6), 16 diagnostic codes |
-| Technical Design | ✅ v1.6 approved — 19 decisions, DD-001..DD-019 (DD-019: the `weight` tonal mechanism) |
+| PRD (EARS criteria) | ✅ v1.10 approved — 130 requirements, REQ-001..REQ-222 (§6.10 Dashboard; REQ-222 Angular CLI SSR) |
+| API Spec | ✅ v1.8 approved — 33 charts + the Dashboard composition (§7.1), two built-in grounds (§6), 16 diagnostic codes, `@silverpoint/tailwind` (§1, §10.4) |
+| Technical Design | ✅ v1.7 approved — 20 decisions, DD-001..DD-020 (DD-019: the `weight` tonal mechanism; DD-020: the Tailwind preset) |
 | Data Model | ✅ v1.5 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), 16 invariants, dashboard layout §2.13 |
-| Implementation Plan | ✅ v1.5 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) and its step 5g (delta-012) |
+| Implementation Plan | ✅ v1.6 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) and its step 5g (delta-012) |
 | Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) and `delta-013` (`@silverpoint/tailwind`) folded and implemented 2026-09-26 |
+| Feature-002 UI components | ✅ SDD gates 0..4 approved 2026-09-28 (Phase 0; not folded) — 17 `Sp`-prefixed components under `ui/` subpaths, all in `0.3.0`; REQ-300..334, DD-021..027, T-135..T-163; next: step 6a (T-135..T-138). Decisions and concept corrections in `changes/feature-002-ui-components/analyze.md` |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
 | Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
 | Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — gate 1, awaiting the user's approval |
+| **Status** | `APPROVED` — gate 1, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1..C-7 and findings A-04 of [`analyze.md`](analyze.md) |
 | **Amends** | [PRD](../../specs/prd.md) v1.10 → v1.11: §1, §4.1, §5.1, §5.2, §5.3, new §6.11, §7, §9 (Epic F), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.6, with the v1.7 amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |
@@ -80,7 +80,7 @@ later as deltas.
 
 ## 6. §6.11 Functional requirements — UI components
 
-Criteria in EARS. Identifiers REQ-300..REQ-333 are new; none is reused. The block starts at 300 so
+Criteria in EARS. Identifiers REQ-300..REQ-334 are new; none is reused. The block starts at 300 so
 the family reads as one range.
 
 ### The catalog
@@ -97,7 +97,7 @@ the family reads as one range.
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-300 | ubiquitous | THE SYSTEM SHALL provide the 17 components of the catalog in each adapter —React `Button`…, Vue `SpButton`…, Angular `sp-…` or `[sp…]`— each importable by its own `ui/<kebab-case-name>` subpath. | MUST |
+| REQ-300 | ubiquitous | THE SYSTEM SHALL provide the 17 components of the catalog in each adapter —React `SpButton`…, Vue `SpButton`…, Angular `SpButton` as `sp-…` or `[sp…]`, one name per component in the three adapters (OQ-U2)— each importable by its own `ui/<kebab-case-name>` subpath. | MUST |
 | REQ-301 | ubiquitous | THE SYSTEM SHALL ship the components' styles as a separate, opt-in stylesheet `@silverpoint/grounds/ui.css`; an application that imports no component SHALL see no change in its bundle or in `styles.css`. | MUST |
 | REQ-302 | ubiquitous | THE SYSTEM SHALL compute every component geometry —value fractions, arcs, step connectors, frame variant— and every keyboard transition in `@silverpoint/core`, as pure functions; adapters SHALL only translate the result into elements (REQ-102 extended). | MUST |
 | REQ-303 | ubiquitous | THE SYSTEM SHALL add no runtime dependency to any package for this feature; the runtime allowlist (TD §5.3) is unchanged. | MUST |
@@ -120,7 +120,7 @@ the family reads as one range.
 |---|---|---|---|
 | REQ-311 | optional | WHERE a component sets `ground`, `substrate` or `mode`, or sits under a provider or a dashboard that does, THE SYSTEM SHALL resolve them with the precedence component prop → dashboard → provider → library default; the `precision` override of REQ-123 SHALL apply after resolution and SHALL NOT be overridable. | MUST |
 | REQ-312 | ubiquitous | Each ground SHALL declare a `ui` token section —control heights, frame style, focus width, radius, frame variants— and adding a ground SHALL NOT require changes to any component's code (REQ-044 extended to `packages/core/src/ui/**` and the adapters' `ui/`). | MUST |
-| REQ-313 | ubiquitous | Every component's text SHALL reach 4.5:1 and every graphical object needed to identify a control or its state 3:1 against its substrate, on every substrate of every ground (REQ-126 extended); CI SHALL verify it as REQ-127 does. | MUST |
+| REQ-313 | ubiquitous | Every component's text SHALL reach 4.5:1 and every graphical object needed to identify a control or its state 3:1 against its substrate, on every substrate of every ground (REQ-126 extended), the normative list of pairs being Data Model §3.8; CI SHALL verify it as REQ-127 does. | MUST |
 
 ### Accessibility
 
@@ -144,6 +144,7 @@ the family reads as one range.
 | REQ-324 | unwanted | IF a Slider, Rate or Progress value or a Steps `current` falls outside its range or off its step, or a Slider or Rate range (`min`, `max`, `step`, `count`) is invalid, THEN THE SYSTEM SHALL clamp and round it in the core (or fall back to the defaults), render the corrected value and warn `SP017` in development. | MUST |
 | REQ-325 | unwanted | IF the items of a Tabs, Segmented, RadioGroup or Steps share a key, THEN THE SYSTEM SHALL keep the first, skip the later ones and warn `SP019` in development, and SHALL NOT throw. | MUST |
 | REQ-326 | ubiquitous | A disabled component or item SHALL use the native `disabled` attribute where there is one, and `aria-disabled` otherwise; it SHALL emit no change or select event and, inside a composite, SHALL be skipped by the arrow keys. | MUST |
+| REQ-334 | optional | WHERE an Input sets `message`, THE SYSTEM SHALL render it as text tied to the native input by `aria-describedby` (id `${id}--message`); WHERE it sets `invalid`, THE SYSTEM SHALL set `aria-invalid="true"` on the native input and draw the exact warning glyph inside the frame, so the error is carried by glyph and text, not by tone (REQ-310). | MUST |
 
 ### Determinism and parity
 
@@ -162,7 +163,7 @@ the family reads as one range.
 | REQ-332 | ubiquitous | The documentation site SHALL document every component with a live example and a props reference generated from the types, not retyped (REQ-099 extended). | MUST |
 | REQ-333 | optional | WHERE an application uses `SilverpointProvider` (or `provideSilverpoint`), the same provider SHOULD ground both its charts and its components. | SHOULD |
 
-**Count:** 34 requirements (32 MUST, 2 SHOULD). The PRD goes from 130 to 164 requirements.
+**Count:** 35 requirements (33 MUST, 2 SHOULD). The PRD goes from 130 to 165 requirements.
 
 ## 7. Non-functional additions (§7)
 
@@ -185,11 +186,11 @@ the family reads as one range.
 
 | Risk | Probability | Impact | Mitigation |
 |---|---|---|---|
-| Seventeen components × three adapters is the largest phase yet | High | High | Step 6c in three batches that can each ship; OQ-U3 lets the user cut the first release to 8 |
+| Seventeen components × three adapters is the largest phase yet | High | High | Step 6c in three batches, each closed by its own gates and review before the next starts; all 17 ship in `0.3.0` (OQ-U3, decided 2026-09-28) |
 | CSS masks render differently across engines | Medium | Medium | Pixel gates are Chromium-pinned (Art. 3); Firefox and WebKit are covered by e2e presence checks, and `precision` needs no mask |
 | Native inputs styled invisible break in some assistive technology | Low | High | Visually-hidden pattern, never `display: none` or `opacity: 0` on a zero box; axe and manual NVDA/VoiceOver pass on the UI page before release |
 | Pressure to add overlays inside `0.3.0` | Medium | High | §5.2 names them; they need a behaviour-engine decision first (§5.3) |
-| Name collisions (`Button`, `Input`) in React apps | Medium | Low | Subpath imports alias freely; OQ-U2 |
+| Name collisions (`Button`, `Input`) in React apps | Low | Low | Every component is `Sp`-prefixed in the three adapters (OQ-U2, decided 2026-09-28) |
 
 ## Constitution check
 

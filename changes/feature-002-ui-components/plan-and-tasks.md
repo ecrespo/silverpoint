@@ -3,7 +3,11 @@
 > Source specs: [`prd-delta.md`](prd-delta.md) §6 (REQ-300..REQ-333) · [`api-delta.md`](api-delta.md)
 > · [`technical-design-delta.md`](technical-design-delta.md) DD-021..DD-027 ·
 > [`data-model-delta.md`](data-model-delta.md) §2.14, §3.8, §4–§6.
-> Generated: 2026-09-26. Gate 4 **not approved**. Task ids continue the global sequence after T-134.
+> Generated: 2026-09-26. Task ids continue the global sequence after T-134.
+
+| Field | Value |
+|---|---|
+| **Status** | `APPROVED` — gate 4, approved 2026-09-28 by Ernesto Crespo. All 17 components in `0.3.0` (OQ-U3); first run T-135..T-138 |
 
 **Goal.** A consumer builds the controls around their charts —buttons, form controls, tabs, steps,
 cards, tags, progress, alerts— in React, Vue or Angular, drawn in the same ground as the charts,
@@ -11,7 +15,7 @@ exact where the user reads or aims, accessible, server-rendered, with parity acr
 adapters.
 
 **Done criteria (Phase 6)**
-- Every MUST in REQ-300..REQ-333 cited by a test; traceability 0 blocking (REQ-183, REQ-184).
+- Every MUST in REQ-300..REQ-334 cited by a test; traceability 0 blocking (REQ-183, REQ-184).
 - Parity gate green on the 180 PR / 510 nightly component fixtures; pixel gates green on all.
 - The four example apps have the UI page, green in e2e (APG keyboard, forms, hydration) and axe.
 - Budgets of REQ-330 green; chart budgets unchanged.
@@ -28,7 +32,7 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 |---|---|---|---|
 | 6a | Core: types, value, keyboard, frame variant and outlines, items, names, demo | Approval | Core unit tests + benchmarks green |
 | 6b | Grounds: `ui` tokens, piece generator, `ui.css`, contrast and colour lint | 6a | Grounds tests; `ui.css` ≤ 24 KB |
-| 6c | Adapters ×3, in three batches: **B1** Button, Input, Checkbox, Switch, Card, Divider · **B2** RadioGroup, Segmented, Tabs, Slider, Rate · **B3** Steps, Tag, Badge, Progress, Alert, Skeleton | 6b | Adapter unit tests per batch; a batch may ship alone (OQ-U3) |
+| 6c | Adapters ×3, in three batches: **B1** Button, Input, Checkbox, Switch, Card, Divider · **B2** RadioGroup, Segmented, Tabs, Slider, Rate · **B3** Steps, Tag, Badge, Progress, Alert, Skeleton | 6b | Adapter unit tests and the 6d gates per batch; each batch is a review point, and all three ship together in `0.3.0` (OQ-U3) |
 | 6d | Fixtures, parity and pixel gates, mode invariance, budgets | 6c (per batch) | 180 / 510 green |
 | 6e | Example apps UI page, e2e (APG, forms, hydration, reduced motion, RTL), axe | 6d | Four apps green |
 | 6f | Docs site, changeset, fold deltas, `CLAUDE.md` status | 6e | Release `0.3.0` |
@@ -85,7 +89,7 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 - **Done:** lint green; `styles.css` byte-identical to 0.2.0 (REQ-301).
 
 **[ ] T-142 · Contrast gate and weight** — REQ-313, REQ-330
-- Contrast pairs of Data Model §3.8 on every substrate; `ui.css` ≤ 24 KB gzip in size-limit;
+- Contrast pairs of Data Model §3.8 on every substrate, `alertError` text included (C-3); `ui.css` ≤ 24 KB gzip in size-limit;
   measure 4 vs 6 variants (OQ-U5).
 - **Done:** gate green; OQ-U5 answered with the numbers.
 
@@ -96,21 +100,33 @@ gate iterates it. Every change touching `packages/` adds a changeset.
   REQ-123 override); `${id}--${part}` ids; root attributes of the markup contract.
 - **Done:** precedence tests green in the three adapters; no framework id hook in emitted ids.
 
-**[ ] T-144 · B1 React** — REQ-300, REQ-304, REQ-310, REQ-314, REQ-322, REQ-326
+**[ ] T-144 · B1 React** — REQ-300, REQ-304, REQ-310, REQ-314, REQ-322, REQ-326, REQ-334
+
 **[ ] T-145 · B1 Vue** — same REQs, plus REQ-108
+
 **[ ] T-146 · B1 Angular** — same REQs, plus REQ-101, REQ-323 (CVA), DD-024 attribute selectors
-- Button, Input, Checkbox, Switch, Card, Divider.
+- `SpButton` (`variant`, ✕ on `danger`), `SpInput` (`invalid`, `message`), `SpCheckbox`, `SpSwitch`,
+  `SpCard`, `SpDivider`.
 - Tests per component: markup contract, native element and hidden input, controlled/uncontrolled
   (or `v-model`, or `model()` + Reactive Forms), disabled emits nothing, name warning.
 - **Done:** B1 unit tests green in the adapter.
 
-**[ ] T-147 · B2 React** · **[ ] T-148 · B2 Vue** · **[ ] T-149 · B2 Angular** — REQ-300, REQ-309, REQ-315, REQ-322, REQ-323, REQ-325, REQ-326
-- RadioGroup, Segmented, Tabs (+ TabPanel), Slider, Rate; roving focus through `uiRovingKey`;
+**[ ] T-147 · B2 React** — REQ-300, REQ-309, REQ-315, REQ-322, REQ-323, REQ-325, REQ-326
+
+**[ ] T-148 · B2 Vue** — same REQs
+
+**[ ] T-149 · B2 Angular** — same REQs
+- `SpRadioGroup`, `SpSegmented`, `SpTabs` (+ `SpTabPanel`), `SpSlider`, `SpRate` (lozenge marks); roving focus through `uiRovingKey`;
   one heightening per instance (I-18).
 - **Done:** B2 unit tests green.
 
-**[ ] T-150 · B3 React** · **[ ] T-151 · B3 Vue** · **[ ] T-152 · B3 Angular** — REQ-300, REQ-308, REQ-318, REQ-319
-- Steps, Tag, Badge, Progress, Alert, Skeleton; roles per REQ-318; server-safe entries in React.
+**[ ] T-150 · B3 React** — REQ-300, REQ-308, REQ-318, REQ-319
+
+**[ ] T-151 · B3 Vue** — same REQs
+
+**[ ] T-152 · B3 Angular** — same REQs
+- `SpSteps` (connector `data-status`, `wait` dashed), `SpTag`, `SpBadge`, `SpProgress`, `SpAlert`
+  (`error` on `ui.tone.alertError`), `SpSkeleton`; roles per REQ-318; server-safe entries in React.
 - **Done:** B3 unit tests green.
 
 ### 6d — Gates
@@ -135,7 +151,8 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 ### 6e — Example apps
 
 **[ ] T-157 · UI page in the four apps** — REQ-329, REQ-331
-- The 17 components from `UI_DEMOS`, under `silverpoint/cream` and `cyanotype`.
+- The 17 components from `UI_DEMOS`, under `silverpoint/cream` and `cyanotype`, composed as
+  [`concept.png`](concept.png): the Card holds a KPI and a Sparkline (C-5).
 - **Done:** e2e: no hydration mismatch (`vite-react`, `vite-vue`, `nextjs`, `angular` with SSR).
 
 **[ ] T-158 · Keyboard, forms and motion e2e** — REQ-315, REQ-316, REQ-317, REQ-320, REQ-321, REQ-323
@@ -164,7 +181,7 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 - **Done:** `spec-check` green.
 
 **[ ] T-163 · Traceability and status** — REQ-183, REQ-184
-- `reports/traceability.md` regenerated: every MUST of REQ-300..333 cited; `CLAUDE.md` status table.
+- `reports/traceability.md` regenerated: every MUST of REQ-300..334 cited; `CLAUDE.md` status table.
 - **Done:** 0 blocking.
 
 ## Traceability — REQ → tasks
@@ -188,6 +205,7 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 | 314 | T-144–T-146, T-159 | 331 | T-157, T-159 |
 | 315 | T-137, T-147–T-149, T-158 | 332 | T-160 |
 | 316 | T-141, T-158 | 333 | T-143 |
+| | | 334 | T-144–T-146 |
 
 Every task cites at least one REQ; no orphan task.
 

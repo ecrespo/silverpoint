@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — gate 3, awaiting the user's approval |
+| **Status** | `APPROVED` — gate 3, approved 2026-09-28 by Ernesto Crespo, with OQ-U1, OQ-U4 and the concept corrections C-2, C-3, C-4, C-6, C-7 of [`analyze.md`](analyze.md) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.7 → v1.8: §3.2, §3.3, new DD-021..DD-027, §5.1, §8, §10 |
 | **Inputs** | [`prd-delta.md`](prd-delta.md), [`api-delta.md`](api-delta.md), [`research.md`](research.md) |
 
@@ -51,7 +51,7 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 | B. New `@silverpoint/ui-react`, `-vue`, `-angular` | Clear identity, separable adoption | Three new packages to register and trust-publish; the provider and resolution chain would have to become public API |
 | C. Web components (Lit) once for all | One implementation | Loses the per-framework SSR parity silverpoint guarantees; forms and `v-model`/CVA integration become adapters anyway; PRD §5.2 keeps web components out of `0.x` |
 
-- **Open for the user:** OQ-U1 (README).
+- **Decided** 2026-09-28 (OQ-U1): the `ui/` subpath.
 
 ### DD-022: Frames as build-time pieces, laid as a multi-layer CSS mask
 
@@ -65,7 +65,7 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 - **Rejected:** SVG per element sized by `ResizeObserver` (DOM measurement, JavaScript per element,
   a server render that cannot know the size); one SVG stretched with `preserveAspectRatio="none"`
   (stretches the stroke's own width and wobble, so the hand drawing changes with the box).
-- **`precision`:** the mask is removed; the frame is `border: 1px solid var(--sp-rule)` with
+- **`precision`:** the frame mask is removed and the tone is unchanged (hatch tiles, or weights under a `weight` ground, stay: tone is value, not ornament; C-7); the frame is `border: 1px solid var(--sp-rule)` with
   `--sp-ui-radius`. The layout box is identical because the frame never takes layout space in either
   mode (it is an absolutely positioned pseudo-element over a fixed padding box) — REQ-306, I-17.
 - **Forced colours:** REQ-123 already forces `precision`; the plain border then takes the system
@@ -102,7 +102,7 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 
 - **Decision:** a linear value becomes `--sp-ui-fraction: 0.42` on the component root, 2 decimals,
   computed by `uiValue`. CSS sizes the fill (`inline-size: calc(var(--sp-ui-fraction) * 100%)`) and
-  positions the thumb. Only the circle Progress and the glyphs (tick, dot, star, status marks) are
+  positions the thumb. Only the circle Progress and the glyphs (tick, dash, dot, lozenge, ✕, status marks) are
   SVG, in fixed view boxes, with `role: 'encoding'` strokes the inker never touches.
 - **Why:** a fraction is independent of the container, so the server render is correct at any width
   with no measurement; pixels would need the width.
@@ -115,8 +115,16 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
   at build time like the frame pieces and laid as a repeating mask painted with
   `var(--sp-ink-secondary)`. Under a `weight` ground, the tone is the frame's line weight
   (`--sp-weight-1..4`), as for charts (DD-019). No opacity, no flat fill (REQ-308).
-- **Mapping:** checked, selected and filled use level 3; `primary` Button level 2; `danger` level 4
-  plus its glyph; disabled level 1 plus the native `disabled` state (REQ-310).
+- **Mapping:** checked, selected and filled use level 3; the `primary` Button variant level 2; the
+  `danger` variant level 4 plus its ✕ glyph; disabled level 1 plus the native `disabled` state
+  (REQ-310). An Alert of kind `error` fills its box with level 1 (`ui.tone.alertError`), plus its ✕
+  glyph and `role="alert"`; the other kinds take no tone. Level 1 is the lightest, so the Alert's
+  text keeps 4.5:1 over it, and the pair joins the contrast gate (Data Model §3.8, C-3).
+- **Rate** marks are exact lozenges (C-2): a drawn diamond reads as the engraver's mark where a
+  five-pointed icon reads as the web's; filled marks take level 3.
+- **Steps** connectors carry the status of the step they lead to in `data-status`; a `wait`
+  connector is dashed, the others solid, both exact (C-4). The dash is a CSS `stroke-dasharray` on
+  the exact line, not an inked stroke.
 
 ### DD-027: Components join the parity and pixel gates as fixtures
 
@@ -132,7 +140,7 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 packages/core/src/ui/{value.ts, progress.ts, steps.ts, keyboard.ts, frame.ts, items.ts, names.ts, types.ts, demo.ts}
 packages/grounds/scripts/ui-pieces.ts
 packages/grounds/src/ui/{tokens.ts, ui.css.ts}          # → dist/ui.css
-packages/react/src/ui/{button.tsx, input.tsx, …, index.ts}
+packages/react/src/ui/{button.tsx, input.tsx, …, index.ts}   # exports SpButton, SpInput, …
 packages/vue/src/ui/{SpButton.vue, SpInput.vue, …, index.ts}
 packages/angular/ui/{button, input, …}/                 # one secondary entry point each
 fixtures/ui/<component>--<state>--<ground>-<substrate>--<mode>.{fixture.json, canonical.txt}
@@ -158,10 +166,10 @@ examples/*/…/ui page
 
 | # | Question | Leaning |
 |---|---|---|
-| OQ-U1 | `ui/` subpath or new packages | Subpath (DD-021) — **user decides** |
-| OQ-U2 | React names unprefixed or `Sp` | Unprefixed — **user decides** |
-| OQ-U3 | 17 components in `0.3.0` or 8 first | 17 in three shippable batches — **user decides** |
-| OQ-U4 | Angular attribute selectors for Button/Input | Yes (DD-024) — **user decides** |
+| OQ-U1 | `ui/` subpath or new packages | **Decided 2026-09-28:** subpath (DD-021) |
+| OQ-U2 | React names unprefixed or `Sp` | **Decided 2026-09-28:** `Sp` prefix in the three adapters |
+| OQ-U3 | 17 components in `0.3.0` or 8 first | **Decided 2026-09-28:** all 17 in `0.3.0` |
+| OQ-U4 | Angular attribute selectors for Button/Input | **Decided 2026-09-28:** yes (DD-024) |
 | OQ-U5 | Four frame variants per kind: enough variety, or does `ui.css` weight allow six? | Measure against the 24 KB budget in T-142 |
 | OQ-U6 | Overlays: core machines or per-framework headless libraries | Out of this feature (PRD §5.3) |
 

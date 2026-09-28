@@ -2,13 +2,14 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `PROPOSED` — drafted 2026-09-26; **no gate approved yet**. Nothing here is folded into `specs/`, and no task may start before gate 4 |
+| **Status** | `APPROVED` — drafted 2026-09-26; gates 0..4 approved 2026-09-28 by Ernesto Crespo (Phase 0). Nothing is folded into `specs/` yet (T-162); tasks may start with T-135 |
 | **Target release** | `0.3.0` (changeset `minor` from 0.2.0). The line stays on `0.x`; `1.0.0` stays parked |
-| **Requirements** | REQ-300..REQ-333 (32 MUST, 2 SHOULD) |
+| **Requirements** | REQ-300..REQ-334 (33 MUST, 2 SHOULD) |
 | **Design decisions** | DD-021..DD-027 |
 | **Diagnostics** | `SP017`, `SP018`, `SP019` |
 | **Tasks** | T-135..T-163 (Phase 6) |
-| **Constitution** | Amendment v1.6 → v1.7 proposed ([`constitution-amendment.md`](constitution-amendment.md)) |
+| **Constitution** | Amendment v1.6 → v1.7 approved with gate 1 ([`constitution-amendment.md`](constitution-amendment.md)); folded in T-162 |
+| **Visual concept** | [`concept.png`](concept.png) — the reference drawing for 0.3.0; the seven corrections it raised (C-1..C-7) are in [`analyze.md`](analyze.md) |
 
 A first family of **interface components** —buttons, form controls, tabs, steps, cards, tags,
 progress, alerts— for React, Vue and Angular, drawn with the same grounds as the charts: prepared
@@ -26,23 +27,23 @@ picker), tables, trees and uploads are out of `0.3.0` (PRD delta §3).
 
 Per Art. 9, each gate is approved before the next artifact is relied on.
 
-| Gate | Artifact | Decides |
-|---|---|---|
-| 0 | [`research.md`](research.md) | What UI libraries and hand-drawn kits do; what silverpoint takes or leaves |
-| 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, the 17 components, REQ-300..333 |
-| 2 | [`api-delta.md`](api-delta.md) | The contract: subpaths, components, props, events, CSS, diagnostics, budgets |
-| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-021..027, frame pieces, `ui` tokens, states, fixtures, invariants |
-| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 6 steps and tasks; first run T-135..T-138 |
-| — | [`analyze.md`](analyze.md) | Cross-check; 0 blocking; findings and four open decisions for the user |
-| — | [`constitution-amendment.md`](constitution-amendment.md) | "What silverpoint is", Art. 1, 3, 5, 6 → v1.7 |
+| Gate | Artifact | Decides | Approved |
+|---|---|---|---|
+| 0 | [`research.md`](research.md) | What UI libraries and hand-drawn kits do; what silverpoint takes or leaves | ✅ 2026-09-28 |
+| 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, the 17 components, REQ-300..334 | ✅ 2026-09-28 |
+| 2 | [`api-delta.md`](api-delta.md) | The contract: subpaths, components, props, events, CSS, diagnostics, budgets | ✅ 2026-09-28 |
+| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-021..027, frame pieces, `ui` tokens, states, fixtures, invariants | ✅ 2026-09-28 |
+| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 6 steps and tasks; first run T-135..T-138 | ✅ 2026-09-28 |
+| — | [`analyze.md`](analyze.md) | Cross-check; 0 blocking; findings, concept corrections and the user's decisions (Dispositions) | — |
+| — | [`constitution-amendment.md`](constitution-amendment.md) | "What silverpoint is", Art. 1, 3, 5, 6 → v1.7 | with gate 1 |
 
-## Decisions the user owns (Analyze A-08)
+## Decisions the user took (2026-09-28)
 
-| # | Question | Leaning |
+| # | Question | Decision |
 |---|---|---|
-| OQ-U1 | Components under a `ui/` subpath of the existing adapter packages, or new `@silverpoint/ui-*` packages? | Subpath (DD-021), as the dashboard did (DD-018) |
-| OQ-U2 | React names unprefixed (`Button`), like the charts, or `SpButton`? | Unprefixed; subpath imports alias freely |
-| OQ-U3 | All 17 components in `0.3.0`, or a first 8 with the rest in `0.3.x`? | 17, with step 6c cut so each batch can ship on its own |
+| OQ-U1 | Components under a `ui/` subpath of the existing adapter packages, or new `@silverpoint/ui-*` packages? | `ui/` subpath of the existing packages (DD-021) |
+| OQ-U2 | React names unprefixed (`Button`), like the charts, or `SpButton`? | Prefixed: `SpButton`, `SpTabs`, … in React, as in Vue and Angular — one name per component across the three adapters |
+| OQ-U3 | All 17 components in `0.3.0`, or a first 8 with the rest in `0.3.x`? | All 17 in `0.3.0`; step 6c keeps its three batches as review points, not as releases |
 | OQ-U4 | Angular `Button`/`Input` as attribute selectors on native elements (`button[spButton]`)? | Yes (DD-024) |
 
 ## Related
