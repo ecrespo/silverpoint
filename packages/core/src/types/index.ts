@@ -12,7 +12,7 @@ export type {
   Tile,
   ToneLevel,
 } from './geometry';
-export type { Ground, GroundName, GroundRef } from './ground';
+export type { Ground, GroundName, GroundRef, UiTokens } from './ground';
 export type { HatchToneSpec, Inker, InkOptions, TonalRamp, ToneSpec, WeightToneSpec } from './ink';
 export type {
   ActivityGridProps,

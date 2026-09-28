@@ -7,9 +7,10 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-/** A ground lives in its own directory under grounds/src; `ink/` houses the inkers, not a ground. */
-const GROUND = /^packages\/grounds\/src\/(?!ink\/)([^/]+)\//;
-const CHARTS = /^packages\/core\/src\/charts\//;
+/** A ground lives in its own directory under grounds/src; `ink/` houses the inkers and `ui/` the ui.css build, not grounds. */
+const GROUND = /^packages\/grounds\/src\/(?!ink\/|ui\/)([^/]+)\//;
+/** What a ground may never require touching: the charts, the UI core and each adapter's ui/ (REQ-312). */
+const CHARTS = /^packages\/(?:core\/src\/(?:charts|ui)\/|(?:react|vue)\/src\/ui\/|angular\/ui\/)/;
 
 /** Returns one line per violation; empty when the change set is acceptable. */
 export function checkGroundChange(files) {
@@ -17,7 +18,7 @@ export function checkGroundChange(files) {
   const charts = files.filter((file) => CHARTS.test(file));
   if (grounds.length === 0 || charts.length === 0) return [];
   return charts.map(
-    (file) => `REQ-044 · this change touches the ground(s) ${grounds.join(', ')} and also ${file}; a ground may not require chart changes.`,
+    (file) => `REQ-044 · this change touches the ground(s) ${grounds.join(', ')} and also ${file}; a ground may not require chart or component changes.`,
   );
 }
 
