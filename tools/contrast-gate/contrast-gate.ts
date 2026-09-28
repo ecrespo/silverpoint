@@ -22,14 +22,15 @@ const THRESHOLDS: Readonly<Record<Exclude<InkToken, 'heighten'>, number>> = {
 
 export interface AuditRow {
   readonly ground: string;
-  readonly token: InkToken;
+  /** An ink token, or a UI pair of Data Model §3.8 (`ui.…`). */
+  readonly token: InkToken | `ui.${string}`;
   /** Worst ratio rounded to 2 decimals, as Data Model §3.2 reports it; `pass` uses the exact value. */
   readonly min: number;
   /** Substrate (or outline) on which the worst ratio falls. */
   readonly worst: string;
   readonly threshold: number;
   readonly pass: boolean;
-  readonly against: 'substrate' | 'ink outline';
+  readonly against: 'substrate' | 'ink outline' | 'heightening';
 }
 
 function channels(hex: string): [number, number, number] {
@@ -96,16 +97,67 @@ export function auditGround(ground: Ground): AuditRow[] {
   return rows;
 }
 
-/** Audits every ground `@silverpoint/grounds` registers by default (REQ-127). */
+/** A colour pair a UI component relies on: a foreground against the substrates, or against one ink. */
+export interface UiContrastPair {
+  readonly name: `ui.${string}`;
+  readonly fg: (ground: Ground) => string;
+  /** Omitted: every substrate of the ground, the worst reported. */
+  readonly bg?: { readonly label: 'ink outline' | 'heightening'; readonly colour: (ground: Ground) => string };
+  /** 4.5 for text, 3 for a graphical object needed to identify a control or its state. */
+  readonly threshold: number;
+}
+
+/**
+ * The UI contrast pairs of Data Model §3.8, the normative list REQ-313 cites. Text over a tone
+ * stands on a plate of the substrate (ui.css `.sp-ui-plate`), so it is measured against the
+ * substrate; the tone itself is a graphical object (the hatch line, or the weighted line).
+ */
+export const UI_CONTRAST_PAIRS: readonly UiContrastPair[] = [
+  { name: 'ui.text', fg: (g) => g.ink.text, threshold: 4.5 },
+  { name: 'ui.frame', fg: (g) => g.ink.primary, threshold: 3 },
+  { name: 'ui.mark', fg: (g) => g.ink.primary, threshold: 3 },
+  { name: 'ui.focus', fg: (g) => g.ink.primary, threshold: 3 },
+  { name: 'ui.precision-frame', fg: (g) => g.ink.rule, threshold: 3 },
+  { name: 'ui.tone', fg: (g) => (g.tonalMechanism === 'weight' ? g.ink.primary : g.ink.secondary), threshold: 3 },
+  { name: 'ui.tone-text', fg: (g) => g.ink.text, threshold: 4.5 },
+  { name: 'ui.alert-error-text', fg: (g) => g.ink.text, threshold: 4.5 },
+  { name: 'ui.heighten-outline', fg: (g) => g.ink.primary, bg: { label: 'heightening', colour: (g) => g.ink.heighten }, threshold: 3 },
+  { name: 'ui.heighten-text', fg: (g) => g.ink.text, bg: { label: 'heightening', colour: (g) => g.ink.heighten }, threshold: 4.5 },
+  // WCAG 1.4.3 exempts disabled text; silverpoint still keeps it legible (Data Model §3.8).
+  { name: 'ui.disabled-text', fg: (g) => g.ink.textMuted, threshold: 3 },
+];
+
+/** Audits one ground's UI pairs: one row per pair, with its worst case. */
+export function auditUi(ground: Ground): AuditRow[] {
+  return UI_CONTRAST_PAIRS.map((pair) => {
+    const backgrounds: [string, string][] = pair.bg ? [[pair.bg.label, pair.bg.colour(ground)]] : Object.entries(ground.substrates);
+    let worst = { ratio: Number.POSITIVE_INFINITY, on: '' };
+    for (const [on, colour] of backgrounds) {
+      const ratio = contrastRatio(pair.fg(ground), colour);
+      if (ratio < worst.ratio) worst = { ratio, on };
+    }
+    return {
+      ground: ground.name,
+      token: pair.name,
+      min: round2(worst.ratio),
+      worst: worst.on,
+      threshold: pair.threshold,
+      pass: worst.ratio >= pair.threshold,
+      against: pair.bg ? pair.bg.label : 'substrate',
+    };
+  });
+}
+
+/** Audits every ground `@silverpoint/grounds` registers by default, charts and UI (REQ-127, REQ-313). */
 export function auditBuiltins(): AuditRow[] {
-  return [silverpoint, cyanotype].flatMap(auditGround);
+  return [silverpoint, cyanotype].flatMap((ground) => [...auditGround(ground), ...auditUi(ground)]);
 }
 
 function main(): void {
   const rows = auditBuiltins();
   for (const row of rows) {
     const status = row.pass ? 'ok   ' : 'error';
-    console.log(`${status} ${row.ground}.${row.token.padEnd(10)} ${row.min.toFixed(2)} ≥ ${row.threshold} (worst: ${row.worst}, vs ${row.against})`);
+    console.log(`${status} ${row.ground}.${row.token.padEnd(22)} ${row.min.toFixed(2)} ≥ ${row.threshold} (worst: ${row.worst}, vs ${row.against})`);
   }
   const failing = rows.filter((row) => !row.pass);
   if (failing.length > 0) {

@@ -61,10 +61,22 @@ readonly ui?: Readonly<{
 | `focusWidth` | 2 | 2 | 2 |
 | `tone` | selected 3, primary 2, danger 4, disabled 1, alertError 1 | same (as weights) | same |
 
-**Contrast pairs added to the gate** (REQ-313), on every substrate: control text on substrate
-(4.5:1); frame ink, mark ink and focus colour on substrate (3:1); text on the level-3 tone (4.5:1,
-measured on the tile's darkest line as for chart labels); text on the `alertError` tone (4.5:1, measured the same way; C-3); heightened item's ink outline (3:1, as
-§3.3). Disabled text is exempt by WCAG 1.4.3 but must still reach 3:1 here, so disabled stays legible.
+**Contrast pairs added to the gate** (REQ-313), on every substrate unless stated; this list is
+normative and `tools/contrast-gate` holds it as `UI_CONTRAST_PAIRS`:
+
+| Pair | Foreground | Background | Threshold |
+|---|---|---|---|
+| `ui.text` | `text` | substrate | 4.5 |
+| `ui.frame`, `ui.mark`, `ui.focus` | `primary` (the frame, the exact marks, `--sp-ui-focus-color`) | substrate | 3 |
+| `ui.precision-frame` | `rule` | substrate | 3 |
+| `ui.tone` | the tone's line: `secondary` under `hatch`, `primary` under `weight` | substrate | 3 |
+| `ui.tone-text`, `ui.alert-error-text` | `text` over the level-3 tone, and text on the `alertError` tone (C-3), each on the substrate plate that carries text over a tone | substrate | 4.5 |
+| `ui.heighten-outline` | `primary` | `heighten` | 3 (as §3.3) |
+| `ui.heighten-text` | `text` | `heighten` | 4.5 |
+| `ui.disabled-text` | `textMuted` | substrate | 3 (exempt by WCAG 1.4.3; kept legible) |
+
+Text over a tone is never measured against the hatch: it stands on a plate of the substrate, as a
+chart label stands on its halo (DD-022).
 
 ## §4 Demo — the UI reference page (addition)
 

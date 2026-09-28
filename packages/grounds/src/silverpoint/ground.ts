@@ -48,4 +48,13 @@ export const silverpoint: Ground = deepFreeze({
   },
   emptyState: { text: 'No data', rule: true },
   domainPadding: 0.1,
+  // Interface components (Data Model §3.8): frames inked at build time in four variants.
+  ui: {
+    frame: 'inked',
+    frameVariants: 4,
+    controlHeight: { sm: 24, md: 32, lg: 40 },
+    radius: 2,
+    focusWidth: 2,
+    tone: { selected: 3, primary: 2, danger: 4, disabled: 1, alertError: 1 },
+  },
 });

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { cyanotype, silverpoint } from '../../packages/grounds/src';
-import { auditBuiltins, auditGround, contrastRatio, lighten } from './contrast-gate';
+import { auditBuiltins, auditGround, auditUi, contrastRatio, lighten, UI_CONTRAST_PAIRS } from './contrast-gate';
 
 function minimum(rows: ReturnType<typeof auditGround>, token: string): number | undefined {
   return rows.find((row) => row.token === token)?.min;
@@ -62,5 +62,48 @@ describe('contrast gate', () => {
   test('REQ-127 · lighten mixes toward white in sRGB', () => {
     expect(lighten('#000000', 0.5)).toBe('#808080');
     expect(lighten('#5A5E65', 0)).toBe('#5A5E65');
+  });
+
+  test('REQ-313 · the UI pairs are the normative list of Data Model §3.8, each with its WCAG threshold', () => {
+    expect(UI_CONTRAST_PAIRS.map((p) => [p.name, p.threshold])).toEqual([
+      ['ui.text', 4.5],
+      ['ui.frame', 3],
+      ['ui.mark', 3],
+      ['ui.focus', 3],
+      ['ui.precision-frame', 3],
+      ['ui.tone', 3],
+      ['ui.tone-text', 4.5],
+      ['ui.alert-error-text', 4.5],
+      ['ui.heighten-outline', 3],
+      ['ui.heighten-text', 4.5],
+      ['ui.disabled-text', 3],
+    ]);
+  });
+
+  test('REQ-313 · every UI pair of both built-in grounds passes, on every substrate', () => {
+    for (const ground of [silverpoint, cyanotype]) {
+      const rows = auditUi(ground);
+      expect(rows).toHaveLength(UI_CONTRAST_PAIRS.length);
+      expect(rows.filter((row) => !row.pass)).toEqual([]);
+    }
+  });
+
+  test('REQ-313 · a hatch ground\'s tone is its secondary ink, a weight ground\'s its primary line', () => {
+    expect(auditUi(silverpoint).find((r) => r.token === 'ui.tone')?.min).toBe(auditGround(silverpoint).find((r) => r.token === 'secondary')?.min);
+    expect(auditUi(cyanotype).find((r) => r.token === 'ui.tone')?.min).toBe(auditGround(cyanotype).find((r) => r.token === 'primary')?.min);
+  });
+
+  test('REQ-313 · lightening the secondary ink until the tone falls under 3:1 fails the UI gate', () => {
+    const altered = { ...silverpoint, ink: { ...silverpoint.ink, secondary: lighten(silverpoint.ink.secondary, 0.35) } };
+    expect(auditUi(altered).filter((row) => !row.pass).map((row) => row.token)).toEqual(['ui.tone']);
+  });
+
+  test('REQ-313 · a heightening too close to the text fails: text on the heightened plate must read', () => {
+    const altered = { ...cyanotype, ink: { ...cyanotype.ink, heighten: '#8AA8C7' } };
+    expect(auditUi(altered).filter((row) => !row.pass).map((row) => row.token)).toContain('ui.heighten-text');
+  });
+
+  test('REQ-127 · the built-in audit includes the UI rows', () => {
+    expect(auditBuiltins().some((row) => row.token === 'ui.focus' && row.ground === 'cyanotype')).toBe(true);
   });
 });

@@ -71,17 +71,17 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 
 ### 6b — Grounds
 
-**[ ] T-139 · `ui` tokens on both grounds and the schema** — REQ-312
+**[x] T-139 · `ui` tokens on both grounds and the schema** — REQ-312
 - Data Model §3.8 values; a ground without `ui` gets the defaults (test with a consumer ground).
 - **Done:** tests green; REQ-044 path watch extended to `core/src/ui/**` and adapters' `ui/`.
 
-**[ ] T-140 · Piece generator** — REQ-305, REQ-307 `[P]`
+**[x] T-140 · Piece generator** — REQ-305, REQ-307 `[P]`
 - `packages/grounds/scripts/ui-pieces.ts`: outline per kind → ground inker with a fixed seed per
   variant → 9 pieces → data URIs.
 - Tests: same bytes on two runs; `cyanotype` generates none (`frame: 'css'`).
 - **Done:** tests green; the pieces appear in `dist/ui.css`.
 
-**[ ] T-141 · `ui.css`** — REQ-301, REQ-305, REQ-306, REQ-308, REQ-316, REQ-317, REQ-320
+**[x] T-141 · `ui.css`** — REQ-301, REQ-305, REQ-306, REQ-308, REQ-316, REQ-317, REQ-320
 - Sizes from `--sp-ui-height-*`, frames as masks on `::before`, tones as masks, `precision` border,
   forced-colours block, focus indicator, reduced-motion block, visually-hidden native inputs.
 - Lint (RED on seeded violations): no literal colour outside `forced-colors` (I-19); no
@@ -89,7 +89,7 @@ gate iterates it. Every change touching `packages/` adds a changeset.
   no-preference`.
 - **Done:** lint green; `styles.css` byte-identical to 0.2.0 (REQ-301).
 
-**[ ] T-142 · Contrast gate and weight** — REQ-313, REQ-330
+**[x] T-142 · Contrast gate and weight** — REQ-313, REQ-330
 - Contrast pairs of Data Model §3.8 on every substrate, `alertError` text included (C-3); `ui.css` ≤ 24 KB gzip in size-limit;
   measure 4 vs 6 variants (OQ-U5).
 - **Done:** gate green; OQ-U5 answered with the numbers.
@@ -221,3 +221,4 @@ Every task cites at least one REQ; no orphan task.
 | Step | Closed | Ledger |
 |---|---|---|
 | 6a — Core (T-135..T-138) | 2026-09-28 | `packages/core/src/ui/`: types and `Sp<Name>Props`, `UI_COMPONENTS` (17 rows, 45 states), `uiValue`, `uiRateCount`, `uiProgressArc`, `uiSteps`, `uiRovingKey`, `uiFrameVariant`, `UI_FRAME_KINDS`, `uiFrameOutline`, `uiItems`, `uiRequireName`; all on the subpath `@silverpoint/core/ui` —exported from the main entry they took the core's full bundle to 46.16 kB, over its 45 kB— and `UI_DEMOS` on `@silverpoint/core/ui-demos`; diagnostics `SP017`..`SP019`. Tests written first, then mutation-checked (8 mutations, all red). Benchmarks `ui · …` against a 0.05 ms budget in `tools/bench-report`: the slowest, `uiProgressArc`, 0.006 ms mean. `tools/traceability` reads approved, unfolded delta PRDs as *pending*: citable, never unknown or blocking, until T-162 folds them |
+| 6b — Grounds (T-139..T-142) | 2026-09-28 | `ui` tokens on `Ground` (core type, `resolveUiTokens`, `UI_TOKEN_DEFAULTS`) and on both grounds; REQ-044's PR check extended to `core/src/ui/**` and the adapters' `ui/`. DD-022 spike first, in Chromium, Firefox and WebKit ([`spike-dd-022/`](spike-dd-022/)): viable; edges stretched along their axis, not repeated. Core `uiToneTile` (seamless periodic tiles at the ramp's angle); grounds `src/ui/pieces.ts` and `src/ui/ui-css.ts`, `scripts/build-ui-css.ts` → `dist/ui.css`, exported as `@silverpoint/grounds/ui.css`. Lint as tests (I-19, no `display:none` on native inputs, motion only under `no-preference`, data-mode rules paint-only for I-17); `styles.css` pinned to its 0.2.0 bytes. Contrast gate: 11 UI pairs × 2 grounds, all passing (tightest: `ui.precision-frame` 3.03 on silverpoint/blue). `ui.css` 8.04 KB of 24 in size-limit. OQ-U5: 4.40 / 7.85 / 10.09 KB gzip for 1 / 4 / 6 variants; four kept. Tests first; 9 mutations, all red |

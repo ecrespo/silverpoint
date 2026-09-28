@@ -57,9 +57,24 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 
 - **Decision:** for each ground, frame kind (`control`, `pill`, `box`, `card`, `round`) and variant
   (0..3), the build inks the exact outline once with the ground's inker and cuts it into 9 pieces
-  (4 corners, 4 edges, no centre). `ui.css` lays them on a `::before` of the frame as eight
-  `mask-image` layers (corners `no-repeat`, edges `round`) and paints the pseudo-element with
-  `background: var(--sp-ink)`. The component chooses a variant with `data-frame` (REQ-307).
+  (4 corners, 4 edges, no centre). `ui.css` lays them on the frame element itself
+  (`[part='sp-frame']`, absolutely positioned over the box) as eight `mask-image` layers, all
+  `no-repeat`: corners at their size, edges stretched along their own axis only, so a horizontal
+  edge keeps its line's thickness. `box` and `round` frame fixed-size squares and are laid as one
+  whole piece. The frame is painted with `background: var(--sp-ink)`; the URL list is one custom
+  property (`--sp-ui-mask`) read by both `mask-image` and `-webkit-mask-image`, so no image is
+  written twice. The component chooses a variant with `data-frame` (REQ-307).
+- **Spike, Phase 2 (2026-09-28):** the technique was rendered from the real pieces in the pinned
+  Playwright image in Chromium, Firefox and WebKit, identically in the three
+  ([`spike-dd-022/`](spike-dd-022/)). Two findings: edges repeated with `round` would show a step
+  at every seam (a hand line does not end where it began), hence the axis stretch; and a mask URL
+  must live in a stylesheet rule, never in a `style` attribute, whose quotes it breaks.
+- **Tone tiles** are the core's `uiToneTile`: each line family clipped to the rectangle that is its
+  own period (width `n·gap / |sin θ|`, height `n·gap / |cos θ|`), so a tile at −41° repeats without
+  a seam although a CSS mask cannot rotate a repeating image as an SVG pattern can. Cross-hatch is
+  a second layer with its own period. Their lines are `ornament`, drawn by the ground's inker.
+- **Text over a tone** sits on a plate of the substrate (`.sp-ui-plate`), as a chart label sits on
+  its halo; the heightened item's plate is `--sp-heighten` outlined in ink.
 - **Why a mask:** a `border-image` from an SVG cannot read CSS custom properties, so colour would be
   baked in (REQ-042 forbids it). `mask-border` is not in every engine; eight plain mask layers are.
 - **Rejected:** SVG per element sized by `ResizeObserver` (DOM measurement, JavaScript per element,
@@ -67,7 +82,7 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
   (stretches the stroke's own width and wobble, so the hand drawing changes with the box).
 - **`precision`:** the frame mask is removed and the tone is unchanged (hatch tiles, or weights under a `weight` ground, stay: tone is value, not ornament; C-7); the frame is `border: 1px solid var(--sp-rule)` with
   `--sp-ui-radius`. The layout box is identical because the frame never takes layout space in either
-  mode (it is an absolutely positioned pseudo-element over a fixed padding box) — REQ-306, I-17.
+  mode (it is an absolutely positioned element over a fixed padding box) — REQ-306, I-17.
 - **Forced colours:** REQ-123 already forces `precision`; the plain border then takes the system
   colour.
 - **Weight grounds** (`cyanotype`): `ui.frame` is `'css'`; no pieces are generated, the frame is a
@@ -138,8 +153,9 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 
 ```
 packages/core/src/ui/{value.ts, progress.ts, steps.ts, keyboard.ts, frame.ts, items.ts, names.ts, types.ts, demo.ts}
-packages/grounds/scripts/ui-pieces.ts
-packages/grounds/src/ui/{tokens.ts, ui.css.ts}          # → dist/ui.css
+packages/core/src/ui/{tokens.ts, tone.ts}               # resolveUiTokens, uiToneTile
+packages/grounds/src/ui/{pieces.ts, ui-css.ts}          # the pieces and the stylesheet
+packages/grounds/scripts/build-ui-css.ts                # → dist/ui.css, after tsup
 packages/react/src/ui/{button.tsx, input.tsx, …, index.ts}   # exports SpButton, SpInput, …
 packages/vue/src/ui/{SpButton.vue, SpInput.vue, …, index.ts}
 packages/angular/ui/{button, input, …}/                 # one secondary entry point each
@@ -170,7 +186,7 @@ examples/*/…/ui page
 | OQ-U2 | React names unprefixed or `Sp` | **Decided 2026-09-28:** `Sp` prefix in the three adapters |
 | OQ-U3 | 17 components in `0.3.0` or 8 first | **Decided 2026-09-28:** all 17 in `0.3.0` |
 | OQ-U4 | Angular attribute selectors for Button/Input | **Decided 2026-09-28:** yes (DD-024) |
-| OQ-U5 | Four frame variants per kind: enough variety, or does `ui.css` weight allow six? | Measure against the 24 KB budget in T-142 |
+| OQ-U5 | Four frame variants per kind: enough variety, or does `ui.css` weight allow six? | **Measured 2026-09-28 (T-142):** `ui.css` gzip is 4.40 KB with one variant, 7.85 KB with four, 10.09 KB with six (≈ 1.1 KB each). Six fit, but the component rules of step 6c share the 24 KB; four are kept, and a ground may declare up to six |
 | OQ-U6 | Overlays: core machines or per-framework headless libraries | Out of this feature (PRD §5.3) |
 
 ## Constitution check

@@ -45,4 +45,6 @@ export const cyanotype: Ground = deepFreeze({
   typography: silverpoint.typography,
   emptyState: silverpoint.emptyState,
   domainPadding: silverpoint.domainPadding,
+  // A contact print is not inked: the frame is an exact border, and tone is its weight (DD-026).
+  ui: { ...silverpoint.ui!, frame: 'css', frameVariants: 1 },
 });

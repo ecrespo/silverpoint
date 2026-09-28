@@ -148,6 +148,12 @@ export function uiRovingKey(
 /** Keeps the first of each key, skips the rest and any empty key (REQ-325, SP019). */
 export function uiItems<T extends { key: string }>(items: readonly T[], component: string): readonly T[];
 
+/** A ground's `ui` tokens or the defaults, held to their domain; a `weight` ground's frame is always `css` (REQ-312). */
+export function resolveUiTokens(ground: Ground): UiTokens;
+
+/** Seamless tone tile layers for one ramp step: one for hachure, two for cross-hatch, none for weight (DD-022). Build time only. */
+export function uiToneTile(spec: ToneSpec): readonly { width: number; height: number; strokes: readonly Stroke[] }[];
+
 /** Accessible-name check (REQ-319, SP018). */
 export function uiRequireName(component: string, text: string | undefined, label: string | undefined): void;
 ```
@@ -174,9 +180,14 @@ box (a component sizes to its content).
 
 ### Markup contract (normative; parity is checked on it, REQ-327)
 
-Every component root carries `class="sp-ui sp-<name>"`, `data-ground`, `data-substrate`,
-`data-mode`, `data-size` and, when inked, `data-frame="0..3"`. Drawn pieces are `aria-hidden`
-elements with a `part`:
+Every component root carries `class="sp-ui sp-<name> sp-ground-<ground>"` (the ground class, as a
+chart root and a dashboard carry it, is what `styles.css` hangs the `--sp-` palette on),
+`data-ground`, `data-substrate`, `data-mode`, `data-size` and, when inked, `data-frame="0..3"`.
+Drawn pieces are `aria-hidden` elements with a `part`; an `sp-frame` names its shape with
+`data-kind` (`control`, `pill`, `box`, `card`, `round`), an `sp-tone` its level with `data-tone`
+(1-4) and its shape with `data-kind`. A native input hidden for sight carries `class="sp-ui-native"`,
+the label of one item of a composite `class="sp-ui-item"`, and text over a tone sits in an
+`sp-ui-plate`. `ui.css` is written against these names (grounds `src/ui/ui-css.ts`):
 
 | Component | Root | Native / semantic core | Drawn parts |
 |---|---|---|---|

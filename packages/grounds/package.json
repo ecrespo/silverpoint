@@ -18,6 +18,7 @@
       "default": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
+    "./ui.css": "./dist/ui.css",
     "./package.json": "./package.json"
   },
   "files": [
@@ -33,7 +34,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup && node -e \"const fs=require('node:fs');fs.writeFileSync('dist/styles.css',fs.readFileSync('src/styles.css','utf8')+fs.readFileSync('src/dashboard.css','utf8'))\"",
+    "build": "tsup && node -e \"const fs=require('node:fs');fs.writeFileSync('dist/styles.css',fs.readFileSync('src/styles.css','utf8')+fs.readFileSync('src/dashboard.css','utf8'))\" && tsx scripts/build-ui-css.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {

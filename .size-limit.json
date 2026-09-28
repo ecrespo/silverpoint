@@ -1559,6 +1559,13 @@
     "limit": "4 kB"
   },
   {
+    "name": "@silverpoint/grounds/ui.css",
+    "path": "packages/grounds/dist/ui.css",
+    "rolldown": false,
+    "gzip": true,
+    "limit": "24 kB"
+  },
+  {
     "name": "@silverpoint/fonts (three woff2 cuts)",
     "path": "packages/fonts/files/*.woff2",
     "rolldown": false,
