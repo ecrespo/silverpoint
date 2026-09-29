@@ -1,0 +1,13 @@
+{
+  "id": "input--filled--silverpoint--green--ink",
+  "component": "input",
+  "state": "filled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--filled--silverpoint--green--ink.canonical.txt"
+}

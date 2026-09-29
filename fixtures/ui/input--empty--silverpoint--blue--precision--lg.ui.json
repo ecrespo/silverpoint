@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--silverpoint--blue--precision--lg",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--empty--silverpoint--blue--precision--lg.canonical.txt"
+}

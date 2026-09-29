@@ -1,0 +1,4 @@
+<span class="sp-ui sp-input sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="ink" data-size="lg" data-substrate="green">
+  <span class="sp-ui-box">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <input aria-label="Search charts" class="sp-ui-control" id="input--empty" name="q" placeholder="Search charts…" type="search" value="">

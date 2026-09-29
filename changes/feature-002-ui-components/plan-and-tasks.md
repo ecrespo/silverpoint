@@ -96,16 +96,16 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 
 ### 6c — Adapters (per batch: React, Vue and Angular tasks may run `[P]`)
 
-**[ ] T-143 · Adapter UI base ×3** — REQ-311, REQ-329, REQ-333
+**[x] T-143 · Adapter UI base ×3** — REQ-311, REQ-329, REQ-333
 - Config resolution shared with charts (component → dashboard → provider → default, then the
   REQ-123 override); `${id}--${part}` ids; root attributes of the markup contract.
 - **Done:** precedence tests green in the three adapters; no framework id hook in emitted ids.
 
-**[ ] T-144 · B1 React** — REQ-300, REQ-304, REQ-310, REQ-314, REQ-322, REQ-326, REQ-334
+**[x] T-144 · B1 React** — REQ-300, REQ-304, REQ-310, REQ-314, REQ-322, REQ-326, REQ-334
 
-**[ ] T-145 · B1 Vue** — same REQs, plus REQ-108
+**[x] T-145 · B1 Vue** — same REQs, plus REQ-108
 
-**[ ] T-146 · B1 Angular** — same REQs, plus REQ-101, REQ-323 (CVA), DD-024 attribute selectors
+**[x] T-146 · B1 Angular** — same REQs, plus REQ-101, REQ-323 (CVA), DD-024 attribute selectors
 - `SpButton` (`variant`, ✕ on `danger`), `SpInput` (`invalid`, `message`), `SpCheckbox`, `SpSwitch`,
   `SpCard`, `SpDivider`.
 - Tests per component: markup contract, native element and hidden input, controlled/uncontrolled
@@ -132,20 +132,20 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 
 ### 6d — Gates
 
-**[ ] T-153 · Component fixtures** — REQ-327, REQ-182
+**[x] T-153 · Component fixtures** — REQ-327, REQ-182
 - `fixtures/ui/` from `UI_DEMOS` × the matrix of Data Model §5; canonicals from the React server
   render, reviewed.
 - **Done:** 510 fixtures generated; manifest counts asserted.
 
-**[ ] T-154 · Parity gate on components** — REQ-327
+**[x] T-154 · Parity gate on components** — REQ-327
 - The DD-004 tree gate over `fixtures/ui/`, three adapters.
 - **Done:** 180 PR fixtures green; nightly 510 green.
 
-**[ ] T-155 · Pixel gates and mode invariance** — REQ-304, REQ-306, REQ-328
+**[x] T-155 · Pixel gates and mode invariance** — REQ-304, REQ-306, REQ-328
 - Three gates per fixture at its width; I-17 checked on computed boxes of `ink` vs `precision`.
 - **Done:** green in the pinned Docker image.
 
-**[ ] T-156 · Budgets** — REQ-330
+**[x] T-156 · Budgets** — REQ-330
 - size-limit entries per `ui/<name>` and the UI runtime ×3; `ui.css`.
 - **Done:** green; chart budgets unchanged.
 
@@ -222,3 +222,4 @@ Every task cites at least one REQ; no orphan task.
 |---|---|---|
 | 6a — Core (T-135..T-138) | 2026-09-28 | `packages/core/src/ui/`: types and `Sp<Name>Props`, `UI_COMPONENTS` (17 rows, 45 states), `uiValue`, `uiRateCount`, `uiProgressArc`, `uiSteps`, `uiRovingKey`, `uiFrameVariant`, `UI_FRAME_KINDS`, `uiFrameOutline`, `uiItems`, `uiRequireName`; all on the subpath `@silverpoint/core/ui` —exported from the main entry they took the core's full bundle to 46.16 kB, over its 45 kB— and `UI_DEMOS` on `@silverpoint/core/ui-demos`; diagnostics `SP017`..`SP019`. Tests written first, then mutation-checked (8 mutations, all red). Benchmarks `ui · …` against a 0.05 ms budget in `tools/bench-report`: the slowest, `uiProgressArc`, 0.006 ms mean. `tools/traceability` reads approved, unfolded delta PRDs as *pending*: citable, never unknown or blocking, until T-162 folds them |
 | 6b — Grounds (T-139..T-142) | 2026-09-28 | `ui` tokens on `Ground` (core type, `resolveUiTokens`, `UI_TOKEN_DEFAULTS`) and on both grounds; REQ-044's PR check extended to `core/src/ui/**` and the adapters' `ui/`. DD-022 spike first, in Chromium, Firefox and WebKit ([`spike-dd-022/`](spike-dd-022/)): viable; edges stretched along their axis, not repeated. Core `uiToneTile` (seamless periodic tiles at the ramp's angle); grounds `src/ui/pieces.ts` and `src/ui/ui-css.ts`, `scripts/build-ui-css.ts` → `dist/ui.css`, exported as `@silverpoint/grounds/ui.css`. Lint as tests (I-19, no `display:none` on native inputs, motion only under `no-preference`, data-mode rules paint-only for I-17); `styles.css` pinned to its 0.2.0 bytes. Contrast gate: 11 UI pairs × 2 grounds, all passing (tightest: `ui.precision-frame` 3.03 on silverpoint/blue). `ui.css` 8.04 KB of 24 in size-limit. OQ-U5: 4.40 / 7.85 / 10.09 KB gzip for 1 / 4 / 6 variants; four kept. Tests first; 9 mutations, all red |
+| 6c B1 + 6d gates (T-143..T-146, T-153..T-156) | 2026-09-28 | **Core:** `resolveUi` (prop → dashboard → provider → default, forced precision after) and the markup contract as data — `ui*View` trees for Button, Input, Checkbox, Switch, Card, Divider, with exact glyphs; `data-frame` is a slot 0..5 and `data-tone` a level or a state, both folded by `ui.css` from the ground's tokens, so the runtime needs no ground. **Adapters:** React (generic tree writer; client entries; `server/ui/card`, `server/ui/divider`), Vue (tree writer, `v-model`, `class` joins `className`), Angular (`sp-ui-tree` writes the tree in one template; `button[spButton]`; `sp-input` is an element — an `<input>` cannot hold frame and message; named slots as `<ng-template spExtra>`; CVA, so `@angular/forms` is a peer; tokens moved to `@silverpoint/angular/env` to keep the UI runtime off the chart pipeline: 21.7 → 4.3 kB). **Gates:** 230 fixtures (`fixtures/ui`, 76 on PR), canonicals written from the core by a reference writer (as DD-017, not from the React render); tree gate 690/690; pixel gate 76 × 4 apps with goldens; I-17 on the canonical page; budgets: runtime 2.1 / 2.2 / 4.3 kB (React / Vue / Angular) of 8, components ≤ 5.3 kB of 11, `ui.css` 9.1 of 24. `tools/visual-gate` filters `spbutton` (A-03). React tests were written after its code and mutation-checked (10 mutations); Vue and Angular tests first |

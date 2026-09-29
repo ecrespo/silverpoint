@@ -1,14 +1,19 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, wantsGallery } from '@silverpoint/example-harness';
+import { dashboardFixtureById, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, uiFixtureById, wantsGallery } from '@silverpoint/example-harness';
 import { createApp, createSSRApp } from 'vue';
 import App from './App.vue';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const dashboard = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
+const ui = uiFixtureById(new URLSearchParams(location.search).get('ui'));
 
-if (dashboard) {
+if (ui) {
+  // A UI fixture of the pixel gate, rendered on the client.
+  createApp(App, { ui }).mount('#app');
+} else if (dashboard) {
   // A dashboard fixture of the pixel gate, rendered on the client.
   createApp(App, { dashboard: dashboardFixtureProps(dashboard), gate: true }).mount('#app');
 } else if (location.pathname.replace(/\/$/, '') === '/dashboard' && new URLSearchParams(location.search).has('linked')) {

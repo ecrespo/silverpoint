@@ -1,7 +1,10 @@
 import type { ComponentType } from 'react';
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
+import { uiFixtureById, uiFixtureParts, uiSizeOf, type HarnessUiFixture } from '@silverpoint/example-harness';
+import { SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpSwitch } from '@silverpoint/react/ui';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
@@ -46,6 +49,24 @@ import { createRoot } from 'react-dom/client';
 // resolve the same way under `vite dev` and `vite build` (REQ-033, T-024).
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
+const uiFixture = uiFixtureById(new URLSearchParams(location.search).get('ui'));
+
+/** Every UI component a fixture can name, by its slug. */
+const UI: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
+
+/** A UI fixture as a consumer writes it: uncontrolled, the value as its default (REQ-322). */
+function UiFixture({ fixture }: { fixture: HarnessUiFixture }) {
+  const { props, value, slots } = uiFixtureParts(fixture);
+  const Component = UI[fixture.component]!;
+  const bound = value === undefined ? {} : typeof value === 'boolean' ? { defaultChecked: value } : { defaultValue: value };
+  return (
+    <div className={`sp-harness sp-ground-${fixture.ground}`} data-gate="" data-ui="" data-substrate={fixture.substrate} data-size={uiSizeOf(fixture)}>
+      <Component {...props} {...bound} {...(slots.extra ? { extra: slots.extra } : {})}>
+        {slots.content}
+      </Component>
+    </div>
+  );
+}
 
 /** Every chart a fixture can name, by its chart name. */
 /** Every chart a fixture can name. A fixture's props fit its own chart; the union cannot say so. */
@@ -68,6 +89,13 @@ function ReferenceDashboard({ dashboard }: { dashboard: HarnessDashboard }) {
 }
 
 function App() {
+  if (uiFixture) {
+    return (
+      <main>
+        <UiFixture fixture={uiFixture} />
+      </main>
+    );
+  }
   if (dashboardFixture) {
     return (
       <main>

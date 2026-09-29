@@ -1577,5 +1577,250 @@
     "path": "packages/tailwind/dist/index.js",
     "gzip": true,
     "limit": "1 kB"
+  },
+  {
+    "name": "@silverpoint/react UI runtime (feature-002, REQ-330): SpDivider",
+    "path": "packages/react/dist/ui/divider.js",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "8 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/button (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/button.js",
+    "import": "{ SpButton }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/input (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/input.js",
+    "import": "{ SpInput }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/checkbox (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/checkbox.js",
+    "import": "{ SpCheckbox }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/switch (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/switch.js",
+    "import": "{ SpSwitch }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/card (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/card.js",
+    "import": "{ SpCard }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/divider (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/divider.js",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue UI runtime (feature-002, REQ-330): SpDivider",
+    "path": "packages/vue/dist/ui/divider.js",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "8 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/button (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/button.js",
+    "import": "{ SpButton }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/input (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/input.js",
+    "import": "{ SpInput }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/checkbox (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/checkbox.js",
+    "import": "{ SpCheckbox }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/switch (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/switch.js",
+    "import": "{ SpSwitch }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/card (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/card.js",
+    "import": "{ SpCard }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/divider (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/divider.js",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular UI runtime (feature-002, REQ-330): SpDivider",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-divider.mjs",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "8 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/button (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-button.mjs",
+    "import": "{ SpButton }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/input (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-input.mjs",
+    "import": "{ SpInput }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/checkbox (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-checkbox.mjs",
+    "import": "{ SpCheckbox }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/switch (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-switch.mjs",
+    "import": "{ SpSwitch }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/card (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-card.mjs",
+    "import": "{ SpCard }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/divider (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-divider.mjs",
+    "import": "{ SpDivider }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
   }
 ]

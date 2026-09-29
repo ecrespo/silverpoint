@@ -128,24 +128,44 @@ describe('ui.css (T-141)', () => {
     }
   });
 
-  test('REQ-305 · REQ-307 · an inked ground has a mask for every frame kind in every variant; a css ground has none', () => {
+  test('REQ-305 · REQ-307 · an inked ground has a mask for every kind in every frame slot 0..5, folded onto its variants; a css ground has none', () => {
+    const variants = silverpoint.ui!.frameVariants;
     for (const kind of ['control', 'pill', 'box', 'card', 'round']) {
-      for (const v of [0, 1, 2, 3]) {
-        expect(all.some((r) => r.selector === `.sp-ui.sp-ground-silverpoint[data-frame='${v}'] [part='sp-frame'][data-kind='${kind}']` && r.body.includes('--sp-ui-mask:'))).toBe(true);
+      const masks = all.filter((r) => r.selector.startsWith('.sp-ui.sp-ground-silverpoint:is(') && r.selector.endsWith(`[part='sp-frame'][data-kind='${kind}']`) && r.body.includes('--sp-ui-mask:'));
+      expect(masks).toHaveLength(variants);
+      for (let slot = 0; slot < 6; slot++) {
+        const rule = masks.find((r) => r.selector.includes(`[data-frame='${slot}']`));
+        expect(rule?.selector).toContain(`[data-frame='${slot % variants}']`);
       }
     }
     expect(all.some((r) => r.selector.includes('sp-ground-cyanotype') && r.body.includes('--sp-ui-mask:'))).toBe(false);
   });
 
   test('REQ-308 · C-7 · tone is the ramp in both modes: hatch masks under silverpoint, line weight under cyanotype', () => {
-    for (const level of [1, 2, 3, 4]) {
-      const hatch = all.find((r) => r.selector === `.sp-ground-silverpoint [part='sp-tone'][data-tone='${level}']`);
+    const states = silverpoint.ui!.tone;
+    for (const level of [1, 2, 3, 4] as const) {
+      const hatch = all.find((r) => r.selector.startsWith(".sp-ground-silverpoint [part='sp-tone']:is(") && r.selector.includes(`[data-tone='${level}']`));
       expect(hatch?.body).toMatch(/--sp-ui-tone: url\(/);
       expect(hatch?.selector).not.toMatch(/data-mode/);
-      const weight = all.find((r) => r.selector === `.sp-ground-cyanotype [part='sp-tone'][data-tone='${level}']`);
+      // Each state the ground's tokens map to this level shares its rule (DD-026).
+      for (const [state, at] of Object.entries(states)) if (at === level) expect(hatch?.selector).toContain(`[data-tone='${state}']`);
+      const weight = all.find((r) => r.selector.startsWith(".sp-ground-cyanotype [part='sp-tone']:is(") && r.selector.includes(`[data-tone='${level}']`));
       expect(weight?.body).toMatch(new RegExp(`border-width: calc\\(var\\(--sp-stroke-width\\) \\* var\\(--sp-weight-${level}\\) \\* 1px\\)`));
     }
     expect(css).not.toMatch(/opacity/);
+  });
+
+  test('REQ-317 · every B1 control is at least 24 px tall: its height is a --sp-ui-height, or its label is', () => {
+    for (const selector of ['.sp-button', '.sp-input .sp-ui-box']) {
+      expect(all.find((r) => r.selector === selector)?.body).toMatch(/min-block-size: var\(--sp-ui-height\)/);
+    }
+    expect(all.find((r) => r.selector === '.sp-checkbox,\n.sp-switch')?.body).toMatch(/min-block-size: 24px/);
+  });
+
+  test('REQ-310 · a checkbox\'s tick, dash and tone follow the native state and data-indeterminate, never a script', () => {
+    expect(css).toContain(".sp-ui-native:checked + .sp-ui-box [data-glyph='tick']");
+    expect(css).toContain(".sp-checkbox[data-indeterminate] [data-glyph='dash']");
+    expect(css).toContain(".sp-ui-native:checked + .sp-ui-track [part='sp-knob']");
   });
 
   test('REQ-301 · the charts\' styles.css is untouched by the components: byte for byte what 0.2.0 shipped', () => {

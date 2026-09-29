@@ -58,3 +58,9 @@ h1 {
 .sp-dashboard-harness[data-gate] .sp-chart {
   animation: none;
 }
+
+/* The UI gate container: it stands on the fixture's substrate, as a component stands on a page or a
+   card of its ground — on white, cyanotype's white line would not show. */
+.sp-harness[data-ui] {
+  background: var(--sp-substrate);
+}

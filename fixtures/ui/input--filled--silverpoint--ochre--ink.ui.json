@@ -1,0 +1,13 @@
+{
+  "id": "input--filled--silverpoint--ochre--ink",
+  "component": "input",
+  "state": "filled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--filled--silverpoint--ochre--ink.canonical.txt"
+}

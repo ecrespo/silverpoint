@@ -38,7 +38,7 @@ function valid(): Manifest[] {
       sideEffects: false,
       publishConfig: { directory: 'dist', linkDirectory: true },
       dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*', tslib: '^2' },
-      peerDependencies: { '@angular/core': '>=21', '@angular/common': '>=21' },
+      peerDependencies: { '@angular/core': '>=21', '@angular/common': '>=21', '@angular/forms': '>=21' },
     },
     { name: '@silverpoint/fonts', sideEffects: ['*.css'], exports: { '.': './fonts.css' } },
     {
@@ -164,5 +164,12 @@ describe('check-deps', () => {
   test('REQ-162 · the checker reads the real core manifest', () => {
     const core = JSON.parse(readFileSync(`${root}packages/core/package.json`, 'utf8')) as Manifest;
     expect(readWorkspaceManifests(root).find((m) => m.name === '@silverpoint/core')).toEqual(core);
+  });
+
+  test('REQ-323 · REQ-303 · @angular/forms is a framework peer of the Angular adapter (ControlValueAccessor), never a dependency', () => {
+    const withoutForms = replace(valid(), '@silverpoint/angular', (m) => ({ ...m, peerDependencies: { '@angular/core': '>=21', '@angular/common': '>=21' } }));
+    expect(checkManifests(withoutForms)).toEqual(['REQ-161 · @silverpoint/angular must declare @angular/forms in peerDependencies.']);
+    const asDependency = replace(valid(), '@silverpoint/angular', (m) => ({ ...m, dependencies: { ...m.dependencies, '@angular/forms': '^21' } }));
+    expect(checkManifests(asDependency)).toContain('REQ-161 · @silverpoint/angular declares @angular/forms as a dependency; frameworks are peerDependencies only.');
   });
 });

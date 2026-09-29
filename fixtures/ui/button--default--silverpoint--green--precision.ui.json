@@ -1,0 +1,13 @@
+{
+  "id": "button--default--silverpoint--green--precision",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--default--silverpoint--green--precision.canonical.txt"
+}

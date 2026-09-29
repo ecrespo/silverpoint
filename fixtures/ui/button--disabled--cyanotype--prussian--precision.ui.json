@@ -1,0 +1,13 @@
+{
+  "id": "button--disabled--cyanotype--prussian--precision",
+  "component": "button",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/button--disabled--cyanotype--prussian--precision.canonical.txt"
+}

@@ -219,6 +219,48 @@
       "import": "./dist/dashboard.js",
       "default": "./dist/dashboard.js"
     },
+    "./ui": {
+      "@silverpoint/source": "./src/ui/index.ts",
+      "types": "./dist/ui/index.d.ts",
+      "import": "./dist/ui.js",
+      "default": "./dist/ui.js"
+    },
+    "./ui/button": {
+      "@silverpoint/source": "./src/ui/button.ts",
+      "types": "./dist/ui/button.d.ts",
+      "import": "./dist/ui/button.js",
+      "default": "./dist/ui/button.js"
+    },
+    "./ui/input": {
+      "@silverpoint/source": "./src/ui/input.ts",
+      "types": "./dist/ui/input.d.ts",
+      "import": "./dist/ui/input.js",
+      "default": "./dist/ui/input.js"
+    },
+    "./ui/checkbox": {
+      "@silverpoint/source": "./src/ui/checkbox.ts",
+      "types": "./dist/ui/checkbox.d.ts",
+      "import": "./dist/ui/checkbox.js",
+      "default": "./dist/ui/checkbox.js"
+    },
+    "./ui/switch": {
+      "@silverpoint/source": "./src/ui/switch.ts",
+      "types": "./dist/ui/switch.d.ts",
+      "import": "./dist/ui/switch.js",
+      "default": "./dist/ui/switch.js"
+    },
+    "./ui/card": {
+      "@silverpoint/source": "./src/ui/card.ts",
+      "types": "./dist/ui/card.d.ts",
+      "import": "./dist/ui/card.js",
+      "default": "./dist/ui/card.js"
+    },
+    "./ui/divider": {
+      "@silverpoint/source": "./src/ui/divider.ts",
+      "types": "./dist/ui/divider.d.ts",
+      "import": "./dist/ui/divider.js",
+      "default": "./dist/ui/divider.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

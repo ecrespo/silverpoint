@@ -12,9 +12,7 @@ import {
   type PointerKind,
 } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
-import { SILVERPOINT_CONFIG } from './config';
-import { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK } from './dashboard-cell';
-import { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from './environment';
+import { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SILVERPOINT_CONFIG, SilverpointIds, SP_DASHBOARD_CELL, SP_DASHBOARD_LINK } from '@silverpoint/angular/env';
 import { SpTooltip } from './tooltip';
 
 type Prop<K extends keyof CommonChartProps> = CommonChartProps[K];

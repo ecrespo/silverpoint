@@ -54,7 +54,9 @@
     "wind-rose/**/*.ts",
     "volvelle-chart/**/*.ts",
     "chord-ring/**/*.ts",
-    "orbit-chart/**/*.ts"
+    "orbit-chart/**/*.ts",
+    "ui/**/*.ts",
+    "env/**/*.ts"
   ],
   "exclude": [
     "**/*.spec.ts",

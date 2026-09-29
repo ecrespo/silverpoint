@@ -1,0 +1,8 @@
+<label class="sp-ui sp-switch sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre">
+  <input checked="" class="sp-ui-native" id="switch--on" name="precision" role="switch" type="checkbox">
+  <span aria-hidden="true" class="sp-ui-track">
+    <span aria-hidden="true" data-kind="pill" part="sp-frame">
+    <span aria-hidden="true" data-kind="pill" data-tone="selected" part="sp-tone">
+    <span part="sp-knob">
+  <span class="sp-ui-label">
+    "Precision"

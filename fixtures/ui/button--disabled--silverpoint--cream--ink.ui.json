@@ -1,0 +1,13 @@
+{
+  "id": "button--disabled--silverpoint--cream--ink",
+  "component": "button",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/button--disabled--silverpoint--cream--ink.canonical.txt"
+}

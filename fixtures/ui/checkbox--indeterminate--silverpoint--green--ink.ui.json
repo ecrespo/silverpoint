@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--indeterminate--silverpoint--green--ink",
+  "component": "checkbox",
+  "state": "indeterminate",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/checkbox--indeterminate--silverpoint--green--ink.canonical.txt"
+}

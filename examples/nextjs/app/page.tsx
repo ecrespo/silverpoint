@@ -1,3 +1,5 @@
+import { uiFixtureById } from '@silverpoint/example-harness';
+import { UiFixture } from './ui-fixture';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, sizeOf } from '@silverpoint/example-harness';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { CHARTS } from './charts';
@@ -21,6 +23,15 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
             );
           })}
         </div>
+        <Hydrated />
+      </main>
+    );
+  }
+  const ui = uiFixtureById(params.ui);
+  if (ui) {
+    return (
+      <main>
+        <UiFixture fixture={ui} />
         <Hydrated />
       </main>
     );

@@ -1,0 +1,5 @@
+<button class="sp-ui sp-button sp-ground-silverpoint" data-frame="1" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="cream" data-variant="default" disabled="" id="button--disabled" type="button">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span aria-hidden="true" data-kind="control" data-tone="disabled" part="sp-tone">
+  <span class="sp-ui-label sp-ui-plate">
+    "Disabled"

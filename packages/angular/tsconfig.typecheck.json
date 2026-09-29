@@ -3,6 +3,11 @@
   "compilerOptions": {
     "noEmit": true,
     "inlineSources": false,
-    "paths": { "@silverpoint/angular": ["./src/public-api.ts"] }
+    "paths": {
+      "@silverpoint/angular": ["./src/public-api.ts"],
+      "@silverpoint/angular/env": ["./env/public-api.ts"],
+      "@silverpoint/angular/ui": ["./ui/public-api.ts"],
+      "@silverpoint/angular/ui/*": ["./ui/*/public-api.ts"]
+    }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "id": "button--default--silverpoint--ochre--precision--sm",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--default--silverpoint--ochre--precision--sm.canonical.txt"
+}

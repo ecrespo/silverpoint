@@ -1,0 +1,13 @@
+{
+  "id": "button--danger--silverpoint--green--precision",
+  "component": "button",
+  "state": "danger",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--danger--silverpoint--green--precision.canonical.txt"
+}

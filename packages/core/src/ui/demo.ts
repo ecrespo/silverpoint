@@ -63,10 +63,10 @@ export const UI_DEMOS: UiDemos = /* @__PURE__ */ withIds({
     disabled: { content: 'Disabled', disabled: true },
   },
   input: {
-    empty: { placeholder: 'Search charts…', type: 'search', name: 'q', value: '' },
-    filled: { name: 'city', value: 'Caracas' },
-    invalid: { name: 'city', value: 'Caracas', invalid: true, message: 'Required: pick a city' },
-    disabled: { name: 'city', value: 'Caracas', disabled: true },
+    empty: { label: 'Search charts', placeholder: 'Search charts…', type: 'search', name: 'q', value: '' },
+    filled: { label: 'City', name: 'city', value: 'Caracas' },
+    invalid: { label: 'City', name: 'city', value: 'Caracas', invalid: true, message: 'Required: pick a city' },
+    disabled: { label: 'City', name: 'city', value: 'Caracas', disabled: true },
   },
   checkbox: {
     unchecked: { label: 'Legend', name: 'legend', value: false },

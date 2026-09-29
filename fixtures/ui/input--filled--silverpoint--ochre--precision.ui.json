@@ -1,0 +1,13 @@
+{
+  "id": "input--filled--silverpoint--ochre--precision",
+  "component": "input",
+  "state": "filled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--filled--silverpoint--ochre--precision.canonical.txt"
+}

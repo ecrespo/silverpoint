@@ -1,0 +1,13 @@
+{
+  "id": "switch--disabled--silverpoint--green--precision",
+  "component": "switch",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/switch--disabled--silverpoint--green--precision.canonical.txt"
+}

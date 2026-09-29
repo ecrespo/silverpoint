@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--cyanotype--prussian--ink",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/card--plain--cyanotype--prussian--ink.canonical.txt"
+}

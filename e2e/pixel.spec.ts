@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES } from '../examples/harness/index.js';
+import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES, UI_FIXTURES, UI_PR_FIXTURES } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
 import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
@@ -140,5 +140,63 @@ test.describe('dashboard pixel gate', () => {
         expect(gate(adapter, canonical, golden)).toEqual([]);
       });
     }
+  }
+});
+
+/** A UI fixture's gate container, once the component and the fonts are in (REQ-328). */
+async function shootUi(page: Page, url: string): Promise<Buffer> {
+  await page.goto(url);
+  await page.locator('.sp-harness[data-ui] .sp-ui').first().waitFor();
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+  });
+  return page.locator('.sp-harness[data-ui]').screenshot({ animations: 'disabled' });
+}
+
+/** The UI matrix: the PR cells on every PR, every cell nightly (Data Model §5). */
+const UI_MATRIX = FULL ? UI_FIXTURES : UI_PR_FIXTURES;
+
+test.describe('UI pixel gate', () => {
+  test('REQ-328 · REQ-182 · the gate has every UI fixture of the gated batches to compare', () => {
+    expect(UI_MATRIX.length).toBe(FULL ? UI_FIXTURES.length : UI_FIXTURES.filter((f) => f.scope === 'pr').length);
+    expect(UI_PR_FIXTURES.length).toBeGreaterThan(0);
+  });
+
+  for (const fixture of UI_MATRIX) {
+    test(`REQ-328 · ${fixture.id} passes the three Art. 3 comparisons`, async ({ page }, info) => {
+      const canonical = await shootUi(page, `${CANONICAL}?ui=${fixture.id}`);
+      const pr = fixture.scope === 'pr';
+      if (pr) expect(canonical).toMatchSnapshot(['ui', `${fixture.id}.png`], { threshold: 0.15, maxDiffPixelRatio: 0.005 });
+      const goldenPath = info.snapshotPath('ui', `${fixture.id}.png`);
+      const golden = pr && existsSync(goldenPath) ? readFileSync(goldenPath) : undefined;
+      const adapter = await shootUi(page, `/?ui=${fixture.id}`);
+      expect(gate(adapter, canonical, golden)).toEqual([]);
+    });
+  }
+});
+
+test.describe('UI mode invariance', () => {
+  /**
+   * I-17 (REQ-306): switching a component between `ink` and `precision` moves no box. Measured on the
+   * canonical page, which every adapter matches pixel for pixel; once, not per app.
+   */
+  for (const fixture of UI_PR_FIXTURES.filter((f) => f.mode === 'ink')) {
+    test(`REQ-306 · I-17 · ${fixture.id} lays out identically in ink and precision`, async ({ page }, info) => {
+      test.skip(info.project.name !== 'vite-react', 'measured once, on the canonical page');
+      const boxes = async (id: string) => {
+        await page.goto(`${CANONICAL}?ui=${id}`);
+        await page.locator('.sp-harness[data-ui] .sp-ui').first().waitFor();
+        await page.evaluate(async () => {
+          await document.fonts.ready;
+        });
+        return page.$$eval('.sp-harness[data-ui] .sp-ui, .sp-harness[data-ui] .sp-ui *', (elements) =>
+          elements.map((e) => {
+            const r = e.getBoundingClientRect();
+            return `${e.tagName} ${r.x.toFixed(2)} ${r.y.toFixed(2)} ${r.width.toFixed(2)} ${r.height.toFixed(2)}`;
+          }),
+        );
+      };
+      expect(await boxes(fixture.id.replace('--ink', '--precision'))).toEqual(await boxes(fixture.id));
+    });
   }
 });

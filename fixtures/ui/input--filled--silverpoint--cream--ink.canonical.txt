@@ -1,0 +1,4 @@
+<span class="sp-ui sp-input sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="cream">
+  <span class="sp-ui-box">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <input aria-label="City" class="sp-ui-control" id="input--filled" name="city" type="text" value="Caracas">

@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--silverpoint--cream--ink--sm",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--empty--silverpoint--cream--ink--sm.canonical.txt"
+}

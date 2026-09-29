@@ -1,0 +1,13 @@
+{
+  "id": "divider--text--cyanotype--prussian--ink",
+  "component": "divider",
+  "state": "text",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/divider--text--cyanotype--prussian--ink.canonical.txt"
+}

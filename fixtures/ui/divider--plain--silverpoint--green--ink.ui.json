@@ -1,0 +1,13 @@
+{
+  "id": "divider--plain--silverpoint--green--ink",
+  "component": "divider",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/divider--plain--silverpoint--green--ink.canonical.txt"
+}

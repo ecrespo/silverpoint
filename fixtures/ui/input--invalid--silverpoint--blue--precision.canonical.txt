@@ -1,0 +1,8 @@
+<span class="sp-ui sp-input sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-invalid="true" data-mode="precision" data-size="md" data-substrate="blue">
+  <span class="sp-ui-box">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <input aria-describedby="input--invalid--message" aria-invalid="true" aria-label="City" class="sp-ui-control" id="input--invalid" name="city" type="text" value="Caracas">
+    <svg aria-hidden="true" data-glyph="warning" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M8,2.5L14.5,13.5H1.5Z M8,6.5V9.5 M8,11.5V11.5">
+  <span class="sp-ui-message" id="input--invalid--message">
+    "Required: pick a city"

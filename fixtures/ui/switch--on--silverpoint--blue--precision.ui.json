@@ -1,0 +1,13 @@
+{
+  "id": "switch--on--silverpoint--blue--precision",
+  "component": "switch",
+  "state": "on",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/switch--on--silverpoint--blue--precision.canonical.txt"
+}

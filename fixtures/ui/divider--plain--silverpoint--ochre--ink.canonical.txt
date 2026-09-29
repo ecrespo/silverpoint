@@ -1,0 +1,2 @@
+<div class="sp-ui sp-divider sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-mode="ink" data-orientation="horizontal" data-size="md" data-substrate="ochre" id="divider--plain" role="separator">
+  <span aria-hidden="true" part="sp-rule">

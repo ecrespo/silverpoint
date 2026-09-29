@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--indeterminate--silverpoint--ochre--ink",
+  "component": "checkbox",
+  "state": "indeterminate",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/checkbox--indeterminate--silverpoint--ochre--ink.canonical.txt"
+}

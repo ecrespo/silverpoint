@@ -37,7 +37,9 @@ interface TreeOptions {
  * Attributes a framework injects, filtered by explicit, versioned list. A new one breaks the
  * gate until someone adds it here deliberately — the desired behaviour (DD-004).
  */
-const FILTERED_NAMES = new Set(['ng-version', 'ngh', 'ngskiphydration']);
+// `spbutton`: the selector of the Angular attribute component `button[spButton]` (DD-024), written by
+// the consumer on their own element — outside the parity contract, as any consumer attribute is (A-03).
+const FILTERED_NAMES = new Set(['ng-version', 'ngh', 'ngskiphydration', 'spbutton']);
 const FILTERED_PREFIXES = ['_ngcontent-', '_nghost-', 'ng-reflect-'];
 
 /**
@@ -228,5 +230,39 @@ export function normalizeDashboard(markup: string): string {
 /** Compares two dashboard renders as normalised trees, reporting the first difference (REQ-210). */
 export function compareDashboard(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
   const found = difference(parseDashboard(actual), parseDashboard(expected), 'section');
+  return found === undefined ? { equal: true } : { equal: false, difference: found };
+}
+
+function findUiRoot(node: ParsedNode): ParsedElement | undefined {
+  if (isElement(node) && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-ui')) return node;
+  for (const child of 'childNodes' in node ? node.childNodes : []) {
+    const found = findUiRoot(child);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+/**
+ * Parses markup and returns the normalised tree of its UI component root (`.sp-ui`), with the
+ * dashboard's rules (DD-017, DD-027): hydration markers dropped, Angular hosts unwrapped, `style`
+ * compared as declarations.
+ */
+export function parseUi(markup: string): NormalElement {
+  const root = findUiRoot(parseFragment(markup));
+  if (!root) throw new Error('No element with class "sp-ui" in the markup.');
+  return toTree(root, new Map(), { dashboard: true });
+}
+
+/** The normalised component as text, one node per line: what a UI fixture's canonical file holds. */
+export function normalizeUi(markup: string): string {
+  const out: string[] = [];
+  lines(parseUi(markup), 0, out);
+  return out.join('\n');
+}
+
+/** Compares two component renders as normalised trees, reporting the first difference (REQ-327). */
+export function compareUi(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
+  const root = parseUi(expected).tag;
+  const found = difference(parseUi(actual), parseUi(expected), root);
   return found === undefined ? { equal: true } : { equal: false, difference: found };
 }

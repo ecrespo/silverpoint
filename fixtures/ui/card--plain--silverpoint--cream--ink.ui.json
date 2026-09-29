@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--silverpoint--cream--ink",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/card--plain--silverpoint--cream--ink.canonical.txt"
+}

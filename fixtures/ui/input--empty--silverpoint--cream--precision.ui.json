@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--silverpoint--cream--precision",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input--empty--silverpoint--cream--precision.canonical.txt"
+}

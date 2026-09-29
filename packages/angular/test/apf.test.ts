@@ -30,7 +30,8 @@ describe('Angular Package Format', () => {
 
   test('REQ-161 · the published manifest keeps Angular as peers and is side-effect free', () => {
     const published = manifest();
-    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core']);
+    // @angular/forms: the UI components' ControlValueAccessor (REQ-323).
+    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms']);
     expect(published.dependencies).not.toHaveProperty('@angular/core');
     expect(published.sideEffects).toBe(false);
   });

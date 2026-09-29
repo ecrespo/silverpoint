@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--silverpoint--green--precision",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/card--plain--silverpoint--green--precision.canonical.txt"
+}

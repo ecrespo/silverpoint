@@ -1,0 +1,13 @@
+{
+  "id": "input--disabled--silverpoint--green--precision",
+  "component": "input",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--disabled--silverpoint--green--precision.canonical.txt"
+}

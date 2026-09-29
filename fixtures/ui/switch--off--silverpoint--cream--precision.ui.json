@@ -1,0 +1,13 @@
+{
+  "id": "switch--off--silverpoint--cream--precision",
+  "component": "switch",
+  "state": "off",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/switch--off--silverpoint--cream--precision.canonical.txt"
+}

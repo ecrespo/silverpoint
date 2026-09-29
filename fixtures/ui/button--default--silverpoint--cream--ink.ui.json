@@ -1,0 +1,13 @@
+{
+  "id": "button--default--silverpoint--cream--ink",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/button--default--silverpoint--cream--ink.canonical.txt"
+}

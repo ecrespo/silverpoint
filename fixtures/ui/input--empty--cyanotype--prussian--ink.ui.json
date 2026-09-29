@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--cyanotype--prussian--ink",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input--empty--cyanotype--prussian--ink.canonical.txt"
+}

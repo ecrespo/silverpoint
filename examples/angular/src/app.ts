@@ -35,16 +35,20 @@ import { SpChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
+import { uiFixtureById } from '@silverpoint/example-harness';
+import { UiGate } from './ui-gate';
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart };
 
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet],
+  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (dashboard) {
+    @if (ui) {
+      <main><app-ui-gate [fixture]="ui" /></main>
+    } @else if (dashboard) {
       <main>
         @if (!dashboardGate) {
           <h1>silverpoint · Angular · dashboard</h1>
@@ -97,6 +101,8 @@ export class App {
   /** The request URL, the same on the server and in the browser: never `location`, which the server has not. */
   private readonly url = inject(PlatformLocation);
   private readonly fixture = fixtureById(new URLSearchParams(this.url.search).get('fixture'));
+  /** A UI fixture of the pixel gate (REQ-328). */
+  protected readonly ui = uiFixtureById(new URLSearchParams(this.url.search).get('ui'));
   private readonly dashboardFixture = dashboardFixtureById(new URLSearchParams(this.url.search).get('dashboard'));
   /** The pixel gate's dashboard fixture, or the `/dashboard` page's reference dashboard (REQ-221). */
   protected readonly dashboard = this.dashboardFixture

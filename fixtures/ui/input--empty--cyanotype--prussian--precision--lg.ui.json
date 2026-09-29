@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--cyanotype--prussian--precision--lg",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--empty--cyanotype--prussian--precision--lg.canonical.txt"
+}

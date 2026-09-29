@@ -1,0 +1,13 @@
+{
+  "id": "switch--on--silverpoint--cream--ink",
+  "component": "switch",
+  "state": "on",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/switch--on--silverpoint--cream--ink.canonical.txt"
+}

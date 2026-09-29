@@ -1,0 +1,13 @@
+{
+  "id": "input--disabled--silverpoint--cream--ink",
+  "component": "input",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input--disabled--silverpoint--cream--ink.canonical.txt"
+}

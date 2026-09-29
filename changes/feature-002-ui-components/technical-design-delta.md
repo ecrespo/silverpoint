@@ -112,6 +112,9 @@ No step measures the DOM, runs an inker, or reads the clock at render time.
 - **Why:** a wrapping `<sp-button>` element would add a host element that React and Vue do not emit
   (breaking parity) and would put a custom element between a `<form>` and its submit button.
 - The other components are element selectors: their root is not a native control.
+- **Amended in Phase 3 (2026-09-28):** `SpInput` is an element too (`<sp-input>`): an `<input>` has no
+  children, so an attribute component on it could draw neither the frame, nor the ⚠ glyph, nor the
+  message (C-1). Only `SpButton` decorates a native element.
 
 ### DD-025: Value geometry as fractions, written as custom properties
 

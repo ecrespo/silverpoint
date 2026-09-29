@@ -1,0 +1,13 @@
+{
+  "id": "button--disabled--silverpoint--green--precision",
+  "component": "button",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--disabled--silverpoint--green--precision.canonical.txt"
+}

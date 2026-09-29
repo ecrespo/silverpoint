@@ -9,7 +9,9 @@
     "canonical": "tsx --conditions=@silverpoint/source canonical.ts",
     "parity": "tsx parity.ts",
     "dashboard-canonical": "tsx --conditions=@silverpoint/source dashboard-canonical.ts",
-    "dashboard-gate": "tsx dashboard-gate.ts"
+    "dashboard-gate": "tsx dashboard-gate.ts",
+    "ui-canonical": "tsx --conditions=@silverpoint/source ui-canonical.ts",
+    "ui-gate": "tsx ui-gate.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",
@@ -22,6 +24,7 @@
     "@angular/common": "^21.2.23",
     "@angular/compiler": "^21.2.23",
     "@angular/core": "^21.2.23",
+    "@angular/forms": "21.2.23",
     "@angular/platform-browser": "^21.2.23",
     "@angular/platform-server": "^21.2.23",
     "react": "^19.3.0",

@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--checked--silverpoint--cream--ink",
+  "component": "checkbox",
+  "state": "checked",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/checkbox--checked--silverpoint--cream--ink.canonical.txt"
+}

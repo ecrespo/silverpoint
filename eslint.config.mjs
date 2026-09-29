@@ -56,7 +56,7 @@ export default [
       'packages/react/src/**/dashboard*.tsx',
       'packages/vue/src/**/{SpDashboard,SpDashboardCell,dashboard,dashboard-context}.ts',
       'packages/angular/dashboard/**/*.ts',
-      'packages/angular/src/dashboard-cell.ts',
+      'packages/angular/env/dashboard-cell.ts',
     ],
     plugins: { silverpoint },
     rules: { 'silverpoint/dashboard-no-layout-maths': 'error' },

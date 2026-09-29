@@ -1,0 +1,4 @@
+<section class="sp-ui sp-card sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green" id="card--plain">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-card-body">
+    "Hits per hour rose through the afternoon and eased at night."

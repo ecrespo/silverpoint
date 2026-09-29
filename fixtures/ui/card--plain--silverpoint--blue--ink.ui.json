@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--silverpoint--blue--ink",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/card--plain--silverpoint--blue--ink.canonical.txt"
+}

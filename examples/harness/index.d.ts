@@ -47,3 +47,30 @@ export declare function dashboardFixtureProps(fixture: HarnessDashboardFixture):
 export declare const REFERENCE_DASHBOARD: HarnessDashboard;
 export declare const LINKED_DASHBOARD: HarnessDashboard;
 export declare function dashboardPage(search: string): HarnessDashboard;
+
+import type { CommonUiProps, UiElement } from '@silverpoint/core/ui';
+
+export interface HarnessUiFixture {
+  readonly id: string;
+  readonly component: string;
+  readonly state: string;
+  readonly req: 'REQ-327';
+  readonly ground: string;
+  readonly substrate: string;
+  readonly mode: 'ink' | 'precision';
+  readonly size: 'sm' | 'md' | 'lg';
+  readonly width: number;
+  readonly scope: 'pr' | 'nightly';
+  readonly canonical: string;
+}
+export interface HarnessUiParts {
+  readonly props: CommonUiProps & Record<string, unknown>;
+  readonly value: unknown;
+  readonly slots: Partial<Record<'content' | 'extra' | 'footer', string>>;
+}
+export declare const UI_FIXTURES: readonly HarnessUiFixture[];
+export declare const UI_PR_FIXTURES: readonly HarnessUiFixture[];
+export declare function uiFixtureById(id: string | null | undefined): HarnessUiFixture | undefined;
+export declare function uiSizeOf(fixture: HarnessUiFixture): 'md' | 'lg';
+export declare function uiFixtureParts(fixture: HarnessUiFixture): HarnessUiParts;
+export declare function uiFixtureView(fixture: HarnessUiFixture): { view: UiElement; slots: HarnessUiParts['slots'] };

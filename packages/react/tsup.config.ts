@@ -51,6 +51,14 @@ export default defineConfig([
       'chord-ring': 'src/chord-ring.tsx',
       'orbit-chart': 'src/orbit-chart.tsx',
       'dashboard-link': 'src/dashboard-link.tsx',
+      // UI components (feature-002): client entries, one per component, and the barrel.
+      ui: 'src/ui/index.ts',
+      'ui/button': 'src/ui/button.tsx',
+      'ui/input': 'src/ui/input.tsx',
+      'ui/checkbox': 'src/ui/checkbox.tsx',
+      'ui/switch': 'src/ui/switch.tsx',
+      'ui/card': 'src/ui/card.tsx',
+      'ui/divider': 'src/ui/divider.tsx',
     },
     banner: { js: "'use client';" },
   },
@@ -94,6 +102,9 @@ export default defineConfig([
       'server/volvelle-chart': 'src/server/volvelle-chart.tsx',
       'server/chord-ring': 'src/server/chord-ring.tsx',
       'server/orbit-chart': 'src/server/orbit-chart.tsx',
+      // Display components for Server Components: props and dashboard cell only (REQ-104).
+      'server/ui/card': 'src/server/ui/card.tsx',
+      'server/ui/divider': 'src/server/ui/divider.tsx',
     },
   },
 ]);

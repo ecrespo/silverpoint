@@ -280,6 +280,26 @@ theirs, outside the contract and outside the gate (A-03).
 | Items per Tabs / Segmented / RadioGroup / Steps | 12 (advisory) | No diagnostic; documented |
 | Keyboard transition in the core | 0.05 ms | The CI benchmark fails |
 
+## Amendments from implementation (Phase 3, 2026-09-28)
+
+Recorded here, to be folded with the rest in T-162:
+
+- **Markup as data.** The contract of §4 is `@silverpoint/core/ui`'s `ui*View` trees; the canonical
+  render of a fixture is that tree, written by a reference writer (`tools/visual-gate/ui-canonical.ts`).
+- **Runtime without ground.** `data-frame` is a slot 0..5 (`uiFrameVariant(seed, id, 6)`) and
+  `data-tone` a level 1-4 or a state (`primary`, `danger`, `disabled`, `selected`, `alertError`);
+  `ui.css` folds slots onto the variants a ground draws and maps states to its `ui.tone` levels.
+- **Angular `SpInput` is an element** (`<sp-input>`), not `input[spInput]`: a native `<input>` can
+  hold neither the frame nor the message. `SpButton` stays `button[spButton]`, `a[spButton]` (DD-024).
+  Named slots in Angular are templates: `<ng-template spExtra>`, `spFooter`, `spPrefix`, `spSuffix`.
+- **React server entries.** Display components render in Server Components from
+  `@silverpoint/react/server/ui/<name>` (props and dashboard cell only), as the charts' server
+  entries do; `ui/<name>` are client entries that read the provider.
+- **`SpInput` gains `label`** (its accessible name, when no `<label for>` names it).
+- **Angular packaging.** `@angular/forms` is a peer (ControlValueAccessor, REQ-323); the providers,
+  tokens and environment signals move to `@silverpoint/angular/env`, re-exported by the main entry,
+  so a UI component does not carry the charts' render pipeline (REQ-330).
+
 ## Constitution check
 
 - **Art. 2** — every function above is in the core; adapters bind props and events.

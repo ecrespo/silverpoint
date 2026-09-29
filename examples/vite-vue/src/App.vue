@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, type HarnessDashboard, type HarnessFixture } from '@silverpoint/example-harness';
+import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, uiFixtureParts, uiSizeOf, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
+import { SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpSwitch } from '@silverpoint/vue/ui';
+import { computed } from 'vue';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart } from '@silverpoint/vue/bullet-chart';
@@ -36,14 +38,30 @@ import { SpChordRing } from '@silverpoint/vue/chord-ring';
 import { SpOrbitChart } from '@silverpoint/vue/orbit-chart';
 
 /** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
-const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean }>();
+const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture }>();
+
+/** Every UI component a fixture can name, by its slug. */
+const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider } as const;
+/** A UI fixture as a consumer writes it: uncontrolled, the value as `default-value` (REQ-322). */
+const uiParts = computed(() => (props.ui ? uiFixtureParts(props.ui) : undefined));
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart } as const;
 </script>
 
 <template>
-  <main v-if="props.fixture">
+  <main v-if="props.ui && uiParts">
+    <div :class="`sp-harness sp-ground-${props.ui.ground}`" data-gate="" data-ui="" :data-substrate="props.ui.substrate" :data-size="uiSizeOf(props.ui)">
+      <component
+        :is="UI[props.ui.component as keyof typeof UI]"
+        v-bind="{ ...uiParts.props, ...(uiParts.value === undefined ? {} : { defaultValue: uiParts.value }) }"
+      >
+        <template v-if="uiParts.slots.content !== undefined" #default>{{ uiParts.slots.content }}</template>
+        <template v-if="uiParts.slots.extra !== undefined" #extra>{{ uiParts.slots.extra }}</template>
+      </component>
+    </div>
+  </main>
+  <main v-else-if="props.fixture">
     <div class="sp-harness" data-gate="" :data-size="sizeOf(props.fixture)">
       <component :is="CHARTS[props.fixture.chart as keyof typeof CHARTS]" v-bind="fixtureProps(props.fixture)" />
     </div>

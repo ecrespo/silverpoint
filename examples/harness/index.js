@@ -138,3 +138,101 @@ export const LINKED_DASHBOARD = Object.freeze({
 export function dashboardPage(/** @type {string} */ search) {
   return new URLSearchParams(search).has('linked') ? LINKED_DASHBOARD : REFERENCE_DASHBOARD;
 }
+
+/*
+ * ── UI components (feature-002) ─────────────────────────────────────────────────────────────
+ * The UI fixtures, as `tools/visual-gate/ui-matrix.ts#uiMatrix` declares them — a test holds the
+ * two equal — and the core's view of each, which the canonical page writes with no framework.
+ */
+import { resolveUi, UI_COMPONENTS, uiButtonView, uiCardView, uiCheckboxView, uiDividerView, uiInputView, uiSwitchView } from '@silverpoint/core/ui';
+import { UI_DEMOS } from '@silverpoint/core/ui-demos';
+
+/** The batches of step 6c whose adapters exist. */
+const UI_GATED_BATCHES = ['B1'];
+const UI_GROUND_SUBSTRATES = [
+  ...['cream', 'green', 'blue', 'ochre'].map((substrate) => ({ ground: 'silverpoint', substrate })),
+  { ground: 'cyanotype', substrate: 'prussian' },
+];
+const UI_SIZED = new Set(['button', 'input', 'segmented']);
+const UI_WIDE = new Set(['card', 'alert']);
+const UI_PR_GROUNDS = new Set(['silverpoint/cream', 'cyanotype/prussian']);
+
+/** Every UI fixture: the nightly matrix. */
+export const UI_FIXTURES = Object.freeze(
+  UI_COMPONENTS.filter((row) => UI_GATED_BATCHES.includes(row.batch)).flatMap((row) =>
+    ['md', ...(UI_SIZED.has(row.slug) ? ['sm', 'lg'] : [])].flatMap((size) =>
+      (size === 'md' ? row.states : row.states.slice(0, 1)).flatMap((state) =>
+        UI_GROUND_SUBSTRATES.flatMap(({ ground, substrate }) =>
+          ['ink', 'precision'].map((mode) => {
+            const id = [row.slug, state, ground, substrate, mode, ...(size === 'md' ? [] : [size])].join('--');
+            return Object.freeze({
+              id,
+              component: row.slug,
+              state,
+              req: 'REQ-327',
+              ground,
+              substrate,
+              mode,
+              size,
+              width: UI_WIDE.has(row.slug) ? 640 : 320,
+              scope: size === 'md' && UI_PR_GROUNDS.has(`${ground}/${substrate}`) ? 'pr' : 'nightly',
+              canonical: `ui/${id}.canonical.txt`,
+            });
+          }),
+        ),
+      ),
+    ),
+  ),
+);
+
+/** The PR matrix of the UI pixel gate. */
+export const UI_PR_FIXTURES = Object.freeze(UI_FIXTURES.filter((fixture) => fixture.scope === 'pr'));
+
+/** A UI fixture by id. @param {string | null | undefined} id */
+export function uiFixtureById(id) {
+  return UI_FIXTURES.find((fixture) => fixture.id === id);
+}
+
+/** The harness size of a UI fixture: `md` (320 px), or `lg` (640 px) for the wide components. */
+export function uiSizeOf(/** @type {{ width: number }} */ fixture) {
+  return fixture.width === 640 ? 'lg' : 'md';
+}
+
+const UI_SLOTS = ['content', 'extra', 'footer'];
+
+/**
+ * What every app receives for a UI fixture: the demo's props with the fixture's ground, substrate,
+ * mode and size; the value apart, for each framework's binding; the slot text apart.
+ * @param {(typeof UI_FIXTURES)[number]} fixture
+ */
+export function uiFixtureParts(fixture) {
+  const demo = UI_DEMOS[fixture.component]?.[fixture.state] ?? {};
+  /** @type {Record<string, unknown>} */ const props = {};
+  /** @type {Record<string, string>} */ const slots = {};
+  let value;
+  for (const [key, v] of Object.entries(demo)) {
+    if (UI_SLOTS.includes(key)) slots[key] = /** @type {string} */ (v);
+    else if (key === 'value') value = v;
+    else props[key] = v;
+  }
+  return { props: { ...props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, size: fixture.size }, value, slots };
+}
+
+/**
+ * The core's view of a UI fixture: the tree the canonical page writes.
+ * @param {(typeof UI_FIXTURES)[number]} fixture
+ */
+export function uiFixtureView(fixture) {
+  const { props, value, slots } = uiFixtureParts(fixture);
+  const r = resolveUi(props, {});
+  const p = /** @type {never} */ (props);
+  const views = {
+    button: () => uiButtonView(p, r, { text: slots.content }),
+    input: () => uiInputView(p, r, { value: /** @type {string | undefined} */ (value) ?? '' }),
+    checkbox: () => uiCheckboxView(p, r, { checked: Boolean(value) }),
+    switch: () => uiSwitchView(p, r, { checked: Boolean(value) }),
+    card: () => uiCardView(p, r, { extra: slots.extra !== undefined, footer: slots.footer !== undefined }),
+    divider: () => uiDividerView(p, r),
+  };
+  return { view: views[/** @type {keyof typeof views} */ (fixture.component)](), slots };
+}

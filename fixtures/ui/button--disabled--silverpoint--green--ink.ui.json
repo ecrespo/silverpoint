@@ -1,0 +1,13 @@
+{
+  "id": "button--disabled--silverpoint--green--ink",
+  "component": "button",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--disabled--silverpoint--green--ink.canonical.txt"
+}

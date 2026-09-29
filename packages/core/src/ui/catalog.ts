@@ -10,13 +10,21 @@ export interface UiComponentRow {
   /** The exported name, the same in the three adapters (OQ-U2). */
   readonly component: string;
   readonly group: UiGroup;
+  /** The batch of step 6c that implements it (plan-and-tasks.md). */
+  readonly batch: 'B1' | 'B2' | 'B3';
   /** Declared states (Data Model §5); one fixture and one demo each. */
   readonly states: readonly string[];
 }
 
+const BATCH: Readonly<Record<string, UiComponentRow['batch']>> = {
+  Button: 'B1', Input: 'B1', Checkbox: 'B1', Switch: 'B1', Card: 'B1', Divider: 'B1',
+  RadioGroup: 'B2', Segmented: 'B2', Tabs: 'B2', Slider: 'B2', Rate: 'B2',
+};
+
 const row = (name: string, group: UiGroup, states: readonly string[]): UiComponentRow =>
   Object.freeze({
     name,
+    batch: BATCH[name] ?? 'B3',
     slug: name.replace(/[A-Z]/g, (m, i: number) => (i ? '-' : '') + m.toLowerCase()),
     component: `Sp${name}`,
     group,

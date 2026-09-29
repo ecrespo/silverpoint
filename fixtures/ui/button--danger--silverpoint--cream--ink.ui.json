@@ -1,0 +1,13 @@
+{
+  "id": "button--danger--silverpoint--cream--ink",
+  "component": "button",
+  "state": "danger",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/button--danger--silverpoint--cream--ink.canonical.txt"
+}

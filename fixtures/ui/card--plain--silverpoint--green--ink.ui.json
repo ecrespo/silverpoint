@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--silverpoint--green--ink",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/card--plain--silverpoint--green--ink.canonical.txt"
+}

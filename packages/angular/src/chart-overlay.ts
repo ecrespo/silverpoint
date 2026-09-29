@@ -1,7 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input, type TemplateRef } from '@angular/core';
 import { linkedMarks, readout, type ActiveItem } from '@silverpoint/core';
-import { SP_DASHBOARD_LINK } from './dashboard-cell';
+import { SP_DASHBOARD_LINK } from '@silverpoint/angular/env';
 import type { RenderedChart } from '@silverpoint/grounds';
 import type { SpTooltipContext } from './tooltip';
 

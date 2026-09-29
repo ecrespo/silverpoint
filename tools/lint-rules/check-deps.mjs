@@ -25,7 +25,7 @@ const ALLOWLIST = {
 const PEERS = {
   '@silverpoint/react': ['react', 'react-dom'],
   '@silverpoint/vue': ['vue'],
-  '@silverpoint/angular': ['@angular/core', '@angular/common'],
+  '@silverpoint/angular': ['@angular/core', '@angular/common', '@angular/forms'],
 };
 const FRAMEWORKS = Object.values(PEERS).flat();
 

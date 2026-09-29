@@ -1,0 +1,8 @@
+<label class="sp-ui sp-switch sp-ground-cyanotype" data-frame="2" data-ground="cyanotype" data-mode="precision" data-size="md" data-substrate="prussian">
+  <input class="sp-ui-native" id="switch--off" name="linked" role="switch" type="checkbox">
+  <span aria-hidden="true" class="sp-ui-track">
+    <span aria-hidden="true" data-kind="pill" part="sp-frame">
+    <span aria-hidden="true" data-kind="pill" data-tone="selected" part="sp-tone">
+    <span part="sp-knob">
+  <span class="sp-ui-label">
+    "Linked hover"

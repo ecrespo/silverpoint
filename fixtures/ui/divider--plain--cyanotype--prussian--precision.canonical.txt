@@ -1,0 +1,2 @@
+<div class="sp-ui sp-divider sp-ground-cyanotype" data-frame="2" data-ground="cyanotype" data-mode="precision" data-orientation="horizontal" data-size="md" data-substrate="prussian" id="divider--plain" role="separator">
+  <span aria-hidden="true" part="sp-rule">

@@ -1,0 +1,13 @@
+{
+  "id": "input--filled--silverpoint--cream--precision",
+  "component": "input",
+  "state": "filled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input--filled--silverpoint--cream--precision.canonical.txt"
+}

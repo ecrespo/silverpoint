@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--silverpoint--blue--ink--sm",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--empty--silverpoint--blue--ink--sm.canonical.txt"
+}

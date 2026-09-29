@@ -1,0 +1,13 @@
+{
+  "id": "button--primary--silverpoint--green--ink",
+  "component": "button",
+  "state": "primary",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--primary--silverpoint--green--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "input--invalid--silverpoint--ochre--precision",
+  "component": "input",
+  "state": "invalid",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--invalid--silverpoint--ochre--precision.canonical.txt"
+}

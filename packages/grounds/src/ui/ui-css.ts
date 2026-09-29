@@ -64,11 +64,13 @@ function inkedFrames(ground: Ground): string[] {
   ]);
   const variants: string[] = [];
   for (let v = 0; v < ui.frameVariants; v++) {
+    // The runtime writes a frame slot 0..5 without knowing the ground; each slot folds onto a variant.
+    const slots = [0, 1, 2, 3, 4, 5].filter((slot) => slot % ui.frameVariants === v).map((slot) => `[data-frame='${slot}']`);
     for (const kind of KINDS) {
       const { pieces } = uiFramePieces(ground, kind, v)!;
       const urls = WHOLE.has(kind) ? [pieces.all!] : SLICED.map((name) => pieces[name]!);
       variants.push(
-        rule(`.sp-ui.sp-ground-${ground.name}[data-frame='${v}'] [part='sp-frame'][data-kind='${kind}']`, [
+        rule(`.sp-ui.sp-ground-${ground.name}:is(${slots.join(', ')}) [part='sp-frame'][data-kind='${kind}']`, [
           `--sp-ui-mask: ${urls.map(svgDataUri).join(', ')}`,
         ]),
       );
@@ -78,8 +80,11 @@ function inkedFrames(ground: Ground): string[] {
 }
 
 function tones(ground: Ground): string[] {
+  const states = Object.entries(resolveUiTokens(ground).tone);
   return ([1, 2, 3, 4] as const).map((level) => {
-    const selector = `.sp-ground-${ground.name} [part='sp-tone'][data-tone='${level}']`;
+    // A component names a tone by level (Tag) or by state (`primary`…); the ground's tokens map a state to its level (DD-026).
+    const names = [String(level), ...states.filter(([, at]) => at === level).map(([state]) => state)];
+    const selector = `.sp-ground-${ground.name} [part='sp-tone']:is(${names.map((n) => `[data-tone='${n}']`).join(', ')})`;
     if (ground.tonalMechanism === 'weight') {
       // No hatching: the tone is a heavier exact line (DD-019, DD-026).
       return rule(selector, [
@@ -147,10 +152,109 @@ const BASE = [
     'white-space: nowrap',
   ]),
   // An exact outline, never inked, on the control or on the item whose hidden input has focus (REQ-316).
-  rule('.sp-ui:focus-visible,\n.sp-ui :focus-visible:not(.sp-ui-native),\n:is(.sp-ui, .sp-ui-item):has(> .sp-ui-native:focus-visible)', [
+  rule('.sp-ui:focus-visible,\n.sp-ui :focus-visible:not(.sp-ui-native, .sp-ui-control),\n:is(.sp-ui, .sp-ui-item):has(> .sp-ui-native:focus-visible),\n.sp-ui-box:has(> .sp-ui-control:focus-visible)', [
     'outline: var(--sp-ui-focus-width) solid var(--sp-ui-focus-color)',
     'outline-offset: 2px',
   ]),
+];
+
+/** Batch B1 (T-144..T-146): Button, Input, Checkbox, Switch, Card, Divider (API delta §4). */
+const B1 = [
+  rule('.sp-ui [part=\'sp-mark\']', [
+    'position: relative',
+    'flex: none',
+    'inline-size: 14px',
+    'block-size: 14px',
+    'fill: none',
+    'stroke: currentColor',
+    'stroke-width: 1.5',
+    'stroke-linecap: round',
+    'stroke-linejoin: round',
+  ]),
+  rule('.sp-ui-label,\n.sp-ui-affix,\n.sp-ui-control', ['position: relative']),
+  // Button
+  rule('.sp-button', [
+    'display: inline-flex',
+    'align-items: center',
+    'justify-content: center',
+    'gap: 6px',
+    'min-block-size: var(--sp-ui-height)',
+    'padding: 0 16px',
+    'margin: 0',
+    'border: 0',
+    'background: transparent',
+    'color: var(--sp-text)',
+    'font: inherit',
+    'font-size: 15px',
+    'line-height: 1.2',
+    'text-decoration: none',
+    'cursor: pointer',
+  ]),
+  rule(".sp-button[data-block='true']", ['display: flex', 'inline-size: 100%']),
+  rule(".sp-button:disabled,\n.sp-button[aria-disabled='true']", ['font-style: italic', 'cursor: not-allowed']),
+  // Input
+  rule('.sp-input', ['display: inline-flex', 'flex-direction: column', 'gap: 4px', 'font-size: 15px']),
+  rule('.sp-ui-box', ['position: relative', 'display: inline-flex', 'align-items: center', 'gap: 6px']),
+  rule('.sp-input .sp-ui-box', ['min-block-size: var(--sp-ui-height)', 'padding: 0 10px 0 12px']),
+  rule('.sp-ui-control', [
+    'flex: 1',
+    'min-inline-size: 0',
+    'margin: 0',
+    'padding: 0',
+    'border: 0',
+    'background: transparent',
+    'color: var(--sp-text)',
+    'font: inherit',
+  ]),
+  rule('.sp-ui-control::placeholder', ['color: var(--sp-text-muted)', 'font-style: italic']),
+  rule('.sp-ui-control:disabled', ['font-style: italic', 'cursor: not-allowed']),
+  rule('.sp-ui-message', ['color: var(--sp-text-muted)', 'font-size: 13px', 'font-style: italic']),
+  rule(".sp-input[data-invalid='true'] .sp-ui-message", ['color: var(--sp-text)']),
+  // Checkbox and Switch: the whole label is the target, so it is 24 px tall at least (REQ-317).
+  rule('.sp-checkbox,\n.sp-switch', [
+    'display: inline-flex',
+    'align-items: center',
+    'gap: 8px',
+    'min-block-size: 24px',
+    'font-size: 15px',
+    'cursor: pointer',
+  ]),
+  rule('.sp-checkbox .sp-ui-box', ['inline-size: 16px', 'block-size: 16px', 'flex: none']),
+  rule(".sp-checkbox [part='sp-mark']", ['position: absolute', 'inset: 1px', 'inline-size: auto', 'block-size: auto']),
+  // Drawn state follows the native state: tone and tick on :checked, dash when indeterminate (REQ-310).
+  rule(".sp-checkbox [part='sp-mark'],\n.sp-checkbox [part='sp-tone'],\n.sp-switch [part='sp-tone']", ['visibility: hidden']),
+  rule(
+    ".sp-ui-native:checked + .sp-ui-box [data-glyph='tick'],\n.sp-ui-native:checked + .sp-ui-box [part='sp-tone'],\n.sp-checkbox[data-indeterminate] [part='sp-tone'],\n.sp-ui-native:checked + .sp-ui-track [part='sp-tone']",
+    ['visibility: visible'],
+  ),
+  rule(".sp-checkbox[data-indeterminate] [data-glyph='tick']", ['visibility: hidden']),
+  rule(".sp-checkbox[data-indeterminate] [data-glyph='dash']", ['visibility: visible']),
+  rule('.sp-ui-track', ['position: relative', 'flex: none', 'inline-size: 44px', 'block-size: 24px']),
+  rule(".sp-switch [part='sp-knob']", [
+    'position: absolute',
+    'inset-block: 4px',
+    'inset-inline-start: 4px',
+    'inline-size: 16px',
+    'border-radius: 50%',
+    'background: var(--sp-substrate)',
+    'box-shadow: inset 0 0 0 1px var(--sp-ink)',
+  ]),
+  // On, the knob is the switch's one heightened item, outlined in ink (REQ-309).
+  rule(".sp-ui-native:checked + .sp-ui-track [part='sp-knob']", ['inset-inline-start: 24px', 'background: var(--sp-heighten)']),
+  rule('.sp-checkbox:has(> .sp-ui-native:disabled),\n.sp-switch:has(> .sp-ui-native:disabled)', ['font-style: italic', 'cursor: not-allowed']),
+  // Card
+  rule('.sp-card', ['display: flex', 'flex-direction: column', 'gap: 10px', 'padding: 14px 20px 18px', 'color: var(--sp-text)']),
+  rule('.sp-ui-card-header', ['position: relative', 'display: flex', 'align-items: baseline', 'justify-content: space-between', 'gap: 12px']),
+  rule('.sp-ui-card-title', ['margin: 0', 'font-size: 18px', 'font-weight: 500', 'line-height: 1.25']),
+  rule(".sp-card > [part='sp-rule']", ['position: relative', 'display: block', 'border-top: 1px solid var(--sp-rule)']),
+  rule('.sp-ui-card-extra,\n.sp-ui-card-body,\n.sp-ui-card-footer', ['position: relative']),
+  rule('.sp-ui-card-footer', ['color: var(--sp-text-muted)', 'font-size: 13px']),
+  // Divider: exact rules, as a chart's axis is exact.
+  rule('.sp-divider', ['display: flex', 'align-items: center', 'gap: 12px', 'margin-block: 8px', 'color: var(--sp-text-muted)', 'font-style: italic']),
+  rule(".sp-divider [part='sp-rule']", ['flex: 1', 'border-top: 1px solid var(--sp-rule)']),
+  rule(".sp-divider[data-align='start'] [part='sp-rule']:first-child,\n.sp-divider[data-align='end'] [part='sp-rule']:last-child", ['flex: 0 0 24px']),
+  rule(".sp-divider[data-orientation='vertical']", ['flex-direction: column', 'align-self: stretch', 'margin-block: 0', 'margin-inline: 8px']),
+  rule(".sp-divider[data-orientation='vertical'] [part='sp-rule']", ['border-top: 0', 'border-inline-start: 1px solid var(--sp-rule)']),
 ];
 
 const MOTION = media('@media (prefers-reduced-motion: no-preference)', [
@@ -183,6 +287,7 @@ export function buildUiCss(grounds: readonly Ground[]): string {
     HEADER,
     ...grounds.map(tokens),
     ...BASE,
+    ...B1,
     ...KINDS.map(kindLayout),
     ...grounds.flatMap(inkedFrames),
     ...grounds.flatMap(tones),

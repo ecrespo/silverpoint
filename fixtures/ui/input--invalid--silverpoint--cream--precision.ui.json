@@ -1,0 +1,13 @@
+{
+  "id": "input--invalid--silverpoint--cream--precision",
+  "component": "input",
+  "state": "invalid",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input--invalid--silverpoint--cream--precision.canonical.txt"
+}

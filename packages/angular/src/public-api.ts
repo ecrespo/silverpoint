@@ -1,5 +1,5 @@
-export { provideSilverpoint, SILVERPOINT_CONFIG } from './config';
-export { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from './environment';
+export { provideSilverpoint, SILVERPOINT_CONFIG } from '@silverpoint/angular/env';
+export { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SilverpointIds } from '@silverpoint/angular/env';
 export { SpChart } from './chart';
 export { SpChartFrame } from './chart-frame';
 export { SpChartOverlay } from './chart-overlay';
@@ -43,4 +43,4 @@ export type {
   SankeyChartProps,
   TreemapChartProps,
 } from '@silverpoint/core';
-export { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK, type DashboardCellHandle, type DashboardLinkHandle } from './dashboard-cell';
+export { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK, type DashboardCellHandle, type DashboardLinkHandle } from '@silverpoint/angular/env';

@@ -1,0 +1,13 @@
+{
+  "id": "input--empty--silverpoint--ochre--precision--lg",
+  "component": "input",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input--empty--silverpoint--ochre--precision--lg.canonical.txt"
+}

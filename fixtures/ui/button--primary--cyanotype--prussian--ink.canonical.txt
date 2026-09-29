@@ -1,0 +1,5 @@
+<button class="sp-ui sp-button sp-ground-cyanotype" data-frame="3" data-ground="cyanotype" data-mode="ink" data-size="md" data-substrate="prussian" data-variant="primary" id="button--primary" type="button">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span aria-hidden="true" data-kind="control" data-tone="primary" part="sp-tone">
+  <span class="sp-ui-label sp-ui-plate">
+    "Primary"

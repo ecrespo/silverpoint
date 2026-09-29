@@ -1,0 +1,13 @@
+{
+  "id": "switch--disabled--silverpoint--cream--precision",
+  "component": "switch",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/switch--disabled--silverpoint--cream--precision.canonical.txt"
+}

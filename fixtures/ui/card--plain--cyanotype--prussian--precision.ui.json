@@ -1,0 +1,13 @@
+{
+  "id": "card--plain--cyanotype--prussian--precision",
+  "component": "card",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/card--plain--cyanotype--prussian--precision.canonical.txt"
+}

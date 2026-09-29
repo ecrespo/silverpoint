@@ -1,0 +1,13 @@
+{
+  "id": "button--default--cyanotype--prussian--ink--sm",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--default--cyanotype--prussian--ink--sm.canonical.txt"
+}

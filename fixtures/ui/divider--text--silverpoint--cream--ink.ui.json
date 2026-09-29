@@ -1,0 +1,13 @@
+{
+  "id": "divider--text--silverpoint--cream--ink",
+  "component": "divider",
+  "state": "text",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/divider--text--silverpoint--cream--ink.canonical.txt"
+}

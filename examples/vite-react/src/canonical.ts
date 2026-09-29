@@ -5,6 +5,7 @@
  */
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
 import {
   lineChart,
@@ -45,7 +46,8 @@ import {
   type ChartRecipe,
   type CommonChartProps,
 } from '@silverpoint/core';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf } from '@silverpoint/example-harness';
+import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureView, uiSizeOf } from '@silverpoint/example-harness';
+import type { UiNode } from '@silverpoint/core/ui';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
 const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart } as const;
@@ -115,4 +117,30 @@ if (dashboard) {
     const svg = new DOMParser().parseFromString(toSVGString(rendered), 'text/html').body.firstElementChild;
     if (svg) root.append(document.importNode(svg, true));
   });
+}
+
+/**
+ * The canonical render of a UI fixture (REQ-328): the core's view tree written as DOM, with no
+ * framework, in the same harness and stylesheets — the page every adapter's screenshot is held to.
+ */
+const SVG_NS = 'http://www.w3.org/2000/svg';
+function uiNode(node: UiNode, slots: Readonly<Record<string, string | undefined>>, svg = false): Node {
+  if ('text' in node) return document.createTextNode(node.text);
+  if ('slot' in node) return document.createTextNode(slots[node.slot] ?? '');
+  const inSvg = svg || node.tag === 'svg';
+  const el = inSvg ? document.createElementNS(SVG_NS, node.tag) : document.createElement(node.tag);
+  for (const [name, value] of Object.entries(node.attrs)) el.setAttribute(name, value === true ? '' : value);
+  for (const child of node.children) el.append(uiNode(child, slots, inSvg));
+  return el;
+}
+
+const ui = uiFixtureById(new URLSearchParams(location.search).get('ui'));
+const uiHarness = document.querySelector<HTMLElement>('.sp-harness');
+if (ui && uiHarness) {
+  uiHarness.dataset.size = uiSizeOf(ui);
+  uiHarness.dataset.ui = '';
+  uiHarness.dataset.substrate = ui.substrate;
+  uiHarness.classList.add(`sp-ground-${ui.ground}`);
+  const { view, slots } = uiFixtureView(ui);
+  uiHarness.append(uiNode(view, slots));
 }

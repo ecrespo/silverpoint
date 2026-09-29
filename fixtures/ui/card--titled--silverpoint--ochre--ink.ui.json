@@ -1,0 +1,13 @@
+{
+  "id": "card--titled--silverpoint--ochre--ink",
+  "component": "card",
+  "state": "titled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/card--titled--silverpoint--ochre--ink.canonical.txt"
+}

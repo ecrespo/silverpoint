@@ -41,4 +41,20 @@ describe('the harness’s dashboards (T-117, T-118)', () => {
     const harness = await import('../../examples/harness/index.js');
     expect(harness.DASHBOARD_WIDTHS).toEqual([375, 800, 1280]);
   });
+
+  test('REQ-328 · the apps render the UI fixtures the tree gate declares, with the same parts and the same views', async () => {
+    const harness = await import('../../examples/harness/index.js');
+    const { uiMatrix, uiFixtureParts } = await import('./ui-matrix');
+    const { uiFixtureView, serializeUi } = await import('./ui-canonical');
+    expect(harness.UI_FIXTURES.map((f: { id: string }) => f.id)).toEqual(uiMatrix().map((f) => f.id));
+    for (const fixture of uiMatrix()) {
+      const embedded = harness.uiFixtureById(fixture.id);
+      expect(embedded, fixture.id).toEqual(fixture);
+      expect(harness.uiFixtureParts(embedded), fixture.id).toEqual(uiFixtureParts(fixture));
+      const { view, slots } = uiFixtureView(fixture);
+      expect(serializeUi(harness.uiFixtureView(embedded).view, slots), fixture.id).toBe(serializeUi(view, slots));
+    }
+    expect(harness.UI_PR_FIXTURES).toHaveLength(76);
+    expect(harness.uiFixtureById('nope')).toBeUndefined();
+  });
 });

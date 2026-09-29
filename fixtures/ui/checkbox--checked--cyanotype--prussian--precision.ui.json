@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--checked--cyanotype--prussian--precision",
+  "component": "checkbox",
+  "state": "checked",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/checkbox--checked--cyanotype--prussian--precision.canonical.txt"
+}

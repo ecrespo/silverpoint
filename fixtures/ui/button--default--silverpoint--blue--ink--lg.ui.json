@@ -1,0 +1,13 @@
+{
+  "id": "button--default--silverpoint--blue--ink--lg",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--default--silverpoint--blue--ink--lg.canonical.txt"
+}

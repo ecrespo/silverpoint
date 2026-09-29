@@ -1,0 +1,13 @@
+{
+  "id": "divider--plain--silverpoint--ochre--ink",
+  "component": "divider",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/divider--plain--silverpoint--ochre--ink.canonical.txt"
+}

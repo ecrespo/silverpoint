@@ -1,0 +1,13 @@
+{
+  "id": "button--default--silverpoint--cream--precision--sm",
+  "component": "button",
+  "state": "default",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/button--default--silverpoint--cream--precision--sm.canonical.txt"
+}

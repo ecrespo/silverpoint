@@ -1,0 +1,13 @@
+{
+  "id": "button--danger--silverpoint--cream--precision",
+  "component": "button",
+  "state": "danger",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/button--danger--silverpoint--cream--precision.canonical.txt"
+}

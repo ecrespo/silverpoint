@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--checked--silverpoint--ochre--precision",
+  "component": "checkbox",
+  "state": "checked",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/checkbox--checked--silverpoint--ochre--precision.canonical.txt"
+}

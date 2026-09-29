@@ -1,0 +1,4 @@
+<button class="sp-ui sp-button sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="ink" data-size="lg" data-substrate="cream" data-variant="default" id="button--default" type="button">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span class="sp-ui-label">
+    "Default"

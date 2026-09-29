@@ -1,0 +1,13 @@
+{
+  "id": "switch--on--cyanotype--prussian--precision",
+  "component": "switch",
+  "state": "on",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/switch--on--cyanotype--prussian--precision.canonical.txt"
+}

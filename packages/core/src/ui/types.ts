@@ -74,6 +74,8 @@ export interface SpInputProps extends CommonUiProps {
   invalid?: boolean;
   /** Help or error text under the control, referenced by `aria-describedby` (REQ-334). */
   message?: string;
+  /** Accessible name, when no `<label for>` names the control. */
+  label?: string;
 }
 
 export interface SpCheckboxProps extends CommonUiProps {

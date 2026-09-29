@@ -1,0 +1,13 @@
+{
+  "id": "checkbox--checked--silverpoint--blue--precision",
+  "component": "checkbox",
+  "state": "checked",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/checkbox--checked--silverpoint--blue--precision.canonical.txt"
+}
