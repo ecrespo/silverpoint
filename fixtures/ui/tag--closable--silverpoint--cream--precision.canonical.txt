@@ -1,0 +1,8 @@
+<span class="sp-ui sp-tag sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="cream" data-tone="3" id="tag--closable">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span aria-hidden="true" data-kind="control" data-tone="3" part="sp-tone">
+  <span class="sp-ui-label sp-ui-plate">
+    "review"
+  <button aria-label="Remove review" class="sp-ui-close" type="button">
+    <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">

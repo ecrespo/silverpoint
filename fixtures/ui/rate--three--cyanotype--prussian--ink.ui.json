@@ -1,0 +1,13 @@
+{
+  "id": "rate--three--cyanotype--prussian--ink",
+  "component": "rate",
+  "state": "three",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/rate--three--cyanotype--prussian--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "rate--read-only--cyanotype--prussian--ink",
+  "component": "rate",
+  "state": "read-only",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/rate--read-only--cyanotype--prussian--ink.canonical.txt"
+}

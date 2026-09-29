@@ -1,5 +1,5 @@
 import { resolveUi, type CommonUiProps, type UiResolved } from '@silverpoint/core/ui';
-import { computed, inject, ref, type ComputedRef, type PropType, type VNode } from 'vue';
+import { computed, inject, nextTick, ref, type ComputedRef, type PropType, type VNode } from 'vue';
 import { DASHBOARD_CELL } from '../dashboard-context';
 import { useForcedPrecision, useProvider } from '../environment';
 
@@ -52,4 +52,16 @@ export function textOf(nodes: readonly VNode[] | undefined): string | undefined 
   if (!nodes || nodes.length === 0) return undefined;
   const [only] = nodes;
   return nodes.length === 1 && typeof only?.children === 'string' ? only.children : '·';
+}
+
+/**
+ * A click checks a radio natively, before the model decides. When the model holds another value
+ * —bound and not updated, or read-only— Vue has nothing to patch, so this sets the radios of the
+ * component back to what it renders, once it has rendered (REQ-322).
+ */
+export function resyncRadios(target: EventTarget | null, selected: () => string | null): void {
+  const root = (target as HTMLElement | null)?.closest('.sp-ui');
+  void nextTick(() => {
+    for (const radio of root?.querySelectorAll<HTMLInputElement>('input.sp-ui-native') ?? []) radio.checked = radio.value === selected();
+  });
 }

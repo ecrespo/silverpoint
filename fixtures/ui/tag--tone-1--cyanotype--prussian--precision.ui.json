@@ -1,0 +1,13 @@
+{
+  "id": "tag--tone-1--cyanotype--prussian--precision",
+  "component": "tag",
+  "state": "tone-1",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tag--tone-1--cyanotype--prussian--precision.canonical.txt"
+}

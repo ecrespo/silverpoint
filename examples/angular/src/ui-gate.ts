@@ -1,6 +1,25 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { uiFixtureParts, uiSizeOf, type HarnessUiFixture } from '@silverpoint/example-harness';
-import { SpButton, SpCard, SpCardExtra, SpCheckbox, SpDivider, SpInput, SpSwitch } from '@silverpoint/angular/ui';
+import {
+  SpAlert,
+  SpBadge,
+  SpButton,
+  SpCard,
+  SpCardExtra,
+  SpCheckbox,
+  SpDivider,
+  SpInput,
+  SpProgress,
+  SpRadioGroup,
+  SpRate,
+  SpSegmented,
+  SpSkeleton,
+  SpSlider,
+  SpSteps,
+  SpSwitch,
+  SpTabs,
+  SpTag,
+} from '@silverpoint/angular/ui';
 
 /**
  * A UI fixture of the pixel gate as an Angular consumer writes it (REQ-328): inputs bound one by
@@ -9,7 +28,26 @@ import { SpButton, SpCard, SpCardExtra, SpCheckbox, SpDivider, SpInput, SpSwitch
  */
 @Component({
   selector: 'app-ui-gate',
-  imports: [SpButton, SpCard, SpCardExtra, SpCheckbox, SpDivider, SpInput, SpSwitch],
+  imports: [
+    SpAlert,
+    SpBadge,
+    SpButton,
+    SpCard,
+    SpCardExtra,
+    SpCheckbox,
+    SpDivider,
+    SpInput,
+    SpProgress,
+    SpRadioGroup,
+    SpRate,
+    SpSegmented,
+    SpSkeleton,
+    SpSlider,
+    SpSteps,
+    SpSwitch,
+    SpTabs,
+    SpTag,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { style: 'display: contents' },
   template: `
@@ -39,6 +77,39 @@ import { SpButton, SpCard, SpCardExtra, SpCheckbox, SpDivider, SpInput, SpSwitch
         }
         @case ('divider') {
           <sp-divider [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [text]="p.text" [orientation]="p.orientation" [align]="p.align" />
+        }
+        @case ('radio-group') {
+          <sp-radio-group [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [name]="p.name" [items]="p.items" [orientation]="p.orientation" [defaultValue]="value()" />
+        }
+        @case ('segmented') {
+          <sp-segmented [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [name]="p.name" [items]="p.items" [defaultValue]="value()" />
+        }
+        @case ('tabs') {
+          <sp-tabs [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [items]="p.items" [defaultValue]="value()" />
+        }
+        @case ('slider') {
+          <sp-slider [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [name]="p.name" [marks]="p.marks" [disabled]="p.disabled ?? false" [defaultValue]="value()" />
+        }
+        @case ('rate') {
+          <sp-rate [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [name]="p.name" [count]="p.count" [readOnly]="p.readOnly ?? false" [defaultValue]="value()" />
+        }
+        @case ('steps') {
+          <sp-steps [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [items]="p.items" [current]="p.current" />
+        }
+        @case ('tag') {
+          <sp-tag [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [tone]="p.tone" [closable]="p.closable ?? false">{{ parts().slots.content }}</sp-tag>
+        }
+        @case ('badge') {
+          <sp-badge [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [count]="p.count" [dot]="p.dot ?? false" [max]="p.max">{{ parts().slots.content }}</sp-badge>
+        }
+        @case ('progress') {
+          <sp-progress [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [value]="p.value" [shape]="p.shape" />
+        }
+        @case ('alert') {
+          <sp-alert [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [kind]="p.kind" [title]="p.title">{{ parts().slots.content }}</sp-alert>
+        }
+        @case ('skeleton') {
+          <sp-skeleton [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [lines]="p.lines" [avatar]="p.avatar ?? false" />
         }
       }
     </div>

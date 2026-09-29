@@ -168,6 +168,57 @@ describe('ui.css (T-141)', () => {
     expect(css).toContain(".sp-ui-native:checked + .sp-ui-track [part='sp-knob']");
   });
 
+  test('REQ-317 · every B2 and B3 target is at least 24 px: a --sp-ui-height or a 24 px minimum', () => {
+    const tall = (selector: string) => all.find((r) => r.selector === selector)?.body ?? '';
+    for (const selector of ['.sp-ui-segment', '.sp-ui-tab']) expect(tall(selector)).toMatch(/min-block-size: var\(--sp-ui-height\)/);
+    for (const selector of ['.sp-radio-group .sp-ui-item', '.sp-rate .sp-ui-item', '.sp-ui-close']) {
+      expect(tall(selector)).toMatch(/min-block-size: 24px/);
+    }
+    expect(tall('.sp-rate .sp-ui-item')).toMatch(/min-inline-size: 24px/);
+    expect(tall('.sp-ui-close')).toMatch(/min-inline-size: 24px/);
+    expect(tall('.sp-slider .sp-ui-rail')).toMatch(/block-size: 24px/);
+  });
+
+  test('REQ-310 · a radio\'s dot follows the native state; a hidden label is hidden as a native input is', () => {
+    expect(css).toContain(".sp-ui-native:checked + .sp-ui-box [data-glyph='dot']");
+    const sr = all.find((r) => r.selector === '.sp-ui-sr');
+    expect(sr?.body).toMatch(/clip-path:\s*inset\(50%\)/);
+    expect(sr?.body).not.toMatch(/display:\s*none/);
+  });
+
+  test('DD-025 · REQ-321 · fills and thumbs sit at the exact fraction, on logical properties so rtl mirrors them', () => {
+    const fills = all.filter((r) => r.selector.includes("[part='sp-fill']") && r.body.includes('--sp-ui-fraction'));
+    expect(fills.length).toBeGreaterThan(0);
+    for (const r of fills) expect(r.body).toMatch(/inline-size: calc\(var\(--sp-ui-fraction\) \* 100%\)/);
+    expect(all.find((r) => r.selector === ".sp-slider [part~='sp-thumb']")?.body).toMatch(/inset-inline-start: calc\(var\(--sp-ui-fraction\) \* 100%\)/);
+    expect(css).not.toMatch(/\b(?:left|right):/);
+  });
+
+  test('REQ-316 · the slider\'s focus ring is drawn on its thumb; the transparent range input itself draws none', () => {
+    expect(all.some((r) => r.selector.includes('.sp-ui-range:focus-visible') && r.selector.includes("[part~='sp-thumb']"))).toBe(true);
+    expect(css).toMatch(/:not\(\.sp-ui-native, \.sp-ui-control, \.sp-ui-range\)/);
+  });
+
+  test('REQ-309 · the heightening is matched as one of an element\'s parts, so a thumb can be one', () => {
+    expect(all.find((r) => r.selector === ".sp-ui [part~='sp-heighten']")?.body).toMatch(/outline: 1px solid var\(--sp-ink\)/);
+    expect(css).not.toContain("[part='sp-heighten']");
+  });
+
+  test('C-4 · DD-026 · a connector leading to a waiting step is dashed; the others are solid and exact', () => {
+    expect(all.find((r) => r.selector === ".sp-steps [part='sp-connector'][data-status='wait']")?.body).toMatch(/border-style: dashed/);
+    const line = all.find((r) => r.selector === ".sp-steps [part='sp-connector']")?.body;
+    expect(line).not.toMatch(/mask/);
+    // Only the drawn edge has a width: `dashed` must not bring the other three edges in.
+    expect(line).toMatch(/border: 0 solid var\(--sp-ink\)/);
+    expect(line).toMatch(/border-top-width: 1px/);
+  });
+
+  test('REQ-320 · an indeterminate progress is a static tone unless motion is welcome', () => {
+    const moving = all.filter((r) => r.selector.includes('[data-indeterminate') && /animation/.test(r.body));
+    expect(moving.length).toBeGreaterThan(0);
+    for (const r of moving) expect(r.media.some((m) => m.includes('prefers-reduced-motion: no-preference'))).toBe(true);
+  });
+
   test('REQ-301 · the charts\' styles.css is untouched by the components: byte for byte what 0.2.0 shipped', () => {
     const hash = createHash('sha256').update(src('src/styles.css') + src('src/dashboard.css')).digest('hex');
     expect(hash).toBe('363c596a7ec5cc6904d325d720cb2128ef6b70a40d10c27b6eda0083e1b5cda0');

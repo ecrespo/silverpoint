@@ -26,7 +26,8 @@ function warn(component: string, property: string, message: string): void {
 /** Removes the binary noise that `min + n * step` leaves (`0.30000000000000004`). */
 const tidy = (x: number): number => Number.parseFloat(x.toPrecision(12));
 
-function validRange(range: UiRange, component: string): UiRange {
+/** A range as drawn: the given one if valid, else `0..100` step 1, warned `SP017` (REQ-324). */
+export function uiRange(range: UiRange, component = 'UiValue'): UiRange {
   const { min, max, step } = range;
   const stepOk = step === undefined || (Number.isFinite(step) && step > 0);
   if (Number.isFinite(min) && Number.isFinite(max) && min < max && stepOk) return range;
@@ -40,7 +41,7 @@ function validRange(range: UiRange, component: string): UiRange {
  * (REQ-324). Pure apart from the development warning.
  */
 export function uiValue(value: number, range: UiRange, component = 'UiValue'): UiValue {
-  const valid = validRange(range, component);
+  const valid = uiRange(range, component);
   const { min, max, step } = valid;
   let next = Number.isFinite(value) ? Math.min(Math.max(value, min), max) : min;
   if (step !== undefined) {

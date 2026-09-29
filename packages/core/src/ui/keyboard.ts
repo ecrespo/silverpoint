@@ -41,3 +41,8 @@ export function uiRovingKey(state: UiRovingState, key: UiRovingKey, orientation:
   }
   return index;
 }
+
+const ROVING: ReadonlySet<string> = new Set(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']);
+
+/** Whether a `KeyboardEvent.key` moves a roving focus: the arrows, Home and End (REQ-315). */
+export const uiIsRovingKey = (key: string): key is UiRovingKey => ROVING.has(key);

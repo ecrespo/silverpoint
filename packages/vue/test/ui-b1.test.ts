@@ -4,7 +4,8 @@ import { createApp, createSSRApp, h, nextTick, ref, type Component } from 'vue';
 import { renderToString } from 'vue/server-renderer';
 import { compareUi } from '../../../tools/svg-normalizer/normalize';
 import { canonicalUiMarkup } from '../../../tools/visual-gate/ui-canonical';
-import { uiFixtureParts, uiMatrix, type UiFixture } from '../../../tools/visual-gate/ui-matrix';
+import { uiMatrix, type UiFixture } from '../../../tools/visual-gate/ui-matrix';
+import { vueFixture as fixtureOf } from './ui-fixture';
 import { provideSilverpoint } from '../src';
 import { SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpSwitch } from '../src/ui';
 
@@ -36,18 +37,11 @@ function mount(render: () => ReturnType<typeof h>, plugin?: ReturnType<typeof pr
 
 const COMPONENTS: Record<string, Component> = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider };
 
-/** A fixture as a Vue consumer writes it: uncontrolled, the value as `default-value`. */
-export function vueFixture(fixture: UiFixture) {
-  const { props, value, slots } = uiFixtureParts(fixture);
-  const children = {
-    ...(slots.content !== undefined ? { default: () => slots.content } : {}),
-    ...(slots.extra !== undefined ? { extra: () => slots.extra } : {}),
-  };
-  return h(COMPONENTS[fixture.component]!, { ...props, ...(value === undefined ? {} : { defaultValue: value }) }, children);
-}
+const vueFixture = (fixture: UiFixture) => fixtureOf(fixture, COMPONENTS);
+const b1 = () => uiMatrix().filter((f) => f.scope === 'pr' && f.component in COMPONENTS);
 
 describe('Vue B1 markup (T-145)', () => {
-  test.each(uiMatrix().filter((f) => f.scope === 'pr'))('REQ-327 · $id is the canonical tree', async (fixture) => {
+  test.each(b1())('REQ-327 · $id is the canonical tree', async (fixture) => {
     const markup = await renderToString(createSSRApp({ render: () => vueFixture(fixture) }));
     expect(compareUi(markup, canonicalUiMarkup(fixture))).toEqual({ equal: true });
   });
@@ -61,7 +55,7 @@ describe('Vue B1 markup (T-145)', () => {
   test('REQ-327 · mounting every fixture raises no Vue warning', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     cleanup.push(() => warn.mockRestore());
-    for (const fixture of uiMatrix().filter((f) => f.scope === 'pr')) mount(() => vueFixture(fixture));
+    for (const fixture of b1()) mount(() => vueFixture(fixture));
     expect(warn).not.toHaveBeenCalled();
   });
 });

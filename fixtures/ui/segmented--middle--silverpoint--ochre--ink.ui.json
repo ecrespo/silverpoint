@@ -1,0 +1,13 @@
+{
+  "id": "segmented--middle--silverpoint--ochre--ink",
+  "component": "segmented",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--middle--silverpoint--ochre--ink.canonical.txt"
+}

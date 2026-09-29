@@ -144,11 +144,31 @@ export function dashboardPage(/** @type {string} */ search) {
  * The UI fixtures, as `tools/visual-gate/ui-matrix.ts#uiMatrix` declares them — a test holds the
  * two equal — and the core's view of each, which the canonical page writes with no framework.
  */
-import { resolveUi, UI_COMPONENTS, uiButtonView, uiCardView, uiCheckboxView, uiDividerView, uiInputView, uiSwitchView } from '@silverpoint/core/ui';
+import {
+  resolveUi,
+  UI_COMPONENTS,
+  uiAlertView,
+  uiBadgeView,
+  uiButtonView,
+  uiCardView,
+  uiCheckboxView,
+  uiDividerView,
+  uiInputView,
+  uiProgressView,
+  uiRadioGroupView,
+  uiRateView,
+  uiSegmentedView,
+  uiSkeletonView,
+  uiSliderView,
+  uiStepsView,
+  uiSwitchView,
+  uiTabsView,
+  uiTagView,
+} from '@silverpoint/core/ui';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 
 /** The batches of step 6c whose adapters exist. */
-const UI_GATED_BATCHES = ['B1'];
+const UI_GATED_BATCHES = ['B1', 'B2', 'B3'];
 const UI_GROUND_SUBSTRATES = [
   ...['cream', 'green', 'blue', 'ochre'].map((substrate) => ({ ground: 'silverpoint', substrate })),
   { ground: 'cyanotype', substrate: 'prussian' },
@@ -199,6 +219,8 @@ export function uiSizeOf(/** @type {{ width: number }} */ fixture) {
 }
 
 const UI_SLOTS = ['content', 'extra', 'footer'];
+/** The components whose `value` each framework binds; a Progress's `value` is a plain prop. */
+export const UI_VALUE_COMPONENTS = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs']);
 
 /**
  * What every app receives for a UI fixture: the demo's props with the fixture's ground, substrate,
@@ -212,7 +234,7 @@ export function uiFixtureParts(fixture) {
   let value;
   for (const [key, v] of Object.entries(demo)) {
     if (UI_SLOTS.includes(key)) slots[key] = /** @type {string} */ (v);
-    else if (key === 'value') value = v;
+    else if (key === 'value' && UI_VALUE_COMPONENTS.has(fixture.component)) value = v;
     else props[key] = v;
   }
   return { props: { ...props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, size: fixture.size }, value, slots };
@@ -233,6 +255,17 @@ export function uiFixtureView(fixture) {
     switch: () => uiSwitchView(p, r, { checked: Boolean(value) }),
     card: () => uiCardView(p, r, { extra: slots.extra !== undefined, footer: slots.footer !== undefined }),
     divider: () => uiDividerView(p, r),
+    'radio-group': () => uiRadioGroupView(p, r, { value: /** @type {string | undefined} */ (value) ?? null }),
+    segmented: () => uiSegmentedView(p, r, { value: /** @type {string | undefined} */ (value) ?? null }),
+    tabs: () => uiTabsView(p, r, { value: /** @type {string | undefined} */ (value) ?? null }),
+    slider: () => uiSliderView(p, r, { value: /** @type {number | undefined} */ (value) ?? 0 }),
+    rate: () => uiRateView(p, r, { value: /** @type {number | undefined} */ (value) ?? 0 }),
+    steps: () => uiStepsView(p, r),
+    tag: () => uiTagView(p, r, { text: slots.content }),
+    badge: () => uiBadgeView(p, r, { text: slots.content }),
+    progress: () => uiProgressView(p, r),
+    alert: () => uiAlertView(p, r, { closable: props.closable === true }),
+    skeleton: () => uiSkeletonView(p, r),
   };
   return { view: views[/** @type {keyof typeof views} */ (fixture.component)](), slots };
 }

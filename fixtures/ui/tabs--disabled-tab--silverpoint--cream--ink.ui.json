@@ -1,0 +1,13 @@
+{
+  "id": "tabs--disabled-tab--silverpoint--cream--ink",
+  "component": "tabs",
+  "state": "disabled-tab",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tabs--disabled-tab--silverpoint--cream--ink.canonical.txt"
+}

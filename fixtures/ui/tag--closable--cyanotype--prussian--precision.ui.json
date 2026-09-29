@@ -1,0 +1,13 @@
+{
+  "id": "tag--closable--cyanotype--prussian--precision",
+  "component": "tag",
+  "state": "closable",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tag--closable--cyanotype--prussian--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "steps--current--silverpoint--ochre--ink",
+  "component": "steps",
+  "state": "current",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/steps--current--silverpoint--ochre--ink.canonical.txt"
+}

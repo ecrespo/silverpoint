@@ -1,0 +1,13 @@
+{
+  "id": "alert--warning--silverpoint--ochre--precision",
+  "component": "alert",
+  "state": "warning",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--warning--silverpoint--ochre--precision.canonical.txt"
+}

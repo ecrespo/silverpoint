@@ -1,0 +1,13 @@
+{
+  "id": "tabs--disabled-tab--silverpoint--green--ink",
+  "component": "tabs",
+  "state": "disabled-tab",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tabs--disabled-tab--silverpoint--green--ink.canonical.txt"
+}

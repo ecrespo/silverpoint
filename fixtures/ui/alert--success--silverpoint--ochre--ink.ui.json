@@ -1,0 +1,13 @@
+{
+  "id": "alert--success--silverpoint--ochre--ink",
+  "component": "alert",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--success--silverpoint--ochre--ink.canonical.txt"
+}

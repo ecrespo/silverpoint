@@ -72,5 +72,7 @@ export declare const UI_FIXTURES: readonly HarnessUiFixture[];
 export declare const UI_PR_FIXTURES: readonly HarnessUiFixture[];
 export declare function uiFixtureById(id: string | null | undefined): HarnessUiFixture | undefined;
 export declare function uiSizeOf(fixture: HarnessUiFixture): 'md' | 'lg';
+/** The components whose `value` each framework binds; a Progress's `value` is a plain prop. */
+export declare const UI_VALUE_COMPONENTS: ReadonlySet<string>;
 export declare function uiFixtureParts(fixture: HarnessUiFixture): HarnessUiParts;
 export declare function uiFixtureView(fixture: HarnessUiFixture): { view: UiElement; slots: HarnessUiParts['slots'] };

@@ -1,0 +1,13 @@
+{
+  "id": "badge--count--silverpoint--green--precision",
+  "component": "badge",
+  "state": "count",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/badge--count--silverpoint--green--precision.canonical.txt"
+}

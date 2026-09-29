@@ -1,0 +1,20 @@
+<label class="sp-ui sp-slider sp-ground-cyanotype" data-frame="2" data-ground="cyanotype" data-mode="ink" data-size="md" data-substrate="prussian" style="--sp-ui-fraction:0.3">
+  <span class="sp-ui-label">
+    "Volume"
+  <span class="sp-ui-rail">
+    <span aria-hidden="true" part="sp-track">
+    <span aria-hidden="true" part="sp-fill">
+      <span aria-hidden="true" data-kind="pill" data-tone="selected" part="sp-tone">
+    <span aria-hidden="true" part="sp-thumb sp-heighten">
+    <input class="sp-ui-range" id="slider--marks" max="100" min="0" name="volume" step="1" type="range" value="30">
+  <span aria-hidden="true" class="sp-ui-scale">
+    <span class="sp-ui-scale-mark" style="--sp-ui-at:0">
+      "0"
+    <span class="sp-ui-scale-mark" style="--sp-ui-at:0.25">
+      "25"
+    <span class="sp-ui-scale-mark" style="--sp-ui-at:0.5">
+      "50"
+    <span class="sp-ui-scale-mark" style="--sp-ui-at:0.75">
+      "75"
+    <span class="sp-ui-scale-mark" style="--sp-ui-at:1">
+      "100"

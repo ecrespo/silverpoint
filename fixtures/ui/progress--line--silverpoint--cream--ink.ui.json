@@ -1,0 +1,13 @@
+{
+  "id": "progress--line--silverpoint--cream--ink",
+  "component": "progress",
+  "state": "line",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--line--silverpoint--cream--ink.canonical.txt"
+}

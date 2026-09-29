@@ -1,0 +1,6 @@
+<div aria-label="Coverage" aria-valuemax="100" aria-valuemin="0" aria-valuenow="72" class="sp-ui sp-progress sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="precision" data-shape="circle" data-size="md" data-substrate="prussian" id="progress--circle" role="progressbar" style="--sp-ui-fraction:0.72">
+  <svg aria-hidden="true" class="sp-ui-ring" viewBox="0 0 100 100">
+    <path class="sp-ui-ring-track" d="M4,50A46,46,0,1,0,96,50A46,46,0,1,0,4,50Z">
+    <path class="sp-ui-ring-fill" d="M50,4A46,46,0,0,1,85.44,79.32A46,46,0,0,1,4.81,58.62">
+  <span aria-hidden="true" class="sp-ui-value">
+    "72%"

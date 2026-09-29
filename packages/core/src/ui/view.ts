@@ -12,6 +12,9 @@ import type {
   SpSwitchProps,
   UiSize,
 } from './types';
+import { baseOf, el, frame, glyph, root, slot, text, tone } from './view-kit';
+
+export { UI_GLYPHS, type UiGlyph } from './view-kit';
 
 /**
  * The markup contract of the UI components (API delta §4), as data: every adapter writes this tree
@@ -26,9 +29,15 @@ export interface UiElement {
   /** HTML attribute names; `true` is a boolean attribute. */
   readonly attrs: Readonly<Record<string, UiAttrValue>>;
   readonly children: readonly UiNode[];
-  /** `native`: the control an adapter binds value, events and forms to. */
-  readonly bind?: 'native';
+  /** What an adapter binds to the element: see `UiBind`. */
+  readonly bind?: UiBind;
 }
+
+/**
+ * `native`: a control an adapter binds value, events and forms to —one, or one per item of a
+ * composite, told apart by its `value` or `data-key`. `close`: the button that emits `close`.
+ */
+export type UiBind = 'native' | 'close';
 
 export type UiSlot = 'content' | 'prefix' | 'suffix' | 'extra' | 'footer';
 export type UiNode = UiElement | { readonly text: string } | { readonly slot: UiSlot };
@@ -70,51 +79,6 @@ export function resolveUi(props: CommonUiProps, env: UiEnvironment): UiResolved 
   };
 }
 
-type Attrs = Record<string, UiAttrValue | undefined | false>;
-
-/** Drops absent attributes: `undefined` and `false` are never written. */
-function clean(attrs: Attrs): Record<string, UiAttrValue> {
-  const out: Record<string, UiAttrValue> = {};
-  for (const [name, value] of Object.entries(attrs)) if (value !== undefined && value !== false) out[name] = value;
-  return out;
-}
-
-const el = (tag: string, attrs: Attrs, children: readonly UiNode[] = [], bind?: 'native'): UiElement => ({
-  tag,
-  attrs: clean(attrs),
-  children,
-  ...(bind ? { bind } : {}),
-});
-const text = (value: string): UiNode => ({ text: value });
-const slot = (name: UiSlot): UiNode => ({ slot: name });
-
-function root(slug: string, props: CommonUiProps, r: UiResolved, attrs: Attrs = {}): Attrs {
-  return {
-    class: ['sp-ui', `sp-${slug}`, `sp-ground-${r.ground}`, props.className].filter(Boolean).join(' '),
-    'data-ground': r.ground,
-    'data-substrate': r.substrate,
-    'data-mode': r.mode,
-    'data-size': r.size,
-    'data-frame': String(r.frame),
-    ...attrs,
-  };
-}
-
-type FrameKind = 'control' | 'pill' | 'box' | 'card' | 'round';
-const frame = (kind: FrameKind) => el('span', { part: 'sp-frame', 'data-kind': kind, 'aria-hidden': 'true' });
-/** A tone by state (`primary`, `selected`…) or ramp level; ui.css maps a state to its ground's level. */
-const tone = (value: string, kind: FrameKind) => el('span', { part: 'sp-tone', 'data-tone': value, 'data-kind': kind, 'aria-hidden': 'true' });
-
-/** Exact glyphs in a 16 × 16 box: their strokes are values, never inked (REQ-304, REQ-310). */
-export const UI_GLYPHS = Object.freeze({
-  tick: 'M3.5,8.5L6.5,11.5L12.5,4.5',
-  dash: 'M4,8H12',
-  cross: 'M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5',
-  warning: 'M8,2.5L14.5,13.5H1.5Z M8,6.5V9.5 M8,11.5V11.5',
-});
-export type UiGlyph = keyof typeof UI_GLYPHS;
-const glyph = (name: UiGlyph) => el('svg', { part: 'sp-mark', 'data-glyph': name, viewBox: '0 0 16 16', 'aria-hidden': 'true' }, [el('path', { d: UI_GLYPHS[name] })]);
-
 /** `SpButton`: a native `<button>`, or `<a>` with `href` (REQ-314, REQ-310). */
 export function uiButtonView(props: SpButtonProps, r: UiResolved, content: { readonly text?: string }): UiElement {
   uiRequireName('SpButton', content.text, props.label);
@@ -141,9 +105,6 @@ export function uiButtonView(props: SpButtonProps, r: UiResolved, content: { rea
     ],
   );
 }
-
-/** The id relations of a control derive from its `id`, else its `name` (REQ-329). */
-const baseOf = (props: { readonly id?: string; readonly name?: string }) => props.id ?? props.name;
 
 /** `SpInput`: a native `<input>` in a framed box, its message after it (REQ-314, REQ-334). */
 export function uiInputView(

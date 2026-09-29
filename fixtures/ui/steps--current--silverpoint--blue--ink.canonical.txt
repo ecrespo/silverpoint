@@ -1,0 +1,30 @@
+<ol aria-label="Release" class="sp-ui sp-steps sp-ground-silverpoint" data-frame="5" data-ground="silverpoint" data-mode="ink" data-orientation="horizontal" data-size="md" data-substrate="blue" id="steps--current">
+  <li class="sp-ui-step" data-status="finish">
+    <span aria-hidden="true" class="sp-ui-step-mark">
+      <svg aria-hidden="true" data-glyph="tick" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+    <span class="sp-ui-step-text">
+      <span class="sp-ui-step-title">
+        "Install"
+    <span aria-hidden="true" data-status="finish" part="sp-connector">
+  <li class="sp-ui-step" data-status="finish">
+    <span aria-hidden="true" class="sp-ui-step-mark">
+      <svg aria-hidden="true" data-glyph="tick" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+    <span class="sp-ui-step-text">
+      <span class="sp-ui-step-title">
+        "Import"
+    <span aria-hidden="true" data-status="process" part="sp-connector">
+  <li aria-current="step" class="sp-ui-step" data-status="process">
+    <span aria-hidden="true" class="sp-ui-step-mark" part="sp-heighten">
+      "3"
+    <span class="sp-ui-step-text">
+      <span class="sp-ui-step-title">
+        "Configure"
+    <span aria-hidden="true" data-status="wait" part="sp-connector">
+  <li class="sp-ui-step" data-status="wait">
+    <span aria-hidden="true" class="sp-ui-step-mark">
+      "4"
+    <span class="sp-ui-step-text">
+      <span class="sp-ui-step-title">
+        "Publish"

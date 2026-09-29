@@ -1,0 +1,31 @@
+<fieldset class="sp-ui sp-rate sp-ground-silverpoint" data-frame="1" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="cream" id="rate--three">
+  <legend class="sp-ui-legend sp-ui-sr">
+    "Quality"
+  <label class="sp-ui-item" data-filled="true">
+    <input aria-label="1" class="sp-ui-native" name="quality" type="radio" value="1">
+    <span aria-hidden="true" class="sp-ui-box">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+      <svg aria-hidden="true" data-glyph="lozenge" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">
+  <label class="sp-ui-item" data-filled="true">
+    <input aria-label="2" class="sp-ui-native" name="quality" type="radio" value="2">
+    <span aria-hidden="true" class="sp-ui-box">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+      <svg aria-hidden="true" data-glyph="lozenge" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">
+  <label class="sp-ui-item" data-filled="true">
+    <input aria-label="3" checked="" class="sp-ui-native" name="quality" type="radio" value="3">
+    <span aria-hidden="true" class="sp-ui-box">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+      <svg aria-hidden="true" data-glyph="lozenge" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">
+  <label class="sp-ui-item">
+    <input aria-label="4" class="sp-ui-native" name="quality" type="radio" value="4">
+    <span aria-hidden="true" class="sp-ui-box">
+      <svg aria-hidden="true" data-glyph="lozenge" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">
+  <label class="sp-ui-item">
+    <input aria-label="5" class="sp-ui-native" name="quality" type="radio" value="5">
+    <span aria-hidden="true" class="sp-ui-box">
+      <svg aria-hidden="true" data-glyph="lozenge" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">

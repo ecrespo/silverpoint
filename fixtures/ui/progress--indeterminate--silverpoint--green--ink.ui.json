@@ -1,0 +1,13 @@
+{
+  "id": "progress--indeterminate--silverpoint--green--ink",
+  "component": "progress",
+  "state": "indeterminate",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/progress--indeterminate--silverpoint--green--ink.canonical.txt"
+}

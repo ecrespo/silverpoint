@@ -1,0 +1,13 @@
+{
+  "id": "rate--read-only--silverpoint--cream--ink",
+  "component": "rate",
+  "state": "read-only",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/rate--read-only--silverpoint--cream--ink.canonical.txt"
+}

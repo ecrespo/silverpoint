@@ -1,0 +1,13 @@
+{
+  "id": "segmented--middle--cyanotype--prussian--precision",
+  "component": "segmented",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/segmented--middle--cyanotype--prussian--precision.canonical.txt"
+}

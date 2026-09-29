@@ -1,0 +1,13 @@
+{
+  "id": "progress--line--cyanotype--prussian--precision",
+  "component": "progress",
+  "state": "line",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--line--cyanotype--prussian--precision.canonical.txt"
+}

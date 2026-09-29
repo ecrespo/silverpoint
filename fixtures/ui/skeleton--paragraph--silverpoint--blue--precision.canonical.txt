@@ -1,0 +1,10 @@
+<div aria-busy="true" class="sp-ui sp-skeleton sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="blue" id="skeleton--paragraph">
+  <span class="sp-ui-sr">
+    "Loading"
+  <span aria-hidden="true" class="sp-ui-skeleton-lines">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">

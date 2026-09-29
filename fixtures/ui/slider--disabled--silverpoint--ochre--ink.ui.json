@@ -1,0 +1,13 @@
+{
+  "id": "slider--disabled--silverpoint--ochre--ink",
+  "component": "slider",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/slider--disabled--silverpoint--ochre--ink.canonical.txt"
+}

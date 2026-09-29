@@ -1,0 +1,13 @@
+{
+  "id": "rate--three--silverpoint--ochre--ink",
+  "component": "rate",
+  "state": "three",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/rate--three--silverpoint--ochre--ink.canonical.txt"
+}

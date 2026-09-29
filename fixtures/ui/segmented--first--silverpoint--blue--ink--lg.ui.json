@@ -1,0 +1,13 @@
+{
+  "id": "segmented--first--silverpoint--blue--ink--lg",
+  "component": "segmented",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--first--silverpoint--blue--ink--lg.canonical.txt"
+}

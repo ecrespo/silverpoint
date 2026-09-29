@@ -1,0 +1,13 @@
+{
+  "id": "radio-group--disabled-item--silverpoint--cream--ink",
+  "component": "radio-group",
+  "state": "disabled-item",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/radio-group--disabled-item--silverpoint--cream--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "radio-group--selected--silverpoint--green--ink",
+  "component": "radio-group",
+  "state": "selected",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/radio-group--selected--silverpoint--green--ink.canonical.txt"
+}

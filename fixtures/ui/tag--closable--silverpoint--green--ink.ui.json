@@ -1,0 +1,13 @@
+{
+  "id": "tag--closable--silverpoint--green--ink",
+  "component": "tag",
+  "state": "closable",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tag--closable--silverpoint--green--ink.canonical.txt"
+}

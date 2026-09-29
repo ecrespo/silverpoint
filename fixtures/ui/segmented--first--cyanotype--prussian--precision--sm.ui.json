@@ -1,0 +1,13 @@
+{
+  "id": "segmented--first--cyanotype--prussian--precision--sm",
+  "component": "segmented",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "sm",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--first--cyanotype--prussian--precision--sm.canonical.txt"
+}

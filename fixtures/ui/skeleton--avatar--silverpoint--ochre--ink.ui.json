@@ -1,0 +1,13 @@
+{
+  "id": "skeleton--avatar--silverpoint--ochre--ink",
+  "component": "skeleton",
+  "state": "avatar",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/skeleton--avatar--silverpoint--ochre--ink.canonical.txt"
+}

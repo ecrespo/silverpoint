@@ -261,6 +261,72 @@
       "import": "./dist/ui/divider.js",
       "default": "./dist/ui/divider.js"
     },
+    "./ui/radio-group": {
+      "@silverpoint/source": "./src/ui/radio-group.ts",
+      "types": "./dist/ui/radio-group.d.ts",
+      "import": "./dist/ui/radio-group.js",
+      "default": "./dist/ui/radio-group.js"
+    },
+    "./ui/segmented": {
+      "@silverpoint/source": "./src/ui/segmented.ts",
+      "types": "./dist/ui/segmented.d.ts",
+      "import": "./dist/ui/segmented.js",
+      "default": "./dist/ui/segmented.js"
+    },
+    "./ui/tabs": {
+      "@silverpoint/source": "./src/ui/tabs.ts",
+      "types": "./dist/ui/tabs.d.ts",
+      "import": "./dist/ui/tabs.js",
+      "default": "./dist/ui/tabs.js"
+    },
+    "./ui/slider": {
+      "@silverpoint/source": "./src/ui/slider.ts",
+      "types": "./dist/ui/slider.d.ts",
+      "import": "./dist/ui/slider.js",
+      "default": "./dist/ui/slider.js"
+    },
+    "./ui/rate": {
+      "@silverpoint/source": "./src/ui/rate.ts",
+      "types": "./dist/ui/rate.d.ts",
+      "import": "./dist/ui/rate.js",
+      "default": "./dist/ui/rate.js"
+    },
+    "./ui/steps": {
+      "@silverpoint/source": "./src/ui/steps.ts",
+      "types": "./dist/ui/steps.d.ts",
+      "import": "./dist/ui/steps.js",
+      "default": "./dist/ui/steps.js"
+    },
+    "./ui/tag": {
+      "@silverpoint/source": "./src/ui/tag.ts",
+      "types": "./dist/ui/tag.d.ts",
+      "import": "./dist/ui/tag.js",
+      "default": "./dist/ui/tag.js"
+    },
+    "./ui/badge": {
+      "@silverpoint/source": "./src/ui/badge.ts",
+      "types": "./dist/ui/badge.d.ts",
+      "import": "./dist/ui/badge.js",
+      "default": "./dist/ui/badge.js"
+    },
+    "./ui/progress": {
+      "@silverpoint/source": "./src/ui/progress.ts",
+      "types": "./dist/ui/progress.d.ts",
+      "import": "./dist/ui/progress.js",
+      "default": "./dist/ui/progress.js"
+    },
+    "./ui/alert": {
+      "@silverpoint/source": "./src/ui/alert.ts",
+      "types": "./dist/ui/alert.d.ts",
+      "import": "./dist/ui/alert.js",
+      "default": "./dist/ui/alert.js"
+    },
+    "./ui/skeleton": {
+      "@silverpoint/source": "./src/ui/skeleton.ts",
+      "types": "./dist/ui/skeleton.d.ts",
+      "import": "./dist/ui/skeleton.js",
+      "default": "./dist/ui/skeleton.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

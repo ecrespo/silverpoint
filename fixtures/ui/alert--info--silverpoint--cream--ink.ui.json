@@ -1,0 +1,13 @@
+{
+  "id": "alert--info--silverpoint--cream--ink",
+  "component": "alert",
+  "state": "info",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/alert--info--silverpoint--cream--ink.canonical.txt"
+}

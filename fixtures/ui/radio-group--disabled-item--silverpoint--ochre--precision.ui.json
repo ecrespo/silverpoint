@@ -1,0 +1,13 @@
+{
+  "id": "radio-group--disabled-item--silverpoint--ochre--precision",
+  "component": "radio-group",
+  "state": "disabled-item",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/radio-group--disabled-item--silverpoint--ochre--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "badge--overflow--silverpoint--cream--precision",
+  "component": "badge",
+  "state": "overflow",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/badge--overflow--silverpoint--cream--precision.canonical.txt"
+}

@@ -1,9 +1,9 @@
 import { uiFixtureParts, uiSizeOf, type HarnessUiFixture } from '@silverpoint/example-harness';
-import { SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpSwitch } from '@silverpoint/react/ui';
+import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabs, SpTag } from '@silverpoint/react/ui';
 import type { ComponentType } from 'react';
 
 /** Every UI component a fixture can name, by its slug. */
-const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
+const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
 
 /**
  * A UI fixture as a consumer writes it, from a Server Component: the client components are

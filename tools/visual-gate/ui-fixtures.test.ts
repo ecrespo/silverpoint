@@ -9,15 +9,17 @@ import { GATED_UI, loadUiFixtures, uiFixtureParts, uiMatrix } from './ui-fixture
 import { committedUi, runUiGate } from './ui-gate';
 
 describe('UI fixture matrix (T-153)', () => {
-  test('REQ-327 · REQ-182 · the gated batch B1: every state × 5 ground substrates × 2 modes, plus sm and lg of Button and Input', () => {
-    expect(GATED_UI.map((c) => c.slug)).toEqual(['button', 'input', 'checkbox', 'switch', 'card', 'divider']);
+  test('REQ-327 · REQ-182 · Data Model §5: the 17 components, every state × 5 ground substrates × 2 modes, plus sm and lg of Button, Input and Segmented', () => {
+    expect(GATED_UI).toHaveLength(17);
     const states = GATED_UI.reduce((n, c) => n + c.states.length, 0);
-    expect(states).toBe(19);
+    expect(states).toBe(45);
     const matrix = uiMatrix();
-    expect(matrix).toHaveLength(states * 10 + 2 * 2 * 10);
+    expect(matrix).toHaveLength(510);
+    expect(matrix).toHaveLength(states * 10 + 3 * 2 * 10);
     expect(new Set(matrix.map((f) => f.id)).size).toBe(matrix.length);
     // On every PR: every state × 2 modes × silverpoint/cream and cyanotype/prussian (Data Model §5).
     expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(states * 2 * 2);
+    expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(180);
   });
 
   test('REQ-329 · a fixture carries its component, state, ground and harness width; Card is laid out at 640', () => {
@@ -38,6 +40,10 @@ describe('UI fixture matrix (T-153)', () => {
     const input = uiFixtureParts(uiMatrix().find((f) => f.id === 'input--filled--silverpoint--cream--ink')!);
     expect(input.value).toBe('Caracas');
     expect(input.props).not.toHaveProperty('value');
+    // A Progress's value is a plain prop: no framework binds it (REQ-322 names the value components).
+    const progress = uiFixtureParts(uiMatrix().find((f) => f.id === 'progress--line--silverpoint--cream--ink')!);
+    expect(progress.value).toBeUndefined();
+    expect(progress.props).toMatchObject({ value: 40 });
   });
 });
 
@@ -51,7 +57,7 @@ describe('the reference writer (T-153)', () => {
     expect(serializeUi({ tag: 'span', attrs: {}, children: [{ slot: 'content' }, { slot: 'footer' }] }, { content: 'Save' })).toBe('<span>Save</span>');
   });
 
-  test('REQ-327 · every B1 fixture has a canonical markup whose root is the component', () => {
+  test('REQ-327 · every fixture has a canonical markup whose root is the component', () => {
     for (const fixture of uiMatrix()) {
       const markup = canonicalUiMarkup(fixture);
       expect(parseUi(markup).attrs.find(([n]) => n === 'class')?.[1]).toContain(`sp-${fixture.component}`);
@@ -85,7 +91,7 @@ describe('committed UI fixtures (T-153, T-154)', () => {
     const committed = loadUiFixtures();
     expect(committed.map((f) => f.id)).toEqual(uiMatrix().map((f) => f.id).sort());
     for (const fixture of committed) expect(readFileSync(`${FIXTURES_DIR}/${fixture.canonical}`, 'utf8'), fixture.id).toBe(canonicalUiFor(fixture));
-    expect(loadUiFixtures('pr')).toHaveLength(76);
+    expect(loadUiFixtures('pr')).toHaveLength(180);
   });
 
   test('REQ-327 · the gate compares with the committed file, and an adapter that moves one attribute fails', async () => {

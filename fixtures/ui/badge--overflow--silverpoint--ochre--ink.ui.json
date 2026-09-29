@@ -1,0 +1,13 @@
+{
+  "id": "badge--overflow--silverpoint--ochre--ink",
+  "component": "badge",
+  "state": "overflow",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/badge--overflow--silverpoint--ochre--ink.canonical.txt"
+}

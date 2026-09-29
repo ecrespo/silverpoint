@@ -10,6 +10,8 @@ export interface UiStep {
    * `data-status`; a `wait` connector is dashed (C-4). `null` after the last step.
    */
   readonly connector: StepStatus | null;
+  /** The step `current` points at, after clamping: it carries `aria-current` (REQ-318). */
+  readonly current: boolean;
 }
 
 /**
@@ -26,5 +28,5 @@ export function uiSteps(items: readonly StepItem[], current: number, component =
     diagnose('SP017', component, { property: 'current', message: `${current} is drawn as ${at}.` });
   }
   const statuses = steps.map((item, i): StepStatus => item.status ?? (i < at ? 'finish' : i === at ? 'process' : 'wait'));
-  return steps.map((item, i) => ({ key: item.key, status: statuses[i]!, connector: i < last ? statuses[i + 1]! : null }));
+  return steps.map((item, i) => ({ key: item.key, status: statuses[i]!, connector: i < last ? statuses[i + 1]! : null, current: i === at }));
 }

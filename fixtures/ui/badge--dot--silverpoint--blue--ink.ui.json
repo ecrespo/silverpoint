@@ -1,0 +1,13 @@
+{
+  "id": "badge--dot--silverpoint--blue--ink",
+  "component": "badge",
+  "state": "dot",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/badge--dot--silverpoint--blue--ink.canonical.txt"
+}

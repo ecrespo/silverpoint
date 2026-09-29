@@ -1,0 +1,9 @@
+<div class="sp-ui sp-alert sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-kind="warning" data-mode="ink" data-size="md" data-substrate="cream" id="alert--warning" role="alert">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <svg aria-hidden="true" data-glyph="warning" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,2.5L14.5,13.5H1.5Z M8,6.5V9.5 M8,11.5V11.5">
+  <div class="sp-ui-alert-body">
+    <div class="sp-ui-alert-title">
+      "Contrast check"
+    <div class="sp-ui-alert-text">
+      "One ink is close to 4.5:1 on ochre."

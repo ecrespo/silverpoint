@@ -1,0 +1,5 @@
+<span class="sp-ui sp-tag sp-ground-cyanotype" data-frame="5" data-ground="cyanotype" data-mode="ink" data-size="md" data-substrate="prussian" data-tone="1" id="tag--tone-1">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+  <span class="sp-ui-label sp-ui-plate">
+    "draft"

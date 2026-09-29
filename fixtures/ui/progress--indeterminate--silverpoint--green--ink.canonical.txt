@@ -1,0 +1,5 @@
+<div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="sp-ui sp-progress sp-ground-silverpoint" data-frame="5" data-ground="silverpoint" data-indeterminate="true" data-mode="ink" data-shape="line" data-size="md" data-substrate="green" id="progress--indeterminate" role="progressbar">
+  <span class="sp-ui-rail">
+    <span aria-hidden="true" part="sp-track">
+    <span aria-hidden="true" part="sp-fill">
+      <span aria-hidden="true" data-kind="pill" data-tone="1" part="sp-tone">

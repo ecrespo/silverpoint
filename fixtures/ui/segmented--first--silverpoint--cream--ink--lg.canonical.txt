@@ -1,0 +1,27 @@
+<fieldset class="sp-ui sp-segmented sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="lg" data-substrate="cream" id="segmented--first">
+  <legend class="sp-ui-legend sp-ui-sr">
+    "Period"
+  <span class="sp-ui-segments">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <label class="sp-ui-item" data-key="day">
+      <input checked="" class="sp-ui-native" name="period" type="radio" value="day">
+      <span class="sp-ui-segment">
+        <span aria-hidden="true" data-kind="control" data-tone="selected" part="sp-tone">
+        <span aria-hidden="true" part="sp-heighten">
+        <span class="sp-ui-label sp-ui-plate">
+          "Day"
+    <label class="sp-ui-item" data-key="week">
+      <input class="sp-ui-native" name="period" type="radio" value="week">
+      <span class="sp-ui-segment">
+        <span class="sp-ui-label">
+          "Week"
+    <label class="sp-ui-item" data-key="month">
+      <input class="sp-ui-native" name="period" type="radio" value="month">
+      <span class="sp-ui-segment">
+        <span class="sp-ui-label">
+          "Month"
+    <label class="sp-ui-item" data-key="year">
+      <input class="sp-ui-native" name="period" type="radio" value="year">
+      <span class="sp-ui-segment">
+        <span class="sp-ui-label">
+          "Year"

@@ -1,0 +1,13 @@
+{
+  "id": "tag--tone-1--silverpoint--blue--ink",
+  "component": "tag",
+  "state": "tone-1",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tag--tone-1--silverpoint--blue--ink.canonical.txt"
+}

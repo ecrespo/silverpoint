@@ -5,12 +5,13 @@
  */
 export type * from './types';
 export { UI_COMPONENTS, type UiComponentRow, type UiGroup } from './catalog';
-export { uiRateCount, uiValue, type UiRange, type UiValue } from './value';
+export { uiRange, uiRateCount, uiValue, type UiRange, type UiValue } from './value';
 export { UI_PROGRESS_VIEWBOX, uiProgressArc } from './progress';
 export { uiSteps, type UiStep } from './steps';
-export { uiRovingKey, type UiRovingKey, type UiRovingState } from './keyboard';
+export { uiRovingFocus, type UiRovingRoot } from './roving';
+export { uiIsRovingKey, uiRovingKey, type UiRovingKey, type UiRovingState } from './keyboard';
 export { UI_FRAME_KINDS, uiFrameOutline, uiFrameVariant, type UiFrameKind } from './frame';
-export { uiItems } from './items';
+export { uiItems, uiSelectedKey } from './items';
 export { uiRequireName } from './names';
 export { resolveUiTokens, UI_TOKEN_DEFAULTS } from './tokens';
 export { uiToneTile, type UiToneLayer } from './tone';
@@ -24,6 +25,7 @@ export {
   uiInputView,
   uiSwitchView,
   type UiAttrValue,
+  type UiBind,
   type UiElement,
   type UiEnvironment,
   type UiGlyph,
@@ -31,3 +33,5 @@ export {
   type UiResolved,
   type UiSlot,
 } from './view';
+export { uiRadioGroupView, uiRateView, uiSegmentedView, uiSliderView, uiTabPanelView, uiTabsView } from './view-b2';
+export { uiAlertView, uiBadgeView, uiProgressView, uiSkeletonView, uiStepsView, uiTagView } from './view-b3';

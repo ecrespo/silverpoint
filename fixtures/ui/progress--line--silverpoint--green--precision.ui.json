@@ -1,0 +1,13 @@
+{
+  "id": "progress--line--silverpoint--green--precision",
+  "component": "progress",
+  "state": "line",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/progress--line--silverpoint--green--precision.canonical.txt"
+}

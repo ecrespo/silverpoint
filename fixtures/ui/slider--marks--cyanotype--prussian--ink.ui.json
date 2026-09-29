@@ -1,0 +1,13 @@
+{
+  "id": "slider--marks--cyanotype--prussian--ink",
+  "component": "slider",
+  "state": "marks",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/slider--marks--cyanotype--prussian--ink.canonical.txt"
+}

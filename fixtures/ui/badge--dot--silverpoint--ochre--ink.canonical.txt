@@ -1,0 +1,4 @@
+<span class="sp-ui sp-badge sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" id="badge--dot">
+  <span class="sp-ui-label">
+    "Alerts"
+  <span aria-hidden="true" class="sp-ui-badge-dot">

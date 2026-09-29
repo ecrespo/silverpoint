@@ -17,7 +17,7 @@ afterEach(() => {
 });
 
 describe('Angular B1 markup (T-146)', () => {
-  test.each(uiMatrix().filter((f) => f.scope === 'pr'))('REQ-327 · $id is the canonical tree', async (fixture) => {
+  test.each(uiMatrix().filter((f) => f.scope === 'pr' && ['button', 'input', 'checkbox', 'switch', 'card', 'divider'].includes(f.component)))('REQ-327 · $id is the canonical tree', async (fixture) => {
     expect(compareUi(await ssrHost(fixtureHost(fixture, B1)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
   });
 

@@ -1,0 +1,13 @@
+{
+  "id": "badge--dot--silverpoint--cream--ink",
+  "component": "badge",
+  "state": "dot",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/badge--dot--silverpoint--cream--ink.canonical.txt"
+}

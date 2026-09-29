@@ -1,0 +1,13 @@
+{
+  "id": "steps--error--silverpoint--green--ink",
+  "component": "steps",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/steps--error--silverpoint--green--ink.canonical.txt"
+}

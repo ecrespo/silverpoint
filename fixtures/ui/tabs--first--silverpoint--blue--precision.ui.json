@@ -1,0 +1,13 @@
+{
+  "id": "tabs--first--silverpoint--blue--precision",
+  "component": "tabs",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tabs--first--silverpoint--blue--precision.canonical.txt"
+}

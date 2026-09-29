@@ -1,0 +1,13 @@
+{
+  "id": "slider--disabled--cyanotype--prussian--precision",
+  "component": "slider",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/slider--disabled--cyanotype--prussian--precision.canonical.txt"
+}

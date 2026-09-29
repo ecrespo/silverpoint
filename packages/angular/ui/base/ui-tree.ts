@@ -76,7 +76,7 @@ export class SpUiAttrs implements OnChanges {
     `@case ('li') {<li [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></li>}` +
     `@case ('button') {<button [spUiAttrs]="n.attrs" (click)="clicked.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></button>}` +
     `@case ('a') {<a [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></a>}` +
-    `@case ('input') {<input [spUiAttrs]="n.attrs" (input)="n.bind === 'native' && nativeInput.emit($event)" (change)="n.bind === 'native' && nativeChange.emit($event)" />}` +
+    `@case ('input') {<input [spUiAttrs]="n.attrs" (input)="n.bind === 'native' && nativeInput.emit($event)" (change)="n.bind === 'native' && nativeChange.emit($event)" (click)="n.bind === 'native' && nativeClick.emit($event)" />}` +
     `@case ('svg') {<svg [spUiAttrs]="n.attrs">@for (p of n.children; track $index) {<svg:path [spUiAttrs]="p.attrs" />}</svg>}` +
     `}</ng-template>` +
     `@if (rootless()) {<ng-container *ngTemplateOutlet="kids; context: { $implicit: node() }" />} @else {<ng-container *ngTemplateOutlet="el; context: { $implicit: node() }" />}`,
@@ -89,6 +89,9 @@ export class SpUiTree {
   readonly slots = input<Partial<Record<UiSlot, TemplateRef<unknown> | null | undefined>>>({});
   readonly nativeInput = output<Event>();
   readonly nativeChange = output<Event>();
+  /** A click on a native input: a read-only Rate cancels it. */
+  readonly nativeClick = output<Event>();
+  /** A click on any button of the view: a tab, a close button; `currentTarget` tells which. */
   readonly clicked = output<Event>();
 
   private readonly slotMap = computed(() => this.slots());

@@ -1,0 +1,9 @@
+<div class="sp-ui sp-alert sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-kind="success" data-mode="precision" data-size="md" data-substrate="ochre" id="alert--success" role="status">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <svg aria-hidden="true" data-glyph="tick" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+  <div class="sp-ui-alert-body">
+    <div class="sp-ui-alert-title">
+      "Published"
+    <div class="sp-ui-alert-text">
+      "Every package reached npm."

@@ -1,11 +1,12 @@
-import { act, createElement, createRef, type ComponentType } from 'react';
+import { act, createRef, type ComponentType } from 'react';
 import { createRoot } from 'react-dom/client';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { __setDiagnosticSink, type SpCode } from '@silverpoint/core';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareUi } from '../../../tools/svg-normalizer/normalize';
 import { canonicalUiMarkup } from '../../../tools/visual-gate/ui-canonical';
-import { uiFixtureParts, uiMatrix, type UiFixture } from '../../../tools/visual-gate/ui-matrix';
+import { uiMatrix } from '../../../tools/visual-gate/ui-matrix';
+import { reactFixture as fixtureOf } from './ui-fixture';
 import { SilverpointProvider } from '../src';
 import { SpCard as ServerSpCard } from '../src/server/ui/card';
 import { SpDivider as ServerSpDivider } from '../src/server/ui/divider';
@@ -38,6 +39,8 @@ function mount(element: React.ReactElement): HTMLElement {
   return host;
 }
 
+
+
 const COMPONENTS: Record<string, ComponentType<Record<string, unknown>>> = {
   button: SpButton as never,
   input: SpInput as never,
@@ -47,29 +50,22 @@ const COMPONENTS: Record<string, ComponentType<Record<string, unknown>>> = {
   divider: SpDivider as never,
 };
 
-/** A fixture as a React consumer writes it: uncontrolled, the value as its default. */
-export function reactFixture(fixture: UiFixture, components = COMPONENTS) {
-  const { props, value, slots } = uiFixtureParts(fixture);
-  const bound = value === undefined ? {} : typeof value === 'boolean' ? { defaultChecked: value } : { defaultValue: value };
-  return createElement(components[fixture.component]!, { ...props, ...bound, ...(slots.extra ? { extra: slots.extra } : {}) }, slots.content);
-}
-
 describe('React B1 markup (T-144)', () => {
-  test.each(uiMatrix().filter((f) => f.scope === 'pr'))('REQ-327 · $id is the canonical tree', (fixture) => {
-    expect(compareUi(renderToStaticMarkup(reactFixture(fixture)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
+  test.each(uiMatrix().filter((f) => f.scope === 'pr' && f.component in COMPONENTS))('REQ-327 · $id is the canonical tree', (fixture) => {
+    expect(compareUi(renderToStaticMarkup(fixtureOf(fixture, COMPONENTS)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
   });
 
   test('REQ-327 · rendering every fixture raises no React warning (attribute names are React\'s own)', () => {
     const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
     cleanup.push(() => errors.mockRestore());
-    for (const fixture of uiMatrix().filter((f) => f.scope === 'pr')) mount(reactFixture(fixture));
+    for (const fixture of uiMatrix().filter((f) => f.scope === 'pr' && f.component in COMPONENTS)) mount(fixtureOf(fixture, COMPONENTS));
     expect(errors).not.toHaveBeenCalled();
   });
 
   test('REQ-327 · REQ-104 · the server Card and Divider write the same tree, with no hook', () => {
     const server = { ...COMPONENTS, card: ServerSpCard as never, divider: ServerSpDivider as never };
     for (const fixture of uiMatrix().filter((f) => (f.component === 'card' || f.component === 'divider') && f.scope === 'pr')) {
-      expect(compareUi(renderToStaticMarkup(reactFixture(fixture, server)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
+      expect(compareUi(renderToStaticMarkup(fixtureOf(fixture, server)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
     }
   });
 });

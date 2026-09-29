@@ -1,0 +1,7 @@
+<span class="sp-ui sp-badge sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="green" id="badge--count">
+  <span class="sp-ui-label">
+    "Inbox"
+  <span class="sp-ui-badge-count">
+    <span aria-hidden="true" data-kind="pill" part="sp-frame">
+    <span class="sp-ui-badge-text">
+      "12"

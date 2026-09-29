@@ -1,0 +1,13 @@
+{
+  "id": "progress--circle--silverpoint--cream--precision",
+  "component": "progress",
+  "state": "circle",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--circle--silverpoint--cream--precision.canonical.txt"
+}

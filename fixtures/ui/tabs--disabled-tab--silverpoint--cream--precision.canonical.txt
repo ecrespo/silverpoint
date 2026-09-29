@@ -1,0 +1,17 @@
+<div class="sp-ui sp-tabs sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="precision" data-orientation="horizontal" data-size="md" data-substrate="cream" id="tabs--disabled-tab">
+  <div aria-label="Views" class="sp-ui-tablist" role="tablist">
+    <button aria-controls="tabs--disabled-tab--panel-overview" aria-selected="false" class="sp-ui-tab" data-key="overview" id="tabs--disabled-tab--tab-overview" role="tab" tabindex="-1" type="button">
+      <span class="sp-ui-label">
+        "Overview"
+    <button aria-controls="tabs--disabled-tab--panel-traffic" aria-selected="true" class="sp-ui-tab" data-key="traffic" id="tabs--disabled-tab--tab-traffic" role="tab" tabindex="0" type="button">
+      <span aria-hidden="true" part="sp-heighten">
+      <span class="sp-ui-label">
+        "Traffic"
+    <button aria-controls="tabs--disabled-tab--panel-errors" aria-selected="false" class="sp-ui-tab" data-key="errors" id="tabs--disabled-tab--tab-errors" role="tab" tabindex="-1" type="button">
+      <span class="sp-ui-label">
+        "Errors"
+    <button aria-controls="tabs--disabled-tab--panel-settings" aria-selected="false" class="sp-ui-tab" data-key="settings" disabled="" id="tabs--disabled-tab--tab-settings" role="tab" tabindex="-1" type="button">
+      <span class="sp-ui-label">
+        "Settings"
+    <span aria-hidden="true" part="sp-rule">
+  <div class="sp-ui-tabpanels">

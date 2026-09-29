@@ -1,0 +1,13 @@
+{
+  "id": "progress--circle--cyanotype--prussian--precision",
+  "component": "progress",
+  "state": "circle",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--circle--cyanotype--prussian--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "slider--disabled--silverpoint--cream--precision",
+  "component": "slider",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/slider--disabled--silverpoint--cream--precision.canonical.txt"
+}

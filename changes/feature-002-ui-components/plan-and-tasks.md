@@ -112,20 +112,20 @@ gate iterates it. Every change touching `packages/` adds a changeset.
   (or `v-model`, or `model()` + Reactive Forms), disabled emits nothing, name warning.
 - **Done:** B1 unit tests green in the adapter.
 
-**[ ] T-147 · B2 React** — REQ-300, REQ-309, REQ-315, REQ-322, REQ-323, REQ-325, REQ-326
+**[x] T-147 · B2 React** — REQ-300, REQ-309, REQ-315, REQ-322, REQ-323, REQ-325, REQ-326
 
-**[ ] T-148 · B2 Vue** — same REQs
+**[x] T-148 · B2 Vue** — same REQs
 
-**[ ] T-149 · B2 Angular** — same REQs
+**[x] T-149 · B2 Angular** — same REQs
 - `SpRadioGroup`, `SpSegmented`, `SpTabs` (+ `SpTabPanel`), `SpSlider`, `SpRate` (lozenge marks); roving focus through `uiRovingKey`;
   one heightening per instance (I-18).
 - **Done:** B2 unit tests green.
 
-**[ ] T-150 · B3 React** — REQ-300, REQ-308, REQ-318, REQ-319
+**[x] T-150 · B3 React** — REQ-300, REQ-308, REQ-318, REQ-319
 
-**[ ] T-151 · B3 Vue** — same REQs
+**[x] T-151 · B3 Vue** — same REQs
 
-**[ ] T-152 · B3 Angular** — same REQs
+**[x] T-152 · B3 Angular** — same REQs
 - `SpSteps` (connector `data-status`, `wait` dashed), `SpTag`, `SpBadge`, `SpProgress`, `SpAlert`
   (`error` on `ui.tone.alertError`), `SpSkeleton`; roles per REQ-318; server-safe entries in React.
 - **Done:** B3 unit tests green.
@@ -223,3 +223,4 @@ Every task cites at least one REQ; no orphan task.
 | 6a — Core (T-135..T-138) | 2026-09-28 | `packages/core/src/ui/`: types and `Sp<Name>Props`, `UI_COMPONENTS` (17 rows, 45 states), `uiValue`, `uiRateCount`, `uiProgressArc`, `uiSteps`, `uiRovingKey`, `uiFrameVariant`, `UI_FRAME_KINDS`, `uiFrameOutline`, `uiItems`, `uiRequireName`; all on the subpath `@silverpoint/core/ui` —exported from the main entry they took the core's full bundle to 46.16 kB, over its 45 kB— and `UI_DEMOS` on `@silverpoint/core/ui-demos`; diagnostics `SP017`..`SP019`. Tests written first, then mutation-checked (8 mutations, all red). Benchmarks `ui · …` against a 0.05 ms budget in `tools/bench-report`: the slowest, `uiProgressArc`, 0.006 ms mean. `tools/traceability` reads approved, unfolded delta PRDs as *pending*: citable, never unknown or blocking, until T-162 folds them |
 | 6b — Grounds (T-139..T-142) | 2026-09-28 | `ui` tokens on `Ground` (core type, `resolveUiTokens`, `UI_TOKEN_DEFAULTS`) and on both grounds; REQ-044's PR check extended to `core/src/ui/**` and the adapters' `ui/`. DD-022 spike first, in Chromium, Firefox and WebKit ([`spike-dd-022/`](spike-dd-022/)): viable; edges stretched along their axis, not repeated. Core `uiToneTile` (seamless periodic tiles at the ramp's angle); grounds `src/ui/pieces.ts` and `src/ui/ui-css.ts`, `scripts/build-ui-css.ts` → `dist/ui.css`, exported as `@silverpoint/grounds/ui.css`. Lint as tests (I-19, no `display:none` on native inputs, motion only under `no-preference`, data-mode rules paint-only for I-17); `styles.css` pinned to its 0.2.0 bytes. Contrast gate: 11 UI pairs × 2 grounds, all passing (tightest: `ui.precision-frame` 3.03 on silverpoint/blue). `ui.css` 8.04 KB of 24 in size-limit. OQ-U5: 4.40 / 7.85 / 10.09 KB gzip for 1 / 4 / 6 variants; four kept. Tests first; 9 mutations, all red |
 | 6c B1 + 6d gates (T-143..T-146, T-153..T-156) | 2026-09-28 | **Core:** `resolveUi` (prop → dashboard → provider → default, forced precision after) and the markup contract as data — `ui*View` trees for Button, Input, Checkbox, Switch, Card, Divider, with exact glyphs; `data-frame` is a slot 0..5 and `data-tone` a level or a state, both folded by `ui.css` from the ground's tokens, so the runtime needs no ground. **Adapters:** React (generic tree writer; client entries; `server/ui/card`, `server/ui/divider`), Vue (tree writer, `v-model`, `class` joins `className`), Angular (`sp-ui-tree` writes the tree in one template; `button[spButton]`; `sp-input` is an element — an `<input>` cannot hold frame and message; named slots as `<ng-template spExtra>`; CVA, so `@angular/forms` is a peer; tokens moved to `@silverpoint/angular/env` to keep the UI runtime off the chart pipeline: 21.7 → 4.3 kB). **Gates:** 230 fixtures (`fixtures/ui`, 76 on PR), canonicals written from the core by a reference writer (as DD-017, not from the React render); tree gate 690/690; pixel gate 76 × 4 apps with goldens; I-17 on the canonical page; budgets: runtime 2.1 / 2.2 / 4.3 kB (React / Vue / Angular) of 8, components ≤ 5.3 kB of 11, `ui.css` 9.1 of 24. `tools/visual-gate` filters `spbutton` (A-03). React tests were written after its code and mutation-checked (10 mutations); Vue and Angular tests first |
+| 6c B2 + B3 (T-147..T-152) | 2026-09-28 | **Core:** `ui*View` trees for RadioGroup, Segmented, Tabs (+ `uiTabPanelView`), Slider, Rate, Steps, Tag, Badge, Progress, Alert, Skeleton; `uiSelectedKey` (Data Model §2.14 fallbacks, silent), `uiRange`, `uiIsRovingKey`, and `uiRovingFocus` —the DOM glue of REQ-315 with structural types, so the core keeps no DOM lib and the three adapters share one implementation; `uiSteps` marks the current step. A view marks each bound element `native` or `close`. **ui.css:** B2/B3 layout, 11.35 KB gzip of 24; heightening matched with `~=` so a slider thumb can be one; the wait connector dashed on its one edge. **Adapters:** 11 components × 3 (Angular on `SpUiControl`, a CVA base in `ui/base`); React server entries for the six display components. **Gates:** `GATED_BATCHES` B1..B3: 510 fixtures (180 PR), as Data Model §5; 104 new goldens, reviewed on contact sheets. Budgets: largest component 3.63 kB (Vue Rate), Angular 6.04 kB, runtime ≤ 5.04 kB. Tests written first (core, ui.css, three adapters); the one written after (the steps connector's widths) fails on the prior code; Vue's radio resync mutation-checked. CI steps green; Playwright in the pinned image 3051 passed, 0 failed |

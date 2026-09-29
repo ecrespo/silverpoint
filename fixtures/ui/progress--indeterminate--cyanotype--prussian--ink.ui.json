@@ -1,0 +1,13 @@
+{
+  "id": "progress--indeterminate--cyanotype--prussian--ink",
+  "component": "progress",
+  "state": "indeterminate",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--indeterminate--cyanotype--prussian--ink.canonical.txt"
+}

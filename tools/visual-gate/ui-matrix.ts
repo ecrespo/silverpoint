@@ -13,7 +13,7 @@ const GROUND_SUBSTRATES = [
 ] as const;
 
 /** The batches of step 6c whose adapters exist; a batch joins every gate by joining this list. */
-export const GATED_BATCHES: readonly UiComponentRow['batch'][] = ['B1'];
+export const GATED_BATCHES: readonly UiComponentRow['batch'][] = ['B1', 'B2', 'B3'];
 export const GATED_UI: readonly UiComponentRow[] = UI_COMPONENTS.filter((c) => GATED_BATCHES.includes(c.batch));
 
 /** Components drawn at every size, in their first state (nightly; Data Model §5). */
@@ -69,6 +69,9 @@ export function uiMatrix(): UiFixture[] {
   return out;
 }
 
+/** The components whose `value` each framework binds (REQ-322); a Progress's `value` is a plain prop. */
+export const UI_VALUE_COMPONENTS: ReadonlySet<string> = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs']);
+
 /** Demo keys that are content, not props: each adapter puts them in its slots. */
 const SLOTS = ['content', 'extra', 'footer'] as const;
 export type UiSlotText = Partial<Record<(typeof SLOTS)[number], string>>;
@@ -85,7 +88,7 @@ export function uiFixtureParts(fixture: UiFixture): { props: CommonUiProps & Rec
   let value: unknown;
   for (const [key, v] of Object.entries(demo)) {
     if ((SLOTS as readonly string[]).includes(key)) slots[key as (typeof SLOTS)[number]] = v as string;
-    else if (key === 'value') value = v;
+    else if (key === 'value' && UI_VALUE_COMPONENTS.has(fixture.component)) value = v;
     else props[key] = v;
   }
   return {

@@ -1,0 +1,12 @@
+<div aria-busy="true" class="sp-ui sp-skeleton sp-ground-cyanotype" data-frame="3" data-ground="cyanotype" data-mode="precision" data-size="md" data-substrate="prussian" id="skeleton--avatar">
+  <span class="sp-ui-sr">
+    "Loading"
+  <span aria-hidden="true" class="sp-ui-skeleton-avatar">
+    <span aria-hidden="true" data-kind="round" data-tone="1" part="sp-tone">
+  <span aria-hidden="true" class="sp-ui-skeleton-lines">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+    <span class="sp-ui-skeleton-line">
+      <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">

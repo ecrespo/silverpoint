@@ -1,0 +1,5 @@
+<span class="sp-ui sp-tag sp-ground-silverpoint" data-frame="5" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" data-tone="1" id="tag--tone-1">
+  <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+  <span class="sp-ui-label sp-ui-plate">
+    "draft"

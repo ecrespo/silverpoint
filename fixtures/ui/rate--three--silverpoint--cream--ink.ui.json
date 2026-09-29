@@ -1,0 +1,13 @@
+{
+  "id": "rate--three--silverpoint--cream--ink",
+  "component": "rate",
+  "state": "three",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/rate--three--silverpoint--cream--ink.canonical.txt"
+}

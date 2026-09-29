@@ -1,0 +1,13 @@
+{
+  "id": "progress--indeterminate--silverpoint--blue--precision",
+  "component": "progress",
+  "state": "indeterminate",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/progress--indeterminate--silverpoint--blue--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "slider--marks--silverpoint--cream--ink",
+  "component": "slider",
+  "state": "marks",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/slider--marks--silverpoint--cream--ink.canonical.txt"
+}

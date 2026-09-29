@@ -1,0 +1,13 @@
+{
+  "id": "tag--tone-1--silverpoint--green--precision",
+  "component": "tag",
+  "state": "tone-1",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tag--tone-1--silverpoint--green--precision.canonical.txt"
+}

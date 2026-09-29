@@ -11,12 +11,23 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   resolveUi,
+  uiAlertView,
+  uiBadgeView,
   uiButtonView,
   uiCardView,
   uiCheckboxView,
   uiDividerView,
   uiInputView,
+  uiProgressView,
+  uiRadioGroupView,
+  uiRateView,
+  uiSegmentedView,
+  uiSkeletonView,
+  uiSliderView,
+  uiStepsView,
   uiSwitchView,
+  uiTabsView,
+  uiTagView,
   type UiElement,
   type UiNode,
 } from '@silverpoint/core/ui';
@@ -56,6 +67,28 @@ export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiS
       return { view: uiCardView(p, r, { extra: slots.extra !== undefined, footer: slots.footer !== undefined }), slots };
     case 'divider':
       return { view: uiDividerView(p, r), slots };
+    case 'radio-group':
+      return { view: uiRadioGroupView(p, r, { value: (value as string | undefined) ?? null }), slots };
+    case 'segmented':
+      return { view: uiSegmentedView(p, r, { value: (value as string | undefined) ?? null }), slots };
+    case 'tabs':
+      return { view: uiTabsView(p, r, { value: (value as string | undefined) ?? null }), slots };
+    case 'slider':
+      return { view: uiSliderView(p, r, { value: (value as number | undefined) ?? 0 }), slots };
+    case 'rate':
+      return { view: uiRateView(p, r, { value: (value as number | undefined) ?? 0 }), slots };
+    case 'steps':
+      return { view: uiStepsView(p, r), slots };
+    case 'tag':
+      return { view: uiTagView(p, r, { text: slots.content }), slots };
+    case 'badge':
+      return { view: uiBadgeView(p, r, { text: slots.content }), slots };
+    case 'progress':
+      return { view: uiProgressView(p, r), slots };
+    case 'alert':
+      return { view: uiAlertView(p, r, { closable: (props as { closable?: boolean }).closable === true }), slots };
+    case 'skeleton':
+      return { view: uiSkeletonView(p, r), slots };
     default:
       throw new Error(`No view for ${fixture.component}`);
   }

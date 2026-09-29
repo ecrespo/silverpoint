@@ -1,0 +1,13 @@
+{
+  "id": "tag--closable--silverpoint--cream--precision",
+  "component": "tag",
+  "state": "closable",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tag--closable--silverpoint--cream--precision.canonical.txt"
+}

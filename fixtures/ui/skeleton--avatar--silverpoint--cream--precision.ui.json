@@ -1,0 +1,13 @@
+{
+  "id": "skeleton--avatar--silverpoint--cream--precision",
+  "component": "skeleton",
+  "state": "avatar",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/skeleton--avatar--silverpoint--cream--precision.canonical.txt"
+}

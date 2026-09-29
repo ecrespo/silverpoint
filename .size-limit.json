@@ -1656,6 +1656,127 @@
     "limit": "11 kB"
   },
   {
+    "name": "@silverpoint/react/ui/radio-group (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/radio-group.js",
+    "import": "{ SpRadioGroup }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/segmented (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/segmented.js",
+    "import": "{ SpSegmented }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/tabs (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/tabs.js",
+    "import": "{ SpTabs, SpTabPanel }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/slider (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/slider.js",
+    "import": "{ SpSlider }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/rate (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/rate.js",
+    "import": "{ SpRate }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/steps (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/steps.js",
+    "import": "{ SpSteps }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/tag (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/tag.js",
+    "import": "{ SpTag }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/badge (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/badge.js",
+    "import": "{ SpBadge }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/progress (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/progress.js",
+    "import": "{ SpProgress }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/alert (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/alert.js",
+    "import": "{ SpAlert }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/skeleton (runtime + component, REQ-330)",
+    "path": "packages/react/dist/ui/skeleton.js",
+    "import": "{ SpSkeleton }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
     "name": "@silverpoint/vue UI runtime (feature-002, REQ-330): SpDivider",
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
@@ -1719,6 +1840,116 @@
     "name": "@silverpoint/vue/ui/divider (runtime + component, REQ-330)",
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/radio-group (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/radio-group.js",
+    "import": "{ SpRadioGroup }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/segmented (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/segmented.js",
+    "import": "{ SpSegmented }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/tabs (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/tabs.js",
+    "import": "{ SpTabs, SpTabPanel }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/slider (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/slider.js",
+    "import": "{ SpSlider }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/rate (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/rate.js",
+    "import": "{ SpRate }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/steps (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/steps.js",
+    "import": "{ SpSteps }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/tag (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/tag.js",
+    "import": "{ SpTag }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/badge (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/badge.js",
+    "import": "{ SpBadge }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/progress (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/progress.js",
+    "import": "{ SpProgress }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/alert (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/alert.js",
+    "import": "{ SpAlert }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/skeleton (runtime + component, REQ-330)",
+    "path": "packages/vue/dist/ui/skeleton.js",
+    "import": "{ SpSkeleton }",
     "ignore": [
       "vue"
     ],
@@ -1813,6 +2044,160 @@
     "name": "@silverpoint/angular/ui/divider (runtime + component, REQ-330)",
     "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-divider.mjs",
     "import": "{ SpDivider }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/radio-group (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-radio-group.mjs",
+    "import": "{ SpRadioGroup }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/segmented (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-segmented.mjs",
+    "import": "{ SpSegmented }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/tabs (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-tabs.mjs",
+    "import": "{ SpTabs, SpTabPanel }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/slider (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-slider.mjs",
+    "import": "{ SpSlider }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/rate (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-rate.mjs",
+    "import": "{ SpRate }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/steps (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-steps.mjs",
+    "import": "{ SpSteps }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/tag (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-tag.mjs",
+    "import": "{ SpTag }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/badge (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-badge.mjs",
+    "import": "{ SpBadge }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/progress (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-progress.mjs",
+    "import": "{ SpProgress }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/alert (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-alert.mjs",
+    "import": "{ SpAlert }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/skeleton (runtime + component, REQ-330)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-skeleton.mjs",
+    "import": "{ SpSkeleton }",
     "ignore": [
       "@angular/core",
       "@angular/common",

@@ -1,0 +1,13 @@
+{
+  "id": "skeleton--paragraph--silverpoint--blue--precision",
+  "component": "skeleton",
+  "state": "paragraph",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/skeleton--paragraph--silverpoint--blue--precision.canonical.txt"
+}

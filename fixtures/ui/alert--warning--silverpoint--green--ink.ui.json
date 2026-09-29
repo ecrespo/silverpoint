@@ -1,0 +1,13 @@
+{
+  "id": "alert--warning--silverpoint--green--ink",
+  "component": "alert",
+  "state": "warning",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--warning--silverpoint--green--ink.canonical.txt"
+}

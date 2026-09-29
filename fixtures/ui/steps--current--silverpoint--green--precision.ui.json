@@ -1,0 +1,13 @@
+{
+  "id": "steps--current--silverpoint--green--precision",
+  "component": "steps",
+  "state": "current",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/steps--current--silverpoint--green--precision.canonical.txt"
+}

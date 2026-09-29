@@ -300,6 +300,35 @@ Recorded here, to be folded with the rest in T-162:
   tokens and environment signals move to `@silverpoint/angular/env`, re-exported by the main entry,
   so a UI component does not carry the charts' render pipeline (REQ-330).
 
+## Amendments from implementation (Phases 4 and 5, 2026-09-28)
+
+To be folded with the rest in T-162:
+
+- **More core surface.**
+  - `uiSelectedKey(items, value, 'none' | 'first')` applies the fallbacks of Data Model §2.14.
+  - `uiRange(range)` validates a range once, so a Slider warns `SP017` once.
+  - `uiIsRovingKey(key)` tells whether a key moves a roving focus.
+  - `uiRovingFocus(event, root, selector, orientation | 'both', activate)` is the DOM side of
+    REQ-315: it finds the items, reads `dir` from the nearest ancestor, and moves focus, clicking
+    the new item when it activates. It uses structural types, so the core still takes no DOM
+    library. The three adapters call it.
+  - `uiSteps` flags the current step.
+  - A view element's `bind` is `native` or `close`.
+- **Markup details.**
+  - The legends of Segmented and Rate are for assistive technology only (`sp-ui-sr`).
+  - The radios of Segmented and Rate take `name`, else `${id}--value`, else no name.
+  - A read-only Rate is `role="radiogroup"` with `aria-readonly`.
+  - A Tag's close button is named `Remove <text>` unless `closeLabel` is set.
+  - A Badge's dot is drawn; its `label` is visually hidden text.
+  - The circle Progress is the core's arc, with classes on its two paths.
+  - A slider thumb is `part="sp-thumb sp-heighten"`, and `ui.css` matches parts with `~=`.
+- **React server entries** also cover `steps`, as well as `tag`, `badge`, `progress`, `alert` and
+  `skeleton`. The server Tag and Alert take no `closable`.
+- **Angular.**
+  - Panels read their tabs through `SP_TABS`.
+  - The value components share `SpUiControl`, a ControlValueAccessor base in `ui/base`.
+  - A Tag reads its projected text after render, for the close button's name.
+
 ## Constitution check
 
 - **Art. 2** — every function above is in the core; adapters bind props and events.

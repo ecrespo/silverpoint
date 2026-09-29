@@ -1,0 +1,13 @@
+{
+  "id": "radio-group--disabled-item--cyanotype--prussian--precision",
+  "component": "radio-group",
+  "state": "disabled-item",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/radio-group--disabled-item--cyanotype--prussian--precision.canonical.txt"
+}

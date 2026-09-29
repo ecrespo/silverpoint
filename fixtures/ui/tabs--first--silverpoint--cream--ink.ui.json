@@ -1,0 +1,13 @@
+{
+  "id": "tabs--first--silverpoint--cream--ink",
+  "component": "tabs",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tabs--first--silverpoint--cream--ink.canonical.txt"
+}

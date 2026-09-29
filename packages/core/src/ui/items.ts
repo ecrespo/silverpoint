@@ -1,3 +1,4 @@
+import type { UiItem } from './types';
 import { diagnose } from '../diagnostics/diagnose';
 
 /**
@@ -17,4 +18,14 @@ export function uiItems<T extends { readonly key: string }>(items: readonly T[],
     }
   }
   return kept.length === items.length ? items : kept;
+}
+
+/**
+ * The key a composite shows as selected (Data Model §2.14): the given key if an enabled item has
+ * it; otherwise `null` for a RadioGroup (`'none'`), the first enabled key for Segmented and Tabs
+ * (`'first'`). Silent: a key that leaves `items` is an ordinary state of dynamic data (A-06).
+ */
+export function uiSelectedKey(items: readonly UiItem[], value: string | null | undefined, fallback: 'none' | 'first'): string | null {
+  if (items.some((item) => item.key === value && item.disabled !== true)) return value!;
+  return fallback === 'first' ? (items.find((item) => item.disabled !== true)?.key ?? null) : null;
 }

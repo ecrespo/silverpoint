@@ -1,0 +1,13 @@
+{
+  "id": "alert--success--silverpoint--blue--ink",
+  "component": "alert",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--success--silverpoint--blue--ink.canonical.txt"
+}

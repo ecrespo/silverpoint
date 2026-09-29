@@ -1,0 +1,13 @@
+{
+  "id": "skeleton--avatar--silverpoint--cream--ink",
+  "component": "skeleton",
+  "state": "avatar",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/skeleton--avatar--silverpoint--cream--ink.canonical.txt"
+}

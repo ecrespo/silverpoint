@@ -1,0 +1,13 @@
+{
+  "id": "badge--count--cyanotype--prussian--ink",
+  "component": "badge",
+  "state": "count",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/badge--count--cyanotype--prussian--ink.canonical.txt"
+}

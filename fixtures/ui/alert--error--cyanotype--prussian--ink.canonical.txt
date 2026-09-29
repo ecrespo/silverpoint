@@ -1,0 +1,10 @@
+<div class="sp-ui sp-alert sp-ground-cyanotype" data-frame="1" data-ground="cyanotype" data-kind="error" data-mode="ink" data-size="md" data-substrate="prussian" id="alert--error" role="alert">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <span aria-hidden="true" data-kind="card" data-tone="alertError" part="sp-tone">
+  <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+  <div class="sp-ui-alert-body sp-ui-plate">
+    <div class="sp-ui-alert-title">
+      "Build failed"
+    <div class="sp-ui-alert-text">
+      "ui.css is over its 24 KB budget."

@@ -1,0 +1,13 @@
+{
+  "id": "steps--current--silverpoint--cream--ink",
+  "component": "steps",
+  "state": "current",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/steps--current--silverpoint--cream--ink.canonical.txt"
+}

@@ -1,0 +1,7 @@
+<div aria-label="Upload" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="sp-ui sp-progress sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="ink" data-shape="line" data-size="md" data-substrate="green" id="progress--line" role="progressbar" style="--sp-ui-fraction:0.4">
+  <span class="sp-ui-rail">
+    <span aria-hidden="true" part="sp-track">
+    <span aria-hidden="true" part="sp-fill">
+      <span aria-hidden="true" data-kind="pill" data-tone="selected" part="sp-tone">
+  <span aria-hidden="true" class="sp-ui-value">
+    "40%"

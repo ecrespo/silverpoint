@@ -1,0 +1,13 @@
+{
+  "id": "segmented--first--cyanotype--prussian--ink--lg",
+  "component": "segmented",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "lg",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--first--cyanotype--prussian--ink--lg.canonical.txt"
+}

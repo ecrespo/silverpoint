@@ -1,0 +1,13 @@
+{
+  "id": "steps--error--silverpoint--cream--ink",
+  "component": "steps",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/steps--error--silverpoint--cream--ink.canonical.txt"
+}

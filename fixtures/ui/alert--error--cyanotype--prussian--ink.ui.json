@@ -1,0 +1,13 @@
+{
+  "id": "alert--error--cyanotype--prussian--ink",
+  "component": "alert",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/alert--error--cyanotype--prussian--ink.canonical.txt"
+}

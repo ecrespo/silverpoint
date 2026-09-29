@@ -1,0 +1,13 @@
+{
+  "id": "segmented--middle--silverpoint--green--ink",
+  "component": "segmented",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--middle--silverpoint--green--ink.canonical.txt"
+}

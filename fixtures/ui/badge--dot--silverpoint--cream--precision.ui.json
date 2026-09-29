@@ -1,0 +1,13 @@
+{
+  "id": "badge--dot--silverpoint--cream--precision",
+  "component": "badge",
+  "state": "dot",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/badge--dot--silverpoint--cream--precision.canonical.txt"
+}

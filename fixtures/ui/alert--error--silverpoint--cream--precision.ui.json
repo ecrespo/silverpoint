@@ -1,0 +1,13 @@
+{
+  "id": "alert--error--silverpoint--cream--precision",
+  "component": "alert",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/alert--error--silverpoint--cream--precision.canonical.txt"
+}

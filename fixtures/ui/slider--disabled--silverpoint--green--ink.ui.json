@@ -1,0 +1,13 @@
+{
+  "id": "slider--disabled--silverpoint--green--ink",
+  "component": "slider",
+  "state": "disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/slider--disabled--silverpoint--green--ink.canonical.txt"
+}

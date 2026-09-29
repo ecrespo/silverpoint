@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, uiFixtureParts, uiSizeOf, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
-import { SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpSwitch } from '@silverpoint/vue/ui';
+import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabs, SpTag } from '@silverpoint/vue/ui';
 import { computed } from 'vue';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
@@ -41,7 +41,7 @@ import { SpOrbitChart } from '@silverpoint/vue/orbit-chart';
 const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture }>();
 
 /** Every UI component a fixture can name, by its slug. */
-const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider } as const;
+const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as const;
 /** A UI fixture as a consumer writes it: uncontrolled, the value as `default-value` (REQ-322). */
 const uiParts = computed(() => (props.ui ? uiFixtureParts(props.ui) : undefined));
 

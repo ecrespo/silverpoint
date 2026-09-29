@@ -1,0 +1,13 @@
+{
+  "id": "alert--error--silverpoint--blue--precision",
+  "component": "alert",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--error--silverpoint--blue--precision.canonical.txt"
+}

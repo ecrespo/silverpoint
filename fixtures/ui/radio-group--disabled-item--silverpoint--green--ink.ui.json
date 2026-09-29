@@ -1,0 +1,13 @@
+{
+  "id": "radio-group--disabled-item--silverpoint--green--ink",
+  "component": "radio-group",
+  "state": "disabled-item",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/radio-group--disabled-item--silverpoint--green--ink.canonical.txt"
+}

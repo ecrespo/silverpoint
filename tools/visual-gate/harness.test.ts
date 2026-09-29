@@ -54,7 +54,7 @@ describe('the harness’s dashboards (T-117, T-118)', () => {
       const { view, slots } = uiFixtureView(fixture);
       expect(serializeUi(harness.uiFixtureView(embedded).view, slots), fixture.id).toBe(serializeUi(view, slots));
     }
-    expect(harness.UI_PR_FIXTURES).toHaveLength(76);
+    expect(harness.UI_PR_FIXTURES).toHaveLength(180);
     expect(harness.uiFixtureById('nope')).toBeUndefined();
   });
 });

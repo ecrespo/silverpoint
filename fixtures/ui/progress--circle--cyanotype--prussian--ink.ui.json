@@ -1,0 +1,13 @@
+{
+  "id": "progress--circle--cyanotype--prussian--ink",
+  "component": "progress",
+  "state": "circle",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/progress--circle--cyanotype--prussian--ink.canonical.txt"
+}

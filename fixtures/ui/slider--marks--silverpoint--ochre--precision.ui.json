@@ -1,0 +1,13 @@
+{
+  "id": "slider--marks--silverpoint--ochre--precision",
+  "component": "slider",
+  "state": "marks",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/slider--marks--silverpoint--ochre--precision.canonical.txt"
+}

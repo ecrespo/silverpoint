@@ -1,0 +1,21 @@
+<fieldset class="sp-ui sp-radio-group sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="precision" data-orientation="horizontal" data-size="md" data-substrate="blue" id="radio-group--disabled-item">
+  <legend class="sp-ui-legend">
+    "Ground"
+  <label class="sp-ui-item" data-key="silverpoint">
+    <input checked="" class="sp-ui-native" id="radio-group--disabled-item--silverpoint" name="ground" type="radio" value="silverpoint">
+    <span aria-hidden="true" class="sp-ui-box">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+      <svg aria-hidden="true" data-glyph="dot" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M11,8A3,3 0 1,1 5,8A3,3 0 1,1 11,8Z">
+    <span class="sp-ui-label">
+      "silverpoint"
+  <label class="sp-ui-item" data-disabled="true" data-key="cyanotype">
+    <input class="sp-ui-native" disabled="" id="radio-group--disabled-item--cyanotype" name="ground" type="radio" value="cyanotype">
+    <span aria-hidden="true" class="sp-ui-box">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+      <svg aria-hidden="true" data-glyph="dot" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M11,8A3,3 0 1,1 5,8A3,3 0 1,1 11,8Z">
+    <span class="sp-ui-label">
+      "cyanotype"

@@ -1,0 +1,13 @@
+{
+  "id": "slider--marks--silverpoint--green--precision",
+  "component": "slider",
+  "state": "marks",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/slider--marks--silverpoint--green--precision.canonical.txt"
+}

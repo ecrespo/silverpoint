@@ -1,0 +1,13 @@
+{
+  "id": "alert--warning--silverpoint--blue--precision",
+  "component": "alert",
+  "state": "warning",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/alert--warning--silverpoint--blue--precision.canonical.txt"
+}

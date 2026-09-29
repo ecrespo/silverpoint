@@ -1,0 +1,13 @@
+{
+  "id": "segmented--first--silverpoint--ochre--precision",
+  "component": "segmented",
+  "state": "first",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/segmented--first--silverpoint--ochre--precision.canonical.txt"
+}

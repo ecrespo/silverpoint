@@ -35,8 +35,4 @@ export function useValue<T>(value: T | undefined, initial: T, onChange: ((next: 
   ];
 }
 
-/** Text content, when the children are text: what the accessible-name check reads (REQ-319). */
-export function textOf(children: unknown): string | undefined {
-  if (typeof children === 'string' || typeof children === 'number') return String(children);
-  return children === undefined || children === null || children === false ? undefined : '·';
-}
+export { textOf } from './render';

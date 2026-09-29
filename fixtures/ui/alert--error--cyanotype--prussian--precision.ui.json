@@ -1,0 +1,13 @@
+{
+  "id": "alert--error--cyanotype--prussian--precision",
+  "component": "alert",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/alert--error--cyanotype--prussian--precision.canonical.txt"
+}
