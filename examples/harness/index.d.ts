@@ -76,3 +76,23 @@ export declare function uiSizeOf(fixture: HarnessUiFixture): 'md' | 'lg';
 export declare const UI_VALUE_COMPONENTS: ReadonlySet<string>;
 export declare function uiFixtureParts(fixture: HarnessUiFixture): HarnessUiParts;
 export declare function uiFixtureView(fixture: HarnessUiFixture): { view: UiElement; slots: HarnessUiParts['slots'] };
+
+/** One item of the UI reference page (T-157): a demo state under its panel's configuration. */
+export interface HarnessUiPageItem extends HarnessUiParts {
+  readonly key: string;
+  readonly component: string;
+  /** The Card's content: a chart (C-5). */
+  readonly chart?: { readonly chart: string; readonly props: Record<string, unknown> };
+  /** The Tabs' panels. */
+  readonly tabPanels?: readonly { readonly value: string; readonly text: string }[];
+}
+export interface HarnessUiPagePanel {
+  readonly key: string;
+  readonly title: string;
+  readonly note: string;
+  readonly ground: string;
+  readonly substrate: string;
+  readonly mode: 'ink' | 'precision';
+  readonly sections: readonly { readonly title: string; readonly items: readonly HarnessUiPageItem[] }[];
+}
+export declare const UI_PAGE: { readonly title: string; readonly panels: readonly HarnessUiPagePanel[] };

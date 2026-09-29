@@ -26,7 +26,8 @@ export abstract class SpUiControl<T> extends SpUiBase implements ControlValueAcc
 
   /** The keyboard of a composite, through the core (REQ-315): bound to the host's `keydown`. */
   protected rove(event: KeyboardEvent, selector: string, orientation: UiOrientation | 'both', activate: boolean): void {
-    uiRovingFocus(event, this.host, selector, orientation, activate);
+    // The `.sp-ui` root, not the host: a `dir` set on the root is the nearest one (REQ-321).
+    uiRovingFocus(event, this.host.querySelector<HTMLElement>('.sp-ui') ?? this.host, selector, orientation, activate);
   }
 
   writeValue(value: T | null): void {

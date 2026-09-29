@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, uiFixtureParts, uiSizeOf, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
-import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabs, SpTag } from '@silverpoint/vue/ui';
+import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, UI_PAGE, uiFixtureParts, uiSizeOf, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
+import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/vue/ui';
 import { computed } from 'vue';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
@@ -38,7 +38,7 @@ import { SpChordRing } from '@silverpoint/vue/chord-ring';
 import { SpOrbitChart } from '@silverpoint/vue/orbit-chart';
 
 /** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
-const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture }>();
+const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture; uiPage?: boolean }>();
 
 /** Every UI component a fixture can name, by its slug. */
 const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as const;
@@ -50,7 +50,45 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
 </script>
 
 <template>
-  <main v-if="props.ui && uiParts">
+  <main v-if="props.uiPage">
+    <h1>{{ UI_PAGE.title }} · Vite + Vue</h1>
+    <div class="sp-ui-page">
+      <form
+        v-for="panel in UI_PAGE.panels"
+        :key="panel.key"
+        :class="`sp-ui-page-panel sp-ground-${panel.ground}`"
+        :data-substrate="panel.substrate"
+        :data-panel="panel.key"
+        :aria-labelledby="`${panel.key}-title`"
+      >
+        <h2 :id="`${panel.key}-title`">{{ panel.title }}</h2>
+        <p class="sp-ui-page-note">{{ panel.note }}</p>
+        <div class="sp-ui-page-sections">
+          <section v-for="section in panel.sections" :key="section.title" class="sp-ui-page-section" :aria-label="section.title">
+            <h3>{{ section.title }}</h3>
+            <div class="sp-ui-page-items">
+              <component
+                :is="UI[item.component as keyof typeof UI]"
+                v-for="item in section.items"
+                :key="item.key"
+                v-bind="{ ...item.props, ...(item.value === undefined ? {} : { defaultValue: item.value }) }"
+              >
+                <template v-if="item.chart" #default>
+                  <component :is="CHARTS[item.chart.chart as keyof typeof CHARTS]" v-bind="item.chart.props" />
+                </template>
+                <template v-else-if="item.tabPanels" #default>
+                  <SpTabPanel v-for="tab in item.tabPanels" :key="tab.value" :value="tab.value">{{ tab.text }}</SpTabPanel>
+                </template>
+                <template v-else-if="item.slots.content !== undefined" #default>{{ item.slots.content }}</template>
+                <template v-if="item.slots.extra !== undefined" #extra>{{ item.slots.extra }}</template>
+              </component>
+            </div>
+          </section>
+        </div>
+      </form>
+    </div>
+  </main>
+  <main v-else-if="props.ui && uiParts">
     <div :class="`sp-harness sp-ground-${props.ui.ground}`" data-gate="" data-ui="" :data-substrate="props.ui.substrate" :data-size="uiSizeOf(props.ui)">
       <component
         :is="UI[props.ui.component as keyof typeof UI]"

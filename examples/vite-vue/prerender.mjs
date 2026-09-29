@@ -9,3 +9,6 @@ console.log('prerendered dist/index.html');
 // `vite preview` resolves `/dashboard` to `dashboard.html` before its single-page fallback.
 writeFileSync('dist/dashboard.html', page.replace('<!--app-->', await render({ dashboard: REFERENCE_DASHBOARD })));
 console.log('prerendered dist/dashboard.html');
+// The UI reference page (T-157), server-rendered the same way.
+writeFileSync('dist/ui.html', page.replace('<!--app-->', await render({ uiPage: true })));
+console.log('prerendered dist/ui.html');

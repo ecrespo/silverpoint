@@ -19,6 +19,10 @@ if (ui) {
 } else if (location.pathname.replace(/\/$/, '') === '/dashboard' && new URLSearchParams(location.search).has('linked')) {
   // The linked dashboard (REQ-216) is client-rendered: linked state lives on the client only.
   createApp(App, { dashboard: LINKED_DASHBOARD }).mount('#app');
+} else if (location.pathname.replace(/\/$/, '') === '/ui') {
+  // The UI reference page was server-rendered into ui.html: hydrate it (T-157).
+  createSSRApp(App, { uiPage: true }).mount('#app');
+  document.documentElement.dataset.hydrated = 'true';
 } else if (location.pathname.replace(/\/$/, '') === '/dashboard') {
   // The reference dashboard was server-rendered into dashboard.html: hydrate it (REQ-221).
   createSSRApp(App, { dashboard: REFERENCE_DASHBOARD }).mount('#app');

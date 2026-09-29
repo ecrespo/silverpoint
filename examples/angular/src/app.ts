@@ -36,18 +36,20 @@ import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 import { uiFixtureById } from '@silverpoint/example-harness';
-import { UiGate } from './ui-gate';
+import { UiGate, UiPage } from './ui-gate';
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart };
 
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate],
+  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate, UiPage],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (ui) {
       <main><app-ui-gate [fixture]="ui" /></main>
+    } @else if (uiPage) {
+      <main><app-ui-page /></main>
     } @else if (dashboard) {
       <main>
         @if (!dashboardGate) {
@@ -103,6 +105,8 @@ export class App {
   private readonly fixture = fixtureById(new URLSearchParams(this.url.search).get('fixture'));
   /** A UI fixture of the pixel gate (REQ-328). */
   protected readonly ui = uiFixtureById(new URLSearchParams(this.url.search).get('ui'));
+  /** The UI reference page (T-157). */
+  protected readonly uiPage = this.url.pathname.replace(/\/$/, '') === '/ui';
   private readonly dashboardFixture = dashboardFixtureById(new URLSearchParams(this.url.search).get('dashboard'));
   /** The pixel gate's dashboard fixture, or the `/dashboard` page's reference dashboard (REQ-221). */
   protected readonly dashboard = this.dashboardFixture

@@ -3,8 +3,8 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
-import { uiFixtureById, uiFixtureParts, uiSizeOf, type HarnessUiFixture } from '@silverpoint/example-harness';
-import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabs, SpTag } from '@silverpoint/react/ui';
+import { UI_PAGE, uiFixtureById, uiFixtureParts, uiSizeOf, type HarnessUiFixture, type HarnessUiPageItem } from '@silverpoint/example-harness';
+import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/react/ui';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
@@ -68,6 +68,58 @@ function UiFixture({ fixture }: { fixture: HarnessUiFixture }) {
   );
 }
 
+/** One item of the UI page as a consumer writes it: uncontrolled, the value as its default. */
+function UiPageItem({ item }: { item: HarnessUiPageItem }) {
+  const Component = UI[item.component]!;
+  const bound = item.value === undefined ? {} : typeof item.value === 'boolean' ? { defaultChecked: item.value } : { defaultValue: item.value };
+  const Chart = item.chart ? CHARTS[item.chart.chart]! : undefined;
+  const children = Chart ? (
+    <Chart {...item.chart!.props} />
+  ) : item.tabPanels ? (
+    item.tabPanels.map((panel) => (
+      <SpTabPanel key={panel.value} value={panel.value}>
+        {panel.text}
+      </SpTabPanel>
+    ))
+  ) : (
+    item.slots.content
+  );
+  return (
+    <Component {...item.props} {...bound} {...(item.slots.extra ? { extra: item.slots.extra } : {})}>
+      {children}
+    </Component>
+  );
+}
+
+/** The UI reference page (T-157): the 17 components in three panels, each a form. */
+function UiPage() {
+  return (
+    <main>
+      <h1>{UI_PAGE.title} · Vite + React</h1>
+      <div className="sp-ui-page">
+        {UI_PAGE.panels.map((panel) => (
+          <form key={panel.key} className={`sp-ui-page-panel sp-ground-${panel.ground}`} data-substrate={panel.substrate} data-panel={panel.key} aria-labelledby={`${panel.key}-title`}>
+            <h2 id={`${panel.key}-title`}>{panel.title}</h2>
+            <p className="sp-ui-page-note">{panel.note}</p>
+            <div className="sp-ui-page-sections">
+              {panel.sections.map((section) => (
+                <section key={section.title} className="sp-ui-page-section" aria-label={section.title}>
+                  <h3>{section.title}</h3>
+                  <div className="sp-ui-page-items">
+                    {section.items.map((item) => (
+                      <UiPageItem key={item.key} item={item} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </form>
+        ))}
+      </div>
+    </main>
+  );
+}
+
 /** Every chart a fixture can name, by its chart name. */
 /** Every chart a fixture can name. A fixture's props fit its own chart; the union cannot say so. */
 const CHARTS: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
@@ -105,6 +157,7 @@ function App() {
       </main>
     );
   }
+  if (location.pathname.replace(/\/$/, '') === '/ui') return <UiPage />;
   if (location.pathname === '/dashboard') {
     return (
       <main>

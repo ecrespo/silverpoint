@@ -64,3 +64,62 @@ h1 {
 .sp-harness[data-ui] {
   background: var(--sp-substrate);
 }
+
+/* The UI reference page (T-157): three panels, as the concept drawing lays them out. */
+.sp-ui-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sp-ui-page-panel {
+  padding: 20px 24px 28px;
+  background: var(--sp-substrate);
+  color: var(--sp-text);
+  box-shadow: inset 0 0 0 1px var(--sp-rule);
+}
+
+.sp-ui-page-panel > h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.sp-ui-page-note {
+  margin: 2px 0 16px;
+  color: var(--sp-text-muted);
+  font-style: italic;
+}
+
+.sp-ui-page-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 20px 32px;
+}
+
+.sp-ui-page-section > h3 {
+  margin: 0 0 10px;
+  color: var(--sp-text-muted);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sp-ui-page-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.sp-ui-page-items > .sp-card,
+.sp-ui-page-items > .sp-alert,
+.sp-ui-page-items > .sp-slider,
+.sp-ui-page-items > .sp-steps,
+.sp-ui-page-items > .sp-tabs,
+.sp-ui-page-items > .sp-skeleton,
+.sp-ui-page-items > .sp-divider,
+.sp-ui-page-items > [data-shape='line'] {
+  flex: 1 1 100%;
+}

@@ -269,3 +269,69 @@ export function uiFixtureView(fixture) {
   };
   return { view: views[/** @type {keyof typeof views} */ (fixture.component)](), slots };
 }
+
+/*
+ * ── The UI reference page (T-157) ────────────────────────────────────────────────────────────
+ * `/ui` in every app: the 17 components from `UI_DEMOS`, composed as the concept drawing, in three
+ * panels. Plain data; each app writes it in its framework's idiom, as it writes the fixtures.
+ */
+
+/** Sections of a panel: `[component, state]` pairs, in the concept's order. */
+const UI_PAGE_SECTIONS = [
+  ['Button', [['button', 'default'], ['button', 'primary'], ['button', 'danger'], ['button', 'disabled']]],
+  ['Input', [['input', 'empty'], ['input', 'invalid']]],
+  ['Checkbox · Switch', [['checkbox', 'checked'], ['checkbox', 'indeterminate'], ['checkbox', 'unchecked'], ['switch', 'on'], ['switch', 'off']]],
+  ['RadioGroup · Rate', [['radio-group', 'selected'], ['rate', 'three']]],
+  ['Slider', [['slider', 'marks']]],
+  ['Segmented', [['segmented', 'middle']]],
+  ['Steps', [['steps', 'current']]],
+  ['Progress', [['progress', 'line'], ['progress', 'circle'], ['progress', 'indeterminate']]],
+  ['Skeleton', [['skeleton', 'avatar']]],
+  ['Tabs', [['tabs', 'disabled-tab']]],
+  ['Card · Tag · Badge', [['card', 'titled'], ['tag', 'tone-1'], ['tag', 'closable'], ['badge', 'count'], ['badge', 'dot'], ['badge', 'overflow']]],
+  ['Alert', [['alert', 'info'], ['alert', 'success'], ['alert', 'warning'], ['alert', 'error']]],
+  ['Divider', [['divider', 'text']]],
+];
+
+const UI_PAGE_PANELS = [
+  { key: 'silverpoint', title: 'silverpoint · cream · ink', note: 'Tone by hatching, heightening on the current item', ground: 'silverpoint', substrate: 'cream', mode: 'ink' },
+  { key: 'precision', title: 'precision mode', note: 'Same components, inking switched off', ground: 'silverpoint', substrate: 'cream', mode: 'precision' },
+  { key: 'cyanotype', title: 'cyanotype · prussian', note: 'Tone is the weight of an exact white line', ground: 'cyanotype', substrate: 'prussian', mode: 'ink' },
+];
+
+/** One item of a panel: a demo state with the panel's configuration, under an id of its own. */
+function uiPageItem(/** @type {(typeof UI_PAGE_PANELS)[number]} */ panel, /** @type {string} */ component, /** @type {string} */ state) {
+  const demo = UI_DEMOS[component]?.[state] ?? {};
+  /** @type {Record<string, unknown>} */ const props = {};
+  /** @type {Record<string, string>} */ const slots = {};
+  let value;
+  for (const [key, v] of Object.entries(demo)) {
+    if (UI_SLOTS.includes(key)) slots[key] = /** @type {string} */ (v);
+    else if (key === 'value' && UI_VALUE_COMPONENTS.has(component)) value = v;
+    else props[key] = v;
+  }
+  Object.assign(props, { id: `${panel.key}-${demo.id}`, ground: panel.ground, substrate: panel.substrate, mode: panel.mode });
+  const item = { key: `${component}--${state}`, component, props, value, slots };
+  // The Card holds a KPI and its sparkline, as the concept draws it (C-5); its title sits under the section's h3.
+  if (component === 'card') {
+    Object.assign(props, { headingLevel: 4 });
+    return { ...item, slots: { extra: slots.extra }, chart: { chart: 'KpiCard', props: { id: `${panel.key}-card-kpi`, width: 280, metric: 'thousands', ground: panel.ground, substrate: panel.substrate, mode: panel.mode } } };
+  }
+  if (component === 'tabs') {
+    const items = /** @type {{ key: string, label: string }[]} */ (props.items);
+    return { ...item, tabPanels: items.map((tab) => ({ value: tab.key, text: `${tab.label}: the charts of this view.` })) };
+  }
+  return item;
+}
+
+/** The page: three panels of the same sections, each under its own ground, substrate and mode. */
+export const UI_PAGE = Object.freeze({
+  title: 'silverpoint · UI components',
+  panels: UI_PAGE_PANELS.map((panel) => ({
+    ...panel,
+    sections: UI_PAGE_SECTIONS.map(([title, items]) => ({
+      title: /** @type {string} */ (title),
+      items: /** @type {[string, string][]} */ (items).map(([component, state]) => uiPageItem(panel, component, state)),
+    })),
+  })),
+});

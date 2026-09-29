@@ -4,4 +4,6 @@ import { fileURLToPath } from 'node:url';
 export default {
   // The workspace packages are symlinked from the monorepo root.
   turbopack: { root: fileURLToPath(new URL('../..', import.meta.url)) },
+  // No generated agent files in the example: the repository's own CLAUDE.md governs.
+  agentRules: false,
 };
