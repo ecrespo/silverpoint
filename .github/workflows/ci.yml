@@ -69,7 +69,11 @@ jobs:
       # REQ-033, REQ-034, REQ-100, REQ-105, REQ-107, REQ-164: gates over the published builds.
       - run: pnpm exec vitest run --project gates
       # REQ-103, REQ-109, REQ-042, REQ-032 on the four example apps; REQ-181 pixel gate.
+      # Firefox refuses a $HOME its user does not own; the container runs as root, and the runner
+      # sets HOME=/github/home (T-158 launches Firefox and WebKit once).
       - run: pnpm exec playwright test
+        env:
+          HOME: /root
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
