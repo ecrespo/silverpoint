@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3 with the Technical Design delta, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1, C-3, C-5 of [`analyze.md`](analyze.md) |
+| **Status** | `APPROVED` — gate 3 with the Technical Design delta, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1, C-3, C-5 of [`analyze.md`](analyze.md); **folded into `specs/data-model.md` (v1.6) on 2026-09-29** (T-162) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.5 → v1.6: new §2.14, new §3.8, §3.7, §4, §5, §6 |
 
 ## §2.14 Component value contracts

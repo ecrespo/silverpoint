@@ -5,6 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { UI_COMPONENTS } from '../../../packages/core/src/ui/catalog';
 import { CATALOG } from '../../../tools/visual-gate/catalog';
 
 export interface PropDoc {
@@ -21,9 +22,15 @@ export interface PropsReference {
   readonly charts: readonly { readonly chart: string; readonly own: readonly PropDoc[] }[];
   /** The dashboard composition (API Spec §7.1): its props, its layout and a layout cell. */
   readonly dashboard: { readonly props: readonly PropDoc[]; readonly layout: readonly PropDoc[]; readonly cell: readonly PropDoc[] };
+  /** The UI components (API Spec §7.2, REQ-332): the props all take, and each one's own. */
+  readonly ui: {
+    readonly common: readonly PropDoc[];
+    readonly components: readonly { readonly slug: string; readonly name: string; readonly group: string; readonly own: readonly PropDoc[] }[];
+  };
 }
 
 const PROPS = fileURLToPath(new URL('../../../packages/core/src/types/props.ts', import.meta.url));
+const UI_TYPES = fileURLToPath(new URL('../../../packages/core/src/ui/types.ts', import.meta.url));
 const DASHBOARD = fileURLToPath(new URL('../../../packages/core/src/dashboard/types.ts', import.meta.url));
 
 /** Every interface and object type alias of a source file, by name, with its property signatures documented. */
@@ -85,9 +92,19 @@ export function propsReference(): PropsReference {
     if (!members) throw new Error(`packages/core/src/dashboard/types.ts has no ${name}`);
     return members;
   };
+  const ui = interfacesIn(readFileSync(UI_TYPES, 'utf8'));
+  const fromUi = (name: string) => {
+    const members = ui.get(name);
+    if (!members) throw new Error(`packages/core/src/ui/types.ts has no ${name}`);
+    return members;
+  };
   return {
     common: own('CommonChartProps'),
     charts: CATALOG.map(({ chart }) => ({ chart, own: own(`${chart}Props`) })),
     dashboard: { props: fromDashboard('DashboardProps'), layout: fromDashboard('DashboardLayout'), cell: fromDashboard('DashboardCellLayout') },
+    ui: {
+      common: fromUi('CommonUiProps'),
+      components: UI_COMPONENTS.map(({ slug, component, group }) => ({ slug, name: component, group, own: fromUi(`${component}Props`) })),
+    },
   };
 }

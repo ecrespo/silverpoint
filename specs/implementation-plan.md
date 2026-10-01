@@ -6,18 +6,18 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.6 |
-| **Date** | 2026-09-26 |
-| **PRD** | [`prd.md`](prd.md) v1.10 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.7 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.5 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
+| **Version** | 1.7 |
+| **Date** | 2026-09-29 |
+| **PRD** | [`prd.md`](prd.md) v1.11 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.8 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.6 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.9 |
 
 ---
 
 ## 1. Implementation Summary
 
-Five phases for the catalog, and a sixth —Phase 5— for the dashboard composition. The first delivers no catalog: it delivers **a single chart travelling
+Five phases for the catalog, a sixth —Phase 5— for the dashboard composition, and a seventh —Phase 6— for the interface components. The first delivers no catalog: it delivers **a single chart travelling
 through the entire system** — core, inking, interaction, all three adapters and the gates — to
 retire the risks that could invalidate the architecture. If that slice closes, the three
 that follow are repetition over engines that are already proven.
@@ -187,6 +187,99 @@ the demo ignores).
   nightly; 30 parity and 90 pixel dashboard fixtures); the Angular example app server-rendered.
 - No canonical chart fixture changed by the demo rule.
 
+### Phase 6 — UI components
+
+**Effort:** 4-5 weeks. **Goal:** a consumer builds the controls around their charts —buttons,
+form controls, tabs, steps, cards, tags, progress, alerts— in React, Vue or Angular, drawn in the
+same ground as the charts, exact where the user reads or aims, accessible, server-rendered, with
+parity across the three adapters (PRD §6.11, REQ-300..REQ-334; API Spec UI section;
+DD-021..DD-027; Data Model §2.14, §3.8). All 17 components ship together in `0.3.0`.
+
+**Tasks:** #135..#163, continuing the global sequence after #134; the task list, with the
+REQ → task traceability, is kept below. The numbers continue the sequence but the tasks are defined
+in the feature's ledger (`changes/feature-002-ui-components/plan-and-tasks.md`, where each reads
+`T-` followed by its number), not in [`tasks.md`](tasks.md), as for Phase 5; they are written `#NNN`
+here so the corpus check does not look for them in `tasks.md`. A component is a catalog row in its own `UI_COMPONENTS`
+list, and every gate iterates it.
+
+| Step | Content | Tasks | Depends on | Exit |
+|---|---|---|---|---|
+| 6a | Core: types, value, keyboard, frame variant and outlines, items, names, demo | #135..#138 | Approval | Core unit tests and benchmarks green |
+| 6b | Grounds: `ui` tokens, piece generator, `ui.css`, contrast and colour lint | #139..#142 | 6a | Grounds tests; `ui.css` ≤ 24 KB gzip |
+| 6c | Adapters ×3 in three batches: **B1** Button, Input, Checkbox, Switch, Card, Divider · **B2** RadioGroup, Segmented, Tabs, Slider, Rate · **B3** Steps, Tag, Badge, Progress, Alert, Skeleton | #143..#152 | 6b | Adapter unit tests and the 6d gates per batch; each batch is a review point |
+| 6d | Fixtures, parity and pixel gates, mode invariance, budgets | #153..#156 | 6c (per batch) | 180 PR / 510 nightly fixtures green |
+| 6e | Example apps UI page, e2e (APG, forms, hydration, reduced motion, RTL), axe | #157..#159 | 6d | Four apps green |
+| 6f | Docs site, changeset, fold the deltas, traceability and `CLAUDE.md` status | #160..#163 | 6e | Release `0.3.0` |
+
+**Status (2026-09-29).** Steps 6a..6f are done, with one exception: #159 (accessibility audit) is closed on
+its automated half (axe, 0 A/AA issues) and waits on the manual NVDA/VoiceOver pass, which needs
+Windows and macOS. The docs section (#160), the changeset (#161), this fold (#162) and the
+traceability and status update (#163) are complete; `0.3.0` awaits its release commit.
+
+Task summary (each task cites the requirement it implements; the ledger stays in
+`changes/feature-002-ui-components/plan-and-tasks.md`):
+
+| Step | Task | Content | REQ |
+|---|---|---|---|
+| 6a | #135 | UI types and the `UI_COMPONENTS` catalog row | REQ-300, REQ-302 |
+| 6a | #136 | `uiValue`, `uiProgressArc`, `uiSteps` | REQ-302, REQ-304, REQ-324 |
+| 6a | #137 | `uiRovingKey` | REQ-315, REQ-321, REQ-326 |
+| 6a | #138 | `uiFrameVariant`, `uiFrameOutline`, `uiItems`, `uiRequireName`, `UI_DEMOS` | REQ-307, REQ-319, REQ-325 |
+| 6b | #139 | `ui` tokens on both grounds and the schema | REQ-312 |
+| 6b | #140 | Piece generator | REQ-305, REQ-307 |
+| 6b | #141 | `ui.css` | REQ-301, REQ-305, REQ-306, REQ-308, REQ-316, REQ-317, REQ-320 |
+| 6b | #142 | Contrast gate and weight | REQ-313, REQ-330 |
+| 6c | #143 | Adapter UI base ×3 | REQ-311, REQ-329, REQ-333 |
+| 6c | #144..#146 | B1 React, Vue, Angular | REQ-300, REQ-304, REQ-310, REQ-314, REQ-322, REQ-326, REQ-334 (+ REQ-108 Vue; REQ-101, REQ-323 Angular) |
+| 6c | #147..#149 | B2 React, Vue, Angular | REQ-300, REQ-309, REQ-315, REQ-322, REQ-323, REQ-325, REQ-326 |
+| 6c | #150..#152 | B3 React, Vue, Angular | REQ-300, REQ-308, REQ-318, REQ-319 |
+| 6d | #153 | Component fixtures | REQ-327, REQ-182 |
+| 6d | #154 | Parity gate on components | REQ-327 |
+| 6d | #155 | Pixel gates and mode invariance | REQ-304, REQ-306, REQ-328 |
+| 6d | #156 | Budgets | REQ-330 |
+| 6e | #157 | UI page in the four apps | REQ-329, REQ-331 |
+| 6e | #158 | Keyboard, forms and motion e2e | REQ-315, REQ-316, REQ-317, REQ-320, REQ-321, REQ-323 |
+| 6e | #159 | Accessibility audit | REQ-313, REQ-314, REQ-318, REQ-331 |
+| 6f | #160 | Docs site UI section | REQ-332 |
+| 6f | #161 | Changeset (`minor`, `0.3.0`) | release |
+| 6f | #162 | Fold the deltas (Art. 9) | Art. 9 |
+| 6f | #163 | Traceability and status | REQ-183, REQ-184 |
+
+**Traceability — REQ → tasks**
+
+| REQ | Tasks | REQ | Tasks |
+|---|---|---|---|
+| 300 | #135, #144–#152 | 317 | #141, #158 |
+| 301 | #141 | 318 | #150–#152, #159 |
+| 302 | #135, #136 | 319 | #138, #150–#152 |
+| 303 | #156 (allowlist check in `check-deps`) | 320 | #141, #158 |
+| 304 | #136, #144–#146, #155 | 321 | #137, #158 |
+| 305 | #140, #141 | 322 | #144–#149 |
+| 306 | #141, #155 | 323 | #146, #149, #158 |
+| 307 | #138, #140 | 324 | #136 |
+| 308 | #141, #150–#152 | 325 | #138, #147–#149 |
+| 309 | #147–#149 | 326 | #137, #144–#149 |
+| 310 | #144–#146 | 327 | #153, #154 |
+| 311 | #143 | 328 | #155 |
+| 312 | #139 | 329 | #143, #157 |
+| 313 | #142, #159 | 330 | #142, #156 |
+| 314 | #144–#146, #159 | 331 | #157, #159 |
+| 315 | #137, #147–#149, #158 | 332 | #160 |
+| 316 | #141, #158 | 333 | #143 |
+| | | 334 | #144–#146 |
+
+Every task cites at least one requirement; no orphan task.
+
+**Done criteria**
+- Every MUST in REQ-300..REQ-334 cited by a test; traceability 0 blocking (REQ-183, REQ-184).
+- Parity gate green on the 180 PR / 510 nightly component fixtures; pixel gates green on all.
+- The four example apps have the UI page, green in e2e (APG keyboard, forms, hydration) and axe.
+- Budgets of REQ-330 green (`ui.css` ≤ 24 KB gzip; per-component and runtime allowances); chart
+  budgets unchanged, and `styles.css` byte-identical to `0.2.0` (REQ-301).
+- Docs site: a UI section with a live example and generated props per component (REQ-332).
+- Released as `0.3.0` (changeset `minor` from `0.2.0`) from CI; the deltas folded into `specs/`
+  (#162) and `CLAUDE.md`'s status table updated (#163).
+
 ## 4. Dependency Map
 
 ```
@@ -200,6 +293,9 @@ Phase 0 ── vertical slice, gates operational
             └── chord and orbits (own geometry, inside the phase)
                                                        ▼
                                           Phase 5 ── dashboard composition
+                                                       │
+                                                       ▼
+                                          Phase 6 ── UI components
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -246,6 +342,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.7 | 2026-09-29 | Ernesto Crespo | Phase 6 added: the 17 UI components (steps 6a..6f, #135..#163), released in `0.3.0` (feature-002) |
 | 1.6 | 2026-09-26 | Ernesto Crespo | Step 5h (delta-013): the Tailwind preset package |
 | 1.5 | 2026-09-26 | Ernesto Crespo | Step 5g (delta-012): the `cyanotype` ground, REQ-220 per adapter and Angular CLI SSR join `0.2.0` |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Phase 5 added: dashboard composition and the demo rule, released in `0.2.0`; Phase 4's `1.0.0` criterion recorded as deferred by decision |
@@ -262,4 +359,6 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 - **Art. 9** — §6 fixes the procedure on a deviation: stop and update the spec.
 - **Art. 3** (v1.5) — Phase 5's Done includes the tree and pixel gates over the dashboard
   compositions.
+- **Art. 1, 3, 5, 6** (v1.7) — Phase 6's Done includes the tree and pixel gates over the
+  component fixtures, `ink`/`precision` box equivalence (I-17) and one heightening per instance.
 - **Exception requested:** none.

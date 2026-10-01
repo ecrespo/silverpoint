@@ -1,5 +1,6 @@
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
 import './site.css';
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -9,6 +10,7 @@ import { DashboardPage } from './pages/dashboard';
 import { Gallery } from './pages/gallery';
 import { Home } from './pages/home';
 import { Playground } from './pages/playground';
+import { UiGallery, UiPage } from './pages/ui';
 
 /** The route is the hash, so the built site is plain static files on any host. */
 function useRoute(): string {
@@ -27,6 +29,7 @@ const NAV = [
   ['/playground', 'Playground'],
   ['/adapters', 'Three adapters'],
   ['/dashboard', 'Dashboard'],
+  ['/ui', 'UI components'],
 ] as const;
 
 function Page({ route }: { route: string }) {
@@ -34,6 +37,8 @@ function Page({ route }: { route: string }) {
   if (route === '/playground') return <Playground />;
   if (route === '/adapters') return <Adapters />;
   if (route === '/dashboard') return <DashboardPage />;
+  if (route === '/ui') return <UiGallery />;
+  if (route.startsWith('/ui/')) return <UiPage slug={route.slice('/ui/'.length)} />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;
   return <Home />;
 }
@@ -57,7 +62,7 @@ function Site() {
           <ul>
             {NAV.map(([path, label]) => (
               <li key={path}>
-                <a href={`#${path}`} aria-current={route === path ? 'page' : undefined}>
+                <a href={`#${path}`} aria-current={route === path || (path === '/ui' && route.startsWith('/ui/')) ? 'page' : undefined}>
                   {label}
                 </a>
               </li>

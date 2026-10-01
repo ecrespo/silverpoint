@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-09-28 by Ernesto Crespo, with OQ-U1, OQ-U4 and the concept corrections C-2, C-3, C-4, C-6, C-7 of [`analyze.md`](analyze.md) |
+| **Status** | `APPROVED` — gate 3, approved 2026-09-28 by Ernesto Crespo, with OQ-U1, OQ-U4 and the concept corrections C-2, C-3, C-4, C-6, C-7 of [`analyze.md`](analyze.md); **folded into `specs/technical-design.md` (v1.8) on 2026-09-29** (T-162) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.7 → v1.8: §3.2, §3.3, new DD-021..DD-027, §5.1, §8, §10 |
 | **Inputs** | [`prd-delta.md`](prd-delta.md), [`api-delta.md`](api-delta.md), [`research.md`](research.md) |
 

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, approved 2026-09-28 by Ernesto Crespo, with OQ-U2 (`Sp` prefix), C-1, C-2, C-4, C-6, C-7, A-03 and A-06 of [`analyze.md`](analyze.md) |
+| **Status** | `APPROVED` — gate 2, approved 2026-09-28 by Ernesto Crespo, with OQ-U2 (`Sp` prefix), C-1, C-2, C-4, C-6, C-7, A-03 and A-06 of [`analyze.md`](analyze.md); **folded into `specs/api-spec.md` (v1.9) on 2026-09-29** (T-162) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.8 → v1.9: §1, §2, §3, §5.1, §6, new §7.2, §8.1–8.3, §9, §10.1–10.3, §11, §12 |
 | **SemVer** | `minor` — new subpaths, components, a stylesheet, optional tokens and codes (§13) |
 

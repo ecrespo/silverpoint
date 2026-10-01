@@ -84,7 +84,7 @@ describe('the UI reference page (T-157)', () => {
     expect(new Set(ids.map(([, id]: string[]) => id)).size).toBe(ids.length);
   });
 
-  test('C-5 · the Card holds a KpiCard chart, and the Tabs their panels', async () => {
+  test('REQ-331 · C-5 · the Card holds a KpiCard chart, and the Tabs their panels', async () => {
     const { UI_PAGE } = await import('../../examples/harness/index.js');
     const items = UI_PAGE.panels[0].sections.flatMap((s: { items: unknown[] }) => s.items) as { component: string; chart?: { chart: string }; tabPanels?: unknown[]; props: { headingLevel?: number } }[];
     const card = items.find((i) => i.component === 'card')!;

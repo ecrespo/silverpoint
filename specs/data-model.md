@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.5 |
-| **Date** | 2026-09-26 |
+| **Version** | 1.6 |
+| **Date** | 2026-09-29 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.7 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.8 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.9 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -227,6 +227,24 @@ A bare number in `colSpan` / `rowSpan` / `columns` applies to all three breakpoi
 **Chart ids** (REQ-209): `${dashboard.id}--${cell.id}`; for an unplaced child,
 `${dashboard.id}--${index}` with its source index. The existing consumer-id sanitiser applies.
 
+### 2.14 Component value contracts
+
+| Component | Value | Domain | Invalid value |
+|---|---|---|---|
+| Input | `string`; `message?: string` | any; an empty `message` is no message | Empty `message` → no message element and no `aria-describedby` |
+| Checkbox, Switch | `boolean` | — | Non-boolean → `Boolean(v)`, no warning |
+| RadioGroup, Segmented, Tabs | a key of `items` | existing, enabled key; `null` only for RadioGroup | Unknown key → RadioGroup `null`; Segmented and Tabs the first enabled key; `SP017` is not used (not a range) — silent, documented |
+| Slider | `number` | `[min, max]`, on `step` from `min` | → clamped, rounded to the nearest step, `SP017` (REQ-324) |
+| Rate | integer | `0..count` | → clamped and rounded, `SP017` |
+| Progress | `number` or absent | `0..100`; absent = indeterminate | → clamped, `SP017` |
+| Steps `current` | integer | `0..items.length − 1` | → clamped, `SP017` |
+| `items[].key` | non-empty string | unique in the list | Duplicate → later skipped, `SP019` (REQ-325) |
+| `min`, `max`, `step` | finite numbers, `min < max`, `step > 0` | — | → defaults `0`, `100`, `1` with `SP017` |
+| `count` (Rate) | integer 1..10 | — | → clamped, `SP017` |
+
+Fractions (DD-025) are `(value − min) / (max − min)`, rounded to 2 decimals (REQ-002); `0` and `1`
+are exact at the ends.
+
 ## 3. The `silverpoint` ground
 
 ### 3.1 Prepared substrates
@@ -357,6 +375,63 @@ holds unchanged: its outline is drawn in `primary`, and that outline carries the
 `maxHatchDensity` is 0: there is no hatching to bound. Typography, `emptyState` and
 `domainPadding` are those of `silverpoint` (§3.5, §3.6).
 
+### 3.8 The `ui` tokens of a ground
+
+Added to the `Ground` token schema (API Spec §6) as an optional section; a ground without it takes
+the defaults below, so grounds registered by consumers keep working (REQ-312).
+
+```ts
+readonly ui?: Readonly<{
+  /** `'inked'`: build-time pieces as masks (DD-022). `'css'`: an exact border (weight grounds). */
+  frame: 'inked' | 'css';
+  /** Frame variants generated per kind; 1..6. */
+  frameVariants: number;
+  /** Control heights in px, per size; each ≥ 24 (REQ-317). */
+  controlHeight: Readonly<{ sm: number; md: number; lg: number }>;
+  /** Corner radius of the `precision` / `css` frame, px. */
+  radius: number;
+  /** Focus indicator width, px; ≥ 2 (REQ-316). */
+  focusWidth: number;
+  /** Tone level per state (DD-026). */
+  tone: Readonly<{
+    selected: 1 | 2 | 3 | 4;
+    primary: 1 | 2 | 3 | 4;
+    danger: 1 | 2 | 3 | 4;
+    disabled: 1 | 2 | 3 | 4;
+    /** The box fill of an Alert of kind `error` (C-3); the other kinds take no tone. */
+    alertError: 1 | 2 | 3 | 4;
+  }>;
+}>;
+```
+
+| Token | `silverpoint` | `cyanotype` | Default (no `ui` section) |
+|---|---|---|---|
+| `frame` | `inked` | `css` | `css` |
+| `frameVariants` | 4 | 1 | 1 |
+| `controlHeight` | 24 / 32 / 40 | 24 / 32 / 40 | 24 / 32 / 40 |
+| `radius` | 2 (= `--sp-radius`) | 2 | 2 |
+| `focusWidth` | 2 | 2 | 2 |
+| `tone` | selected 3, primary 2, danger 4, disabled 1, alertError 1 | same (as weights) | same |
+
+**Contrast pairs added to the gate** (REQ-313), on every substrate unless stated; this list is
+normative and `tools/contrast-gate` holds it as `UI_CONTRAST_PAIRS`:
+
+| Pair | Foreground | Background | Threshold |
+|---|---|---|---|
+| `ui.text` | `text` | substrate | 4.5 |
+| `ui.frame`, `ui.mark`, `ui.focus` | `primary` (the frame, the exact marks, `--sp-ui-focus-color`) | substrate | 3 |
+| `ui.precision-frame` | `rule` | substrate | 3 |
+| `ui.tone` | the tone's line: `secondary` under `hatch`, `primary` under `weight` | substrate | 3 |
+| `ui.tone-text`, `ui.alert-error-text` | `text` over the level-3 tone, and text on the `alertError` tone (C-3), each on the substrate plate that carries text over a tone | substrate | 4.5 |
+| `ui.heighten-outline` | `primary` | `heighten` | 3 (as §3.3) |
+| `ui.heighten-text` | `text` | `heighten` | 4.5 |
+| `ui.disabled-text` | `textMuted` | substrate | 3 (exempt by WCAG 1.4.3; kept legible) |
+
+Amended in implementation: the token defaults are `UI_TOKEN_DEFAULTS` and a ground's section is completed by `resolveUiTokens` (`@silverpoint/core/ui`); `data-frame` is a slot 0..5 that `ui.css` folds onto the `frameVariants` a ground draws, and `data-tone` a level or a state that it maps to `ui.tone`, so the runtime needs no ground. The gate measured 11 pairs per ground, all passing.
+
+Text over a tone is never measured against the hatch: it stands on a plate of the substrate, as a
+chart label stands on its halo (DD-022).
+
 ## 4. Demo datasets
 
 Each of the 33 charts has a default dataset that is used when it is invoked without
@@ -387,6 +462,15 @@ exactly as they turn a consumer's.
 | `mixed-spans` | 7 cells with spans chosen to leave a row-end gap at `md` | Proves REQ-203: gap left, no reordering |
 
 All charts render their demo data (REQ-093), so no dashboard fixture carries consumer data.
+
+
+**UI demos.** Frozen, like every demo dataset, and used by the fixtures, the example apps and the docs site:
+`UI_DEMOS` in `packages/core/src/ui/demo.ts` (exported from the subpath `@silverpoint/core/ui-demos`, to keep the core's full bundle under 45 kB), one entry per component with its props per state
+(§5), plain data, deep-frozen (I-9 extended).
+
+The UI page composes as the concept drawing does: its Card holds a KPI and a Sparkline chart (C-5).
+The Card fixtures hold no chart: text content only, so a component fixture tests the component and
+the chart keeps its own fixtures and gates.
 
 
 ## 5. The fixture matrix
@@ -443,6 +527,42 @@ nominal render at `ssrWidth` 1280 — one per dashboard × substrate × mode, **
 markup does not depend on the container width; the pixel gates use all 90.
 
 
+**UI component fixtures** (feature-002). Same `Fixture` shape; `chart` names the component, `props` the state, `size` the harness width.
+
+**Declared states** (45):
+
+| Component | States | # |
+|---|---|---|
+| Button | default, primary, danger, disabled | 4 |
+| Input | empty (placeholder), filled, invalid with `message`, disabled | 4 |
+| Checkbox | unchecked, checked, indeterminate, disabled | 4 |
+| RadioGroup | selected, with a disabled item | 2 |
+| Switch | off, on, disabled | 3 |
+| Slider | value 30 with marks, disabled | 2 |
+| Rate | 3 of 5, read-only | 2 |
+| Segmented | first selected, middle selected | 2 |
+| Tabs | first active, with a disabled tab | 2 |
+| Steps | current 2 of 4, with an error step | 2 |
+| Card | plain, with title and extra (text content only, no chart) | 2 |
+| Tag | tone 1, closable tone 3 | 2 |
+| Badge | count, dot, overflow (`99+`) | 3 |
+| Divider | plain, with text | 2 |
+| Progress | line 40, circle 72, indeterminate | 3 |
+| Alert | info, success, warning, error | 4 |
+| Skeleton | paragraph, with avatar | 2 |
+
+| Axis | Values | Count |
+|---|---|---|
+| Component state | the table above | 45 |
+| Ground × substrate | the four of `silverpoint`, plus `cyanotype` × `prussian` | 5 |
+| Mode | `ink`, `precision` | 2 |
+| Size | `md`; plus `sm` and `lg` for Button, Input and Segmented in their first state (nightly) | — |
+
+**Nightly: 450 state fixtures + 60 size fixtures = 510.** **On every PR: 180** — the 45 states × 2
+modes × `silverpoint/cream` and `cyanotype/prussian`. Harness width 320 px, 640 px for Card and
+Alert. The totals become 1,782 chart + 90 dashboard + 510 component fixtures nightly.
+
+
 ## 6. Invariants
 
 Verifiable, and each one with its test.
@@ -465,6 +585,12 @@ Verifiable, and each one with its test.
 | I-14 | No two resolved cells share a `chartId`. | REQ-209 |
 | I-15 | A dashboard's server render contains no `part="linked"`. | REQ-219 |
 | I-16 | Under a `weight` ground, a chart emits no `data-role="hatch"` and no `<pattern>`, and every `data-weight` is 1-4. | REQ-028 |
+| I-17 | For every component state, the layout box of every element and every `--sp-ui-fraction` are equal in `ink` and `precision`. | REQ-306 |
+| I-18 | At most one element per component instance carries `part="sp-heighten"`, and it has an ink outline. | REQ-309 |
+| I-19 | `ui.css` contains no literal colour: every `color`, `background`, `border-color` and `fill` value is a `var(--sp-…)` or `currentColor`, `transparent`, or a system colour inside `@media (forced-colors: active)`. | REQ-305 |
+| I-20 | Every interactive element of every fixture measures at least 24 × 24 CSS px. | REQ-317 |
+| I-21 | `uiFrameVariant` is pure and returns an integer in `0..frameVariants − 1`; with neither `seed` nor `id` it returns `0`. | REQ-307 |
+| I-22 | Every fraction is in `[0, 1]` with at most 2 decimals. | REQ-002, REQ-324 |
 
 ---
 
@@ -476,6 +602,7 @@ Verifiable, and each one with its test.
 | 1.3 | 2026-09-13 | Ernesto Crespo | `Fixture` gains `canonical`, the reference render every adapter is compared against, after Vue made pairwise comparison untenable |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Sibling version references realigned after the Vite integration change; no content change |
 | 1.5 | 2026-09-26 | Ernesto Crespo | Delta-012: §3.7 the `cyanotype` ground (one substrate, verified inks, inverted heightening, weight ramp); §5 matrix gains `cyanotype` (1,782 chart fixtures, 330 on PR; 90 dashboard fixtures); I-16 |
+| 1.6 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: component value contracts §2.14, the `ui` tokens and UI contrast pairs §3.8, UI demos in §4, 510 component fixtures in §5, invariants I-17..I-22 |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 
@@ -489,5 +616,7 @@ Verifiable, and each one with its test.
 - **Art. 4** — §4 pins the seed and the end date of the only generated dataset, so that
   hydration is not broken.
 - **Art. 3** (v1.5) — §5 adds the dashboard compositions to the declared matrix.
+- **Art. 5** (v1.7) — the UI contrast pairs of §3.8 join the gate; I-20 makes target size an invariant.
+- **Art. 7** — `ui` is a token section (§3.8); a consumer ground without it still renders.
 - **Exception requested:** none. The heightening is **not** an exception to Art. 5: it
   complies by outline, not by dispensation.

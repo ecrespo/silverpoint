@@ -72,8 +72,8 @@ version** (Changesets `fixed` group) and are published **only by CI**, never by 
    curl -s https://registry.npmjs.org/@silverpoint%2Freact/X.Y.Z -o /dev/null -w "%{http_code}\n"
    ```
 
-**The line stays on 0.x** (user decision, 2026-09-25): the next release is **`0.2.0`**, a
-changeset `minor` from `0.1.1`. Do not propose cutting `1.0.0` — it puts the API Spec in force, and
+**The line stays on 0.x** (user decision, 2026-09-25): the next release is **`0.3.0`**, a
+changeset `minor` from `0.2.0`. Do not propose cutting `1.0.0` — it puts the API Spec in force, and
 its changeset stays parked in `changes/release-1.0.0-changeset.md` until the user asks for it (then
 move it back into `.changeset/`).
 If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Actions,
@@ -83,17 +83,17 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 
 | Artifact | Status |
 |---|---|
-| Constitution | ✅ v1.6 — Art. 3 covers normalised markup (wrappers included, 2026-09-25); `cyanotype` ships in `0.2.0` (planned-grounds table, 2026-09-26) |
-| PRD (EARS criteria) | ✅ v1.10 approved — 130 requirements, REQ-001..REQ-222 (§6.10 Dashboard; REQ-222 Angular CLI SSR) |
-| API Spec | ✅ v1.8 approved — 33 charts + the Dashboard composition (§7.1), two built-in grounds (§6), 16 diagnostic codes, `@silverpoint/tailwind` (§1, §10.4) |
-| Technical Design | ✅ v1.7 approved — 20 decisions, DD-001..DD-020 (DD-019: the `weight` tonal mechanism; DD-020: the Tailwind preset) |
-| Data Model | ✅ v1.5 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), 16 invariants, dashboard layout §2.13 |
-| Implementation Plan | ✅ v1.6 — Phases 0–4 by shared engine, plus Phase 5 (dashboard, `0.2.0`) and its step 5g (delta-012) |
+| Constitution | ✅ v1.7 — components join the charts (Arts. 1, 3, 5, 6; folded 2026-09-29); Art. 3 covers normalised markup (wrappers included, 2026-09-25); `cyanotype` ships in `0.2.0` (planned-grounds table, 2026-09-26) |
+| PRD (EARS criteria) | ✅ v1.11 approved — 165 requirements, REQ-001..REQ-334 (§6.10 Dashboard; §6.11 UI components, REQ-300..334) |
+| API Spec | ✅ v1.9 approved — the UI catalog (§7.2, 17 components), 33 charts + the Dashboard composition (§7.1), two built-in grounds (§6), 19 diagnostic codes, `@silverpoint/tailwind` (§1, §10.4) |
+| Technical Design | ✅ v1.8 approved — 27 decisions, DD-001..DD-027 (DD-019: the `weight` tonal mechanism; DD-020: the Tailwind preset; DD-021..027: the UI layer) |
+| Data Model | ✅ v1.6 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), `ui` tokens §3.8, 22 invariants, dashboard layout §2.13, component value contracts §2.14 |
+| Implementation Plan | ✅ v1.7 — Phases 0–4 by shared engine, Phase 5 (dashboard, `0.2.0`) and Phase 6 (UI components, `0.3.0`, steps 6a..6f) |
 | Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) and `delta-013` (`@silverpoint/tailwind`) folded and implemented 2026-09-26 |
-| Feature-002 UI components | ✅ SDD gates 0..4 approved 2026-09-28 (Phase 0; not folded) — 17 `Sp`-prefixed components under `ui/` subpaths, all in `0.3.0`; REQ-300..334, DD-021..027, T-135..T-163. **Step 6a (core, T-135..T-138) done 2026-09-28**: `@silverpoint/core/ui` and `@silverpoint/core/ui-demos` (a subpath, not the main entry: the core's 45 kB budget); `SP017`..`SP019`. Approved, unfolded delta REQs are *pending* in `tools/traceability`. **Step 6b (grounds, T-139..T-142) done 2026-09-28**: `Ground.ui` tokens, `@silverpoint/grounds/ui.css` (build-time pieces as CSS masks, DD-022 spiked in 3 engines; 8 KB of 24), 11 UI contrast pairs. **Batch B1 + gates (T-143..T-146, T-153..T-156) done 2026-09-28**: `SpButton`, `SpInput`, `SpCheckbox`, `SpSwitch`, `SpCard`, `SpDivider` × 3 adapters from core view trees (`ui*View`); `fixtures/ui` (230; 76 PR), UI tree gate, UI pixel gate, I-17; Angular tokens now in `@silverpoint/angular/env`, `@angular/forms` a peer. Add a batch to the gates by adding it to `GATED_BATCHES` (tools) and `UI_GATED_BATCHES` (harness). **Batches B2 + B3 (T-147..T-152) done 2026-09-28**: the 17 components × 3 adapters; `uiRovingFocus` (keyboard DOM glue in the core, structural types); 510 UI fixtures (180 PR), 180 goldens. Next: Phase 6 (example apps UI page, e2e, a11y, T-157..T-159). Decisions and concept corrections in `changes/feature-002-ui-components/analyze.md` |
+| Feature-002 UI components | ✅ SDD gates 0..4 approved 2026-09-28 and **folded into `specs/` 2026-09-29**; **implemented** (steps 6a..6f, ledger in `changes/feature-002-ui-components/plan-and-tasks.md`, T-135..T-163): 17 `Sp`-prefixed components under `ui/` subpaths × 3 adapters, `@silverpoint/core/ui` and `/ui-demos`, `@silverpoint/grounds/ui.css`, 510 UI fixtures (180 PR), `/ui` page in the four example apps (e2e: keyboard, forms, motion, RTL, axe), docs-site UI section. Add a batch to the gates by adding it to `GATED_BATCHES` (tools) and `UI_GATED_BATCHES` (harness). **Open:** the manual NVDA/VoiceOver pass of T-159 (`a11y-audit.md`, section 2) needs Windows/macOS. Ships in `0.3.0`: changeset in `.changeset/`, not yet released. Decisions and concept corrections in `changes/feature-002-ui-components/analyze.md` |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
-| Implementation | ✅ Phases 0–5 closed — 33 charts × 3 adapters, plus the Dashboard composition; ledgers in `changes/` |
-| Traceability | ✅ every MUST cited, 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |
+| Implementation | ✅ Phases 0–6 implemented — 33 charts × 3 adapters, the Dashboard composition and the 17 UI components; ledgers in `changes/`. `0.3.0` awaits its release commit |
+| Traceability | ✅ every MUST cited (154 of 154), 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |
 | Release | ✅ **0.2.0** on npm (2026-09-26), all seven packages (`@silverpoint/tailwind` new; its 0.1.1 was published by hand to register the name), from CI with provenance |
 
 Where things stand:

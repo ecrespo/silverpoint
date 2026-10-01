@@ -23,6 +23,7 @@ async function open(page: Page): Promise<Locator> {
 /** WCAG relative luminance contrast of two `rgb(…)` colours. */
 function contrast(a: string, b: string): number {
   const lum = (c: string) => {
+    if (!/^rgba?\(/.test(c)) throw new Error(`not an rgb() colour: ${c}`);
     const [r, g, bl] = (c.match(/[\d.]+/g) ?? []).slice(0, 3).map((v) => Number(v) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
     return 0.2126 * r! + 0.7152 * g! + 0.0722 * bl!;
   };
@@ -57,7 +58,8 @@ test.describe('the UI page (T-157)', () => {
     page.on('console', (message) => messages.push(`${message.type()}: ${message.text()}`));
     page.on('pageerror', (error) => messages.push(`pageerror: ${error.message}`));
     await open(page);
-    expect(messages.filter((m) => /hydrat|mismatch|did not match|NG05\d\d/i.test(m))).toEqual([]);
+    // Production React reports a mismatch only as a minified error (#418, #423): no error at all.
+    expect(messages.filter((m) => /hydrat|mismatch|did not match|NG05\d\d/i.test(m) || /^(error|pageerror):/.test(m))).toEqual([]);
   });
 });
 
@@ -79,63 +81,128 @@ test.describe('keyboard, forms, focus and motion (T-158)', () => {
     await expect(tabs.nth(0)).toBeFocused();
   });
 
-  test('REQ-315 · RadioGroup, Segmented and Rate: arrows move and select, one tab stop each', async ({ page }) => {
+  test('REQ-315 · RadioGroup, Segmented and Rate: arrows move and select, Home and End, wrap', async ({ page }) => {
     const panel = await open(page);
-    await panel.locator('.sp-radio-group input:checked').focus();
+    const checked = (slug: string) => panel.locator(`.sp-${slug} input:checked`);
+    await checked('radio-group').focus();
     await page.keyboard.press('ArrowDown');
-    await expect(panel.locator('.sp-radio-group input:checked')).toHaveValue('cyanotype');
-    await panel.locator('.sp-segmented input:checked').focus();
+    await expect(checked('radio-group')).toHaveValue('cyanotype');
+    await page.keyboard.press('ArrowDown');
+    await expect(checked('radio-group')).toHaveValue('silverpoint');
+    await page.keyboard.press('End');
+    await expect(checked('radio-group')).toHaveValue('cyanotype');
+    await expect(checked('radio-group')).toBeFocused();
+    await checked('segmented').focus();
     await page.keyboard.press('ArrowRight');
-    await expect(panel.locator('.sp-segmented input:checked')).toHaveValue('month');
+    await expect(checked('segmented')).toHaveValue('month');
     await expect(panel.locator('.sp-segmented [data-key="month"] [part~="sp-heighten"]')).toHaveCount(1);
-    await panel.locator('.sp-rate input:checked').focus();
     await page.keyboard.press('ArrowRight');
-    await expect(panel.locator('.sp-rate input:checked')).toHaveValue('4');
+    await expect(checked('segmented')).toHaveValue('year');
+    await page.keyboard.press('ArrowRight');
+    await expect(checked('segmented')).toHaveValue('day');
+    await page.keyboard.press('End');
+    await expect(checked('segmented')).toHaveValue('year');
+    await page.keyboard.press('Home');
+    await expect(checked('segmented')).toHaveValue('day');
+    await expect(checked('segmented')).toBeFocused();
+    await checked('rate').focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(checked('rate')).toHaveValue('4');
     await expect(panel.locator('.sp-rate [data-filled="true"]')).toHaveCount(4);
-    // One tab stop: Tab leaves the segmented control for the next widget.
-    await panel.locator('.sp-segmented input:checked').focus();
-    await page.keyboard.press('Tab');
-    expect(await page.evaluate(() => document.activeElement?.closest('.sp-segmented') === null)).toBe(true);
+    await page.keyboard.press('End');
+    await expect(checked('rate')).toHaveValue('5');
+    await page.keyboard.press('Home');
+    await expect(checked('rate')).toHaveValue('1');
+    await expect(panel.locator('.sp-rate [data-filled="true"]')).toHaveCount(1);
   });
 
-  test('REQ-321 · under dir="rtl" the horizontal arrows are mirrored', async ({ page }) => {
+  test('REQ-315 · a composite is one tab stop: Tab leaves Tabs, RadioGroup, Segmented and Rate', async ({ page }) => {
     const panel = await open(page);
-    await panel.locator('.sp-segmented').evaluate((el) => el.setAttribute('dir', 'rtl'));
+    // The group Tab leaves: for Tabs the tablist, whose next stop is its own panel (APG).
+    for (const [group, current] of [['.sp-tabs [role="tablist"]', '[aria-selected="true"]'], ['.sp-radio-group', 'input:checked'], ['.sp-segmented', 'input:checked'], ['.sp-rate', 'input:checked']]) {
+      await panel.locator(`${group} ${current}`).focus();
+      await page.keyboard.press('Tab');
+      expect(await page.evaluate((g) => document.activeElement?.closest(g) === null, group), group).toBe(true);
+    }
+  });
+
+  test('REQ-321 · under an ancestor\'s dir="rtl" the horizontal arrows are mirrored, native or not', async ({ page }) => {
+    const panel = await open(page);
+    await panel.evaluate((el) => el.setAttribute('dir', 'rtl'));
     await panel.locator('.sp-segmented input:checked').focus();
     await page.keyboard.press('ArrowRight');
     await expect(panel.locator('.sp-segmented input:checked')).toHaveValue('day');
+    // Tabs are buttons, not radios: the browser mirrors nothing, the core does.
+    const tabs = panel.locator('.sp-tabs [role="tab"]');
+    await panel.locator('.sp-tabs [aria-selected="true"]').focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(tabs.nth(2)).toBeFocused();
+    await expect(tabs.nth(2)).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('ArrowRight');
+    await expect(tabs.nth(1)).toBeFocused();
   });
 
-  test('REQ-323 · a native form submits every value of the panel', async ({ page }) => {
+  test('REQ-323 · a native form submits every value of the panel, after a keyboard change too', async ({ page }) => {
     const panel = await open(page);
-    const data = await panel.evaluate((form) => Object.fromEntries(new FormData(form as HTMLFormElement)));
-    expect(data).toEqual({ q: '', city: 'Caracas', baseline: 'on', precision: 'on', ground: 'silverpoint', quality: '3', volume: '30', period: 'week' });
+    // Entries, not an object: a duplicate name would show.
+    const entries = () => panel.evaluate((form) => [...new FormData(form as HTMLFormElement)].map(([k, v]) => [k, String(v)]));
+    expect(await entries()).toEqual(
+      Object.entries({ q: '', city: 'Caracas', baseline: 'on', precision: 'on', ground: 'silverpoint', quality: '3', volume: '30', period: 'week' }),
+    );
+    await panel.locator('.sp-segmented input:checked').focus();
+    await page.keyboard.press('ArrowRight');
+    await panel.locator('.sp-ui-range').focus();
+    await page.keyboard.press('ArrowRight');
+    await panel.locator('.sp-checkbox input:checked').first().press('Space');
+    const after = Object.fromEntries(await entries());
+    expect(after).toMatchObject({ period: 'month', volume: '31' });
+    expect(after).not.toHaveProperty('baseline');
   });
 
-  test('REQ-316 · the focus ring is an exact outline of at least 2 px, 3:1 against the substrate', async ({ page }) => {
-    const panel = await open(page);
-    await panel.locator('.sp-button').first().focus();
-    await page.keyboard.press('Shift+Tab');
-    await page.keyboard.press('Tab');
-    const ring = await panel.locator('.sp-button').first().evaluate((el) => {
-      const style = getComputedStyle(el);
-      return { width: parseFloat(style.outlineWidth), style: style.outlineStyle, color: style.outlineColor, ground: getComputedStyle(el.closest('.sp-ui-page-panel')!).backgroundColor };
-    });
-    expect(ring.style).toBe('solid');
-    expect(ring.width).toBeGreaterThanOrEqual(2);
-    expect(contrast(ring.color, ring.ground)).toBeGreaterThanOrEqual(3);
+  test('REQ-316 · the focus ring is an exact outline of at least 2 px, 3:1 against the substrate, on every panel', async ({ page }) => {
+    await open(page);
+    const kinds = ['.sp-button', '.sp-input input', '.sp-checkbox input', '.sp-switch input', '.sp-radio-group input:checked', '.sp-segmented input:checked', '.sp-tabs [aria-selected="true"]', '.sp-ui-range', '.sp-rate input:checked', '.sp-tag .sp-ui-close'];
+    for (const { key } of UI_PAGE.panels) {
+      for (const kind of kinds) {
+        const target = page.locator(`[data-panel="${key}"] ${kind}`).first();
+        await target.focus();
+        // A keyboard focus: the ring is :focus-visible's.
+        await page.keyboard.press('Shift');
+        const ring = await target.evaluate((el) => {
+          // The ring sits on the focused element or on the frame that wraps a native control.
+          const holder = [el, el.closest('.sp-ui-box'), el.closest('.sp-ui-item'), el.closest('.sp-ui')].find((h) => h && getComputedStyle(h).outlineStyle !== 'none') as Element | undefined;
+          const style = holder ? getComputedStyle(holder) : getComputedStyle(el);
+          const thumb = el.closest('.sp-slider')?.querySelector("[part~='sp-thumb']");
+          const ts = thumb ? getComputedStyle(thumb) : null;
+          const s = ts && ts.outlineStyle !== 'none' ? ts : style;
+          return { width: parseFloat(s.outlineWidth), style: s.outlineStyle, color: s.outlineColor, ground: getComputedStyle(el.closest('.sp-ui-page-panel')!).backgroundColor };
+        });
+        expect(ring.style, `${key} ${kind}`).toBe('solid');
+        expect(ring.width, `${key} ${kind}`).toBeGreaterThanOrEqual(2);
+        expect(contrast(ring.color, ring.ground), `${key} ${kind}`).toBeGreaterThanOrEqual(3);
+      }
+    }
   });
 
   test('REQ-317 · I-20 · every interactive target measures at least 24 × 24 px', async ({ page }) => {
     await open(page);
-    const small = await page.evaluate(() => {
-      const targets = document.querySelectorAll('.sp-ui-page :is(button.sp-ui, .sp-ui-tab, .sp-ui-close, label.sp-checkbox, label.sp-switch, .sp-ui-item, .sp-input .sp-ui-box, .sp-slider .sp-ui-rail)');
-      return [...targets]
-        .map((el) => ({ el, box: el.getBoundingClientRect() }))
-        .filter(({ box }) => box.width < 24 || box.height < 24)
-        .map(({ el, box }) => `${el.className} ${box.width}×${box.height}`);
-    });
-    expect(small).toEqual([]);
+    const kinds = ['button.sp-ui', '.sp-ui-tab', '.sp-ui-close', 'label.sp-checkbox', 'label.sp-switch', '.sp-ui-item', '.sp-input .sp-ui-box', '.sp-slider .sp-ui-range'];
+    const measured = await page.evaluate((selectors) => {
+      const panels = document.querySelectorAll('.sp-ui-page-panel').length;
+      return selectors.map((selector) => {
+        const targets = [...document.querySelectorAll(`.sp-ui-page ${selector}`)];
+        const small = targets
+          .map((el) => ({ el, box: el.getBoundingClientRect() }))
+          .filter(({ box }) => box.width < 24 || box.height < 24)
+          .map(({ el, box }) => `${el.className} ${box.width}×${box.height}`);
+        return { selector, perPanel: targets.length / panels, small };
+      });
+    }, kinds);
+    for (const { selector, perPanel, small } of measured) {
+      // A renamed class would measure nothing: every kind is on every panel.
+      expect(perPanel, selector).toBeGreaterThanOrEqual(1);
+      expect(small, selector).toEqual([]);
+    }
   });
 
   test('REQ-320 · with reduced motion nothing moves; without it, the indeterminate progress does', async ({ page }) => {
@@ -143,6 +210,8 @@ test.describe('keyboard, forms, focus and motion (T-158)', () => {
     const fill = panel.locator('.sp-progress[data-indeterminate="true"] [part="sp-fill"]').first();
     const moving = () => fill.evaluate((el) => getComputedStyle(el).animationName);
     expect(await moving()).toBe('none');
+    const animated = await page.evaluate(() => [...document.querySelectorAll('.sp-ui-page *')].filter((el) => getComputedStyle(el).animationName !== 'none').length);
+    expect(animated).toBe(0);
     const transitions = await page.evaluate(() => [...document.querySelectorAll('.sp-ui-page *')].filter((el) => getComputedStyle(el).transitionDuration.split(',').some((d) => parseFloat(d) > 0)).length);
     expect(transitions).toBe(0);
     await page.emulateMedia({ reducedMotion: 'no-preference' });
@@ -171,18 +240,28 @@ test.describe('keyboard, forms, focus and motion (T-158)', () => {
 test.describe('accessibility audit (T-159)', () => {
   test('REQ-313 · REQ-314 · REQ-318 · REQ-331 · axe-core reports no A or AA issue on the UI page', async ({ page }) => {
     await open(page);
-    // A frame is an ink line drawn as `background: var(--sp-ink)` under a CSS mask; axe reads that
-    // as a solid backdrop for the text above it (1.5:1 on ink) though the text sits on the
-    // substrate. Frames and tone tiles carry no text: hide them for the reading, and leave their
-    // own contrast to the 11 UI pairs of the palette test (REQ-313).
-    await page.addStyleTag({ content: ".sp-ui [part='sp-frame'], .sp-ui [part='sp-tone'] { display: none !important; }" });
-    const results = await new AxeBuilder({ page }).withTags(WCAG_AA).analyze();
-    expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
+    // Every rule but contrast, on the page as drawn: nothing hidden.
+    const drawn = await new AxeBuilder({ page }).withTags(WCAG_AA).disableRules(['color-contrast']).analyze();
+    expect(drawn.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
+    // Contrast alone. A frame is an ink line drawn as `background: var(--sp-ink)` under a CSS
+    // mask; axe reads that as a solid backdrop for the text above it (1.5:1 on ink) though the
+    // text sits on the substrate. Frames and tone tiles carry no text: make them transparent for
+    // this reading only —layout untouched— and leave their own contrast to the 11 UI pairs of the
+    // palette test (REQ-313).
+    await page.addStyleTag({ content: ".sp-ui [part='sp-frame'], .sp-ui [part='sp-tone'] { background: transparent !important; }" });
+    const text = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+    expect(text.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)).toEqual([]);
   });
 
   test('REQ-318 · roles: progressbar with its value, the current step, alert and status, a busy skeleton', async ({ page }) => {
     const panel = await open(page);
-    await expect(panel.getByRole('progressbar', { name: 'Upload' })).toHaveAttribute('aria-valuenow', '40');
+    const upload = panel.getByRole('progressbar', { name: 'Upload' });
+    await expect(upload).toHaveAttribute('aria-valuenow', '40');
+    await expect(upload).toHaveAttribute('aria-valuemin', '0');
+    await expect(upload).toHaveAttribute('aria-valuemax', '100');
+    // An indeterminate progress states no value.
+    await expect(panel.locator('.sp-progress[data-indeterminate="true"] [role="progressbar"], .sp-progress[data-indeterminate="true"][role="progressbar"]').first()).not.toHaveAttribute('aria-valuenow', /.*/);
+    await expect(panel.locator('ol.sp-steps, .sp-steps ol')).toHaveCount(1);
     await expect(panel.locator('.sp-steps [aria-current="step"]')).toContainText('Configure');
     await expect(panel.getByRole('alert')).toHaveCount(2);
     await expect(panel.getByRole('status')).toHaveCount(2);

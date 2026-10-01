@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 1, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1..C-7 and findings A-04 of [`analyze.md`](analyze.md) |
+| **Status** | `APPROVED` — gate 1, approved 2026-09-28 by Ernesto Crespo, with the concept corrections C-1..C-7 and findings A-04 of [`analyze.md`](analyze.md); **folded into `specs/prd.md` (v1.11) on 2026-09-29** (T-162) |
 | **Amends** | [PRD](../../specs/prd.md) v1.10 → v1.11: §1, §4.1, §5.1, §5.2, §5.3, new §6.11, §7, §9 (Epic F), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.6, with the v1.7 amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |

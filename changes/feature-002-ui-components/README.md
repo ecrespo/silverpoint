@@ -2,13 +2,13 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — drafted 2026-09-26; gates 0..4 approved 2026-09-28 by Ernesto Crespo (Phase 0). Nothing is folded into `specs/` yet (T-162); tasks may start with T-135 |
+| **Status** | `APPROVED` — drafted 2026-09-26; gates 0..4 approved 2026-09-28 by Ernesto Crespo (Phase 0). Folded into `specs/` 2026-09-29 (T-162); implemented, awaiting the `0.3.0` release |
 | **Target release** | `0.3.0` (changeset `minor` from 0.2.0). The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-300..REQ-334 (33 MUST, 2 SHOULD) |
 | **Design decisions** | DD-021..DD-027 |
 | **Diagnostics** | `SP017`, `SP018`, `SP019` |
 | **Tasks** | T-135..T-163 (Phase 6) |
-| **Constitution** | Amendment v1.6 → v1.7 approved with gate 1 ([`constitution-amendment.md`](constitution-amendment.md)); folded in T-162 |
+| **Constitution** | Amendment v1.6 → v1.7 approved with gate 1 ([`constitution-amendment.md`](constitution-amendment.md)); folded in T-162 (2026-09-29) |
 | **Visual concept** | [`concept.png`](concept.png) — the reference drawing for 0.3.0; the seven corrections it raised (C-1..C-7) are in [`analyze.md`](analyze.md) |
 
 A first family of **interface components** —buttons, form controls, tabs, steps, cards, tags,

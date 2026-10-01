@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.10 |
+| **Version** | 1.11 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-09-26 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
+| **Last updated** | 2026-09-29 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.7 |
 
 ---
 
@@ -34,6 +34,12 @@ Charts are rarely used alone. A **dashboard composition** (§6.10) arranges card
 responsive grid whose layout is resolved in the core, server-renders, and is held to the same
 parity gate as the charts — something no dashboard layer surveyed offers across frameworks. It is
 a declarative layout, not an interactive builder.
+
+The charts' language also reaches the controls around them. A first family of **17 interface
+components** (§6.11) —buttons, inputs, tabs, switches, progress bars— is drawn with the same
+grounds and held to the same rules: hand inking only on ornament, exact hit areas, focus and value
+geometry, parity across the three adapters, server rendering and accessibility by construction. It
+is not a complete design system: overlays and data-heavy components stay out (§5.2).
 
 ## 2. Context and Problem
 
@@ -120,6 +126,11 @@ with `recharts`.
 | Engine extensibility | Add the second ground without touching chart code | 0 chart files modified | Release 0.2.0 |
 | Dashboards need no consumer CSS | App-level layout CSS in the reference dashboard of the four example apps | 0 rules | Release 0.2.0 |
 | Parity extends to the arrangement | Differences on the dashboard fixtures, three adapters, against canonical renders | 0 | Release 0.2.0 |
+| One language for charts and controls | Components of §6.11 available in the three adapters | 17 of 17 | Release 0.3.0 |
+| The hand never moves what the user reads or aims at | Layout boxes and value geometry identical in `ink` and `precision` | 100% of the component fixtures | Release 0.3.0 |
+| Parity extends to controls | Differences on the component fixtures, three adapters, against canonical renders | 0 | Release 0.3.0 |
+| Accessible controls | axe on the UI page of the four example apps; APG keyboard e2e per composite | 0 A/AA issues; every pattern green | Release 0.3.0 |
+| Controls cost little | One component over the shared UI runtime; the runtime; `ui.css` | ≤ 3 KB; ≤ 8 KB; ≤ 24 KB min+gzip | Release 0.3.0 |
 
 ### 4.2 User Objectives
 
@@ -150,6 +161,9 @@ with `recharts`.
 - [ ] Documentation site with a gallery and a grounds playground.
 - [ ] Dashboard composition in `@silverpoint/react`, `@silverpoint/vue` and `@silverpoint/angular`,
       with its layout resolved in `@silverpoint/core` (§6.10).
+- [ ] Interface components in `@silverpoint/react`, `@silverpoint/vue` and `@silverpoint/angular`,
+      with their geometry and keyboard behaviour resolved in `@silverpoint/core` and their frames
+      and tones in `@silverpoint/grounds` (§6.11).
 
 ### 5.2 Out of Scope
 
@@ -162,6 +176,14 @@ with `recharts`.
 - Data layer for dashboards: fetching, shared data pools, filters, cross-filtering.
 - Nested dashboards, tabs and pages inside a dashboard.
 - Transition animations between datasets — the `0.x` line animates entry only, and in a way that can be disabled.
+- Overlay components in `0.3.0`: Select, Dropdown, Menu, Modal, Drawer, Popover, Tooltip,
+  Popconfirm, Notification, Message, DatePicker, TimePicker, Cascader, AutoComplete.
+- Data-heavy components: Table, Tree, TreeSelect, Transfer, List virtualisation, Upload, Form
+  (validation and layout), Calendar, Carousel, ColorPicker, Tour.
+- Layout primitives (Grid, Flex, Space, Layout, Splitter): CSS does this; the dashboard is the
+  one layout silverpoint owns.
+- An icon set. Components take the consumer's icons; the few glyphs they draw themselves (tick,
+  dot, close, status marks) are part of each component.
 
 ### 5.3 Future Considerations
 
@@ -173,6 +195,10 @@ with `recharts`.
   (`{ y: 'shared' }`), computed in the core; it needs a common domain prop on the cartesian
   charts first.
 - Exporting a whole dashboard to PDF or printable SVG.
+- Overlays, on one behaviour decision for the three adapters: either core-owned machines (as in
+  `0.3.0`) or a per-framework headless library (React Aria, Reka UI, Angular Aria) with parity
+  checked on the library-owned markup only.
+- Table on the dashboard's model: a data-only column layout resolved in the core.
 
 ## 6. Functional Requirements
 
@@ -411,6 +437,93 @@ by a runtime warning.
 A dashboard's name is enforced by the type —`title` or `label` is required (API Spec §7.1)—, not
 by a runtime warning.
 
+### 6.11 UI components
+
+Criteria in EARS. Identifiers REQ-300..REQ-334 are new; none is reused. The block starts at 300 so
+the family reads as one range.
+
+#### The catalog
+
+| Group | Components |
+|---|---|
+| Actions | Button |
+| Data entry | Input, Checkbox, RadioGroup, Switch, Slider, Rate, Segmented |
+| Navigation | Tabs, Steps |
+| Data display | Card, Tag, Badge, Divider |
+| Feedback | Progress, Alert, Skeleton |
+
+#### Structure
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-300 | ubiquitous | THE SYSTEM SHALL provide the 17 components of the catalog in each adapter —React `SpButton`…, Vue `SpButton`…, Angular `SpButton` as `sp-…` or `[sp…]`, one name per component in the three adapters (OQ-U2)— each importable by its own `ui/<kebab-case-name>` subpath. | MUST |
+| REQ-301 | ubiquitous | THE SYSTEM SHALL ship the components' styles as a separate, opt-in stylesheet `@silverpoint/grounds/ui.css`; an application that imports no component SHALL see no change in its bundle or in `styles.css`. | MUST |
+| REQ-302 | ubiquitous | THE SYSTEM SHALL compute every component geometry —value fractions, arcs, step connectors, frame variant— and every keyboard transition in `@silverpoint/core`, as pure functions; adapters SHALL only translate the result into elements (REQ-102 extended). | MUST |
+| REQ-303 | ubiquitous | THE SYSTEM SHALL add no runtime dependency to any package for this feature; the runtime allowlist (TD §5.3) is unchanged. | MUST |
+
+#### Drawing
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-304 | ubiquitous | THE SYSTEM SHALL draw hit areas, focus indicators and every value-bearing shape —progress fill, slider thumb and fill, rating marks, switch knob, step markers and connectors— with exact geometry, and SHALL apply hand inking only to frames, rules and tonal fills. | MUST |
+| REQ-305 | ubiquitous | THE SYSTEM SHALL paint hand-inked frames and tonal fills from pieces generated at build time, laid as CSS masks and painted through `--sp-` custom properties; the render path SHALL NOT measure the DOM, run an inking engine, or emit a literal colour (REQ-042). | MUST |
+| REQ-306 | ubiquitous | Switching a component between `ink` and `precision` SHALL change no element's layout box and no value geometry. | MUST |
+| REQ-307 | ubiquitous | THE SYSTEM SHALL choose a component's frame variant as a pure function of its `seed`, else its `id`, else variant `0`; never from mount order, randomness or time (Art. 4). | MUST |
+| REQ-308 | ubiquitous | THE SYSTEM SHALL render the tone of checked, selected, filled and emphasised states from the ground's tonal ramp —hatch tiles under a `hatch` ground, line weight under a `weight` ground— and SHALL NOT use opacity as a tonal mechanism (Art. 6). | MUST |
+| REQ-309 | ubiquitous | THE SYSTEM SHALL heighten only the current item of a component that has one —active tab, current step, selected segment, slider thumb— at most one element per component instance, outlined in ink (REQ-024, §3.3 of the Data Model). | MUST |
+| REQ-310 | ubiquitous | No component SHALL convey a state by hatching alone: checked, selected, current, error and disabled SHALL also be carried by a glyph, a shape, text or a native state (REQ-124 extended). | MUST |
+
+#### Theming
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-311 | optional | WHERE a component sets `ground`, `substrate` or `mode`, or sits under a provider or a dashboard that does, THE SYSTEM SHALL resolve them with the precedence component prop → dashboard → provider → library default; the `precision` override of REQ-123 SHALL apply after resolution and SHALL NOT be overridable. | MUST |
+| REQ-312 | ubiquitous | Each ground SHALL declare a `ui` token section —control heights, frame style, focus width, radius, frame variants— and adding a ground SHALL NOT require changes to any component's code (REQ-044 extended to `packages/core/src/ui/**` and the adapters' `ui/`). | MUST |
+| REQ-313 | ubiquitous | Every component's text SHALL reach 4.5:1 and every graphical object needed to identify a control or its state 3:1 against its substrate, on every substrate of every ground (REQ-126 extended), the normative list of pairs being Data Model §3.8; CI SHALL verify it as REQ-127 does. | MUST |
+
+#### Accessibility
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-314 | ubiquitous | THE SYSTEM SHALL build on native elements where they exist: Button on `<button>`, Input on `<input>`, and Checkbox, RadioGroup, Switch, Slider, Rate and Segmented on native inputs that stay in the accessibility tree (visually hidden, never `display: none`), the drawing being `aria-hidden`. | MUST |
+| REQ-315 | event | WHEN a composite widget —Tabs, RadioGroup, Segmented, Rate— has keyboard focus, THE SYSTEM SHALL follow its WAI-ARIA Authoring Practices pattern: one tab stop per widget, arrow keys by orientation, Home and End, with the transition resolved in the core as a pure function of state, key, orientation and direction. | MUST |
+| REQ-316 | event | WHEN an interactive element receives focus through `:focus-visible`, THE SYSTEM SHALL draw an exact, uninked focus indicator at least 2 px wide with at least 3:1 contrast against the adjacent colours. | MUST |
+| REQ-317 | ubiquitous | Every interactive target SHALL measure at least 24 × 24 CSS px at every component size (WCAG 2.5.8; REQ-144). | MUST |
+| REQ-318 | ubiquitous | THE SYSTEM SHALL expose each non-native component with its role: Progress as `progressbar` with `aria-valuenow`/`min`/`max` (no `valuenow` when indeterminate), Steps as an ordered list with `aria-current="step"`, Alert as `alert` for `error`/`warning` and `status` otherwise, Divider as `separator`, Skeleton with `aria-busy` on its region and hidden shapes, Badge with its count in the accessible name. | MUST |
+| REQ-319 | unwanted | IF a Button or Badge has no accessible name —no text content and no `label`— THEN THE SYSTEM SHALL warn `SP018` in development. | MUST |
+| REQ-320 | event | WHEN the environment declares `prefers-reduced-motion: reduce`, THE SYSTEM SHALL render every component without transition or animation, and an indeterminate Progress SHALL show a static tone (REQ-125 extended). | MUST |
+| REQ-321 | optional | WHERE the document or an ancestor sets `dir="rtl"`, THE SYSTEM SHALL mirror horizontal Slider, Progress, Steps and Segmented, and the arrow-key transitions of REQ-315. | SHOULD |
+
+#### State and forms
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-322 | ubiquitous | Every value component —Input, Checkbox, RadioGroup, Switch, Slider, Rate, Segmented, Tabs— SHALL support controlled and uncontrolled use in each framework's idiom: React `value`/`defaultValue`/`onChange`, Vue `v-model`, Angular two-way `[(value)]`. | MUST |
+| REQ-323 | ubiquitous | The Angular form components SHALL implement `ControlValueAccessor`, and in every adapter the native inputs SHALL carry `name` and `value` so that the components submit with a native HTML form. | MUST |
+| REQ-324 | unwanted | IF a Slider, Rate or Progress value or a Steps `current` falls outside its range or off its step, or a Slider or Rate range (`min`, `max`, `step`, `count`) is invalid, THEN THE SYSTEM SHALL clamp and round it in the core (or fall back to the defaults), render the corrected value and warn `SP017` in development. | MUST |
+| REQ-325 | unwanted | IF the items of a Tabs, Segmented, RadioGroup or Steps share a key, THEN THE SYSTEM SHALL keep the first, skip the later ones and warn `SP019` in development, and SHALL NOT throw. | MUST |
+| REQ-326 | ubiquitous | A disabled component or item SHALL use the native `disabled` attribute where there is one, and `aria-disabled` otherwise; it SHALL emit no change or select event and, inside a composite, SHALL be skipped by the arrow keys. | MUST |
+| REQ-334 | optional | WHERE an Input sets `message`, THE SYSTEM SHALL render it as text tied to the native input by `aria-describedby` (id `${id}--message`); WHERE it sets `invalid`, THE SYSTEM SHALL set `aria-invalid="true"` on the native input and draw the exact warning glyph inside the frame, so the error is carried by glyph and text, not by tone (REQ-310). | MUST |
+
+#### Determinism and parity
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-327 | event | WHEN a component fixture is rendered by any adapter, THE SYSTEM SHALL produce a parsed markup tree identical to the fixture's canonical render (Art. 3, "chart, composition or component"). | MUST |
+| REQ-328 | ubiquitous | CI SHALL run the three pixel gates of Art. 3 on every component fixture at its declared size. | MUST |
+| REQ-329 | event | WHEN a page with components is server-rendered and hydrated in any example app, THE SYSTEM SHALL hydrate without mismatch; ids relating elements (tab ↔ panel, label ↔ control) SHALL derive from the component's `id` by the chart id rule, never from the framework's id hook. | MUST |
+
+#### Budgets, integration and documentation
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-330 | unwanted | IF one component's subpath adds more than 3 KB min+gzip over the shared UI runtime, the shared UI runtime exceeds 8 KB, or `ui.css` exceeds 24 KB, THEN CI SHALL fail (REQ-164); the chart budgets stay unchanged. | MUST |
+| REQ-331 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include a UI reference page with the 17 components, verified end to end: no hydration mismatch, no axe A/AA issue, the APG keyboard pattern of every composite, pixel gates green. | MUST |
+| REQ-332 | ubiquitous | The documentation site SHALL document every component with a live example and a props reference generated from the types, not retyped (REQ-099 extended). | MUST |
+| REQ-333 | optional | WHERE an application uses `SilverpointProvider` (or `provideSilverpoint`), the same provider SHOULD ground both its charts and its components. | SHOULD |
+
+**Count:** 35 requirements (33 MUST, 2 SHOULD). With §6.1–§6.10 the PRD has 165 requirements.
+
 ## 7. Non-Functional Requirements
 
 The template assumes a service; silverpoint is a client library, so two headings are
@@ -430,6 +543,9 @@ reinterpreted and the original is stated.
   takes 13 KB, and a 320×150 px area takes 41 KB. Every chart SHALL stay below **40 KB of
   path data** with its demo dataset. Since this is rendered on the server, the budget is also
   HTML weight.
+- **UI components:** a component renders in < 1 ms (no geometry beyond fractions and one arc); a
+  keyboard transition in the core < 0.05 ms. Benchmarks beside the geometry ones.
+- **UI weight:** the budgets of REQ-330, measured by size-limit on every PR.
 
 ### Security
 
@@ -445,6 +561,8 @@ reinterpreted and the original is stated.
   underneath, of the Angular CLI.
 - TypeScript 5.9+, and 6.x where a supported framework requires it (Angular 22); the published types SHALL resolve under `moduleResolution: bundler` and
   `node16`.
+- The CSS mask technique of DD-022 is checked in the pinned Chromium of the pixel gate and, in
+  the e2e job, in Firefox and WebKit on the UI page.
 
 ### Data volume *(in place of "Scalability")*
 
@@ -534,6 +652,15 @@ writing a grid around the cards in every app.
   - [ ] The dashboard is a labelled region and focus follows reading order (REQ-203, REQ-214, REQ-215).
   - [ ] The same fixture renders identically in all three adapters (REQ-210).
 
+### Epic F — UI components
+
+- **F1.** As Persona 1, I put a silverpoint `Segmented` above a silverpoint chart and switch its
+  period, and both read as one drawing.
+- **F2.** As Persona 2, I render the same `Tabs` in React and Angular and CI proves the markup is
+  the same.
+- **F3.** As Persona 4, I tab to a `Slider`, move it with the arrows, and my screen reader
+  announces a native range; with high contrast on, the frame turns into a plain exact border.
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -559,6 +686,11 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | Extending parity from SVG to the dashboard's HTML reopens the gate's normaliser | Medium | High | The wrapper is small and fixed; it is parsed and compared as a tree like the SVG (DD-017), with no string normalisation |
 | Linked interaction becomes a state machine per adapter | Medium | Medium | Matching in the core; one reactive value per dashboard; SHOULD, so it can slip to a later minor |
 | Scope creep toward a dashboard builder | Medium | High | §5.2 names what is out; there are no `row`, `col` or `order` props to extend |
+| Seventeen components × three adapters is the largest phase yet | High | High | Step 6c in three batches, each closed by its own gates and review before the next starts; all 17 ship in `0.3.0` (OQ-U3, decided 2026-09-28) |
+| CSS masks render differently across engines | Medium | Medium | Pixel gates are Chromium-pinned (Art. 3); Firefox and WebKit are covered by e2e presence checks, and `precision` needs no mask |
+| Native inputs styled invisible break in some assistive technology | Low | High | Visually-hidden pattern, never `display: none` or `opacity: 0` on a zero box; axe and manual NVDA/VoiceOver pass on the UI page before release |
+| Pressure to add overlays inside `0.3.0` | Medium | High | §5.2 names them; they need a behaviour-engine decision first (§5.3) |
+| Name collisions (`Button`, `Input`) in React apps | Low | Low | Every component is `Sp`-prefixed in the three adapters (OQ-U2, decided 2026-09-28) |
 
 ## 12. Estimated Timeline
 
@@ -575,6 +707,7 @@ commitments.
 | Phase 4 — closing | 2-3 weeks | Accessibility audited, documentation, budgets, release `0.1.1` (published 2026-09-25) |
 | Phase 5 — dashboard | 3-4 weeks | Dashboard composition in three adapters, parity and pixel gates per breakpoint, released in 0.2.0 |
 | Phase 5, delta-012 | 1 week | The `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222), in 0.2.0 |
+| Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
 
 ---
 
@@ -582,6 +715,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.11 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: §6.11 UI components, REQ-300..REQ-334 (35 requirements: 33 MUST, 2 SHOULD; 130 → 165 in all); §4.1 metrics, §5.1–§5.3 scope, §7 additions, Epic F, §11 risks; released in 0.3.0 |
 | 1.10 | 2026-09-26 | Ernesto Crespo | Delta-013: REQ-047 names `@silverpoint/tailwind`; REQ-160 lists it (optional) |
 | 1.9 | 2026-09-26 | Ernesto Crespo | Delta-012: every "v1" target becomes `0.2.0` (the line stays on `0.x`); `cyanotype` enters scope and REQ-028 names it; REQ-222 (Angular CLI SSR hydration) enters; REQ-220 gives each adapter an allowance, 3 KB for Angular; REQ-221 names the three server-rendered apps |
 | 1.8 | 2026-09-25 | Ernesto Crespo | Deltas folded: REQ-108 admits the active item as Vue component state (delta-004); Vue 3.5+ and TypeScript 6.x where required (deltas 001, 005); REQ-098 and REQ-099 (view props apply to the demo, delta-011); §6.10 Dashboard composition, REQ-200..REQ-221, with the §5.2 scope amendment (feature-001) |
@@ -616,4 +750,12 @@ commitments.
 - **Art. 3** (v1.5) — REQ-210 and REQ-211 extend the gates to the dashboard's wrapper markup
   and to one pixel comparison per breakpoint.
 - **Art. 4** — REQ-209 derives chart ids from the dashboard, not from the framework's mount order.
+- **Art. 1** (v1.7 amendment) — REQ-304 and REQ-306 extend it to interaction and value geometry.
+- **Art. 2** — REQ-302 puts component geometry and keyboard transitions in the core.
+- **Art. 3** — REQ-327 and REQ-328 extend the gates to component markup.
+- **Art. 4** — REQ-307 and REQ-329 derive frame variants and ids from `seed`/`id`.
+- **Art. 5** — REQ-314..REQ-320: native first, APG keyboard, exact focus.
+- **Art. 6** — REQ-308 and REQ-309: tone by the ramp, one heightened item per component.
+- **Art. 7** — REQ-312: `ui` tokens are ground data.
+- **Art. 8** — REQ-303 and REQ-330: no new dependency, no CSS framework, budgets.
 - **Requested exception:** none.

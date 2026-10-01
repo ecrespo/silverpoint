@@ -85,6 +85,18 @@ describe('Angular B2 behaviour (T-149)', () => {
     expect(panels().map((p) => p.hasAttribute('hidden'))).toEqual([true, false]);
   });
 
+  test('REQ-321 · a dir="rtl" on the component\'s .sp-ui root, inside the host, mirrors the arrows', async () => {
+    const seen: string[] = [];
+    const items = [{ key: 'a', label: 'A' }, { key: 'b', label: 'B' }, { key: 'c', label: 'C' }];
+    const app = await mount(host('<sp-tabs [items]="items" value="b" (valueChange)="seen.push($event)" />', [SpTabs], { items, seen }));
+    document.querySelector('sp-tabs .sp-ui')!.setAttribute('dir', 'rtl');
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    tabs[1]!.focus();
+    key(tabs[1]!, 'ArrowLeft');
+    await app.whenStable();
+    expect(seen).toEqual(['c']);
+  });
+
   test('REQ-315 · sp-tabs manual activation moves focus only; a click selects', async () => {
     const seen: string[] = [];
     const items = [{ key: 'a', label: 'A' }, { key: 'b', label: 'B' }];

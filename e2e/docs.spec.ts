@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { QUICKSTARTS } from '../docs/site/src/quickstart';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
+import { UI_COMPONENTS } from '../packages/core/src/ui/catalog';
+import { UI_DEMOS } from '../packages/core/src/ui/demo';
 import { CATALOG } from '../tools/visual-gate/catalog';
 
 /**
@@ -11,6 +13,7 @@ import { CATALOG } from '../tools/visual-gate/catalog';
  */
 const props = JSON.parse(readFileSync(new URL('../docs/site/generated/props.json', import.meta.url), 'utf8')) as {
   charts: { chart: string; own: { name: string; doc: string }[] }[];
+  ui: { common: { name: string }[]; components: { slug: string; name: string; own: { name: string; doc: string }[] }[] };
 };
 
 const errorsOf = (page: Page) => {
@@ -107,6 +110,47 @@ test.describe('documentation site', () => {
     await expect(page.getByText(/row end/)).toBeVisible();
   });
 
+  test('REQ-332 · the UI gallery lists the 17 components by group, each linking to its page', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/ui');
+    await expect(page.locator('h2')).toHaveText('UI components');
+    for (const { name, slug, states } of UI_COMPONENTS) {
+      const item = page.locator(`li[data-component="${slug}"]`);
+      await expect(item, name).toHaveCount(1);
+      await expect(item.locator(`a[href="#/ui/${slug}"]`)).toContainText(name);
+      await expect(item.locator('.sp-ui').first()).toBeVisible();
+      expect(states.length).toBeGreaterThan(0);
+    }
+    await expect(page.getByRole('heading', { level: 3 })).toHaveText(['Actions', 'Data entry', 'Navigation', 'Data display', 'Feedback']);
+    expect(errors).toEqual([]);
+  });
+
+  for (const { slug, name, states } of UI_COMPONENTS) {
+    test(`REQ-332 · ${name}: a live example per state and a props reference read from the types`, async ({ page }) => {
+      const errors = errorsOf(page);
+      await page.goto(`/#/ui/${slug}`);
+      await expect(page.locator('h2')).toHaveText(name);
+      await expect(page.locator('main [data-state]')).toHaveCount(states.length);
+      for (const state of states) {
+        const example = page.locator(`main [data-state="${state}"]`);
+        await expect(example.locator(`.sp-ui.sp-${slug}`).first(), state).toBeVisible();
+        expect(Object.keys(UI_DEMOS[slug]!)).toContain(state);
+        await expect(example.locator('pre')).toContainText(`<Sp${name}`);
+      }
+      const own = props.ui.components.find((c) => c.slug === slug)!.own;
+      const rows = page.locator('table.props tbody tr');
+      await expect(rows).toHaveCount(own.length);
+      for (const prop of own) await expect(rows.filter({ has: page.locator('th', { hasText: new RegExp(`^${prop.name}\\??$`) }) })).toContainText(prop.doc);
+      await expect(page.locator('table.props-common tbody tr')).toHaveCount(props.ui.common.length);
+      expect(errors).toEqual([]);
+    });
+  }
+
+  test('REQ-332 · an unknown component page says so', async ({ page }) => {
+    await page.goto('/#/ui/nothing');
+    await expect(page.locator('h2')).toHaveText('No such component');
+  });
+
   test('REQ-100 · the parity page shows one fixture rendered identically by React, Vue and Angular', async ({ page }) => {
     await page.goto('/#/adapters');
     const figures = page.locator('figure[data-adapter]');
@@ -131,20 +175,24 @@ test.describe('documentation site', () => {
     }
   });
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
     test(`WCAG 1.4.10 · ${route} reflows at 320 CSS px without horizontal scrolling`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(route);
-      await page.locator('.sp-root').first().waitFor();
+      await page.locator('.sp-root, .sp-ui').first().waitFor();
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
     });
   }
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
     test(`REQ-120 · WCAG 2.1 AA · axe finds no A or AA issue on ${route}`, async ({ page }) => {
       await page.goto(route);
       await expect(page.locator('main')).toBeVisible();
-      await page.locator('.sp-root').first().waitFor();
+      await page.locator('.sp-root, .sp-ui').first().waitFor();
+      // A UI frame is an ink line drawn as a masked background; axe reads it as a solid backdrop under the
+      // text. Frames and tone tiles carry no text: hidden for the reading (see a11y-audit.md), and their
+      // contrast is held by the palette's UI pairs.
+      await page.addStyleTag({ content: ".sp-ui [part='sp-frame'], .sp-ui [part='sp-tone'] { display: none !important; }" });
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
     });

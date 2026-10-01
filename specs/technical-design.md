@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.7 |
-| **Date** | 2026-09-26 |
-| **Related PRD** | [`prd.md`](prd.md) v1.10 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.8 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.6 |
+| **Version** | 1.8 |
+| **Date** | 2026-09-29 |
+| **Related PRD** | [`prd.md`](prd.md) v1.11 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.9 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.7 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -95,6 +95,15 @@ except the measured dimensions of the container.
 | `core/interaction/linked` | in-house | `linkedItems`: the items of a model whose datum matches a linked value |
 | Dashboard components | react, vue, angular | Call the core, write the wrapper, heading and variables; give the charts below the cell box, chart id and inherited config |
 | `.sp-dashboard` rules | `grounds` stylesheet | CSS Grid, the three `@container` breakpoints, gap and heading type from ground tokens |
+| `ui/value.ts` | core | `uiValue`: clamp, step rounding, fraction (REQ-324) |
+| `ui/progress.ts`, `ui/steps.ts` | core | Circle-progress arc on the existing polar engine; step statuses and connector fractions |
+| `ui/keyboard.ts` | core | `uiRovingKey`: APG transitions, orientation and direction (REQ-315, REQ-321) |
+| `ui/frame.ts` | core | `uiFrameVariant`; the exact frame outline per frame kind, the input of the piece generator (DD-022) |
+| `ui/items.ts`, `ui/names.ts` | core | Key de-duplication (`SP019`), accessible-name check (`SP018`) |
+| `src/ui/pieces.ts`, `scripts/build-ui-css.ts` | grounds (build only) | Inks each frame kind and tone level per ground and variant with the ground's own inker, and writes them into `ui.css` as mask images |
+| `ui.css` | grounds | Sizes, focus, states, the pieces as masks, the `precision` and forced-colours fallbacks |
+| `ui/*` components | react, vue, angular | Bind state, events and forms idiomatically; emit the markup contract (API Spec §7.2) |
+| `ui/view*.ts`, `ui/roving.ts`, `ui/tone.ts`, `ui/tokens.ts` | core | Amended in implementation: the markup contract as `ui*View` trees; `uiRovingFocus`, the DOM glue of REQ-315 with structural types; `uiToneTile`; `resolveUiTokens` |
 | `tools/svg-normalizer` | in-house | Canonical form for the string gate |
 | `tools/visual-gate` | Playwright | Art. 3 pixel gates |
 | `tools/lint-rules` | in-house ESLint | Forbids `Math.random`, `Date.now` and cross imports |
@@ -159,6 +168,24 @@ client only, when `link`:  chart A active item ─► dashboard link value (one 
 Degradation: a span wider than its breakpoint is clamped (`SP014`); layout and children that
 disagree are reconciled in source order (`SP015`); a linked chart without the key shows no mark
 (`SP016`). None throws.
+
+**UI component flow** (API Spec §7.2)
+
+```
+build time (grounds):
+  core.uiFrameOutline(kind) ──► ground.inker.ink(outline, variant seed) ──► 9 pieces per kind × variant
+  ground.tonalRamp ──► tone tiles                                          ──► ui.css (mask images, no colour)
+
+render time (adapter, server and client):
+  props ──► core.uiValue / uiSteps / uiProgressArc / uiFrameVariant ──► fractions, arcs, data-frame
+        ──► element tree of API Spec §7.2, with --sp-ui-fraction etc. as inline custom properties
+  CSS: ::before paints var(--sp-ink) through the piece mask; `precision` swaps it for an exact border
+
+keyboard (client):
+  keydown ──► core.uiRovingKey(state, key, orientation, dir) ──► index ──► focus + (automatic) select
+```
+
+No step measures the DOM, runs an inker, or reads the clock at render time.
 
 ## 4. Design Decisions
 
@@ -536,6 +563,123 @@ disagree are reconciled in source order (`SP015`); a linked chart without the ke
   published by hand, so that npm knows the name and its trusted publisher can be set; CI publishes
   every later version (§9).
 
+### DD-021: A `ui/` subpath in each existing adapter; no new package
+
+- **Decision:** components live in `@silverpoint/react|vue|angular` under `ui/<name>`, their core in
+  `@silverpoint/core` (`src/ui/`), their stylesheet as a second file of `@silverpoint/grounds`.
+- **Options:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. `ui/` subpath (chosen)** | Same reasoning as DD-018: one version, no new trusted publisher, shared internals (provider, config resolution, diagnostics) stay private | Adapter packages grow in scope; mitigated by subpaths, `sideEffects: false` and budgets (REQ-330) |
+| B. New `@silverpoint/ui-react`, `-vue`, `-angular` | Clear identity, separable adoption | Three new packages to register and trust-publish; the provider and resolution chain would have to become public API |
+| C. Web components (Lit) once for all | One implementation | Loses the per-framework SSR parity silverpoint guarantees; forms and `v-model`/CVA integration become adapters anyway; PRD §5.2 keeps web components out of `0.x` |
+
+- **Decided** 2026-09-28 (OQ-U1): the `ui/` subpath.
+
+### DD-022: Frames as build-time pieces, laid as a multi-layer CSS mask
+
+- **Decision:** for each ground, frame kind (`control`, `pill`, `box`, `card`, `round`) and variant
+  (0..3), the build inks the exact outline once with the ground's inker and cuts it into 9 pieces
+  (4 corners, 4 edges, no centre). `ui.css` lays them on the frame element itself
+  (`[part='sp-frame']`, absolutely positioned over the box) as eight `mask-image` layers, all
+  `no-repeat`: corners at their size, edges stretched along their own axis only, so a horizontal
+  edge keeps its line's thickness. `box` and `round` frame fixed-size squares and are laid as one
+  whole piece. The frame is painted with `background: var(--sp-ink)`; the URL list is one custom
+  property (`--sp-ui-mask`) read by both `mask-image` and `-webkit-mask-image`, so no image is
+  written twice. The component chooses a variant with `data-frame` (REQ-307).
+- **Spike, Phase 2 (2026-09-28):** the technique was rendered from the real pieces in the pinned
+  Playwright image in Chromium, Firefox and WebKit, identically in the three
+  ([`spike-dd-022/`](spike-dd-022/)). Two findings: edges repeated with `round` would show a step
+  at every seam (a hand line does not end where it began), hence the axis stretch; and a mask URL
+  must live in a stylesheet rule, never in a `style` attribute, whose quotes it breaks.
+- **Tone tiles** are the core's `uiToneTile`: each line family clipped to the rectangle that is its
+  own period (width `n·gap / |sin θ|`, height `n·gap / |cos θ|`), so a tile at −41° repeats without
+  a seam although a CSS mask cannot rotate a repeating image as an SVG pattern can. Cross-hatch is
+  a second layer with its own period. Their lines are `ornament`, drawn by the ground's inker.
+- **Text over a tone** sits on a plate of the substrate (`.sp-ui-plate`), as a chart label sits on
+  its halo; the heightened item's plate is `--sp-heighten` outlined in ink.
+- **Why a mask:** a `border-image` from an SVG cannot read CSS custom properties, so colour would be
+  baked in (REQ-042 forbids it). `mask-border` is not in every engine; eight plain mask layers are.
+- **Rejected:** SVG per element sized by `ResizeObserver` (DOM measurement, JavaScript per element,
+  a server render that cannot know the size); one SVG stretched with `preserveAspectRatio="none"`
+  (stretches the stroke's own width and wobble, so the hand drawing changes with the box).
+- **`precision`:** the frame mask is removed and the tone is unchanged (hatch tiles, or weights under a `weight` ground, stay: tone is value, not ornament; C-7); the frame is `border: 1px solid var(--sp-rule)` with
+  `--sp-ui-radius`. The layout box is identical because the frame never takes layout space in either
+  mode (it is an absolutely positioned element over a fixed padding box) — REQ-306, I-17.
+- **Forced colours:** REQ-123 already forces `precision`; the plain border then takes the system
+  colour.
+- **Weight grounds** (`cyanotype`): `ui.frame` is `'css'`; no pieces are generated, the frame is a
+  border whose width follows `--sp-weight-n`.
+
+### DD-023: Behaviour in the core, on native elements; no headless library
+
+- **Decision:** native elements carry keyboard, forms and accessibility wherever they exist
+  (REQ-314). The remaining behaviour —roving focus in Tabs, RadioGroup-like composites, value
+  stepping— is a handful of pure functions in `@silverpoint/core` (`uiRovingKey`, `uiValue`) that
+  every adapter calls.
+- **Options:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. Core-owned transitions + native elements (chosen)** | One engine for three adapters (Art. 2); no dependency (Art. 8, REQ-303); the library owns the markup, so parity holds (Art. 3) | Only viable for simple patterns; overlays need more (hence PRD §5.2) |
+| B. Zag.js machines | One engine, props spread by adapters | No official Angular adapter; a new runtime dependency |
+| C. React Aria + Reka UI + Angular Aria | Mature, audited | Three engines, three markups: parity cannot hold; three dependencies |
+
+- **Revisit** when overlays are specified (PRD §5.3).
+
+### DD-024: Angular Button and Input are attribute components on the native element
+
+- **Decision:** `button[spButton]`, `a[spButton]`, `input[spInput]`. The consumer writes the native
+  element; the component decorates its host. React and Vue render the same native element
+  themselves, so the parsed markup is identical (REQ-327).
+- **Why:** a wrapping `<sp-button>` element would add a host element that React and Vue do not emit
+  (breaking parity) and would put a custom element between a `<form>` and its submit button.
+- The other components are element selectors: their root is not a native control.
+- **Amended in Phase 3 (2026-09-28):** `SpInput` is an element too (`<sp-input>`): an `<input>` has no
+  children, so an attribute component on it could draw neither the frame, nor the ⚠ glyph, nor the
+  message (C-1). Only `SpButton` decorates a native element.
+
+### DD-025: Value geometry as fractions, written as custom properties
+
+- **Decision:** a linear value becomes `--sp-ui-fraction: 0.42` on the component root, 2 decimals,
+  computed by `uiValue`. CSS sizes the fill (`inline-size: calc(var(--sp-ui-fraction) * 100%)`) and
+  positions the thumb. Only the circle Progress and the glyphs (tick, dash, dot, lozenge, ✕, status marks) are
+  SVG, in fixed view boxes, with `role: 'encoding'` strokes the inker never touches.
+- **Why:** a fraction is independent of the container, so the server render is correct at any width
+  with no measurement; pixels would need the width.
+- **Exactness:** the fraction is the value; the CSS maps it linearly. The thumb's centre sits at
+  exactly `fraction` of the track (a test compares the computed style positions in the e2e job).
+
+### DD-026: Tone on controls from the ground's ramp
+
+- **Decision:** under a `hatch` ground, tone levels 1-4 are the ground's own hatch tiles, generated
+  at build time like the frame pieces and laid as a repeating mask painted with
+  `var(--sp-ink-secondary)`. Under a `weight` ground, the tone is the frame's line weight
+  (`--sp-weight-1..4`), as for charts (DD-019). No opacity, no flat fill (REQ-308).
+- **Mapping:** checked, selected and filled use level 3; the `primary` Button variant level 2; the
+  `danger` variant level 4 plus its ✕ glyph; disabled level 1 plus the native `disabled` state
+  (REQ-310). An Alert of kind `error` fills its box with level 1 (`ui.tone.alertError`), plus its ✕
+  glyph and `role="alert"`; the other kinds take no tone. Level 1 is the lightest, so the Alert's
+  text keeps 4.5:1 over it, and the pair joins the contrast gate (Data Model §3.8, C-3).
+- **Rate** marks are exact lozenges (C-2): a drawn diamond reads as the engraver's mark where a
+  five-pointed icon reads as the web's; filled marks take level 3.
+- **Steps** connectors carry the status of the step they lead to in `data-status`; a `wait`
+  connector is dashed, the others solid, both exact (C-4). The dash is a CSS `stroke-dasharray` on
+  the exact line, not an inked stroke.
+
+### DD-027: Components join the parity and pixel gates as fixtures
+
+- **Decision:** a component fixture renders one component in one declared state (Data Model §5)
+  inside a fixed-width harness. The DD-004 tree comparison and DD-017's rules apply unchanged (no
+  comments, no empty text nodes; the only stripping allowed is the frameworks' hydration markers).
+  Fixture ids are required, so every related id is `${id}--${part}` (REQ-329).
+- **Pixel gates** run at the fixture's declared width (320 px; 640 px for Card and Alert).
+- **Amended in implementation (2026-09-28/29):** the markup contract is the core's `ui*View` trees,
+  and a fixture's canonical render is that tree written by a reference writer
+  (`tools/visual-gate/ui-canonical.ts`), not the React render (as DD-017). Batches join the gates by
+  being added to `GATED_BATCHES` (tools) and `UI_GATED_BATCHES` (harness).
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -573,6 +717,31 @@ silverpoint/
 
 `packages/core/src/charts/**` is the path REQ-044 watches: a PR that adds a ground may not
 touch it.
+
+**UI components (DD-021..DD-027)** add:
+
+```
+packages/core/src/ui/{value.ts, progress.ts, steps.ts, keyboard.ts, frame.ts, items.ts, names.ts, types.ts, demo.ts}
+packages/core/src/ui/{tokens.ts, tone.ts}               # resolveUiTokens, uiToneTile
+packages/grounds/src/ui/{pieces.ts, ui-css.ts}          # the pieces and the stylesheet
+packages/grounds/scripts/build-ui-css.ts                # → dist/ui.css, after tsup
+packages/react/src/ui/{button.tsx, input.tsx, …, index.ts}   # exports SpButton, SpInput, …
+packages/vue/src/ui/{SpButton.vue, SpInput.vue, …, index.ts}
+packages/angular/ui/{button, input, …}/                 # one secondary entry point each
+fixtures/ui/<component>--<state>--<ground>-<substrate>--<mode>.{fixture.json, canonical.txt}
+examples/*/…/ui page
+```
+
+Amended in implementation: `UI_DEMOS` is exported from `@silverpoint/core/ui-demos` and the runtime from
+`@silverpoint/core/ui`, both subpaths, because from the main entry they took the core's full bundle
+over its 45 kB. The markup contract lives in `ui/view*.ts` (`ui*View` trees) and the DOM glue of
+REQ-315 in `ui/roving.ts` (`uiRovingFocus`, structural types, no DOM lib). In Angular the providers,
+tokens and environment signals live in `@silverpoint/angular/env` (re-exported by the main entry),
+so a UI component does not carry the charts' render pipeline (REQ-330), and `@angular/forms` is a
+peer (REQ-323).
+
+`packages/core/src/ui/**` and the adapters' `ui/` join the paths REQ-044 watches (REQ-312).
+
 
 ### 5.2 Patterns applied
 
@@ -676,6 +845,19 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Budget | size-limit on each `dashboard` subpath, and the increment over its one-chart entry within the adapter's allowance; path-weight on the 12-card reference | 220, NFR |
 | Lint | No `order`/`dense`/`grid-row-start`/`grid-column-start` in the dashboard stylesheet | 203 |
 
+**UI components** (DD-021..DD-027) add:
+
+| Level | What | REQ |
+|---|---|---|
+| Core unit | `uiValue` clamping and rounding (`SP017`); `uiRovingKey` over every key × orientation × direction × disabled pattern; `uiSteps`; `uiFrameVariant` purity; `uiItems` (`SP019`); `uiRequireName` (`SP018`); benchmarks | 302, 307, 315, 321, 324, 325, 319 |
+| Grounds | Piece generator is deterministic (same bytes twice); `ui.css` contains no literal colour (I-19); contrast gate over the `ui` pairs, focus included | 305, 308, 312, 313, 316 |
+| Adapter unit | Markup contract per component; controlled/uncontrolled; Vue `v-model`; Angular `model()` and CVA with Reactive Forms; disabled emits nothing; precedence chain | 300, 311, 314, 318, 322, 323, 326 |
+| Mode invariance | Layout boxes and fractions equal between `ink` and `precision` for every state (I-17) | 304, 306 |
+| Parity (Node) | Tree gate on the component fixtures, three adapters vs canonical | 327 |
+| Pixel (Docker) | Three gates per fixture at its width | 328 |
+| E2E (four apps) | UI page: hydration, axe, APG keyboard per composite, native form submit, reduced motion, RTL (SHOULD), target size ≥ 24 px (I-20) | 317, 320, 321, 323, 329, 331 |
+| Budget | size-limit per `ui/<name>`, UI runtime, `ui.css` | 330 |
+
 **Traceability (REQ-183).** Every test cites its requirement in the name:
 `test('REQ-006 · identical vertices between ink and precision', …)`. A CI script extracts
 the cited `REQ-NNN` and compares them with the `MUST`s of the PRD; the difference is the
@@ -710,6 +892,16 @@ report that feeds the Analyze gate (REQ-184).
 | Dashboard release | Ships in `0.2.0`; the line stays on `0.x` and `1.0.0` is not cut yet (decided 2026-09-25) |
 | What else ships in `0.2.0` | Delta-012 (decided 2026-09-26): the `cyanotype` ground (DD-019), REQ-220 per adapter, and the Angular example app server-rendered with `@angular/ssr` (REQ-222) |
 
+**UI components** (feature-002):
+
+| Question | Resolution |
+|---|---|
+| OQ-U1 · `ui/` subpath or new packages | **Decided 2026-09-28:** subpath (DD-021) |
+| OQ-U2 · React names unprefixed or `Sp` | **Decided 2026-09-28:** `Sp` prefix in the three adapters |
+| OQ-U3 · 17 components in `0.3.0` or 8 first | **Decided 2026-09-28:** all 17 in `0.3.0` |
+| OQ-U4 · Angular attribute selectors for Button/Input | **Decided 2026-09-28:** yes (DD-024) |
+| OQ-U5 · Four frame variants per kind: enough variety, or does `ui.css` weight allow six? | **Measured 2026-09-28 (step 6b):** `ui.css` gzip is 4.40 KB with one variant, 7.85 KB with four, 10.09 KB with six (≈ 1.1 KB each). Six fit, but the component rules of step 6c share the 24 KB; four are kept, and a ground may declare up to six |
+
 ### Open
 
 - [ ] **Concrete family for the small-caps subset.** If real small caps are wanted later,
@@ -722,6 +914,8 @@ report that feeds the Analyze gate (REQ-184).
 - [ ] **Shared hatch tiles across a dashboard.** DD-007 scopes tiles per instance (REQ-030); a
       dashboard could share one `<defs>` across its cards and cut weight further, at the cost of
       per-chart stroke variation. *— measure on the reference dashboard first.*
+- [ ] **OQ-U6 · Overlays: core machines or per-framework headless libraries.** Out of
+      feature-002 (PRD §5.3); DD-023 is revisited when overlays are specified.
 - [ ] **Shared scales across a dashboard's cards** (Vega-Lite `resolve`). Needs a common domain
       prop on the cartesian charts. *— PRD §5.3.*
 
@@ -738,6 +932,7 @@ report that feeds the Analyze gate (REQ-184).
 | 1.7 | 2026-09-26 | Ernesto Crespo | Delta-013: DD-020, the Tailwind preset package |
 | 1.6 | 2026-09-26 | Ernesto Crespo | Delta-012: DD-019 (the `weight` tonal mechanism, `WeightInker`, `data-weight`); DD-002 names the second inker; DD-018 records the measured dashboard cost per adapter; hydration tests cover the Angular CLI SSR app (REQ-222); `0.2.0` scope in §10 |
 | 1.5 | 2026-09-25 | Ernesto Crespo | Deltas folded: `tslib` in the Angular allowlist (002); TypeScript 6.x for Angular 22 (001). Dashboard composition: DD-013..DD-018, components, flow, structure, tests and open questions (feature-001) |
+| 1.8 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: UI components (§3.2, §3.3), DD-021..DD-027, structure (§5.1), tests (§8), decisions OQ-U1..OQ-U6 (§10) |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check

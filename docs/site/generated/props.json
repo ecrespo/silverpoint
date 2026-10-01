@@ -1117,5 +1117,604 @@
         "doc": "Default `1`."
       }
     ]
+  },
+  "ui": {
+    "common": [
+      {
+        "name": "id",
+        "type": "string",
+        "optional": true,
+        "doc": "The frame variant and every related id derive from it (REQ-307, REQ-329)."
+      },
+      {
+        "name": "seed",
+        "type": "Seed",
+        "optional": true,
+        "doc": "Overrides `id` for the frame variant only."
+      },
+      {
+        "name": "ground",
+        "type": "GroundRef",
+        "optional": true,
+        "doc": "Style ground. Defaults to the dashboard's, then the app provider's, or `silverpoint` (REQ-311)."
+      },
+      {
+        "name": "substrate",
+        "type": "SubstrateName",
+        "optional": true,
+        "doc": "Prepared substrate within the ground (REQ-046)."
+      },
+      {
+        "name": "mode",
+        "type": "InkMode",
+        "optional": true,
+        "doc": "`ink` by default; `precision` disables inking (REQ-021, REQ-306)."
+      },
+      {
+        "name": "size",
+        "type": "UiSize",
+        "optional": true,
+        "doc": "Default `'md'`."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "optional": true,
+        "doc": "Added to the component's root element, after its own classes."
+      }
+    ],
+    "components": [
+      {
+        "slug": "button",
+        "name": "SpButton",
+        "group": "actions",
+        "own": [
+          {
+            "name": "variant",
+            "type": "UiVariant",
+            "optional": true,
+            "doc": "Default `'default'`; `danger` also draws the exact ✕ glyph (REQ-310)."
+          },
+          {
+            "name": "type",
+            "type": "'button' | 'submit' | 'reset'",
+            "optional": true,
+            "doc": "Default `'button'`."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable, not submitted; drawn with the disabled tone."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of an icon-only button (REQ-319)."
+          },
+          {
+            "name": "block",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Fills the width of its container."
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": true,
+            "doc": "Renders an `<a>`."
+          }
+        ]
+      },
+      {
+        "slug": "input",
+        "name": "SpInput",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "type",
+            "type": "'text' | 'search' | 'email' | 'url' | 'tel' | 'password' | 'number'",
+            "optional": true,
+            "doc": "Native input type. Default `'text'`."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "optional": true,
+            "doc": "Hint shown while empty; not a substitute for the accessible name."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native input submits under it (REQ-323)."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "readOnly",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Focusable and submitted, but not editable."
+          },
+          {
+            "name": "invalid",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Sets `aria-invalid` and draws the exact ⚠ glyph (REQ-334)."
+          },
+          {
+            "name": "message",
+            "type": "string",
+            "optional": true,
+            "doc": "Help or error text under the control, referenced by `aria-describedby` (REQ-334)."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name, when no `<label for>` names the control."
+          }
+        ]
+      },
+      {
+        "slug": "checkbox",
+        "name": "SpCheckbox",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The visible text and accessible name."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; submitted as `on` when checked."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "indeterminate",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Draws the exact dash and sets the native `indeterminate` state."
+          }
+        ]
+      },
+      {
+        "slug": "radio-group",
+        "name": "SpRadioGroup",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly UiItem[]",
+            "optional": false,
+            "doc": "The choices; each a native radio. Keys are unique (REQ-325)."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false,
+            "doc": "Required: the native radios submit under it (REQ-323)."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The group's name, its `<legend>`."
+          },
+          {
+            "name": "orientation",
+            "type": "UiOrientation",
+            "optional": true,
+            "doc": "Default `'vertical'`."
+          }
+        ]
+      },
+      {
+        "slug": "switch",
+        "name": "SpSwitch",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The visible text and accessible name."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; submitted as `on` when on."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          }
+        ]
+      },
+      {
+        "slug": "slider",
+        "name": "SpSlider",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "Accessible name of the native range input."
+          },
+          {
+            "name": "min",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `0`."
+          },
+          {
+            "name": "max",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `100`."
+          },
+          {
+            "name": "step",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `1`."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native input submits under it."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "marks",
+            "type": "readonly number[]",
+            "optional": true,
+            "doc": "Values on the rail that get a labelled mark."
+          }
+        ]
+      },
+      {
+        "slug": "rate",
+        "name": "SpRate",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The group's name, its `<legend>`."
+          },
+          {
+            "name": "count",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `5`, in 1..10; each mark an exact lozenge."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native radios submit under it."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "readOnly",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Shows the value; the keyboard and the pointer do not change it."
+          }
+        ]
+      },
+      {
+        "slug": "segmented",
+        "name": "SpSegmented",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly UiItem[]",
+            "optional": false,
+            "doc": "The options; each a native radio. Keys are unique (REQ-325)."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The control's name, its `<legend>`."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native radios submit under it."
+          },
+          {
+            "name": "block",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Fills the width of its container."
+          }
+        ]
+      },
+      {
+        "slug": "tabs",
+        "name": "SpTabs",
+        "group": "navigation",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly UiItem[]",
+            "optional": false,
+            "doc": "The tabs; a disabled one is skipped by the arrows. Keys are unique (REQ-325)."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of the tab list."
+          },
+          {
+            "name": "orientation",
+            "type": "UiOrientation",
+            "optional": true,
+            "doc": "Default `'horizontal'`."
+          },
+          {
+            "name": "activation",
+            "type": "'automatic' | 'manual'",
+            "optional": true,
+            "doc": "Default `'automatic'`: a tab is selected as focus reaches it."
+          }
+        ]
+      },
+      {
+        "slug": "steps",
+        "name": "SpSteps",
+        "group": "navigation",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly StepItem[]",
+            "optional": false,
+            "doc": "The steps, in order; a status is derived from `current` unless set."
+          },
+          {
+            "name": "current",
+            "type": "number",
+            "optional": false,
+            "doc": "0-based."
+          },
+          {
+            "name": "orientation",
+            "type": "UiOrientation",
+            "optional": true,
+            "doc": "Default `'horizontal'`."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of the list."
+          }
+        ]
+      },
+      {
+        "slug": "card",
+        "name": "SpCard",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true,
+            "doc": "Heading of the card; without it the card is a plain container."
+          },
+          {
+            "name": "headingLevel",
+            "type": "2 | 3 | 4 | 5 | 6",
+            "optional": true,
+            "doc": "Default `3`."
+          }
+        ]
+      },
+      {
+        "slug": "tag",
+        "name": "SpTag",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "tone",
+            "type": "UiToneLevel",
+            "optional": true,
+            "doc": "Tonal level, default `1`."
+          },
+          {
+            "name": "closable",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Adds a native close button; each adapter raises its close event."
+          },
+          {
+            "name": "closeLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of the close button. Default `Remove <text>`."
+          }
+        ]
+      },
+      {
+        "slug": "badge",
+        "name": "SpBadge",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "count",
+            "type": "number",
+            "optional": true,
+            "doc": "The number shown, up to `max`."
+          },
+          {
+            "name": "max",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `99`; above it the badge reads `99+`."
+          },
+          {
+            "name": "dot",
+            "type": "boolean",
+            "optional": true,
+            "doc": "A dot with no number."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible text of the badge, e.g. `unread messages`."
+          }
+        ]
+      },
+      {
+        "slug": "divider",
+        "name": "SpDivider",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "orientation",
+            "type": "UiOrientation",
+            "optional": true,
+            "doc": "Default `'horizontal'`."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": true,
+            "doc": "A caption set in the rule."
+          },
+          {
+            "name": "align",
+            "type": "'start' | 'center' | 'end'",
+            "optional": true,
+            "doc": "Default `'center'`."
+          }
+        ]
+      },
+      {
+        "slug": "progress",
+        "name": "SpProgress",
+        "group": "feedback",
+        "own": [
+          {
+            "name": "value",
+            "type": "number",
+            "optional": true,
+            "doc": "0..100; omitted, the progress is indeterminate."
+          },
+          {
+            "name": "shape",
+            "type": "'line' | 'circle'",
+            "optional": true,
+            "doc": "Default `'line'`."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "Accessible name (REQ-318)."
+          },
+          {
+            "name": "showValue",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          }
+        ]
+      },
+      {
+        "slug": "alert",
+        "name": "SpAlert",
+        "group": "feedback",
+        "own": [
+          {
+            "name": "kind",
+            "type": "AlertKind",
+            "optional": true,
+            "doc": "Default `'info'`."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true,
+            "doc": "Bold first line of the alert."
+          },
+          {
+            "name": "closable",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Adds a native close button; each adapter raises its close event."
+          },
+          {
+            "name": "closeLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of the close button. Default `'Close'`."
+          }
+        ]
+      },
+      {
+        "slug": "skeleton",
+        "name": "SpSkeleton",
+        "group": "feedback",
+        "own": [
+          {
+            "name": "lines",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `3`, in 1..8."
+          },
+          {
+            "name": "avatar",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Draws an avatar placeholder before the lines."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Loading'`."
+          }
+        ]
+      }
+    ]
   }
 }

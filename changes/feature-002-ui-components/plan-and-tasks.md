@@ -154,34 +154,34 @@ gate iterates it. Every change touching `packages/` adds a changeset.
 **[x] T-157 · UI page in the four apps** — REQ-329, REQ-331
 - The 17 components from `UI_DEMOS`, under `silverpoint/cream` and `cyanotype`, composed as
   [`concept.png`](concept.png): the Card holds a KPI and a Sparkline (C-5).
-- **Done:** e2e: no hydration mismatch (`vite-react`, `vite-vue`, `nextjs`, `angular` with SSR).
+- **Done:** e2e: no hydration mismatch in the server-rendered apps (`vite-vue`, `nextjs`, `angular` with SSR); no console error in all four (`vite-react` is client-rendered).
 
 **[x] T-158 · Keyboard, forms and motion e2e** — REQ-315, REQ-316, REQ-317, REQ-320, REQ-321, REQ-323
 - APG script per composite; native form submit carries every value; focus ring visible and ≥ 3:1;
   targets ≥ 24 px (I-20); reduced motion; RTL mirror (SHOULD); Firefox and WebKit presence checks.
-- **Done:** green in the three browsers.
+- **Done:** green in Chromium for the four apps; Firefox and WebKit render the page and run the Tabs keyboard (once, in the pinned image).
 
-**[~] T-159 · Accessibility audit** — REQ-313, REQ-314, REQ-318, REQ-331 (automated half done; manual NVDA/VoiceOver pending)
+**[ ] T-159 · Accessibility audit** — REQ-313, REQ-314, REQ-318, REQ-331 (automated half done; manual NVDA/VoiceOver pending)
 - axe on the UI page of every app; manual NVDA and VoiceOver pass recorded in
   `changes/feature-002-ui-components/a11y-audit.md`.
 - **Done:** 0 A/AA issues; audit file committed.
 
 ### 6f — Close-out
 
-**[ ] T-160 · Docs site UI section** — REQ-332
+**[x] T-160 · Docs site UI section** — REQ-332
 - `docs/site`: a UI gallery and one page per component, props generated from the types.
 - **Done:** docs build green; props not retyped (the generator test).
 
-**[ ] T-161 · Changeset** — release
+**[x] T-161 · Changeset** — release
 - `minor` changeset for the seven packages' shared version: `0.3.0`.
 - **Done:** `version-packages` dry run shows 0.3.0.
 
-**[ ] T-162 · Fold the deltas** — Art. 9
+**[x] T-162 · Fold the deltas** — Art. 9
 - PRD v1.11, API v1.9, TD v1.8, DM v1.6, Implementation Plan v1.7 (Phase 6), Constitution v1.7,
   `specs/tasks.md` Deferred table updated.
 - **Done:** `spec-check` green.
 
-**[ ] T-163 · Traceability and status** — REQ-183, REQ-184
+**[x] T-163 · Traceability and status** — REQ-183, REQ-184
 - `reports/traceability.md` regenerated: every MUST of REQ-300..334 cited; `CLAUDE.md` status table.
 - **Done:** 0 blocking.
 
@@ -225,3 +225,5 @@ Every task cites at least one REQ; no orphan task.
 | 6c B1 + 6d gates (T-143..T-146, T-153..T-156) | 2026-09-28 | **Core:** `resolveUi` (prop → dashboard → provider → default, forced precision after) and the markup contract as data — `ui*View` trees for Button, Input, Checkbox, Switch, Card, Divider, with exact glyphs; `data-frame` is a slot 0..5 and `data-tone` a level or a state, both folded by `ui.css` from the ground's tokens, so the runtime needs no ground. **Adapters:** React (generic tree writer; client entries; `server/ui/card`, `server/ui/divider`), Vue (tree writer, `v-model`, `class` joins `className`), Angular (`sp-ui-tree` writes the tree in one template; `button[spButton]`; `sp-input` is an element — an `<input>` cannot hold frame and message; named slots as `<ng-template spExtra>`; CVA, so `@angular/forms` is a peer; tokens moved to `@silverpoint/angular/env` to keep the UI runtime off the chart pipeline: 21.7 → 4.3 kB). **Gates:** 230 fixtures (`fixtures/ui`, 76 on PR), canonicals written from the core by a reference writer (as DD-017, not from the React render); tree gate 690/690; pixel gate 76 × 4 apps with goldens; I-17 on the canonical page; budgets: runtime 2.1 / 2.2 / 4.3 kB (React / Vue / Angular) of 8, components ≤ 5.3 kB of 11, `ui.css` 9.1 of 24. `tools/visual-gate` filters `spbutton` (A-03). React tests were written after its code and mutation-checked (10 mutations); Vue and Angular tests first |
 | 6c B2 + B3 (T-147..T-152) | 2026-09-28 | **Core:** `ui*View` trees for RadioGroup, Segmented, Tabs (+ `uiTabPanelView`), Slider, Rate, Steps, Tag, Badge, Progress, Alert, Skeleton; `uiSelectedKey` (Data Model §2.14 fallbacks, silent), `uiRange`, `uiIsRovingKey`, and `uiRovingFocus` —the DOM glue of REQ-315 with structural types, so the core keeps no DOM lib and the three adapters share one implementation; `uiSteps` marks the current step. A view marks each bound element `native` or `close`. **ui.css:** B2/B3 layout, 11.35 KB gzip of 24; heightening matched with `~=` so a slider thumb can be one; the wait connector dashed on its one edge. **Adapters:** 11 components × 3 (Angular on `SpUiControl`, a CVA base in `ui/base`); React server entries for the six display components. **Gates:** `GATED_BATCHES` B1..B3: 510 fixtures (180 PR), as Data Model §5; 104 new goldens, reviewed on contact sheets. Budgets: largest component 3.63 kB (Vue Rate), Angular 6.04 kB, runtime ≤ 5.04 kB. Tests written first (core, ui.css, three adapters); the one written after (the steps connector's widths) fails on the prior code; Vue's radio resync mutation-checked. CI steps green; Playwright in the pinned image 3051 passed, 0 failed |
 | 6e (T-157..T-159) | 2026-09-29 | `UI_PAGE` in the harness (3 panels × 13 sections, 17 components; Card holds a KpiCard, Tabs their panels; the Progress section adds `indeterminate`; tests in `tools/visual-gate/harness.test.ts`) and its CSS; `/ui` in Next.js, Vite + React, Vite + Vue (prerendered `ui.html`, hydrated) and Angular (`UiItemView` shared with the pixel gate's `UiGate`, `UiPage`); `agentRules: false` in the Next config. `e2e/ui.spec.ts`: 12 tests × 4 apps, green (Firefox and WebKit once, in the pinned image). Fixes on the way: Angular `SpUiControl.rove` passes the `.sp-ui` root, not the host, so `dir="rtl"` on the root is found (REQ-321); the axe reading hides `sp-frame`/`sp-tone` (a masked ink background that axe reads as a solid backdrop, 1.52:1 — the text sits on the substrate; frame contrast stays with the 11 UI pairs). **T-159 partly open:** [`a11y-audit.md`](a11y-audit.md) records the automated half; the NVDA/VoiceOver pass needs Windows/macOS and is pending. |
+| 6f (T-160..T-163) | 2026-09-29 | **T-160** `docs/site`: `#/ui` gallery (17 components by group) and `#/ui/<slug>` per component — a live example and its JSX per declared state (from `UI_DEMOS`), props tables generated by `scripts/props.ts` from `packages/core/src/ui/types.ts` into `generated/props.json` (a test holds the file current); every prop of the UI types now carries JSDoc. e2e in `e2e/docs.spec.ts`: 17 component pages, reflow at 320 px, axe (frames hidden as in the a11y audit). **T-161** `.changeset/ui-close-out.md`, `minor` for the seven packages; a version dry run on a scratch copy gives 0.3.0 for all. **T-162** deltas folded into `specs/` (Constitution v1.7, PRD v1.11, API v1.9, TD v1.8, DM v1.6, Plan v1.7); the plan cites tasks as `#NNN` because `spec-check` reads task ids from `specs/tasks.md` only (as Phase 5 does, which cites none). **T-163** `reports/traceability.md` regenerated: 154/154 MUST cited, 0 deferred, 0 blocking, 0 pending; `CLAUDE.md` status table. **Open:** T-159's manual NVDA/VoiceOver pass |
+| Phase 6/7 review | 2026-09-30 | Two reviews, of 59e79e5 (6e) and of the 6f working tree. **Bug found:** a focused `SpInput` showed the browser's rounded `outline: auto` inside the exact ring of its box (REQ-316); `ui.css` sets `outline: none` on `.sp-ui-native`, `.sp-ui-control`, `.sp-ui-range` (test first, red, then green). **e2e/ui.spec.ts strengthened:** RTL read from an ancestor's `dir` and checked on Tabs too (mutation: core forced to `ltr` → red); Home/End and wrap on RadioGroup, Segmented, Rate; one tab stop for the four composites (Tabs: Tab leaves the tablist for its panel, APG); focus ring on 10 kinds × 3 panels; target size asserts every kind is present and measures the slider's native range; `FormData` read as entries, before and after a keyboard change; reduced motion checks every element; axe in two passes (every rule but contrast on the page as drawn; contrast with frames made transparent, not removed); `aria-valuemin/max`, no value when indeterminate, Steps as an `<ol>`. Angular: unit test for `rove` reading `dir` on the `.sp-ui` root (mutation: host only → red). **Docs:** the four undocumented common props (`ground`, `substrate`, `mode`, `className`) now carry JSDoc and the generator test demands a doc on every prop (red first); the JSX sample writes `extra` and escapes strings; group titles are a `Record<UiGroup, string>`. Deltas marked folded. Left as is: Vue `vite dev` hydrates `/ui` with no `ui.html` (dev-only warning); `specs/tasks.md` header names the versions Phase 0's tasks were generated from |

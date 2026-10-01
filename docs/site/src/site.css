@@ -255,3 +255,10 @@ footer {
     width: 100%;
   }
 }
+
+/* A UI component drawn live in the gallery and on its page (REQ-332). */
+.ui-sample {
+  margin: 0;
+  padding: 0.5rem 0;
+  min-width: 0;
+}

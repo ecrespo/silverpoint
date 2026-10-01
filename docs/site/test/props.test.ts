@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { CATALOG } from '../../../tools/visual-gate/catalog';
+import { UI_COMPONENTS } from '../../../packages/core/src/ui/catalog';
 import { propsReference } from '../scripts/props';
 
 /**
@@ -57,6 +58,29 @@ describe('props reference', () => {
     expect(names(reference.dashboard.cell)).toEqual(['id', 'colSpan', 'rowSpan']);
     expect(reference.dashboard.layout.find((p) => p.name === 'columns')?.doc).toMatch(/sm: 1, md: 2, lg: 4/);
     expect(reference.dashboard.props.find((p) => p.name === 'id')?.optional).toBe(false);
+  });
+
+  describe('the UI components (REQ-332)', () => {
+    test('REQ-332 · every component of the catalog has its own props, and the common ones are listed once', () => {
+      expect(reference.ui.components.map((c) => c.slug)).toEqual(UI_COMPONENTS.map((c) => c.slug));
+      expect(reference.ui.common.map((p) => p.name)).toEqual(['id', 'seed', 'ground', 'substrate', 'mode', 'size', 'className']);
+    });
+
+    test('REQ-332 · a prop is read from the type: name, type, optionality and JSDoc', () => {
+      const button = reference.ui.components.find((c) => c.slug === 'button')!;
+      expect(button.name).toBe('SpButton');
+      expect(button.own.map((p) => p.name)).toEqual(['variant', 'type', 'disabled', 'label', 'block', 'href']);
+      expect(button.own.find((p) => p.name === 'variant')).toEqual({ name: 'variant', type: 'UiVariant', optional: true, doc: 'Default `\'default\'`; `danger` also draws the exact ✕ glyph (REQ-310).' });
+    });
+
+    test('REQ-332 · every component has props of its own, and each prop says what it does', () => {
+      expect(reference.ui.components.filter((c) => c.own.length === 0).map((c) => c.name)).toEqual([]);
+      const own = reference.ui.components.flatMap((c) => c.own);
+      const undocumented = [...reference.ui.common.map((p) => `common.${p.name}`).filter((_, i) => !reference.ui.common[i]!.doc)];
+      for (const c of reference.ui.components) undocumented.push(...c.own.filter((p) => !p.doc).map((p) => `${c.name}.${p.name}`));
+      expect(undocumented).toEqual([]);
+      expect(own.length).toBeGreaterThan(0);
+    });
   });
 
   test('PRD §5.1 · the committed reference is current', () => {

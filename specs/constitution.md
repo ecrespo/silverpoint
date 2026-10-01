@@ -1,12 +1,12 @@
 # Constitution — silverpoint
 
-> Version 1.6 · Ratified: 2026-09-12 · Last amended: 2026-09-26
+> Version 1.7 · Ratified: 2026-09-12 · Last amended: 2026-09-29
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
 > `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
 > documentation site.
 
-**What silverpoint is.** A charting library for React, Vue and Angular whose visual language
-is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
+**What silverpoint is.** A library of charts —and of the interface components around them— for React, Vue and
+Angular, whose visual language is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
 the mechanics of silverpoint: prepared mid-tone substrate, fine silver line, value built
 by hatching and white heightening. The engine supports several grounds; the Renaissance
 one is the first, not the only one.
@@ -27,6 +27,12 @@ not encode data. Every inked stroke SHALL be rendered with `preserveVertices: tr
 Every chart SHALL produce identical vertices in `ink` mode and in `precision` mode,
 verified by a test that compares both outputs.
 
+For interface components, THE SYSTEM SHALL draw with exact geometry every hit area, every focus
+indicator and every shape that carries a value (a progress fill, a slider thumb, a rating), and
+SHALL apply hand inking only to frames, rules and tonal fills. Switching a component between
+`ink` and `precision` SHALL change no layout box and no value geometry, verified by a test that
+compares both.
+
 *Rationale: Wood et al. (IEEE VIS 2012) show that irregular strokes degrade the
 judgement of area and proportion; the style cannot be paid for with the accuracy of the
 data.*
@@ -45,8 +51,8 @@ that sinks multi-framework libraries.*
 ### Art. 3 — Visual parity across frameworks
 
 THE SYSTEM SHALL produce, for the same data, configuration, ground, mode and seed, a
-normalised markup —the SVG of every chart and any wrapper markup the library emits around
-charts; attributes ordered, numbers to 2 decimals, whitespace collapsed—
+normalised markup —the SVG of every chart, any wrapper markup the library emits around
+charts, and the markup of every interface component; attributes ordered, numbers to 2 decimals, whitespace collapsed—
 **character-for-character identical across every adapter**. Each adapter is compared
 against the canonical serialisation stored with the fixture, not against its siblings, so
 that adding a framework costs one comparison rather than one per pair. CI SHALL verify
@@ -68,7 +74,7 @@ The comparisons are only valid under declared conditions of determinism: a singl
 browser pinned by version, `deviceScaleFactor: 1`, fixed viewport, animations disabled,
 self-hosted fonts preloaded and awaiting `document.fonts.ready`, a fixed seed and a
 stylesheet shared by every example app. The gate operates over a declared fixture
-matrix —chart or composition × ground × mode × size—, never over the example apps in free evolution.
+matrix —chart, composition or component state × ground × mode × size—, never over the example apps in free evolution.
 
 *Rationale: with Art. 2 the geometry is identical by construction, so the strong gate is
 the string comparison, which has no rasterisation noise; the pixel thresholds only
@@ -91,6 +97,11 @@ disabled entirely— on all charts from v1, and SHALL enable it automatically un
 `prefers-contrast: more` or `forced-colors: active`. No chart SHALL encode information
 solely through hatching style.
 
+THE SYSTEM SHALL build every interface component on the native element that carries its role
+where one exists, follow the WAI-ARIA Authoring Practices pattern where none does, draw an exact
+focus indicator, and apply `precision` mode to components under the same conditions as to
+charts. The drawing of a component SHALL never take focus nor carry its accessible name.
+
 *Rationale: the hand-drawn stroke is an aesthetic choice that cannot exclude anyone, and
 the state of the art itself advises against it exactly when precision is needed.*
 
@@ -98,7 +109,8 @@ the state of the art itself advises against it exactly when precision is needed.
 
 THE SYSTEM SHALL build tonal value through hatch density and angle, and SHALL NOT use
 flat fill with opacity as a tonal mechanism. White heightening SHALL be reserved for a
-single element per chart.
+single element per chart, and, in an interface component, for its current item only (the active
+tab, the current step, the selected segment, the thumb), at most one per component instance.
 
 *Rationale: it is the real mechanics of engraving and of silverpoint, and it is what
 separates silverpoint from any old monochrome fill.*
@@ -187,6 +199,7 @@ explicitly in its tonal mechanism token.
 | 2026-09-25 | — | Stack: TypeScript 5.9+ (6.x where a framework requires it); Vue floor 3.5 | Angular 22's compiler requires TypeScript 6.0; hydration-safe ids need Vue 3.5's `useId` (deltas 001, 005) | Ernesto Crespo |
 | 2026-09-25 | Art. 3 | Parity covers normalised markup, wrappers included, and the fixture matrix admits compositions | The dashboard composition emits HTML around the charts; the gate must hold it to the same zero tolerance (feature-001, Analyze A-01) | Ernesto Crespo |
 | 2026-09-26 | — | Planned grounds (non-normative): `cyanotype` ships in `0.2.0`; statuses name releases, not "v1" | The line stays on `0.x`; the second ground is what proves Art. 7 (delta-012) | Ernesto Crespo |
+| 2026-09-28 | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 
