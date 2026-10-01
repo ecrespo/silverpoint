@@ -1,5 +1,55 @@
 # @silverpoint/react
 
+## 0.3.0
+
+### Minor Changes
+
+- 281dfa5: **First UI components: batch B1 (feature-002, step 6c).** `SpButton`, `SpInput`, `SpCheckbox`,
+  `SpSwitch`, `SpCard` and `SpDivider` in React (`@silverpoint/react/ui/<name>`, plus
+  `server/ui/card` and `server/ui/divider` for Server Components), Vue (`@silverpoint/vue/ui/<name>`)
+  and Angular (`@silverpoint/angular/ui/<name>`; `SpButton` decorates the consumer's own `<button>`).
+  The markup is the core's view tree (`@silverpoint/core/ui`: `resolveUi`, `ui*View`), identical in
+  the three adapters; `ui.css` gains their layout and folds frame slots and tone states onto each
+  ground's tokens. The Angular adapter now takes `@angular/forms` as a peer, for its
+  ControlValueAccessors, and its tokens and environment move to `@silverpoint/angular/env`
+  (re-exported from `@silverpoint/angular`). No change to the rendered output of any chart.
+- 41805a0: **UI components, batches B2 and B3 (feature-002, step 6c): the catalog's 17 are complete.**
+  `SpRadioGroup`, `SpSegmented`, `SpTabs` with `SpTabPanel`, `SpSlider`, `SpRate`, `SpSteps`,
+  `SpTag`, `SpBadge`, `SpProgress`, `SpAlert` and `SpSkeleton` in React, Vue and Angular
+  (`ui/<name>`). React also ships `server/ui/steps`, `tag`, `badge`, `progress`, `alert` and
+  `skeleton` for Server Components. Each component writes the core's view tree
+  (`ui*View` in `@silverpoint/core/ui`), so the markup is the same in the three adapters.
+  
+  - **Keyboard.** The composites follow the WAI-ARIA patterns through the core's `uiRovingFocus`,
+    which calls `uiRovingKey`. Disabled items are skipped and `dir="rtl"` mirrors the arrows.
+  - **Values.** Every value component is controlled or uncontrolled, and the Angular ones are
+    ControlValueAccessors.
+  - **Heightening.** Each component has at most one heightened element.
+  - **Styles.** `ui.css` gains the components' layout. Slider and Progress use exact fractions on
+    logical properties. An indeterminate Progress only moves when reduced motion is off.
+  
+  No change to the rendered output of any chart.
+- eb2bd8e: **UI components, close-out (feature-002, step 6f): `0.3.0`.** The 17 `Sp`-prefixed components are
+  verified end to end on the UI page of the four example apps —keyboard patterns, native form
+  submit, focus ring, target size, reduced motion, RTL, axe A/AA— and documented on the site with a
+  live example per state and a props reference read from the types. Every prop of the UI types now
+  carries its JSDoc. Angular: `SpUiControl` hands the `.sp-ui` root to the roving-focus helper, so a
+  `dir="rtl"` set on the component mirrors the arrows. Grounds: `ui.css` removes the browser's own focus ring from
+  the native, text and range controls, whose exact ring is drawn on their item, box or thumb, so a
+  focused `SpInput` shows one ring, not two. The seven packages move together to `0.3.0`;
+  the rendered output of every chart is unchanged.
+
+### Patch Changes
+
+- Updated dependencies [281dfa5]
+- Updated dependencies [41805a0]
+- Updated dependencies [eb2bd8e]
+- Updated dependencies [5a1b53f]
+- Updated dependencies [5146e68]
+- Updated dependencies [10cc90a]
+  - @silverpoint/core@0.3.0
+  - @silverpoint/grounds@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes
