@@ -199,6 +199,12 @@ describe('ui.css (T-141)', () => {
     expect(css).toMatch(/:not\(\.sp-ui-native, \.sp-ui-control, \.sp-ui-range\)/);
   });
 
+  test('REQ-316 · a control whose ring is drawn on its box, item or thumb draws no ring of the browser\'s', () => {
+    // Else the text input shows the user agent's rounded `outline: auto` inside the exact one.
+    const quiet = all.find((r) => r.selector === ':is(.sp-ui-native, .sp-ui-control, .sp-ui-range)');
+    expect(quiet?.body).toMatch(/outline:\s*none/);
+  });
+
   test('REQ-309 · the heightening is matched as one of an element\'s parts, so a thumb can be one', () => {
     expect(all.find((r) => r.selector === ".sp-ui [part~='sp-heighten']")?.body).toMatch(/outline: 1px solid var\(--sp-ink\)/);
     expect(css).not.toContain("[part='sp-heighten']");

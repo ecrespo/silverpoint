@@ -169,6 +169,8 @@ const BASE = [
     'outline: var(--sp-ui-focus-width) solid var(--sp-ui-focus-color)',
     'outline-offset: 2px',
   ]),
+  // Their ring is the box's, the item's or the thumb's: the browser draws none of its own.
+  rule(':is(.sp-ui-native, .sp-ui-control, .sp-ui-range)', ['outline: none']),
 ];
 
 /** Batch B1 (T-144..T-146): Button, Input, Checkbox, Switch, Card, Divider (API delta §4). */
