@@ -72,8 +72,8 @@ version** (Changesets `fixed` group) and are published **only by CI**, never by 
    curl -s https://registry.npmjs.org/@silverpoint%2Freact/X.Y.Z -o /dev/null -w "%{http_code}\n"
    ```
 
-**The line stays on 0.x** (user decision, 2026-09-25): the next release is **`0.3.0`**, a
-changeset `minor` from `0.2.0`. Do not propose cutting `1.0.0` — it puts the API Spec in force, and
+**The line stays on 0.x** (user decision, 2026-09-25): the next minor is **`0.4.0`**
+(`0.3.0` shipped 2026-10-01). Do not propose cutting `1.0.0` — it puts the API Spec in force, and
 its changeset stays parked in `changes/release-1.0.0-changeset.md` until the user asks for it (then
 move it back into `.changeset/`).
 If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Actions,
@@ -90,16 +90,17 @@ If a new package is added, it needs a trusted publisher on npmjs.com (GitHub Act
 | Data Model | ✅ v1.6 approved — verified palettes (`silverpoint` §3, `cyanotype` §3.7), `ui` tokens §3.8, 22 invariants, dashboard layout §2.13, component value contracts §2.14 |
 | Implementation Plan | ✅ v1.7 — Phases 0–4 by shared engine, Phase 5 (dashboard, `0.2.0`) and Phase 6 (UI components, `0.3.0`, steps 6a..6f) |
 | Deltas | ✅ `changes/delta-001..011` folded 2026-09-25; `delta-012` (everything in `0.2.0`: `cyanotype`, REQ-220 per adapter, Angular SSR) and `delta-013` (`@silverpoint/tailwind`) folded and implemented 2026-09-26 |
-| Feature-002 UI components | ✅ SDD gates 0..4 approved 2026-09-28 and **folded into `specs/` 2026-09-29**; **implemented** (steps 6a..6f, ledger in `changes/feature-002-ui-components/plan-and-tasks.md`, T-135..T-163): 17 `Sp`-prefixed components under `ui/` subpaths × 3 adapters, `@silverpoint/core/ui` and `/ui-demos`, `@silverpoint/grounds/ui.css`, 510 UI fixtures (180 PR), `/ui` page in the four example apps (e2e: keyboard, forms, motion, RTL, axe), docs-site UI section. Add a batch to the gates by adding it to `GATED_BATCHES` (tools) and `UI_GATED_BATCHES` (harness). **Open:** the manual NVDA/VoiceOver pass of T-159 (`a11y-audit.md`, section 2) needs Windows/macOS. Ships in `0.3.0`: changeset in `.changeset/`, not yet released. Decisions and concept corrections in `changes/feature-002-ui-components/analyze.md` |
+| Feature-002 UI components | ✅ SDD gates 0..4 approved 2026-09-28 and **folded into `specs/` 2026-09-29**; **implemented** (steps 6a..6f, ledger in `changes/feature-002-ui-components/plan-and-tasks.md`, T-135..T-163): 17 `Sp`-prefixed components under `ui/` subpaths × 3 adapters, `@silverpoint/core/ui` and `/ui-demos`, `@silverpoint/grounds/ui.css`, 510 UI fixtures (180 PR), `/ui` page in the four example apps (e2e: keyboard, forms, motion, RTL, axe), docs-site UI section. Add a batch to the gates by adding it to `GATED_BATCHES` (tools) and `UI_GATED_BATCHES` (harness). **Open:** the manual NVDA/VoiceOver pass of T-159 (`a11y-audit.md`, section 2) needs Windows/macOS. Released in `0.3.0` (2026-10-01). Decisions and concept corrections in `changes/feature-002-ui-components/analyze.md` |
 | Feature-001 Dashboard | ✅ SDD approved and folded 2026-09-25; **implemented 2026-09-26** (T-106..T-122, ledger in `changes/feature-001-dashboard/plan-and-tasks.md`) |
-| Implementation | ✅ Phases 0–6 implemented — 33 charts × 3 adapters, the Dashboard composition and the 17 UI components; ledgers in `changes/`. `0.3.0` awaits its release commit |
+| Implementation | ✅ Phases 0–6 implemented — 33 charts × 3 adapters, the Dashboard composition and the 17 UI components; ledgers in `changes/`. Released in `0.3.0` |
 | Traceability | ✅ every MUST cited (154 of 154), 0 deferred, 0 blocking (`reports/traceability.md`); REQ-028 and REQ-047 implemented: nothing is deferred |
-| Release | ✅ **0.2.0** on npm (2026-09-26), all seven packages (`@silverpoint/tailwind` new; its 0.1.1 was published by hand to register the name), from CI with provenance |
+| Release | ✅ **0.3.0** on npm (2026-10-01), all seven packages, from CI with provenance (release run 36842274562). Previous: 0.2.0 (2026-09-26) |
 
 Where things stand:
 
-- **Published:** `@silverpoint/*@0.2.0`, tag `v0.2.0` (2026-09-26): delta-011, feature-001,
-  delta-012 and delta-013, released from `main` at `bae8132`. Every package, `tailwind`
+- **Published:** `@silverpoint/*@0.3.0`, tag `v0.3.0` (2026-10-01): feature-002 (UI components),
+  released from `main` at `2d2b51b`. Before it, `0.2.0` (2026-09-26, `bae8132`): delta-011,
+  feature-001, delta-012 and delta-013. Every package, `tailwind`
   included, has its npm trusted publisher, so the next release is the steps above and nothing else.
   `1.0.0` stays parked.
 - **Dashboard decisions to know.**
