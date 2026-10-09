@@ -5,7 +5,7 @@ import { AXIS_BAND, PLOT_INSET } from '../shared/cartesian';
 import { checkBandwidth, checkOverlap } from '../shared/contracts';
 import { kde, silverman, type DensityPoint } from '../shared/density';
 import { buildDistribution, ROW_LABELS, valueExtent, type DistributionFamily, type DistributionGroup } from '../shared/distribution';
-import { circlePath, formatNumber } from '../shared/format';
+import { circlePath, fitText, formatNumber } from '../shared/format';
 import { quantile } from '../shared/stats';
 import { RIDGELINE_CHART_DEMO, RIDGELINE_CHART_DEMO_KEYS } from './demo';
 
@@ -68,7 +68,7 @@ const family: DistributionFamily<RidgelineChartProps> = {
     groups.forEach((group, g) => {
       const base = baseline(g);
       strokes.push({ d: `M${plot.x},${base}H${right}`, role: 'ornament', part: 'rule' });
-      labels.push({ x: area.x + PLOT_INSET, y: base - 2, text: group.name, kind: 'tick', part: 'axis', anchor: 'start' });
+      labels.push({ x: area.x + PLOT_INSET, y: base - 2, text: fitText(group.name, ROW_LABELS - PLOT_INSET - 6), kind: 'tick', part: 'axis', anchor: 'start' });
       const density = densities[g];
       if (!density) {
         for (const value of group.sorted) strokes.push({ d: circlePath(x(value), base, POINT_RADIUS), role: 'encoding', part: 'ink' });

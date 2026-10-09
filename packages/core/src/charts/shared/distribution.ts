@@ -4,7 +4,7 @@ import type { Accessor, ChartModel, ChartOrientation, CommonChartProps, Datum, H
 import { cardLayout } from './card';
 import { AXIS_BAND, PLOT_INSET, cartesianPlot, categoryLabels, horizontalValueAxis, valueAxis } from './cartesian';
 import { checkCeiling, readObservations, warnTooSmall } from './contracts';
-import { accessorName, formatNumber } from './format';
+import { accessorName, fitText, formatNumber } from './format';
 import { emptyModel, measure, modelBase, readyModel } from './shell';
 import { sortedValues } from './stats';
 
@@ -124,7 +124,7 @@ export function bandFrame(
   const centre = (i: number) => band.center(String(i)) ?? across[0];
   const names = groups.map((g) => g.name);
   const labels: TextLabel[] = [...axis.labels];
-  if (rows) names.forEach((text, i) => labels.push({ x: area.x + PLOT_INSET, y: centre(i) + 4, text, kind: 'tick', part: 'axis', anchor: 'start' }));
+  if (rows) names.forEach((text, i) => labels.push({ x: area.x + PLOT_INSET, y: centre(i) + 4, text: fitText(text, ROW_LABELS - PLOT_INSET - 6), kind: 'tick', part: 'axis', anchor: 'start' }));
   else labels.push(...categoryLabels(names, centre, area, plot));
   return { plot, rows, value: axis.scale, centre, bandwidth: band.bandwidth, strokes: axis.strokes, labels };
 }

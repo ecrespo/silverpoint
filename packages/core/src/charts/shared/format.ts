@@ -59,3 +59,22 @@ export function formatCategory(value: unknown, locale: string): string {
 export function circlePath(cx: number, cy: number, r: number): string {
   return `M${cx - r},${cy}A${r},${r},0,1,0,${cx + r},${cy}A${r},${r},0,1,0,${cx - r},${cy}Z`;
 }
+
+/** A change with its sign written out — `+4`, `−8` (U+2212), `0` — so direction never rests on shape alone (REQ-440). */
+export function signedChange(change: number, format: (value: number) => string): string {
+  if (change > 0) return `+${format(change)}`;
+  if (change < 0) return `−${format(-change)}`;
+  return format(0);
+}
+
+/** Advance of one character at the tick size, as `TICK_CHAR` in cartesian.ts measures it. */
+const CHAR = 5.2;
+
+/**
+ * Text cut with an ellipsis to fit `width` px at the tick size. A name cut on the drawing is still
+ * whole in the table and the readout (REQ-121), so nothing is lost to the reader.
+ */
+export function fitText(text: string, width: number): string {
+  const fits = Math.max(Math.floor(width / CHAR), 2);
+  return text.length > fits ? `${text.slice(0, fits - 1)}…` : text;
+}

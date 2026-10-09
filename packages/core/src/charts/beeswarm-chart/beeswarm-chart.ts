@@ -7,7 +7,7 @@ import { cardLayout } from '../shared/card';
 import { AXIS_BAND, PLOT_INSET, cartesianPlot } from '../shared/cartesian';
 import { checkCeiling, checkRadius, readObservations, type Observation } from '../shared/contracts';
 import { ROW_LABELS } from '../shared/distribution';
-import { accessorName, circlePath, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, circlePath, fitText, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { BEESWARM_CHART_DEMO, BEESWARM_CHART_DEMO_KEYS } from './demo';
 
@@ -87,7 +87,7 @@ function buildBeeswarmChart(props: BeeswarmChartProps, context: RecipeContext): 
       ys = packSwarm(xs, r, side);
     }
     members.forEach((o, k) => placed.push({ o, x: xs[k] as number, y: centre + (ys[k] as number), r }));
-    if (grouped) labels.push({ x: area.x + PLOT_INSET, y: centre + 4, text: group, kind: 'tick', part: 'axis', anchor: 'start' });
+    if (grouped) labels.push({ x: area.x + PLOT_INSET, y: centre + 4, text: fitText(group, ROW_LABELS - PLOT_INSET - 6), kind: 'tick', part: 'axis', anchor: 'start' });
   });
 
   for (const p of [...placed].sort((a, b) => byValue(a.o, b.o))) {

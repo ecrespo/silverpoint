@@ -1,11 +1,11 @@
 /**
  * T-168..T-171 · the distribution charts of wave 1 (REQ-400..REQ-405): histogram, ECDF, box plot,
- * violin, ridgeline, beeswarm. Each meets the contract the first 33 meet (catalog-contract), and
- * then its own: the statistic it derives, the derived table (REQ-431), its one heightened element
+ * violin, ridgeline, beeswarm. Each meets the second catalog's contract (support/), and then its
+ * own: the statistic it derives, the derived table (REQ-431), its one heightened element
  * (REQ-442), its diagnostics, and the drawing grammar (REQ-441, REQ-450).
  */
 import { afterEach, describe, expect, test } from 'vitest';
-import { __setDiagnosticSink, readout, serializeGeometry, stepActive, type ChartModel, type ChartRecipe, type CommonChartProps, type Datum, type RecipeContext, type SpCode, type Stroke } from '../src';
+import { __setDiagnosticSink, serializeGeometry, stepActive, type ChartModel, type SpCode, type Stroke } from '../src';
 import { beeswarmChart } from '../src/charts/beeswarm-chart/beeswarm-chart';
 import { boxPlotChart } from '../src/charts/box-plot-chart/box-plot-chart';
 import { ecdfChart } from '../src/charts/ecdf-chart/ecdf-chart';
@@ -13,6 +13,7 @@ import { histogramChart } from '../src/charts/histogram-chart/histogram-chart';
 import { ridgelineChart } from '../src/charts/ridgeline-chart/ridgeline-chart';
 import { violinChart } from '../src/charts/violin-chart/violin-chart';
 import { createPrng } from '../src/render/prng';
+import { context, heightened, R, secondCatalogContract, type Case } from './support/second-catalog-contract';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -22,10 +23,6 @@ function capture(): SpCode[] {
   return seen;
 }
 
-const context: RecipeContext = { id: 'sp-wave1', width: 360, locale: 'en', emptyState: { text: 'No data', rule: true }, domainPadding: 0.1 };
-const R = <P extends CommonChartProps>(recipe: ChartRecipe<P>) => recipe as unknown as ChartRecipe<CommonChartProps>;
-const heightened = (model: ChartModel) => model.geometry.strokes.filter((s) => s.part === 'heighten');
-const items = (hits: readonly { seriesKey: string; index: number }[]) => new Set(hits.map((h) => `${h.seriesKey}#${h.index}`)).size;
 
 const OBS = [3, 7, 7, 8, 9, 10, 12, 13, 15, 22].map((t, i) => ({ t, g: i % 2 === 0 ? 'a' : 'b', who: `p${i}` }));
 const GROUPED = [
@@ -33,154 +30,16 @@ const GROUPED = [
   ...[20, 21, 22, 22, 24, 25, 27].map((t) => ({ t, g: 'south' })),
 ];
 
-interface Case {
-  readonly recipe: ChartRecipe<CommonChartProps>;
-  readonly consumer: CommonChartProps & Record<string, unknown>;
-  readonly items: number;
-  readonly hostile: readonly Datum[];
-  readonly labelOf: (datum: Datum, index: number) => string;
-}
-
 const CASES: readonly Case[] = [
   { recipe: R(histogramChart), consumer: { data: OBS, valueKey: 't', bins: [0, 10, 20, 30] }, items: 3, hostile: [{ t: Number.NaN }, { t: 'x' }], labelOf: (d) => `${String(d.x0)}–${String(d.x1)}` },
   { recipe: R(ecdfChart), consumer: { data: OBS, valueKey: 't' }, items: 9, hostile: [{ t: Number.POSITIVE_INFINITY }], labelOf: (d) => String(d.value) },
   { recipe: R(boxPlotChart), consumer: { data: GROUPED, valueKey: 't', groupKey: 'g' }, items: 3, hostile: [{ t: null, g: 'north' }, { t: 4 }], labelOf: (d) => String(d.group) },
   { recipe: R(violinChart), consumer: { data: GROUPED, valueKey: 't', groupKey: 'g' }, items: 2, hostile: [{ t: Number.NaN, g: 'south' }], labelOf: (d) => String(d.group) },
   { recipe: R(ridgelineChart), consumer: { data: GROUPED, valueKey: 't', groupKey: 'g' }, items: 2, hostile: [{ t: 'n/a', g: 'north' }], labelOf: (d) => String(d.group) },
-  { recipe: R(beeswarmChart), consumer: { data: OBS, valueKey: 't', labelKey: 'who' }, items: 10, hostile: [{ t: undefined, who: 'gone' }], labelOf: (d) => String(d.who) },
+  { recipe: R(beeswarmChart), consumer: { data: OBS, valueKey: 't', labelKey: 'who' }, items: 10, hostile: [{ t: undefined, who: 'gone' }], labelOf: (d) => String(d.who), rawDatum: true, ordered: true },
 ];
 
-describe.each(CASES.map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf }) => {
-  test('REQ-093 · REQ-446 · invoked without data it renders its demo, with no diagnostic', () => {
-    const seen = capture();
-    const model = recipe.build({}, context);
-    expect(model.status).toBe('ready');
-    expect(model.geometry.hitAreas.length).toBeGreaterThan(0);
-    expect(seen).toEqual([]);
-  });
-
-  test('REQ-093 · consumer data is read through the accessor keys', () => {
-    const model = recipe.build(consumer, context);
-    expect(model.status).toBe('ready');
-    expect(items(model.geometry.hitAreas)).toBe(count);
-  });
-
-  test('REQ-121 · REQ-431 · every item maps to a cell of the derived table', () => {
-    const model = recipe.build(consumer, context);
-    expect(model.table.caption).toBe(model.name);
-    for (const hit of model.geometry.hitAreas) {
-      expect(model.table.rows[hit.index], `${hit.seriesKey}#${hit.index}`).toBeDefined();
-      expect(model.table.columns).toContain(hit.seriesKey);
-      // A derived mark's datum is a frozen summary (API delta §4); a beeswarm point is its own row.
-      if (recipe.name !== 'BeeswarmChart') expect(Object.isFrozen(hit.datum)).toBe(true);
-    }
-  });
-
-  test('REQ-140 · every item lies in the plot', () => {
-    const { plot, hitAreas } = recipe.build(consumer, context).geometry;
-    const inside = (x: number, y: number) => x >= plot.x - 0.01 && x <= plot.x + plot.width + 0.01 && y >= plot.y - 0.01 && y <= plot.y + plot.height + 0.01;
-    for (const hit of hitAreas) expect(inside(hit.x, hit.y), `${hit.seriesKey}#${hit.index}`).toBe(true);
-  });
-
-  test('REQ-122 · I-29 · the arrow keys reach every item, starting from Home', () => {
-    const { geometry } = recipe.build(consumer, context);
-    const key = (a: { seriesKey: string; index: number }) => `${a.seriesKey}#${a.index}`;
-    const start = stepActive(geometry, null, 'Home');
-    const seen = new Map(start ? [[key(start), start]] : []);
-    const queue = start ? [start] : [];
-    while (queue.length > 0) {
-      const at = queue.shift()!;
-      for (const k of ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp', 'End']) {
-        const next = stepActive(geometry, at, k);
-        if (next && !seen.has(key(next))) {
-          seen.set(key(next), next);
-          queue.push(next);
-        }
-      }
-    }
-    expect(seen.size).toBe(items(geometry.hitAreas));
-  });
-
-  test('REQ-094 · REQ-095 · card chrome and bare chrome', () => {
-    const labels = recipe.build({ ...consumer, title: 'T', badge: 'B', value: 7, unit: 'u', footerLeft: 'L', footerRight: 'R' }, context).geometry.labels;
-    for (const kind of ['title', 'badge', 'value', 'unit', 'footer']) expect(labels.some((l) => l.kind === kind), kind).toBe(true);
-    const bare = recipe.build({ ...consumer, chrome: 'bare', title: 'Hidden', height: 150 }, context).geometry;
-    expect(bare.labels.some((l) => l.kind === 'title')).toBe(false);
-    expect(bare.viewBox.height).toBe(150);
-  });
-
-  test('REQ-007 · an empty dataset draws the empty state and warns SP001', () => {
-    const seen = capture();
-    const model = recipe.build({ ...consumer, data: [] }, context);
-    expect(model.geometry.hitAreas).toEqual([]);
-    expect(model.geometry.labels.some((l) => l.kind === 'empty')).toBe(true);
-    expect(seen).toContain('SP001');
-  });
-
-  test('REQ-009 · REQ-120 · deferred at zero width; named and described', () => {
-    capture();
-    expect(recipe.build(consumer, { ...context, width: 0 }).status).toBe('deferred');
-    const model = recipe.build({ ...consumer, title: 'Named' }, context);
-    expect(model.name).toBe('Named');
-    expect(model.description.length).toBeGreaterThan(model.name.length + 10);
-  });
-
-  test('REQ-441 · REQ-450 · data strokes are encoding, in the first catalog\'s vocabulary', () => {
-    const { strokes } = recipe.build(consumer, context).geometry;
-    expect(strokes.some((s) => s.role === 'encoding')).toBe(true);
-    for (const s of strokes) {
-      expect(['encoding', 'ornament']).toContain(s.role);
-      expect(['ink', 'ink-secondary', 'heighten', 'rule', 'grid', 'axis']).toContain(s.part);
-    }
-  });
-
-  test('REQ-442 · exactly one element is heightened, with its ink outline (REQ-031)', () => {
-    for (const props of [{}, consumer]) {
-      const model = recipe.build(props, context);
-      const marks = heightened(model);
-      expect(marks).toHaveLength(1);
-      expect(model.geometry.strokes.some((s) => s.part === 'ink' && (s.paint ?? 'stroke') === 'stroke' && s.d === marks[0]?.d)).toBe(true);
-    }
-  });
-
-  test('REQ-008 · REQ-011 · hostile rows among good ones: no NaN, a warning, the good items drawn', () => {
-    const seen = capture();
-    const data = consumer.data as Datum[];
-    const model = recipe.build({ ...consumer, data: [...data.slice(0, 1), ...hostile, ...data.slice(1)] }, context);
-    expect(serializeGeometry(model.geometry) + model.description + JSON.stringify(model.table)).not.toMatch(/NaN|Infinity/);
-    expect(seen).toContain('SP002');
-    expect(items(model.geometry.hitAreas)).toBe(count);
-  });
-
-  test('REQ-141 · every readout names its own item', () => {
-    capture();
-    const model = recipe.build(consumer, context);
-    for (const hit of model.geometry.hitAreas) {
-      const active = { seriesKey: hit.seriesKey, index: hit.index, datum: hit.datum, value: hit.value, point: { x: hit.x, y: hit.y } };
-      expect(readout(model, active).heading, `${hit.seriesKey}#${hit.index}`).toBe(labelOf(hit.datum, hit.index));
-    }
-  });
-
-  test('REQ-002 · REQ-005 · REQ-435 · the geometry is rounded and deterministic; I-23 · row order does not move it', () => {
-    const a = serializeGeometry(recipe.build(consumer, context).geometry);
-    expect(a).toBe(serializeGeometry(recipe.build(consumer, context).geometry));
-    // Coordinates carry 2 decimals; a derived value and datum stay exact (the table formats them).
-    const { hitAreas, ...drawn } = recipe.build(consumer, context).geometry;
-    expect(JSON.stringify({ ...drawn, hitAreas: hitAreas.map(({ datum: _datum, value: _value, ...hit }) => hit) })).not.toMatch(/\d\.\d{3}/);
-    // Groups are ordered by first appearance (Data Model §2.15): shuffle, keeping that order.
-    const random = createPrng(23);
-    const data = consumer.data as Datum[];
-    const rank = new Map<unknown, number>();
-    for (const d of data) if (!rank.has(d.g)) rank.set(d.g, rank.size);
-    const shuffled = data.map((d) => [random(), d] as const).sort((a, b) => a[0] - b[0]).map(([, d]) => d).sort((a, b) => (rank.get(a.g) ?? 0) - (rank.get(b.g) ?? 0));
-    const strokes = (model: ChartModel) => model.geometry.strokes.map((s) => s.d).sort();
-    if (recipe.name !== 'BeeswarmChart') expect(strokes(recipe.build({ ...consumer, data: shuffled }, context))).toEqual(strokes(recipe.build(consumer, context)));
-  });
-
-  test('REQ-093 · REQ-005 · the demo geometry is stable', () => {
-    expect(serializeGeometry(recipe.build({ width: 320, height: 150 }, { ...context, id: 'sp-demo' }).geometry)).toMatchSnapshot();
-  });
-});
+secondCatalogContract(CASES);
 
 const encodings = (model: ChartModel) => model.geometry.strokes.filter((s) => s.role === 'encoding' && s.part !== 'heighten');
 /** The data marks, without the heightened mark's own ink outline. */

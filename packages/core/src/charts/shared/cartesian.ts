@@ -233,3 +233,19 @@ export function horizontalValueAxis(
   strokes.push({ d: `M${scale(0)},${plot.y}V${plot.y + plot.height}`, role: 'ornament', part: 'rule' });
   return { scale, strokes, labels };
 }
+
+/**
+ * Label baselines for points at `ys`, moved apart to at least `gap` and kept within
+ * `[top, bottom]`: the labels move, the segments never do (Art. 1).
+ */
+export function spreadLabels(ys: readonly number[], gap: number, top: number, bottom: number): number[] {
+  const order = ys.map((y, i) => [y, i] as const).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const placed = order.map(([y]) => y);
+  for (let k = 0; k < placed.length; k += 1) placed[k] = Math.max(placed[k] as number, k === 0 ? top : (placed[k - 1] as number) + gap);
+  for (let k = placed.length - 1; k >= 0; k -= 1) placed[k] = Math.min(placed[k] as number, k === placed.length - 1 ? bottom : (placed[k + 1] as number) - gap);
+  const result = new Array<number>(ys.length);
+  order.forEach(([, i], k) => {
+    result[i] = placed[k] as number;
+  });
+  return result;
+}

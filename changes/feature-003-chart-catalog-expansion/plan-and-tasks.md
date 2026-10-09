@@ -128,13 +128,34 @@ to each, plus each chart's own cases) and `beeswarm.test.ts`; one mutant per tas
 - **Beeswarm:** a swarm taller than its band is repacked at 0.8 × the radius (at most 8 times, not
   below 1 px), so points never overlap; candidates are tried smallest-first, first fit wins
   (500 points ≈ 1.8 ms; the first version was O(n³), 124 ms).
-**[ ] T-172 · `LollipopChart`, `DumbbellChart`, `SlopeChart`** — REQ-406, REQ-407, REQ-408, REQ-441 `[P]`
+**[x] T-172 · `LollipopChart`, `DumbbellChart`, `SlopeChart`** — REQ-406, REQ-407, REQ-408, REQ-441 `[P]`
 - Arrow end marker exact (encoding); direction stated in the table and announcement, not by shape alone.
-**[ ] T-173 · `BumpChart`** — REQ-409, REQ-432, REQ-440 `[P]`
-**[ ] T-174 · `ErrorBarChart`, `IntervalChart`** — REQ-410, REQ-411, REQ-443 `[P]`
+**[x] T-173 · `BumpChart`** — REQ-409, REQ-432, REQ-440 `[P]`
+**[x] T-174 · `ErrorBarChart`, `IntervalChart`** — REQ-410, REQ-411, REQ-443 `[P]`
 - Interval on a date axis: UTC only; test in a non-UTC `TZ` produces the same model.
-**[ ] T-175 · `DivergingBarChart`** — REQ-412, REQ-440 `[P]`
-**[ ] T-176 · `ConnectedScatterChart`** — REQ-413 `[P]`
+**[x] T-175 · `DivergingBarChart`** — REQ-412, REQ-440 `[P]`
+**[x] T-176 · `ConnectedScatterChart`** — REQ-413 `[P]`
+
+**7b ledger, part 2 (Phase 3, 2026-10-09).** Done: T-172..T-176, eight recipes, test-first in
+`packages/core/test/wave1-comparison.test.ts`; the second catalog's contract now lives in
+`test/support/second-catalog-contract.ts`, shared by both wave-1 files. One mutant per task caught.
+- **Orientation defaults.** `DumbbellChart` and `ErrorBarChart` default to `rows` (long category
+  names, a forest plot's reading); `LollipopChart` keeps `BarChart`'s columns. Documented in the props.
+- **Direction never by shape alone** (REQ-440): dumbbell and slope tables carry a signed `change`
+  (`+4`, `−8`); the arrowhead is an exact closed path, toned like the dot it replaces.
+- **Heighten** is the mark itself where the mark is closed (lollipop head, dumbbell end, error-bar
+  estimate, interval pill, diverging segment), else the `StepChart` circle (slope end, bump leader,
+  connected-scatter end).
+- **Keyboard.** Dumbbell and slope: a grid of category × (start, end); bump: x × series; interval:
+  lane × order; diverging: row × level. Zero shares have no segment and no stop.
+- **Layout aids, labels only** (Art. 1: no encoding vertex moves): `spreadLabels` (shared/cartesian)
+  spaces slope and bump end labels; `fitText` (shared/format) cuts long names with "…" in every
+  new chart's label column and under lollipop columns, thinned to one per 48 px; the table and the
+  readout keep the whole name.
+- **Diverging axis** is symmetric about the centre, to the next 1-2-5 step: d3's `nice` turned
+  ±55 % into ±100 %. Interval date ticks print ISO `MM-DD`, never through `Intl` dates (REQ-103).
+- **I-23** (row order irrelevant) is held by the statistic charts; category charts draw in data
+  order by design, as `BarChart` does, and are marked `ordered` in the contract.
 
 **[ ] T-177 · Wave 1 adapters ×3** — REQ-444, REQ-101, REQ-104, REQ-108
 - One file per chart per adapter through the existing chart base; subpath exports; barrel entries.

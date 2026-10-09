@@ -525,6 +525,7 @@ export interface DumbbellChartProps extends CommonChartProps {
   names?: readonly [string, string];
   /** `arrow` encodes the direction from the first value to the second. */
   endMarker?: 'dot' | 'arrow';
+  /** `rows` by default: long category names read across. */
   orientation?: ChartOrientation;
 }
 
@@ -566,6 +567,7 @@ export interface ErrorBarChartProps extends CommonChartProps {
   highKey?: Accessor<number | null | undefined>;
   /** A reference value drawn as a dotted rule. */
   reference?: number;
+  /** `rows` by default, as a forest plot reads. */
   orientation?: ChartOrientation;
 }
 
