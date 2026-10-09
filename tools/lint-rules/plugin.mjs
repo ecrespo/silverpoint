@@ -9,6 +9,8 @@
  *   allowlist of Technical Design §5.3.
  * - `dashboard-no-layout-maths` — REQ-201, Art. 2: an adapter's dashboard writes the numbers of
  *   the core's model and computes none: no arithmetic, no numeric literal outside a type.
+ * - `no-transcendental` — REQ-435, DD-028: the derived-geometry modules use only operations
+ *   ECMAScript requires to be correctly rounded; no `Math.exp`, `Math.pow`, `**`, trigonometry.
  */
 
 /** Runtime allowlist of `@silverpoint/core` (TD §5.3). */
@@ -243,6 +245,57 @@ const dashboardNoLayoutMaths = {
   },
 };
 
+/**
+ * `Math` members ECMAScript leaves implementation-approximated: Node and a browser may differ in
+ * the last bit, so a sum or an iteration over them can drift between server and client (REQ-435).
+ */
+const TRANSCENDENTAL = [
+  'exp', 'expm1', 'log', 'log1p', 'log2', 'log10', 'pow', 'cbrt', 'hypot',
+  'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'atan2', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh',
+];
+
+const noTranscendental = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Derived geometry uses only correctly rounded arithmetic (REQ-435, DD-028).' },
+    messages: {
+      forbidden:
+        '{{what}} is not required to be correctly rounded, so engines may disagree in the last bit (REQ-435, DD-028). Use + − × ÷ and Math.sqrt, or a reviewed DD-029 allowance.',
+    },
+    schema: [],
+  },
+  create(context) {
+    const isGlobal = globalResolver(context, false);
+    const report = (node, what) => context.report({ node, messageId: 'forbidden', data: { what } });
+    const check = (node) => {
+      if (globalObject(node, isGlobal, ['Math']) !== 'Math') return;
+      if (isMemberObject(node)) {
+        const member = propertyName(node.parent);
+        if (member === undefined) report(node.parent, 'A computed Math member');
+        else if (TRANSCENDENTAL.includes(member)) report(node.parent, `Math.${member}`);
+        return;
+      }
+      report(node, 'Aliasing Math');
+    };
+    return {
+      Identifier(node) {
+        if (node.parent?.type === 'MemberExpression' && node.parent.property === node && !node.parent.computed) return;
+        if (node.parent?.type === 'MemberExpression' && GLOBAL_OBJECTS.includes(node.name)) return;
+        check(node);
+      },
+      MemberExpression(node) {
+        if (globalObject(node, isGlobal, ['Math'])) check(node);
+      },
+      BinaryExpression(node) {
+        if (node.operator === '**') report(node, 'The ** operator');
+      },
+      AssignmentExpression(node) {
+        if (node.operator === '**=') report(node, 'The **= operator');
+      },
+    };
+  },
+};
+
 export default {
   meta: { name: '@silverpoint/lint-rules' },
   rules: {
@@ -250,5 +303,6 @@ export default {
     'adapter-boundary': adapterBoundary,
     'core-allowlist': coreAllowlist,
     'dashboard-no-layout-maths': dashboardNoLayoutMaths,
+    'no-transcendental': noTranscendental,
   },
 };

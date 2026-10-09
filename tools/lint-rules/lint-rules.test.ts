@@ -208,3 +208,49 @@ describe('no markup injection', () => {
     expect(offenders).toEqual([]);
   });
 });
+
+describe('no-transcendental (T-165, DD-028)', () => {
+  const STATS = 'packages/core/src/charts/shared/stats.ts';
+
+  test.each([
+    ['Math.exp', 'export const f = (x: number) => Math.exp(x);'],
+    ['Math.log', 'export const f = (x: number) => Math.log(x);'],
+    ['Math.pow', 'export const f = (x: number) => Math.pow(x, 0.2);'],
+    ['Math.sin', 'export const f = (x: number) => Math.sin(x);'],
+    ['Math.cos', 'export const f = (x: number) => Math.cos(x);'],
+    ['Math.atan2', 'export const f = (x: number) => Math.atan2(x, 1);'],
+    ['the ** operator', 'export const f = (x: number) => x ** 0.2;'],
+    ['**=', 'export function f(x: number) { x **= 2; return x; }'],
+    ['an alias', 'const { log } = Math; export const f = (x: number) => log(x);'],
+    ['a computed key', "export const f = (x: number) => Math['exp'](x);"],
+  ])('REQ-435 · %s in a derived-geometry module fails', async (_what, code) => {
+    expect(await rulesHit(STATS, code)).toContain('silverpoint/no-transcendental');
+  });
+
+  test('REQ-435 · correctly rounded operations pass', async () => {
+    const code = 'export const f = (x: number) => Math.sqrt(Math.abs(x)) + Math.min(x, 1) * Math.floor(x) / Math.max(x, 2);';
+    expect(await rulesHit(STATS, code)).toEqual([]);
+  });
+
+  test.each([
+    'packages/core/src/charts/shared/density.ts',
+    'packages/core/src/charts/shared/contracts.ts',
+    'packages/core/src/charts/shared/hierarchy.ts',
+    'packages/core/src/charts/shared/network.ts',
+  ])('REQ-435 · the rule covers %s', async (path) => {
+    expect(await rulesHit(path, 'export const f = (x: number) => Math.exp(x);')).toEqual(['silverpoint/no-transcendental']);
+  });
+
+  test('the first catalog\'s modules keep their trigonometry', async () => {
+    expect(await rulesHit('packages/core/src/charts/shared/polar.ts', 'export const f = (x: number) => Math.sin(x);')).toEqual([]);
+  });
+
+  test('DD-029 · the shared modules hold at most the reviewed allowances, each with its reason', () => {
+    const dir = join(root, 'packages/core/src/charts/shared');
+    const allowances = readdirSync(dir)
+      .flatMap((file) => readFileSync(join(dir, file), 'utf8').split('\n'))
+      .filter((line) => line.includes('silverpoint/no-transcendental'));
+    expect(allowances.length).toBeLessThanOrEqual(2);
+    for (const line of allowances) expect(line).toMatch(/eslint-disable-next-line silverpoint\/no-transcendental -- DD-029: .+/);
+  });
+});

@@ -68,6 +68,11 @@ export interface HitArea {
    * move by column (left, right) and by row (up, down) across the whole grid (REQ-122).
    */
   readonly cell?: Readonly<{ column: number; row: number }>;
+  /**
+   * The item's place in a hierarchy, when the chart draws one. When every item has one, the arrow
+   * keys follow the WAI-ARIA tree pattern (REQ-438): `order` is the depth-first pre-order.
+   */
+  readonly node?: Readonly<{ id: string; parent: string | null; depth: number; order: number }>;
 }
 
 /**

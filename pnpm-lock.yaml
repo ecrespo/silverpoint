@@ -597,6 +597,12 @@ importers:
         specifier: ^3.3.11
         version: 3.3.11(typescript@5.9.3)
 
+  tools/demo-gen:
+    dependencies:
+      '@silverpoint/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+
   tools/path-weight:
     dependencies:
       '@silverpoint/core':

@@ -62,6 +62,13 @@ export default [
     rules: { 'silverpoint/dashboard-no-layout-maths': 'error' },
   },
   {
+    // REQ-435, DD-028: the derived-geometry modules of the second catalog use only correctly
+    // rounded arithmetic, so Node and every browser produce the same coordinates.
+    files: ['packages/core/src/charts/shared/{stats,density,distribution,beeswarm,hierarchy,field,delaunay,network,contracts}.ts'],
+    plugins: { silverpoint },
+    rules: { 'silverpoint/no-transcendental': 'error' },
+  },
+  {
     // REQ-162: the core's runtime allowlist.
     files: ['packages/core/src/**/*.ts'],
     plugins: { silverpoint },

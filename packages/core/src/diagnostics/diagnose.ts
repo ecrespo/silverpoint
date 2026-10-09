@@ -18,7 +18,10 @@ export type SpCode =
   | 'SP016'
   | 'SP017'
   | 'SP018'
-  | 'SP019';
+  | 'SP019'
+  | 'SP020'
+  | 'SP021'
+  | 'SP022';
 
 export interface Detail {
   /** The property involved. */
@@ -194,6 +197,21 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
     req: 'REQ-325',
     what: 'items share a key, or have none; the first is kept and the later ones are skipped',
     todo: 'Give every item a unique, non-empty `key`',
+  },
+  SP020: {
+    req: 'REQ-437',
+    what: 'the hierarchy is invalid (a duplicate or empty `id`, a missing `parent`, a cycle, or several roots); the offending rows are dropped',
+    todo: 'Give every row a unique `id` and an existing `parent`, under a single root',
+  },
+  SP021: {
+    req: 'REQ-433',
+    what: 'a statistic parameter is invalid; its default is used',
+    todo: 'Keep the parameter in its documented range',
+  },
+  SP022: {
+    req: 'REQ-434',
+    what: 'a group has too few observations for its statistic; they are drawn as points',
+    todo: 'Give the group more observations, or expect it drawn as points',
   },
   SP013: {
     req: 'REQ-032',

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { benchReport, DASHBOARD_BUDGET_MS, GEOMETRY_BUDGET_MS, RENDER_BUDGET_MS, UI_BUDGET_MS } from './bench-report';
+import { benchReport, DASHBOARD_BUDGET_MS, FIELD_BUDGET_MS, GEOMETRY_BUDGET_MS, NETWORK_BUDGET_MS, RENDER_BUDGET_MS, STATS_BUDGET_MS, UI_BUDGET_MS } from './bench-report';
 
 /** The shape `vitest bench --reporter=json` writes: each test case carries its benchmarks. */
 const run = (means: Record<string, number>) => ({
@@ -52,5 +52,13 @@ describe('bench report (TD §2, run nightly)', () => {
     const report = benchReport(run({ 'ui · uiRovingKey': 0.01, 'ui · uiProgressArc': 0.06 }));
     expect(report.over).toEqual(['ui · uiProgressArc']);
     expect(report.markdown).toContain('| ui · uiRovingKey | 0.010 | 0.020 | 500 | 0.05 ms | within |');
+  });
+
+  test('REQ-445 · a statistic over 1 000 observations 4 ms, a 60 × 60 field 8 ms, a 150-node network 16 ms (T-165)', () => {
+    expect([STATS_BUDGET_MS, FIELD_BUDGET_MS, NETWORK_BUDGET_MS]).toEqual([4, 8, 16]);
+    const report = benchReport(run({ 'stats · bins of 1 000': 3, 'stats · kde of 1 000': 5, 'field · contours 60 × 60': 9, 'network · 150 nodes': 15 }));
+    expect(report.over).toEqual(['field · contours 60 × 60', 'stats · kde of 1 000']);
+    expect(report.markdown).toContain('| stats · bins of 1 000 | 3.000 | 6.000 | 500 | 4 ms | within |');
+    expect(report.markdown).toContain('| network · 150 nodes | 15.000 | 30.000 | 500 | 16 ms | within |');
   });
 });

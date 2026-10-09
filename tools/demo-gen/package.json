@@ -1,0 +1,13 @@
+{
+  "name": "@silverpoint/demo-gen",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Generates the synthetic, frozen demo datasets of the second catalog (T-167, REQ-446).",
+  "type": "module",
+  "scripts": {
+    "generate": "tsx --conditions=@silverpoint/source demo-gen.ts"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*"
+  }
+}

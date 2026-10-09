@@ -16,15 +16,26 @@ export const DASHBOARD_BUDGET_MS = 0.5;
 /** feature-002 PRD delta §7: a UI component's core computation, or a keyboard transition, in < 0.05 ms. */
 export const UI_BUDGET_MS = 0.05;
 
-/** Benchmark names by prefix: `render · <Chart>`, `dashboard · …`, `ui · …`; every other one times geometry. */
-const budgetOf = (name: string) =>
-  name.startsWith('render · ')
-    ? RENDER_BUDGET_MS
-    : name.startsWith('dashboard · ')
-      ? DASHBOARD_BUDGET_MS
-      : name.startsWith('ui · ')
-        ? UI_BUDGET_MS
-        : GEOMETRY_BUDGET_MS;
+/** REQ-445: a statistic over 1 000 observations in < 4 ms. */
+export const STATS_BUDGET_MS = 4;
+
+/** REQ-445: a 60 × 60 field in < 8 ms. */
+export const FIELD_BUDGET_MS = 8;
+
+/** REQ-445: a 150-node network layout in < 16 ms. */
+export const NETWORK_BUDGET_MS = 16;
+
+/** Budgets by benchmark name prefix; a name with none of them times geometry. */
+const BUDGETS: readonly (readonly [string, number])[] = [
+  ['render · ', RENDER_BUDGET_MS],
+  ['dashboard · ', DASHBOARD_BUDGET_MS],
+  ['ui · ', UI_BUDGET_MS],
+  ['stats · ', STATS_BUDGET_MS],
+  ['field · ', FIELD_BUDGET_MS],
+  ['network · ', NETWORK_BUDGET_MS],
+];
+
+const budgetOf = (name: string) => BUDGETS.find(([prefix]) => name.startsWith(prefix))?.[1] ?? GEOMETRY_BUDGET_MS;
 
 interface Latency {
   readonly mean: number;

@@ -419,3 +419,358 @@ export interface VolvelleChartProps extends CommonChartProps {
   indexValue?: string;
 }
 
+
+// ---------------------------------------------------------------------------------------------
+// The second catalog (feature-003, API Spec §7.3): REQ-400..REQ-426. Every accessor is ignored
+// without `data` (REQ-098, REQ-099); every other own prop applies to the demo too.
+// ---------------------------------------------------------------------------------------------
+
+/** Bars as columns or rows, as `BarChart` has them. */
+export type ChartOrientation = 'columns' | 'rows';
+
+/** `HistogramChart` (REQ-400): raw observations binned in the core (Data Model §2.15). */
+export interface HistogramChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /**
+   * A number asks for that many equal-width bins over the niced extent; an array gives the
+   * thresholds, increasing. Freedman–Diaconis by default, Sturges when the IQR is 0 (REQ-432).
+   */
+  bins?: number | readonly number[];
+  /** Turns the counts into a running total. */
+  cumulative?: boolean;
+  orientation?: ChartOrientation;
+}
+
+/** `EcdfChart` (REQ-401): the empirical cumulative distribution as a step function. */
+export interface EcdfChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. Two groups at most are drawn. */
+  groupKey?: Accessor<string | null | undefined>;
+  /** Quantiles, in 0-1, drawn as rules. */
+  markers?: readonly number[];
+}
+
+/** `BoxPlotChart` (REQ-402): quartiles, median, Tukey whiskers and outliers per group. */
+export interface BoxPlotChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  groupKey?: Accessor<string | null | undefined>;
+  /** Whisker reach as a multiple of the IQR; 1.5 by default (REQ-432). */
+  whisker?: number;
+  /** Draws the observations past the whiskers; `true` by default. */
+  outliers?: boolean;
+  orientation?: ChartOrientation;
+}
+
+/** `ViolinChart` (REQ-403): a mirrored kernel density per group, quartiles marked inside. */
+export interface ViolinChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  groupKey?: Accessor<string | null | undefined>;
+  /** Kernel bandwidth in data units, shared by every group; Silverman's rule by default. */
+  bandwidth?: number;
+  /** Marks the quartiles inside each violin; `true` by default. */
+  quartiles?: boolean;
+  orientation?: ChartOrientation;
+}
+
+/** `RidgelineChart` (REQ-404): a kernel density per group on overlapping baselines. */
+export interface RidgelineChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** The group of an observation; one ridge per group. Ignored without `data`. */
+  groupKey: Accessor<string | null | undefined>;
+  /** Kernel bandwidth in data units, shared by every group; Silverman's rule by default. */
+  bandwidth?: number;
+  /** How far a ridge reaches into the one behind it, 0-1; 0.5 by default. */
+  overlap?: number;
+}
+
+/** `BeeswarmChart` (REQ-405): one point per observation, packed without overlap. */
+export interface BeeswarmChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  groupKey?: Accessor<string | null | undefined>;
+  /** Names the point in the readout and the table. Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+  /** Point radius in px; 3 by default. */
+  radius?: number;
+}
+
+/** `LollipopChart` (REQ-406): a stem from the baseline and a head at the value (Data Model §2.1). */
+export interface LollipopChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<string | number>;
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  orientation?: ChartOrientation;
+  /** Order of the categories; `none` keeps the data order. */
+  sort?: 'none' | 'ascending' | 'descending';
+}
+
+/** `DumbbellChart` (REQ-407): two values per category joined by a segment (Data Model §2.16). */
+export interface DumbbellChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  startKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  endKey?: Accessor<number | null | undefined>;
+  /** Titles of the two values; `['start', 'end']` by default. */
+  names?: readonly [string, string];
+  /** `arrow` encodes the direction from the first value to the second. */
+  endMarker?: 'dot' | 'arrow';
+  orientation?: ChartOrientation;
+}
+
+/** `SlopeChart` (REQ-408): two period axes, one segment per category (Data Model §2.16). */
+export interface SlopeChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  startKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  endKey?: Accessor<number | null | undefined>;
+  /** Titles of the two periods; `['start', 'end']` by default. */
+  names?: readonly [string, string];
+}
+
+/** `BumpChart` (REQ-409): the rank of each series at each x, computed in the core (Data Model §2.17). */
+export interface BumpChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<string | number>;
+  /** Ignored without `data`. */
+  seriesKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** `descending` gives rank 1 to the highest value (the default). */
+  order?: 'descending' | 'ascending';
+  /** Series drawn, the best-ranked first; all by default. */
+  series?: number;
+}
+
+/** `ErrorBarChart` (REQ-410): a point estimate with its interval (Data Model §2.18). */
+export interface ErrorBarChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  estimateKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  lowKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  highKey?: Accessor<number | null | undefined>;
+  /** A reference value drawn as a dotted rule. */
+  reference?: number;
+  orientation?: ChartOrientation;
+}
+
+/** `IntervalChart` (REQ-411): floating bars from start to end on lanes (Data Model §2.19). */
+export interface IntervalChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  laneKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  startKey?: Accessor<number | string | null | undefined>;
+  /** Ignored without `data`. */
+  endKey?: Accessor<number | string | null | undefined>;
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+  /** `date` reads ISO `YYYY-MM-DD` days in UTC; `number` by default. */
+  axis?: 'number' | 'date';
+}
+
+/** `DivergingBarChart` (REQ-412): ordered levels stacked on both sides of a neutral centre (Data Model §2.20). */
+export interface DivergingBarChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string>;
+  /** The level columns, most negative first. */
+  levels: readonly string[];
+  /** Index of the neutral level, split across the centre; `null` for none. The middle one by default. */
+  neutral?: number | null;
+  /** Normalises each row to 100 %; `true` by default. */
+  percent?: boolean;
+}
+
+/** `ConnectedScatterChart` (REQ-413): an ordered path through x-y points (Data Model §2.21). */
+export interface ConnectedScatterChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  yKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+  /** Draws direction marks along the path; `true` by default. */
+  arrows?: boolean;
+}
+
+/** `WaffleChart` (REQ-414): a unit grid filled in reading order by category (Data Model §2.2). */
+export interface WaffleChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  nameKey?: Accessor<string | number>;
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Cells in the grid; 100 by default. */
+  cells?: number;
+  /** Cells per row; 10 by default. */
+  columns?: number;
+}
+
+/** `MarimekkoChart` (REQ-415): column width ∝ total, segment height ∝ share (Data Model §2.22). */
+export interface MarimekkoChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  columnKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  segmentKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+}
+
+/** Props shared by the hierarchy charts (Data Model §2.23). */
+interface HierarchyChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  idKey?: Accessor<string>;
+  /** `null` for the root. Ignored without `data`. */
+  parentKey?: Accessor<string | null | undefined>;
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+}
+
+/** `SquarifiedTreemap` (REQ-416): a hierarchy laid out by the squarified algorithm. */
+export interface SquarifiedTreemapProps extends HierarchyChartProps {
+  /** Read on leaves; an internal node is the sum of its children. Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Levels drawn below the root; all by default. */
+  depth?: number;
+  /** The node drawn as root, controlled (REQ-439); the data root by default. */
+  rootId?: string | null;
+}
+
+/** `SunburstChart` (REQ-417): a hierarchy as concentric rings of arcs. */
+export interface SunburstChartProps extends HierarchyChartProps {
+  /** Read on leaves; an internal node is the sum of its children. Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** Rings drawn below the root; all by default. */
+  depth?: number;
+  /** The node drawn as root, controlled (REQ-439); the data root by default. */
+  rootId?: string | null;
+}
+
+/** `TreeChart` (REQ-418): a tidy node-link tree. */
+export interface TreeChartProps extends HierarchyChartProps {
+  /** Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  orientation?: 'horizontal' | 'vertical';
+}
+
+/** `ParallelCoordinatesChart` (REQ-419): one axis per dimension, one polyline per row (Data Model §2.20). */
+export interface ParallelCoordinatesChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+  /** The dimension columns, in axis order. */
+  dimensions: readonly string[];
+  /** Axis domains by dimension; derived from the data when omitted (REQ-097). */
+  domains?: Readonly<Record<string, readonly [number, number]>>;
+}
+
+/** `PolarLineChart` (REQ-420): a line over angle × radius (Data Model §2.21). */
+export interface PolarLineChartProps extends CommonChartProps {
+  /** In the units of `period`. Ignored without `data`. */
+  angleKey?: Accessor<number | null | undefined>;
+  /** The radius, `≥ 0`. Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** One turn, in the units of the angle; when set, the line closes. */
+  period?: number;
+  /** Where the angle 0 sits, in degrees clockwise from 12 o'clock; 0 by default. */
+  startAngle?: number;
+}
+
+/** `PolarScatterChart` (REQ-421): points over angle × radius (Data Model §2.21). */
+export interface PolarScatterChartProps extends CommonChartProps {
+  /** In the units of `period`. Ignored without `data`. */
+  angleKey?: Accessor<number | null | undefined>;
+  /** The radius, `≥ 0`. Ignored without `data`. */
+  radiusKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  sizeKey?: Accessor<number | null | undefined>;
+  /** One turn, in the units of the angle; 360 by default. */
+  period?: number;
+}
+
+/** `DensityBinChart` (REQ-422): x-y points binned in two dimensions (Data Model §2.24). */
+export interface DensityBinChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  yKey?: Accessor<number | null | undefined>;
+  binShape?: 'hexagon' | 'rect';
+  /** Bin size in px; 14 by default. */
+  binSize?: number;
+}
+
+/** `ContourChart` (REQ-423): iso-lines and filled bands of a density or a grid (Data Model §2.24). */
+export interface ContourChartProps extends CommonChartProps {
+  /** `points` estimates a density from a point cloud; `grid` reads a regular grid of values. */
+  source?: 'points' | 'grid';
+  /** Ignored without `data`. */
+  xKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  yKey?: Accessor<number | null | undefined>;
+  /** The grid value (`source: 'grid'`). Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** A count of levels, or the thresholds, increasing. */
+  levels?: number | readonly number[];
+  /** Fills the bands between levels; `true` by default. */
+  filled?: boolean;
+}
+
+/** `DelaunayChart` (REQ-424): the triangulation of x-y points, or its Voronoi cells (Data Model §2.24). */
+export interface DelaunayChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  yKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  labelKey?: Accessor<string | null | undefined>;
+  mesh?: 'delaunay' | 'voronoi';
+}
+
+/** `VectorFieldChart` (REQ-425): an arrow per grid point (Data Model §2.24). */
+export interface VectorFieldChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  xKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  yKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  uKey?: Accessor<number | null | undefined>;
+  /** Ignored without `data`. */
+  vKey?: Accessor<number | null | undefined>;
+  /** Arrow length per unit of magnitude; fitted to the grid by default. */
+  scale?: number;
+}
+
+/** A node of a `NetworkChart`; with finite `x` and `y` on every node, no layout runs (REQ-436). */
+export interface NetworkNode {
+  readonly id: string;
+  readonly label?: string;
+  readonly group?: string;
+  readonly x?: number;
+  readonly y?: number;
+}
+
+/** `NetworkChart` (REQ-426): a node-link graph laid out deterministically (Data Model §2.7, §2.24). */
+export interface NetworkChartProps extends CommonChartProps {
+  /** Ignored without `data`. */
+  sourceKey?: Accessor<string>;
+  /** Ignored without `data`. */
+  targetKey?: Accessor<string>;
+  /** 1 by default. Ignored without `data`. */
+  valueKey?: Accessor<number | null | undefined>;
+  /** The nodes; the distinct ends of the links by default. Data: ignored without `data`. */
+  nodes?: readonly NetworkNode[];
+  /** Layout iterations; 300 by default. */
+  iterations?: number;
+}
