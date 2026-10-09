@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 33 standalone components with signal inputs and `OnPush`. They work zoneless.
+- 47 standalone components with signal inputs and `OnPush`. They work zoneless.
 - Angular Package Format, with one secondary entry point per chart, so you only ship the charts
   you use.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -216,7 +216,7 @@ export class Exportable {
 | `locale`, `numberFormat` | environment | Number formatting. |
 | `hatchFill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 33 charts
+## The 47 charts
 
 Every chart is a secondary entry point, `@silverpoint/angular/<kebab-case-name>`, exporting the
 `Sp…` component with the `sp-…` selector:
@@ -240,6 +240,20 @@ Every chart is a secondary entry point, `@silverpoint/angular/<kebab-case-name>`
 | `SpStreamChart` | `sp-stream-chart` | `SpWindRose` | `sp-wind-rose` |
 | `SpVolvelleChart` | `sp-volvelle-chart` | `SpChordRing` | `sp-chord-ring` |
 | `SpOrbitChart` | `sp-orbit-chart` | | |
+
+The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.4.0`):
+
+| Component | Selector | Component | Selector |
+|---|---|---|---|
+| `SpHistogramChart` | `sp-histogram-chart` | `SpEcdfChart` | `sp-ecdf-chart` |
+| `SpBoxPlotChart` | `sp-box-plot-chart` | `SpViolinChart` | `sp-violin-chart` |
+| `SpRidgelineChart` | `sp-ridgeline-chart` | `SpBeeswarmChart` | `sp-beeswarm-chart` |
+| `SpLollipopChart` | `sp-lollipop-chart` | `SpDumbbellChart` | `sp-dumbbell-chart` |
+| `SpSlopeChart` | `sp-slope-chart` | `SpBumpChart` | `sp-bump-chart` |
+| `SpErrorBarChart` | `sp-error-bar-chart` | `SpIntervalChart` | `sp-interval-chart` |
+| `SpDivergingBarChart` | `sp-diverging-bar-chart` | `SpConnectedScatterChart` | `sp-connected-scatter-chart` |
+
+`<sp-ridgeline-chart>` requires `groupKey` and `<sp-diverging-bar-chart>` requires `levels` (`input.required`), even with the demo dataset, which ignores both.
 
 The [repository](https://github.com/ecrespo/silverpoint) holds the API specification and the
 documentation site with the gallery and every chart's inputs.

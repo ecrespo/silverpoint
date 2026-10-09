@@ -211,6 +211,21 @@ adapters; 14 catalog rows; 756 fixtures (140 on PR), no existing canonical chang
 - `minor` changeset; release steps of `CLAUDE.md`.
 - **Done:** `0.4.0` on npm, verified against the registry.
 
+**7b ledger, part 4 (Phase 5, 2026-10-09).** T-179 done but for its release, which waits for the
+user's word (CLAUDE.md): the box stays open until `0.4.0` is on npm.
+- **Gallery.** Each app's `?gallery` iterates the fixtures, so it already draws the 47; the axe,
+  table and keyboard e2e (`a11y.spec.ts`) iterate them too: every new chart is Tab-reachable, its
+  arrows traverse it and announce each item as the core's `readout` says.
+- **Hydration** (`e2e/hydration.spec.ts`): in each server-rendered app, every new chart's server
+  HTML is the canonical render and hydrates with no mismatch; the beeswarm and the violin also in
+  Firefox and WebKit. The Vue app renders fixture pages on the client, so `prerender.mjs` now writes
+  the 14 second-catalog fixture pages to `dist/ssr/<id>.html`, which `main.ts` hydrates.
+- **Docs.** The gallery and the props reference come from the catalog (Phase 4); REQ-449's method
+  statements live in `docs/site/src/methods.ts`, one per derived value, printed under "How it is
+  computed" on each chart page, held to the catalog by `methods.test.ts`.
+- **READMEs** list the 47 charts (a test now holds each adapter's to the catalog) and name the
+  required props; the core's names `@silverpoint/core/catalog`.
+
 ### 7c — Wave 2 (`0.5.0`)
 
 **[ ] T-180 · `shared/hierarchy.ts`: stratify, squarify, partition, tidy tree** — REQ-437, REQ-430, REQ-444

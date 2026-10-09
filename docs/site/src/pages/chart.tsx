@@ -1,5 +1,6 @@
 import reference from '../../generated/props.json';
 import { chartBySlug } from '../charts';
+import { METHODS } from '../methods';
 
 interface PropDoc {
   readonly name: string;
@@ -23,12 +24,27 @@ export function ChartPage({ slug }: { slug: string }) {
   }
   const { chart, Component } = entry;
   const own = (reference.charts.find((c) => c.chart === chart)?.own ?? []) as readonly PropDoc[];
+  const methods = METHODS[chart];
   return (
     <>
       <h2>{chart}</h2>
       <div className="card card-lg">
         <Component title={chart} footerRight="silverpoint" width={640} height={300} />
       </div>
+      {methods ? (
+        <>
+          {/* REQ-449: the method behind each value the chart derives from the rows. */}
+          <h3 id="method">How it is computed</h3>
+          <dl className="method">
+            {methods.map(({ value, method }) => (
+              <div key={value}>
+                <dt>{value}</dt>
+                <dd>{method}</dd>
+              </div>
+            ))}
+          </dl>
+        </>
+      ) : null}
       <h3 id="own-props">Its own props</h3>
       <PropsTable className="props" labelledBy="own-props" props={own} />
       <h3 id="common-props">Props every chart takes</h3>

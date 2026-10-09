@@ -101,6 +101,17 @@ test.describe('documentation site', () => {
     await expect(rows.filter({ hasText: 'legend' })).toContainText(own.find((p) => p.name === 'legend')!.doc);
   });
 
+  test('REQ-449 · a second-catalog chart page states how each derived value is computed', async ({ page }) => {
+    await page.goto('/#/chart/histogram-chart');
+    await expect(page.locator('h2')).toHaveText('HistogramChart');
+    await expect(page.locator('main .sp-root[data-status="ready"]')).toHaveCount(1);
+    await expect(page.getByRole('heading', { name: 'How it is computed' })).toBeVisible();
+    await expect(page.locator('dl.method dt')).toHaveText(['bins', 'count']);
+    await expect(page.locator('dl.method dd').first()).toContainText('Freedman–Diaconis');
+    await page.goto('/#/chart/donut-chart');
+    await expect(page.locator('dl.method')).toHaveCount(0);
+  });
+
   test('REQ-200 · the dashboard page draws a live dashboard, its code in every adapter and its reference from the types', async ({ page }) => {
     await page.goto('/#/dashboard');
     await expect(page.locator('section.sp-dashboard .sp-root[data-status="ready"]').first()).toBeVisible();
@@ -175,7 +186,7 @@ test.describe('documentation site', () => {
     }
   });
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
     test(`WCAG 1.4.10 · ${route} reflows at 320 CSS px without horizontal scrolling`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(route);
@@ -184,7 +195,7 @@ test.describe('documentation site', () => {
     });
   }
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
+  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
     test(`REQ-120 · WCAG 2.1 AA · axe finds no A or AA issue on ${route}`, async ({ page }) => {
       await page.goto(route);
       await expect(page.locator('main')).toBeVisible();

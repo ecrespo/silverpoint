@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { QUICKSTARTS } from '../../docs/site/src/quickstart';
+import { CATALOG } from '../visual-gate/catalog';
 
 /**
  * The npm page of each package is its README (REQ-160: what is published is what CI proved). Every
@@ -61,5 +62,15 @@ describe('package READMEs (the npm pages)', () => {
       expect(PACKAGES, specifier).toContain(name);
       expect([...entryPoints(name!)], specifier).toContain(rest ? `.${rest}` : '.');
     }
+  });
+});
+
+describe('the charts each adapter README lists (T-179)', () => {
+  const named = { react: (chart: string) => `\`${chart}\``, vue: (chart: string) => `\`Sp${chart}\``, angular: (chart: string) => `\`Sp${chart}\`` } as const;
+
+  test.each(Object.keys(ADAPTERS) as (keyof typeof ADAPTERS)[])('REQ-160 · the %s README names every chart of the catalog, and counts them', (pkg) => {
+    const text = readme(pkg);
+    expect(CATALOG.filter((c) => !text.includes(named[pkg](c.chart))).map((c) => c.chart)).toEqual([]);
+    expect(text).toContain(`## The ${CATALOG.length} charts`);
   });
 });

@@ -7,10 +7,16 @@ import { createApp, createSSRApp } from 'vue';
 import App from './App.vue';
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
+/** A fixture page prerendered by prerender.mjs, `/ssr/<fixture id>`, to hydrate (T-179). */
+const prerendered = fixtureById(/^\/ssr\/([^/]+?)(?:\.html)?$/.exec(location.pathname)?.[1] ?? null);
 const dashboard = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
 const ui = uiFixtureById(new URLSearchParams(location.search).get('ui'));
 
-if (ui) {
+if (prerendered) {
+  // A second-catalog fixture page, server-rendered into dist/ssr: hydrate it (REQ-103, REQ-435).
+  createSSRApp(App, { fixture: prerendered }).mount('#app');
+  document.documentElement.dataset.hydrated = 'true';
+} else if (ui) {
   // A UI fixture of the pixel gate, rendered on the client.
   createApp(App, { ui }).mount('#app');
 } else if (dashboard) {

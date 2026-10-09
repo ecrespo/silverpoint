@@ -152,6 +152,18 @@ pre {
   width: 672px;
 }
 
+.method {
+  max-width: 72ch;
+}
+
+.method dt {
+  font-weight: 600;
+}
+
+.method dd {
+  margin: 0 0 12px;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));

@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 33 charts, each importable on its own subpath so you only ship the charts you use.
+- 47 charts, each importable on its own subpath so you only ship the charts you use.
 - React 18.2+ and 19. Client components (`"use client"`) and server entry points for React
   Server Components.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -201,7 +201,7 @@ export default function Page() {
 | `locale`, `numberFormat` | environment | Number formatting. |
 | `hatchFill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 33 charts
+## The 47 charts
 
 Every chart is available as `@silverpoint/react/<kebab-case-name>` (and from the barrel
 `@silverpoint/react`):
@@ -212,6 +212,14 @@ Every chart is available as `@silverpoint/react/<kebab-case-name>` (and from the
 `PolarBarChart`, `RadialArcGroup`, `RadialRings`, `GaugeArc`, `MeterChart`, `ScatterChart`,
 `BubbleChart`, `HeatmapChart`, `TreemapChart`, `SankeyChart`, `ActivityGrid`, `CoxcombChart`,
 `WindRose`, `VolvelleChart`, `ChordRing`, `OrbitChart`.
+
+The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.4.0`):
+
+`HistogramChart`, `EcdfChart`, `BoxPlotChart`, `ViolinChart`, `RidgelineChart`, `BeeswarmChart`,
+`LollipopChart`, `DumbbellChart`, `SlopeChart`, `BumpChart`, `ErrorBarChart`, `IntervalChart`,
+`DivergingBarChart`, `ConnectedScatterChart`.
+
+`RidgelineChart` needs `groupKey` and `DivergingBarChart` needs `levels`, even with the demo dataset, which ignores both.
 
 Each chart's own props (`xKey`, `valueKey`, `nameKey`…) are typed and documented in its
 `*Props` type. The [repository](https://github.com/ecrespo/silverpoint) holds the API

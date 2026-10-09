@@ -26,6 +26,10 @@ export const substrates: SubstrateName[] = ['cream', 'green', 'blue', 'ochre'];
 export const describe = (item: ActiveItem) => `${item.seriesKey} #${item.index}: ${item.value}`;
 ```
 
+The recipes of the second catalog — the histogram, the box plot, the bump chart and the rest of the
+14 charts added in `0.4.0` — are on their own entry, `@silverpoint/core/catalog`, so the main entry
+stays small; their props types are in the main entry with every other chart's.
+
 The geometry of the data is exact: the ground's hand-drawn inking only touches strokes that
 carry no data, and it is deterministic for a given seed.
 

@@ -21,3 +21,7 @@ columns are read, so like the `…Key` props they are ignored without `data`.
 
 The keyboard model of a hierarchy now reaches `stepActive` as each hit area's `moves`, computed with
 the layout, so no chart without one carries its code. No existing output changes.
+
+Each package README lists the 47 charts, and the core's names `@silverpoint/core/catalog`; the
+documentation site states, for every chart of the second catalog, how each derived value is
+computed.
