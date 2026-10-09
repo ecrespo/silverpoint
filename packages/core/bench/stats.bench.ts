@@ -1,5 +1,6 @@
 import { test } from 'vitest';
 import { createPrng } from '../src/render/prng';
+import { packSwarm } from '../src/charts/shared/beeswarm';
 import { kde, silverman } from '../src/charts/shared/density';
 import { bins, ecdf, fiveNumber, sortedValues } from '../src/charts/shared/stats';
 
@@ -10,7 +11,11 @@ import { bins, ecdf, fiveNumber, sortedValues } from '../src/charts/shared/stats
 const random = createPrng(445);
 const OBSERVATIONS = Array.from({ length: 1000 }, () => Math.round((random() + random() + random()) * random() * 10_000) / 100);
 
+/** T-171: a beeswarm at its ceiling, 500 points on a 400 px axis. */
+const SWARM = ((sample: readonly number[]) => sample.map((v) => (v / Math.max(...sample)) * 400).sort((a, b) => a - b))(OBSERVATIONS.slice(0, 500));
+
 const CASES: Record<string, () => unknown> = {
+  'beeswarm packing of 500': () => packSwarm(SWARM, 3, 1),
   'bins of 1 000': () => bins(sortedValues(OBSERVATIONS)),
   'five-number summary of 1 000': () => fiveNumber(sortedValues(OBSERVATIONS)),
   'ecdf of 1 000': () => ecdf(sortedValues(OBSERVATIONS)),

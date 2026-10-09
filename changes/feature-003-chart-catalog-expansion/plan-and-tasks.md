@@ -100,11 +100,34 @@ tests (geometry, derived table and announcements, heighten, diagnostics, demo ru
 catalog row. Review each against an existing recipe of the same engine (`bar-chart.ts`,
 `step-chart.ts`, `donut-chart.ts`, `radar-chart.ts`, `heatmap-chart.ts`). Adapters come in T-177 for the whole wave.
 
-**[ ] T-168 · `HistogramChart`, `EcdfChart`** — REQ-400, REQ-401, REQ-431, REQ-441, REQ-442
-**[ ] T-169 · `BoxPlotChart`, `ViolinChart`** — REQ-402, REQ-403, REQ-434, REQ-431, REQ-441, REQ-442 `[P]`
-**[ ] T-170 · `RidgelineChart`** — REQ-404, REQ-440, REQ-442 `[P]`
-**[ ] T-171 · `BeeswarmChart` and `shared/beeswarm.ts`** — REQ-405, REQ-435, REQ-443 `[P]`
+**[x] T-168 · `HistogramChart`, `EcdfChart`** — REQ-400, REQ-401, REQ-431, REQ-441, REQ-442
+**[x] T-169 · `BoxPlotChart`, `ViolinChart`** — REQ-402, REQ-403, REQ-434, REQ-431, REQ-441, REQ-442 `[P]`
+**[x] T-170 · `RidgelineChart`** — REQ-404, REQ-440, REQ-442 `[P]`
+**[x] T-171 · `BeeswarmChart` and `shared/beeswarm.ts`** — REQ-405, REQ-435, REQ-443 `[P]`
 - Plus I-28; benchmark at 500 points.
+
+**7b ledger, part 1 (Phase 2, 2026-10-09).** Done: T-168..T-171, the six distribution recipes,
+test-first in `packages/core/test/wave1-distribution.test.ts` (the first catalog's contract applied
+to each, plus each chart's own cases) and `beeswarm.test.ts`; one mutant per task caught.
+- **Catalog rows move to T-177/T-178.** `tools/visual-gate/catalog.ts` is iterated by the
+  adapter tests, the string and pixel gates, e2e and the docs: a row without its adapters turns
+  them red. The recipes carry their contract in the core until their adapters land.
+- **Not yet in the core barrel.** Measured (esbuild, min + gzip −9): the main entry is ≈ 47.6 KB
+  today and ≈ 57.6 KB with these six; the 27 would add ≈ 40 KB. How the second catalog reaches
+  the adapters without breaking the "core (everything)" budget is decided in Phase 4 (T-177).
+- **Grammar.** Every heighten is the `StepChart` mark: a 3.5 px circle filled `heighten` plus its
+  `ink` outline, at the derived point (modal bin top, median crossing, highest median, front peak);
+  the beeswarm heightens its maximum point itself. Bins are `rectPath`, tone 2 (1 when cumulative,
+  under an exact top line); boxes and violins tone 1; ridges outline only; medians `weight: 2`.
+- **Keyboard.** Box plot: a grid, one stop per group and its outliers below it (Down); ECDF: a grid
+  of step × group, so a second group is reachable; the rest linear, the beeswarm in value order.
+- **Derived values stay exact.** `HitArea.value` and the frozen summary `datum` carry unrounded
+  statistics; coordinates are rounded (REQ-002); the table formats both.
+- **Shared bandwidth** (violin, ridgeline): the prop, else the mean of the groups' Silverman rules;
+  the description names which. ECDF: past two groups the rest are not drawn (`SP002`).
+- **Beeswarm:** a swarm taller than its band is repacked at 0.8 × the radius (at most 8 times, not
+  below 1 px), so points never overlap; candidates are tried smallest-first, first fit wins
+  (500 points ≈ 1.8 ms; the first version was O(n³), 124 ms).
 **[ ] T-172 · `LollipopChart`, `DumbbellChart`, `SlopeChart`** — REQ-406, REQ-407, REQ-408, REQ-441 `[P]`
 - Arrow end marker exact (encoding); direction stated in the table and announcement, not by shape alone.
 **[ ] T-173 · `BumpChart`** — REQ-409, REQ-432, REQ-440 `[P]`

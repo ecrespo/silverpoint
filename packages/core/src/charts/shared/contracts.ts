@@ -677,6 +677,18 @@ export function checkLevels(chart: string, levels: number | readonly number[] | 
   return levels.length >= 1 && increasing(levels) ? levels : invalid(chart, 'levels', levels);
 }
 
+/** Quantiles, each in 0-1, to mark on an ECDF. */
+export function checkQuantiles(chart: string, markers: readonly number[] | undefined): readonly number[] | undefined {
+  if (markers === undefined) return undefined;
+  return markers.every((m) => Number.isFinite(m) && m >= 0 && m <= 1) ? markers : invalid(chart, 'markers', markers);
+}
+
+/** A finite point radius above 0, in px. */
+export function checkRadius(chart: string, radius: number | undefined): number | undefined {
+  if (radius === undefined) return undefined;
+  return Number.isFinite(radius) && radius > 0 ? radius : invalid(chart, 'radius', radius);
+}
+
 /** A group below its statistic's minimum is drawn as points (REQ-434). */
 export function warnTooSmall(chart: string, group: string, count: number, need: number): void {
   if (process.env.NODE_ENV !== 'production') {
