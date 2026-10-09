@@ -157,16 +157,53 @@ to each, plus each chart's own cases) and `beeswarm.test.ts`; one mutant per tas
 - **I-23** (row order irrelevant) is held by the statistic charts; category charts draw in data
   order by design, as `BarChart` does, and are marked `ordered` in the contract.
 
-**[ ] T-177 · Wave 1 adapters ×3** — REQ-444, REQ-101, REQ-104, REQ-108
+**[x] T-177 · Wave 1 adapters ×3** — REQ-444, REQ-101, REQ-104, REQ-108
 - One file per chart per adapter through the existing chart base; subpath exports; barrel entries.
 - Tests: the adapter test suite iterates the catalog (existing); type tests for required props
   (`levels`, `groupKey` on ridgeline).
 - **Done:** tests green; REQ-106 lint green.
 
-**[ ] T-178 · Wave 1 fixtures, gates and budgets** — REQ-448, REQ-435, REQ-441, REQ-444, REQ-445
+**[x] T-178 · Wave 1 fixtures, gates and budgets** — REQ-448, REQ-435, REQ-441, REQ-444, REQ-445
 - Fixtures generated from the catalog, **full matrix on every PR** (OQ-C4); canonicals; parity and pixel gates; mode invariance;
   **cross-engine determinism test** (TD delta §6) for every wave-1 chart; size-limit rows; benchmarks.
 - **Done:** PR and nightly gates green; no existing canonical changed.
+
+**7b ledger, part 3 (Phase 4, 2026-10-09).** Done: T-177, T-178. The 14 recipes reach the
+adapters; 14 catalog rows; 756 fixtures (140 on PR), no existing canonical changed.
+- **`@silverpoint/core/catalog`** (user decision 2026-10-09, of three: one subpath, per-chart core
+  subpaths, a larger budget): the second catalog's recipes, apart from the main entry as
+  `/dashboard-demos` and `/ui` are. `core (everything)` stays at 44.7 of 45 kB; the subpath has its
+  own row (33.3 kB with wave 1, 45 kB budget, revisited with waves 2 and 3). Props types stay in the
+  main entry.
+- **REQ-444 no-growth** is a gate test against `tools/bundle-budget/one-chart-0.3.0.json`, measured
+  on a v0.3.0 worktree build. It found the Phase 1 `stepTree` in every one-chart build (+156 B): the
+  tree model now reaches `stepActive` as data, `HitArea.moves` (index per key), computed by
+  `interaction/tree.ts` (`treeMoves`, `treeLabel`), which only hierarchy charts import. Every
+  existing build is now within +65 B of 0.3.0. **Data Model delta:** `HitArea.moves` beside `node`,
+  folded with T-199.
+- **Required props.** `RidgelineChart.groupKey` and `DivergingBarChart.levels` are required in all
+  three adapters (`input.required` in Angular, checked on the partial declaration); the catalog's
+  `required` passes them to every fixture, adapter test and type test, as every use must.
+- **`levels` and `axis` go with the data** (REQ-099): they say how the columns are read, so they
+  are ignored with the demo like `…Key`; the `data` prop's documentation lists them.
+- **Vue booleans** that default to `true` (`outliers`, `quartiles`, `percent`, `arrows`) and
+  `cumulative` are declared `undefined` by default, as `SpDonutChart`'s `legend`: Vue's boolean
+  casting would otherwise turn an absent prop into `false`.
+- **REQ-124 identity:** `DivergingBarChart` tones its levels; its channel is the legend naming every
+  level, and the side states the sign.
+- **Dataset families.** The demo leak check treats charts that re-export one dataset (histogram ·
+  ECDF · beeswarm; box · violin · ridgeline; dumbbell · slope) as one family.
+- **Benchmarks (REQ-445).** Histogram, box, violin and ridgeline over 1 000 observations against
+  4 ms (`stats · …`); the ECDF and the beeswarm draw a mark per observation, so they are timed as
+  point charts, at 100 against 2 ms, and their statistics alone (ECDF of 1 000, packing of 500)
+  against 4 ms. The ECDF table is now built in one pass (it was quadratic), and a table with a row per
+  observation resolves its formatter once (`numberFormatter`, same output as `formatNumber`).
+- **Cross-engine determinism** (TD delta §6): `e2e/determinism.spec.ts` compares the core's SVG
+  string for every second-catalog fixture (cream, ink and precision) in Chromium, Firefox and
+  WebKit with Node's, byte for byte; the canonical page exposes the string as `spCanonical`.
+- **Docs and apps reached in this phase only as far as the gates need:** each app's chart map and
+  the docs site's chart list (the e2e gallery and docs counts iterate the catalog). The gallery page,
+  the docs prose, the READMEs and the release are T-179.
 
 **[ ] T-179 · Wave 1 example apps, docs, changeset** — REQ-449, REQ-103, REQ-109, REQ-122
 - Gallery page in the four apps; e2e: keyboard traversal per chart, hydration in Chromium, Firefox and

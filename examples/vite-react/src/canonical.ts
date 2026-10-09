@@ -46,11 +46,27 @@ import {
   type ChartRecipe,
   type CommonChartProps,
 } from '@silverpoint/core';
+import {
+  beeswarmChart,
+  boxPlotChart,
+  bumpChart,
+  connectedScatterChart,
+  divergingBarChart,
+  dumbbellChart,
+  ecdfChart,
+  errorBarChart,
+  histogramChart,
+  intervalChart,
+  lollipopChart,
+  ridgelineChart,
+  slopeChart,
+  violinChart,
+} from '@silverpoint/core/catalog';
 import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureView, uiSizeOf } from '@silverpoint/example-harness';
 import type { UiNode } from '@silverpoint/core/ui';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
-const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart } as const;
+const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart, HistogramChart: histogramChart, EcdfChart: ecdfChart, BoxPlotChart: boxPlotChart, ViolinChart: violinChart, RidgelineChart: ridgelineChart, BeeswarmChart: beeswarmChart, LollipopChart: lollipopChart, DumbbellChart: dumbbellChart, SlopeChart: slopeChart, BumpChart: bumpChart, ErrorBarChart: errorBarChart, IntervalChart: intervalChart, DivergingBarChart: divergingBarChart, ConnectedScatterChart: connectedScatterChart } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector<HTMLElement>('.sp-harness');
@@ -65,7 +81,10 @@ if (fixture && harness) {
   root.dataset.status = rendered.status;
   // The core's own serialisation, parsed inert (an HTML parse places `<svg>` in the SVG namespace,
   // as inline markup is) and adopted as nodes: no markup injection (TD §6).
-  const svg = new DOMParser().parseFromString(toSVGString(rendered), 'text/html').body.firstElementChild;
+  const markup = toSVGString(rendered);
+  // The string itself, for the cross-engine determinism test (REQ-435, I-27): the DOM would re-serialise it.
+  (window as { spCanonical?: string }).spCanonical = markup;
+  const svg = new DOMParser().parseFromString(markup, 'text/html').body.firstElementChild;
   if (svg) root.append(document.importNode(svg, true));
   harness.append(root);
 }

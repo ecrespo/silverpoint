@@ -1,0 +1,22 @@
+{
+  "chart": "BeeswarmChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "beeswarm-chart--silverpoint--cream--ink--md",
+  "req": "REQ-405",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes, one reader each",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "beeswarm-chart/beeswarm-chart--silverpoint--cream--ink--md.canonical.txt"
+}

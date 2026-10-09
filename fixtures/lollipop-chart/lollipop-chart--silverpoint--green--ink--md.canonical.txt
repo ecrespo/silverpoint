@@ -1,0 +1,81 @@
+<svg aria-labelledby="lollipop-chart--silverpoint--green--ink--md-title lollipop-chart--silverpoint--green--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="lollipop-chart--silverpoint--green--ink--md-title">
+    "Loans"
+  <desc id="lollipop-chart--silverpoint--green--ink--md-desc">
+    "Loans. Lollipop chart in columns of 12 branch values; loans from 2,695 to 7,785, the largest Harbour View Annex."
+  <defs>
+    <pattern height="45" id="lollipop-chart--silverpoint--green--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 143 C79.11 142.15, 137.26 143.19, 298 143 M22 143 C105.04 143.67, 188.04 143.85, 298 143" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 112 C78.79 112.33, 137.26 112.24, 298 112 M22 112 C107.33 112.21, 192.72 112.38, 298 112" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 81 C79.87 79.97, 137.26 80.14, 298 81 M22 81 C109.62 80.74, 196.71 80.9, 298 81" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 50 C79.55 50.15, 137.26 50.58, 298 50 M22 50 C111.22 49.28, 200.69 49.42, 298 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 174 C79.24 174.18, 137.25 173.48, 298 174 M22 174 C113.51 173.97, 205.38 174.1, 298 174" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M33.5,174V131.98" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M29.5,127.98A4,4,0,1,0,37.5,127.98A4,4,0,1,0,29.5,127.98Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M29.5,127.98A4,4,0,1,0,37.5,127.98A4,4,0,1,0,29.5,127.98Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M56.5,174V136.23" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M52.5,132.23A4,4,0,1,0,60.5,132.23A4,4,0,1,0,52.5,132.23Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M52.5,132.23A4,4,0,1,0,60.5,132.23A4,4,0,1,0,52.5,132.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M79.5,174V83.51" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M75.5,79.51A4,4,0,1,0,83.5,79.51A4,4,0,1,0,75.5,79.51Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M75.5,79.51A4,4,0,1,0,83.5,79.51A4,4,0,1,0,75.5,79.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M102.5,174V57.33" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M98.5,53.33A4,4,0,1,0,106.5,53.33A4,4,0,1,0,98.5,53.33Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M98.5,53.33A4,4,0,1,0,106.5,53.33A4,4,0,1,0,98.5,53.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M125.5,174V123.77" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.5,119.77A4,4,0,1,0,129.5,119.77A4,4,0,1,0,121.5,119.77Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M121.5,119.77A4,4,0,1,0,129.5,119.77A4,4,0,1,0,121.5,119.77Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M148.5,174V58.68" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M144.5,54.68A4,4,0,1,0,152.5,54.68A4,4,0,1,0,144.5,54.68Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M144.5,54.68A4,4,0,1,0,152.5,54.68A4,4,0,1,0,144.5,54.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M171.5,174V65.18" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167.5,61.18A4,4,0,1,0,175.5,61.18A4,4,0,1,0,167.5,61.18Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M167.5,61.18A4,4,0,1,0,175.5,61.18A4,4,0,1,0,167.5,61.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.5,174V126.94" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M190.5,122.94A4,4,0,1,0,198.5,122.94A4,4,0,1,0,190.5,122.94Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M190.5,122.94A4,4,0,1,0,198.5,122.94A4,4,0,1,0,190.5,122.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M217.5,174V58.73" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M213.5,54.73A4,4,0,1,0,221.5,54.73A4,4,0,1,0,213.5,54.73Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M213.5,54.73A4,4,0,1,0,221.5,54.73A4,4,0,1,0,213.5,54.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.5,174V95.83" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M236.5,91.83A4,4,0,1,0,244.5,91.83A4,4,0,1,0,236.5,91.83Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M236.5,91.83A4,4,0,1,0,244.5,91.83A4,4,0,1,0,236.5,91.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M263.5,174V123.97" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M259.5,119.97A4,4,0,1,0,267.5,119.97A4,4,0,1,0,259.5,119.97Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M259.5,119.97A4,4,0,1,0,267.5,119.97A4,4,0,1,0,259.5,119.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M286.5,174V117.29" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M282.5,113.29A4,4,0,1,0,290.5,113.29A4,4,0,1,0,282.5,113.29Z" data-paint="tile" data-role="hatch" fill="url(#lollipop-chart--silverpoint--green--ink--md-tone-2)" part="sp-ink">
+  <path d="M282.5,113.29A4,4,0,1,0,290.5,113.29A4,4,0,1,0,282.5,113.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M98.5,53.33A4,4,0,1,0,106.5,53.33A4,4,0,1,0,98.5,53.33Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Loans"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "12 branches"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "this month"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="140">
+    "2,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="109">
+    "4,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="78">
+    "6,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "8,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="33.5" y="189">
+    "Northgate"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="102.5" y="189">
+    "Harbour Vie…"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171.5" y="189">
+    "Saint Brigi…"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="240.5" y="189">
+    "Copper Beech"

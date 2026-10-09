@@ -1,0 +1,22 @@
+{
+  "chart": "HistogramChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "histogram-chart--silverpoint--blue--precision--sm",
+  "req": "REQ-400",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "histogram-chart/histogram-chart--silverpoint--blue--precision--sm.canonical.txt"
+}

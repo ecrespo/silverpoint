@@ -7,7 +7,7 @@ import { APPS } from '../playwright.config';
 import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
 
-/** The PR matrix on every PR; the full 1,782 cells when the nightly run sets `SP_MATRIX=full`. */
+/** The PR matrix on every PR; the full 2,538 cells when the nightly run sets `SP_MATRIX=full`. */
 const FULL = matrixScope() === 'full';
 const MATRIX = FULL ? ALL_FIXTURES : FIXTURES;
 /** Golden images are committed for the PR cells: the `md` + `tile` slice. */

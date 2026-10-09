@@ -47,6 +47,21 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
   VolvelleChart: { title: 'On call', badge: 'rota', footerLeft: 'day · shift · team', footerRight: 'silverpoint' },
   ChordRing: { title: 'Site journeys', badge: 'June', footerLeft: 'visitors between sections', footerRight: 'silverpoint' },
   OrbitChart: { title: 'Releases', badge: '3 years', footerLeft: 'by day of the year', footerRight: 'silverpoint' },
+  // The second catalog, wave 1 (feature-003).
+  HistogramChart: { title: 'Reading time', badge: 'n = 240', footerLeft: 'minutes', footerRight: 'silverpoint' },
+  EcdfChart: { title: 'Reading time', badge: 'by device', footerLeft: 'share at or below', footerRight: 'silverpoint' },
+  BoxPlotChart: { title: 'Response time', badge: '5 services', footerLeft: 'ms', footerRight: 'silverpoint' },
+  ViolinChart: { title: 'Response time', badge: '5 services', footerLeft: 'ms', footerRight: 'silverpoint' },
+  RidgelineChart: { title: 'Response time', badge: '5 services', footerLeft: 'ms', footerRight: 'silverpoint' },
+  BeeswarmChart: { title: 'Reading time', badge: 'n = 240', footerLeft: 'minutes, one reader each', footerRight: 'silverpoint' },
+  LollipopChart: { title: 'Loans', badge: '12 branches', footerLeft: 'this month', footerRight: 'silverpoint' },
+  DumbbellChart: { title: 'Clinic waits', badge: '2024 → 2025', footerLeft: 'minutes', footerRight: 'silverpoint' },
+  SlopeChart: { title: 'Clinic waits', badge: '2024 → 2025', footerLeft: 'minutes', footerRight: 'silverpoint' },
+  BumpChart: { title: 'League table', badge: '8 seasons', footerLeft: 'rank by points', footerRight: 'silverpoint' },
+  ErrorBarChart: { title: 'Effect estimates', badge: 'vs 0', footerLeft: 'with intervals', footerRight: 'silverpoint' },
+  IntervalChart: { title: 'Crew jobs', badge: 'Q1 2026', footerLeft: 'UTC days', footerRight: 'silverpoint' },
+  DivergingBarChart: { title: 'Survey', badge: '200 answers', footerLeft: 'share per question', footerRight: 'silverpoint' },
+  ConnectedScatterChart: { title: 'Fare and riders', badge: '14 years', footerLeft: 'fare × riders', footerRight: 'silverpoint' },
 };
 
 /**
@@ -65,7 +80,7 @@ const GROUNDS = [
  */
 function matrix(): Fixture[] {
   const fixtures: Fixture[] = [];
-  for (const { chart, req, slug } of CATALOG) {
+  for (const { chart, req, slug, required } of CATALOG) {
     for (const size of [SIZES.sm, SIZES.md, SIZES.lg]) {
       for (const { ground, substrates, fills } of GROUNDS) for (const hatchFill of fills) {
         for (const mode of ['ink', 'precision'] as const) {
@@ -77,7 +92,8 @@ function matrix(): Fixture[] {
               id,
               req,
               seed: 1592,
-              props: CARDS[chart] ?? {},
+              // A prop the type requires is passed as every use passes it; the demo ignores it (REQ-099).
+              props: { ...required, ...CARDS[chart] },
               data: null,
               canonical: `${slug}/${id}.canonical.txt`,
             });

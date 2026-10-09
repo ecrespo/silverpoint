@@ -1,0 +1,101 @@
+<svg aria-labelledby="histogram-chart--silverpoint--cream--ink--md-title histogram-chart--silverpoint--cream--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="histogram-chart--silverpoint--cream--ink--md-title">
+    "Reading time"
+  <desc id="histogram-chart--silverpoint--cream--ink--md-desc">
+    "Reading time. Histogram of 240 minutes observations in 14 bins by the Freedman–Diaconis rule, from 0 to 28; the fullest bin, 4–6, holds 57."
+  <defs>
+    <pattern height="45" id="histogram-chart--silverpoint--cream--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 132.67 C79.11 131.82, 137.26 132.86, 298 132.67 M22 132.67 C105.04 133.34, 188.04 133.52, 298 132.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 91.33 C78.79 91.66, 137.26 91.57, 298 91.33 M22 91.33 C107.33 91.54, 192.72 91.71, 298 91.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 50 C79.87 48.97, 137.26 49.14, 298 50 M22 50 C109.62 49.74, 196.71 49.9, 298 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 174 C79.55 174.15, 137.26 174.58, 298 174 M22 174 C111.22 173.28, 200.69 173.42, 298 174" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,145.07H41.71V174H22Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M22,145.07H41.71V174H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M41.71,66.53H61.43V174H41.71Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M41.71,66.53H61.43V174H41.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M61.43,56.2H81.14V174H61.43Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M61.43,56.2H81.14V174H61.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M81.14,105.8H100.86V174H81.14Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M81.14,105.8H100.86V174H81.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.86,114.07H120.57V174H100.86Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M100.86,114.07H120.57V174H100.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M120.57,128.53H140.29V174H120.57Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M120.57,128.53H140.29V174H120.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.29,151.27H160V174H140.29Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M140.29,151.27H160V174H140.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M160,155.4H179.71V174H160Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M160,155.4H179.71V174H160Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M179.71,165.73H199.43V174H179.71Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M179.71,165.73H199.43V174H179.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M199.43,167.8H219.14V174H199.43Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M199.43,167.8H219.14V174H199.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M219.14,167.8H238.86V174H219.14Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M219.14,167.8H238.86V174H219.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M238.86,171.93H258.57V174H238.86Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M238.86,171.93H258.57V174H238.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M258.57,174H278.29V174H258.57Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M258.57,174H278.29V174H258.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M278.29,169.87H298V174H278.29Z" data-paint="tile" data-role="hatch" fill="url(#histogram-chart--silverpoint--cream--ink--md-tone-2)" part="sp-ink">
+  <path d="M278.29,169.87H298V174H278.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.79,56.2A3.5,3.5,0,1,0,74.79,56.2A3.5,3.5,0,1,0,67.79,56.2Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M67.79,56.2A3.5,3.5,0,1,0,74.79,56.2A3.5,3.5,0,1,0,67.79,56.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Reading time"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "n = 240"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "minutes"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="129.67">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="88.33">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="31.86" y="138.57">
+    "14"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="51.57" y="60.03">
+    "52"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="71.29" y="49.7">
+    "57"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="91" y="99.3">
+    "33"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="110.71" y="107.57">
+    "29"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="130.43" y="122.03">
+    "22"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="150.14" y="144.77">
+    "11"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="169.86" y="148.9">
+    "9"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="189.57" y="159.23">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="209.29" y="161.3">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="229" y="161.3">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="248.71" y="165.43">
+    "1"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="288.14" y="163.37">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="22" y="189">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="81.14" y="189">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="140.29" y="189">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="199.43" y="189">
+    "18"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="258.57" y="189">
+    "24"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="298" y="189">
+    "28"

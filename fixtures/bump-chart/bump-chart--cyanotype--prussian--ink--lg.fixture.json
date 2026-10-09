@@ -1,0 +1,22 @@
+{
+  "chart": "BumpChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "bump-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-409",
+  "seed": 1592,
+  "props": {
+    "title": "League table",
+    "badge": "8 seasons",
+    "footerLeft": "rank by points",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bump-chart/bump-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

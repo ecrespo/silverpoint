@@ -93,3 +93,23 @@ describe('dashboard entry types (T-111)', () => {
     expect(dist('line-chart.js')).toMatch(/^['"]use client['"]/);
   });
 });
+
+describe('second catalog types (T-177, feature-003)', () => {
+  test('REQ-404 · a RidgelineChart without groupKey is a type error, with it type-checks', () => {
+    expect(typeErrors(`import { RidgelineChart } from '../src/ridgeline-chart';\nexport const a = <RidgelineChart />;`).join('\n')).toMatch(/groupKey/);
+    expect(typeErrors(`import { RidgelineChart } from '../src/ridgeline-chart';\nexport const a = <RidgelineChart groupKey="service" />;`)).toEqual([]);
+  }, 30_000);
+
+  test('REQ-412 · a DivergingBarChart without levels is a type error, with them type-checks', () => {
+    expect(typeErrors(`import { DivergingBarChart } from '../src/diverging-bar-chart';\nexport const a = <DivergingBarChart />;`).join('\n')).toMatch(/levels/);
+    expect(typeErrors(`import { DivergingBarChart } from '../src/diverging-bar-chart';\nexport const a = <DivergingBarChart levels={['No', 'Yes']} />;`)).toEqual([]);
+  }, 30_000);
+
+  test('REQ-444 · the server entries of the second catalog type-check and reject onActiveChange', () => {
+    const errors = typeErrors(`
+      import { HistogramChart } from '../src/server/histogram-chart';
+      export const a = <HistogramChart id="x" onActiveChange={() => {}} />;
+    `);
+    expect(errors.join('\n')).toMatch(/onActiveChange/);
+  }, 30_000);
+});

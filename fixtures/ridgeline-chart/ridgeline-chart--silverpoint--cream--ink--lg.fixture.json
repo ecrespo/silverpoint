@@ -1,0 +1,23 @@
+{
+  "chart": "RidgelineChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "ridgeline-chart--silverpoint--cream--ink--lg",
+  "req": "REQ-404",
+  "seed": 1592,
+  "props": {
+    "groupKey": "service",
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ridgeline-chart/ridgeline-chart--silverpoint--cream--ink--lg.canonical.txt"
+}

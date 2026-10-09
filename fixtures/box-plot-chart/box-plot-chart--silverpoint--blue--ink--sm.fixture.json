@@ -1,0 +1,22 @@
+{
+  "chart": "BoxPlotChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "box-plot-chart--silverpoint--blue--ink--sm",
+  "req": "REQ-402",
+  "seed": 1592,
+  "props": {
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "box-plot-chart/box-plot-chart--silverpoint--blue--ink--sm.canonical.txt"
+}

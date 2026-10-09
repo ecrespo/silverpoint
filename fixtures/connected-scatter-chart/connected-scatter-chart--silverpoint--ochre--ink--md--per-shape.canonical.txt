@@ -1,0 +1,88 @@
+<svg aria-labelledby="connected-scatter-chart--silverpoint--ochre--ink--md--per-shape-title connected-scatter-chart--silverpoint--ochre--ink--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="connected-scatter-chart--silverpoint--ochre--ink--md--per-shape-title">
+    "Fare and riders"
+  <desc id="connected-scatter-chart--silverpoint--ochre--ink--md--per-shape-desc">
+    "Fare and riders. A path through 14 points in data order, fare across and riders up; it starts at 1.5, 39.8 and ends at 3.05, 59.6."
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M25.5 147.1 C81.15 146.25, 137.86 147.3, 294.5 147.1 M25.5 147.1 C106.43 147.77, 187.32 147.95, 294.5 147.1" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M25.5 123.7 C80.83 124.04, 137.86 123.94, 294.5 123.7 M25.5 123.7 C108.67 123.91, 191.9 124.08, 294.5 123.7" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M25.5 100.3 C81.92 99.27, 137.85 99.44, 294.5 100.3 M25.5 100.3 C110.91 100.04, 195.78 100.2, 294.5 100.3" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M25.5 76.9 C81.59 77.05, 137.84 77.49, 294.5 76.9 M25.5 76.9 C112.44 76.18, 199.65 76.33, 294.5 76.9" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M25.5 53.5 C81.27 53.69, 137.83 52.98, 294.5 53.5 M25.5 53.5 C114.68 53.46, 204.23 53.59, 294.5 53.5" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M25.5 170.5 C82.36 170.46, 137.82 170.02, 294.5 170.5 M25.5 170.5 C116.93 170.7, 208.11 170.12, 294.5 170.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M41.9,148.04L57.06,138.68L69.69,134.46L86.11,125.1L101.26,119.49L116.42,111.53L197.25,85.79L158.1,61.92L88.63,72.69L137.89,106.85L193.46,75.96L209.88,70.82L222.51,62.39L237.67,55.37" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M47.65,148.01L49.48,143.36L44.5,142.91" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M75.91,134.37L77.9,129.78L72.93,129.16" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M90.97,126.5L93.68,122.3L88.89,120.87" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M106.69,120.03L108.84,115.51L103.9,114.71" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M153.93,102.73L156.83,98.66L152.11,97.02" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M182.65,73.38L177.67,73.86L179.53,78.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M126.86,63.73L123.36,67.31L127.78,69.66" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M108.26,89.96L113.26,89.77L111.68,85.03" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.64,95.97L165.67,91.41L160.72,90.73" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M198.75,77.45L201.67,73.39L196.96,71.72" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M214.53,71.32L216.19,66.6L211.2,66.33" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M227.72,63.29L230.09,58.88L225.2,57.84" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M39.4,148.04A2.5,2.5,0,1,0,44.4,148.04A2.5,2.5,0,1,0,39.4,148.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M54.56,138.68A2.5,2.5,0,1,0,59.56,138.68A2.5,2.5,0,1,0,54.56,138.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.19,134.46A2.5,2.5,0,1,0,72.19,134.46A2.5,2.5,0,1,0,67.19,134.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M83.61,125.1A2.5,2.5,0,1,0,88.61,125.1A2.5,2.5,0,1,0,83.61,125.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M98.76,119.49A2.5,2.5,0,1,0,103.76,119.49A2.5,2.5,0,1,0,98.76,119.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.92,111.53A2.5,2.5,0,1,0,118.92,111.53A2.5,2.5,0,1,0,113.92,111.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.75,85.79A2.5,2.5,0,1,0,199.75,85.79A2.5,2.5,0,1,0,194.75,85.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.6,61.92A2.5,2.5,0,1,0,160.6,61.92A2.5,2.5,0,1,0,155.6,61.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86.13,72.69A2.5,2.5,0,1,0,91.13,72.69A2.5,2.5,0,1,0,86.13,72.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M135.39,106.85A2.5,2.5,0,1,0,140.39,106.85A2.5,2.5,0,1,0,135.39,106.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M190.96,75.96A2.5,2.5,0,1,0,195.96,75.96A2.5,2.5,0,1,0,190.96,75.96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.38,70.82A2.5,2.5,0,1,0,212.38,70.82A2.5,2.5,0,1,0,207.38,70.82Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M220.01,62.39A2.5,2.5,0,1,0,225.01,62.39A2.5,2.5,0,1,0,220.01,62.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M235.17,55.37A2.5,2.5,0,1,0,240.17,55.37A2.5,2.5,0,1,0,235.17,55.37Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M234.17,55.37A3.5,3.5,0,1,0,241.17,55.37A3.5,3.5,0,1,0,234.17,55.37Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M234.17,55.37A3.5,3.5,0,1,0,241.17,55.37A3.5,3.5,0,1,0,234.17,55.37Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Fare and riders"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "14 years"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "fare × riders"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="25.5" y="144.1">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="25.5" y="120.7">
+    "45"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="25.5" y="97.3">
+    "50"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="25.5" y="73.9">
+    "55"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="25.5" y="50.5">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="41.9" y="189">
+    "1.5"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="105.05" y="189">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="168.2" y="189">
+    "2.5"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="231.35" y="189">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="294.5" y="189">
+    "3.5"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="46.9" y="143.04">
+    "2012"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="242.67" y="50.37">
+    "2025"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="74.69" y="129.46">
+    "2014"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="106.26" y="114.49">
+    "2016"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="202.25" y="80.79">
+    "2018"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163.1" y="56.92">
+    "2019"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="93.63" y="67.69">
+    "2020"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="142.89" y="101.85">
+    "2021"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="214.88" y="65.82">
+    "2023"

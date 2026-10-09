@@ -35,6 +35,22 @@ import {
   type Datum,
   type RecipeContext,
 } from '../src';
+import {
+  beeswarmChart,
+  boxPlotChart,
+  bumpChart,
+  connectedScatterChart,
+  divergingBarChart,
+  dumbbellChart,
+  ecdfChart,
+  errorBarChart,
+  histogramChart,
+  intervalChart,
+  lollipopChart,
+  ridgelineChart,
+  slopeChart,
+  violinChart,
+} from '../src/catalog';
 
 export const POINTS = 100;
 
@@ -62,7 +78,7 @@ const bench = (recipe: ChartRecipe<never>, props: Record<string, unknown>): Benc
 /** Four sparkline rows of 25 points: 100 points in all. */
 const SPARKLINE_ROWS = 4;
 
-export const HUNDRED_POINTS: Readonly<Record<string, BenchCase>> = {
+const FIRST_HUNDRED: Readonly<Record<string, BenchCase>> = {
   LineChart: bench(lineChart, { data: rows(POINTS, (i) => ({ hour: label(i), hits: wave(i) })), xKey: 'hour', valueKey: 'hits' }),
   StepChart: bench(stepChart, { data: rows(POINTS, (i) => ({ x: label(i), value: wave(i) })) }),
   SparklineRows: bench(sparklineRows, {
@@ -114,6 +130,43 @@ export const POLAR_AT_CEILING: Readonly<Record<string, BenchCase>> = {
   OrbitChart: bench(orbitChart, { data: [0, 1, 2, 3].map((k) => ({ label: `O${k}`, markers: rows(POINTS / 4, (i) => ({ period: i / 25, value: 1 + ((i + k) % 7) })) })) }),
 };
 
+/** The second catalog's wave 1 at 100 points (feature-003, REQ-445: 2 ms, unchanged). */
+const SECOND_HUNDRED: Readonly<Record<string, BenchCase>> = {
+  LollipopChart: bench(lollipopChart, { data: rows(POINTS, (i) => ({ x: label(i), value: wave(i) })) }),
+  DumbbellChart: bench(dumbbellChart, { data: rows(POINTS, (i) => ({ label: label(i), start: wave(i), end: wave(i, 1) })) }),
+  SlopeChart: bench(slopeChart, { data: rows(POINTS, (i) => ({ label: label(i), start: wave(i), end: wave(i, 1) })) }),
+  BumpChart: bench(bumpChart, { data: rows(POINTS, (i) => ({ x: Math.floor(i / 10), series: `S${i % 10}`, value: wave(i) })) }),
+  ErrorBarChart: bench(errorBarChart, { data: rows(POINTS, (i) => ({ label: label(i), estimate: wave(i), low: wave(i) - 8, high: wave(i) + 5 })) }),
+  IntervalChart: bench(intervalChart, { data: rows(POINTS, (i) => ({ lane: `L${i % 8}`, start: i, end: i + 3 + (i % 5) })) }),
+  DivergingBarChart: bench(divergingBarChart, {
+    data: rows(POINTS / 5, (i) => ({ label: label(i), a: wave(i), b: wave(i, 1), c: wave(i, 2), d: wave(i, 3), e: wave(i, 4) })),
+    levels: ['a', 'b', 'c', 'd', 'e'],
+  }),
+  ConnectedScatterChart: bench(connectedScatterChart, { data: rows(POINTS, (i) => ({ x: wave(i), y: wave(i, 2) })) }),
+  EcdfChart: bench(ecdfChart, { data: rows(POINTS, (i) => ({ value: wave(i, i % 3), group: `G${i % 2}` })), groupKey: 'group' }),
+  BeeswarmChart: bench(beeswarmChart, { data: rows(POINTS, (i) => ({ value: wave(i, i % 3) })) }),
+};
+/** Every cartesian recipe at 100 points, both catalogs. */
+export const HUNDRED_POINTS: Readonly<Record<string, BenchCase>> = { ...FIRST_HUNDRED, ...SECOND_HUNDRED };
+
+/** Observations a statistic chart is timed over (REQ-445: 4 ms for 1 000). */
+export const OBSERVATIONS = 1000;
+const observations = (count: number, groups: number) => rows(count, (i) => ({ value: wave(i, i % 3), group: `G${i % groups}` }));
+
+/**
+ * The statistic charts of wave 1 whose drawing does not grow with the observations — bins, boxes,
+ * densities — over 1 000 of them, timed against 4 ms (`stats · …`, REQ-445). The ECDF and the
+ * beeswarm draw a mark per observation, so they are timed as every point chart is, at 100 against
+ * 2 ms (in `HUNDRED_POINTS`); their statistics alone — the ECDF of 1 000, the packing of 500 — are
+ * timed against 4 ms in `stats.bench.ts`.
+ */
+export const STATISTIC_CHARTS: Readonly<Record<string, BenchCase>> = {
+  HistogramChart: bench(histogramChart, { data: observations(OBSERVATIONS, 1) }),
+  BoxPlotChart: bench(boxPlotChart, { data: observations(OBSERVATIONS, 5), groupKey: 'group' }),
+  ViolinChart: bench(violinChart, { data: observations(OBSERVATIONS, 5), groupKey: 'group' }),
+  RidgelineChart: bench(ridgelineChart, { data: observations(OBSERVATIONS, 5), groupKey: 'group' }),
+};
+
 /** Points a dataset draws: rows times the series each row carries. */
 export function pointCount(chart: string, props: CommonChartProps): number {
   const data = (props as { data?: readonly Datum[] }).data ?? [];
@@ -121,5 +174,7 @@ export function pointCount(chart: string, props: CommonChartProps): number {
   const keys = (props as { keys?: readonly string[] }).keys;
   if (keys) return data.length * keys.length;
   if (chart === 'ComposedChart') return data.length * 2;
+  const levels = (props as { levels?: readonly string[] }).levels;
+  if (levels) return data.length * levels.length;
   return data.length;
 }

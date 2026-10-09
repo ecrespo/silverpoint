@@ -1,0 +1,22 @@
+{
+  "chart": "SlopeChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "slope-chart--silverpoint--cream--ink--sm--per-shape",
+  "req": "REQ-408",
+  "seed": 1592,
+  "props": {
+    "title": "Clinic waits",
+    "badge": "2024 → 2025",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "slope-chart/slope-chart--silverpoint--cream--ink--sm--per-shape.canonical.txt"
+}

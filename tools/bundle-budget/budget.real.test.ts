@@ -121,4 +121,21 @@ describe('bundle budgets (size-limit)', () => {
       rmSync(dir, { recursive: true, force: true });
     }
   }, 120_000);
+
+  /**
+   * REQ-444 (feature-003, API Spec delta §12): the second catalog's statistics, layouts and
+   * keyboard models must shake out of every existing chart's build. Each one-chart build is held to
+   * its size in `0.3.0` (`one-chart-0.3.0.json`, measured on a v0.3.0 worktree) within 0.1 KB.
+   */
+  test('REQ-444 · no existing one-chart build grows by more than 0.1 KB against 0.3.0', () => {
+    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.3.0.json'), 'utf8')) as { sizes: Record<string, number> };
+    const sizes = new Map(sizeLimit().results.map((r) => [r.name, r.size]));
+    const grown = Object.entries(record.sizes).flatMap(([name, before]) => {
+      const now = sizes.get(name);
+      if (now === undefined) return [`${name}: no longer measured`];
+      return now - before > 100 ? [`${name}: ${before} B → ${now} B (+${now - before} B)`] : [];
+    });
+    expect(Object.keys(record.sizes).length).toBeGreaterThanOrEqual(33 * 4);
+    expect(grown).toEqual([]);
+  }, 120_000);
 });

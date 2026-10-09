@@ -108,9 +108,14 @@ export function fixtureProps(fixture: Fixture): CommonChartProps {
   };
 }
 
-/** The canonical render of a fixture, computed by the core pipeline and normalised. */
-export function canonicalFor(fixture: Fixture): string {
+/** The core pipeline's own string for a fixture, before normalisation: what a browser must match byte for byte (REQ-435). */
+export function coreSvgFor(fixture: Fixture): string {
   const recipe = RECIPES[fixture.chart];
   if (!recipe) throw new Error(`No recipe for ${fixture.chart}`);
-  return normalizeSvg(toSVGString(renderChart(recipe, fixtureProps(fixture), { id: fixture.id })));
+  return toSVGString(renderChart(recipe, fixtureProps(fixture), { id: fixture.id }));
+}
+
+/** The canonical render of a fixture, computed by the core pipeline and normalised. */
+export function canonicalFor(fixture: Fixture): string {
+  return normalizeSvg(coreSvgFor(fixture));
 }

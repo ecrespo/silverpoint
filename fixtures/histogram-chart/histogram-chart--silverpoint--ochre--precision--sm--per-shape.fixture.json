@@ -1,0 +1,22 @@
+{
+  "chart": "HistogramChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "histogram-chart--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-400",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "histogram-chart/histogram-chart--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

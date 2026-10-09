@@ -5,7 +5,7 @@ import { cardLayout } from '../shared/card';
 import { cartesianPlot, legend } from '../shared/cartesian';
 import { warnValue } from '../shared/cells';
 import { checkCeiling, checkQuantiles, readObservations } from '../shared/contracts';
-import { accessorName, circlePath, formatNumber } from '../shared/format';
+import { accessorName, circlePath, formatNumber, numberFormatter } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { ecdf, quantile, sortedValues, type EcdfStep } from '../shared/stats';
 import { ECDF_CHART_DEMO, ECDF_CHART_DEMO_KEYS } from './demo';
@@ -46,14 +46,22 @@ function buildEcdfChart(props: EcdfChartProps, context: RecipeContext): ChartMod
 
   // One row per distinct value across the groups; each cell is that group's share at or below it.
   const values = sortedValues([...new Set(groups.flatMap((g) => g.steps.map((s) => s.value)))]);
-  const shareAt = (group: Group, value: number) => {
+  const row = new Map(values.map((v, i) => [v, i]));
+  // Each group's share at every row, in one pass: values and steps are both sorted (REQ-445).
+  const shares = groups.map((group) => {
+    let k = 0;
     let p = 0;
-    for (const step of group.steps) if (step.value <= value) p = step.p;
-    return p;
-  };
+    return values.map((v) => {
+      while (k < group.steps.length && (group.steps[k] as EcdfStep).value <= v) p = (group.steps[k++] as EcdfStep).p;
+      return p;
+    });
+  });
+  // A row per distinct value: each column's formatter is resolved once (REQ-445).
+  const value = numberFormatter(locale, numberFormat);
+  const percent = numberFormatter(locale, PERCENT);
   const base = modelBase(CHART, props, context, 'Cumulative distribution', {
     columns: [valueName, ...groups.map((g) => g.name)],
-    rows: values.map((v) => [formatNumber(v, locale, numberFormat), ...groups.map((g) => formatNumber(shareAt(g, v), locale, PERCENT))]),
+    rows: values.map((v, i) => [value(v), ...shares.map((column) => percent(column[i] as number))]),
   });
   const size = measure(base, props, context);
   if ('deferred' in size) return size.deferred;
@@ -85,23 +93,23 @@ function buildEcdfChart(props: EcdfChartProps, context: RecipeContext): ChartMod
   // A quantile marker is a dotted rule across the plot at its share.
   for (const p of markers) strokes.push({ d: `M${plot.x},${y(p)}H${right}`, role: 'ornament', part: 'rule', dash: 'dotted' });
 
-  groups.forEach((group, row) => {
+  groups.forEach((group, series) => {
     // The step function: zero until the first value, up at each value, held to the end.
     let d = '';
     group.steps.forEach((step, i) => {
       d += i === 0 ? `M${x(step.value)},${bottom}V${y(step.p)}` : `H${x(step.value)}V${y(step.p)}`;
     });
     d += `H${right}`;
-    strokes.push({ d, role: 'encoding', part: row === 0 ? 'ink' : 'ink-secondary', ...(row === 0 ? {} : { dash: 'dotted' as const }) });
+    strokes.push({ d, role: 'encoding', part: series === 0 ? 'ink' : 'ink-secondary', ...(series === 0 ? {} : { dash: 'dotted' as const }) });
     group.steps.forEach((step, column) => {
       hitAreas.push({
         seriesKey: group.name,
-        index: values.indexOf(step.value),
+        index: row.get(step.value) as number,
         datum: Object.freeze({ value: step.value, p: step.p, group: group.name }),
         value: step.p,
         x: x(step.value),
         y: y(step.p),
-        cell: { column, row },
+        cell: { column, row: series },
       });
     });
   });

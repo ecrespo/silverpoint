@@ -1,0 +1,22 @@
+{
+  "chart": "LollipopChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "lollipop-chart--silverpoint--ochre--ink--md--per-shape",
+  "req": "REQ-406",
+  "seed": 1592,
+  "props": {
+    "title": "Loans",
+    "badge": "12 branches",
+    "footerLeft": "this month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "lollipop-chart/lollipop-chart--silverpoint--ochre--ink--md--per-shape.canonical.txt"
+}

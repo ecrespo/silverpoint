@@ -1,0 +1,22 @@
+{
+  "chart": "BoxPlotChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "box-plot-chart--silverpoint--ochre--precision--lg--per-shape",
+  "req": "REQ-402",
+  "seed": 1592,
+  "props": {
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "box-plot-chart/box-plot-chart--silverpoint--ochre--precision--lg--per-shape.canonical.txt"
+}

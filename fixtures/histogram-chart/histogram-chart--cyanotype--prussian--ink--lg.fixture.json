@@ -1,0 +1,22 @@
+{
+  "chart": "HistogramChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "histogram-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-400",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "histogram-chart/histogram-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

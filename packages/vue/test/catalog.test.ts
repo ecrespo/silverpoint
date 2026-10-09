@@ -28,12 +28,13 @@ afterEach(() => {
 
 describe.each(AFTER_LINE_CHART.map((e) => [`Sp${e.chart}`, e] as const))('%s', (_name, entry) => {
   const variants = {
-    'demo, ink': { ...fixed, mode: 'ink', title: entry.chart },
-    'demo, precision': { ...fixed, mode: 'precision' },
-    'consumer data': { ...fixed, ...entry.sample },
-    bare: { ...fixed, chrome: 'bare' },
+    // A prop the type requires is passed as every use passes it; the demo ignores it (REQ-099).
+    'demo, ink': { ...fixed, ...entry.required, mode: 'ink', title: entry.chart },
+    'demo, precision': { ...fixed, ...entry.required, mode: 'precision' },
+    'consumer data': { ...fixed, ...entry.required, ...entry.sample },
+    bare: { ...fixed, ...entry.required, chrome: 'bare' },
     // REQ-028: a weight ground's toned shapes carry `data-weight`, which the template must map.
-    cyanotype: { ...fixed, ground: 'cyanotype' },
+    cyanotype: { ...fixed, ...entry.required, ground: 'cyanotype' },
   } as const;
 
   test('REQ-100 · exported from the package root', () => {

@@ -1,0 +1,22 @@
+{
+  "chart": "DumbbellChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "dumbbell-chart--silverpoint--blue--ink--lg--per-shape",
+  "req": "REQ-407",
+  "seed": 1592,
+  "props": {
+    "title": "Clinic waits",
+    "badge": "2024 → 2025",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "dumbbell-chart/dumbbell-chart--silverpoint--blue--ink--lg--per-shape.canonical.txt"
+}

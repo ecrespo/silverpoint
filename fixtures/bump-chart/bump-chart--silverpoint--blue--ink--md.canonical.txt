@@ -1,0 +1,109 @@
+<svg aria-labelledby="bump-chart--silverpoint--blue--ink--md-title bump-chart--silverpoint--blue--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="bump-chart--silverpoint--blue--ink--md-title">
+    "League table"
+  <desc id="bump-chart--silverpoint--blue--ink--md-desc">
+    "League table. Bump chart of the rank of 6 series over 8 season values, rank 1 the highest points, competition ranking with ties shared; Badger leads at 2025."
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M62.4 60.33 C102.66 59.4, 144.27 60.74, 257.6 60.33 M62.4 60.33 C121.05 61.01, 179.65 61.24, 257.6 60.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.4 81 C102.2 81.38, 144.17 81.25, 257.6 81 M62.4 81 C122.78 81.21, 183.25 81.42, 257.6 81" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.4 101.67 C103.55 100.5, 144.07 100.71, 257.6 101.67 M62.4 101.67 C124.52 101.41, 185.94 101.61, 257.6 101.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.4 122.33 C103.09 122.46, 143.98 123.01, 257.6 122.33 M62.4 122.33 C125.35 121.6, 188.64 121.78, 257.6 122.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.4 143 C102.64 143.38, 143.88 142.47, 257.6 143 M62.4 143 C127.08 142.85, 192.23 143.02, 257.6 143" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M62.4 163.67 C103.98 163.55, 143.78 162.98, 257.6 163.67 M62.4 163.67 C128.82 163.95, 194.92 163.21, 257.6 163.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M76.68,101.67C88.59,101.67,88.59,101.67,100.49,101.67C112.39,101.67,112.39,81,124.29,81C136.2,81,136.2,60.33,148.1,60.33C160,60.33,160,81,171.9,81C183.81,81,183.81,60.33,195.71,60.33C207.61,60.33,207.61,81,219.51,81C231.42,81,231.42,81,243.32,81" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,101.67A3,3,0,1,0,79.68,101.67A3,3,0,1,0,73.68,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,101.67A3,3,0,1,0,103.49,101.67A3,3,0,1,0,97.49,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,81A3,3,0,1,0,127.29,81A3,3,0,1,0,121.29,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,60.33A3,3,0,1,0,151.1,60.33A3,3,0,1,0,145.1,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,81A3,3,0,1,0,174.9,81A3,3,0,1,0,168.9,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,60.33A3,3,0,1,0,198.71,60.33A3,3,0,1,0,192.71,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,81A3,3,0,1,0,222.51,81A3,3,0,1,0,216.51,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,81A3,3,0,1,0,246.32,81A3,3,0,1,0,240.32,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.68,143C88.59,143,88.59,143,100.49,143C112.39,143,112.39,143,124.29,143C136.2,143,136.2,81,148.1,81C160,81,160,143,171.9,143C183.81,143,183.81,122.33,195.71,122.33C207.61,122.33,207.61,122.33,219.51,122.33C231.42,122.33,231.42,122.33,243.32,122.33" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,143A3,3,0,1,0,79.68,143A3,3,0,1,0,73.68,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,143A3,3,0,1,0,103.49,143A3,3,0,1,0,97.49,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,143A3,3,0,1,0,127.29,143A3,3,0,1,0,121.29,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,81A3,3,0,1,0,151.1,81A3,3,0,1,0,145.1,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,143A3,3,0,1,0,174.9,143A3,3,0,1,0,168.9,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,122.33A3,3,0,1,0,198.71,122.33A3,3,0,1,0,192.71,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,122.33A3,3,0,1,0,222.51,122.33A3,3,0,1,0,216.51,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,122.33A3,3,0,1,0,246.32,122.33A3,3,0,1,0,240.32,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.68,163.67C88.59,163.67,88.59,163.67,100.49,163.67C112.39,163.67,112.39,163.67,124.29,163.67C136.2,163.67,136.2,163.67,148.1,163.67C160,163.67,160,163.67,171.9,163.67C183.81,163.67,183.81,143,195.71,143C207.61,143,207.61,143,219.51,143C231.42,143,231.42,143,243.32,143" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,163.67A3,3,0,1,0,79.68,163.67A3,3,0,1,0,73.68,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,163.67A3,3,0,1,0,103.49,163.67A3,3,0,1,0,97.49,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,163.67A3,3,0,1,0,127.29,163.67A3,3,0,1,0,121.29,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,163.67A3,3,0,1,0,151.1,163.67A3,3,0,1,0,145.1,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,163.67A3,3,0,1,0,174.9,163.67A3,3,0,1,0,168.9,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,143A3,3,0,1,0,198.71,143A3,3,0,1,0,192.71,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,143A3,3,0,1,0,222.51,143A3,3,0,1,0,216.51,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,143A3,3,0,1,0,246.32,143A3,3,0,1,0,240.32,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.68,122.33C88.59,122.33,88.59,122.33,100.49,122.33C112.39,122.33,112.39,122.33,124.29,122.33C136.2,122.33,136.2,143,148.1,143C160,143,160,122.33,171.9,122.33C183.81,122.33,183.81,163.67,195.71,163.67C207.61,163.67,207.61,163.67,219.51,163.67C231.42,163.67,231.42,163.67,243.32,163.67" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,122.33A3,3,0,1,0,79.68,122.33A3,3,0,1,0,73.68,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,122.33A3,3,0,1,0,103.49,122.33A3,3,0,1,0,97.49,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,122.33A3,3,0,1,0,127.29,122.33A3,3,0,1,0,121.29,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,143A3,3,0,1,0,151.1,143A3,3,0,1,0,145.1,143Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,122.33A3,3,0,1,0,174.9,122.33A3,3,0,1,0,168.9,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,163.67A3,3,0,1,0,198.71,163.67A3,3,0,1,0,192.71,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,163.67A3,3,0,1,0,222.51,163.67A3,3,0,1,0,216.51,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,163.67A3,3,0,1,0,246.32,163.67A3,3,0,1,0,240.32,163.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.68,60.33C88.59,60.33,88.59,60.33,100.49,60.33C112.39,60.33,112.39,60.33,124.29,60.33C136.2,60.33,136.2,122.33,148.1,122.33C160,122.33,160,60.33,171.9,60.33C183.81,60.33,183.81,81,195.71,81C207.61,81,207.61,60.33,219.51,60.33C231.42,60.33,231.42,60.33,243.32,60.33" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,60.33A3,3,0,1,0,79.68,60.33A3,3,0,1,0,73.68,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,60.33A3,3,0,1,0,103.49,60.33A3,3,0,1,0,97.49,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,60.33A3,3,0,1,0,127.29,60.33A3,3,0,1,0,121.29,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,122.33A3,3,0,1,0,151.1,122.33A3,3,0,1,0,145.1,122.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,60.33A3,3,0,1,0,174.9,60.33A3,3,0,1,0,168.9,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,81A3,3,0,1,0,198.71,81A3,3,0,1,0,192.71,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,60.33A3,3,0,1,0,222.51,60.33A3,3,0,1,0,216.51,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,60.33A3,3,0,1,0,246.32,60.33A3,3,0,1,0,240.32,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.68,81C88.59,81,88.59,81,100.49,81C112.39,81,112.39,101.67,124.29,101.67C136.2,101.67,136.2,101.67,148.1,101.67C160,101.67,160,101.67,171.9,101.67C183.81,101.67,183.81,101.67,195.71,101.67C207.61,101.67,207.61,101.67,219.51,101.67C231.42,101.67,231.42,101.67,243.32,101.67" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M73.68,81A3,3,0,1,0,79.68,81A3,3,0,1,0,73.68,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M97.49,81A3,3,0,1,0,103.49,81A3,3,0,1,0,97.49,81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M121.29,101.67A3,3,0,1,0,127.29,101.67A3,3,0,1,0,121.29,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.1,101.67A3,3,0,1,0,151.1,101.67A3,3,0,1,0,145.1,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.9,101.67A3,3,0,1,0,174.9,101.67A3,3,0,1,0,168.9,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.71,101.67A3,3,0,1,0,198.71,101.67A3,3,0,1,0,192.71,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M216.51,101.67A3,3,0,1,0,222.51,101.67A3,3,0,1,0,216.51,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.32,101.67A3,3,0,1,0,246.32,101.67A3,3,0,1,0,240.32,101.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M239.82,60.33A3.5,3.5,0,1,0,246.82,60.33A3.5,3.5,0,1,0,239.82,60.33Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M239.82,60.33A3.5,3.5,0,1,0,246.82,60.33A3.5,3.5,0,1,0,239.82,60.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "League table"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "8 seasons"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "rank by points"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="76.68" y="189">
+    "2018"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="124.29" y="189">
+    "2020"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171.9" y="189">
+    "2022"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="219.51" y="189">
+    "2024"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="104.67">
+    "Kestrel"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="84">
+    "Kestrel"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="146">
+    "Otter"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="125.33">
+    "Otter"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="166.67">
+    "Lynx"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="146">
+    "Lynx"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="125.33">
+    "Heron"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="166.67">
+    "Heron"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="63.33">
+    "Badger"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="63.33">
+    "Badger"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="69.68" y="84">
+    "Marten"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="250.32" y="104.67">
+    "Marten"

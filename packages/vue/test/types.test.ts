@@ -58,7 +58,10 @@ describe('Phase 1 component types', () => {
     expect(vueProps).toEqual(interfaceKeys(join(repo, 'packages/core/src/types/props.ts'), entry.propsInterface));
   });
 
-  const all = (handler: string) => AFTER_LINE_CHART.map((e) => `<Sp${e.chart} @active-change="${handler}" />`).join('');
+  // A required prop is bound as every use must bind it (the catalog's `required`).
+  const bound = (e: (typeof AFTER_LINE_CHART)[number]) =>
+    Object.entries(e.required ?? {}).map(([name, value]) => ` :${name.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}='${JSON.stringify(value)}'`).join('');
+  const all = (handler: string) => AFTER_LINE_CHART.map((e) => `<Sp${e.chart}${bound(e)} @active-change="${handler}" />`).join('');
 
   test('REQ-108 · every chart types @active-change to ActiveItem | null', () => {
     expect(vueTypeErrors(all('onItem'))).toBe('');
@@ -67,6 +70,18 @@ describe('Phase 1 component types', () => {
   test('REQ-108 · on every chart, a handler expecting another payload is a type error', () => {
     const errors = vueTypeErrors(all('onNumber'));
     expect(errors.match(/error TS/g)?.length ?? 0).toBeGreaterThanOrEqual(AFTER_LINE_CHART.length);
+  }, 60_000);
+});
+
+describe('second catalog types (T-177, feature-003)', () => {
+  test('REQ-404 · an SpRidgelineChart without group-key is a type error, with it type-checks', () => {
+    expect(vueTypeErrors('<SpRidgelineChart />')).toMatch(/groupKey/);
+    expect(vueTypeErrors(`<SpRidgelineChart group-key="service" />`)).toBe('');
+  }, 60_000);
+
+  test('REQ-412 · an SpDivergingBarChart without levels is a type error, with them type-checks', () => {
+    expect(vueTypeErrors('<SpDivergingBarChart />')).toMatch(/levels/);
+    expect(vueTypeErrors(`<SpDivergingBarChart :levels="['No', 'Yes']" />`)).toBe('');
   }, 60_000);
 });
 

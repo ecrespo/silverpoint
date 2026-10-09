@@ -1,0 +1,22 @@
+{
+  "chart": "ErrorBarChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "error-bar-chart--silverpoint--ochre--precision--lg",
+  "req": "REQ-410",
+  "seed": 1592,
+  "props": {
+    "title": "Effect estimates",
+    "badge": "vs 0",
+    "footerLeft": "with intervals",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "error-bar-chart/error-bar-chart--silverpoint--ochre--precision--lg.canonical.txt"
+}

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test } from 'vitest';
 import { __setDiagnosticSink, type SpCode } from '../src';
-import { BENCH_CONTEXT, HUNDRED_POINTS, POLAR_AT_CEILING, pointCount } from '../bench/hundred-points';
+import { BENCH_CONTEXT, HUNDRED_POINTS, OBSERVATIONS, POLAR_AT_CEILING, STATISTIC_CHARTS, pointCount } from '../bench/hundred-points';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -29,6 +29,17 @@ describe('100-point benchmark datasets', () => {
         'StepChart',
         'StreamChart',
         'WaterfallChart',
+        // The second catalog's wave 1 (feature-003).
+        'LollipopChart',
+        'DumbbellChart',
+        'SlopeChart',
+        'BumpChart',
+        'ErrorBarChart',
+        'IntervalChart',
+        'DivergingBarChart',
+        'ConnectedScatterChart',
+        'EcdfChart',
+        'BeeswarmChart',
       ].sort(),
     );
   });
@@ -63,6 +74,31 @@ describe('polar benchmark datasets', () => {
     expect(model.chart).toBe(chart);
     expect(model.status).toBe('ready');
     expect(model.geometry.hitAreas.length).toBeGreaterThan(0);
+    expect(seen).toEqual([]);
+  });
+});
+
+/**
+ * The second catalog's wave 1 (REQ-445): a chart whose drawing does not grow with the observations
+ * is timed over 1 000 of them against 4 ms (`stats · …`); the others, the ECDF and the beeswarm
+ * included, at 100 points against the 2 ms of every cartesian chart.
+ */
+describe('second catalog benchmark datasets (T-178)', () => {
+  test('REQ-445 · every wave-1 recipe has a dataset, the statistic charts at 1 000 observations', () => {
+    expect(Object.keys(STATISTIC_CHARTS).sort()).toEqual(['BoxPlotChart', 'HistogramChart', 'RidgelineChart', 'ViolinChart']);
+    for (const [chart, { props }] of Object.entries(STATISTIC_CHARTS)) expect(pointCount(chart, props)).toBe(OBSERVATIONS);
+    expect(Object.keys(HUNDRED_POINTS)).toEqual(
+      // The ECDF and the beeswarm draw a mark per observation: timed as point charts.
+      expect.arrayContaining(['EcdfChart', 'BeeswarmChart', 'LollipopChart', 'DumbbellChart', 'SlopeChart', 'BumpChart', 'ErrorBarChart', 'IntervalChart', 'DivergingBarChart', 'ConnectedScatterChart']),
+    );
+  });
+
+  test.each(Object.entries(STATISTIC_CHARTS))('REQ-445 · %s: a ready model, no diagnostic', (chart, { recipe, props }) => {
+    const seen: SpCode[] = [];
+    restore = __setDiagnosticSink((code) => seen.push(code));
+    const model = recipe.build(props, BENCH_CONTEXT);
+    expect(model.chart).toBe(chart);
+    expect(model.status).toBe('ready');
     expect(seen).toEqual([]);
   });
 });

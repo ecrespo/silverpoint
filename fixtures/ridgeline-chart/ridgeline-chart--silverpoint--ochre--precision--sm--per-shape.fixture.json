@@ -1,0 +1,23 @@
+{
+  "chart": "RidgelineChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "ridgeline-chart--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-404",
+  "seed": 1592,
+  "props": {
+    "groupKey": "service",
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ridgeline-chart/ridgeline-chart--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

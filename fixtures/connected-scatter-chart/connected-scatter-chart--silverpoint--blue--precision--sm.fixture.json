@@ -1,0 +1,22 @@
+{
+  "chart": "ConnectedScatterChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "connected-scatter-chart--silverpoint--blue--precision--sm",
+  "req": "REQ-413",
+  "seed": 1592,
+  "props": {
+    "title": "Fare and riders",
+    "badge": "14 years",
+    "footerLeft": "fare × riders",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "connected-scatter-chart/connected-scatter-chart--silverpoint--blue--precision--sm.canonical.txt"
+}

@@ -1,0 +1,22 @@
+{
+  "chart": "IntervalChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "interval-chart--silverpoint--blue--precision--lg",
+  "req": "REQ-411",
+  "seed": 1592,
+  "props": {
+    "title": "Crew jobs",
+    "badge": "Q1 2026",
+    "footerLeft": "UTC days",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "interval-chart/interval-chart--silverpoint--blue--precision--lg.canonical.txt"
+}

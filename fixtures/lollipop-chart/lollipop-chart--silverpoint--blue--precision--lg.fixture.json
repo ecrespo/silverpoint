@@ -1,0 +1,22 @@
+{
+  "chart": "LollipopChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "lollipop-chart--silverpoint--blue--precision--lg",
+  "req": "REQ-406",
+  "seed": 1592,
+  "props": {
+    "title": "Loans",
+    "badge": "12 branches",
+    "footerLeft": "this month",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "lollipop-chart/lollipop-chart--silverpoint--blue--precision--lg.canonical.txt"
+}

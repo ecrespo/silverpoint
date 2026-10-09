@@ -41,6 +41,20 @@ import { WindRose } from '@silverpoint/react/wind-rose';
 import { VolvelleChart } from '@silverpoint/react/volvelle-chart';
 import { ChordRing } from '@silverpoint/react/chord-ring';
 import { OrbitChart } from '@silverpoint/react/orbit-chart';
+import { HistogramChart } from '@silverpoint/react/histogram-chart';
+import { EcdfChart } from '@silverpoint/react/ecdf-chart';
+import { BoxPlotChart } from '@silverpoint/react/box-plot-chart';
+import { ViolinChart } from '@silverpoint/react/violin-chart';
+import { RidgelineChart } from '@silverpoint/react/ridgeline-chart';
+import { BeeswarmChart } from '@silverpoint/react/beeswarm-chart';
+import { LollipopChart } from '@silverpoint/react/lollipop-chart';
+import { DumbbellChart } from '@silverpoint/react/dumbbell-chart';
+import { SlopeChart } from '@silverpoint/react/slope-chart';
+import { BumpChart } from '@silverpoint/react/bump-chart';
+import { ErrorBarChart } from '@silverpoint/react/error-bar-chart';
+import { IntervalChart } from '@silverpoint/react/interval-chart';
+import { DivergingBarChart } from '@silverpoint/react/diverging-bar-chart';
+import { ConnectedScatterChart } from '@silverpoint/react/connected-scatter-chart';
 import { LineChart as ServerLineChart } from '@silverpoint/react/server/line-chart';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -122,7 +136,7 @@ function UiPage() {
 
 /** Every chart a fixture can name, by its chart name. */
 /** Every chart a fixture can name. A fixture's props fit its own chart; the union cannot say so. */
-const CHARTS: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
+const CHARTS: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart, HistogramChart, EcdfChart, BoxPlotChart, ViolinChart, RidgelineChart, BeeswarmChart, LollipopChart, DumbbellChart, SlopeChart, BumpChart, ErrorBarChart, IntervalChart, DivergingBarChart, ConnectedScatterChart } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
 
 /** A reference dashboard as a consumer writes it: cells by id, a chart in each (API Spec §7.1). */
 function ReferenceDashboard({ dashboard }: { dashboard: HarnessDashboard }) {

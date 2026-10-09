@@ -101,8 +101,8 @@ export const NAVIGATION_KEYS: readonly string[] = ['ArrowRight', 'ArrowDown', 'A
  * Keyboard traversal of the data points, as a pure function (REQ-122). Right and down move to
  * the next point of the series, left and up to the previous one, Home and End to its ends,
  * Escape clears. On a grid — every item carries a `cell` — the arrows move by column and row
- * instead; in a hierarchy — every item carries a `node` — they follow the tree pattern. Returns
- * `undefined` for a key that is not a navigation key.
+ * instead. A chart with its own model — a hierarchy — gives every item its `moves`, and the keys
+ * follow them. Returns `undefined` for a key that is not a navigation key.
  */
 export function stepActive(
   geometry: Geometry,
@@ -111,8 +111,12 @@ export function stepActive(
 ): ActiveItem | null | undefined {
   if (!NAVIGATION_KEYS.includes(key)) return undefined;
   if (key === 'Escape') return null;
-  if (geometry.hitAreas.length > 0 && geometry.hitAreas.every((hit) => hit.node !== undefined)) {
-    return stepTree(geometry.hitAreas, current, key);
+  const hits = geometry.hitAreas;
+  if (hits[0]?.moves) {
+    // The moves are the chart's own (a tree's, interaction/tree.ts); here they are only followed.
+    const here = current ? hits.findIndex((hit) => hit.seriesKey === current.seriesKey && hit.index === current.index) : -1;
+    const to = here < 0 ? hits[0].moves[key === 'End' ? 'End' : 'Home'] : hits[here]?.moves?.[key];
+    return toActiveItem(hits[to ?? Math.max(here, 0)] as HitArea);
   }
   const grid = geometry.hitAreas.length > 0 && geometry.hitAreas.every((hit) => hit.cell !== undefined);
   if (grid) return stepGrid(geometry.hitAreas, current, key);
@@ -165,51 +169,6 @@ function stepGrid(hits: readonly HitArea[], current: ActiveItem | null, key: str
     if (Math.abs(along) < best) next = hit;
   }
   return toActiveItem(next ?? here);
-}
-
-/**
- * Tree traversal, the WAI-ARIA tree pattern (REQ-438, DD-031): Down and Up move to the next and
- * previous node in depth-first pre-order, Right to the first child (a leaf stays), Left to the
- * parent (the root stays), Home and End to the first and last node. With nothing active, every
- * key lands on the first node, End on the last. Right always descends and Left always ascends,
- * whatever the writing direction: the model takes none, as the APG trees do.
- */
-function stepTree(hits: readonly HitArea[], current: ActiveItem | null, key: string): ActiveItem {
-  const order = [...hits].sort((a, b) => (a.node?.order ?? 0) - (b.node?.order ?? 0));
-  const here = current ? order.find((hit) => hit.seriesKey === current.seriesKey && hit.index === current.index) : undefined;
-  const first = order[0] as HitArea;
-  const last = order.at(-1) as HitArea;
-  if (key === 'Home') return toActiveItem(first);
-  if (key === 'End') return toActiveItem(last);
-  if (!here?.node) return toActiveItem(first);
-  const position = order.indexOf(here);
-  const { id, parent } = here.node;
-  let next: HitArea | undefined;
-  switch (key) {
-    case 'ArrowDown':
-      next = order[position + 1];
-      break;
-    case 'ArrowUp':
-      next = order[position - 1];
-      break;
-    case 'ArrowRight':
-      next = order.find((hit) => hit.node?.parent === id);
-      break;
-    default:
-      next = parent === null ? undefined : order.find((hit) => hit.node?.id === parent);
-  }
-  return toActiveItem(next ?? here);
-}
-
-/**
- * The label a hierarchy item announces (DD-031): its path from the root, its value and, below the
- * root, its share of its parent — "Budget › Operations › Travel: 12,400, 8% of Operations". The
- * parts arrive formatted, so the readout, the table and the announcement say the same.
- */
-export function treeLabel(path: readonly string[], value: string, share?: string): string {
-  const head = `${path.join(' › ')}: ${value}`;
-  const parent = path.at(-2);
-  return share === undefined || parent === undefined ? head : `${head}, ${share} of ${parent}`;
 }
 
 /** Readout of an active item, positioned as percentages of the viewBox (REQ-141). */

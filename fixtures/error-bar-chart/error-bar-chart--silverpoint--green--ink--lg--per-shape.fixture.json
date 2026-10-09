@@ -1,0 +1,22 @@
+{
+  "chart": "ErrorBarChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "error-bar-chart--silverpoint--green--ink--lg--per-shape",
+  "req": "REQ-410",
+  "seed": 1592,
+  "props": {
+    "title": "Effect estimates",
+    "badge": "vs 0",
+    "footerLeft": "with intervals",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "error-bar-chart/error-bar-chart--silverpoint--green--ink--lg--per-shape.canonical.txt"
+}

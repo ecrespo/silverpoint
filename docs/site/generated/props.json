@@ -4,7 +4,7 @@
       "name": "data",
       "type": "readonly Datum[]",
       "optional": true,
-      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`) are ignored, every other prop applies."
+      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`) are ignored, every other prop applies."
     },
     {
       "name": "ground",
@@ -986,6 +986,454 @@
           "type": "Accessor<number | null | undefined>",
           "optional": true,
           "doc": "A marker's period, 0-1 over the cycle; `'period'` by default. Ignored without `data`."
+        }
+      ]
+    },
+    {
+      "chart": "HistogramChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "bins",
+          "type": "number | readonly number[]",
+          "optional": true,
+          "doc": "A number asks for that many equal-width bins over the niced extent; an array gives the thresholds, increasing. Freedman–Diaconis by default, Sturges when the IQR is 0 (REQ-432)."
+        },
+        {
+          "name": "cumulative",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Turns the counts into a running total."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "EcdfChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "groupKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Two groups at most are drawn. Ignored without `data`."
+        },
+        {
+          "name": "markers",
+          "type": "readonly number[]",
+          "optional": true,
+          "doc": "Quantiles, in 0-1, drawn as rules."
+        }
+      ]
+    },
+    {
+      "chart": "BoxPlotChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "groupKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "whisker",
+          "type": "number",
+          "optional": true,
+          "doc": "Whisker reach as a multiple of the IQR; 1.5 by default (REQ-432)."
+        },
+        {
+          "name": "outliers",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Draws the observations past the whiskers; `true` by default."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "ViolinChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "groupKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "bandwidth",
+          "type": "number",
+          "optional": true,
+          "doc": "Kernel bandwidth in data units, shared by every group; Silverman's rule by default."
+        },
+        {
+          "name": "quartiles",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Marks the quartiles inside each violin; `true` by default."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "RidgelineChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "groupKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": false,
+          "doc": "The group of an observation; one ridge per group. Ignored without `data`."
+        },
+        {
+          "name": "bandwidth",
+          "type": "number",
+          "optional": true,
+          "doc": "Kernel bandwidth in data units, shared by every group; Silverman's rule by default."
+        },
+        {
+          "name": "overlap",
+          "type": "number",
+          "optional": true,
+          "doc": "How far a ridge reaches into the one behind it, 0-1; 0.5 by default."
+        }
+      ]
+    },
+    {
+      "chart": "BeeswarmChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "groupKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "labelKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Names the point in the readout and the table. Ignored without `data`."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "optional": true,
+          "doc": "Point radius in px; 3 by default."
+        }
+      ]
+    },
+    {
+      "chart": "LollipopChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "sort",
+          "type": "'none' | 'ascending' | 'descending'",
+          "optional": true,
+          "doc": "Order of the categories; `none` keeps the data order."
+        }
+      ]
+    },
+    {
+      "chart": "DumbbellChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "startKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "endKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "names",
+          "type": "readonly [string, string]",
+          "optional": true,
+          "doc": "Titles of the two values; `['start', 'end']` by default. Ignored without `data`."
+        },
+        {
+          "name": "endMarker",
+          "type": "'dot' | 'arrow'",
+          "optional": true,
+          "doc": "`arrow` encodes the direction from the first value to the second."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": "`rows` by default: long category names read across."
+        }
+      ]
+    },
+    {
+      "chart": "SlopeChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "startKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "endKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "names",
+          "type": "readonly [string, string]",
+          "optional": true,
+          "doc": "Titles of the two periods; `['start', 'end']` by default. Ignored without `data`."
+        }
+      ]
+    },
+    {
+      "chart": "BumpChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "seriesKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "order",
+          "type": "'descending' | 'ascending'",
+          "optional": true,
+          "doc": "`descending` gives rank 1 to the highest value (the default)."
+        },
+        {
+          "name": "series",
+          "type": "number",
+          "optional": true,
+          "doc": "Series drawn, the best-ranked first; all by default."
+        }
+      ]
+    },
+    {
+      "chart": "ErrorBarChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "estimateKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "lowKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "highKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "reference",
+          "type": "number",
+          "optional": true,
+          "doc": "A reference value drawn as a dotted rule."
+        },
+        {
+          "name": "orientation",
+          "type": "ChartOrientation",
+          "optional": true,
+          "doc": "`rows` by default, as a forest plot reads."
+        }
+      ]
+    },
+    {
+      "chart": "IntervalChart",
+      "own": [
+        {
+          "name": "laneKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "startKey",
+          "type": "Accessor<number | string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "endKey",
+          "type": "Accessor<number | string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "labelKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "axis",
+          "type": "'number' | 'date'",
+          "optional": true,
+          "doc": "`date` reads ISO `YYYY-MM-DD` days in UTC; `number` by default. Ignored without `data`."
+        }
+      ]
+    },
+    {
+      "chart": "DivergingBarChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "levels",
+          "type": "readonly string[]",
+          "optional": false,
+          "doc": "The level columns, most negative first. Ignored without `data`."
+        },
+        {
+          "name": "neutral",
+          "type": "number | null",
+          "optional": true,
+          "doc": "Index of the neutral level, split across the centre; `null` for none. The middle one by default."
+        },
+        {
+          "name": "percent",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Normalises each row to 100 %; `true` by default."
+        }
+      ]
+    },
+    {
+      "chart": "ConnectedScatterChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "labelKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "arrows",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Draws direction marks along the path; `true` by default."
         }
       ]
     }

@@ -3403,6 +3403,2274 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BeeswarmChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "beeswarm-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-405",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes, one reader each",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BoxPlotChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "box-plot-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-402",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "BubbleChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -5666,6 +7934,1140 @@ export const ALL_FIXTURES = [
       "title": "Quarter targets",
       "badge": "Q2",
       "footerLeft": "0–100",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--blue--ink--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--blue--precision--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--cream--ink--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--cream--precision--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--green--ink--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--green--ink--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--green--ink--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--green--precision--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--green--precision--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--green--precision--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "BumpChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "bump-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-409",
+    "seed": 1592,
+    "props": {
+      "title": "League table",
+      "badge": "8 seasons",
+      "footerLeft": "rank by points",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -9073,6 +12475,1140 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ConnectedScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "connected-scatter-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-413",
+    "seed": 1592,
+    "props": {
+      "title": "Fare and riders",
+      "badge": "14 years",
+      "footerLeft": "fare × riders",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "CoxcombChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -10207,6 +14743,1518 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DivergingBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "diverging-bar-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-412",
+    "seed": 1592,
+    "props": {
+      "levels": [
+        "Strongly disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly agree"
+      ],
+      "title": "Survey",
+      "badge": "200 answers",
+      "footerLeft": "share per question",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "DonutChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -11336,6 +17384,3408 @@ export const ALL_FIXTURES = [
       "title": "Budget",
       "badge": "May",
       "footerLeft": "share of spend",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DumbbellChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "dumbbell-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-407",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "EcdfChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ecdf-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-401",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "by device",
+      "footerLeft": "share at or below",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ErrorBarChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "error-bar-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-410",
+    "seed": 1592,
+    "props": {
+      "title": "Effect estimates",
+      "badge": "vs 0",
+      "footerLeft": "with intervals",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -14743,6 +24193,2274 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--green--ink--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--green--ink--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--green--ink--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--green--precision--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--green--precision--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--green--precision--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "HistogramChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "histogram-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-400",
+    "seed": 1592,
+    "props": {
+      "title": "Reading time",
+      "badge": "n = 240",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--blue--ink--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--blue--precision--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--cream--ink--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--cream--precision--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--green--ink--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--green--ink--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--green--ink--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--green--precision--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--green--precision--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--green--precision--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "IntervalChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "interval-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-411",
+    "seed": 1592,
+    "props": {
+      "title": "Crew jobs",
+      "badge": "Q1 2026",
+      "footerLeft": "UTC days",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "KpiCard",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -17114,6 +28832,1140 @@ export const ALL_FIXTURES = [
       "value": 88,
       "unit": "requests",
       "footerLeft": "00–22 h",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "LollipopChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "lollipop-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-406",
+    "seed": 1592,
+    "props": {
+      "title": "Loans",
+      "badge": "12 branches",
+      "footerLeft": "this month",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -26191,6 +39043,1194 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "RidgelineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "ridgeline-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-404",
+    "seed": 1592,
+    "props": {
+      "groupKey": "service",
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "SankeyChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -28454,6 +42494,1140 @@ export const ALL_FIXTURES = [
       "title": "Height and weight",
       "badge": "n = 9",
       "footerLeft": "cm × kg",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--blue--ink--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--blue--precision--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--cream--ink--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--cream--precision--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--green--ink--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--green--ink--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--green--ink--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--green--precision--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--green--precision--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--green--precision--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SlopeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "slope-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-408",
+    "seed": 1592,
+    "props": {
+      "title": "Clinic waits",
+      "badge": "2024 → 2025",
+      "footerLeft": "minutes",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -34124,6 +49298,1140 @@ export const ALL_FIXTURES = [
       "title": "Traffic sources",
       "badge": "June",
       "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--blue--ink--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--blue--precision--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--cream--ink--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--cream--precision--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--green--ink--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--green--ink--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--green--ink--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--green--precision--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--green--precision--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--green--precision--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ViolinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "violin-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-403",
+    "seed": 1592,
+    "props": {
+      "title": "Response time",
+      "badge": "5 services",
+      "footerLeft": "ms",
       "footerRight": "silverpoint"
     },
     "rows": null

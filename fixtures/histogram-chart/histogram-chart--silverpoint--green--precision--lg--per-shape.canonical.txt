@@ -1,0 +1,97 @@
+<svg aria-labelledby="histogram-chart--silverpoint--green--precision--lg--per-shape-title histogram-chart--silverpoint--green--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="histogram-chart--silverpoint--green--precision--lg--per-shape-title">
+    "Reading time"
+  <desc id="histogram-chart--silverpoint--green--precision--lg--per-shape-desc">
+    "Reading time. Histogram of 240 minutes observations in 14 bins by the Freedman–Diaconis rule, from 0 to 28; the fullest bin, 4–6, holds 57."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,232.67H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,141.33H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,324H618" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,260.07H64.57V324H22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M64.57,86.53H107.14V324H64.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.14,63.7H149.71V324H107.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M149.71,173.3H192.29V324H149.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.29,191.57H234.86V324H192.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M234.86,223.53H277.43V324H234.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M277.43,273.77H320V324H277.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320,282.9H362.57V324H320Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M362.57,305.73H405.14V324H362.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M405.14,310.3H447.71V324H405.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M447.71,310.3H490.29V324H447.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M490.29,319.43H532.86V324H490.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M532.86,324H575.43V324H532.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M575.43,314.87H618V324H575.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M124.93,63.7A3.5,3.5,0,1,0,131.93,63.7A3.5,3.5,0,1,0,124.93,63.7Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M124.93,63.7A3.5,3.5,0,1,0,131.93,63.7A3.5,3.5,0,1,0,124.93,63.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Reading time"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "n = 240"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "minutes"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="229.67">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="138.33">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="43.29" y="253.57">
+    "14"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="85.86" y="80.03">
+    "52"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="128.43" y="57.2">
+    "57"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="171" y="166.8">
+    "33"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="213.57" y="185.07">
+    "29"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="256.14" y="217.03">
+    "22"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="298.71" y="267.27">
+    "11"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="341.29" y="276.4">
+    "9"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="383.86" y="299.23">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="426.43" y="303.8">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="469" y="303.8">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="511.57" y="312.93">
+    "1"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="596.71" y="308.37">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="22" y="339">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="64.57" y="339">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="107.14" y="339">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="149.71" y="339">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="192.29" y="339">
+    "8"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="234.86" y="339">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="277.43" y="339">
+    "12"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="339">
+    "14"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="362.57" y="339">
+    "16"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="405.14" y="339">
+    "18"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="447.71" y="339">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="490.29" y="339">
+    "22"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="532.86" y="339">
+    "24"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="575.43" y="339">
+    "26"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="618" y="339">
+    "28"

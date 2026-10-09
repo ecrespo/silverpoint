@@ -31,6 +31,20 @@ export { default as SpWindRose } from './SpWindRose.vue';
 export { default as SpVolvelleChart } from './SpVolvelleChart.vue';
 export { default as SpChordRing } from './SpChordRing.vue';
 export { default as SpOrbitChart } from './SpOrbitChart.vue';
+export { default as SpHistogramChart } from './SpHistogramChart.vue';
+export { default as SpEcdfChart } from './SpEcdfChart.vue';
+export { default as SpBoxPlotChart } from './SpBoxPlotChart.vue';
+export { default as SpViolinChart } from './SpViolinChart.vue';
+export { default as SpRidgelineChart } from './SpRidgelineChart.vue';
+export { default as SpBeeswarmChart } from './SpBeeswarmChart.vue';
+export { default as SpLollipopChart } from './SpLollipopChart.vue';
+export { default as SpDumbbellChart } from './SpDumbbellChart.vue';
+export { default as SpSlopeChart } from './SpSlopeChart.vue';
+export { default as SpBumpChart } from './SpBumpChart.vue';
+export { default as SpErrorBarChart } from './SpErrorBarChart.vue';
+export { default as SpIntervalChart } from './SpIntervalChart.vue';
+export { default as SpDivergingBarChart } from './SpDivergingBarChart.vue';
+export { default as SpConnectedScatterChart } from './SpConnectedScatterChart.vue';
 export { provideSilverpoint } from './environment';
 export type {
   ActiveItem,
@@ -61,6 +75,20 @@ export type {
   VolvelleChartProps,
   ChordRingProps,
   OrbitChartProps,
+  HistogramChartProps,
+  EcdfChartProps,
+  BoxPlotChartProps,
+  ViolinChartProps,
+  RidgelineChartProps,
+  BeeswarmChartProps,
+  LollipopChartProps,
+  DumbbellChartProps,
+  SlopeChartProps,
+  BumpChartProps,
+  ErrorBarChartProps,
+  IntervalChartProps,
+  DivergingBarChartProps,
+  ConnectedScatterChartProps,
 
   BulletChartProps,
   ChartHandle,

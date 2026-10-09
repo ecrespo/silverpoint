@@ -1,0 +1,59 @@
+<svg aria-labelledby="interval-chart--silverpoint--green--precision--sm-title interval-chart--silverpoint--green--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="interval-chart--silverpoint--green--precision--sm-title">
+    "Crew jobs"
+  <desc id="interval-chart--silverpoint--green--precision--sm-desc">
+    "Crew jobs. 16 intervals on 4 crew lanes, from 2026-01-02 to 2026-03-31 (UTC days); the longest is Grading, 23 days."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M95.39,50V144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M124.93,50V144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M154.48,50V144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M184.02,50V144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M213.57,50V144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M88,73.5H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M194.36,61.75A2.74,2.74,0,0,1,197.11,59.01H200.49A2.74,2.74,0,0,1,203.23,61.75V61.75A2.74,2.74,0,0,1,200.49,64.49H197.11A2.74,2.74,0,0,1,194.36,61.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.95,53.92A2.74,2.74,0,0,1,158.7,51.18H179.8A2.74,2.74,0,0,1,182.55,53.92V53.92A2.74,2.74,0,0,1,179.8,56.66H158.7A2.74,2.74,0,0,1,155.95,53.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.5,53.92A2.74,2.74,0,0,1,188.24,51.18H215.26A2.74,2.74,0,0,1,218,53.92V53.92A2.74,2.74,0,0,1,215.26,56.66H188.24A2.74,2.74,0,0,1,185.5,53.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M158.91,61.75A2.74,2.74,0,0,1,161.65,59.01H163.55A2.74,2.74,0,0,1,166.3,61.75V61.75A2.74,2.74,0,0,1,163.55,64.49H161.65A2.74,2.74,0,0,1,158.91,61.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.86,69.58A2.74,2.74,0,0,1,164.61,66.84H193.1A2.74,2.74,0,0,1,195.84,69.58V69.58A2.74,2.74,0,0,1,193.1,72.33H164.61A2.74,2.74,0,0,1,161.86,69.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88,97H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M160.39,79.38A4.11,4.11,0,0,1,164.5,75.26H175.48A4.11,4.11,0,0,1,179.59,79.38V79.38A4.11,4.11,0,0,1,175.48,83.49H164.5A4.11,4.11,0,0,1,160.39,79.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88,79.38A4.11,4.11,0,0,1,92.11,75.26H104.57A4.11,4.11,0,0,1,108.68,79.38V79.38A4.11,4.11,0,0,1,104.57,83.49H92.11A4.11,4.11,0,0,1,88,79.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M176.64,91.13A4.11,4.11,0,0,1,180.75,87.01H181.39A4.11,4.11,0,0,1,185.5,91.13V91.13A4.11,4.11,0,0,1,181.39,95.24H180.75A4.11,4.11,0,0,1,176.64,91.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M181.07,78.22A2.95,2.95,0,0,1,184.02,75.26H184.02A2.95,2.95,0,0,1,186.98,78.22V80.53A2.95,2.95,0,0,1,184.02,83.49H184.02A2.95,2.95,0,0,1,181.07,80.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88,120.5H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M123.45,102.88A4.11,4.11,0,0,1,127.57,98.76H138.55A4.11,4.11,0,0,1,142.66,102.88V102.88A4.11,4.11,0,0,1,138.55,106.99H127.57A4.11,4.11,0,0,1,123.45,102.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M169.25,102.88A4.11,4.11,0,0,1,173.36,98.76H191.73A4.11,4.11,0,0,1,195.84,102.88V102.88A4.11,4.11,0,0,1,191.73,106.99H173.36A4.11,4.11,0,0,1,169.25,102.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M136.75,114.63A4.11,4.11,0,0,1,140.86,110.51H154.8A4.11,4.11,0,0,1,158.91,114.63V114.63A4.11,4.11,0,0,1,154.8,118.74H140.86A4.11,4.11,0,0,1,136.75,114.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M192.89,114.63A4.11,4.11,0,0,1,197,110.51H213.89A4.11,4.11,0,0,1,218,114.63V114.63A4.11,4.11,0,0,1,213.89,118.74H197A4.11,4.11,0,0,1,192.89,114.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M204.7,138.13A4.11,4.11,0,0,1,208.82,134.01H213.89A4.11,4.11,0,0,1,218,138.13V138.12A4.11,4.11,0,0,1,213.89,142.24H208.82A4.11,4.11,0,0,1,204.7,138.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.86,126.38A4.11,4.11,0,0,1,165.98,122.26H179.91A4.11,4.11,0,0,1,184.02,126.38V126.38A4.11,4.11,0,0,1,179.91,130.49H165.98A4.11,4.11,0,0,1,161.86,126.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M197.32,126.38A4.11,4.11,0,0,1,201.43,122.26H206.5A4.11,4.11,0,0,1,210.61,126.38V126.38A4.11,4.11,0,0,1,206.5,130.49H201.43A4.11,4.11,0,0,1,197.32,126.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.86,69.58A2.74,2.74,0,0,1,164.61,66.84H193.1A2.74,2.74,0,0,1,195.84,69.58V69.58A2.74,2.74,0,0,1,193.1,72.33H164.61A2.74,2.74,0,0,1,161.86,69.58Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Crew jobs"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "Q1 2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "UTC days"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="95.39" y="159">
+    "01-07"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="124.93" y="159">
+    "01-27"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="154.48" y="159">
+    "02-16"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="184.02" y="159">
+    "03-08"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="213.57" y="159">
+    "03-28"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="65.75">
+    "North crew"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="89.25">
+    "South crew"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="112.75">
+    "Bridge team"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="136.25">
+    "Survey"

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
+import { CATALOG } from '../../../tools/visual-gate/catalog';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const manifest = () => JSON.parse(readFileSync(`${dist}package.json`, 'utf8')) as Record<string, any>;
@@ -34,5 +35,15 @@ describe('Angular Package Format', () => {
     expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms']);
     expect(published.dependencies).not.toHaveProperty('@angular/core');
     expect(published.sideEffects).toBe(false);
+  });
+});
+
+describe('required inputs (T-177, feature-003)', () => {
+  // The partial declaration is what an application's compiler checks templates against
+  // (strictTemplates): an input required here is required in every consumer's template.
+  test.each(CATALOG.map((e) => [e.chart, e] as const))('REQ-101 · %s · its required inputs are the ones its type requires', (_chart, entry) => {
+    const bundle = readFileSync(`${dist}fesm2022/silverpoint-angular-${entry.slug}.mjs`, 'utf8');
+    const required = [...bundle.matchAll(/(\w+): \{ classPropertyName: "\w+", publicName: "\w+", isSignal: true, isRequired: true/g)].map((m) => m[1]).sort();
+    expect(required).toEqual(Object.keys(entry.required ?? {}).sort());
   });
 });

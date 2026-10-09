@@ -1,0 +1,22 @@
+{
+  "chart": "EcdfChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "ecdf-chart--cyanotype--prussian--precision--sm",
+  "req": "REQ-401",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "by device",
+    "footerLeft": "share at or below",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ecdf-chart/ecdf-chart--cyanotype--prussian--precision--sm.canonical.txt"
+}

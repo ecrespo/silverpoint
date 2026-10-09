@@ -411,6 +411,174 @@
       "import": "./dist/server/orbit-chart.js",
       "default": "./dist/server/orbit-chart.js"
     },
+    "./histogram-chart": {
+      "@silverpoint/source": "./src/histogram-chart.tsx",
+      "types": "./dist/histogram-chart.d.ts",
+      "import": "./dist/histogram-chart.js",
+      "default": "./dist/histogram-chart.js"
+    },
+    "./server/histogram-chart": {
+      "@silverpoint/source": "./src/server/histogram-chart.tsx",
+      "types": "./dist/server/histogram-chart.d.ts",
+      "import": "./dist/server/histogram-chart.js",
+      "default": "./dist/server/histogram-chart.js"
+    },
+    "./ecdf-chart": {
+      "@silverpoint/source": "./src/ecdf-chart.tsx",
+      "types": "./dist/ecdf-chart.d.ts",
+      "import": "./dist/ecdf-chart.js",
+      "default": "./dist/ecdf-chart.js"
+    },
+    "./server/ecdf-chart": {
+      "@silverpoint/source": "./src/server/ecdf-chart.tsx",
+      "types": "./dist/server/ecdf-chart.d.ts",
+      "import": "./dist/server/ecdf-chart.js",
+      "default": "./dist/server/ecdf-chart.js"
+    },
+    "./box-plot-chart": {
+      "@silverpoint/source": "./src/box-plot-chart.tsx",
+      "types": "./dist/box-plot-chart.d.ts",
+      "import": "./dist/box-plot-chart.js",
+      "default": "./dist/box-plot-chart.js"
+    },
+    "./server/box-plot-chart": {
+      "@silverpoint/source": "./src/server/box-plot-chart.tsx",
+      "types": "./dist/server/box-plot-chart.d.ts",
+      "import": "./dist/server/box-plot-chart.js",
+      "default": "./dist/server/box-plot-chart.js"
+    },
+    "./violin-chart": {
+      "@silverpoint/source": "./src/violin-chart.tsx",
+      "types": "./dist/violin-chart.d.ts",
+      "import": "./dist/violin-chart.js",
+      "default": "./dist/violin-chart.js"
+    },
+    "./server/violin-chart": {
+      "@silverpoint/source": "./src/server/violin-chart.tsx",
+      "types": "./dist/server/violin-chart.d.ts",
+      "import": "./dist/server/violin-chart.js",
+      "default": "./dist/server/violin-chart.js"
+    },
+    "./ridgeline-chart": {
+      "@silverpoint/source": "./src/ridgeline-chart.tsx",
+      "types": "./dist/ridgeline-chart.d.ts",
+      "import": "./dist/ridgeline-chart.js",
+      "default": "./dist/ridgeline-chart.js"
+    },
+    "./server/ridgeline-chart": {
+      "@silverpoint/source": "./src/server/ridgeline-chart.tsx",
+      "types": "./dist/server/ridgeline-chart.d.ts",
+      "import": "./dist/server/ridgeline-chart.js",
+      "default": "./dist/server/ridgeline-chart.js"
+    },
+    "./beeswarm-chart": {
+      "@silverpoint/source": "./src/beeswarm-chart.tsx",
+      "types": "./dist/beeswarm-chart.d.ts",
+      "import": "./dist/beeswarm-chart.js",
+      "default": "./dist/beeswarm-chart.js"
+    },
+    "./server/beeswarm-chart": {
+      "@silverpoint/source": "./src/server/beeswarm-chart.tsx",
+      "types": "./dist/server/beeswarm-chart.d.ts",
+      "import": "./dist/server/beeswarm-chart.js",
+      "default": "./dist/server/beeswarm-chart.js"
+    },
+    "./lollipop-chart": {
+      "@silverpoint/source": "./src/lollipop-chart.tsx",
+      "types": "./dist/lollipop-chart.d.ts",
+      "import": "./dist/lollipop-chart.js",
+      "default": "./dist/lollipop-chart.js"
+    },
+    "./server/lollipop-chart": {
+      "@silverpoint/source": "./src/server/lollipop-chart.tsx",
+      "types": "./dist/server/lollipop-chart.d.ts",
+      "import": "./dist/server/lollipop-chart.js",
+      "default": "./dist/server/lollipop-chart.js"
+    },
+    "./dumbbell-chart": {
+      "@silverpoint/source": "./src/dumbbell-chart.tsx",
+      "types": "./dist/dumbbell-chart.d.ts",
+      "import": "./dist/dumbbell-chart.js",
+      "default": "./dist/dumbbell-chart.js"
+    },
+    "./server/dumbbell-chart": {
+      "@silverpoint/source": "./src/server/dumbbell-chart.tsx",
+      "types": "./dist/server/dumbbell-chart.d.ts",
+      "import": "./dist/server/dumbbell-chart.js",
+      "default": "./dist/server/dumbbell-chart.js"
+    },
+    "./slope-chart": {
+      "@silverpoint/source": "./src/slope-chart.tsx",
+      "types": "./dist/slope-chart.d.ts",
+      "import": "./dist/slope-chart.js",
+      "default": "./dist/slope-chart.js"
+    },
+    "./server/slope-chart": {
+      "@silverpoint/source": "./src/server/slope-chart.tsx",
+      "types": "./dist/server/slope-chart.d.ts",
+      "import": "./dist/server/slope-chart.js",
+      "default": "./dist/server/slope-chart.js"
+    },
+    "./bump-chart": {
+      "@silverpoint/source": "./src/bump-chart.tsx",
+      "types": "./dist/bump-chart.d.ts",
+      "import": "./dist/bump-chart.js",
+      "default": "./dist/bump-chart.js"
+    },
+    "./server/bump-chart": {
+      "@silverpoint/source": "./src/server/bump-chart.tsx",
+      "types": "./dist/server/bump-chart.d.ts",
+      "import": "./dist/server/bump-chart.js",
+      "default": "./dist/server/bump-chart.js"
+    },
+    "./error-bar-chart": {
+      "@silverpoint/source": "./src/error-bar-chart.tsx",
+      "types": "./dist/error-bar-chart.d.ts",
+      "import": "./dist/error-bar-chart.js",
+      "default": "./dist/error-bar-chart.js"
+    },
+    "./server/error-bar-chart": {
+      "@silverpoint/source": "./src/server/error-bar-chart.tsx",
+      "types": "./dist/server/error-bar-chart.d.ts",
+      "import": "./dist/server/error-bar-chart.js",
+      "default": "./dist/server/error-bar-chart.js"
+    },
+    "./interval-chart": {
+      "@silverpoint/source": "./src/interval-chart.tsx",
+      "types": "./dist/interval-chart.d.ts",
+      "import": "./dist/interval-chart.js",
+      "default": "./dist/interval-chart.js"
+    },
+    "./server/interval-chart": {
+      "@silverpoint/source": "./src/server/interval-chart.tsx",
+      "types": "./dist/server/interval-chart.d.ts",
+      "import": "./dist/server/interval-chart.js",
+      "default": "./dist/server/interval-chart.js"
+    },
+    "./diverging-bar-chart": {
+      "@silverpoint/source": "./src/diverging-bar-chart.tsx",
+      "types": "./dist/diverging-bar-chart.d.ts",
+      "import": "./dist/diverging-bar-chart.js",
+      "default": "./dist/diverging-bar-chart.js"
+    },
+    "./server/diverging-bar-chart": {
+      "@silverpoint/source": "./src/server/diverging-bar-chart.tsx",
+      "types": "./dist/server/diverging-bar-chart.d.ts",
+      "import": "./dist/server/diverging-bar-chart.js",
+      "default": "./dist/server/diverging-bar-chart.js"
+    },
+    "./connected-scatter-chart": {
+      "@silverpoint/source": "./src/connected-scatter-chart.tsx",
+      "types": "./dist/connected-scatter-chart.d.ts",
+      "import": "./dist/connected-scatter-chart.js",
+      "default": "./dist/connected-scatter-chart.js"
+    },
+    "./server/connected-scatter-chart": {
+      "@silverpoint/source": "./src/server/connected-scatter-chart.tsx",
+      "types": "./dist/server/connected-scatter-chart.d.ts",
+      "import": "./dist/server/connected-scatter-chart.js",
+      "default": "./dist/server/connected-scatter-chart.js"
+    },
     "./dashboard": {
       "@silverpoint/source": "./src/dashboard.tsx",
       "types": "./dist/dashboard.d.ts",

@@ -54,6 +54,21 @@ const DEMO_SIGNS: ReadonlyMap<string, { readonly names: readonly string[]; reado
   }),
 );
 
+/**
+ * Charts that draw one dataset: a demo module that re-exports another chart's dataset
+ * (`export { HISTOGRAM_CHART_DEMO as ECDF_CHART_DEMO } from '../histogram-chart/demo'`) puts both
+ * in one family, and a family member's bundle carries that dataset by design (feature-003, DD-036).
+ */
+const FAMILY: ReadonlyMap<string, ReadonlySet<string>> = (() => {
+  const source = new Map(
+    CATALOG.map((c) => {
+      const from = /export \{ \w+ as \w+ \} from '\.\.\/([a-z-]+)\/demo'/.exec(DEMO_SOURCE.get(c.chart) ?? '')?.[1];
+      return [c.chart, CATALOG.find((o) => o.slug === from)?.chart ?? c.chart] as const;
+    }),
+  );
+  return new Map(CATALOG.map((c) => [c.chart, new Set(CATALOG.filter((o) => source.get(o.chart) === source.get(c.chart)).map((o) => o.chart))] as const));
+})();
+
 const ENTRIES = (slug: string) => ({
   'react (client)': `packages/react/dist/${slug}.js`,
   'react (server)': `packages/react/dist/server/${slug}.js`,
@@ -97,6 +112,11 @@ describe.each(CATALOG.map((c) => [c.chart, c] as const))('one-chart bundle of %s
     expect(CATALOG.filter((c) => c.chart !== chart && quoted(c.chart)).map((c) => c.chart)).toEqual([]);
     // Demo datasets built through a call the bundler cannot prove pure — a mapped constant, a helper
     // — stay in every bundle (seen in Phase 3).
-    expect(CATALOG.filter((c) => c.chart !== chart && carriesDemo(c.chart, code)).map((c) => c.chart)).toEqual([]);
+    expect(CATALOG.filter((c) => !FAMILY.get(chart)?.has(c.chart) && carriesDemo(c.chart, code)).map((c) => c.chart)).toEqual([]);
   });
+});
+
+test('REQ-164 · the dataset families are the second catalog\'s shared demos, and nothing else', () => {
+  const families = [...new Set([...FAMILY.values()].filter((f) => f.size > 1).map((f) => [...f].sort().join(' + ')))].sort();
+  expect(families).toEqual(['BeeswarmChart + EcdfChart + HistogramChart', 'BoxPlotChart + RidgelineChart + ViolinChart', 'DumbbellChart + SlopeChart']);
 });

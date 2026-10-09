@@ -1,0 +1,22 @@
+{
+  "chart": "SlopeChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "slope-chart--silverpoint--ochre--ink--lg",
+  "req": "REQ-408",
+  "seed": 1592,
+  "props": {
+    "title": "Clinic waits",
+    "badge": "2024 → 2025",
+    "footerLeft": "minutes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "slope-chart/slope-chart--silverpoint--ochre--ink--lg.canonical.txt"
+}

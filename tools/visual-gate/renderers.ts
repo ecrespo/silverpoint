@@ -39,6 +39,20 @@ import { SpWindRose as AngularWindRose } from '@silverpoint/angular/wind-rose';
 import { SpVolvelleChart as AngularVolvelleChart } from '@silverpoint/angular/volvelle-chart';
 import { SpChordRing as AngularChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart as AngularOrbitChart } from '@silverpoint/angular/orbit-chart';
+import { SpHistogramChart as AngularHistogramChart } from '@silverpoint/angular/histogram-chart';
+import { SpEcdfChart as AngularEcdfChart } from '@silverpoint/angular/ecdf-chart';
+import { SpBoxPlotChart as AngularBoxPlotChart } from '@silverpoint/angular/box-plot-chart';
+import { SpViolinChart as AngularViolinChart } from '@silverpoint/angular/violin-chart';
+import { SpRidgelineChart as AngularRidgelineChart } from '@silverpoint/angular/ridgeline-chart';
+import { SpBeeswarmChart as AngularBeeswarmChart } from '@silverpoint/angular/beeswarm-chart';
+import { SpLollipopChart as AngularLollipopChart } from '@silverpoint/angular/lollipop-chart';
+import { SpDumbbellChart as AngularDumbbellChart } from '@silverpoint/angular/dumbbell-chart';
+import { SpSlopeChart as AngularSlopeChart } from '@silverpoint/angular/slope-chart';
+import { SpBumpChart as AngularBumpChart } from '@silverpoint/angular/bump-chart';
+import { SpErrorBarChart as AngularErrorBarChart } from '@silverpoint/angular/error-bar-chart';
+import { SpIntervalChart as AngularIntervalChart } from '@silverpoint/angular/interval-chart';
+import { SpDivergingBarChart as AngularDivergingBarChart } from '@silverpoint/angular/diverging-bar-chart';
+import { SpConnectedScatterChart as AngularConnectedScatterChart } from '@silverpoint/angular/connected-scatter-chart';
 import { LineChart as ReactLineChart } from '@silverpoint/react/server/line-chart';
 import { BulletChart as ReactBulletChart } from '@silverpoint/react/server/bullet-chart';
 import { PyramidChart as ReactPyramidChart } from '@silverpoint/react/server/pyramid-chart';
@@ -72,6 +86,20 @@ import { WindRose as ReactWindRose } from '@silverpoint/react/server/wind-rose';
 import { VolvelleChart as ReactVolvelleChart } from '@silverpoint/react/server/volvelle-chart';
 import { ChordRing as ReactChordRing } from '@silverpoint/react/server/chord-ring';
 import { OrbitChart as ReactOrbitChart } from '@silverpoint/react/server/orbit-chart';
+import { HistogramChart as ReactHistogramChart } from '@silverpoint/react/server/histogram-chart';
+import { EcdfChart as ReactEcdfChart } from '@silverpoint/react/server/ecdf-chart';
+import { BoxPlotChart as ReactBoxPlotChart } from '@silverpoint/react/server/box-plot-chart';
+import { ViolinChart as ReactViolinChart } from '@silverpoint/react/server/violin-chart';
+import { RidgelineChart as ReactRidgelineChart } from '@silverpoint/react/server/ridgeline-chart';
+import { BeeswarmChart as ReactBeeswarmChart } from '@silverpoint/react/server/beeswarm-chart';
+import { LollipopChart as ReactLollipopChart } from '@silverpoint/react/server/lollipop-chart';
+import { DumbbellChart as ReactDumbbellChart } from '@silverpoint/react/server/dumbbell-chart';
+import { SlopeChart as ReactSlopeChart } from '@silverpoint/react/server/slope-chart';
+import { BumpChart as ReactBumpChart } from '@silverpoint/react/server/bump-chart';
+import { ErrorBarChart as ReactErrorBarChart } from '@silverpoint/react/server/error-bar-chart';
+import { IntervalChart as ReactIntervalChart } from '@silverpoint/react/server/interval-chart';
+import { DivergingBarChart as ReactDivergingBarChart } from '@silverpoint/react/server/diverging-bar-chart';
+import { ConnectedScatterChart as ReactConnectedScatterChart } from '@silverpoint/react/server/connected-scatter-chart';
 import { SpLineChart as VueLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart as VueBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart as VuePyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -105,6 +133,20 @@ import { SpWindRose as VueWindRose } from '@silverpoint/vue/wind-rose';
 import { SpVolvelleChart as VueVolvelleChart } from '@silverpoint/vue/volvelle-chart';
 import { SpChordRing as VueChordRing } from '@silverpoint/vue/chord-ring';
 import { SpOrbitChart as VueOrbitChart } from '@silverpoint/vue/orbit-chart';
+import { SpHistogramChart as VueHistogramChart } from '@silverpoint/vue/histogram-chart';
+import { SpEcdfChart as VueEcdfChart } from '@silverpoint/vue/ecdf-chart';
+import { SpBoxPlotChart as VueBoxPlotChart } from '@silverpoint/vue/box-plot-chart';
+import { SpViolinChart as VueViolinChart } from '@silverpoint/vue/violin-chart';
+import { SpRidgelineChart as VueRidgelineChart } from '@silverpoint/vue/ridgeline-chart';
+import { SpBeeswarmChart as VueBeeswarmChart } from '@silverpoint/vue/beeswarm-chart';
+import { SpLollipopChart as VueLollipopChart } from '@silverpoint/vue/lollipop-chart';
+import { SpDumbbellChart as VueDumbbellChart } from '@silverpoint/vue/dumbbell-chart';
+import { SpSlopeChart as VueSlopeChart } from '@silverpoint/vue/slope-chart';
+import { SpBumpChart as VueBumpChart } from '@silverpoint/vue/bump-chart';
+import { SpErrorBarChart as VueErrorBarChart } from '@silverpoint/vue/error-bar-chart';
+import { SpIntervalChart as VueIntervalChart } from '@silverpoint/vue/interval-chart';
+import { SpDivergingBarChart as VueDivergingBarChart } from '@silverpoint/vue/diverging-bar-chart';
+import { SpConnectedScatterChart as VueConnectedScatterChart } from '@silverpoint/vue/connected-scatter-chart';
 import { createElement, type ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createSSRApp, h, type Component as VueComponent } from 'vue';
@@ -146,6 +188,20 @@ const REACT: Readonly<Record<string, ComponentType<never>>> = {
   VolvelleChart: ReactVolvelleChart as ComponentType<never>,
   ChordRing: ReactChordRing as ComponentType<never>,
   OrbitChart: ReactOrbitChart as ComponentType<never>,
+  HistogramChart: ReactHistogramChart as ComponentType<never>,
+  EcdfChart: ReactEcdfChart as ComponentType<never>,
+  BoxPlotChart: ReactBoxPlotChart as ComponentType<never>,
+  ViolinChart: ReactViolinChart as ComponentType<never>,
+  RidgelineChart: ReactRidgelineChart as ComponentType<never>,
+  BeeswarmChart: ReactBeeswarmChart as ComponentType<never>,
+  LollipopChart: ReactLollipopChart as ComponentType<never>,
+  DumbbellChart: ReactDumbbellChart as ComponentType<never>,
+  SlopeChart: ReactSlopeChart as ComponentType<never>,
+  BumpChart: ReactBumpChart as ComponentType<never>,
+  ErrorBarChart: ReactErrorBarChart as ComponentType<never>,
+  IntervalChart: ReactIntervalChart as ComponentType<never>,
+  DivergingBarChart: ReactDivergingBarChart as ComponentType<never>,
+  ConnectedScatterChart: ReactConnectedScatterChart as ComponentType<never>,
 };
 const VUE: Readonly<Record<string, VueComponent>> = {
   LineChart: VueLineChart as VueComponent,
@@ -181,6 +237,20 @@ const VUE: Readonly<Record<string, VueComponent>> = {
   VolvelleChart: VueVolvelleChart as VueComponent,
   ChordRing: VueChordRing as VueComponent,
   OrbitChart: VueOrbitChart as VueComponent,
+  HistogramChart: VueHistogramChart as VueComponent,
+  EcdfChart: VueEcdfChart as VueComponent,
+  BoxPlotChart: VueBoxPlotChart as VueComponent,
+  ViolinChart: VueViolinChart as VueComponent,
+  RidgelineChart: VueRidgelineChart as VueComponent,
+  BeeswarmChart: VueBeeswarmChart as VueComponent,
+  LollipopChart: VueLollipopChart as VueComponent,
+  DumbbellChart: VueDumbbellChart as VueComponent,
+  SlopeChart: VueSlopeChart as VueComponent,
+  BumpChart: VueBumpChart as VueComponent,
+  ErrorBarChart: VueErrorBarChart as VueComponent,
+  IntervalChart: VueIntervalChart as VueComponent,
+  DivergingBarChart: VueDivergingBarChart as VueComponent,
+  ConnectedScatterChart: VueConnectedScatterChart as VueComponent,
 };
 export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   LineChart: AngularLineChart,
@@ -216,6 +286,20 @@ export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   VolvelleChart: AngularVolvelleChart,
   ChordRing: AngularChordRing,
   OrbitChart: AngularOrbitChart,
+  HistogramChart: AngularHistogramChart,
+  EcdfChart: AngularEcdfChart,
+  BoxPlotChart: AngularBoxPlotChart,
+  ViolinChart: AngularViolinChart,
+  RidgelineChart: AngularRidgelineChart,
+  BeeswarmChart: AngularBeeswarmChart,
+  LollipopChart: AngularLollipopChart,
+  DumbbellChart: AngularDumbbellChart,
+  SlopeChart: AngularSlopeChart,
+  BumpChart: AngularBumpChart,
+  ErrorBarChart: AngularErrorBarChart,
+  IntervalChart: AngularIntervalChart,
+  DivergingBarChart: AngularDivergingBarChart,
+  ConnectedScatterChart: AngularConnectedScatterChart,
 };
 
 function pick<T>(table: Readonly<Record<string, T>>, chart: string): T {

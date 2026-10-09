@@ -1,0 +1,22 @@
+{
+  "chart": "BeeswarmChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "beeswarm-chart--silverpoint--green--precision--md",
+  "req": "REQ-405",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes, one reader each",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "beeswarm-chart/beeswarm-chart--silverpoint--green--precision--md.canonical.txt"
+}

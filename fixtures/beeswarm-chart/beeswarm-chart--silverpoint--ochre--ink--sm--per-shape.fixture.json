@@ -1,0 +1,22 @@
+{
+  "chart": "BeeswarmChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "beeswarm-chart--silverpoint--ochre--ink--sm--per-shape",
+  "req": "REQ-405",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes, one reader each",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "beeswarm-chart/beeswarm-chart--silverpoint--ochre--ink--sm--per-shape.canonical.txt"
+}

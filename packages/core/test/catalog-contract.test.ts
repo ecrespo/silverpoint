@@ -572,7 +572,8 @@ describe('the demo applies view props and ignores accessors (REQ-098)', () => {
   const reference = JSON.parse(readFileSync(new URL('../../../docs/site/generated/props.json', import.meta.url), 'utf8')) as {
     charts: { chart: string; own: { name: string }[] }[];
   };
-  const isAccessor = (name: string) => name.endsWith('Key') || name === 'keys' || name === 'names';
+  // `levels` and `axis` say how the data's columns are read, so they go with the data (REQ-099).
+  const isAccessor = (name: string) => name.endsWith('Key') || ['keys', 'names', 'levels', 'axis'].includes(name);
   const viewPropsOf = (chart: string) => reference.charts.find((c) => c.chart === chart)!.own.map((p) => p.name).filter((name) => !isAccessor(name));
   // The whole model, in the default card chrome: a view prop may reach only the text (KpiCard's `metric`).
   const drawn = (entry: (typeof CATALOG)[number], props: Record<string, unknown>) => {
@@ -581,7 +582,8 @@ describe('the demo applies view props and ignores accessors (REQ-098)', () => {
   };
 
   test('REQ-098 · the probes cover the whole catalog', () => {
-    expect(CATALOG).toHaveLength(33);
+    // The 33 of the first catalog and the 14 of the second's wave 1 (feature-003).
+    expect(CATALOG).toHaveLength(47);
     expect(CATALOG.filter((entry) => entry.demoProbe !== null).length).toBeGreaterThan(20);
   });
 

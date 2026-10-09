@@ -1,0 +1,23 @@
+{
+  "chart": "RidgelineChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "ridgeline-chart--silverpoint--blue--precision--lg",
+  "req": "REQ-404",
+  "seed": 1592,
+  "props": {
+    "groupKey": "service",
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ridgeline-chart/ridgeline-chart--silverpoint--blue--precision--lg.canonical.txt"
+}

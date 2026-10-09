@@ -1,0 +1,98 @@
+<svg aria-labelledby="dumbbell-chart--silverpoint--ochre--ink--md--per-shape-title dumbbell-chart--silverpoint--ochre--ink--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="dumbbell-chart--silverpoint--ochre--ink--md--per-shape-title">
+    "Clinic waits"
+  <desc id="dumbbell-chart--silverpoint--ochre--ink--md--per-shape-desc">
+    "Clinic waits. Dumbbell chart of 10 clinic values from 2024 to 2025; 8 rise, 2 fall; the largest change is Fairholm, +15."
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 48 C24.32 47.66, 27.45 48.47, 34 48 M22 48 C25.51 48.15, 29 48.29, 34 48 M34 48 C34.11 50.07, 33.98 51.45, 34 55 M34 48 C34.09 49.87, 34.1 51.57, 34 55 M34 55 C29.94 54.96, 25.32 54.87, 22 55 M34 55 C31.69 54.94, 29.09 54.75, 22 55 M22 55 C21.81 52.9, 21.98 50.58, 22 48 M22 55 C22.03 52.46, 22.12 49.91, 22 48" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M70.65 48.17 C70.65 48.17, 70.65 48.17, 70.65 48.17 M70.65 48.17 C70.65 48.17, 70.65 48.17, 70.65 48.17 M75.38 54.93 C77.24 52.62, 79.94 49.61, 81.28 48.13 M75.38 54.93 C77.09 52.71, 79.04 50.69, 81.28 48.13" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M70.8 48 C72.81 48.15, 76.13 48.08, 82.8 48 M70.8 48 C74.55 48.04, 78.35 48.17, 82.8 48 M82.8 48 C82.95 50.26, 82.68 52.39, 82.8 55 M82.8 48 C82.66 49.87, 82.89 52.01, 82.8 55 M82.8 55 C78.69 55.04, 75.51 54.94, 70.8 55 M82.8 55 C80.13 55.16, 77.19 55.18, 70.8 55 M70.8 55 C70.82 52.65, 70.67 50.26, 70.8 48 M70.8 55 C70.9 52.99, 70.78 51.13, 70.8 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M152.5 72 C152.83 92.45, 152.7 113.91, 152.5 174 M152.5 72 C152.95 104.2, 152.58 136.69, 152.5 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M201 72 C201.07 93.24, 201.23 115.07, 201 174 M201 72 C200.42 104.82, 200.43 138.07, 201 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M249.5 72 C248.75 94.03, 249.22 114.43, 249.5 174 M249.5 72 C249.35 105.45, 249.73 139.46, 249.5 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M298 72 C298.78 93.02, 297.75 113.79, 298 174 M298 72 C298.27 106.97, 298.13 140.84, 298 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M104 72 C104.51 93.81, 103.78 114.94, 104 174 M104 72 C104.14 107.6, 103.48 143.13, 104 174" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M251.08,77.1L260.05,77.1" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M243.08,77.1A4,4,0,1,0,251.08,77.1A4,4,0,1,0,243.08,77.1Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M261.82 73.9 C261.82 73.9, 261.82 73.9, 261.82 73.9 M261.82 73.9 C261.82 73.9, 261.82 73.9, 261.82 73.9" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M260.05,77.1A4,4,0,1,0,268.05,77.1A4,4,0,1,0,260.05,77.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M166.2,87.3L172.75,87.3" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M158.2,87.3A4,4,0,1,0,166.2,87.3A4,4,0,1,0,158.2,87.3Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M174.5 84.12 C174.5 84.12, 174.5 84.12, 174.5 84.12 M174.5 84.12 C174.5 84.12, 174.5 84.12, 174.5 84.12" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M172.75,87.3A4,4,0,1,0,180.75,87.3A4,4,0,1,0,172.75,87.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M188.03,97.5L213.98,97.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.03,97.5A4,4,0,1,0,188.03,97.5A4,4,0,1,0,180.03,97.5Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M216.16 93.83 C216.16 93.83, 216.16 93.83, 216.16 93.83 M216.16 93.83 C216.16 93.83, 216.16 93.83, 216.16 93.83" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M213.98,97.5A4,4,0,1,0,221.98,97.5A4,4,0,1,0,213.98,97.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.78,107.7L146.8,107.7" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M155.78,107.7A4,4,0,1,0,163.78,107.7A4,4,0,1,0,155.78,107.7Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M140.99 104.01 C140.99 104.01, 140.99 104.01, 140.99 104.01 M140.99 104.01 C140.99 104.01, 140.99 104.01, 140.99 104.01" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M138.8,107.7A4,4,0,1,0,146.8,107.7A4,4,0,1,0,138.8,107.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M234.1,117.9L245.5,117.9" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.1,117.9A4,4,0,1,0,234.1,117.9A4,4,0,1,0,226.1,117.9Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M247.49 114.44 C247.49 114.44, 247.49 114.44, 247.49 114.44 M247.49 114.44 C247.49 114.44, 247.49 114.44, 247.49 114.44" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M245.5,117.9A4,4,0,1,0,253.5,117.9A4,4,0,1,0,245.5,117.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M175.9,128.1L204.27,128.1" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M167.9,128.1A4,4,0,1,0,175.9,128.1A4,4,0,1,0,167.9,128.1Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M206.1 124.83 C206.1 124.83, 206.1 124.83, 206.1 124.83 M206.1 124.83 C206.1 124.83, 206.1 124.83, 206.1 124.83" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M204.27,128.1A4,4,0,1,0,212.27,128.1A4,4,0,1,0,204.27,128.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.6,138.3L197,138.3" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M177.6,138.3A4,4,0,1,0,185.6,138.3A4,4,0,1,0,177.6,138.3Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M199.14 134.68 C199.14 134.68, 199.14 134.68, 199.14 134.68 M199.14 134.68 C199.14 134.68, 199.14 134.68, 199.14 134.68" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M197,138.3A4,4,0,1,0,205,138.3A4,4,0,1,0,197,138.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.03,148.5L168.63,148.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.03,148.5A4,4,0,1,0,188.03,148.5A4,4,0,1,0,180.03,148.5Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M162.48 145.21 C162.48 145.21, 162.48 145.21, 162.48 145.21 M162.48 145.21 C162.48 145.21, 162.48 145.21, 162.48 145.21" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M160.63,148.5A4,4,0,1,0,168.63,148.5A4,4,0,1,0,160.63,148.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.63,158.7L175.18,158.7" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M160.63,158.7A4,4,0,1,0,168.63,158.7A4,4,0,1,0,160.63,158.7Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M177.13 155.3 C177.13 155.3, 177.13 155.3, 177.13 155.3 M177.13 155.3 C177.13 155.3, 177.13 155.3, 177.13 155.3" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M175.18,158.7A4,4,0,1,0,183.18,158.7A4,4,0,1,0,175.18,158.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.63,168.9L177.6,168.9" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M160.63,168.9A4,4,0,1,0,168.63,168.9A4,4,0,1,0,160.63,168.9Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M179.62 165.41 C179.62 165.41, 179.62 165.41, 179.62 165.41 M179.62 165.41 C179.62 165.41, 179.62 165.41, 179.62 165.41" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M177.6,168.9A4,4,0,1,0,185.6,168.9A4,4,0,1,0,177.6,168.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M204.27,128.1A4,4,0,1,0,212.27,128.1A4,4,0,1,0,204.27,128.1Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Clinic waits"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "2024 → 2025"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "minutes"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "2024"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.8" y="55">
+    "2025"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="104" y="189">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="152.5" y="189">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="201" y="189">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="249.5" y="189">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="298" y="189">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="81.1">
+    "Ashford"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="91.3">
+    "Brook Lane"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="101.5">
+    "Castlegate"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="111.7">
+    "Dunmore"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="121.9">
+    "Eastwick"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="132.1">
+    "Fairholm"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="142.3">
+    "Glenbrook"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="152.5">
+    "Hollins"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="162.7">
+    "Ivybridge"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="172.9">
+    "Juniper Row"

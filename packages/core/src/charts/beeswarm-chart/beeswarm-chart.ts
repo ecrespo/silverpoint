@@ -7,7 +7,7 @@ import { cardLayout } from '../shared/card';
 import { AXIS_BAND, PLOT_INSET, cartesianPlot } from '../shared/cartesian';
 import { checkCeiling, checkRadius, readObservations, type Observation } from '../shared/contracts';
 import { ROW_LABELS } from '../shared/distribution';
-import { accessorName, circlePath, fitText, formatNumber, formatValue, read } from '../shared/format';
+import { accessorName, circlePath, fitText, formatNumber, formatValue, numberFormatter, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { BEESWARM_CHART_DEMO, BEESWARM_CHART_DEMO_KEYS } from './demo';
 
@@ -41,11 +41,15 @@ function buildBeeswarmChart(props: BeeswarmChartProps, context: RecipeContext): 
   checkCeiling(CHART, valueName, 'points', observations.length);
   const asked = checkRadius(CHART, props.radius) ?? DEFAULT_RADIUS;
 
+  // A row per observation: the value column's formatter is resolved once (REQ-445); a value that
+  // is not a finite number reads `—`, as formatValue prints it.
+  const value = numberFormatter(locale, numberFormat);
+  const cell = (raw: unknown) => (typeof raw === 'number' && Number.isFinite(raw) ? value(raw) : formatValue(raw, locale, numberFormat));
   const base = modelBase(CHART, props, context, 'Beeswarm', {
     columns: [labelName, valueName, ...(groupName ? [groupName] : [])],
     rows: data.map((datum, index) => [
       labelKey === undefined ? `#${index + 1}` : formatValue(read(labelKey, datum, index), locale, undefined),
-      formatValue(read(valueKey, datum, index), locale, numberFormat),
+      cell(read(valueKey, datum, index)),
       ...(groupKey ? [formatValue(read(groupKey, datum, index), locale, undefined)] : []),
     ]),
   });

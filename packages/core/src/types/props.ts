@@ -5,7 +5,7 @@ import type { GroundRef } from './ground';
 export interface CommonChartProps {
   /**
    * Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`,
-   * `keys`, `names`) are ignored, every other prop applies.
+   * `keys`, `names`, `levels`, `axis`) are ignored, every other prop applies.
    */
   data?: readonly Datum[];
 
@@ -446,7 +446,7 @@ export interface HistogramChartProps extends CommonChartProps {
 export interface EcdfChartProps extends CommonChartProps {
   /** Ignored without `data`. */
   valueKey?: Accessor<number | null | undefined>;
-  /** Ignored without `data`. Two groups at most are drawn. */
+  /** Two groups at most are drawn. Ignored without `data`. */
   groupKey?: Accessor<string | null | undefined>;
   /** Quantiles, in 0-1, drawn as rules. */
   markers?: readonly number[];
@@ -521,7 +521,7 @@ export interface DumbbellChartProps extends CommonChartProps {
   startKey?: Accessor<number | null | undefined>;
   /** Ignored without `data`. */
   endKey?: Accessor<number | null | undefined>;
-  /** Titles of the two values; `['start', 'end']` by default. */
+  /** Titles of the two values; `['start', 'end']` by default. Ignored without `data`. */
   names?: readonly [string, string];
   /** `arrow` encodes the direction from the first value to the second. */
   endMarker?: 'dot' | 'arrow';
@@ -537,7 +537,7 @@ export interface SlopeChartProps extends CommonChartProps {
   startKey?: Accessor<number | null | undefined>;
   /** Ignored without `data`. */
   endKey?: Accessor<number | null | undefined>;
-  /** Titles of the two periods; `['start', 'end']` by default. */
+  /** Titles of the two periods; `['start', 'end']` by default. Ignored without `data`. */
   names?: readonly [string, string];
 }
 
@@ -581,7 +581,7 @@ export interface IntervalChartProps extends CommonChartProps {
   endKey?: Accessor<number | string | null | undefined>;
   /** Ignored without `data`. */
   labelKey?: Accessor<string | null | undefined>;
-  /** `date` reads ISO `YYYY-MM-DD` days in UTC; `number` by default. */
+  /** `date` reads ISO `YYYY-MM-DD` days in UTC; `number` by default. Ignored without `data`. */
   axis?: 'number' | 'date';
 }
 
@@ -589,7 +589,7 @@ export interface IntervalChartProps extends CommonChartProps {
 export interface DivergingBarChartProps extends CommonChartProps {
   /** Ignored without `data`. */
   labelKey?: Accessor<string>;
-  /** The level columns, most negative first. */
+  /** The level columns, most negative first. Ignored without `data`. */
   levels: readonly string[];
   /** Index of the neutral level, split across the centre; `null` for none. The middle one by default. */
   neutral?: number | null;

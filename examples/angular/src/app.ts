@@ -33,13 +33,27 @@ import { SpWindRose } from '@silverpoint/angular/wind-rose';
 import { SpVolvelleChart } from '@silverpoint/angular/volvelle-chart';
 import { SpChordRing } from '@silverpoint/angular/chord-ring';
 import { SpOrbitChart } from '@silverpoint/angular/orbit-chart';
+import { SpHistogramChart } from '@silverpoint/angular/histogram-chart';
+import { SpEcdfChart } from '@silverpoint/angular/ecdf-chart';
+import { SpBoxPlotChart } from '@silverpoint/angular/box-plot-chart';
+import { SpViolinChart } from '@silverpoint/angular/violin-chart';
+import { SpRidgelineChart } from '@silverpoint/angular/ridgeline-chart';
+import { SpBeeswarmChart } from '@silverpoint/angular/beeswarm-chart';
+import { SpLollipopChart } from '@silverpoint/angular/lollipop-chart';
+import { SpDumbbellChart } from '@silverpoint/angular/dumbbell-chart';
+import { SpSlopeChart } from '@silverpoint/angular/slope-chart';
+import { SpBumpChart } from '@silverpoint/angular/bump-chart';
+import { SpErrorBarChart } from '@silverpoint/angular/error-bar-chart';
+import { SpIntervalChart } from '@silverpoint/angular/interval-chart';
+import { SpDivergingBarChart } from '@silverpoint/angular/diverging-bar-chart';
+import { SpConnectedScatterChart } from '@silverpoint/angular/connected-scatter-chart';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiGate, UiPage } from './ui-gate';
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart };
+const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart };
 
 @Component({
   selector: 'app-root',

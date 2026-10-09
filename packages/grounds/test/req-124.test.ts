@@ -380,6 +380,7 @@ describe('REQ-124 · one pass over the catalog', () => {
     CoxcombChart: { channel: 'every sector named at the rim', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
     WindRose: { channel: 'every speed bin named in stack order (the ruled limit: a gap in a stack)', holds: (m) => seriesColumns(m, 2).every((b) => printed(m, b)) },
     ChordRing: { channel: 'every category named at its arc', holds: (m) => flowEnds(m).every((n) => printed(m, n)) },
+    DivergingBarChart: { channel: 'every level named in the legend; the side says the sign (feature-003, REQ-440)', holds: (m) => seriesColumns(m, 1).every((level) => printed(m, level)) },
   };
 
   test('REQ-124 · every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {

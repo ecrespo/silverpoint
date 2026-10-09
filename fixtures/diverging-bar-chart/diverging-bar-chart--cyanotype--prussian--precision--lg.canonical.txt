@@ -1,0 +1,164 @@
+<svg aria-labelledby="diverging-bar-chart--cyanotype--prussian--precision--lg-title diverging-bar-chart--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="diverging-bar-chart--cyanotype--prussian--precision--lg-title">
+    "Survey"
+  <desc id="diverging-bar-chart--cyanotype--prussian--precision--lg-desc">
+    "Survey. Diverging bars of 6 question rows on a 5-level scale from Strongly disagree to Strongly agree, Neutral split across the centre; each row as shares of 100 %, levels before the centre to its left."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M138.4,48H150.4V55H138.4Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M208,48H220V55H208Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M272.4,48H284.4V55H272.4Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M326.4,48H338.4V55H326.4Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M145.6,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M204.65,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M263.7,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M322.75,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M440.85,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M499.9,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M558.95,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M618,72V324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M381.8,72V324" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M344.71,82H381.8V104H344.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,82H418.89V104H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M266.07,82H344.71V104H266.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M418.89,82H454.5V104H418.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M202.28,82H266.07V104H202.28Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M454.5,82H497.53V104H454.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M335.81,124H381.8V146H335.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,124H427.79V146H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M282.39,124H335.81V146H282.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M427.79,124H490.11V146H427.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.01,124H282.39V146H226.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M490.11,124H521.26V146H490.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M348.42,166H381.8V188H348.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,166H415.18V188H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M286.1,166H348.42V188H286.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M415.18,166H461.18V188H415.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.76,166H286.1V188H226.76Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M461.18,166H522.01V188H461.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M349.9,208H381.8V230H349.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,208H413.7V230H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M292.04,208H349.9V230H292.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M413.7,208H474.53V230H413.7Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.14,208H292.04V230H237.14Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M474.53,208H532.39V230H474.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M344.71,250H381.8V272H344.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,250H418.89V272H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M291.3,250H344.71V272H291.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M418.89,250H448.57V272H418.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M209.69,250H291.3V272H209.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M448.57,250H504.94V272H448.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.68,292H381.8V314H347.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M381.8,292H415.92V314H381.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M298.71,292H347.68V314H298.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M415.92,292H475.27V314H415.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.01,292H298.71V314H226.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M475.27,292H521.26V314H475.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M427.79,124H490.11V146H427.79Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Survey"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "200 answers"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "share per question"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "Strongly disagree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="154.4" y="55">
+    "Disagree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="224" y="55">
+    "Neutral"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="288.4" y="55">
+    "Agree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="342.4" y="55">
+    "Strongly agree"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="145.6" y="339">
+    "80%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="204.65" y="339">
+    "60%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="263.7" y="339">
+    "40%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="322.75" y="339">
+    "20%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="381.8" y="339">
+    "0%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="440.85" y="339">
+    "20%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="499.9" y="339">
+    "40%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="558.95" y="339">
+    "60%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="618" y="339">
+    "80%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="97">
+    "The site is easy to use"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="96">
+    "25.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="305.39" y="96">
+    "26.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="436.7" y="96">
+    "12.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="234.18" y="96">
+    "21.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="476.01" y="96">
+    "14.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="139">
+    "Prices are fair"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="138">
+    "31.2%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="309.1" y="138">
+    "18.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="458.95" y="138">
+    "21.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="254.2" y="138">
+    "19.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="505.69" y="138">
+    "10.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="181">
+    "Delivery was on time"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="180">
+    "22.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="317.26" y="180">
+    "21.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="438.18" y="180">
+    "15.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="256.43" y="180">
+    "20.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="491.59" y="180">
+    "20.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="223">
+    "Support solved my issue"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="222">
+    "21.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="320.97" y="222">
+    "19.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="444.11" y="222">
+    "20.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="264.59" y="222">
+    "18.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="503.46" y="222">
+    "19.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="265">
+    "I would recommend it"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="264">
+    "25.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="318" y="264">
+    "18.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="250.5" y="264">
+    "27.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="476.75" y="264">
+    "19.1%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="307">
+    "The app is reliable"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="381.8" y="306">
+    "23.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="323.2" y="306">
+    "16.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="445.6" y="306">
+    "20.1%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="262.36" y="306">
+    "24.6%"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="498.27" y="306">
+    "15.6%"

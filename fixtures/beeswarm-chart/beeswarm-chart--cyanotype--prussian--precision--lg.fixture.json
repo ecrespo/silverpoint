@@ -1,0 +1,22 @@
+{
+  "chart": "BeeswarmChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "beeswarm-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-405",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "n = 240",
+    "footerLeft": "minutes, one reader each",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "beeswarm-chart/beeswarm-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

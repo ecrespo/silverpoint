@@ -31,6 +31,20 @@ export { WindRose, type ClientWindRoseProps } from './wind-rose';
 export { VolvelleChart, type ClientVolvelleChartProps } from './volvelle-chart';
 export { ChordRing, type ClientChordRingProps } from './chord-ring';
 export { OrbitChart, type ClientOrbitChartProps } from './orbit-chart';
+export { HistogramChart, type ClientHistogramChartProps } from './histogram-chart';
+export { EcdfChart, type ClientEcdfChartProps } from './ecdf-chart';
+export { BoxPlotChart, type ClientBoxPlotChartProps } from './box-plot-chart';
+export { ViolinChart, type ClientViolinChartProps } from './violin-chart';
+export { RidgelineChart, type ClientRidgelineChartProps } from './ridgeline-chart';
+export { BeeswarmChart, type ClientBeeswarmChartProps } from './beeswarm-chart';
+export { LollipopChart, type ClientLollipopChartProps } from './lollipop-chart';
+export { DumbbellChart, type ClientDumbbellChartProps } from './dumbbell-chart';
+export { SlopeChart, type ClientSlopeChartProps } from './slope-chart';
+export { BumpChart, type ClientBumpChartProps } from './bump-chart';
+export { ErrorBarChart, type ClientErrorBarChartProps } from './error-bar-chart';
+export { IntervalChart, type ClientIntervalChartProps } from './interval-chart';
+export { DivergingBarChart, type ClientDivergingBarChartProps } from './diverging-bar-chart';
+export { ConnectedScatterChart, type ClientConnectedScatterChartProps } from './connected-scatter-chart';
 export type { TooltipRenderer } from './overlay';
 export { SilverpointProvider, type SilverpointProviderProps } from './provider';
 export type {
@@ -61,6 +75,20 @@ export type {
   VolvelleChartProps,
   ChordRingProps,
   OrbitChartProps,
+  HistogramChartProps,
+  EcdfChartProps,
+  BoxPlotChartProps,
+  ViolinChartProps,
+  RidgelineChartProps,
+  BeeswarmChartProps,
+  LollipopChartProps,
+  DumbbellChartProps,
+  SlopeChartProps,
+  BumpChartProps,
+  ErrorBarChartProps,
+  IntervalChartProps,
+  DivergingBarChartProps,
+  ConnectedScatterChartProps,
 
   BulletChartProps,
   HeatmapChartProps,

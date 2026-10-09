@@ -1,0 +1,46 @@
+<svg aria-labelledby="ecdf-chart--cyanotype--prussian--ink--lg-title ecdf-chart--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="ecdf-chart--cyanotype--prussian--ink--lg-title">
+    "Reading time"
+  <desc id="ecdf-chart--cyanotype--prussian--ink--lg-desc">
+    "Reading time. Empirical cumulative distribution of minutes, the share of observations at or below each value, from 1 to 27.5; desktop: 88 values, median 6.5; phone: 152 values, median 5."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M86.4,48H98.4V55H86.4Z" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+  <path d="M22,261H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,198H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,135H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,72H618" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,324H618" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M41.87,324V321.14H51.8V312.55H61.73V295.36H71.67V289.64H81.6V281.05H91.53V266.73H101.47V246.68H111.4V235.23H121.33V220.91H131.27V215.18H141.2V200.86H151.13V186.55H171V177.95H180.93V166.5H190.87V160.77H200.8V155.05H210.73V146.45H230.6V140.73H240.53V137.86H260.4V126.41H270.33V123.55H280.27V120.68H290.2V114.95H300.13V109.23H310.07V106.36H320V103.5H329.93V100.64H349.8V94.91H379.6V92.05H389.53V89.18H409.4V86.32H419.33V83.45H449.13V80.59H488.87V77.73H558.4V74.86H568.33V72H618" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M41.87,324V317.37H51.8V307.42H61.73V294.16H71.67V284.21H81.6V261H91.53V247.74H101.47V227.84H111.4V209.61H121.33V193.03H131.27V183.08H141.2V169.82H151.13V159.87H161.07V154.89H171V149.92H180.93V143.29H190.87V135H200.8V126.71H210.73V120.08H220.67V111.79H230.6V105.16H240.53V98.53H250.47V88.58H260.4V86.92H270.33V85.26H280.27V83.61H300.13V81.95H310.07V80.29H320V78.63H329.93V76.97H359.73V73.66H449.13V72H618" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M147.63,198A3.5,3.5,0,1,0,154.63,198A3.5,3.5,0,1,0,147.63,198Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M147.63,198A3.5,3.5,0,1,0,154.63,198A3.5,3.5,0,1,0,147.63,198Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Reading time"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "by device"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "share at or below"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "desktop"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102.4" y="55">
+    "phone"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="258">
+    "25%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="195">
+    "50%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="132">
+    "75%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+    "100%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="22" y="339">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="220.67" y="339">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="419.33" y="339">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="618" y="339">
+    "30"

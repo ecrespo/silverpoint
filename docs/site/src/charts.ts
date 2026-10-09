@@ -32,6 +32,20 @@ import { WindRose } from '@silverpoint/react/wind-rose';
 import { VolvelleChart } from '@silverpoint/react/volvelle-chart';
 import { ChordRing } from '@silverpoint/react/chord-ring';
 import { OrbitChart } from '@silverpoint/react/orbit-chart';
+import { HistogramChart } from '@silverpoint/react/histogram-chart';
+import { EcdfChart } from '@silverpoint/react/ecdf-chart';
+import { BoxPlotChart } from '@silverpoint/react/box-plot-chart';
+import { ViolinChart } from '@silverpoint/react/violin-chart';
+import { RidgelineChart } from '@silverpoint/react/ridgeline-chart';
+import { BeeswarmChart } from '@silverpoint/react/beeswarm-chart';
+import { LollipopChart } from '@silverpoint/react/lollipop-chart';
+import { DumbbellChart } from '@silverpoint/react/dumbbell-chart';
+import { SlopeChart } from '@silverpoint/react/slope-chart';
+import { BumpChart } from '@silverpoint/react/bump-chart';
+import { ErrorBarChart } from '@silverpoint/react/error-bar-chart';
+import { IntervalChart } from '@silverpoint/react/interval-chart';
+import { DivergingBarChart } from '@silverpoint/react/diverging-bar-chart';
+import { ConnectedScatterChart } from '@silverpoint/react/connected-scatter-chart';
 
 export interface SiteChart {
   readonly chart: string;
@@ -75,6 +89,22 @@ export const CHARTS: readonly SiteChart[] = [
   { chart: 'VolvelleChart', slug: 'volvelle-chart', Component: VolvelleChart as SiteChart['Component'] },
   { chart: 'ChordRing', slug: 'chord-ring', Component: ChordRing as SiteChart['Component'] },
   { chart: 'OrbitChart', slug: 'orbit-chart', Component: OrbitChart as SiteChart['Component'] },
+  { chart: 'HistogramChart', slug: 'histogram-chart', Component: HistogramChart as SiteChart['Component'] },
+  { chart: 'EcdfChart', slug: 'ecdf-chart', Component: EcdfChart as SiteChart['Component'] },
+  { chart: 'BoxPlotChart', slug: 'box-plot-chart', Component: BoxPlotChart as SiteChart['Component'] },
+  { chart: 'ViolinChart', slug: 'violin-chart', Component: ViolinChart as SiteChart['Component'] },
+  // A required prop (`groupKey`) leaves no overlap with the open record: widened through `unknown`.
+  { chart: 'RidgelineChart', slug: 'ridgeline-chart', Component: RidgelineChart as unknown as SiteChart['Component'] },
+  { chart: 'BeeswarmChart', slug: 'beeswarm-chart', Component: BeeswarmChart as SiteChart['Component'] },
+  { chart: 'LollipopChart', slug: 'lollipop-chart', Component: LollipopChart as SiteChart['Component'] },
+  { chart: 'DumbbellChart', slug: 'dumbbell-chart', Component: DumbbellChart as SiteChart['Component'] },
+  { chart: 'SlopeChart', slug: 'slope-chart', Component: SlopeChart as SiteChart['Component'] },
+  { chart: 'BumpChart', slug: 'bump-chart', Component: BumpChart as SiteChart['Component'] },
+  { chart: 'ErrorBarChart', slug: 'error-bar-chart', Component: ErrorBarChart as SiteChart['Component'] },
+  { chart: 'IntervalChart', slug: 'interval-chart', Component: IntervalChart as SiteChart['Component'] },
+  // A required prop (`levels`) leaves no overlap with the open record: widened through `unknown`.
+  { chart: 'DivergingBarChart', slug: 'diverging-bar-chart', Component: DivergingBarChart as unknown as SiteChart['Component'] },
+  { chart: 'ConnectedScatterChart', slug: 'connected-scatter-chart', Component: ConnectedScatterChart as SiteChart['Component'] },
 ];
 
 export const chartBySlug = (slug: string | undefined): SiteChart | undefined => CHARTS.find((c) => c.slug === slug);

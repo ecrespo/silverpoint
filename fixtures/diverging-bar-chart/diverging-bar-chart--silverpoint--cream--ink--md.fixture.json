@@ -1,0 +1,29 @@
+{
+  "chart": "DivergingBarChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "diverging-bar-chart--silverpoint--cream--ink--md",
+  "req": "REQ-412",
+  "seed": 1592,
+  "props": {
+    "levels": [
+      "Strongly disagree",
+      "Disagree",
+      "Neutral",
+      "Agree",
+      "Strongly agree"
+    ],
+    "title": "Survey",
+    "badge": "200 answers",
+    "footerLeft": "share per question",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "diverging-bar-chart/diverging-bar-chart--silverpoint--cream--ink--md.canonical.txt"
+}

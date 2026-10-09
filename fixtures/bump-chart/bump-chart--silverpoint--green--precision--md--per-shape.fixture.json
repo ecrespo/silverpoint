@@ -1,0 +1,22 @@
+{
+  "chart": "BumpChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "bump-chart--silverpoint--green--precision--md--per-shape",
+  "req": "REQ-409",
+  "seed": 1592,
+  "props": {
+    "title": "League table",
+    "badge": "8 seasons",
+    "footerLeft": "rank by points",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "bump-chart/bump-chart--silverpoint--green--precision--md--per-shape.canonical.txt"
+}

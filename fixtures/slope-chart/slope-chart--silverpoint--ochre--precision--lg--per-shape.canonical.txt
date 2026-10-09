@@ -1,0 +1,73 @@
+<svg aria-labelledby="slope-chart--silverpoint--ochre--precision--lg--per-shape-title slope-chart--silverpoint--ochre--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="slope-chart--silverpoint--ochre--precision--lg--per-shape-title">
+    "Clinic waits"
+  <desc id="slope-chart--silverpoint--ochre--precision--lg--per-shape-desc">
+    "Clinic waits. Slopegraph of 10 clinic values from 2024 to 2025; 8 rise, 2 fall, 0 hold; the largest change is Fairholm, +15."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M96.8,64V338" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M543.2,64V338" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M96.8,102.36L543.2,64" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,294.16L543.2,261.28" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,244.84L543.2,168.12" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,299.64L543.2,338" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M96.8,140.72L543.2,96.88" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,272.24L543.2,190.04" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,250.32L543.2,206.48" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,244.84L543.2,288.68" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M96.8,288.68L543.2,255.8" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.8,288.68L543.2,250.32" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M539.7,190.04A3.5,3.5,0,1,0,546.7,190.04A3.5,3.5,0,1,0,539.7,190.04Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M539.7,190.04A3.5,3.5,0,1,0,546.7,190.04A3.5,3.5,0,1,0,539.7,190.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Clinic waits"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2024 → 2025"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "minutes"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="96.8" y="55">
+    "2024"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="543.2" y="55">
+    "2025"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="105.36">
+    "Ashford 59"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="67">
+    "66 Ashford"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="313.84">
+    "Brook Lane 24"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="275.32">
+    "30 Brook Lane"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="247.84">
+    "Castlegate 33"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="171.12">
+    "47 Castlegate"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="324.84">
+    "Dunmore 23"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="341">
+    "16 Dunmore"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="143.72">
+    "Eastwick 52"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="99.88">
+    "60 Eastwick"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="280.84">
+    "Fairholm 28"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="193.04">
+    "43 Fairholm"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="269.84">
+    "Glenbrook 32"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="209.48">
+    "40 Glenbrook"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="258.84">
+    "Hollins 33"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="291.68">
+    "25 Hollins"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="291.84">
+    "Ivybridge 25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="264.32">
+    "31 Ivybridge"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="90.8" y="302.84">
+    "Juniper Row 25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="549.2" y="253.32">
+    "32 Juniper Row"

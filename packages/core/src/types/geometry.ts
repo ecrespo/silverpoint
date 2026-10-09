@@ -69,10 +69,17 @@ export interface HitArea {
    */
   readonly cell?: Readonly<{ column: number; row: number }>;
   /**
-   * The item's place in a hierarchy, when the chart draws one. When every item has one, the arrow
-   * keys follow the WAI-ARIA tree pattern (REQ-438): `order` is the depth-first pre-order.
+   * The item's place in a hierarchy, when the chart draws one; `order` is the depth-first
+   * pre-order (REQ-438).
    */
   readonly node?: Readonly<{ id: string; parent: string | null; depth: number; order: number }>;
+  /**
+   * Where each navigation key moves from this item, as an index into `hitAreas`, for a chart with
+   * its own keyboard model (a tree, REQ-438). When the first item has them, the keys follow them
+   * and nothing else; a key without a move stays. Computed in the core with the layout, so a chart
+   * without such a model carries none of its code (REQ-444).
+   */
+  readonly moves?: Readonly<Partial<Record<string, number>>>;
 }
 
 /**

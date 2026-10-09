@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiFixture } from './ui-fixture';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, sizeOf } from '@silverpoint/example-harness';
@@ -15,7 +16,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
         <h1>silverpoint · Next.js (React) · gallery</h1>
         <div className="sp-gallery">
           {GALLERY.map(({ chart, props }) => {
-            const Chart = CHARTS[chart as keyof typeof CHARTS];
+            // A fixture's props fit its own chart; the union of charts cannot say so (as reference-dashboard.tsx).
+            const Chart = CHARTS[chart as keyof typeof CHARTS] as ComponentType<Record<string, unknown>>;
             return (
               <div className="sp-harness" data-size="md" key={chart}>
                 <Chart {...props} />
@@ -49,7 +51,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   }
   const fixture = fixtureById(params.fixture);
   if (fixture) {
-    const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS];
+    const FixtureChart = CHARTS[fixture.chart as keyof typeof CHARTS] as ComponentType<Record<string, unknown>>;
     return (
       <main>
         <div className="sp-harness" data-gate="" data-size={sizeOf(fixture)}>

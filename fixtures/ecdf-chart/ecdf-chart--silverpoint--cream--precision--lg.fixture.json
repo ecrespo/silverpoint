@@ -1,0 +1,22 @@
+{
+  "chart": "EcdfChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "ecdf-chart--silverpoint--cream--precision--lg",
+  "req": "REQ-401",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "by device",
+    "footerLeft": "share at or below",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ecdf-chart/ecdf-chart--silverpoint--cream--precision--lg.canonical.txt"
+}

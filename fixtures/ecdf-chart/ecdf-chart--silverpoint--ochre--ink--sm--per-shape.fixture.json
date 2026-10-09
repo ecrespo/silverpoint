@@ -1,0 +1,22 @@
+{
+  "chart": "EcdfChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "ecdf-chart--silverpoint--ochre--ink--sm--per-shape",
+  "req": "REQ-401",
+  "seed": 1592,
+  "props": {
+    "title": "Reading time",
+    "badge": "by device",
+    "footerLeft": "share at or below",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ecdf-chart/ecdf-chart--silverpoint--ochre--ink--sm--per-shape.canonical.txt"
+}

@@ -1,0 +1,154 @@
+<svg aria-labelledby="diverging-bar-chart--silverpoint--ochre--ink--md-title diverging-bar-chart--silverpoint--ochre--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="diverging-bar-chart--silverpoint--ochre--ink--md-title">
+    "Survey"
+  <desc id="diverging-bar-chart--silverpoint--ochre--ink--md-desc">
+    "Survey. Diverging bars of 6 question rows on a 5-level scale from Strongly disagree to Strongly agree, Neutral split across the centre; each row as shares of 100 %, levels before the centre to its left."
+  <defs>
+    <pattern height="50" id="diverging-bar-chart--silverpoint--ochre--ink--md-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="diverging-bar-chart--silverpoint--ochre--ink--md-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C67.1 -0.17, 132.24 0.29, 319.5 0.5 M0.5 0.5 C91.94 0.29, 183.17 0.47, 319.5 0.5 M319.5 0.5 C319.4 88.07, 319.79 175.8, 319.5 239.5 M319.5 0.5 C319.16 53.93, 319.62 107.09, 319.5 239.5 M319.5 239.5 C226.7 238.68, 134.79 238.63, 0.5 239.5 M319.5 239.5 C201.84 239.9, 84.47 239.8, 0.5 239.5 M0.5 239.5 C0.96 164.02, 1.39 88.7, 0.5 0.5 M0.5 239.5 C0.11 150.48, 0.59 60.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 202 C75.91 202.51, 134.87 201.9, 304 202 M16 202 C100.28 201.97, 185.11 201.48, 304 202" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M22 48 C24.32 47.66, 27.45 48.47, 34 48 M22 48 C25.51 48.15, 29 48.29, 34 48 M34 48 C34.11 50.07, 33.98 51.45, 34 55 M34 48 C34.09 49.87, 34.1 51.57, 34 55 M34 55 C29.94 54.96, 25.32 54.87, 22 55 M34 55 C31.69 54.94, 29.09 54.75, 22 55 M22 55 C21.81 52.9, 21.98 50.58, 22 48 M22 55 C22.03 52.46, 22.12 49.91, 22 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M138.4,48H150.4V55H138.4Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M138.4 48 C140.41 48.15, 143.73 48.08, 150.4 48 M138.4 48 C142.15 48.04, 145.95 48.17, 150.4 48 M150.4 48 C150.55 50.26, 150.28 52.39, 150.4 55 M150.4 48 C150.26 49.87, 150.49 52.01, 150.4 55 M150.4 55 C146.29 55.04, 143.11 54.94, 138.4 55 M150.4 55 C147.73 55.16, 144.79 55.18, 138.4 55 M138.4 55 C138.42 52.65, 138.27 50.26, 138.4 48 M138.4 55 C138.5 52.99, 138.38 51.13, 138.4 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M208 48 C210.79 47.5, 213.21 47.63, 220 48 M208 48 C211.99 47.93, 215.57 48.06, 220 48 M220 48 C220.15 50.45, 219.74 53.34, 220 55 M220 48 C219.97 50.18, 220.11 52.13, 220 55 M220 55 C216.91 55.12, 214.11 55, 208 55 M220 55 C216.98 54.91, 214.22 55.14, 208 55 M208 55 C208.27 52.41, 207.8 50.57, 208 48 M208 55 C207.86 52.43, 208.16 49.86, 208 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M272.4,48H284.4V55H272.4Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M272.4 48 C274.89 47.99, 277.49 48.32, 284.4 48 M272.4 48 C276.09 47.82, 279.99 47.94, 284.4 48 M284.4 48 C284.59 49.24, 284.66 50.86, 284.4 55 M284.4 48 C284.45 50.17, 284.5 52.25, 284.4 55 M284.4 55 C279.94 55.27, 275.1 55.13, 272.4 55 M284.4 55 C281.02 55.19, 277.91 55.1, 272.4 55 M272.4 55 C272.26 52.79, 272.09 50.25, 272.4 48 M272.4 55 C272.33 53.27, 272.42 51.39, 272.4 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M326.4,48H338.4V55H326.4Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M326.4 48 C328.59 48.41, 331.37 47.87, 338.4 48 M326.4 48 C330.33 47.78, 334.55 47.88, 338.4 48 M338.4 48 C338.6 50.06, 338.52 51.81, 338.4 55 M338.4 48 C338.53 50.17, 338.49 52.69, 338.4 55 M338.4 55 C334.97 55.35, 330.49 55.19, 326.4 55 M338.4 55 C335.2 54.87, 331.74 54.99, 326.4 55 M326.4 55 C326.47 52.55, 326.61 49.94, 326.4 48 M326.4 55 C326.4 52.39, 326.28 50.11, 326.4 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M116.8 72 C117.58 93.02, 116.55 113.79, 116.8 174 M116.8 72 C117.07 106.97, 116.93 140.84, 116.8 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M139.45 72 C139.96 93.81, 139.23 114.94, 139.45 174 M139.45 72 C139.59 107.6, 138.93 143.13, 139.45 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M162.1 72 C161.8 92.79, 161.37 114.3, 162.1 174 M162.1 72 C161.77 108.22, 162.38 144.51, 162.1 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M184.75 72 C184.18 93.58, 185.85 115.46, 184.75 174 M184.75 72 C184.84 108.85, 184.93 145.9, 184.75 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M230.05 72 C230.46 92.57, 230.64 114.82, 230.05 174 M230.05 72 C230.57 109.47, 230.13 147.28, 230.05 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M252.7 72 C252.84 93.36, 253.32 114.18, 252.7 174 M252.7 72 C252.19 110.1, 252.13 148.67, 252.7 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M275.35 72 C274.68 94.15, 275.46 115.33, 275.35 174 M275.35 72 C275.27 111.62, 275.58 150.95, 275.35 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M298 72 C298.86 93.14, 298.14 114.69, 298 174 M298 72 C298.34 112.25, 298.13 152.34, 298 174" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M207.4 72 C207.44 93.93, 207.02 115.85, 207.4 174 M207.4 72 C207.61 92.47, 206.88 112.92, 207.4 174" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M193.17,74.55H207.4V86.45H193.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,74.55H221.63V86.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M163.01,74.55H193.17V86.45H163.01Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M163.01,74.55H193.17V86.45H163.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M221.63,74.55H235.29V86.45H221.63Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M221.63,74.55H235.29V86.45H221.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M138.54,74.55H163.01V86.45H138.54Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M138.54,74.55H163.01V86.45H138.54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M235.29,74.55H251.79V86.45H235.29Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M235.29,74.55H251.79V86.45H235.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M189.76,91.55H207.4V103.45H189.76Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,91.55H225.04V103.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M169.27,91.55H189.76V103.45H169.27Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M169.27,91.55H189.76V103.45H169.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M225.04,91.55H248.94V103.45H225.04Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M225.04,91.55H248.94V103.45H225.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M147.64,91.55H169.27V103.45H147.64Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M147.64,91.55H169.27V103.45H147.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M248.94,91.55H260.89V103.45H248.94Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M248.94,91.55H260.89V103.45H248.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.6,108.55H207.4V120.45H194.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,108.55H220.2V120.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M170.69,108.55H194.6V120.45H170.69Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M170.69,108.55H194.6V120.45H170.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M220.2,108.55H237.85V120.45H220.2Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M220.2,108.55H237.85V120.45H220.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M147.93,108.55H170.69V120.45H147.93Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M147.93,108.55H170.69V120.45H147.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M237.85,108.55H261.18V120.45H237.85Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M237.85,108.55H261.18V120.45H237.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M195.16,125.55H207.4V137.45H195.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,125.55H219.64V137.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.97,125.55H195.16V137.45H172.97Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M172.97,125.55H195.16V137.45H172.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M219.64,125.55H242.97V137.45H219.64Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M219.64,125.55H242.97V137.45H219.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M151.91,125.55H172.97V137.45H151.91Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M151.91,125.55H172.97V137.45H151.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M242.97,125.55H265.16V137.45H242.97Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M242.97,125.55H265.16V137.45H242.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M193.17,142.55H207.4V154.45H193.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,142.55H221.63V154.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.69,142.55H193.17V154.45H172.69Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M172.69,142.55H193.17V154.45H172.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M221.63,142.55H233.01V154.45H221.63Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M221.63,142.55H233.01V154.45H221.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M141.38,142.55H172.69V154.45H141.38Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M141.38,142.55H172.69V154.45H141.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M233.01,142.55H254.63V154.45H233.01Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M233.01,142.55H254.63V154.45H233.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M194.31,159.55H207.4V171.45H194.31Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M207.4,159.55H220.49V171.45H207.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M175.53,159.55H194.31V171.45H175.53Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M175.53,159.55H194.31V171.45H175.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M220.49,159.55H243.25V171.45H220.49Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-1)" part="sp-ink">
+  <path d="M220.49,159.55H243.25V171.45H220.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M147.64,159.55H175.53V171.45H147.64Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M147.64,159.55H175.53V171.45H147.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M243.25,159.55H260.89V171.45H243.25Z" data-paint="tile" data-role="hatch" fill="url(#diverging-bar-chart--silverpoint--ochre--ink--md-tone-2)" part="sp-ink">
+  <path d="M243.25,159.55H260.89V171.45H243.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M225.04,91.55H248.94V103.45H225.04Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Survey"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "200 answers"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "share per question"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "Strongly disagree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="154.4" y="55">
+    "Disagree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="224" y="55">
+    "Neutral"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="288.4" y="55">
+    "Agree"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="342.4" y="55">
+    "Strongly agree"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="116.8" y="189">
+    "80%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="139.45" y="189">
+    "60%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="162.1" y="189">
+    "40%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="184.75" y="189">
+    "20%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="207.4" y="189">
+    "0%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="230.05" y="189">
+    "20%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="252.7" y="189">
+    "40%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="275.35" y="189">
+    "60%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="298" y="189">
+    "80%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="84.5">
+    "The site is easy…"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="178.09" y="83.5">
+    "26.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="101.5">
+    "Prices are fair"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="207.4" y="100.5">
+    "31.2%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="118.5">
+    "Delivery was on …"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="135.5">
+    "Support solved m…"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="152.5">
+    "I would recommen…"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="157.04" y="151.5">
+    "27.6%"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="169.5">
+    "The app is relia…"

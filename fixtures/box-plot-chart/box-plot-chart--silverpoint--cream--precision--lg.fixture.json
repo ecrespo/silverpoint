@@ -1,0 +1,22 @@
+{
+  "chart": "BoxPlotChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "box-plot-chart--silverpoint--cream--precision--lg",
+  "req": "REQ-402",
+  "seed": 1592,
+  "props": {
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "box-plot-chart/box-plot-chart--silverpoint--cream--precision--lg.canonical.txt"
+}

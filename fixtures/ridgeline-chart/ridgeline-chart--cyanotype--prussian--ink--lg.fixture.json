@@ -1,0 +1,23 @@
+{
+  "chart": "RidgelineChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "ridgeline-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-404",
+  "seed": 1592,
+  "props": {
+    "groupKey": "service",
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ridgeline-chart/ridgeline-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

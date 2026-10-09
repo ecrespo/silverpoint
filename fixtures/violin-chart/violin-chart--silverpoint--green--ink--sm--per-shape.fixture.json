@@ -1,0 +1,22 @@
+{
+  "chart": "ViolinChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "violin-chart--silverpoint--green--ink--sm--per-shape",
+  "req": "REQ-403",
+  "seed": 1592,
+  "props": {
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "violin-chart/violin-chart--silverpoint--green--ink--sm--per-shape.canonical.txt"
+}

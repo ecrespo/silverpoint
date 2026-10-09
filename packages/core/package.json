@@ -33,6 +33,12 @@
       "import": "./dist/ui-demos.js",
       "default": "./dist/ui-demos.js"
     },
+    "./catalog": {
+      "@silverpoint/source": "./src/catalog.ts",
+      "types": "./dist/catalog.d.ts",
+      "import": "./dist/catalog.js",
+      "default": "./dist/catalog.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

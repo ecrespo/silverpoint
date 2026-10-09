@@ -40,6 +40,22 @@ import {
   type ChartRecipe,
   type CommonChartProps,
 } from '@silverpoint/core';
+import {
+  beeswarmChart,
+  boxPlotChart,
+  bumpChart,
+  connectedScatterChart,
+  divergingBarChart,
+  dumbbellChart,
+  ecdfChart,
+  errorBarChart,
+  histogramChart,
+  intervalChart,
+  lollipopChart,
+  ridgelineChart,
+  slopeChart,
+  violinChart,
+} from '@silverpoint/core/catalog';
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 
 export interface CatalogEntry {
@@ -60,6 +76,11 @@ export interface CatalogEntry {
   readonly demoProbe: Readonly<Record<string, unknown>> | null;
   /** Codes the probe raises by design, as it would with consumer data (ChordRing folds into "Other"). */
   readonly demoProbeWarns?: readonly string[];
+  /**
+   * Props the chart's type requires even with the demo, which ignores them (REQ-099): every use
+   * names them, so every fixture and type test passes them too. Absent when none is required.
+   */
+  readonly required?: Readonly<Record<string, unknown>>;
 }
 
 const entry = (row: Omit<CatalogEntry, 'recipe'> & { readonly recipe: ChartRecipe<never> }): CatalogEntry =>
@@ -376,6 +397,141 @@ export const CATALOG: readonly CatalogEntry[] = [
     propsInterface: 'OrbitChartProps',
     demoProbe: { orbits: 2 },
     sample: { data: [{ label: 'Q', ms: [{ p: 0.1, value: 3 }, { p: 0.6, value: 5 }] }], markerKey: 'ms', periodKey: 'p', orbits: 1 },
+  }),
+
+  // The second catalog, wave 1 (feature-003, 0.4.0): one row per chart, as the 33 (DD-034).
+  entry({
+    chart: 'HistogramChart',
+    req: 'REQ-400',
+    slug: 'histogram-chart',
+    recipe: histogramChart,
+    propsInterface: 'HistogramChartProps',
+    demoProbe: { cumulative: true },
+    sample: { data: [12, 15, 15, 18, 21, 22, 22, 24, 27, 31, 33, 40].map((ms) => ({ ms })), valueKey: 'ms', bins: 4 },
+  }),
+  entry({
+    chart: 'EcdfChart',
+    req: 'REQ-401',
+    slug: 'ecdf-chart',
+    recipe: ecdfChart,
+    propsInterface: 'EcdfChartProps',
+    demoProbe: { markers: [0.5, 0.9] },
+    sample: { data: [3, 5, 5, 8, 9, 12, 4, 6, 7, 7, 10, 14].map((t, i) => ({ t, arm: i < 6 ? 'A' : 'B' })), valueKey: 't', groupKey: 'arm' },
+  }),
+  entry({
+    chart: 'BoxPlotChart',
+    req: 'REQ-402',
+    slug: 'box-plot-chart',
+    recipe: boxPlotChart,
+    propsInterface: 'BoxPlotChartProps',
+    demoProbe: { orientation: 'rows' },
+    sample: { data: [11, 13, 14, 15, 15, 17, 18, 30, 8, 9, 12, 12, 13, 14, 16, 17].map((v, i) => ({ v, team: i < 8 ? 'North' : 'South' })), valueKey: 'v', groupKey: 'team' },
+  }),
+  entry({
+    chart: 'ViolinChart',
+    req: 'REQ-403',
+    slug: 'violin-chart',
+    recipe: violinChart,
+    propsInterface: 'ViolinChartProps',
+    demoProbe: { quartiles: false },
+    sample: { data: [11, 13, 14, 15, 15, 17, 18, 21, 8, 9, 12, 12, 13, 14, 16, 17].map((v, i) => ({ v, team: i < 8 ? 'North' : 'South' })), valueKey: 'v', groupKey: 'team' },
+  }),
+  entry({
+    chart: 'RidgelineChart',
+    req: 'REQ-404',
+    slug: 'ridgeline-chart',
+    recipe: ridgelineChart,
+    propsInterface: 'RidgelineChartProps',
+    demoProbe: { overlap: 0.2 },
+    required: { groupKey: 'service' },
+    sample: { data: [4, 5, 5, 6, 7, 9, 6, 7, 8, 8, 9, 11, 8, 10, 11, 11, 12, 13].map((h, i) => ({ h, month: ['Jan', 'Feb', 'Mar'][Math.floor(i / 6)] })), valueKey: 'h', groupKey: 'month' },
+  }),
+  entry({
+    chart: 'BeeswarmChart',
+    req: 'REQ-405',
+    slug: 'beeswarm-chart',
+    recipe: beeswarmChart,
+    propsInterface: 'BeeswarmChartProps',
+    demoProbe: { radius: 2 },
+    sample: { data: [61, 64, 64, 65, 70, 70, 71, 72, 78, 85].map((score, i) => ({ score, who: `P${i + 1}` })), valueKey: 'score', labelKey: 'who' },
+  }),
+  entry({
+    chart: 'LollipopChart',
+    req: 'REQ-406',
+    slug: 'lollipop-chart',
+    recipe: lollipopChart,
+    propsInterface: 'LollipopChartProps',
+    demoProbe: { sort: 'descending' },
+    sample: { data: [{ city: 'Lima', n: 31 }, { city: 'Quito', n: 18 }, { city: 'Bogotá', n: 44 }, { city: 'Caracas', n: 25 }], xKey: 'city', valueKey: 'n' },
+  }),
+  entry({
+    chart: 'DumbbellChart',
+    req: 'REQ-407',
+    slug: 'dumbbell-chart',
+    recipe: dumbbellChart,
+    propsInterface: 'DumbbellChartProps',
+    demoProbe: { endMarker: 'arrow' },
+    sample: { data: [{ dept: 'Sales', y1: 42, y2: 51 }, { dept: 'Support', y1: 60, y2: 55 }, { dept: 'R&D', y1: 35, y2: 47 }], labelKey: 'dept', startKey: 'y1', endKey: 'y2', names: ['2024', '2025'] },
+  }),
+  entry({
+    chart: 'SlopeChart',
+    req: 'REQ-408',
+    slug: 'slope-chart',
+    recipe: slopeChart,
+    propsInterface: 'SlopeChartProps',
+    demoProbe: null,
+    sample: { data: [{ dept: 'Sales', y1: 42, y2: 51 }, { dept: 'Support', y1: 60, y2: 55 }, { dept: 'R&D', y1: 35, y2: 47 }], labelKey: 'dept', startKey: 'y1', endKey: 'y2', names: ['2024', '2025'] },
+  }),
+  entry({
+    chart: 'BumpChart',
+    req: 'REQ-409',
+    slug: 'bump-chart',
+    recipe: bumpChart,
+    propsInterface: 'BumpChartProps',
+    demoProbe: { order: 'ascending' },
+    sample: {
+      data: [2023, 2024, 2025].flatMap((yr, k) => [{ yr, team: 'Ash', pts: [10, 14, 9][k] }, { yr, team: 'Elm', pts: [12, 11, 15][k] }, { yr, team: 'Oak', pts: [8, 13, 13][k] }]),
+      xKey: 'yr',
+      seriesKey: 'team',
+      valueKey: 'pts',
+    },
+  }),
+  entry({
+    chart: 'ErrorBarChart',
+    req: 'REQ-410',
+    slug: 'error-bar-chart',
+    recipe: errorBarChart,
+    propsInterface: 'ErrorBarChartProps',
+    demoProbe: { orientation: 'columns' },
+    sample: { data: [{ arm: 'Placebo', m: 0.1, lo: -0.4, hi: 0.6 }, { arm: 'Low dose', m: 0.8, lo: 0.2, hi: 1.4 }, { arm: 'High dose', m: 1.5, lo: 0.9, hi: 2.1 }], labelKey: 'arm', estimateKey: 'm', lowKey: 'lo', highKey: 'hi', reference: 0 },
+  }),
+  entry({
+    chart: 'IntervalChart',
+    req: 'REQ-411',
+    slug: 'interval-chart',
+    recipe: intervalChart,
+    propsInterface: 'IntervalChartProps',
+    demoProbe: null,
+    sample: { data: [{ room: 'A', from: 9, to: 11 }, { room: 'A', from: 10, to: 12 }, { room: 'B', from: 13, to: 15.5 }], laneKey: 'room', startKey: 'from', endKey: 'to', axis: 'number' },
+  }),
+  entry({
+    chart: 'DivergingBarChart',
+    req: 'REQ-412',
+    slug: 'diverging-bar-chart',
+    recipe: divergingBarChart,
+    propsInterface: 'DivergingBarChartProps',
+    demoProbe: { percent: false },
+    required: { levels: ['Strongly disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly agree'] },
+    sample: { data: [{ q: 'Pay', no: 12, meh: 20, yes: 30 }, { q: 'Hours', no: 25, meh: 15, yes: 18 }], labelKey: 'q', levels: ['no', 'meh', 'yes'] },
+  }),
+  entry({
+    chart: 'ConnectedScatterChart',
+    req: 'REQ-413',
+    slug: 'connected-scatter-chart',
+    recipe: connectedScatterChart,
+    propsInterface: 'ConnectedScatterChartProps',
+    demoProbe: { arrows: false },
+    sample: { data: [{ u: 4.1, p: 2.0, yr: '2021' }, { u: 3.6, p: 3.4, yr: '2022' }, { u: 3.9, p: 4.8, yr: '2023' }, { u: 4.4, p: 3.1, yr: '2024' }], xKey: 'u', yKey: 'p', labelKey: 'yr' },
   }),
 ];
 

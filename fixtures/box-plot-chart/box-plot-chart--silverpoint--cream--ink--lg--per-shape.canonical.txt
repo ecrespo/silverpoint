@@ -1,0 +1,69 @@
+<svg aria-labelledby="box-plot-chart--silverpoint--cream--ink--lg--per-shape-title box-plot-chart--silverpoint--cream--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="box-plot-chart--silverpoint--cream--ink--lg--per-shape-title">
+    "Response time"
+  <desc id="box-plot-chart--silverpoint--cream--ink--lg--per-shape-desc">
+    "Response time. Box plot of ms in 5 groups; quartiles by linear interpolation, Tukey whiskers at 1.5 IQR; Search median 178.5, Checkout median 200.5, Profile median 120, Reports median 344.5, Login median 88."
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22 232.67 C145.69 231.97, 269.93 232.5, 618 232.67 M22 232.67 C201.54 233.33, 381.06 233.42, 618 232.67" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 141.33 C145.66 141.59, 270.19 141.54, 618 141.33 M22 141.33 C206.17 141.54, 390.37 141.62, 618 141.33" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 50 C146.35 49.22, 270.45 49.31, 618 50 M22 50 C210.8 49.76, 399.33 49.84, 618 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22 324 C146.32 324.19, 270.71 324.41, 618 324 M22 324 C215.07 323.31, 408.28 323.38, 618 324" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M61.47 237.61 C61.47 237.61, 61.47 237.61, 61.47 237.61 M61.47 237.61 C61.47 237.61, 61.47 237.61, 61.47 237.61 M63.77 250.21 C66.66 246.62, 70.7 242.97, 74.92 237.38 M63.77 250.21 C68.18 245.3, 72.04 240.49, 74.92 237.38 M76.56 250.73 C80.52 245.67, 85.75 240.06, 88.37 237.15 M76.56 250.73 C80.69 246.72, 83.78 242.31, 88.37 237.15 M90.01 250.5 C94.09 246.73, 97.12 242.11, 101.17 237.67 M90.01 250.5 C93.27 246.9, 96.14 243.36, 101.17 237.67" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M61.6,237.46H101.6V250.13H61.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M61.6,242.49L101.6,242.49" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M81.6,237.46L81.6,219.42M71.6,219.42L91.6,219.42" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M81.6,250.13L81.6,262.81M71.6,262.81L91.6,262.81" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.68 206.09 C180.68 206.09, 180.68 206.09, 180.68 206.09 M180.68 206.09 C180.68 206.09, 180.68 206.09, 180.68 206.09 M181.01 220.95 C184.07 217.7, 188.89 212.16, 194.13 205.86 M181.01 220.95 C185.14 216.12, 188.51 212.07, 194.13 205.86 M180.68 236.57 C188.39 227.37, 195.76 218.96, 207.58 205.62 M180.68 236.57 C188.58 226.77, 197.04 217.48, 207.58 205.62 M181.02 251.43 C190.18 241.14, 198.71 231.51, 220.38 206.15 M181.02 251.43 C193.14 237.55, 205.12 224.39, 220.38 206.15 M186.59 260.25 C195.33 250.08, 203.85 239.97, 221.37 220.26 M186.59 260.25 C194.46 251.4, 202.01 241.79, 221.37 220.26 M200.05 260.02 C205.52 253.28, 210.9 248.18, 221.7 235.12 M200.05 260.02 C205.56 253.94, 210.43 248.48, 221.7 235.12 M213.5 259.79 C216.03 256.6, 218.61 254.32, 221.37 250.73 M213.5 259.79 C216.16 256.23, 218.99 253.06, 221.37 250.73" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M180.8,205.95H220.8V259.61H180.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180.8,232.44L220.8,232.44" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M200.8,205.95L200.8,181.98M190.8,181.98L210.8,181.98" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M200.8,259.61L200.8,271.03M190.8,271.03L210.8,271.03" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M300.28 265 C300.28 265, 300.28 265, 300.28 265 M300.28 265 C300.28 265, 300.28 265, 300.28 265 M307.17 272.32 C308.39 270.48, 310.59 268.24, 313.07 265.52 M307.17 272.32 C308.55 270.98, 309.54 269.47, 313.07 265.52 M320.62 272.09 C322.47 269.75, 325.07 266.74, 326.52 265.29 M320.62 272.09 C322.26 269.99, 323.78 268.14, 326.52 265.29 M333.41 272.61 C335.75 270.58, 337.12 267.93, 339.98 265.06 M333.41 272.61 C335.79 270.3, 337.73 267.41, 339.98 265.06" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M300,265.32H340V272.05H300Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M300,269.2L340,269.2" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320,265.32L320,256.41M310,256.41L330,256.41" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320,272.05L320,278.33M310,278.33L330,278.33" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.5,211.66A2.5,2.5,0,1,0,322.5,211.66A2.5,2.5,0,1,0,317.5,211.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.5,209.83A2.5,2.5,0,1,0,322.5,209.83A2.5,2.5,0,1,0,317.5,209.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.5,192.94A2.5,2.5,0,1,0,322.5,192.94A2.5,2.5,0,1,0,317.5,192.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.5,191.57A2.5,2.5,0,1,0,322.5,191.57A2.5,2.5,0,1,0,317.5,191.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M419.21 156.39 C419.21 156.39, 419.21 156.39, 419.21 156.39 M419.21 156.39 C419.21 156.39, 419.21 156.39, 419.21 156.39 M418.89 172 C422.79 167.84, 426.21 163.8, 432.66 156.16 M418.89 172 C422.53 167.7, 426.08 163.48, 432.66 156.16 M425.12 180.07 C431.67 172.24, 439.98 163.88, 445.46 156.68 M425.12 180.07 C430.42 174.1, 434.61 168.72, 445.46 156.68 M438.57 179.84 C443.14 174.03, 448.75 166.67, 458.91 156.45 M438.57 179.84 C447.01 170.73, 454.27 160.93, 458.91 156.45 M451.37 180.37 C455.07 176.98, 458.28 172.45, 459.9 170.55 M451.37 180.37 C454.07 177.38, 456.68 174.6, 459.9 170.55" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M419.2,156.4H459.2V179.58H419.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M419.2,166.68L459.2,166.68" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M439.2,156.4L439.2,121.7M429.2,121.7L449.2,121.7" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M439.2,179.58L439.2,185.63M429.2,185.63L449.2,185.63" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M436.7,112.11A2.5,2.5,0,1,0,441.7,112.11A2.5,2.5,0,1,0,436.7,112.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M436.7,112.11A2.5,2.5,0,1,0,441.7,112.11A2.5,2.5,0,1,0,436.7,112.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M436.7,87.45A2.5,2.5,0,1,0,441.7,87.45A2.5,2.5,0,1,0,436.7,87.45Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M538.6 280.04 C538.6 280.04, 538.6 280.04, 538.6 280.04 M538.6 280.04 C538.6 280.04, 538.6 280.04, 538.6 280.04 M546.8 285.85 C548.65 284.07, 550.29 282.07, 551.39 280.57 M546.8 285.85 C547.82 284.76, 548.98 283.5, 551.39 280.57 M559.6 286.37 C560.95 284.78, 562.73 282.66, 564.84 280.33 M559.6 286.37 C560.74 285.22, 561.69 283.71, 564.84 280.33 M573.05 286.14 C574.47 284.48, 575.96 282.29, 578.3 280.1 M573.05 286.14 C574.28 284.58, 575.66 283.17, 578.3 280.1" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M538.4,280.27H578.4V285.75H538.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M538.4,283.81L578.4,283.81" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M558.4,280.27L558.4,274.22M548.4,274.22L568.4,274.22" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M558.4,285.75L558.4,289.29M548.4,289.29L568.4,289.29" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M435.7,166.68A3.5,3.5,0,1,0,442.7,166.68A3.5,3.5,0,1,0,435.7,166.68Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M435.7,166.68A3.5,3.5,0,1,0,442.7,166.68A3.5,3.5,0,1,0,435.7,166.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Response time"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "5 services"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "ms"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="229.67">
+    "200"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="138.33">
+    "400"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "600"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="81.6" y="339">
+    "Search"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="200.8" y="339">
+    "Checkout"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="339">
+    "Profile"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="439.2" y="339">
+    "Reports"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="558.4" y="339">
+    "Login"

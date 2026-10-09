@@ -19,12 +19,13 @@ const load = async (entry: CatalogEntry) =>
 
 describe.each(AFTER_LINE_CHART.map((e) => [`sp-${e.slug}`, e] as const))('%s', (selector, entry) => {
   const variants = {
-    'demo, ink': { ...fixed, mode: 'ink', title: entry.chart },
-    'demo, precision': { ...fixed, mode: 'precision' },
-    'consumer data': { ...fixed, ...entry.sample },
-    bare: { ...fixed, chrome: 'bare' },
+    // A prop the type requires is passed as every use passes it; the demo ignores it (REQ-099).
+    'demo, ink': { ...fixed, ...entry.required, mode: 'ink', title: entry.chart },
+    'demo, precision': { ...fixed, ...entry.required, mode: 'precision' },
+    'consumer data': { ...fixed, ...entry.required, ...entry.sample },
+    bare: { ...fixed, ...entry.required, chrome: 'bare' },
     // REQ-028: a weight ground's toned shapes carry `data-weight`, which the template must map.
-    cyanotype: { ...fixed, ground: 'cyanotype' },
+    cyanotype: { ...fixed, ...entry.required, ground: 'cyanotype' },
   } as const;
 
   test.each(Object.entries(variants))('REQ-100 · server-rendered, %s: identical to the canonical render', async (_v, props) => {

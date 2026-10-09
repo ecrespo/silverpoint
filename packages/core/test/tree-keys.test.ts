@@ -4,7 +4,8 @@
  */
 import { describe, expect, test } from 'vitest';
 import { stepActive, type ActiveItem, type Geometry, type HitArea } from '../src';
-import { toActiveItem, treeLabel } from '../src/interaction/hit-test';
+import { toActiveItem } from '../src/interaction/hit-test';
+import { treeLabel, treeMoves } from '../src/interaction/tree';
 import { ringTone as fromCells, ringTones as tonesFromCells } from '../src/charts/shared/cells';
 import { ringTone, ringTones } from '../src/charts/shared/polar';
 
@@ -29,10 +30,13 @@ const NODES = [
 ] as const;
 
 // Hit areas deliberately out of pre-order: the model walks `order`, never the array.
-const HITS: HitArea[] = [...NODES.keys()].reverse().map((order) => {
+const NODE_HITS: HitArea[] = [...NODES.keys()].reverse().map((order) => {
   const [id, parent, depth] = NODES[order] as (typeof NODES)[number];
   return { seriesKey: 'node', index: order, datum: { id }, value: 1, x: depth * 10, y: order * 10, node: { id, parent, depth, order } };
 });
+// The tree's moves are computed where the hierarchy is laid out, so a chart without one carries
+// none of this code (REQ-444): `stepActive` only follows them.
+const HITS = treeMoves(NODE_HITS);
 const geometry: Geometry = { viewBox: { x: 0, y: 0, width: 100, height: 100 }, plot: { x: 0, y: 0, width: 100, height: 100 }, strokes: [], labels: [], hitAreas: HITS, defs: [] };
 
 const at = (id: string): ActiveItem => toActiveItem(HITS.find((h) => h.node?.id === id) as HitArea);
@@ -86,9 +90,16 @@ describe('T-166 · stepTree (WAI-ARIA tree pattern, REQ-438)', () => {
     expect(step('a', 'ArrowRight')).toBe('a1');
   });
 
-  test('REQ-438 · the linear and grid models are untouched when no hit area is a node', () => {
-    const linear: Geometry = { ...geometry, hitAreas: HITS.map(({ node: _node, ...rest }) => rest).reverse() };
+  test('REQ-438 · the linear and grid models are untouched when no hit area has moves', () => {
+    const linear: Geometry = { ...geometry, hitAreas: HITS.map(({ moves: _moves, ...rest }) => rest).reverse() };
     expect(stepActive(linear, null, 'ArrowRight')?.index).toBe(0);
+  });
+
+  test('REQ-438 · treeMoves keeps every hit area and its node, and points each key at an index of the array', () => {
+    expect(HITS.map(({ moves: _moves, ...rest }) => rest)).toEqual(NODE_HITS);
+    for (const hit of HITS) {
+      for (const to of Object.values(hit.moves ?? {})) expect(HITS[to as number]).toBeDefined();
+    }
   });
 
   test('REQ-438 · the announcement names the path from the root, the value and the share of the parent', () => {

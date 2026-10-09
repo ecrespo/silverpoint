@@ -35,6 +35,16 @@ export function formatNumber(
   return formatter.format(value);
 }
 
+/**
+ * `formatNumber` with its formatter resolved once, for a column of many values — a table with a
+ * row per observation (REQ-445): the same constructor and arguments, so the same text, without
+ * rebuilding the cache key for every cell.
+ */
+export function numberFormatter(locale: string, options: Intl.NumberFormatOptions | undefined): (value: number) => string {
+  const formatter = new Intl.NumberFormat(locale, options ?? { maximumFractionDigits: 2 });
+  return (value) => formatter.format(value);
+}
+
 /** Formats a label that may be a number or free text. */
 export function formatValue(
   value: unknown,

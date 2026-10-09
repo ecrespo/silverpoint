@@ -1,0 +1,22 @@
+{
+  "chart": "IntervalChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "interval-chart--silverpoint--ochre--ink--sm--per-shape",
+  "req": "REQ-411",
+  "seed": 1592,
+  "props": {
+    "title": "Crew jobs",
+    "badge": "Q1 2026",
+    "footerLeft": "UTC days",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "interval-chart/interval-chart--silverpoint--ochre--ink--sm--per-shape.canonical.txt"
+}

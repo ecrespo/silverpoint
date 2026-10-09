@@ -1538,8 +1538,645 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, HistogramChart (client)",
+    "path": "packages/react/dist/histogram-chart.js",
+    "import": "{ HistogramChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, HistogramChart (server)",
+    "path": "packages/react/dist/server/histogram-chart.js",
+    "import": "{ HistogramChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpHistogramChart",
+    "path": "packages/vue/dist/histogram-chart.js",
+    "import": "{ SpHistogramChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpHistogramChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-histogram-chart.mjs",
+    "import": "{ SpHistogramChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, EcdfChart (client)",
+    "path": "packages/react/dist/ecdf-chart.js",
+    "import": "{ EcdfChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, EcdfChart (server)",
+    "path": "packages/react/dist/server/ecdf-chart.js",
+    "import": "{ EcdfChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpEcdfChart",
+    "path": "packages/vue/dist/ecdf-chart.js",
+    "import": "{ SpEcdfChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpEcdfChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ecdf-chart.mjs",
+    "import": "{ SpEcdfChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BoxPlotChart (client)",
+    "path": "packages/react/dist/box-plot-chart.js",
+    "import": "{ BoxPlotChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BoxPlotChart (server)",
+    "path": "packages/react/dist/server/box-plot-chart.js",
+    "import": "{ BoxPlotChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBoxPlotChart",
+    "path": "packages/vue/dist/box-plot-chart.js",
+    "import": "{ SpBoxPlotChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBoxPlotChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-box-plot-chart.mjs",
+    "import": "{ SpBoxPlotChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ViolinChart (client)",
+    "path": "packages/react/dist/violin-chart.js",
+    "import": "{ ViolinChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ViolinChart (server)",
+    "path": "packages/react/dist/server/violin-chart.js",
+    "import": "{ ViolinChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpViolinChart",
+    "path": "packages/vue/dist/violin-chart.js",
+    "import": "{ SpViolinChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpViolinChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-violin-chart.mjs",
+    "import": "{ SpViolinChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RidgelineChart (client)",
+    "path": "packages/react/dist/ridgeline-chart.js",
+    "import": "{ RidgelineChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, RidgelineChart (server)",
+    "path": "packages/react/dist/server/ridgeline-chart.js",
+    "import": "{ RidgelineChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpRidgelineChart",
+    "path": "packages/vue/dist/ridgeline-chart.js",
+    "import": "{ SpRidgelineChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpRidgelineChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ridgeline-chart.mjs",
+    "import": "{ SpRidgelineChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BeeswarmChart (client)",
+    "path": "packages/react/dist/beeswarm-chart.js",
+    "import": "{ BeeswarmChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BeeswarmChart (server)",
+    "path": "packages/react/dist/server/beeswarm-chart.js",
+    "import": "{ BeeswarmChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBeeswarmChart",
+    "path": "packages/vue/dist/beeswarm-chart.js",
+    "import": "{ SpBeeswarmChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBeeswarmChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-beeswarm-chart.mjs",
+    "import": "{ SpBeeswarmChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, LollipopChart (client)",
+    "path": "packages/react/dist/lollipop-chart.js",
+    "import": "{ LollipopChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, LollipopChart (server)",
+    "path": "packages/react/dist/server/lollipop-chart.js",
+    "import": "{ LollipopChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpLollipopChart",
+    "path": "packages/vue/dist/lollipop-chart.js",
+    "import": "{ SpLollipopChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpLollipopChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-lollipop-chart.mjs",
+    "import": "{ SpLollipopChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DumbbellChart (client)",
+    "path": "packages/react/dist/dumbbell-chart.js",
+    "import": "{ DumbbellChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DumbbellChart (server)",
+    "path": "packages/react/dist/server/dumbbell-chart.js",
+    "import": "{ DumbbellChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDumbbellChart",
+    "path": "packages/vue/dist/dumbbell-chart.js",
+    "import": "{ SpDumbbellChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDumbbellChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-dumbbell-chart.mjs",
+    "import": "{ SpDumbbellChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SlopeChart (client)",
+    "path": "packages/react/dist/slope-chart.js",
+    "import": "{ SlopeChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SlopeChart (server)",
+    "path": "packages/react/dist/server/slope-chart.js",
+    "import": "{ SlopeChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpSlopeChart",
+    "path": "packages/vue/dist/slope-chart.js",
+    "import": "{ SpSlopeChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpSlopeChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-slope-chart.mjs",
+    "import": "{ SpSlopeChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BumpChart (client)",
+    "path": "packages/react/dist/bump-chart.js",
+    "import": "{ BumpChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, BumpChart (server)",
+    "path": "packages/react/dist/server/bump-chart.js",
+    "import": "{ BumpChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpBumpChart",
+    "path": "packages/vue/dist/bump-chart.js",
+    "import": "{ SpBumpChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpBumpChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-bump-chart.mjs",
+    "import": "{ SpBumpChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ErrorBarChart (client)",
+    "path": "packages/react/dist/error-bar-chart.js",
+    "import": "{ ErrorBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ErrorBarChart (server)",
+    "path": "packages/react/dist/server/error-bar-chart.js",
+    "import": "{ ErrorBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpErrorBarChart",
+    "path": "packages/vue/dist/error-bar-chart.js",
+    "import": "{ SpErrorBarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpErrorBarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-error-bar-chart.mjs",
+    "import": "{ SpErrorBarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, IntervalChart (client)",
+    "path": "packages/react/dist/interval-chart.js",
+    "import": "{ IntervalChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, IntervalChart (server)",
+    "path": "packages/react/dist/server/interval-chart.js",
+    "import": "{ IntervalChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpIntervalChart",
+    "path": "packages/vue/dist/interval-chart.js",
+    "import": "{ SpIntervalChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpIntervalChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-interval-chart.mjs",
+    "import": "{ SpIntervalChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DivergingBarChart (client)",
+    "path": "packages/react/dist/diverging-bar-chart.js",
+    "import": "{ DivergingBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DivergingBarChart (server)",
+    "path": "packages/react/dist/server/diverging-bar-chart.js",
+    "import": "{ DivergingBarChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDivergingBarChart",
+    "path": "packages/vue/dist/diverging-bar-chart.js",
+    "import": "{ SpDivergingBarChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDivergingBarChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-diverging-bar-chart.mjs",
+    "import": "{ SpDivergingBarChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ConnectedScatterChart (client)",
+    "path": "packages/react/dist/connected-scatter-chart.js",
+    "import": "{ ConnectedScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ConnectedScatterChart (server)",
+    "path": "packages/react/dist/server/connected-scatter-chart.js",
+    "import": "{ ConnectedScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpConnectedScatterChart",
+    "path": "packages/vue/dist/connected-scatter-chart.js",
+    "import": "{ SpConnectedScatterChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpConnectedScatterChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-connected-scatter-chart.mjs",
+    "import": "{ SpConnectedScatterChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
     "name": "@silverpoint/core (everything)",
     "path": "packages/core/dist/index.js",
+    "import": "*",
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/core/catalog (the second catalog's recipes, everything)",
+    "path": "packages/core/dist/catalog.js",
     "import": "*",
     "gzip": true,
     "limit": "45 kB"

@@ -1,0 +1,23 @@
+{
+  "chart": "RidgelineChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "ridgeline-chart--silverpoint--green--ink--sm--per-shape",
+  "req": "REQ-404",
+  "seed": 1592,
+  "props": {
+    "groupKey": "service",
+    "title": "Response time",
+    "badge": "5 services",
+    "footerLeft": "ms",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "ridgeline-chart/ridgeline-chart--silverpoint--green--ink--sm--per-shape.canonical.txt"
+}
