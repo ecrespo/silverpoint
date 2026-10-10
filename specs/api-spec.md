@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.9 |
-| **Date** | 2026-09-29 |
-| **Related PRD** | [`prd.md`](prd.md) v1.11 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.7 |
+| **API version** | v1.10 |
+| **Date** | 2026-10-10 |
+| **Related PRD** | [`prd.md`](prd.md) v1.12 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.8 |
 | **Surface** | npm packages — there is no network API |
 
 ---
@@ -36,7 +36,7 @@ that the Analyze gate does not read it as an omission:
 
 | Package | Contents | Dependencies |
 |---|---|---|
-| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types; the UI components' framework-neutral surface under `/ui` and `/ui-demos` (§1.2) | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
+| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types; the second catalog's recipes under `/catalog` (§7.3); the UI components' framework-neutral surface under `/ui` and `/ui-demos` (§1.2) | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
 | `@silverpoint/grounds` | Declarative style tokens, the `styles.css` sheet and the opt-in `ui.css` sheet (§1.2) | `@silverpoint/core` |
 | `@silverpoint/react` | React components: charts, the dashboard and the UI components (§1.2) | `peer`: `react`, `react-dom` |
 | `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common`, `@angular/forms` (UI components, REQ-323) |
@@ -44,8 +44,8 @@ that the Analyze gate does not read it as an omission:
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
 | `@silverpoint/tailwind` | **Optional.** A Tailwind preset naming the public `--sp-` variables as theme tokens (§10.4, REQ-047) | none, not even a peer |
 
-Every chart is importable by subpath, so that an app using one does not drag in all 33
-(REQ-107):
+Every chart is importable by subpath, so that an app using one does not drag in all 60
+(REQ-107, REQ-444):
 
 ```ts
 import { LineChart } from '@silverpoint/react';            // barrel
@@ -57,6 +57,15 @@ The dashboard composition (§7.1) follows the same rule, under a `dashboard` sub
 adapter: `@silverpoint/react/dashboard` (and `/server/dashboard`), `@silverpoint/vue/dashboard`,
 `@silverpoint/angular/dashboard`. It ships inside the existing packages; there is no dashboard
 package.
+
+The 27 charts of the second catalog (§7.3) are subpaths of the same shape, in every adapter
+(`@silverpoint/react/histogram-chart`, `@silverpoint/vue/sunburst-chart`,
+`@silverpoint/angular/box-plot-chart`). In the core their recipes, demos and the internal
+statistics and layouts they use sit behind one subpath, `@silverpoint/core/catalog`, apart from the
+main entry as `/dashboard-demos` and `/ui` are, so the core's main bundle keeps its budget; their
+props types stay in the main entry. The statistics and layout functions are not exported: a public
+`@silverpoint/core/stats` is not offered in `0.x` (OQ-C3). The core's dependencies are unchanged:
+the hierarchy, contour and triangulation generators are owned by the core.
 
 ### 1.1 Consuming under a bundler
 
@@ -578,8 +587,8 @@ registerGround(myGround);
 
 ## 7. Component catalog
 
-The 33 charts. The `REQ` column is the traceability back to the PRD. All of them accept
-`CommonChartProps` in addition to their own props.
+The 33 charts of the first catalog; the 27 of the second are in §7.3. The `REQ` column is the
+traceability back to the PRD. All of them accept `CommonChartProps` in addition to their own props.
 
 | REQ | React | Vue | Angular selector | Own props |
 |---|---|---|---|---|
@@ -890,6 +899,71 @@ draws and maps states to its `ui.tone` levels.
 - The circle Progress is the core's arc (`uiProgressArc`), with classes on its two paths.
 - A slider thumb is `part="sp-thumb sp-heighten"`, and `ui.css` matches parts with `~=`.
 
+### 7.3 Catalog, second series
+
+All 27 accept `CommonChartProps`; the accessor rule of §5 holds (REQ-098, REQ-099). `Obs` = `Observations` (Data Model §2.15); other shapes as named there. **Heighten** is the one
+element REQ-442 lets the chart heighten. **Keys** is the keyboard model: `linear` and `grid` are the
+existing ones (`interaction/hit-test.ts`), `tree` is the WAI-ARIA tree pattern (REQ-438), and a chart may give its items their own moves (`HitArea.moves`, Data Model §2.25), as the hierarchy charts and the network do.
+
+### Wave 1 — distribution, comparison, change, ranking, uncertainty
+
+| REQ | React | Vue | Angular selector | Own props | Data | Heighten | Keys |
+|---|---|---|---|---|---|---|---|
+| REQ-400 | `HistogramChart` | `SpHistogramChart` | `sp-histogram-chart` | `valueKey`, `bins?: number \| readonly number[]`, `cumulative?: boolean`, `orientation` | `Obs` | Modal bin (last bin when `cumulative`) | linear |
+| REQ-401 | `EcdfChart` | `SpEcdfChart` | `sp-ecdf-chart` | `valueKey`, `groupKey?`, `markers?: readonly number[]` (quantiles drawn as rules) | `Obs` | Median crossing of the first group | grid (group × step) |
+| REQ-402 | `BoxPlotChart` | `SpBoxPlotChart` | `sp-box-plot-chart` | `valueKey`, `groupKey?`, `whisker?: number` (IQR multiple, 1.5), `outliers?: boolean`, `orientation` | `Obs` | Median of the group with the highest median | grid (one stop per group's median; its outliers below it, by Down) |
+| REQ-403 | `ViolinChart` | `SpViolinChart` | `sp-violin-chart` | `valueKey`, `groupKey?`, `bandwidth?: number`, `quartiles?: boolean`, `orientation` | `Obs` | Median mark of the group with the highest median | linear |
+| REQ-404 | `RidgelineChart` | `SpRidgelineChart` | `sp-ridgeline-chart` | `valueKey`, `groupKey`, `bandwidth?`, `overlap?: number` (0–1, 0.5) | `Obs` | Peak of the front ridge | linear |
+| REQ-405 | `BeeswarmChart` | `SpBeeswarmChart` | `sp-beeswarm-chart` | `valueKey`, `groupKey?`, `labelKey?`, `radius?: number` (3) | `Obs` | Maximum observation | linear (in value order) |
+| REQ-406 | `LollipopChart` | `SpLollipopChart` | `sp-lollipop-chart` | `xKey`, `valueKey`, `orientation`, `sort?: 'none' \| 'ascending' \| 'descending'` | `CategorySeries` | Largest head | linear |
+| REQ-407 | `DumbbellChart` | `SpDumbbellChart` | `sp-dumbbell-chart` | `labelKey`, `startKey`, `endKey`, `names?: [string, string]`, `endMarker?: 'dot' \| 'arrow'`, `orientation` | `Paired` | End mark of the largest change | grid (category × start, end) |
+| REQ-408 | `SlopeChart` | `SpSlopeChart` | `sp-slope-chart` | `labelKey`, `startKey`, `endKey`, `names?: [string, string]` | `Paired` | Segment of the largest change | grid (category × period) |
+| REQ-409 | `BumpChart` | `SpBumpChart` | `sp-bump-chart` | `xKey`, `seriesKey`, `valueKey`, `order?: 'descending' \| 'ascending'` (rank 1 = highest by default), `series?: number` (cap) | `Ranked` | Last point of the rank-1 series | grid (series × x) |
+| REQ-410 | `ErrorBarChart` | `SpErrorBarChart` | `sp-error-bar-chart` | `labelKey`, `estimateKey`, `lowKey`, `highKey`, `reference?: number`, `orientation` | `Estimates` | Estimate furthest from `reference` (or largest) | linear |
+| REQ-411 | `IntervalChart` | `SpIntervalChart` | `sp-interval-chart` | `laneKey`, `startKey`, `endKey`, `labelKey?`, `axis?: 'number' \| 'date'` | `Intervals` | Longest interval | grid (lane × order) |
+| REQ-412 | `DivergingBarChart` | `SpDivergingBarChart` | `sp-diverging-bar-chart` | `labelKey`, `levels: readonly string[]`, `neutral?: number \| null` (index; `null` = none), `percent?: boolean` (true) | `Likert` | Largest positive share | grid (row × level) |
+| REQ-413 | `ConnectedScatterChart` | `SpConnectedScatterChart` | `sp-connected-scatter-chart` | `xKey`, `yKey`, `labelKey?`, `arrows?: boolean` | `PathPoints` | Last point | linear (path order) |
+
+### Wave 2 — part-to-whole, hierarchy, multivariate, polar
+
+| REQ | React | Vue | Angular selector | Own props | Data | Heighten | Keys |
+|---|---|---|---|---|---|---|---|
+| REQ-414 | `WaffleChart` | `SpWaffleChart` | `sp-waffle-chart` | `nameKey`, `valueKey`, `cells?: number` (100), `columns?: number` (10) | `SectorSeries` | The largest category's cells, emitted as **one** `<path>` (I-4 counts elements) | linear (one stop per category) |
+| REQ-415 | `MarimekkoChart` | `SpMarimekkoChart` | `sp-marimekko-chart` | `columnKey`, `segmentKey`, `valueKey` | `Mosaic` | Largest cell | grid (column × segment) |
+| REQ-416 | `SquarifiedTreemap` | `SpSquarifiedTreemap` | `sp-squarified-treemap` | `idKey`, `parentKey`, `valueKey`, `labelKey?`, `depth?: number` (levels drawn), `rootId?` | `Hierarchy` | Largest leaf | tree |
+| REQ-417 | `SunburstChart` | `SpSunburstChart` | `sp-sunburst-chart` | `idKey`, `parentKey`, `valueKey`, `labelKey?`, `depth?: number`, `rootId?` | `Hierarchy` | Largest first-level arc | tree |
+| REQ-418 | `TreeChart` | `SpTreeChart` | `sp-tree-chart` | `idKey`, `parentKey`, `labelKey?`, `valueKey?`, `orientation?: 'horizontal' \| 'vertical'` | `Hierarchy` | Root | tree |
+| REQ-419 | `ParallelCoordinatesChart` | `SpParallelCoordinatesChart` | `sp-parallel-coordinates-chart` | `labelKey?`, `dimensions: readonly string[]`, `domains?: Record<string, [number, number]>` | `WideRows` | Polyline of the first row | grid (row × dimension) |
+| REQ-420 | `PolarLineChart` | `SpPolarLineChart` | `sp-polar-line-chart` | `angleKey`, `valueKey`, `period?: number` (closes the line), `startAngle?` | `PolarPoints` | Maximum point | linear |
+| REQ-421 | `PolarScatterChart` | `SpPolarScatterChart` | `sp-polar-scatter-chart` | `angleKey`, `radiusKey`, `sizeKey?`, `period?: number` (360) | `PolarPoints` | Point of largest radius | linear (angle order) |
+
+### Wave 3 — fields and networks
+
+| REQ | React | Vue | Angular selector | Own props | Data | Heighten | Keys |
+|---|---|---|---|---|---|---|---|
+| REQ-422 | `DensityBinChart` | `SpDensityBinChart` | `sp-density-bin-chart` | `xKey`, `yKey`, `binShape?: 'hexagon' \| 'rect'`, `binSize?: number` (px, 14) | `PointCloud` | Densest bin | grid |
+| REQ-423 | `ContourChart` | `SpContourChart` | `sp-contour-chart` | `source?: 'points' \| 'grid'` (`'points'`), `xKey`, `yKey`, `valueKey?` (grid), `levels?: number \| readonly number[]`, `filled?: boolean` | `PointCloud` \| `GridField` | Highest band | linear (level order) |
+| REQ-424 | `DelaunayChart` | `SpDelaunayChart` | `sp-delaunay-chart` | `xKey`, `yKey`, `labelKey?`, `mesh?: 'delaunay' \| 'voronoi'` | `PointCloud` | Point of highest degree | linear (data order) |
+| REQ-425 | `VectorFieldChart` | `SpVectorFieldChart` | `sp-vector-field-chart` | `xKey`, `yKey`, `uKey`, `vKey`, `scale?: number` | `VectorField` | Largest magnitude | grid |
+| REQ-426 | `NetworkChart` | `SpNetworkChart` | `sp-network-chart` | `sourceKey`, `targetKey`, `valueKey?`, `nodes?: readonly NetworkNode[]`, `iterations?: number` (300) | `Flows` + `nodes` | Node of highest degree | own moves: Right/Left walk the nodes, Down the links a node starts, Up back to it |
+
+Own props the tables leave implicit:
+
+- **`bins`** — a number asks for that many equal-width bins over the niced extent; an array gives the
+  thresholds. Not increasing → default + `SP021`.
+- **`bandwidth`** — in data units. Omitted, Silverman's rule (REQ-432). Shared by all groups of a
+  chart so the shapes are comparable.
+- **`rootId`** (REQ-439) — controlled. The chart draws that node as root and emits `onRootChange`;
+  it never changes its own root.
+- **`NetworkNode`** — `{ id: string; label?: string; group?: string; x?: number; y?: number }`. When
+  every node has finite `x` and `y`, no layout runs (REQ-436). `nodes` is data: with the demo it is
+  ignored, as the accessors are (REQ-098).
+- **`levels`** — data too wherever it says how the data's values are read: `DivergingBarChart`'s
+  level columns and `ContourChart`'s thresholds (in the data's units, or a count of levels over its
+  peak) are ignored with the demo, like `…Key`, and `data`'s documentation lists them (REQ-099).
+- **`axis: 'date'`** on `IntervalChart` — `start`/`end` are ISO `YYYY-MM-DD`, day arithmetic in UTC
+  (`charts/shared/dates.ts`), never the host time zone.
+
 ## 8. API by adapter
 
 ### 8.1 React
@@ -1020,6 +1094,12 @@ does not alter any signature in this specification.
 | `onActiveChange` | `@active-change` | `activeChange` | `ActiveItem \| null` | The pointer enters or leaves an item, or keyboard focus moves (REQ-141) |
 | `onSelect` | `@select` | `select` | `ActiveItem` | Click, `Enter` or `Space` on an item |
 | `onLinkChange` | `@link-change` | `linkChange` | `{ key: string; value: unknown } \| null` | On a `Dashboard` with `link`: the linked value changes (REQ-216); `null` when the source clears (REQ-218) |
+| `onRootChange` | `@root-change` | `rootChange` | `string \| null` — the node id, `null` for the data root | `SunburstChart`, `SquarifiedTreemap`: a node is activated (click, Enter, Space); the centre or the current root's frame emits its parent (REQ-439) |
+
+`onActiveChange` and `onSelect` keep their meaning. For a derived mark, `ActiveItem.value` is the
+derived value (the bin count, the median) and `ActiveItem.datum` is a frozen summary object
+(`{ x0, x1, count }`, `{ min, q1, median, q3, max, outliers }`, `{ id, path, value, share }`), never
+the raw rows. The mapping from an activated item to the emitted id is the core's (`rootChangeOf`, on `/catalog`); no adapter holds a root (REQ-108).
 
 Charts inside a linked dashboard keep their own `onActiveChange`; a linked mark is **not** an
 active item and fires no `onActiveChange` in the other charts.
@@ -1061,6 +1141,8 @@ item (REQ-326). Composite keyboard transitions come from `uiRovingKey` (REQ-315)
 
 Every emitted stroke carries `part`, and it is the only stable coupling point between the
 SVG and the stylesheet. Overriding a variable re-themes without re-rendering (REQ-042).
+The charts of §7.3 emit only these `part` and `data-role` values and read only the `--sp-`
+properties of §10.2 (REQ-450): every ground, substrate and the Tailwind preset style them unchanged.
 
 | `part` | CSS property applied | Variable |
 |---|---|---|
@@ -1220,8 +1302,12 @@ production bundle; those with `error` severity are always thrown.
 | `SP018` | warn | REQ-319 | An `SpButton` or `SpBadge` has no accessible name (no text, no `label`) |
 | `SP019` | warn | REQ-325 | Items of a Tabs, Segmented, RadioGroup or Steps share a key; later ones skipped |
 | `SP013` | warn | REQ-032 | The `@silverpoint/fonts` face failed to load; rendering fell back to the system stack and golden images will no longer match |
+| `SP020` | warn | REQ-437 | Invalid hierarchy: duplicate `id`, missing `parent`, cycle, or several roots; offending rows dropped (a synthetic root added for several roots). Names the first offending `id` |
+| `SP021` | warn | REQ-433 | A statistic parameter is invalid (`bins`, `bandwidth`, `whisker`, `levels`, `overlap`, `iterations`); the default is used |
+| `SP022` | warn | REQ-434 | A group is too small for its statistic; its observations are drawn as points |
 
 `SP002` keeps its meaning for charts and is not reused by the UI components (each diagnostic names its own REQ).
+`SP008` (volume) carries the second catalog's ceilings too (REQ-443, §12).
 
 Every diagnostic includes the chart name, the property involved and the `REQ-NNN` that
 motivates it.
@@ -1245,6 +1331,19 @@ motivates it.
 | `@silverpoint/grounds/ui.css` | 24 KB gzip | CI fails (REQ-330) |
 | Items per Tabs / Segmented / RadioGroup / Steps | 12 (advisory) | No diagnostic; documented |
 | Keyboard transition in the core | 0.05 ms | The CI benchmark fails |
+| Observations, binned and density charts | 10 000 | `SP008` (REQ-443) |
+| Drawn points: beeswarm, polar scatter, connected scatter, Delaunay | 500 | `SP008` |
+| Intervals | 200 | `SP008` |
+| Hierarchy nodes | 500 | `SP008` |
+| Network nodes / links | 150 / 600 | `SP008` |
+| Field grid (contours, vector field) | 60 × 60 | `SP008` |
+| Groups in box, violin, ridgeline | 12 (advisory) | No diagnostic; documented |
+| Statistic over 1 000 observations | 4 ms | The CI benchmark fails (REQ-445) |
+| 60 × 60 field | 8 ms | The CI benchmark fails |
+| 150-node network layout (300 iterations) | 16 ms | The CI benchmark fails |
+| `core` + `react` with one chart of §7.3 | 45 KB min+gzip, as any chart | CI fails (REQ-164) |
+| One-chart build of a first-catalog chart, against `0.3.0` | No growth: within 0.25 KB of uncompressed minified bytes (gzip moves when the bundler only reorders modules) | CI fails (REQ-444) |
+| `@silverpoint/core/catalog`, everything | 75 kB min+gzip | CI fails |
 
 ## 13. Versioning and deprecation
 
@@ -1273,6 +1372,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
+| 1.10 | 2026-10-10 | Feature-003: the second catalog — §1 (27 subpaths per adapter, `@silverpoint/core/catalog`), new §7.3 (27 charts with heighten and keyboard model per chart, `NetworkNode`, `levels` and `nodes` as data), §9 `onRootChange`, `SP020`–`SP022` (19 → 22 codes), §12 ceilings, benchmarks and the REQ-444 no-growth budget |
 | 1.9 | 2026-09-29 | Feature-002: the 17 `Sp` UI components — §1.2 (subpaths `ui`, `ui-demos`, `ui.css`, `server/ui`, `angular/env`; `@angular/forms` peer), §2.1 core surface, §3.3 types and props, §5.1 defaults, `Ground.ui` (§6), new §7.2 catalog and markup contract, §8 adapters, §9 events, §10 parts/properties/accessibility, `SP017`–`SP019` (16 → 19 codes), §12 budgets; includes the Phase 3–5 amendments (Angular `<sp-input>` element, `SpInput.label`, React server entries, `uiRovingFocus` and further core surface) |
 | 1.8 | 2026-09-26 | Delta-013: `@silverpoint/tailwind` in §1 and §10.4 |
 | 1.7 | 2026-09-26 | Delta-012: `ToneSpec` gains the `weight` variant and `Ground` shows its `tonalRamp`; the built-in grounds table adds `cyanotype` with `WeightInker`; a toned shape's tonal weight level is written as `data-weight` (§10.1) with `--sp-weight-1..4` (§10.2) — an internal stroke field, distinct from `Stroke.weight`; REQ-220's allowance is 3 KB for Angular (§12) |
@@ -1297,4 +1397,11 @@ version.
 - **Art. 4** (feature-002) — `uiFrameVariant` and the id rule; no framework id hook in emitted ids.
 - **Art. 5** (feature-002) — native controls, roles, APG keyboard, exact focus.
 - **Art. 8** (feature-002) — no dependency added; `ui.css` opt-in; budgets in §12.
+- **Art. 2** (feature-003) — the statistics stay internal and in the core; `rootChangeOf` is the
+  core's, the adapters only emit it.
+- **Art. 3** (feature-003) — no new `part`; the 27 charts render through each adapter's existing
+  chart path, so their markup contract is the first 33's.
+- **Art. 5 / Art. 6** (feature-003) — §7.3 names each chart's keyboard model, derived
+  `ActiveItem` and single heightened element.
+- **Art. 8** (feature-003) — no dependency added; §12 holds the one-chart budget and the no-growth check.
 - **Requested exception:** none.

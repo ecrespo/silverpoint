@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.11 |
+| **Version** | 1.12 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-09-29 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.7 |
+| **Last updated** | 2026-10-10 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.8 |
 
 ---
 
@@ -40,6 +40,12 @@ components** (§6.11) —buttons, inputs, tabs, switches, progress bars— is dr
 grounds and held to the same rules: hand inking only on ornament, exact hit areas, focus and value
 geometry, parity across the three adapters, server rendering and accessibility by construction. It
 is not a complete design system: overlays and data-heavy components stay out (§5.2).
+
+The catalog holds **60 charts**: 33 in the first catalog (§6.4.1) and 27 in the second (§6.4.2),
+which adds the families the first lacked —distribution, two-value comparison, ranking, uncertainty,
+intervals, part-to-whole grids, hierarchies, fields and networks— under the same rules. Every
+statistic and layout they derive is computed in the core, deterministically, with no new
+dependency (§6.12).
 
 ## 2. Context and Problem
 
@@ -131,6 +137,8 @@ with `recharts`.
 | Parity extends to controls | Differences on the component fixtures, three adapters, against canonical renders | 0 | Release 0.3.0 |
 | Accessible controls | axe on the UI page of the four example apps; APG keyboard e2e per composite | 0 A/AA issues; every pattern green | Release 0.3.0 |
 | Controls cost little | One component over the shared UI runtime; the runtime; `ui.css` | ≤ 3 KB; ≤ 8 KB; ≤ 24 KB min+gzip | Release 0.3.0 |
+| Cover the distribution, comparison, hierarchy and relational questions | The charts of §6.4.2 published, each with fixtures, parity and docs | 27 of 27 | Releases 0.4.0, 0.5.0, 0.6.0 |
+| Keep the cost of a chart flat | The one-chart budget (45 KB min+gzip); the one-chart build of an existing chart against `0.3.0` | Unchanged; no growth (REQ-444) | Releases 0.4.0, 0.5.0, 0.6.0 |
 
 ### 4.2 User Objectives
 
@@ -151,7 +159,9 @@ with `recharts`.
 - [ ] `@silverpoint/react`: React adapter, compatible with Vite and Next.js (SSR included).
 - [ ] `@silverpoint/angular`: standalone adapter with signals, packaged in APF.
 - [ ] `@silverpoint/vue`: Vue 3 adapter with `<script setup>`, typed props and emits.
-- [ ] The 28 charts of the base catalog and 5 new radial ones (§6.4).
+- [ ] The 28 charts of the base catalog and 5 new radial ones (§6.4.1).
+- [ ] 27 further charts (§6.4.2) in three waves, with the statistics and layout modules in
+      `@silverpoint/core` they need (§6.12).
 - [ ] `ink` and `precision` modes in every chart.
 - [ ] Accessibility layer: roles, names, tabular alternative and keyboard navigation.
 - [ ] `vite-react`, `vite-vue`, `nextjs` and `angular` example apps as an integration bench. All four
@@ -184,6 +194,11 @@ with `recharts`.
   one layout silverpoint owns.
 - An icon set. Components take the consumer's icons; the few glyphs they draw themselves (tick,
   dot, close, status marks) are part of each component.
+- Interaction beyond the readout: brushing, zoom and pan, scrubbing, synchronised cursors, grouped
+  readouts, interactive legends, editable ranges, streaming windows. Proposed as feature-004.
+- Data reducers (group-by, mean, sum) inside a chart: the consumer aggregates; charts that derive a
+  **distribution** (§6.12) are the one exception, because the distribution is the mark.
+- Force simulation as a live, animated process: `NetworkChart` lays out once, deterministically.
 
 ### 5.3 Future Considerations
 
@@ -199,6 +214,10 @@ with `recharts`.
   `0.3.0`) or a per-framework headless library (React Aria, Reka UI, Angular Aria) with parity
   checked on the library-owned markup only.
 - Table on the dashboard's model: a data-only column layout resolved in the core.
+- Variants of the existing charts surfaced by the second catalog's survey —N series, stacked
+  areas, labels and annotations, polar variants, derived overlays, a secondary axis— as deltas
+  014..019 (`changes/feature-003-chart-catalog-expansion/research.md` §4).
+- Small multiples with shared scales, once the shared-scale model above exists.
 
 ## 6. Functional Requirements
 
@@ -254,9 +273,11 @@ citing it (Constitution, Art. 9). Retired identifiers are not reused.
 
 ### 6.4 Chart catalog
 
-Each chart is a requirement. The first 28 constitute the functional inventory inherited from
-the reference catalog; the last five are new radial ones, motivated by the volvelle tradition
-and absent from it.
+Each chart is a requirement. The first catalog (§6.4.1) holds 33: 28 constitute the functional
+inventory inherited from the reference catalog, and five are new radial ones, motivated by the
+volvelle tradition and absent from it. The second catalog (§6.4.2) holds 27 more.
+
+#### 6.4.1 First catalog
 
 | ID | Chart | Family | Priority |
 |---|---|---|---|
@@ -299,6 +320,46 @@ and absent from it.
 > angular positions, and the orbits need elliptical arcs with markers positioned along the
 > trajectory. The Technical Design will decide whether the ribbon generator leans on
 > `d3-chord` or is implemented in the core.
+
+#### 6.4.2 Second catalog
+
+The families the first catalog lacked, found by measuring it against TanStack Charts' catalog (188
+examples), which supplies the inventory only (REQ-450). Wave = the release that ships it.
+
+| ID | Chart | Family | Wave | Priority |
+|---|---|---|---|---|
+| REQ-400 | **Histogram** — raw observations binned in the core; `cumulative` turns the counts into a running total | distribution | 1 | MUST |
+| REQ-401 | **ECDF** — empirical cumulative distribution as a step function of the sorted observations | distribution | 1 | MUST |
+| REQ-402 | **Box plot** — per group: quartiles, median, Tukey whiskers at 1.5 IQR, outliers as points | distribution | 1 | MUST |
+| REQ-403 | **Violin** — per group: a mirrored kernel density, with the median and quartiles marked inside | distribution | 1 | MUST |
+| REQ-404 | **Ridgeline** — per group: a kernel density on its own baseline, the baselines overlapping by a declared ratio | distribution | 1 | MUST |
+| REQ-405 | **Beeswarm** — one point per observation along a value axis, packed without overlap by a deterministic layout | distribution | 1 | MUST |
+| REQ-406 | **Lollipop** — a stem from the baseline and a head at the value, per category | comparison | 1 | MUST |
+| REQ-407 | **Dumbbell** — two values per category joined by a segment; `endMarker: 'arrow'` encodes direction from the first to the second | comparison / change | 1 | MUST |
+| REQ-408 | **Slopegraph** — two parallel axes (two periods), one segment per category, labelled at both ends | change | 1 | MUST |
+| REQ-409 | **Bump** — the rank of each series at each x, computed in the core, one line per series | ranking | 1 | MUST |
+| REQ-410 | **Error bars** — a point estimate with its interval per category, rows or columns | uncertainty | 1 | MUST |
+| REQ-411 | **Interval** — floating bars from `start` to `end` on lanes, over a numeric axis or ISO dates (UTC) | interval | 1 | MUST |
+| REQ-412 | **Diverging bars** — ordered levels (a Likert scale) stacked on both sides of a neutral centre | survey | 1 | MUST |
+| REQ-413 | **Connected scatter** — an ordered path through x-y points, with direction marks and labelled ends | relationship | 1 | SHOULD |
+| REQ-414 | **Waffle** — a unit grid of cells (100 by default) filled in reading order by category | part-to-whole | 2 | MUST |
+| REQ-415 | **Marimekko** — columns whose width is their total and whose segments are their composition, both axes at 100 % | part-to-whole | 2 | MUST |
+| REQ-416 | **Squarified treemap** — a hierarchy laid out by the squarified algorithm, nested frames per level | hierarchy | 2 | MUST |
+| REQ-417 | **Sunburst** — a hierarchy as concentric rings of arcs, angle ∝ value, with a controlled root node | hierarchy | 2 | MUST |
+| REQ-418 | **Tree** — a tidy node-link tree, horizontal or vertical | hierarchy | 2 | MUST |
+| REQ-419 | **Parallel coordinates** — one value axis per dimension, one polyline per row | multivariate | 2 | SHOULD |
+| REQ-420 | **Polar line** — a line over angle × radius, closed when the angle is cyclic | polar | 2 | MUST |
+| REQ-421 | **Polar scatter** — points over angle × radius, unbinned | polar | 2 | SHOULD |
+| REQ-422 | **Density bins** — x-y points binned in two dimensions into hexagons or rectangles, tone by count | field | 3 | MUST |
+| REQ-423 | **Contours** — iso-lines and filled bands, from a point cloud (density) or a regular grid of values | field | 3 | SHOULD |
+| REQ-424 | **Delaunay / Voronoi** — the triangulation of x-y points, or its dual cells | field | 3 | COULD |
+| REQ-425 | **Vector field** — an arrow per grid point, direction and length from its components | field | 3 | COULD |
+| REQ-426 | **Network** — a node-link graph laid out deterministically, or at the positions the consumer gives | network | 3 | SHOULD |
+
+> **Geometry note.** REQ-400..REQ-415 and REQ-419..REQ-421 reuse the cartesian and arc engines and
+> add statistics or a small layout of their own. REQ-416..REQ-418 need hierarchy layouts, REQ-423 and
+> REQ-424 need marching squares and a robust triangulation, and REQ-426 needs an iterative layout. All of
+> them are owned by the core; no dependency is added (DD-028, user decision 2026-10-08).
 
 Cross-cutting catalog requirements:
 
@@ -524,6 +585,53 @@ the family reads as one range.
 
 **Count:** 35 requirements (33 MUST, 2 SHOULD). With §6.1–§6.10 the PRD has 165 requirements.
 
+### 6.12 Derived geometry: statistics, layouts and identity
+
+Requirements that bind the charts of §6.4.2 and any later chart that derives what it draws.
+
+#### Computation
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-430 | ubiquitous | THE SYSTEM SHALL compute every statistic (bins, quantiles, densities, cumulative distributions, ranks) and every layout (packing, hierarchy, mosaic, 2-D bins, contours, triangulation, graph) in `@silverpoint/core`, as pure functions of the data and the props; adapters SHALL receive geometry only (REQ-102 extended). | MUST |
+| REQ-432 | ubiquitous | THE SYSTEM SHALL default every statistic to a documented method —bins by Freedman–Diaconis, falling back to Sturges when the IQR is zero; quantiles by linear interpolation (Hyndman–Fan type 7); density by an Epanechnikov kernel with Silverman's rule-of-thumb bandwidth; whiskers at 1.5 IQR; ranks by competition ranking with ties broken by series order— and SHALL let each be overridden by a prop. | MUST |
+| REQ-433 | unwanted | IF a statistic parameter is invalid —`bins < 1`, a non-finite or non-positive `bandwidth`, a `whisker` below 0, thresholds not increasing— THEN THE SYSTEM SHALL use the default, warn with `SP021` and render. | MUST |
+| REQ-434 | unwanted | IF a group has fewer observations than its statistic needs —fewer than 5 for a box, fewer than 2 for a density— THEN THE SYSTEM SHALL draw that group's observations as points, warn with `SP022` and render the other groups unchanged. | MUST |
+| REQ-435 | ubiquitous | Every iterative layout (beeswarm packing, network layout) SHALL run a fixed number of iterations from a start derived from the chart's seed, and SHALL use inside the iteration only operations ECMAScript requires to be correctly rounded (`+ − × ÷`, `Math.sqrt`, comparisons), so that Node and every supported browser produce the same coordinates (REQ-005, REQ-103). | MUST |
+| REQ-436 | state | WHILE every node of a `NetworkChart` carries finite `x` and `y`, THE SYSTEM SHALL draw the nodes at those positions, scaled to the plot, and SHALL run no layout. | MUST |
+| REQ-437 | unwanted | IF hierarchical data is invalid —a duplicate `id`, a `parent` that does not exist, a cycle, or more than one root— THEN THE SYSTEM SHALL drop the offending rows (and, for several roots, add a synthetic root named by the chart), warn with `SP020` naming the first offending `id`, and render without throwing. | MUST |
+
+#### Accessibility and identity
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-431 | ubiquitous | WHERE a chart derives what it draws, its tabular alternative and its keyboard announcements SHALL present the **derived** values —bin range and count, the five-number summary, rank, the node's value and share of its parent— and its description SHALL name the method and its parameters (REQ-120, REQ-121 extended). | MUST |
+| REQ-438 | event | WHEN the user navigates a hierarchy chart by keyboard, THE SYSTEM SHALL follow the WAI-ARIA tree pattern —Down/Up to the next/previous node in depth-first order, Right to the first child, Left to the parent, Home/End to the first/last node— and SHALL announce the node's path from the root, its value and its share (REQ-122 extended). | MUST |
+| REQ-439 | optional | WHERE a `SunburstChart` or `SquarifiedTreemap` sets `rootId`, THE SYSTEM SHALL draw that node as the root; activating a node SHALL emit `onRootChange` with its `id` (and the parent's on its centre), and the chart SHALL keep no root state of its own (REQ-108). | SHOULD |
+| REQ-440 | ubiquitous | WHERE a chart shows more categories than the ground's tonal levels, THE SYSTEM SHALL tone them as the polar charts already do —the ramp in turn, no two neighbours sharing a level— and SHALL carry each category's identity by a direct label, a printed share, the legend, its position or order, and the tabular alternative; tone SHALL only repeat what one of those already says (REQ-124 extended). | MUST |
+| REQ-441 | ubiquitous | Every stroke that encodes a datum or a derived value —bin edges and tops, whiskers, medians, density outlines, stems and heads, rank lines, interval ends, tile and arc boundaries, contour lines, triangle edges, arrows, links— SHALL be `role: 'encoding'` and exact; inking SHALL touch only axes, grids, frames and tonal fills (REQ-022 extended). | MUST |
+| REQ-442 | ubiquitous | Each chart of §6.4.2 SHALL heighten exactly one element, the one its API row declares (REQ-024 extended). | MUST |
+| REQ-450 | ubiquitous | Every chart of §6.4.2 SHALL be drawn with silverpoint's existing visual grammar —the stroke roles, paint parts, tonal ramp, heighten rule, card layout and typography the first 33 charts use— and SHALL introduce no new stroke part, paint, label kind, `part` attribute or `--sp-` variable; the reference catalog contributes the inventory only, never a rendering or styling approach. | MUST |
+
+#### Volume, performance and weight
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-443 | unwanted | IF the input exceeds its family's ceiling —10 000 observations for binned or density charts, 500 drawn points for beeswarm, polar scatter, connected scatter and Delaunay, 200 intervals, 500 hierarchy nodes, 150 network nodes or 600 links, 60 × 60 grid cells for fields— THEN THE SYSTEM SHALL warn with `SP008`, recommend aggregation, and render (REQ-096 extended). | MUST |
+| REQ-444 | ubiquitous | Every new chart SHALL be importable by its own subpath, and the statistics and layout module SHALL tree-shake: the one-chart build of an existing chart SHALL not grow (REQ-107, REQ-164 extended). | MUST |
+| REQ-445 | ubiquitous | Geometry SHALL be computed within: 2 ms for 100 points (unchanged); 4 ms for a statistic over 1 000 observations; 8 ms for a 60 × 60 field; 16 ms for a 150-node network layout; on the reference hardware, as CI benchmarks. | MUST |
+
+#### Grounds, demos, quality and docs
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-446 | ubiquitous | Every new chart SHALL ship a synthetic, original demo dataset, frozen in the source, that exercises its statistic or layout; none SHALL be copied from the reference catalog (REQ-093 extended). | MUST |
+| REQ-447 | state | WHILE the active ground declares `tonalMechanism: "weight"`, every new chart SHALL encode tone by line weight and SHALL emit no hatch (REQ-028, I-16). | MUST |
+| REQ-448 | ubiquitous | Every new chart SHALL join the fixture matrix on every ground, substrate and mode, and pass the parity and pixel gates (REQ-180, REQ-181, REQ-182 extended). | MUST |
+| REQ-449 | ubiquitous | The documentation site SHALL show every new chart in the gallery with its demo, a props reference generated from the types, and a statement of the method behind each derived value (REQ-099 extended). | MUST |
+
+**Count:** §6.4.2 and §6.12 hold 48 requirements (40 MUST, 6 SHOULD, 2 COULD). With the rest of §6 the PRD has 213 requirements (194 MUST).
+
 ## 7. Non-Functional Requirements
 
 The template assumes a service; silverpoint is a client library, so two headings are
@@ -546,6 +654,11 @@ reinterpreted and the original is stated.
 - **UI components:** a component renders in < 1 ms (no geometry beyond fractions and one arc); a
   keyboard transition in the core < 0.05 ms. Benchmarks beside the geometry ones.
 - **UI weight:** the budgets of REQ-330, measured by size-limit on every PR.
+- **Derived geometry (REQ-445):** 4 ms for a statistic over 1 000 observations; 8 ms for a 60 × 60
+  field; 16 ms for a 150-node network layout; CI benchmarks beside the 2 ms of a 100-point chart.
+- **Path data weight, second catalog:** the 40 KB budget applies unchanged. The waffle (100 cells),
+  the beeswarm (500 points) and the density bins are its stress cases; they fill through the shared
+  tile, and a dense cloud's bins of one tone are drawn as one path.
 
 ### Security
 
@@ -571,6 +684,11 @@ reinterpreted and the original is stated.
   (REQ-096).
 - The chord ring (REQ-091) is bounded by number of categories, not points: the ribbons grow
   quadratically. `0.x` ceiling: 12 categories.
+- The second catalog's ceilings (REQ-443): 10 000 observations for binned or density charts; 500
+  drawn points for the beeswarm, polar scatter, connected scatter and Delaunay; 200 intervals; 500
+  hierarchy nodes; 150 network nodes or 600 links; 60 × 60 grid cells for fields.
+- Fixtures: the chart matrix grows with the catalog, 60 charts and three state fixtures: 630 on
+  every PR and 3 402 nightly (Data Model §5).
 
 ### Observability
 
@@ -661,6 +779,22 @@ writing a grid around the cards in every app.
 - **F3.** As Persona 4, I tab to a `Slider`, move it with the arrows, and my screen reader
   announces a native range; with high contrast on, the frame turns into a plain exact border.
 
+### Epic G — Questions the first catalog could not answer
+
+- **G-1** As a data product developer (Persona 1), I want to pass raw observations and get a
+  histogram, box plot or violin, so that I do not compute statistics to draw a distribution.
+  - [ ] Passing 1 000 numbers to `HistogramChart` draws bins whose counts sum to 1 000 (REQ-400).
+  - [ ] The data table shows each bin's range and count, not the 1 000 rows (REQ-431).
+- **G-2** As an editorial author (Persona 3), I want before/after and rank-over-time charts.
+  - [ ] `DumbbellChart` with `endMarker: 'arrow'` shows direction without colour (REQ-407, REQ-440).
+  - [ ] `BumpChart` ranks are computed for me; ties are stable between renders (REQ-409, REQ-432).
+- **G-3** As a developer with a tree-shaped dataset, I want to pass `{ id, parent, value }` rows.
+  - [ ] An orphan row does not crash the chart; I get `SP020` naming it (REQ-437).
+  - [ ] A screen-reader user walks the tree with arrow keys and hears the path (REQ-438).
+- **G-4** As a reader with precision needs (Persona 4), the new charts behave like the old ones.
+  - [ ] `precision` mode changes no encoding vertex (REQ-441, REQ-006).
+  - [ ] A server-rendered beeswarm hydrates in Firefox without a mismatch (REQ-435).
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -691,6 +825,11 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | Native inputs styled invisible break in some assistive technology | Low | High | Visually-hidden pattern, never `display: none` or `opacity: 0` on a zero box; axe and manual NVDA/VoiceOver pass on the UI page before release |
 | Pressure to add overlays inside `0.3.0` | Medium | High | §5.2 names them; they need a behaviour-engine decision first (§5.3) |
 | Name collisions (`Button`, `Input`) in React apps | Low | Low | Every component is `Sp`-prefixed in the three adapters (OQ-U2, decided 2026-09-28) |
+| 27 charts nearly double the catalog for a one-person team | High | High | Three waves, each a minor release that is complete on its own; families share an engine; adapters are thin wrappers (`create-chart`) so a chart is mostly a core recipe |
+| Floating-point drift between Node and a browser in densities and layouts breaks hydration | Medium | High | REQ-435: correctly rounded operations only inside iterations; Epanechnikov kernel; a hydration e2e in Firefox and WebKit for the beeswarm and network |
+| The fixture matrix nearly doubles CI time | High | Medium | The user chose the full matrix on every PR (OQ-C4): the PR matrix stays `md` × 2 modes for every chart; if the gate job grows too slow, shard it across runners —never reduce the matrix |
+| Owning tidy tree, squarify, marching squares and Delaunay costs more than importing them | High | Medium | DD-028: published algorithms with hand-computed test cases and property tests; exact predicates with `BigInt` fallback; wave 3 can ship without REQ-424 (COULD) |
+| Many-category charts (sunburst, waffle) fail REQ-124 under a 4-level ramp | Medium | High | REQ-440: identity by label, printed share, legend, position and order, toned with the existing `ringTone` rule; an identity test checks every toned chart for a channel beyond tone (REQ-124) |
 
 ## 12. Estimated Timeline
 
@@ -708,6 +847,7 @@ commitments.
 | Phase 5 — dashboard | 3-4 weeks | Dashboard composition in three adapters, parity and pixel gates per breakpoint, released in 0.2.0 |
 | Phase 5, delta-012 | 1 week | The `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222), in 0.2.0 |
 | Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
+| Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; one minor per wave: 0.4.0, 0.5.0, 0.6.0 |
 
 ---
 
@@ -715,6 +855,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.12 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: §6.4 split into §6.4.1 and §6.4.2 (27 charts, REQ-400..REQ-426), §6.12 derived geometry (REQ-430..REQ-450); 48 requirements, 165 → 213 in all; §1, §4.1, §5.1–§5.3, §7 additions, Epic G, §11 risks, §12 Phase 7 |
 | 1.11 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: §6.11 UI components, REQ-300..REQ-334 (35 requirements: 33 MUST, 2 SHOULD; 130 → 165 in all); §4.1 metrics, §5.1–§5.3 scope, §7 additions, Epic F, §11 risks; released in 0.3.0 |
 | 1.10 | 2026-09-26 | Ernesto Crespo | Delta-013: REQ-047 names `@silverpoint/tailwind`; REQ-160 lists it (optional) |
 | 1.9 | 2026-09-26 | Ernesto Crespo | Delta-012: every "v1" target becomes `0.2.0` (the line stays on `0.x`); `cyanotype` enters scope and REQ-028 names it; REQ-222 (Angular CLI SSR hydration) enters; REQ-220 gives each adapter an allowance, 3 KB for Angular; REQ-221 names the three server-rendered apps |
@@ -758,4 +899,12 @@ commitments.
 - **Art. 6** — REQ-308 and REQ-309: tone by the ramp, one heightened item per component.
 - **Art. 7** — REQ-312: `ui` tokens are ground data.
 - **Art. 8** — REQ-303 and REQ-330: no new dependency, no CSS framework, budgets.
+- **Art. 1** — REQ-441 classifies every derived mark as encoding: exact, untouched by the inker.
+- **Art. 2** — REQ-430: statistics and layouts live in the core; adapters stay translators.
+- **Art. 3 / Art. 4** — REQ-435 and REQ-432 make derived geometry deterministic across engines;
+  REQ-448 puts every chart of §6.4.2 in the gates.
+- **Art. 5** — REQ-431, REQ-438 and REQ-440 extend the tabular alternative, keyboard navigation
+  and the no-hatch-alone rule to derived values, trees and many categories.
+- **Art. 6 / Art. 7** — REQ-442, REQ-447 and REQ-450: one heighten, tone by the ground's mechanism,
+  the existing grammar. **Art. 8** — no new dependency (the core owns its algorithms); REQ-444.
 - **Requested exception:** none.

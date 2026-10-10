@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-10-09 by Ernesto Crespo (Phase 1) |
+| **Status** | `APPROVED` — gate 3, approved 2026-10-09 by Ernesto Crespo (Phase 1); **folded into `specs/data-model.md` (v1.7) on 2026-10-10** (T-199) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.6 → v1.7: §1, new §2.15..§2.24, §2.1, §2.2, §2.7 ("Used by"), §4, §5, §6 |
 | **Requirements** | REQ-400..REQ-426, REQ-430..REQ-450 |
 

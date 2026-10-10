@@ -1,6 +1,6 @@
 # Constitution — silverpoint
 
-> Version 1.7 · Ratified: 2026-09-12 · Last amended: 2026-09-29
+> Version 1.8 · Ratified: 2026-09-12 · Last amended: 2026-10-09
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
 > `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
 > documentation site.
@@ -11,9 +11,9 @@ the mechanics of silverpoint: prepared mid-tone substrate, fine silver line, val
 by hatching and white heightening. The engine supports several grounds; the Renaissance
 one is the first, not the only one.
 
-**What it is not.** It is not a port of Monocharts. The chart catalog takes its
-functional inventory from there, but the visual language, the geometry and the code are
-original work.
+**What it is not.** It is not a port of Monocharts, nor of TanStack Charts. The first chart
+catalog takes its functional inventory from Monocharts and the second from TanStack Charts'
+catalog, but the visual language, the geometry and the code are original work.
 
 ---
 
@@ -156,7 +156,7 @@ Decided, not re-litigated per feature:
 |---|---|
 | Language | TypeScript 5.9+ (6.x where a supported framework requires it, as Angular 22 does) in `strict` mode, ESM first |
 | Monorepo | pnpm workspaces + Nx (chosen for its Angular support) |
-| Geometry engine | `d3-scale` + `d3-shape` (only the subset used) |
+| Geometry engine | DOM-free d3 modules, only the subset used, each listed in the Technical Design's runtime allowlist (§5.3); statistics and layouts are owned by the core. Iterative or summed geometry uses only correctly rounded arithmetic (REQ-435) |
 | Inking engine | `rough.js`, isolated behind the core's `Inker` interface |
 | React | 18.2+ and 19; RSC-compatible (`"use client"` only where indispensable) |
 | Angular | The two most recent majors; standalone components, signal inputs and `ChangeDetectionStrategy.OnPush`. Exact versions pinned in the Technical Design |
@@ -200,6 +200,7 @@ explicitly in its tonal mechanism token.
 | 2026-09-25 | Art. 3 | Parity covers normalised markup, wrappers included, and the fixture matrix admits compositions | The dashboard composition emits HTML around the charts; the gate must hold it to the same zero tolerance (feature-001, Analyze A-01) | Ernesto Crespo |
 | 2026-09-26 | — | Planned grounds (non-normative): `cyanotype` ships in `0.2.0`; statuses name releases, not "v1" | The line stays on `0.x`; the second ground is what proves Art. 7 (delta-012) | Ernesto Crespo |
 | 2026-09-28 | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
+| 2026-10-09 | — | Stack: the geometry engine row points to the TD allowlist instead of naming modules, and records the correctly-rounded-arithmetic rule for derived geometry; the second catalog's inventory source is named | The row was stale since `d3-chord`; feature-003 owns its statistics and layouts and needs the arithmetic rule | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

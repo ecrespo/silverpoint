@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — with gate 1, 2026-10-09; folded into `specs/constitution.md` with T-199 |
+| **Status** | `APPROVED` — with gate 1, 2026-10-09; folded into `specs/constitution.md` (v1.8) on 2026-10-10 (T-199) |
 | **Articles touched** | None. Only the **Stack constraints** table and the "What silverpoint is" paragraph's catalog wording |
 
 ## 1. Why

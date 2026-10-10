@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — drafted 2026-10-08; OQ-C1, OQ-C2, OQ-C4 and A-07 decided the same day; gates 0..4 approved 2026-10-09 by Ernesto Crespo, with OQ-C3, OQ-C5 and the open findings closed as proposed (Phase 1) |
+| **Status** | `APPROVED` — drafted 2026-10-08; OQ-C1, OQ-C2, OQ-C4 and A-07 decided the same day; gates 0..4 approved 2026-10-09 by Ernesto Crespo, with OQ-C3, OQ-C5 and the open findings closed as proposed (Phase 1). Implemented (T-164..T-198) and folded into `specs/` 2026-10-10 (T-199); the `0.4.0`, `0.5.0` and `0.6.0` releases await the user |
 | **Target releases** | Wave 1 → `0.4.0`, wave 2 → `0.5.0`, wave 3 → `0.6.0` (OQ-C1). The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-400..REQ-426 (27 charts: 20 MUST, 5 SHOULD, 2 COULD) · REQ-430..REQ-450 (20 MUST, 1 SHOULD) |
 | **Design decisions** | DD-028..DD-036 |

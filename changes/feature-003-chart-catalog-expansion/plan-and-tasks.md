@@ -460,9 +460,24 @@ user. The 5 recipes reach `@silverpoint/core/catalog` and every adapter; 5 catal
 
 ### 7e — Close
 
-**[ ] T-199 · Fold, traceability, status** — REQ-183, REQ-184
+**[x] T-199 · Fold, traceability, status** — REQ-183, REQ-184
 - Fold the five deltas and the constitution amendment into `specs/`; `reports/traceability.md`;
   `CLAUDE.md` status table and "Where things stand".
+
+**7e ledger (Phase 10, 2026-10-10).** Done: T-199. Folded: Constitution v1.8 (stack row, the second
+catalog's inventory source), PRD v1.12 (§6.4.1/§6.4.2, §6.12; 213 requirements, 194 MUST), API Spec
+v1.10 (§7.3, `onRootChange`, `SP020`–`SP022`, §12), Technical Design v1.9 (DD-028..DD-036),
+Data Model v1.7 (§2.15..§2.25, §4, §5, I-23..I-30), Implementation Plan v1.8 (Phase 7). What the
+implementation changed is folded as it is, not as the deltas proposed it, each marked "amended in
+implementation": the tree and network keys as `HitArea.moves` (Data Model §2.25), `rootChangeOf` in
+the core, `@silverpoint/core/catalog`, Voronoi by half-planes and non-zero bands, the network fitted
+without walls, the ECDF, box, dumbbell and slope on the grid model, `source` optional on the
+contours, `nodes` and `levels` as data, state fixtures and the 3,402/630 matrix, REQ-444 measured
+minified within 0.25 KB, `/catalog` at 75 kB. `spec-check`: 0 errors (the two old warnings).
+- **Traceability:** the fold made REQ-447 and REQ-448 ordinary MUSTs, and no test title cited them
+  (the pending list never showed them): `cyanotype.test.ts` now cites REQ-447 on the catalog-wide
+  weight test and adds one that the second catalog's toned charts carry weights (mutation: drop the
+  density bins' tones → red); `fixtures.test.ts` cites REQ-448 on the matrix tests.
 
 ## Traceability
 

@@ -6,18 +6,18 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.7 |
-| **Date** | 2026-09-29 |
-| **PRD** | [`prd.md`](prd.md) v1.11 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.8 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.6 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.9 |
+| **Version** | 1.8 |
+| **Date** | 2026-10-10 |
+| **PRD** | [`prd.md`](prd.md) v1.12 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.9 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.7 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.10 |
 
 ---
 
 ## 1. Implementation Summary
 
-Five phases for the catalog, a sixth —Phase 5— for the dashboard composition, and a seventh —Phase 6— for the interface components. The first delivers no catalog: it delivers **a single chart travelling
+Five phases for the catalog, a sixth —Phase 5— for the dashboard composition, a seventh —Phase 6— for the interface components, and an eighth —Phase 7— for the second catalog. The first delivers no catalog: it delivers **a single chart travelling
 through the entire system** — core, inking, interaction, all three adapters and the gates — to
 retire the risks that could invalidate the architecture. If that slice closes, the three
 that follow are repetition over engines that are already proven.
@@ -280,6 +280,130 @@ Every task cites at least one requirement; no orphan task.
 - Released as `0.3.0` (changeset `minor` from `0.2.0`) from CI; the deltas folded into `specs/`
   (#162) and `CLAUDE.md`'s status table updated (#163).
 
+### Phase 7 — Second catalog
+
+**Effort:** three waves, each a minor. **Goal:** 27 further charts (PRD §6.4.2, §6.12,
+REQ-400..REQ-426 and REQ-430..REQ-450; API Spec §7.3; DD-028..DD-036; Data Model §2.15..§2.25) in the
+families the first catalog lacked —distribution, comparison, ranking, uncertainty, intervals,
+part-to-whole, hierarchy, fields and networks—, drawn in silverpoint's grammar and implemented the
+way the 33 are, every statistic and layout owned by the core with no new dependency.
+
+**Tasks:** #164..#199, continuing the global sequence; defined in the feature's ledger
+(`changes/feature-003-chart-catalog-expansion/plan-and-tasks.md`, where each reads `T-` followed by
+its number), as for Phases 5 and 6. A chart is a catalog row (DD-034), and every gate iterates it.
+
+| Step | Content | Tasks | Depends on | Exit |
+|---|---|---|---|---|
+| 7a | Core foundations: types, contracts, diagnostics, `shared/stats` and `shared/density`, tree keys, `ringTone` shared, demo generator | #164..#167 | Approval | Core unit + property tests, benchmarks green |
+| 7b | **Wave 1** — 14 charts (REQ-400..REQ-413) | #168..#179 | 7a | `0.4.0` from CI |
+| 7c | **Wave 2** — 8 charts (REQ-414..REQ-421), owned hierarchy layouts | #180..#189 | 7b | `0.5.0` from CI |
+| 7d | **Wave 3** — 5 charts (REQ-422..REQ-426), owned contours, triangulation and network layout | #190..#198 | 7c | `0.6.0` from CI |
+| 7e | Fold the deltas into `specs/`, traceability, `CLAUDE.md` status | #199 | 7d | Specs current |
+
+**Status (2026-10-10).** Steps 7a..7e are implemented: 27 charts × 3 adapters, the recipes on
+`@silverpoint/core/catalog`, 3,402 chart fixtures (630 on PR) green in the string and pixel gates,
+the REQ-444 no-growth check against `0.3.0`, and this fold (#199). The three releases —`0.4.0`,
+`0.5.0`, `0.6.0`— wait for the release decision; until then the work is unreleased on `develop`.
+
+Task summary (each task cites the requirement it implements):
+
+| Step | Task | Content | REQ |
+|---|---|---|---|
+| 7a | #164 | Types, contracts, diagnostics and catalog scaffolding | REQ-430, REQ-433, REQ-434, REQ-437, REQ-444, REQ-450 |
+| 7a | #165 | `charts/shared/stats.ts` and `density.ts` | REQ-430, REQ-432, REQ-433, REQ-445 |
+| 7a | #166 | `stepTree`, and `ringTone` for every family | REQ-438, REQ-440, REQ-447 |
+| 7a | #167 | `tools/demo-gen` and the 27 frozen demos | REQ-446, REQ-093 |
+| 7b | #168 | `HistogramChart`, `EcdfChart` | REQ-400, REQ-401, REQ-431, REQ-441, REQ-442 |
+| 7b | #169 | `BoxPlotChart`, `ViolinChart` | REQ-402, REQ-403, REQ-434, REQ-431, REQ-441, REQ-442 |
+| 7b | #170 | `RidgelineChart` | REQ-404, REQ-440, REQ-442 |
+| 7b | #171 | `BeeswarmChart` and `shared/beeswarm.ts` | REQ-405, REQ-435, REQ-443 |
+| 7b | #172 | `LollipopChart`, `DumbbellChart`, `SlopeChart` | REQ-406, REQ-407, REQ-408, REQ-441 |
+| 7b | #173 | `BumpChart` | REQ-409, REQ-432, REQ-440 |
+| 7b | #174 | `ErrorBarChart`, `IntervalChart` | REQ-410, REQ-411, REQ-443 |
+| 7b | #175 | `DivergingBarChart` | REQ-412, REQ-440 |
+| 7b | #176 | `ConnectedScatterChart` | REQ-413 |
+| 7b | #177 | Wave 1 adapters ×3 | REQ-444, REQ-101, REQ-104, REQ-108 |
+| 7b | #178 | Wave 1 fixtures, gates and budgets | REQ-448, REQ-435, REQ-441, REQ-444, REQ-445 |
+| 7b | #179 | Wave 1 example apps, docs, changeset | REQ-449, REQ-103, REQ-109, REQ-122 |
+| 7c | #180 | `shared/hierarchy.ts`: stratify, squarify, partition, tidy tree | REQ-437, REQ-430, REQ-444 |
+| 7c | #181 | `SquarifiedTreemap` | REQ-416, REQ-438, REQ-439, REQ-440 |
+| 7c | #182 | `SunburstChart` | REQ-417, REQ-438, REQ-439, REQ-440 |
+| 7c | #183 | `TreeChart` | REQ-418, REQ-438 |
+| 7c | #184 | `WaffleChart`, `MarimekkoChart` | REQ-414, REQ-415, REQ-440 |
+| 7c | #185 | `ParallelCoordinatesChart` | REQ-419, REQ-097 |
+| 7c | #186 | `PolarLineChart`, `PolarScatterChart` | REQ-420, REQ-421, REQ-443 |
+| 7c | #187 | Wave 2 adapters ×3, `onRootChange` | REQ-439, REQ-444, REQ-108 |
+| 7c | #188 | Wave 2 fixtures, gates and budgets | REQ-448, REQ-444, REQ-445 |
+| 7c | #189 | Wave 2 example apps, docs, changeset | REQ-449, REQ-438 |
+| 7d | #190 | `shared/field.ts` and `shared/delaunay.ts` | REQ-430, REQ-435, REQ-444 |
+| 7d | #191 | `DensityBinChart` and `shared/field.ts` (2-D bins) | REQ-422, REQ-443 |
+| 7d | #192 | `ContourChart` | REQ-423, REQ-445, REQ-447 |
+| 7d | #193 | `DelaunayChart` | REQ-424 (COULD, OQ-C5) |
+| 7d | #194 | `VectorFieldChart` | REQ-425 (COULD, OQ-C5) |
+| 7d | #195 | `NetworkChart` and `shared/network.ts` | REQ-426, REQ-435, REQ-436, REQ-445 |
+| 7d | #196 | Wave 3 adapters ×3 | REQ-444 |
+| 7d | #197 | Wave 3 fixtures, gates and budgets | REQ-448, REQ-435, REQ-445 |
+| 7d | #198 | Wave 3 example apps, docs, changeset | REQ-449 |
+| 7e | #199 | Fold, traceability, status | REQ-183, REQ-184 |
+
+**Traceability — REQ → tasks**
+
+| REQ | Tasks |
+|---|---|
+| REQ-400, REQ-401 | #168 |
+| REQ-402, REQ-403 | #169 |
+| REQ-404 | #170 |
+| REQ-405 | #171 |
+| REQ-406..REQ-408 | #172 |
+| REQ-409 | #173 |
+| REQ-410, REQ-411 | #174 |
+| REQ-412 | #175 |
+| REQ-413 | #176 |
+| REQ-414, REQ-415 | #184 |
+| REQ-416 | #181 |
+| REQ-417 | #182 |
+| REQ-418 | #183 |
+| REQ-419 | #185 |
+| REQ-420, REQ-421 | #186 |
+| REQ-422 | #191 |
+| REQ-423 | #192 |
+| REQ-424 | #193 |
+| REQ-425 | #194 |
+| REQ-426 | #195 |
+| REQ-430 | #164, #165, #180, #190 |
+| REQ-431 | #168, #169 (and every recipe's table test) |
+| REQ-432 | #165, #173 |
+| REQ-433 | #164, #165 |
+| REQ-434 | #164, #169 |
+| REQ-435 | #171, #178, #195, #197 |
+| REQ-436 | #195 |
+| REQ-437 | #164, #180 |
+| REQ-438 | #166, #181..#183, #189 |
+| REQ-439 | #181, #182, #187 |
+| REQ-440 | #166, #170, #173, #175, #181, #182, #184 |
+| REQ-441 | #168, #169, #172, #178 |
+| REQ-442 | #168..#170 (and every recipe's heighten test) |
+| REQ-443 | #171, #174, #186, #191 |
+| REQ-444 | #164, #177, #178, #180, #187, #188, #190, #196 |
+| REQ-445 | #165, #178, #188, #192, #195, #197 |
+| REQ-446 | #167 |
+| REQ-447 | #166, #192 |
+| REQ-448 | #178, #188, #197 |
+| REQ-449 | #179, #189, #198 |
+| REQ-450 | #164, #168..#176, #181..#186, #191..#195, #178, #188, #197 |
+
+Every task cites at least one requirement; no orphan task.
+
+**Done criteria**
+- Every MUST in REQ-400..REQ-450 cited by a test; traceability 0 blocking (REQ-183, REQ-184).
+- Parity and pixel gates green on every wave's fixtures, the state fixtures included; no existing
+  canonical or golden moved.
+- Cross-engine determinism (Node, Chromium, Firefox, WebKit) for every second-catalog fixture;
+  hydration in Firefox and WebKit for the beeswarm, violin, network and contours.
+- Budgets: 45 KB per chart; no existing one-chart build grows (REQ-444); REQ-445's benchmarks.
+- Example apps and docs site carry the 27 with their method statements (REQ-449).
+- Each wave released as its minor from CI; the deltas folded into `specs/` (#199).
+
 ## 4. Dependency Map
 
 ```
@@ -296,6 +420,9 @@ Phase 0 ── vertical slice, gates operational
                                                        │
                                                        ▼
                                           Phase 6 ── UI components
+                                                       │
+                                                       ▼
+                                          Phase 7 ── second catalog (waves 1, 2, 3)
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -314,6 +441,8 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | Interaction in the core proves impractical | Low | High | Now surfaced in Phase 0 rather than Phase 2; if it fails, only the line chart has to be reworked |
 | The dashboard's server render cannot know the container width | High | Medium | Nominal boxes at `ssrWidth`, re-render after hydration (DD-015) |
 | Linked interaction grows into per-adapter state machines | Medium | Medium | Matching in the core (DD-016); it is SHOULD and may slip without blocking the release |
+| 27 charts nearly double the catalog | High | High | Three waves, each complete on its own; families share an engine; a chart is mostly a core recipe and a catalog row |
+| Owned tidy tree, squarify, marching squares and Delaunay are subtle | High | Medium | Hand-computed cases and property tests; exact predicates with a `BigInt` fallback (DD-028) |
 | The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
@@ -342,6 +471,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.8 | 2026-10-10 | Ernesto Crespo | Phase 7 added: the second catalog, 27 charts in three waves (steps 7a..7e, #164..#199), feature-003 |
 | 1.7 | 2026-09-29 | Ernesto Crespo | Phase 6 added: the 17 UI components (steps 6a..6f, #135..#163), released in `0.3.0` (feature-002) |
 | 1.6 | 2026-09-26 | Ernesto Crespo | Step 5h (delta-013): the Tailwind preset package |
 | 1.5 | 2026-09-26 | Ernesto Crespo | Step 5g (delta-012): the `cyanotype` ground, REQ-220 per adapter and Angular CLI SSR join `0.2.0` |
@@ -361,4 +491,6 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
   compositions.
 - **Art. 1, 3, 5, 6** (v1.7) — Phase 6's Done includes the tree and pixel gates over the
   component fixtures, `ink`/`precision` box equivalence (I-17) and one heightening per instance.
+- **Art. 3, 8, 9** (feature-003) — each wave goes through the gates before its release and proves
+  no existing canonical moved; no dependency enters (DD-028); every task cites its REQ.
 - **Exception requested:** none.

@@ -89,7 +89,7 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
   });
 });
 
-test('REQ-182 · the PR matrix holds every catalog chart × 10 cells, and each state fixture × 10', () => {
+test('REQ-182 · REQ-448 · the PR matrix holds every catalog chart × 10 cells, and each state fixture × 10', () => {
   const states = CATALOG.reduce((n, c) => n + Object.keys(c.states ?? {}).length, 0);
   expect(loadFixtures()).toHaveLength((CATALOG.length + states) * 10);
   // The first catalog's 33 and the second's three waves (feature-003, DM delta §3).
@@ -106,7 +106,7 @@ describe('the full matrix', () => {
 
   const cell = (f: Fixture) => `${f.chart}${f.state ? `/${f.state}` : ''}/${f.ground}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
 
-  test('REQ-182 · 3,402 fixtures: (60 charts + 3 states) × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
+  test('REQ-182 · REQ-448 · 3,402 fixtures: (60 charts + 3 states) × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
     expect(full).toHaveLength(3402);
     expect(new Set(full.map(cell)).size).toBe(3402);
     expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(63 * 48);

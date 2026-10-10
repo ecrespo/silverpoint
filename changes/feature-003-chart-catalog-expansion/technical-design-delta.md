@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-10-09 by Ernesto Crespo (Phase 1) |
+| **Status** | `APPROVED` — gate 3, approved 2026-10-09 by Ernesto Crespo (Phase 1); **folded into `specs/technical-design.md` (v1.9) on 2026-10-10** (T-199) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.8 → v1.9: §3.2, new DD-028..DD-036, §5.1, §5.3, §7, §8, §10 |
 | **Requirements** | REQ-400..REQ-426, REQ-430..REQ-450 |
 

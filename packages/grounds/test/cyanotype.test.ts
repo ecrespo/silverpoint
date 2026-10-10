@@ -59,7 +59,7 @@ describe('the cyanotype ground (Data Model §3.7)', () => {
 describe('every catalog chart under cyanotype (I-16)', () => {
   const env = { id: 'sp-cy', width: 320 };
 
-  test.each(CATALOG.map((entry) => [entry.chart, entry] as const))('REQ-028 · %s encodes tone by weight and emits no hatching', (_chart, { recipe }) => {
+  test.each(CATALOG.map((entry) => [entry.chart, entry] as const))('REQ-028 · REQ-447 · %s encodes tone by weight and emits no hatching', (_chart, { recipe }) => {
     const rendered = renderChart(recipe as ChartRecipe<CommonChartProps>, { ground: 'cyanotype', mode: 'ink' }, env);
     expect(rendered.ground).toBe('cyanotype');
     expect(rendered.view.svg.class).toBe('sp-chart sp-ground-cyanotype');
@@ -71,6 +71,11 @@ describe('every catalog chart under cyanotype (I-16)', () => {
   test('REQ-028 · the toned charts do carry weights, so the check is not vacuous', () => {
     const weighted = CATALOG.filter(({ recipe }) => /data-weight=/.test(toSVGString(renderChart(recipe as ChartRecipe<CommonChartProps>, { ground: 'cyanotype' }, env))));
     expect(weighted.map((entry) => entry.chart)).toEqual(expect.arrayContaining(['ActivityGrid', 'BulletChart', 'StackedBarChart', 'TreemapChart', 'SankeyChart']));
+  });
+
+  test('REQ-447 · the second catalog\'s toned charts carry weights too, in every wave', () => {
+    const weighted = CATALOG.filter(({ recipe }) => /data-weight=/.test(toSVGString(renderChart(recipe as ChartRecipe<CommonChartProps>, { ground: 'cyanotype' }, env))));
+    expect(weighted.map((entry) => entry.chart)).toEqual(expect.arrayContaining(['HistogramChart', 'BoxPlotChart', 'DivergingBarChart', 'WaffleChart', 'SunburstChart', 'DensityBinChart', 'ContourChart', 'NetworkChart']));
   });
 
   test.each(CATALOG.map((entry) => [entry.chart, entry] as const))('REQ-006 · %s draws the same encoding vertices in ink and precision', (_chart, { recipe }) => {

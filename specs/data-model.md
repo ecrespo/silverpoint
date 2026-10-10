@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.6 |
-| **Date** | 2026-09-29 |
+| **Version** | 1.7 |
+| **Date** | 2026-10-10 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.8 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.9 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.9 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.10 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -24,7 +24,8 @@
 ```
         ┌──────────────────┐
         │  Input contract  │   what the consumer passes in `data`
-        │  (§2)            │   12 input shapes for the 33 charts; §2.13 for the dashboard layout
+        │  (§2)            │   12 input shapes for the first 33 charts, §2.15..§2.24 for the
+        │                  │   second 27; §2.13 for the dashboard layout
         └────────┬─────────┘
                  │  accessors
                  ▼
@@ -44,8 +45,9 @@ makes it possible to version the fixtures and compare outputs.
 
 ## 2. Input data contracts
 
-Twelve input shapes cover the 33 charts, and a thirteenth contract (§2.13) describes the dashboard
-layout. The field names are the **defaults**: all of them
+Twelve input shapes cover the first catalog's 33 charts, a thirteenth contract (§2.13) describes the
+dashboard layout, and §2.15..§2.24 add the second catalog's shapes (§2.1, §2.2 and §2.7 serve it
+too). The field names are the **defaults**: all of them
 are redefined with the `*Key` accessors of API Spec §7.
 
 ### 2.1 `CategorySeries` — 14 cartesian charts
@@ -57,7 +59,7 @@ type CategorySeries = ReadonlyArray<{
 }>;
 ```
 Used by: line, step chart, area, bars, stacked bars, composed, stream, waterfall, funnel,
-scatter, bubble, KPI card, range band, coxcomb. Sparkline rows have their own shape (§2.11).
+scatter, bubble, KPI card, range band, coxcomb, lollipop. Sparkline rows have their own shape (§2.11).
 
 | Field | Type | Required | Validation |
 |---|---|---|---|
@@ -73,7 +75,7 @@ requires `low ≤ high` per row; if that does not hold they are swapped and warn
 ```ts
 type SectorSeries = ReadonlyArray<{ name: string; value: number }>;
 ```
-Used by: donut, polar bars, radial arc group, radial rings, radar, coxcomb, wind rose.
+Used by: donut, polar bars, radial arc group, radial rings, radar, coxcomb, wind rose, waffle.
 
 | Field | Type | Validation |
 |---|---|---|
@@ -130,7 +132,8 @@ they are supplied (`bounds`); if the set is empty and there are no `bounds`, `SP
 type Flows = ReadonlyArray<{ source: string; target: string; value: number }>;
 ```
 `value > 0`. The chord ring derives from this a square matrix of unique categories; above
-12 categories, `SP010`.
+12 categories, `SP010`. The network (§2.24) reads its links from this shape too, with `value`
+optional (default 1) for the network only.
 
 ### 2.8 `Contributions` — activity grid
 
@@ -244,6 +247,130 @@ A bare number in `colSpan` / `rowSpan` / `columns` applies to all three breakpoi
 
 Fractions (DD-025) are `(value − min) / (max − min)`, rounded to 2 decimals (REQ-002); `0` and `1`
 are exact at the ends.
+
+### 2.15 `Observations` — histogram, ECDF, box plot, violin, ridgeline, beeswarm
+
+```ts
+type Observations = ReadonlyArray<{ value: number; group?: string; label?: string }>;
+```
+
+| Field | Type | Validation |
+|---|---|---|
+| `value` | `number` | Finite; `null`/non-finite dropped with `SP002` (REQ-008) |
+| `group` | `string` | Optional; groups ordered by first appearance. Required by the ridgeline |
+| `label` | `string` | Beeswarm only: names the point in the readout and table |
+
+Derived, never input: bins `{ x0, x1, count }` (`x0` inclusive, `x1` exclusive except the last);
+five-number summary `{ min, q1, median, q3, max, outliers[] }` where `min`/`max` are the whisker
+ends; density `{ at, value }[64]`.
+
+### 2.16 `Paired` — dumbbell, slopegraph
+
+```ts
+type Paired = ReadonlyArray<{ label: string; start: number; end: number }>;
+```
+`label` unique; both values finite, else the row is dropped. `names` (prop) titles the two values;
+default `['start', 'end']`.
+
+### 2.17 `Ranked` — bump
+
+```ts
+type Ranked = ReadonlyArray<{ x: string | number; series: string; value: number }>;
+```
+Long format. A series missing at an `x` has no rank there and its line breaks (REQ-008's
+`connectNulls` applies). Derived: `rank` per (`x`, `series`), competition ranking (DD-029).
+
+### 2.18 `Estimates` — error bars
+
+```ts
+type Estimates = ReadonlyArray<{ label: string; estimate: number; low: number; high: number }>;
+```
+Invariant `low ≤ estimate ≤ high`. If `low > high`, swapped with `SP002` (as the range band does);
+if the estimate falls outside, the row is drawn and warned with `SP002` — an asymmetric interval is
+legitimate, an estimate outside it is not.
+
+### 2.19 `Intervals` — interval
+
+```ts
+type Intervals = ReadonlyArray<{ lane: string; start: number | string; end: number | string; label?: string }>;
+```
+`axis: 'number'`: finite numbers. `axis: 'date'`: ISO `YYYY-MM-DD`, parsed to UTC days. `start >
+end` → swapped with `SP002`; `start = end` → drawn as a tick of the minimum width. Lanes ordered by
+first appearance.
+
+### 2.20 `Likert` and `WideRows` — diverging bars, parallel coordinates
+
+```ts
+type Likert   = ReadonlyArray<{ label: string } & Record<string, number>>; // one count or share per level
+type WideRows = ReadonlyArray<{ label?: string } & Record<string, number>>; // one value per dimension
+```
+Likert: the `levels` prop names the columns in order, from most negative to most positive; values
+`≥ 0`, negatives dropped with `SP002`. With `percent`, each row is normalised to 100 by the core.
+Parallel coordinates: `dimensions` names the axes in order; each axis' domain is derived from the
+data unless `domains` gives it (REQ-097).
+
+### 2.21 `PathPoints`, `PolarPoints` — connected scatter, polar line, polar scatter
+
+```ts
+type PathPoints  = ReadonlyArray<{ x: number; y: number; label?: string }>;   // order = path order
+type PolarPoints = ReadonlyArray<{ angle: number; value: number; size?: number }>;
+```
+`angle` in the units of `period` (360 by default; 12 for months, 24 for hours), taken modulo
+`period`. Polar `value` is the radius: `≥ 0`, negatives dropped with `SP002` (as §2.2).
+
+### 2.22 `Mosaic` — Marimekko
+
+```ts
+type Mosaic = ReadonlyArray<{ column: string; segment: string; value: number }>;
+```
+`value ≥ 0`. A missing (`column`, `segment`) pair counts as 0. Column width ∝ column total; segment
+height ∝ share of the column. Columns and segments ordered by first appearance.
+
+### 2.23 `Hierarchy` — squarified treemap, sunburst, tree
+
+```ts
+type Hierarchy = ReadonlyArray<{ id: string; parent: string | null; value?: number; label?: string }>;
+```
+
+| Field | Validation |
+|---|---|
+| `id` | Non-empty, unique. A duplicate is dropped (`SP020`) |
+| `parent` | `null` for the root; otherwise an existing `id`. Missing parent or cycle → row dropped (`SP020`) |
+| `value` | On leaves: `≥ 0`, finite. On internal nodes: **ignored** — an internal node's value is the sum of its children, so the drawing can never contradict itself |
+| several roots | A synthetic root `id: '∅'`, labelled with the chart's `title` or `'All'`, is added (`SP020`) |
+
+Flat rows rather than nested `children`, so every chart keeps the row-shaped `data` its tabular
+alternative is built from. Derived per node: `depth`, `order` (pre-order), `value`, `share` of its
+parent, `path`.
+
+### 2.24 `PointCloud`, `GridField`, `VectorField`, `NetworkNode` — wave 3
+
+```ts
+type PointCloud  = ReadonlyArray<{ x: number; y: number; label?: string }>;
+type GridField   = ReadonlyArray<{ x: number; y: number; value: number }>;      // a regular grid
+type VectorField = ReadonlyArray<{ x: number; y: number; u: number; v: number }>;
+interface NetworkNode { id: string; label?: string; group?: string; x?: number; y?: number }
+```
+`GridField` and `VectorField` must form a regular grid: the distinct `x` and `y` values, sorted,
+define it; a missing cell is a hole (contours treat it as below every level), a duplicate cell keeps
+the first with `SP002`. Network: links whose `source` or `target` is not in `nodes` (when `nodes` is
+given) are dropped with `SP002`; without `nodes`, nodes are the distinct ends of the links. A
+self-link is drawn as a loop of fixed radius.
+
+### 2.25 Derived items and keyboard moves
+
+Not input: what a recipe of the second catalog hands the interaction engine (API Spec §3.1, internal).
+
+- **Derived datum.** A derived mark's `HitArea.datum` is a frozen summary —`{ x0, x1, count }` for a
+  bin, `{ min, q1, median, q3, max, outliers }` for a box, `{ id, path, value, share }` for a node—,
+  never the raw rows, and `value` is the derived value (REQ-431).
+- **`HitArea.node`** `{ id, parent, depth, order }` places a hierarchy node in its tree (`order` is
+  the depth-first pre-order).
+- **`HitArea.moves`** `Partial<Record<key, index>>`: the hit-area index each key leads to.
+  `stepActive` follows it before the linear and grid models. The hierarchy charts fill it with the
+  tree pattern (`treeMoves`, REQ-438); the network with its own model (Right/Left the nodes, Down a
+  node's links, Up back to it). A chart without it keeps the linear or grid model, so no other
+  chart carries the code (REQ-444).
 
 ## 3. The `silverpoint` ground
 
@@ -453,6 +580,39 @@ Under the demo, a chart ignores its accessor props and applies every other own p
 `VolvelleChart`'s `indexRing` and `indexValue` turn the demo's rings (`Day`, `Shift`, `Team`)
 exactly as they turn a consumer's.
 
+**Second catalog** (feature-003). 27 new frozen constants in `packages/core/src/charts/<chart>/demo.ts`, **synthetic and original**
+(REQ-446): generated once by `tools/demo-gen` with a fixed seed, printed as literals and committed.
+Nothing is generated at render time (unlike `ActivityGrid`, which the first catalog had to pin after
+the fact).
+
+| Chart | Demo | Exercises |
+|---|---|---|
+| Histogram, ECDF, beeswarm | 240 reading-time observations, right-skewed, with ties | FD bins, ties, a long tail |
+| Box, violin, ridgeline | 5 groups of 24 to 60, one bimodal, one with outliers | Whiskers, outliers, bimodal density; renders with no diagnostic. The `SP022` fallback (a group of 4) is a fixture-only dataset (A-09) |
+| Lollipop | 12 categories, sorted descending | `sort`, long labels |
+| Dumbbell, slopegraph | 10 categories, two periods, two of them decreasing | `endMarker: 'arrow'` direction both ways |
+| Bump | 6 series × 8 periods, with one tie | Competition ranking, crossings |
+| Error bars | 8 estimates with asymmetric intervals, `reference: 0` | Intervals crossing the reference |
+| Interval | 4 lanes × 3–5 intervals, dates in one quarter | Date axis in UTC, overlapping intervals in a lane |
+| Diverging bars | 6 questions × 5 levels, neutral in the middle | Neutral split across the centre |
+| Connected scatter | 14 yearly points, one loop | Direction marks, a self-crossing path |
+| Waffle | 5 categories summing to 1 000, largest-remainder to 100 cells | Rounding of shares to cells |
+| Marimekko | 4 columns × 4 segments | Variable widths |
+| Treemap, sunburst, tree | 3 levels below the root, 38 nodes, 24 leaves at two depths (a fictional budget) | Squarify, more categories than levels, paths, leaves at mixed depths |
+| Parallel coordinates | 30 rows × 5 dimensions | Mixed domains |
+| Polar line | 12 monthly values, `period: 12` | Closing the line |
+| Polar scatter | 150 points, angle in degrees | Wrap at 360 |
+| Density bins, contours (points) | 1 200 points from two overlapping clusters | Hex bins, density levels |
+| Contours (grid) | 40 × 30 grid of a smooth synthetic surface, printed as its values row by row (positions implied) | Filled bands, holes |
+| Delaunay | 60 points | Triangulation, convex hull |
+| Vector field | 20 × 14 grid, a vortex | Arrow scaling |
+| Network | 40 nodes in 4 groups, 90 links | Layout, degree, four groups toned by `ringTone` with a legend (DD-032) |
+
+Datasets shared by several charts live in one demo and are re-exported (histogram · ECDF ·
+beeswarm; box · violin · ridgeline; dumbbell · slope; treemap · sunburst · tree; density bins ·
+contours). With the demo, `nodes` (network) and `levels` (diverging bars, contours) are ignored, as
+data (REQ-098).
+
 **Reference dashboards.** Frozen, like every demo dataset, and used by the fixtures, the example apps and the docs site.
 
 | Name | Cells | Purpose |
@@ -492,6 +652,8 @@ interface Fixture {
   props: Record<string, unknown>;
   /** Path to a JSON data file, or `null` to use the demo dataset. */
   data: string | null;
+  /** A state fixture's name (the catalog row's `states`), suffixing the id `--<state>`. */
+  state?: string;
   /**
    * Path to the canonical normalised SVG. Every adapter is compared against this file,
    * never against a sibling adapter, so a third framework costs one comparison and a
@@ -501,10 +663,14 @@ interface Fixture {
 }
 ```
 
-**Coverage.** On every PR: the 33 charts × the 2 modes × size `md` × `tile`, over every ground
-and substrate —`silverpoint`'s four and `cyanotype` × `prussian`— = **330 fixtures**. Nightly, the full product: `silverpoint` with its four substrates, the two
-values of `hatchFill` and three sizes (1,584), plus `cyanotype` with its one substrate and three
-sizes, `tile` only (198): `hatchFill` has no effect under `weight`. **1,782 fixtures.**
+**Coverage.** Chart fixtures iterate the catalog: the 60 charts and three **state fixtures** —
+`SquarifiedTreemap` and `SunburstChart` with `rootId` on a second-level node (`root`), and
+`NetworkChart` at consumer positions (`placed`, REQ-436), which the demo cannot show. On every PR:
+the 63 × the 2 modes × size `md` × `tile`, over every ground and substrate —`silverpoint`'s four and
+`cyanotype` × `prussian`— = **630 fixtures**; the full matrix runs on every PR, the second catalog
+included (OQ-C4). Nightly, the full product: `silverpoint` with its four substrates, the two values
+of `hatchFill` and three sizes (3,024), plus `cyanotype` with its one substrate and three sizes,
+`tile` only (378): `hatchFill` has no effect under `weight`. **3,402 fixtures.**
 
 | Size | Dimensions | Why |
 |---|---|---|
@@ -522,7 +688,7 @@ sizes, `tile` only (198): `hatchFill` has no effect under `weight`. **1,782 fixt
 | Mode | `ink`, `precision` | 2 |
 | Breakpoint width | 375, 800, 1280 px | 3 |
 
-**90 dashboard fixtures**, beside the 1,782 chart fixtures. The parity (string/tree) gate uses the
+**90 dashboard fixtures**, beside the 3,402 chart fixtures. The parity (string/tree) gate uses the
 nominal render at `ssrWidth` 1280 — one per dashboard × substrate × mode, **30** — because the
 markup does not depend on the container width; the pixel gates use all 90.
 
@@ -560,7 +726,7 @@ markup does not depend on the container width; the pixel gates use all 90.
 
 **Nightly: 450 state fixtures + 60 size fixtures = 510.** **On every PR: 180** — the 45 states × 2
 modes × `silverpoint/cream` and `cyanotype/prussian`. Harness width 320 px, 640 px for Card and
-Alert. The totals become 1,782 chart + 90 dashboard + 510 component fixtures nightly.
+Alert. The totals are 3,402 chart + 90 dashboard + 510 component fixtures nightly.
 
 
 ## 6. Invariants
@@ -591,6 +757,14 @@ Verifiable, and each one with its test.
 | I-20 | Every interactive element of every fixture measures at least 24 × 24 CSS px. | REQ-317 |
 | I-21 | `uiFrameVariant` is pure and returns an integer in `0..frameVariants − 1`; with neither `seed` nor `id` it returns `0`. | REQ-307 |
 | I-22 | Every fraction is in `[0, 1]` with at most 2 decimals. | REQ-002, REQ-324 |
+| I-23 | Statistics are pure and order-independent: shuffling `data` yields deep-equal derived values and, apart from the tabular alternative's row order, an identical model | REQ-430, REQ-432 |
+| I-24 | Bin counts sum to the number of finite observations; ECDF is non-decreasing and ends at 1; `min ≤ q1 ≤ median ≤ q3 ≤ max` | REQ-400..REQ-402 |
+| I-25 | Hierarchy: every drawn node's value equals the sum of its drawn children (leaves: their own); treemap tile and sunburst arc measures are proportional to value within 2-decimal rounding | REQ-416, REQ-417, REQ-437 |
+| I-26 | Waffle: cells across categories sum exactly to `cells`; a category with a positive value gets ≥ 1 cell when `cells ≥` the number of categories | REQ-414 |
+| I-27 | Iterative layouts: the geometry is byte-identical in Node, Chromium, Firefox and WebKit for the same seed | REQ-435 |
+| I-28 | No two points of a beeswarm overlap: centre distance ≥ `2 × radius − 0.01` | REQ-405 |
+| I-29 | Every category of a chart is reachable by keyboard and present in the tabular alternative, whether or not it has a direct label | REQ-440 |
+| I-30 | A chart with `rootId` renders identically on the server and the client; no adapter holds root state | REQ-439 |
 
 ---
 
@@ -603,6 +777,7 @@ Verifiable, and each one with its test.
 | 1.2 | 2026-09-13 | Ernesto Crespo | Sibling version references realigned after the Vite integration change; no content change |
 | 1.5 | 2026-09-26 | Ernesto Crespo | Delta-012: §3.7 the `cyanotype` ground (one substrate, verified inks, inverted heightening, weight ramp); §5 matrix gains `cyanotype` (1,782 chart fixtures, 330 on PR; 90 dashboard fixtures); I-16 |
 | 1.6 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: component value contracts §2.14, the `ui` tokens and UI contrast pairs §3.8, UI demos in §4, 510 component fixtures in §5, invariants I-17..I-22 |
+| 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 
@@ -618,5 +793,10 @@ Verifiable, and each one with its test.
 - **Art. 3** (v1.5) — §5 adds the dashboard compositions to the declared matrix.
 - **Art. 5** (v1.7) — the UI contrast pairs of §3.8 join the gate; I-20 makes target size an invariant.
 - **Art. 7** — `ui` is a token section (§3.8); a consumer ground without it still renders.
+- **Art. 1 / Art. 2** (feature-003) — every derived value of §2.15..§2.25 is computed by the core
+  and drawn as encoding; the contracts say which values are ignored (an internal node's `value`).
+- **Art. 3 / Art. 4** (feature-003) — the demos are literals (§4); I-23 and I-27 make order and
+  engine irrelevant; the state fixtures join the declared matrix.
+- **Art. 5** (feature-003) — I-29: identity and reachability do not depend on what fits on screen.
 - **Exception requested:** none. The heightening is **not** an exception to Art. 5: it
   complies by outline, not by dispensation.

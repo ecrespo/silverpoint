@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, approved 2026-10-09 by Ernesto Crespo (Phase 1) |
+| **Status** | `APPROVED` — gate 2, approved 2026-10-09 by Ernesto Crespo (Phase 1); **folded into `specs/api-spec.md` (v1.10) on 2026-10-10** (T-199) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.9 → v1.10: §1, §5, new §7.3, §9, §10.1, §11, §12 |
 | **Requirements** | REQ-400..REQ-426, REQ-430..REQ-450 ([`prd-delta.md`](prd-delta.md)) |
 

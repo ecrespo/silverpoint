@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 1, approved 2026-10-09 by Ernesto Crespo (Phase 1) |
+| **Status** | `APPROVED` — gate 1, approved 2026-10-09 by Ernesto Crespo (Phase 1); **folded into `specs/prd.md` (v1.12) on 2026-10-10** (T-199) |
 | **Amends** | [PRD](../../specs/prd.md) v1.11 → v1.12: §1, §4.1, §5.1, §5.3, §6.4 (new rows and a new sub-table), new §6.12, §7, §9 (Epic G), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.7, with the stack-row amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |
