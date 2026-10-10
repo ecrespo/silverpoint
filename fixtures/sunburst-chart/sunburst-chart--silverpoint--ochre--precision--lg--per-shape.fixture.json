@@ -1,0 +1,22 @@
+{
+  "chart": "SunburstChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "sunburst-chart--silverpoint--ochre--precision--lg--per-shape",
+  "req": "REQ-417",
+  "seed": 1592,
+  "props": {
+    "title": "City budget",
+    "badge": "2026",
+    "footerLeft": "by department",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "sunburst-chart/sunburst-chart--silverpoint--ochre--precision--lg--per-shape.canonical.txt"
+}

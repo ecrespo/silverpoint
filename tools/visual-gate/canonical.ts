@@ -62,6 +62,15 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
   IntervalChart: { title: 'Crew jobs', badge: 'Q1 2026', footerLeft: 'UTC days', footerRight: 'silverpoint' },
   DivergingBarChart: { title: 'Survey', badge: '200 answers', footerLeft: 'share per question', footerRight: 'silverpoint' },
   ConnectedScatterChart: { title: 'Fare and riders', badge: '14 years', footerLeft: 'fare × riders', footerRight: 'silverpoint' },
+  // The second catalog, wave 2 (feature-003).
+  WaffleChart: { title: 'Household energy', badge: '1 000 kWh', footerLeft: 'one cell, 10 kWh', footerRight: 'silverpoint' },
+  MarimekkoChart: { title: 'Sales', badge: 'by region', footerLeft: 'share by channel', footerRight: 'silverpoint' },
+  SquarifiedTreemap: { title: 'City budget', badge: '2026', footerLeft: 'by department', footerRight: 'silverpoint' },
+  SunburstChart: { title: 'City budget', badge: '2026', footerLeft: 'by department', footerRight: 'silverpoint' },
+  TreeChart: { title: 'City budget', badge: '2026', footerLeft: 'departments and programmes', footerRight: 'silverpoint' },
+  ParallelCoordinatesChart: { title: 'Bicycles', badge: '30 models', footerLeft: 'five measures', footerRight: 'silverpoint' },
+  PolarLineChart: { title: 'Rainfall', badge: 'by month', footerLeft: 'mm', footerRight: 'silverpoint' },
+  PolarScatterChart: { title: 'Sightings', badge: '150', footerLeft: 'bearing × km', footerRight: 'silverpoint' },
 };
 
 /**
@@ -80,12 +89,14 @@ const GROUNDS = [
  */
 function matrix(): Fixture[] {
   const fixtures: Fixture[] = [];
-  for (const { chart, req, slug, required } of CATALOG) {
+  for (const { chart, req, slug, required, states } of CATALOG) {
+    // The chart's own cells, then each state fixture over the same axes (DM delta §3).
+    for (const [state, stateProps] of [[undefined, {}], ...Object.entries(states ?? {})] as const)
     for (const size of [SIZES.sm, SIZES.md, SIZES.lg]) {
       for (const { ground, substrates, fills } of GROUNDS) for (const hatchFill of fills) {
         for (const mode of ['ink', 'precision'] as const) {
           for (const substrate of substrates) {
-            const cell = { chart, ground, substrate, mode, hatchFill, size } as const;
+            const cell = { chart, ground, substrate, mode, hatchFill, size, ...(state === undefined ? {} : { state }) } as const;
             const id = fixtureId(cell);
             fixtures.push({
               ...cell,
@@ -93,7 +104,7 @@ function matrix(): Fixture[] {
               req,
               seed: 1592,
               // A prop the type requires is passed as every use passes it; the demo ignores it (REQ-099).
-              props: { ...required, ...CARDS[chart] },
+              props: { ...required, ...CARDS[chart], ...stateProps },
               data: null,
               canonical: `${slug}/${id}.canonical.txt`,
             });

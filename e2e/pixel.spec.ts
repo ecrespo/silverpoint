@@ -7,7 +7,7 @@ import { APPS } from '../playwright.config';
 import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
 
-/** The PR matrix on every PR; the full 2,538 cells when the nightly run sets `SP_MATRIX=full`. */
+/** The PR matrix on every PR; the full 3,078 cells when the nightly run sets `SP_MATRIX=full`. */
 const FULL = matrixScope() === 'full';
 const MATRIX = FULL ? ALL_FIXTURES : FIXTURES;
 /** Golden images are committed for the PR cells: the `md` + `tile` slice. */
@@ -54,7 +54,9 @@ test.describe('pixel gate', () => {
   // catalog chart × 2 modes × (4 silverpoint substrates + cyanotype) at `md`; the full one adds three
   // sizes, and silverpoint's two fills (Data Model §5).
   test('REQ-181 · REQ-182 · REQ-028 · the gate has the whole matrix to compare', () => {
-    expect(MATRIX.length).toBe(CATALOG.length * (FULL ? 54 : 10));
+    // Each state fixture (a drilled root, REQ-439) is drawn over the same axes as its chart.
+    const states = CATALOG.reduce((n, c) => n + Object.keys(c.states ?? {}).length, 0);
+    expect(MATRIX.length).toBe((CATALOG.length + states) * (FULL ? 54 : 10));
   });
 
   for (const fixture of MATRIX) {

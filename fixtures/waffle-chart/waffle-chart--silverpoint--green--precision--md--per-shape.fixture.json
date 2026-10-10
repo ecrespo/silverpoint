@@ -1,0 +1,22 @@
+{
+  "chart": "WaffleChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "waffle-chart--silverpoint--green--precision--md--per-shape",
+  "req": "REQ-414",
+  "seed": 1592,
+  "props": {
+    "title": "Household energy",
+    "badge": "1 000 kWh",
+    "footerLeft": "one cell, 10 kWh",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "waffle-chart/waffle-chart--silverpoint--green--precision--md--per-shape.canonical.txt"
+}

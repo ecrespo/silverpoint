@@ -1,0 +1,36 @@
+<svg aria-labelledby="squarified-treemap--silverpoint--green--precision--sm--per-shape--root-title squarified-treemap--silverpoint--green--precision--sm--per-shape--root-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="squarified-treemap--silverpoint--green--precision--sm--per-shape--root-title">
+    "City budget"
+  <desc id="squarified-treemap--silverpoint--green--precision--sm--per-shape--root-desc">
+    "City budget. Squarified treemap of 3 levels, 9 nodes, 6 leaves, rooted at City budget › Public works, totalling 19,197; each tile's area is its value. The largest tile is City budget › Public works › Street lighting, 42% of the whole."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M18,46H103.17V162H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M103.17,46H168.57V162H103.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.57,46H222V112.4H168.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.57,46H222V93.73H168.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.57,93.73H222V112.4H168.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.57,112.4H222V162H168.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M168.57,112.4H212.31V162H168.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M212.31,112.4H222V162H212.31Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,46H103.17V162H18Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="56">
+    "Street lightin…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="106.17" y="56">
+    "Bridges 32%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="171.57" y="56">
+    "Water ma…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="171.57" y="122.4">
+    "Roads 11%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="171.57" y="69">
+    "Water ma…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="171.57" y="135.4">
+    "Roads:…"

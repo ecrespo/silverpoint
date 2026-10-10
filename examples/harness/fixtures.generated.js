@@ -29971,6 +29971,1140 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "MarimekkoChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "marimekko-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-415",
+    "seed": 1592,
+    "props": {
+      "title": "Sales",
+      "badge": "by region",
+      "footerLeft": "share by channel",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "MeterChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -32239,6 +33373,1518 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ParallelCoordinatesChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-419",
+    "seed": 1592,
+    "props": {
+      "dimensions": [
+        "mass",
+        "gears",
+        "price",
+        "range",
+        "rating"
+      ],
+      "title": "Bicycles",
+      "badge": "30 models",
+      "footerLeft": "five measures",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "PolarBarChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -33368,6 +36014,2274 @@ export const ALL_FIXTURES = [
       "title": "Monthly sales",
       "badge": "2025",
       "footerLeft": "thousands",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarLineChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-line-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-420",
+    "seed": 1592,
+    "props": {
+      "title": "Rainfall",
+      "badge": "by month",
+      "footerLeft": "mm",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "PolarScatterChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "polar-scatter-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-421",
+    "seed": 1592,
+    "props": {
+      "title": "Sightings",
+      "badge": "150",
+      "footerLeft": "bearing × km",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -44767,6 +49681,2382 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--cyanotype--prussian--ink--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--ink--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--cyanotype--prussian--ink--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--ink--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--cyanotype--prussian--ink--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--ink--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--cyanotype--prussian--precision--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--precision--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--cyanotype--prussian--precision--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--precision--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--cyanotype--prussian--precision--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--cyanotype--prussian--precision--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--ink--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--blue--precision--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--ink--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--cream--precision--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--ink--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--green--precision--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--ink--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--lg",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--lg--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--lg--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--md",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--md--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--md--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--sm",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "squarified-treemap--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--sm--per-shape--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SquarifiedTreemap",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "squarified-treemap--silverpoint--ochre--precision--sm--root",
+    "req": "REQ-416",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
     "chart": "StackedBarChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -48169,6 +55459,3516 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--ink--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--ink--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--ink--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--precision--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--precision--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--cyanotype--prussian--precision--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--ink--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--blue--precision--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--ink--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--cream--precision--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--ink--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--green--precision--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--ink--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--lg--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--lg--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--md--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--md--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "sunburst-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--sm--per-shape--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "SunburstChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "root",
+    "id": "sunburst-chart--silverpoint--ochre--precision--sm--root",
+    "req": "REQ-417",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "by department",
+      "footerRight": "silverpoint",
+      "rootId": "works"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--blue--ink--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--blue--precision--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--cream--ink--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--cream--precision--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--green--ink--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--green--ink--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--green--ink--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--green--precision--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--green--precision--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--green--precision--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "TreeChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "tree-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-418",
+    "seed": 1592,
+    "props": {
+      "title": "City budget",
+      "badge": "2026",
+      "footerLeft": "departments and programmes",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "TreemapChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -51566,6 +62366,1140 @@ export const ALL_FIXTURES = [
       "title": "On call",
       "badge": "rota",
       "footerLeft": "day · shift · team",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--green--ink--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--green--ink--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--green--ink--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--green--precision--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--green--precision--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--green--precision--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "WaffleChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "waffle-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-414",
+    "seed": 1592,
+    "props": {
+      "title": "Household energy",
+      "badge": "1 000 kWh",
+      "footerLeft": "one cell, 10 kWh",
       "footerRight": "silverpoint"
     },
     "rows": null

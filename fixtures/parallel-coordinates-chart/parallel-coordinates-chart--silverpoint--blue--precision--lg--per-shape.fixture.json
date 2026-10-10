@@ -1,0 +1,29 @@
+{
+  "chart": "ParallelCoordinatesChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "parallel-coordinates-chart--silverpoint--blue--precision--lg--per-shape",
+  "req": "REQ-419",
+  "seed": 1592,
+  "props": {
+    "dimensions": [
+      "mass",
+      "gears",
+      "price",
+      "range",
+      "rating"
+    ],
+    "title": "Bicycles",
+    "badge": "30 models",
+    "footerLeft": "five measures",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "parallel-coordinates-chart/parallel-coordinates-chart--silverpoint--blue--precision--lg--per-shape.canonical.txt"
+}

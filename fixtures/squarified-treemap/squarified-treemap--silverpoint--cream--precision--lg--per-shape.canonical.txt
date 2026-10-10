@@ -1,0 +1,103 @@
+<svg aria-labelledby="squarified-treemap--silverpoint--cream--precision--lg--per-shape-title squarified-treemap--silverpoint--cream--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="squarified-treemap--silverpoint--cream--precision--lg--per-shape-title">
+    "City budget"
+  <desc id="squarified-treemap--silverpoint--cream--precision--lg--per-shape-desc">
+    "City budget. Squarified treemap of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364; each tile's area is its value. The largest tile is City budget › Administration › IT services, 12% of the whole."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M18,46H185.16V342H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,46H185.16V169.58H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,169.58H185.16V264.47H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,264.47H113.68V342H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,264.47H86.79V342H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86.79,264.47H113.68V342H86.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.68,264.47H185.16V342H113.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.68,264.47H185.16V327.94H113.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.68,327.94H185.16V342H113.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,46H347.22V342H185.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,46H347.22V177.24H185.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,177.24H347.22V284.89H185.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,284.89H347.22V342H185.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,284.89H333.23V342H185.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M333.23,284.89H347.22V342H333.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,46H499.93V270.37H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,46H499.93V151.74H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,151.74H460.72V270.37H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,151.74H460.72V218.8H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,218.8H460.72V270.37H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M460.72,151.74H499.93V270.37H460.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M499.93,46H622V270.37H499.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M499.93,46H622V152.21H499.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M499.93,46H569.46V152.21H499.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M569.46,46H622V152.21H569.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M499.93,152.21H561.77V270.37H499.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M561.77,152.21H622V270.37H561.77Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M561.77,152.21H622V257.28H561.77Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M561.77,257.28H622V270.37H561.77Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,270.37H622V342H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,270.37H461.54V342H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.22,270.37H428.73V342H347.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M428.73,270.37H461.54V342H428.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M461.54,270.37H569.46V342H461.54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M569.46,270.37H622V342H569.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M569.46,270.37H622V332.92H569.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M569.46,332.92H622V342H569.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M185.16,46H347.22V177.24H185.16Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="56">
+    "Public works 28%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="188.16" y="56">
+    "Administration 27%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="56">
+    "Safety 19%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="502.93" y="56">
+    "Parks 15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="280.37">
+    "Culture 11%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="69">
+    "Street lighting"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="179.58">
+    "Bridges"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="274.47">
+    "Water mains…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="116.68" y="274.47">
+    "Roads: staff"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="116.68" y="337.94">
+    "Roads: mate…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="188.16" y="69">
+    "IT services"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="188.16" y="187.24">
+    "Payroll"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="188.16" y="294.89">
+    "Records: staff"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="69">
+    "Emergency planning"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="174.74">
+    "Lifeguards: materia…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="241.8">
+    "Lifeguards: staff"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="463.72" y="174.74">
+    "Fire …"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="502.93" y="69">
+    "Playgrounds…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="572.46" y="69">
+    "Playgro…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="502.93" y="175.21">
+    "Tree care"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="564.77" y="175.21">
+    "Sports fi…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="350.22" y="293.37">
+    "Libraries: ma…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="431.73" y="293.37">
+    "Libr…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="464.54" y="293.37">
+    "Museum"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="572.46" y="293.37">
+    "Festiva…"

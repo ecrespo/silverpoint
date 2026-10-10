@@ -1,0 +1,200 @@
+<svg aria-labelledby="polar-scatter-chart--silverpoint--ochre--ink--lg--per-shape-title polar-scatter-chart--silverpoint--ochre--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="polar-scatter-chart--silverpoint--ochre--ink--lg--per-shape-title">
+    "Sightings"
+  <desc id="polar-scatter-chart--silverpoint--ochre--ink--lg--per-shape-desc">
+    "Sightings. Polar scatter of 150 points, bearing round the circle (one turn being 360) and distance out from the centre; the farthest at 19.6."
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M320 194 C319.82 166.47, 320.88 140.81, 320 64 M320 194 C320.11 155.03, 319.89 116.09, 320 64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C338.18 175.18, 358.66 155.94, 411.92 102.08 M320 194 C348.51 165.73, 377.07 137.55, 411.92 102.08" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C347.57 192.95, 374.51 193.17, 450 194 M320 194 C361.47 193.8, 402.26 194, 450 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C339.23 213.21, 358.57 232.94, 411.92 285.92 M320 194 C349.24 223.33, 379.05 253.31, 411.92 285.92" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C319.19 221.88, 319.66 248.13, 320 324 M320 194 C319.83 236.74, 320.21 280.04, 320 324" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C301.55 212.81, 281.29 231.48, 228.08 285.92 M320 194 C289.07 225.59, 257.73 256.03, 228.08 285.92" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C293.01 194.65, 265.05 194.42, 190 194 M320 194 C275.31 194.47, 229.54 194.6, 190 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M320 194 C300.48 174.01, 280.78 154.84, 228.08 102.08 M320 194 C287.27 161.3, 255.29 128.83, 228.08 102.08" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M287.5 194 C286.69 219.7, 315.06 233.88, 336.25 222.15 M287.5 194 C287.68 220.05, 315.29 235.3, 336.25 222.15 M336.25 222.15 C346.55 216.3, 352.54 205.42, 352.5 194 M336.25 222.15 C346.55 216.36, 352.01 206.49, 352.5 194 M352.5 194 C351.87 169.87, 326.24 154.17, 303.75 165.85 M352.5 194 C352.53 167.99, 325.24 154.35, 303.75 165.85 M303.75 165.85 C293.11 171.42, 288.18 183.22, 287.5 194 M303.75 165.85 C293.26 170.65, 287.56 182.95, 287.5 194 M287.5 194 C287.5 194, 287.5 194, 287.5 194 M287.5 194 C287.5 194, 287.5 194, 287.5 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M255 194 C254.19 243.71, 308.72 275.82, 352.5 250.29 M255 194 C253.99 244.83, 309.07 276.03, 352.5 250.29 M352.5 250.29 C373.43 239.18, 385.54 216.73, 385 194 M352.5 250.29 C372.23 238.32, 385.02 217, 385 194 M385 194 C384.48 143.12, 331.23 113.17, 287.5 137.71 M385 194 C385.91 143.15, 329.83 112.09, 287.5 137.71 M287.5 137.71 C267.35 150.13, 255.7 170.86, 255 194 M287.5 137.71 C268.37 149.65, 254.54 169.79, 255 194 M255 194 C255 194, 255 194, 255 194 M255 194 C255 194, 255 194, 255 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M222.5 194 C221.7 269.53, 304.17 315.96, 368.75 278.44 M222.5 194 C222.36 269.6, 302.84 316.77, 368.75 278.44 M368.75 278.44 C398.5 260.27, 416.74 228.04, 417.5 194 M368.75 278.44 C397.9 260.28, 418.02 229.58, 417.5 194 M417.5 194 C417.09 118.17, 336.23 72.17, 271.25 109.56 M417.5 194 C417.23 118.32, 336.49 71.91, 271.25 109.56 M271.25 109.56 C241.58 127.05, 223.21 158.5, 222.5 194 M271.25 109.56 C241.41 126.58, 221.51 158.69, 222.5 194 M222.5 194 C222.5 194, 222.5 194, 222.5 194 M222.5 194 C222.5 194, 222.5 194, 222.5 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M190 194 C189.2 293.54, 297.83 356.11, 385 306.58 M190 194 C190.74 294.38, 298.69 357.5, 385 306.58 M385 306.58 C425.38 283.15, 449.74 241.15, 450 194 M385 306.58 C425.64 284.3, 451.02 240.08, 450 194 M450 194 C449.71 93.23, 341.22 31.17, 255 81.42 M450 194 C450.61 93.49, 341.08 31.72, 255 81.42 M255 81.42 C214.01 103.97, 190.73 147.94, 190 194 M255 81.42 C214.45 105.58, 190.56 147.6, 190 194 M190 194 C190 194, 190 194, 190 194 M190 194 C190 194, 190 194, 190 194" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M317.96,106.9A2.5,2.5,0,1,0,322.96,106.9A2.5,2.5,0,1,0,317.96,106.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.87,167.35A2.5,2.5,0,1,0,322.87,167.35A2.5,2.5,0,1,0,317.87,167.35Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.02,160.85A2.5,2.5,0,1,0,323.02,160.85A2.5,2.5,0,1,0,318.02,160.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.08,171.91A2.5,2.5,0,1,0,323.08,171.91A2.5,2.5,0,1,0,318.08,171.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M319.7,127.74A2.5,2.5,0,1,0,324.7,127.74A2.5,2.5,0,1,0,319.7,127.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.48,173.87A2.5,2.5,0,1,0,323.48,173.87A2.5,2.5,0,1,0,318.48,173.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M319.64,158.97A2.5,2.5,0,1,0,324.64,158.97A2.5,2.5,0,1,0,319.64,158.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.07,184.92A2.5,2.5,0,1,0,323.07,184.92A2.5,2.5,0,1,0,318.07,184.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320.95,142.11A2.5,2.5,0,1,0,325.95,142.11A2.5,2.5,0,1,0,320.95,142.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.07,186.22A2.5,2.5,0,1,0,323.07,186.22A2.5,2.5,0,1,0,318.07,186.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M321.59,140.86A2.5,2.5,0,1,0,326.59,140.86A2.5,2.5,0,1,0,321.59,140.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M321.63,141.51A2.5,2.5,0,1,0,326.63,141.51A2.5,2.5,0,1,0,321.63,141.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.38,184.29A2.5,2.5,0,1,0,323.38,184.29A2.5,2.5,0,1,0,318.38,184.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M318.98,183.05A2.5,2.5,0,1,0,323.98,183.05A2.5,2.5,0,1,0,318.98,183.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320.8,172.15A2.5,2.5,0,1,0,325.8,172.15A2.5,2.5,0,1,0,320.8,172.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M333.98,98.56A2.5,2.5,0,1,0,338.98,98.56A2.5,2.5,0,1,0,333.98,98.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M324,157.52A2.5,2.5,0,1,0,329,157.52A2.5,2.5,0,1,0,324,157.52Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320.95,174.81A2.5,2.5,0,1,0,325.95,174.81A2.5,2.5,0,1,0,320.95,174.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M335.18,122.04A2.5,2.5,0,1,0,340.18,122.04A2.5,2.5,0,1,0,335.18,122.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M323,172.59A2.5,2.5,0,1,0,328,172.59A2.5,2.5,0,1,0,323,172.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M320.28,183.98A2.5,2.5,0,1,0,325.28,183.98A2.5,2.5,0,1,0,320.28,183.98Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M328.37,161.31A2.5,2.5,0,1,0,333.37,161.31A2.5,2.5,0,1,0,328.37,161.31Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M343.92,120.61A2.5,2.5,0,1,0,348.92,120.61A2.5,2.5,0,1,0,343.92,120.61Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.96,179.39A2.5,2.5,0,1,0,327.96,179.39A2.5,2.5,0,1,0,322.96,179.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M325.35,173.34A2.5,2.5,0,1,0,330.35,173.34A2.5,2.5,0,1,0,325.35,173.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M333.31,157.64A2.5,2.5,0,1,0,338.31,157.64A2.5,2.5,0,1,0,333.31,157.64Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.5,182.71A2.5,2.5,0,1,0,327.5,182.71A2.5,2.5,0,1,0,322.5,182.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M334.81,156.89A2.5,2.5,0,1,0,339.81,156.89A2.5,2.5,0,1,0,334.81,156.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M323.95,181.24A2.5,2.5,0,1,0,328.95,181.24A2.5,2.5,0,1,0,323.95,181.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M325.13,179.65A2.5,2.5,0,1,0,330.13,179.65A2.5,2.5,0,1,0,325.13,179.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M331.06,168.82A2.5,2.5,0,1,0,336.06,168.82A2.5,2.5,0,1,0,331.06,168.82Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M327.72,177.39A2.5,2.5,0,1,0,332.72,177.39A2.5,2.5,0,1,0,327.72,177.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M372.26,114.91A2.5,2.5,0,1,0,377.26,114.91A2.5,2.5,0,1,0,372.26,114.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M326.93,182.4A2.5,2.5,0,1,0,331.93,182.4A2.5,2.5,0,1,0,326.93,182.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M359.64,197.02A2.5,2.5,0,1,0,364.64,197.02A2.5,2.5,0,1,0,359.64,197.02Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M327.22,194.75A2.5,2.5,0,1,0,332.22,194.75A2.5,2.5,0,1,0,327.22,194.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M330.14,197.06A2.5,2.5,0,1,0,335.14,197.06A2.5,2.5,0,1,0,330.14,197.06Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M323.73,195.87A2.5,2.5,0,1,0,328.73,195.87A2.5,2.5,0,1,0,323.73,195.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.97,196.07A2.5,2.5,0,1,0,327.97,196.07A2.5,2.5,0,1,0,322.97,196.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M372.71,216.98A2.5,2.5,0,1,0,377.71,216.98A2.5,2.5,0,1,0,372.71,216.98Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M324.66,197.09A2.5,2.5,0,1,0,329.66,197.09A2.5,2.5,0,1,0,324.66,197.09Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M347.1,207.43A2.5,2.5,0,1,0,352.1,207.43A2.5,2.5,0,1,0,347.1,207.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M356.38,212.13A2.5,2.5,0,1,0,361.38,212.13A2.5,2.5,0,1,0,356.38,212.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M412.81,240.28A2.5,2.5,0,1,0,417.81,240.28A2.5,2.5,0,1,0,412.81,240.28Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M337.82,204.22A2.5,2.5,0,1,0,342.82,204.22A2.5,2.5,0,1,0,337.82,204.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M348.09,209.85A2.5,2.5,0,1,0,353.09,209.85A2.5,2.5,0,1,0,348.09,209.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M328.16,200.23A2.5,2.5,0,1,0,333.16,200.23A2.5,2.5,0,1,0,328.16,200.23Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M352.34,215.52A2.5,2.5,0,1,0,357.34,215.52A2.5,2.5,0,1,0,352.34,215.52Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M325.23,198.81A2.5,2.5,0,1,0,330.23,198.81A2.5,2.5,0,1,0,325.23,198.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M348.89,213.69A2.5,2.5,0,1,0,353.89,213.69A2.5,2.5,0,1,0,348.89,213.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M334.98,205.27A2.5,2.5,0,1,0,339.98,205.27A2.5,2.5,0,1,0,334.98,205.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.81,197.75A2.5,2.5,0,1,0,327.81,197.75A2.5,2.5,0,1,0,322.81,197.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M335.47,206.86A2.5,2.5,0,1,0,340.47,206.86A2.5,2.5,0,1,0,335.47,206.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M349.09,216.87A2.5,2.5,0,1,0,354.09,216.87A2.5,2.5,0,1,0,349.09,216.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M371.43,235.83A2.5,2.5,0,1,0,376.43,235.83A2.5,2.5,0,1,0,371.43,235.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.1,197.61A2.5,2.5,0,1,0,327.1,197.61A2.5,2.5,0,1,0,322.1,197.61Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M324.01,199.39A2.5,2.5,0,1,0,329.01,199.39A2.5,2.5,0,1,0,324.01,199.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M327.46,202.36A2.5,2.5,0,1,0,332.46,202.36A2.5,2.5,0,1,0,327.46,202.36Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M382.63,248.85A2.5,2.5,0,1,0,387.63,248.85A2.5,2.5,0,1,0,382.63,248.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M399.55,264.08A2.5,2.5,0,1,0,404.55,264.08A2.5,2.5,0,1,0,399.55,264.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M332.5,207.46A2.5,2.5,0,1,0,337.5,207.46A2.5,2.5,0,1,0,332.5,207.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M339.51,214.24A2.5,2.5,0,1,0,344.51,214.24A2.5,2.5,0,1,0,339.51,214.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M360.35,233.82A2.5,2.5,0,1,0,365.35,233.82A2.5,2.5,0,1,0,360.35,233.82Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M332.02,207.97A2.5,2.5,0,1,0,337.02,207.97A2.5,2.5,0,1,0,332.02,207.97Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M332.59,209.25A2.5,2.5,0,1,0,337.59,209.25A2.5,2.5,0,1,0,332.59,209.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M336.53,213.57A2.5,2.5,0,1,0,341.53,213.57A2.5,2.5,0,1,0,336.53,213.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M324.67,201.53A2.5,2.5,0,1,0,329.67,201.53A2.5,2.5,0,1,0,324.67,201.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M332.66,210.08A2.5,2.5,0,1,0,337.66,210.08A2.5,2.5,0,1,0,332.66,210.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M353.1,231.91A2.5,2.5,0,1,0,358.1,231.91A2.5,2.5,0,1,0,353.1,231.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M328.96,206.42A2.5,2.5,0,1,0,333.96,206.42A2.5,2.5,0,1,0,328.96,206.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M391.3,277.12A2.5,2.5,0,1,0,396.3,277.12A2.5,2.5,0,1,0,391.3,277.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M328.25,206.19A2.5,2.5,0,1,0,333.25,206.19A2.5,2.5,0,1,0,328.25,206.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M333.83,213.39A2.5,2.5,0,1,0,338.83,213.39A2.5,2.5,0,1,0,333.83,213.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M336.03,216.63A2.5,2.5,0,1,0,341.03,216.63A2.5,2.5,0,1,0,336.03,216.63Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M331.38,211.2A2.5,2.5,0,1,0,336.38,211.2A2.5,2.5,0,1,0,331.38,211.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M323.92,203A2.5,2.5,0,1,0,328.92,203A2.5,2.5,0,1,0,323.92,203Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M330.42,212.73A2.5,2.5,0,1,0,335.42,212.73A2.5,2.5,0,1,0,330.42,212.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M322.1,201.85A2.5,2.5,0,1,0,327.1,201.85A2.5,2.5,0,1,0,322.1,201.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M331.06,219.18A2.5,2.5,0,1,0,336.06,219.18A2.5,2.5,0,1,0,331.06,219.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M327.37,214.5A2.5,2.5,0,1,0,332.37,214.5A2.5,2.5,0,1,0,327.37,214.5Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M326.7,216.22A2.5,2.5,0,1,0,331.7,216.22A2.5,2.5,0,1,0,326.7,216.22Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M348.7,278.79A2.5,2.5,0,1,0,353.7,278.79A2.5,2.5,0,1,0,348.7,278.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M328.57,225.25A2.5,2.5,0,1,0,333.57,225.25A2.5,2.5,0,1,0,328.57,225.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M337.02,260.75A2.5,2.5,0,1,0,342.02,260.75A2.5,2.5,0,1,0,337.02,260.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M310.62,211.55A2.5,2.5,0,1,0,315.62,211.55A2.5,2.5,0,1,0,310.62,211.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M303.55,214.38A2.5,2.5,0,1,0,308.55,214.38A2.5,2.5,0,1,0,303.55,214.38Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M300.14,215.07A2.5,2.5,0,1,0,305.14,215.07A2.5,2.5,0,1,0,300.14,215.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M309.76,202.78A2.5,2.5,0,1,0,314.76,202.78A2.5,2.5,0,1,0,309.76,202.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M302.1,210.75A2.5,2.5,0,1,0,307.1,210.75A2.5,2.5,0,1,0,302.1,210.75Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M304.31,207.47A2.5,2.5,0,1,0,309.31,207.47A2.5,2.5,0,1,0,304.31,207.47Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M298.55,211.8A2.5,2.5,0,1,0,303.55,211.8A2.5,2.5,0,1,0,298.55,211.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M298.51,210.8A2.5,2.5,0,1,0,303.51,210.8A2.5,2.5,0,1,0,298.51,210.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M220.91,277.08A2.5,2.5,0,1,0,225.91,277.08A2.5,2.5,0,1,0,220.91,277.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M308,201.89A2.5,2.5,0,1,0,313,201.89A2.5,2.5,0,1,0,308,201.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M311.9,198.44A2.5,2.5,0,1,0,316.9,198.44A2.5,2.5,0,1,0,311.9,198.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M256.29,242.34A2.5,2.5,0,1,0,261.29,242.34A2.5,2.5,0,1,0,256.29,242.34Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M303.28,203.13A2.5,2.5,0,1,0,308.28,203.13A2.5,2.5,0,1,0,303.28,203.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M241.03,235.69A2.5,2.5,0,1,0,246.03,235.69A2.5,2.5,0,1,0,241.03,235.69Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M250.67,230.29A2.5,2.5,0,1,0,255.67,230.29A2.5,2.5,0,1,0,250.67,230.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M295.12,205.9A2.5,2.5,0,1,0,300.12,205.9A2.5,2.5,0,1,0,295.12,205.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M295.57,205.37A2.5,2.5,0,1,0,300.57,205.37A2.5,2.5,0,1,0,295.57,205.37Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M250.5,228.58A2.5,2.5,0,1,0,255.5,228.58A2.5,2.5,0,1,0,250.5,228.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M304.19,200.81A2.5,2.5,0,1,0,309.19,200.81A2.5,2.5,0,1,0,304.19,200.81Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M307.59,198.88A2.5,2.5,0,1,0,312.59,198.88A2.5,2.5,0,1,0,307.59,198.88Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M309.27,197.87A2.5,2.5,0,1,0,314.27,197.87A2.5,2.5,0,1,0,309.27,197.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M298.44,202.33A2.5,2.5,0,1,0,303.44,202.33A2.5,2.5,0,1,0,298.44,202.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M296.62,203.04A2.5,2.5,0,1,0,301.62,203.04A2.5,2.5,0,1,0,296.62,203.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M294.11,203.78A2.5,2.5,0,1,0,299.11,203.78A2.5,2.5,0,1,0,294.11,203.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M240.04,224.36A2.5,2.5,0,1,0,245.04,224.36A2.5,2.5,0,1,0,240.04,224.36Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M302.19,199.45A2.5,2.5,0,1,0,307.19,199.45A2.5,2.5,0,1,0,302.19,199.45Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M274.56,209.04A2.5,2.5,0,1,0,279.56,209.04A2.5,2.5,0,1,0,274.56,209.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M302.78,199.16A2.5,2.5,0,1,0,307.78,199.16A2.5,2.5,0,1,0,302.78,199.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M242.62,218.04A2.5,2.5,0,1,0,247.62,218.04A2.5,2.5,0,1,0,242.62,218.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M310.66,196.08A2.5,2.5,0,1,0,315.66,196.08A2.5,2.5,0,1,0,310.66,196.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M301.28,198.74A2.5,2.5,0,1,0,306.28,198.74A2.5,2.5,0,1,0,301.28,198.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M269.74,206.62A2.5,2.5,0,1,0,274.74,206.62A2.5,2.5,0,1,0,269.74,206.62Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M291.71,200.72A2.5,2.5,0,1,0,296.71,200.72A2.5,2.5,0,1,0,291.71,200.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M271.72,203.73A2.5,2.5,0,1,0,276.72,203.73A2.5,2.5,0,1,0,271.72,203.73Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M292.69,199.18A2.5,2.5,0,1,0,297.69,199.18A2.5,2.5,0,1,0,292.69,199.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M289.5,199.85A2.5,2.5,0,1,0,294.5,199.85A2.5,2.5,0,1,0,289.5,199.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M239.55,208.59A2.5,2.5,0,1,0,244.55,208.59A2.5,2.5,0,1,0,239.55,208.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M313.03,194.83A2.5,2.5,0,1,0,318.03,194.83A2.5,2.5,0,1,0,313.03,194.83Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M275.85,201.12A2.5,2.5,0,1,0,280.85,201.12A2.5,2.5,0,1,0,275.85,201.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M301.45,196.57A2.5,2.5,0,1,0,306.45,196.57A2.5,2.5,0,1,0,301.45,196.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M274.97,199.6A2.5,2.5,0,1,0,279.97,199.6A2.5,2.5,0,1,0,274.97,199.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M297.44,195.9A2.5,2.5,0,1,0,302.44,195.9A2.5,2.5,0,1,0,297.44,195.9Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M299.34,195.27A2.5,2.5,0,1,0,304.34,195.27A2.5,2.5,0,1,0,299.34,195.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M294.76,193.44A2.5,2.5,0,1,0,299.76,193.44A2.5,2.5,0,1,0,294.76,193.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M305.16,193.57A2.5,2.5,0,1,0,310.16,193.57A2.5,2.5,0,1,0,305.16,193.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M298.03,192.91A2.5,2.5,0,1,0,303.03,192.91A2.5,2.5,0,1,0,298.03,192.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M265.91,187.48A2.5,2.5,0,1,0,270.91,187.48A2.5,2.5,0,1,0,265.91,187.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M309.77,192.95A2.5,2.5,0,1,0,314.77,192.95A2.5,2.5,0,1,0,309.77,192.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M265.57,185.31A2.5,2.5,0,1,0,270.57,185.31A2.5,2.5,0,1,0,265.57,185.31Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M280.35,187.58A2.5,2.5,0,1,0,285.35,187.58A2.5,2.5,0,1,0,280.35,187.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M305.82,174.48A2.5,2.5,0,1,0,310.82,174.48A2.5,2.5,0,1,0,305.82,174.48Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M313.37,185.89A2.5,2.5,0,1,0,318.37,185.89A2.5,2.5,0,1,0,313.37,185.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M295.64,148.98A2.5,2.5,0,1,0,300.64,148.98A2.5,2.5,0,1,0,295.64,148.98Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M304.86,161.25A2.5,2.5,0,1,0,309.86,161.25A2.5,2.5,0,1,0,304.86,161.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M311.27,172.12A2.5,2.5,0,1,0,316.27,172.12A2.5,2.5,0,1,0,311.27,172.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M313.43,178.27A2.5,2.5,0,1,0,318.43,178.27A2.5,2.5,0,1,0,313.43,178.27Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M307.45,154.3A2.5,2.5,0,1,0,312.45,154.3A2.5,2.5,0,1,0,307.45,154.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M307.11,151.71A2.5,2.5,0,1,0,312.11,151.71A2.5,2.5,0,1,0,307.11,151.71Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M314.04,178.12A2.5,2.5,0,1,0,319.04,178.12A2.5,2.5,0,1,0,314.04,178.12Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M311.28,163.43A2.5,2.5,0,1,0,316.28,163.43A2.5,2.5,0,1,0,311.28,163.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M314.19,177.43A2.5,2.5,0,1,0,319.19,177.43A2.5,2.5,0,1,0,314.19,177.43Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M314.67,160.32A2.5,2.5,0,1,0,319.67,160.32A2.5,2.5,0,1,0,314.67,160.32Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M316.64,181.68A2.5,2.5,0,1,0,321.64,181.68A2.5,2.5,0,1,0,316.64,181.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M315.7,162.85A2.5,2.5,0,1,0,320.7,162.85A2.5,2.5,0,1,0,315.7,162.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M316.25,164.13A2.5,2.5,0,1,0,321.25,164.13A2.5,2.5,0,1,0,316.25,164.13Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M317.32,159.55A2.5,2.5,0,1,0,322.32,159.55A2.5,2.5,0,1,0,317.32,159.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M220.91,277.08A2.5,2.5,0,1,0,225.91,277.08A2.5,2.5,0,1,0,220.91,277.08Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Sightings"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "150"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "bearing × km"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="60">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="416.87" y="100.13">
+    "45"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="457" y="197">
+    "90"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="416.87" y="293.87">
+    "135"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="334">
+    "180"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="223.13" y="293.87">
+    "225"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="183" y="197">
+    "270"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="223.13" y="100.13">
+    "315"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="323" y="159.5">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="323" y="127">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="323" y="94.5">
+    "15"

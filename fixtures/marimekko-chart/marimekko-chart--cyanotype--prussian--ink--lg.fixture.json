@@ -1,0 +1,22 @@
+{
+  "chart": "MarimekkoChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "marimekko-chart--cyanotype--prussian--ink--lg",
+  "req": "REQ-415",
+  "seed": 1592,
+  "props": {
+    "title": "Sales",
+    "badge": "by region",
+    "footerLeft": "share by channel",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "marimekko-chart/marimekko-chart--cyanotype--prussian--ink--lg.canonical.txt"
+}

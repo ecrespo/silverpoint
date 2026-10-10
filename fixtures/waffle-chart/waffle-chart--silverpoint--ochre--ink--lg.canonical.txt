@@ -1,0 +1,99 @@
+<svg aria-labelledby="waffle-chart--silverpoint--ochre--ink--lg-title waffle-chart--silverpoint--ochre--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="waffle-chart--silverpoint--ochre--ink--lg-title">
+    "Household energy"
+  <desc id="waffle-chart--silverpoint--ochre--ink--lg-desc">
+    "Household energy. Waffle of 100 cells in 10 columns, filled in reading order by 5 categories totalling 1,000; one cell is about 10. The largest is Heating, 41 cells, 41%."
+  <defs>
+    <pattern height="50" id="waffle-chart--silverpoint--ochre--ink--lg-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="waffle-chart--silverpoint--ochre--ink--lg-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="waffle-chart--silverpoint--ochre--ink--lg-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="waffle-chart--silverpoint--ochre--ink--lg-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M24.59,52.59H48.21V76.21H24.59ZM53.39,52.59H77.01V76.21H53.39ZM82.19,52.59H105.81V76.21H82.19ZM110.99,52.59H134.61V76.21H110.99ZM139.79,52.59H163.41V76.21H139.79ZM168.59,52.59H192.21V76.21H168.59ZM197.39,52.59H221.01V76.21H197.39ZM226.19,52.59H249.81V76.21H226.19ZM254.99,52.59H278.61V76.21H254.99ZM283.79,52.59H307.41V76.21H283.79ZM24.59,81.39H48.21V105.01H24.59ZM53.39,81.39H77.01V105.01H53.39ZM82.19,81.39H105.81V105.01H82.19ZM110.99,81.39H134.61V105.01H110.99ZM139.79,81.39H163.41V105.01H139.79ZM168.59,81.39H192.21V105.01H168.59ZM197.39,81.39H221.01V105.01H197.39ZM226.19,81.39H249.81V105.01H226.19ZM254.99,81.39H278.61V105.01H254.99ZM283.79,81.39H307.41V105.01H283.79ZM24.59,110.19H48.21V133.81H24.59ZM53.39,110.19H77.01V133.81H53.39ZM82.19,110.19H105.81V133.81H82.19ZM110.99,110.19H134.61V133.81H110.99ZM139.79,110.19H163.41V133.81H139.79ZM168.59,110.19H192.21V133.81H168.59ZM197.39,110.19H221.01V133.81H197.39ZM226.19,110.19H249.81V133.81H226.19ZM254.99,110.19H278.61V133.81H254.99ZM283.79,110.19H307.41V133.81H283.79ZM24.59,138.99H48.21V162.61H24.59ZM53.39,138.99H77.01V162.61H53.39ZM82.19,138.99H105.81V162.61H82.19ZM110.99,138.99H134.61V162.61H110.99ZM139.79,138.99H163.41V162.61H139.79ZM168.59,138.99H192.21V162.61H168.59ZM197.39,138.99H221.01V162.61H197.39ZM226.19,138.99H249.81V162.61H226.19ZM254.99,138.99H278.61V162.61H254.99ZM283.79,138.99H307.41V162.61H283.79ZM24.59,167.79H48.21V191.41H24.59Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-1)" part="sp-ink">
+  <path d="M24.59,52.59H48.21V76.21H24.59ZM53.39,52.59H77.01V76.21H53.39ZM82.19,52.59H105.81V76.21H82.19ZM110.99,52.59H134.61V76.21H110.99ZM139.79,52.59H163.41V76.21H139.79ZM168.59,52.59H192.21V76.21H168.59ZM197.39,52.59H221.01V76.21H197.39ZM226.19,52.59H249.81V76.21H226.19ZM254.99,52.59H278.61V76.21H254.99ZM283.79,52.59H307.41V76.21H283.79ZM24.59,81.39H48.21V105.01H24.59ZM53.39,81.39H77.01V105.01H53.39ZM82.19,81.39H105.81V105.01H82.19ZM110.99,81.39H134.61V105.01H110.99ZM139.79,81.39H163.41V105.01H139.79ZM168.59,81.39H192.21V105.01H168.59ZM197.39,81.39H221.01V105.01H197.39ZM226.19,81.39H249.81V105.01H226.19ZM254.99,81.39H278.61V105.01H254.99ZM283.79,81.39H307.41V105.01H283.79ZM24.59,110.19H48.21V133.81H24.59ZM53.39,110.19H77.01V133.81H53.39ZM82.19,110.19H105.81V133.81H82.19ZM110.99,110.19H134.61V133.81H110.99ZM139.79,110.19H163.41V133.81H139.79ZM168.59,110.19H192.21V133.81H168.59ZM197.39,110.19H221.01V133.81H197.39ZM226.19,110.19H249.81V133.81H226.19ZM254.99,110.19H278.61V133.81H254.99ZM283.79,110.19H307.41V133.81H283.79ZM24.59,138.99H48.21V162.61H24.59ZM53.39,138.99H77.01V162.61H53.39ZM82.19,138.99H105.81V162.61H82.19ZM110.99,138.99H134.61V162.61H110.99ZM139.79,138.99H163.41V162.61H139.79ZM168.59,138.99H192.21V162.61H168.59ZM197.39,138.99H221.01V162.61H197.39ZM226.19,138.99H249.81V162.61H226.19ZM254.99,138.99H278.61V162.61H254.99ZM283.79,138.99H307.41V162.61H283.79ZM24.59,167.79H48.21V191.41H24.59Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M53.39,167.79H77.01V191.41H53.39ZM82.19,167.79H105.81V191.41H82.19ZM110.99,167.79H134.61V191.41H110.99ZM139.79,167.79H163.41V191.41H139.79ZM168.59,167.79H192.21V191.41H168.59ZM197.39,167.79H221.01V191.41H197.39ZM226.19,167.79H249.81V191.41H226.19ZM254.99,167.79H278.61V191.41H254.99ZM283.79,167.79H307.41V191.41H283.79ZM24.59,196.59H48.21V220.21H24.59ZM53.39,196.59H77.01V220.21H53.39ZM82.19,196.59H105.81V220.21H82.19ZM110.99,196.59H134.61V220.21H110.99ZM139.79,196.59H163.41V220.21H139.79ZM168.59,196.59H192.21V220.21H168.59ZM197.39,196.59H221.01V220.21H197.39ZM226.19,196.59H249.81V220.21H226.19ZM254.99,196.59H278.61V220.21H254.99ZM283.79,196.59H307.41V220.21H283.79ZM24.59,225.39H48.21V249.01H24.59ZM53.39,225.39H77.01V249.01H53.39ZM82.19,225.39H105.81V249.01H82.19ZM110.99,225.39H134.61V249.01H110.99ZM139.79,225.39H163.41V249.01H139.79ZM168.59,225.39H192.21V249.01H168.59ZM197.39,225.39H221.01V249.01H197.39Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-2)" part="sp-ink">
+  <path d="M53.39,167.79H77.01V191.41H53.39ZM82.19,167.79H105.81V191.41H82.19ZM110.99,167.79H134.61V191.41H110.99ZM139.79,167.79H163.41V191.41H139.79ZM168.59,167.79H192.21V191.41H168.59ZM197.39,167.79H221.01V191.41H197.39ZM226.19,167.79H249.81V191.41H226.19ZM254.99,167.79H278.61V191.41H254.99ZM283.79,167.79H307.41V191.41H283.79ZM24.59,196.59H48.21V220.21H24.59ZM53.39,196.59H77.01V220.21H53.39ZM82.19,196.59H105.81V220.21H82.19ZM110.99,196.59H134.61V220.21H110.99ZM139.79,196.59H163.41V220.21H139.79ZM168.59,196.59H192.21V220.21H168.59ZM197.39,196.59H221.01V220.21H197.39ZM226.19,196.59H249.81V220.21H226.19ZM254.99,196.59H278.61V220.21H254.99ZM283.79,196.59H307.41V220.21H283.79ZM24.59,225.39H48.21V249.01H24.59ZM53.39,225.39H77.01V249.01H53.39ZM82.19,225.39H105.81V249.01H82.19ZM110.99,225.39H134.61V249.01H110.99ZM139.79,225.39H163.41V249.01H139.79ZM168.59,225.39H192.21V249.01H168.59ZM197.39,225.39H221.01V249.01H197.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M226.19,225.39H249.81V249.01H226.19ZM254.99,225.39H278.61V249.01H254.99ZM283.79,225.39H307.41V249.01H283.79ZM24.59,254.19H48.21V277.81H24.59ZM53.39,254.19H77.01V277.81H53.39ZM82.19,254.19H105.81V277.81H82.19ZM110.99,254.19H134.61V277.81H110.99ZM139.79,254.19H163.41V277.81H139.79ZM168.59,254.19H192.21V277.81H168.59ZM197.39,254.19H221.01V277.81H197.39ZM226.19,254.19H249.81V277.81H226.19ZM254.99,254.19H278.61V277.81H254.99ZM283.79,254.19H307.41V277.81H283.79ZM24.59,282.99H48.21V306.61H24.59ZM53.39,282.99H77.01V306.61H53.39ZM82.19,282.99H105.81V306.61H82.19Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-3)" part="sp-ink">
+  <path d="M226.19,225.39H249.81V249.01H226.19ZM254.99,225.39H278.61V249.01H254.99ZM283.79,225.39H307.41V249.01H283.79ZM24.59,254.19H48.21V277.81H24.59ZM53.39,254.19H77.01V277.81H53.39ZM82.19,254.19H105.81V277.81H82.19ZM110.99,254.19H134.61V277.81H110.99ZM139.79,254.19H163.41V277.81H139.79ZM168.59,254.19H192.21V277.81H168.59ZM197.39,254.19H221.01V277.81H197.39ZM226.19,254.19H249.81V277.81H226.19ZM254.99,254.19H278.61V277.81H254.99ZM283.79,254.19H307.41V277.81H283.79ZM24.59,282.99H48.21V306.61H24.59ZM53.39,282.99H77.01V306.61H53.39ZM82.19,282.99H105.81V306.61H82.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.99,282.99H134.61V306.61H110.99ZM139.79,282.99H163.41V306.61H139.79ZM168.59,282.99H192.21V306.61H168.59ZM197.39,282.99H221.01V306.61H197.39ZM226.19,282.99H249.81V306.61H226.19ZM254.99,282.99H278.61V306.61H254.99ZM283.79,282.99H307.41V306.61H283.79ZM24.59,311.79H48.21V335.41H24.59ZM53.39,311.79H77.01V335.41H53.39ZM82.19,311.79H105.81V335.41H82.19Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-4)" part="sp-ink">
+  <path d="M110.99,282.99H134.61V306.61H110.99ZM139.79,282.99H163.41V306.61H139.79ZM168.59,282.99H192.21V306.61H168.59ZM197.39,282.99H221.01V306.61H197.39ZM226.19,282.99H249.81V306.61H226.19ZM254.99,282.99H278.61V306.61H254.99ZM283.79,282.99H307.41V306.61H283.79ZM24.59,311.79H48.21V335.41H24.59ZM53.39,311.79H77.01V335.41H53.39ZM82.19,311.79H105.81V335.41H82.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.99,311.79H134.61V335.41H110.99ZM139.79,311.79H163.41V335.41H139.79ZM168.59,311.79H192.21V335.41H168.59ZM197.39,311.79H221.01V335.41H197.39ZM226.19,311.79H249.81V335.41H226.19ZM254.99,311.79H278.61V335.41H254.99ZM283.79,311.79H307.41V335.41H283.79Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-3)" part="sp-ink">
+  <path d="M110.99,311.79H134.61V335.41H110.99ZM139.79,311.79H163.41V335.41H139.79ZM168.59,311.79H192.21V335.41H168.59ZM197.39,311.79H221.01V335.41H197.39ZM226.19,311.79H249.81V335.41H226.19ZM254.99,311.79H278.61V335.41H254.99ZM283.79,311.79H307.41V335.41H283.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M324,162H333V169H324Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-1)" part="sp-ink">
+  <path d="M324 162 C326.22 161.87, 327.64 161.61, 333 162 M324 162 C327.13 162.16, 330.12 161.82, 333 162 M333 162 C333.24 164.25, 333.02 166.13, 333 169 M333 162 C332.93 164.48, 333.11 166.81, 333 169 M333 169 C330.39 169.32, 328.93 169.19, 324 169 M333 169 C330.34 169.12, 327.48 168.96, 324 169 M324 169 C324.29 166.3, 324.1 164.25, 324 162 M324 169 C324.07 167.23, 324.05 165.33, 324 162" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M324,176H333V183H324Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-2)" part="sp-ink">
+  <path d="M324 176 C325.99 176.18, 327.55 176.08, 333 176 M324 176 C327.31 176.07, 330.14 176.14, 333 176 M333 176 C333.28 178.45, 332.92 181.08, 333 183 M333 176 C333.01 178.48, 333.1 181.24, 333 183 M333 183 C329.36 182.57, 326.37 183.24, 324 183 M333 183 C330.07 182.88, 327.35 182.89, 324 183 M324 183 C323.91 180.69, 324.03 177.93, 324 176 M324 183 C324.11 180.67, 323.87 178.06, 324 176" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M324,190H333V197H324Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-3)" part="sp-ink">
+  <path d="M324 190 C325.77 189.74, 327.46 189.79, 333 190 M324 190 C327.09 190.04, 330.55 190.1, 333 190 M333 190 C333.29 191.24, 332.78 192.6, 333 197 M333 190 C333.13 192.79, 333.13 195.36, 333 197 M333 197 C330.13 196.68, 327.42 197.33, 324 197 M333 197 C330.21 197.09, 326.82 196.86, 324 197 M324 197 C324.12 194.45, 323.93 192.24, 324 190 M324 197 C323.86 195.19, 324.05 193.59, 324 190" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M324,204H333V211H324Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-4)" part="sp-ink">
+  <path d="M324 204 C325.54 204.06, 328.18 204.26, 333 204 M324 204 C327.27 203.96, 330.57 204.01, 333 204 M333 204 C333.33 206.06, 333.3 207.55, 333 211 M333 204 C332.9 205.38, 333.12 207, 333 211 M333 211 C330.9 210.74, 328.46 211.38, 324 211 M333 211 C329.94 210.85, 326.69 211.18, 324 211 M324 211 C323.71 208.2, 323.82 205.93, 324 204 M324 211 C323.93 208.63, 323.91 206, 324 204" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M324,218H333V225H324Z" data-paint="tile" data-role="hatch" fill="url(#waffle-chart--silverpoint--ochre--ink--lg-tone-3)" part="sp-ink">
+  <path d="M324 218 C326.12 217.62, 328.09 217.97, 333 218 M324 218 C327.45 217.88, 330.58 217.92, 333 218 M333 218 C332.7 220.25, 333.16 222.5, 333 225 M333 218 C332.97 219.7, 333.1 221.12, 333 225 M333 225 C329.06 224.81, 325.91 224.62, 324 225 M333 225 C329.67 225.06, 326.57 225.15, 324 225 M324 225 C323.96 222.59, 323.75 220.24, 324 218 M324 225 C324.01 223.16, 324.08 221.53, 324 218" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M24.59,52.59H48.21V76.21H24.59ZM53.39,52.59H77.01V76.21H53.39ZM82.19,52.59H105.81V76.21H82.19ZM110.99,52.59H134.61V76.21H110.99ZM139.79,52.59H163.41V76.21H139.79ZM168.59,52.59H192.21V76.21H168.59ZM197.39,52.59H221.01V76.21H197.39ZM226.19,52.59H249.81V76.21H226.19ZM254.99,52.59H278.61V76.21H254.99ZM283.79,52.59H307.41V76.21H283.79ZM24.59,81.39H48.21V105.01H24.59ZM53.39,81.39H77.01V105.01H53.39ZM82.19,81.39H105.81V105.01H82.19ZM110.99,81.39H134.61V105.01H110.99ZM139.79,81.39H163.41V105.01H139.79ZM168.59,81.39H192.21V105.01H168.59ZM197.39,81.39H221.01V105.01H197.39ZM226.19,81.39H249.81V105.01H226.19ZM254.99,81.39H278.61V105.01H254.99ZM283.79,81.39H307.41V105.01H283.79ZM24.59,110.19H48.21V133.81H24.59ZM53.39,110.19H77.01V133.81H53.39ZM82.19,110.19H105.81V133.81H82.19ZM110.99,110.19H134.61V133.81H110.99ZM139.79,110.19H163.41V133.81H139.79ZM168.59,110.19H192.21V133.81H168.59ZM197.39,110.19H221.01V133.81H197.39ZM226.19,110.19H249.81V133.81H226.19ZM254.99,110.19H278.61V133.81H254.99ZM283.79,110.19H307.41V133.81H283.79ZM24.59,138.99H48.21V162.61H24.59ZM53.39,138.99H77.01V162.61H53.39ZM82.19,138.99H105.81V162.61H82.19ZM110.99,138.99H134.61V162.61H110.99ZM139.79,138.99H163.41V162.61H139.79ZM168.59,138.99H192.21V162.61H168.59ZM197.39,138.99H221.01V162.61H197.39ZM226.19,138.99H249.81V162.61H226.19ZM254.99,138.99H278.61V162.61H254.99ZM283.79,138.99H307.41V162.61H283.79ZM24.59,167.79H48.21V191.41H24.59Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Household energy"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "1 000 kWh"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "one cell, 10 kWh"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="338" y="169">
+    "Heating"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="169">
+    "41%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="338" y="183">
+    "Water heating"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="183">
+    "26%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="338" y="197">
+    "Appliances"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="197">
+    "16%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="338" y="211">
+    "Lighting"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="211">
+    "10%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="338" y="225">
+    "Cooking"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="624" y="225">
+    "7%"

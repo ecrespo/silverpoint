@@ -1,0 +1,58 @@
+<svg aria-labelledby="marimekko-chart--silverpoint--ochre--precision--md--per-shape-title marimekko-chart--silverpoint--ochre--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="marimekko-chart--silverpoint--ochre--precision--md--per-shape-title">
+    "Sales"
+  <desc id="marimekko-chart--silverpoint--ochre--precision--md--per-shape-desc">
+    "Sales. Marimekko of 4 columns by 4 segments, totalling 2,398: each column is as wide as its share of the whole, each segment as tall as its share of the column. The widest column is West."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M81.2,48H93.2V55H81.2Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M140.4,48H152.4V55H140.4Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M215.2,48H227.2V55H215.2Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M46,72H76.67V111.23H46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46,111.23H76.67V138.52H46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46,138.52H76.67V151.14H46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46,151.14H76.67V174H46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.67,72H138.89V102.93H78.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.67,102.93H138.89V126.04H78.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.67,126.04H138.89V155.23H78.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.67,155.23H138.89V174H78.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.89,72H181.51V95.18H140.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.89,95.18H181.51V113.73H140.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.89,113.73H181.51V119.14H140.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M140.89,119.14H181.51V174H140.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.51,72H298V95.49H183.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.51,95.49H298V123H183.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.51,123H298V158.37H183.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.51,158.37H298V174H183.51Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.51,123H298V158.37H183.51Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Sales"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "by region"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "share by channel"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "Retail"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="97.2" y="55">
+    "Online"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="156.4" y="55">
+    "Wholesale"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="231.2" y="55">
+    "Direct"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="42" y="177">
+    "0%"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="42" y="126">
+    "50%"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="42" y="75">
+    "100%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="61.34" y="189">
+    "Nort…"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="108.78" y="189">
+    "South 24%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="161.2" y="189">
+    "East 1…"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="240.76" y="189">
+    "West 47%"

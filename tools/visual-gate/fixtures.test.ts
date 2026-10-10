@@ -64,10 +64,14 @@ describe('the line-chart fixtures', () => {
 describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtures', (chart, entry) => {
   const fixtures = loadFixtures().filter((fixture) => fixture.chart === chart);
 
-  test('REQ-182 · REQ-028 · 10 fixtures cover 2 modes × (4 silverpoint substrates + cyanotype) at the md size', () => {
-    expect(fixtures).toHaveLength(10);
-    const cells = fixtures.map((f) => `${f.mode}/${f.ground}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
-    expect(cells).toEqual(PR_CELLS);
+  test('REQ-182 · REQ-028 · 10 fixtures cover 2 modes × (4 silverpoint substrates + cyanotype) at the md size, as does each state', () => {
+    for (const state of [undefined, ...Object.keys(entry.states ?? {})]) {
+      const own = fixtures.filter((f) => f.state === state);
+      expect(own, state ?? 'its own cells').toHaveLength(10);
+      const cells = own.map((f) => `${f.mode}/${f.ground}/${f.substrate}/${f.size.width}x${f.size.height}`).sort();
+      expect(cells).toEqual(PR_CELLS);
+    }
+    expect(fixtures).toHaveLength(10 * (1 + Object.keys(entry.states ?? {}).length));
   });
 
   test('REQ-182 · every fixture validates and traces to the chart requirement', () => {
@@ -85,22 +89,25 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
   });
 });
 
-test('REQ-182 · the PR matrix holds every catalog chart × 10 cells', () => {
-  expect(loadFixtures()).toHaveLength(CATALOG.length * 10);
-  // The first catalog's 33 and the second's wave 1 (feature-003, DM delta §3).
-  expect(CATALOG).toHaveLength(47);
+test('REQ-182 · the PR matrix holds every catalog chart × 10 cells, and each state fixture × 10', () => {
+  const states = CATALOG.reduce((n, c) => n + Object.keys(c.states ?? {}).length, 0);
+  expect(loadFixtures()).toHaveLength((CATALOG.length + states) * 10);
+  // The first catalog's 33 and the second's waves 1 and 2 (feature-003, DM delta §3).
+  expect(CATALOG).toHaveLength(55);
+  // REQ-439: the drilled treemap and sunburst (DM delta §3).
+  expect(loadFixtures().filter((f) => f.state === 'root').map((f) => f.chart)).toEqual([...Array(10).fill('SquarifiedTreemap'), ...Array(10).fill('SunburstChart')]);
 });
 
 /** The nightly product of Data Model §5 (T-091): every cell, not only the PR's `md` + `tile` slice. */
 describe('the full matrix', () => {
   const full = loadFixtures('full');
 
-  const cell = (f: Fixture) => `${f.chart}/${f.ground}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
+  const cell = (f: Fixture) => `${f.chart}${f.state ? `/${f.state}` : ''}/${f.ground}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
 
-  test('REQ-182 · 2,538 fixtures: 47 charts × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
-    expect(full).toHaveLength(2538);
-    expect(new Set(full.map(cell)).size).toBe(2538);
-    expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(47 * 48);
+  test('REQ-182 · 3,078 fixtures: (55 charts + 2 states) × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
+    expect(full).toHaveLength(3078);
+    expect(new Set(full.map(cell)).size).toBe(3078);
+    expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(57 * 48);
     expect(new Set(full.map((f) => f.hatchFill))).toEqual(new Set(['tile', 'per-shape']));
     // REQ-028: hatchFill has no effect under `weight`, so cyanotype's axis collapses to `tile`.
     expect(new Set(full.filter((f) => f.ground === 'cyanotype').map((f) => `${f.substrate}/${f.hatchFill}`))).toEqual(new Set(['prussian/tile']));
@@ -120,8 +127,8 @@ describe('the full matrix', () => {
 
   test('REQ-182 · the apps can open any cell: the harness embeds the full matrix beside the PR one', async () => {
     const harness = await import('../../examples/harness/index.js');
-    expect(harness.ALL_FIXTURES).toHaveLength(2538);
-    expect(harness.FIXTURES).toHaveLength(470);
+    expect(harness.ALL_FIXTURES).toHaveLength(3078);
+    expect(harness.FIXTURES).toHaveLength(570);
     expect(harness.fixtureById('bar-chart--silverpoint--ochre--precision--lg--per-shape')?.hatchFill).toBe('per-shape');
   });
 });

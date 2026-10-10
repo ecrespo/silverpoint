@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 47 standalone components with signal inputs and `OnPush`. They work zoneless.
+- 55 standalone components with signal inputs and `OnPush`. They work zoneless.
 - Angular Package Format, with one secondary entry point per chart, so you only ship the charts
   you use.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -216,7 +216,7 @@ export class Exportable {
 | `locale`, `numberFormat` | environment | Number formatting. |
 | `hatchFill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 47 charts
+## The 55 charts
 
 Every chart is a secondary entry point, `@silverpoint/angular/<kebab-case-name>`, exporting the
 `Sp…` component with the `sp-…` selector:
@@ -253,7 +253,20 @@ The second catalog, for distributions, comparisons, ranks and uncertainty (since
 | `SpErrorBarChart` | `sp-error-bar-chart` | `SpIntervalChart` | `sp-interval-chart` |
 | `SpDivergingBarChart` | `sp-diverging-bar-chart` | `SpConnectedScatterChart` | `sp-connected-scatter-chart` |
 
-`<sp-ridgeline-chart>` requires `groupKey` and `<sp-diverging-bar-chart>` requires `levels` (`input.required`), even with the demo dataset, which ignores both.
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+
+| Component | Selector | Component | Selector |
+|---|---|---|---|
+| `SpWaffleChart` | `sp-waffle-chart` | `SpMarimekkoChart` | `sp-marimekko-chart` |
+| `SpSquarifiedTreemap` | `sp-squarified-treemap` | `SpSunburstChart` | `sp-sunburst-chart` |
+| `SpTreeChart` | `sp-tree-chart` | `SpParallelCoordinatesChart` | `sp-parallel-coordinates-chart` |
+| `SpPolarLineChart` | `sp-polar-line-chart` | `SpPolarScatterChart` | `sp-polar-scatter-chart` |
+
+`<sp-ridgeline-chart>` requires `groupKey`, `<sp-diverging-bar-chart>` requires `levels` and `<sp-parallel-coordinates-chart>` requires `dimensions` (`input.required`), even with the demo dataset, which ignores them.
+
+`<sp-squarified-treemap>` and `<sp-sunburst-chart>` drill down under your control: bind `[rootId]` and
+update it from `(rootChange)`, which a click, Enter or Space on a node emits with its id (its centre
+or frame emits the parent's, `null` for the top). The component keeps no root of its own.
 
 The [repository](https://github.com/ecrespo/silverpoint) holds the API specification and the
 documentation site with the gallery and every chart's inputs.

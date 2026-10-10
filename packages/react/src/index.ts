@@ -45,6 +45,14 @@ export { ErrorBarChart, type ClientErrorBarChartProps } from './error-bar-chart'
 export { IntervalChart, type ClientIntervalChartProps } from './interval-chart';
 export { DivergingBarChart, type ClientDivergingBarChartProps } from './diverging-bar-chart';
 export { ConnectedScatterChart, type ClientConnectedScatterChartProps } from './connected-scatter-chart';
+export { WaffleChart, type ClientWaffleChartProps } from './waffle-chart';
+export { MarimekkoChart, type ClientMarimekkoChartProps } from './marimekko-chart';
+export { SquarifiedTreemap, type ClientSquarifiedTreemapProps } from './squarified-treemap';
+export { SunburstChart, type ClientSunburstChartProps } from './sunburst-chart';
+export { TreeChart, type ClientTreeChartProps } from './tree-chart';
+export { ParallelCoordinatesChart, type ClientParallelCoordinatesChartProps } from './parallel-coordinates-chart';
+export { PolarLineChart, type ClientPolarLineChartProps } from './polar-line-chart';
+export { PolarScatterChart, type ClientPolarScatterChartProps } from './polar-scatter-chart';
 export type { TooltipRenderer } from './overlay';
 export { SilverpointProvider, type SilverpointProviderProps } from './provider';
 export type {
@@ -89,6 +97,14 @@ export type {
   IntervalChartProps,
   DivergingBarChartProps,
   ConnectedScatterChartProps,
+  WaffleChartProps,
+  MarimekkoChartProps,
+  SquarifiedTreemapProps,
+  SunburstChartProps,
+  TreeChartProps,
+  ParallelCoordinatesChartProps,
+  PolarLineChartProps,
+  PolarScatterChartProps,
 
   BulletChartProps,
   HeatmapChartProps,

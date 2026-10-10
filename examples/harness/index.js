@@ -5,11 +5,19 @@
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { ALL_FIXTURES } from './fixtures.generated.js';
 
-/** The nightly matrix (Data Model §5): 1,782 cells. */
+/** The nightly matrix (Data Model §5): 3,078 cells, the drilled-root state fixtures included. */
 export { ALL_FIXTURES };
 
 /** The PR matrix: the `md` + `tile` slice every PR compares. */
 export const FIXTURES = ALL_FIXTURES.filter((fixture) => fixture.hatchFill === 'tile' && fixture.size.width === 320);
+
+/**
+ * The chart a fixture draws, and its state when it is a state fixture: `SunburstChart (root)`.
+ * @param {{ chart: string, state?: string }} fixture
+ */
+export function fixtureLabel(fixture) {
+  return fixture.state === undefined ? fixture.chart : `${fixture.chart} (${fixture.state})`;
+}
 
 /**
  * The container size a fixture lays out in — `sm`, `md` or `lg` of the harness stylesheet — so the
@@ -63,7 +71,8 @@ const kebab = (/** @type {string} */ name) => name.replace(/([a-z0-9])([A-Z])/g,
  * the `?gallery` page every app shows, which axe-core audits (T-045).
  */
 export const GALLERY = Object.freeze(
-  FIXTURES.filter((fixture) => fixture.substrate === 'cream' && fixture.mode === 'ink').map((fixture) => ({
+  // One card per chart: a state fixture (a drilled root) is not another chart.
+  FIXTURES.filter((fixture) => fixture.substrate === 'cream' && fixture.mode === 'ink' && fixture.state === undefined).map((fixture) => ({
     chart: fixture.chart,
     props: { ...fixture.props, id: `sp-gallery-${kebab(fixture.chart)}`, width: 320 },
   })),

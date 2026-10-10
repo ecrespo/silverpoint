@@ -9,6 +9,8 @@ import { AFTER_LINE_CHART, type CatalogEntry } from '../../../tools/visual-gate/
 import { ssrFor } from './harness';
 
 const packageDir = join(import.meta.dirname, '..');
+/** The charts whose root is controlled, `rootId` in and `rootChange` out (API delta §4). */
+const DRILLABLE = new Set(['SquarifiedTreemap', 'SunburstChart']);
 const repo = join(packageDir, '../..');
 const fixed = { id: 'sp-fixture', width: 320, height: 150 } as const;
 
@@ -48,9 +50,9 @@ describe.each(AFTER_LINE_CHART.map((e) => [`sp-${e.slug}`, e] as const))('%s', (
     for (const name of names) expect((inputs[name]?.[1] ?? 0) & 1, name).toBe(1);
   });
 
-  test('API §9 · emits activeChange and select', async () => {
+  test('API §9 · emits activeChange and select, and rootChange where the chart drills (REQ-439)', async () => {
     const definition = ((await load(entry)) as unknown as { ɵcmp: { outputs: object } }).ɵcmp;
-    expect(Object.keys(definition.outputs).sort()).toEqual(['activeChange', 'select']);
+    expect(Object.keys(definition.outputs).sort()).toEqual(['activeChange', ...(DRILLABLE.has(entry.chart) ? ['rootChange'] : []), 'select']);
   });
 
   test('REQ-105 · REQ-107 · a secondary entry point of its own', () => {

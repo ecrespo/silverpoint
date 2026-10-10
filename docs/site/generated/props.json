@@ -4,7 +4,7 @@
       "name": "data",
       "type": "readonly Datum[]",
       "optional": true,
-      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`) are ignored, every other prop applies."
+      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`, `dimensions`, `period`) are ignored, every other prop applies."
     },
     {
       "name": "ground",
@@ -1434,6 +1434,202 @@
           "type": "boolean",
           "optional": true,
           "doc": "Draws direction marks along the path; `true` by default."
+        }
+      ]
+    },
+    {
+      "chart": "WaffleChart",
+      "own": [
+        {
+          "name": "nameKey",
+          "type": "Accessor<string | number>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "cells",
+          "type": "number",
+          "optional": true,
+          "doc": "Cells in the grid; 100 by default."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "optional": true,
+          "doc": "Cells per row; 10 by default."
+        }
+      ]
+    },
+    {
+      "chart": "MarimekkoChart",
+      "own": [
+        {
+          "name": "columnKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "segmentKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        }
+      ]
+    },
+    {
+      "chart": "SquarifiedTreemap",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Read on leaves; an internal node is the sum of its children. Ignored without `data`."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "optional": true,
+          "doc": "Levels drawn below the root; all by default."
+        },
+        {
+          "name": "rootId",
+          "type": "string | null",
+          "optional": true,
+          "doc": "The node drawn as root, controlled (REQ-439); the data root by default."
+        }
+      ]
+    },
+    {
+      "chart": "SunburstChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Read on leaves; an internal node is the sum of its children. Ignored without `data`."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "optional": true,
+          "doc": "Rings drawn below the root; all by default."
+        },
+        {
+          "name": "rootId",
+          "type": "string | null",
+          "optional": true,
+          "doc": "The node drawn as root, controlled (REQ-439); the data root by default."
+        }
+      ]
+    },
+    {
+      "chart": "TreeChart",
+      "own": [
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "orientation",
+          "type": "'horizontal' | 'vertical'",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "ParallelCoordinatesChart",
+      "own": [
+        {
+          "name": "labelKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "dimensions",
+          "type": "readonly string[]",
+          "optional": false,
+          "doc": "The dimension columns, in axis order. Ignored without `data`."
+        },
+        {
+          "name": "domains",
+          "type": "Readonly<Record<string, readonly [number, number]>>",
+          "optional": true,
+          "doc": "Axis domains by dimension; derived from the data when omitted (REQ-097)."
+        }
+      ]
+    },
+    {
+      "chart": "PolarLineChart",
+      "own": [
+        {
+          "name": "angleKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "In the units of `period`. Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "The radius, `≥ 0`. Ignored without `data`."
+        },
+        {
+          "name": "period",
+          "type": "number",
+          "optional": true,
+          "doc": "One turn, in the units of the angle; when set, the line closes. Ignored without `data`."
+        },
+        {
+          "name": "startAngle",
+          "type": "number",
+          "optional": true,
+          "doc": "Where the angle 0 sits, in degrees clockwise from 12 o'clock; 0 by default."
+        }
+      ]
+    },
+    {
+      "chart": "PolarScatterChart",
+      "own": [
+        {
+          "name": "angleKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "In the units of `period`. Ignored without `data`."
+        },
+        {
+          "name": "radiusKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "The radius, `≥ 0`. Ignored without `data`."
+        },
+        {
+          "name": "sizeKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "period",
+          "type": "number",
+          "optional": true,
+          "doc": "One turn, in the units of the angle; 360 by default. Ignored without `data`."
         }
       ]
     }

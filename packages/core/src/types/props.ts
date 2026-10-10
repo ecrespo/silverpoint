@@ -5,7 +5,8 @@ import type { GroundRef } from './ground';
 export interface CommonChartProps {
   /**
    * Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`,
-   * `keys`, `names`, `levels`, `axis`) are ignored, every other prop applies.
+   * `keys`, `names`, `levels`, `axis`, `dimensions`, `period`) are ignored, every other prop
+   * applies.
    */
   data?: readonly Datum[];
 
@@ -672,7 +673,7 @@ export interface TreeChartProps extends HierarchyChartProps {
 export interface ParallelCoordinatesChartProps extends CommonChartProps {
   /** Ignored without `data`. */
   labelKey?: Accessor<string | null | undefined>;
-  /** The dimension columns, in axis order. */
+  /** The dimension columns, in axis order. Ignored without `data`. */
   dimensions: readonly string[];
   /** Axis domains by dimension; derived from the data when omitted (REQ-097). */
   domains?: Readonly<Record<string, readonly [number, number]>>;
@@ -684,7 +685,7 @@ export interface PolarLineChartProps extends CommonChartProps {
   angleKey?: Accessor<number | null | undefined>;
   /** The radius, `≥ 0`. Ignored without `data`. */
   valueKey?: Accessor<number | null | undefined>;
-  /** One turn, in the units of the angle; when set, the line closes. */
+  /** One turn, in the units of the angle; when set, the line closes. Ignored without `data`. */
   period?: number;
   /** Where the angle 0 sits, in degrees clockwise from 12 o'clock; 0 by default. */
   startAngle?: number;
@@ -698,7 +699,7 @@ export interface PolarScatterChartProps extends CommonChartProps {
   radiusKey?: Accessor<number | null | undefined>;
   /** Ignored without `data`. */
   sizeKey?: Accessor<number | null | undefined>;
-  /** One turn, in the units of the angle; 360 by default. */
+  /** One turn, in the units of the angle; 360 by default. Ignored without `data`. */
   period?: number;
 }
 

@@ -1,0 +1,51 @@
+<svg aria-labelledby="sunburst-chart--silverpoint--ochre--precision--md--per-shape--root-title sunburst-chart--silverpoint--ochre--precision--md--per-shape--root-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="sunburst-chart--silverpoint--ochre--precision--md--per-shape--root-title">
+    "City budget"
+  <desc id="sunburst-chart--silverpoint--ochre--precision--md--per-shape--root-desc">
+    "City budget. Sunburst of 3 levels, 9 nodes, 6 leaves, rooted at City budget › Public works, totalling 19,197; each arc's angle is its value, each ring a level. The largest first-level arc is Street lighting, 42% of the whole."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M68,119A23,23,0,1,0,114,119A23,23,0,1,0,68,119Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M91,73A46,46,0,0,1,113.79,158.96L102.39,138.98A23,23,0,0,0,91,96Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M113.79,158.96A46,46,0,0,1,45.13,122.44L68.06,120.72A23,23,0,0,0,102.39,138.98Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M45.13,122.44A46,46,0,0,1,61.24,83.93L76.12,101.46A23,23,0,0,0,68.06,120.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22.19,124.16A69,69,0,0,1,34.14,79.91L53.09,92.94A46,46,0,0,0,45.13,122.44Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.14,79.91A69,69,0,0,1,46.35,66.39L61.24,83.93A46,46,0,0,0,53.09,92.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M61.24,83.93A46,46,0,0,1,91,73L91,96A23,23,0,0,0,76.12,101.46Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M46.35,66.39A69,69,0,0,1,82.22,50.56L85.14,73.37A46,46,0,0,0,61.24,83.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M82.22,50.56A69,69,0,0,1,91,50L91,73A46,46,0,0,0,85.14,73.37Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M180,94H189V101H180Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,108H189V115H180Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,122H189V129H180Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M180,136H189V143H180Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M91,73A46,46,0,0,1,113.79,158.96L102.39,138.98A23,23,0,0,0,91,96Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="124.35" y="113.16">
+    "Street lighting"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="74.8" y="152.46">
+    "Bridges"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="91" y="122">
+    "Public…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="101">
+    "Street lighting"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="101">
+    "42%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="115">
+    "Bridges"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="115">
+    "32%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="129">
+    "Water mains"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="129">
+    "15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="194" y="143">
+    "Roads"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="304" y="143">
+    "11%"

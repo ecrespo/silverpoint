@@ -1,0 +1,22 @@
+{
+  "chart": "TreeChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "tree-chart--silverpoint--green--precision--md--per-shape",
+  "req": "REQ-418",
+  "seed": 1592,
+  "props": {
+    "title": "City budget",
+    "badge": "2026",
+    "footerLeft": "departments and programmes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "tree-chart/tree-chart--silverpoint--green--precision--md--per-shape.canonical.txt"
+}

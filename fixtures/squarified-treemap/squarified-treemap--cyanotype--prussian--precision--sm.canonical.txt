@@ -1,0 +1,77 @@
+<svg aria-labelledby="squarified-treemap--cyanotype--prussian--precision--sm-title squarified-treemap--cyanotype--prussian--precision--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="squarified-treemap--cyanotype--prussian--precision--sm-title">
+    "City budget"
+  <desc id="squarified-treemap--cyanotype--prussian--precision--sm-desc">
+    "City budget. Squarified treemap of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364; each tile's area is its value. The largest tile is City budget › Administration › IT services, 12% of the whole."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M18,46H129.19V104.9H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,46H64.42V104.9H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M64.42,46H100.07V104.9H64.42Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.07,46H129.19V79.71H100.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.07,46H129.19V70.24H100.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.07,70.24H129.19V79.71H100.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.07,79.71H129.19V104.9H100.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.07,79.71H123.91V104.9H100.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M123.91,79.71H129.19V104.9H123.91Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,104.9H129.19V162H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,104.9H67.3V162H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M67.3,104.9H107.74V162H67.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.74,104.9H129.19V162H107.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.74,104.9H129.19V157.07H107.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.74,157.07H129.19V162H107.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,46H222V94.87H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,46H172.93V94.87H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.93,46H209.4V94.87H172.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.93,46H209.4V73.62H172.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M172.93,73.62H209.4V94.87H172.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M209.4,46H222V94.87H209.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,94.87H183.19V162H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,94.87H183.19V126.65H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,94.87H159.95V126.65H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M159.95,94.87H183.19V126.65H159.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.19,126.65H156.55V162H129.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.55,126.65H183.19V162H156.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.55,126.65H183.19V158.08H156.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M156.55,158.08H183.19V162H156.55Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,94.87H222V162H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,94.87H222V122.8H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,94.87H210.86V122.8H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M210.86,94.87H222V122.8H210.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,122.8H222V149.16H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,149.16H222V162H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M183.19,149.16H217.08V162H183.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M217.08,149.16H222V162H217.08Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,104.9H67.3V162H18Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="56">
+    "Public works 28%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="114.9">
+    "Administration 27%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="132.19" y="56">
+    "Safety 19%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="132.19" y="104.87">
+    "Parks 15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="186.19" y="104.87">
+    "Cultu…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="69">
+    "Street…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="67.42" y="69">
+    "Brid…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="127.9">
+    "IT serv…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="70.3" y="127.9">
+    "Payro…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="132.19" y="69">
+    "Emerge…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.93" y="69">
+    "Life…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="186.19" y="132.8">
+    "Museum"

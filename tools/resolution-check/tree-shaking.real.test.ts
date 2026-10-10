@@ -118,5 +118,6 @@ describe.each(CATALOG.map((c) => [c.chart, c] as const))('one-chart bundle of %s
 
 test('REQ-164 · the dataset families are the second catalog\'s shared demos, and nothing else', () => {
   const families = [...new Set([...FAMILY.values()].filter((f) => f.size > 1).map((f) => [...f].sort().join(' + ')))].sort();
-  expect(families).toEqual(['BeeswarmChart + EcdfChart + HistogramChart', 'BoxPlotChart + RidgelineChart + ViolinChart', 'DumbbellChart + SlopeChart']);
+  // Wave 2: the city budget is the demo of the three hierarchy charts (DM delta §2.23).
+  expect(families).toEqual(['BeeswarmChart + EcdfChart + HistogramChart', 'BoxPlotChart + RidgelineChart + ViolinChart', 'DumbbellChart + SlopeChart', 'SquarifiedTreemap + SunburstChart + TreeChart']);
 });

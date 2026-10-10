@@ -14,6 +14,8 @@ const DENSITY =
   'A kernel density with the Epanechnikov kernel, ¾(1 − u²) on |u| ≤ 1, evaluated at 64 evenly spaced points of the value domain every group shares. The kernel is a polynomial, so every engine computes the same curve to the last bit.';
 const BANDWIDTH =
   'The `bandwidth` prop when given; otherwise the mean of the groups’ Silverman bandwidths, 0.9 · min(σ, IQR / 1.34) · n^(−1/5), falling back as R’s `bw.nrd0` does when the spread is 0. One bandwidth for every group, so the shapes compare; the description says which was used.';
+const HIERARCHY_VALUE =
+  'Read on the leaves; an internal node is the sum of its children (without `valueKey`, each leaf counts 1). The share is the node’s value divided by its parent’s; the table prints the path from the root with both.';
 const CHANGE = 'The second value minus the first, printed with its sign (+4, −8) in the table and the announcement, so the direction never rests on the shape alone.';
 
 export const METHODS: Readonly<Record<string, readonly MethodStatement[]>> = {
@@ -77,4 +79,50 @@ export const METHODS: Readonly<Record<string, readonly MethodStatement[]>> = {
     },
   ],
   ConnectedScatterChart: [{ value: 'none', method: 'Nothing is derived: the path joins the points in data order, and the direction marks point the way it runs.' }],
+  WaffleChart: [
+    {
+      value: 'cells',
+      method:
+        'Hamilton’s largest remainder: each category gets the whole part of its share of `cells` (100), then the cells left go to the largest remainders. While there are enough cells, a category with a positive value never ends with none; the cell it needs comes from the category with the most. Filled in reading order, `columns` (10) to a row.',
+    },
+    { value: 'share', method: 'Each category’s value divided by the total, as the legend and the table print it.' },
+  ],
+  MarimekkoChart: [
+    { value: 'column width', method: 'Each column’s total divided by the grand total, of the plot’s width less a 2 px gap between columns.' },
+    { value: 'segment height', method: 'Each segment’s value divided by its column’s total: both axes run to 100 %.' },
+  ],
+  SquarifiedTreemap: [
+    { value: 'value', method: HIERARCHY_VALUE },
+    {
+      value: 'area',
+      method:
+        'The squarified layout of Bruls, Huijing and van Wijk: siblings, largest first and ties by id, are laid in rows along the shorter side while the worst aspect ratio improves. There is no padding, so every tile’s area is its exact share of the plot.',
+    },
+  ],
+  SunburstChart: [
+    { value: 'value', method: HIERARCHY_VALUE },
+    { value: 'angle', method: 'Each node’s share of its parent’s arc, siblings largest first and ties by id; every ring is equally deep.' },
+  ],
+  TreeChart: [
+    { value: 'value', method: HIERARCHY_VALUE },
+    { value: 'layout', method: 'Buchheim, Jünger and Leipert’s linear-time form of Walker’s tidy tree: children in data order, subtrees as close as they can be without overlapping, a parent centred over its children.' },
+  ],
+  ParallelCoordinatesChart: [
+    {
+      value: 'axes',
+      method:
+        'Each axis spans its dimension’s data, niced to the axis’ ticks, unless `domains` gives it; the description says which. A value outside a given domain is drawn at the axis’ end and warned SP002.',
+    },
+  ],
+  PolarLineChart: [
+    {
+      value: 'angle and radius',
+      method:
+        'The angle is the value’s share of `period` (360 by default) of a turn, clockwise from 12 o’clock and `startAngle`; the radius is linear from 0 at the centre to the axis’ top tick. Given a `period`, the line closes.',
+    },
+  ],
+  PolarScatterChart: [
+    { value: 'angle and radius', method: 'As the polar line: the share of `period` (360) of a turn, clockwise from 12 o’clock, and a radius linear from 0.' },
+    { value: 'point area', method: 'With `sizeKey`, proportional to the size: the radius goes with its square root, 7 px for the largest and never under 1.5 px.' },
+  ],
 };

@@ -1,0 +1,22 @@
+{
+  "chart": "PolarScatterChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "polar-scatter-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-421",
+  "seed": 1592,
+  "props": {
+    "title": "Sightings",
+    "badge": "150",
+    "footerLeft": "bearing × km",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-scatter-chart/polar-scatter-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

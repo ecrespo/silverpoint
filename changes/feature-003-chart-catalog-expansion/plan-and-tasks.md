@@ -286,15 +286,52 @@ the recipes reach it with their adapters (T-187), as wave 1's did.
 - **For T-187:** add `dimensions` and `period` to the accessor lists of the props tests and of the
   `data` documentation; `ParallelCoordinatesChartProps.dimensions` is required, as `levels` is.
 
-**[ ] T-187 · Wave 2 adapters ×3, `onRootChange`** — REQ-439, REQ-444, REQ-108
+**[x] T-187 · Wave 2 adapters ×3, `onRootChange`** — REQ-439, REQ-444, REQ-108
 - Tests: activation emits the node id; the centre emits the parent; Vue component holds no root ref
   (I-30); server render with `rootId` equals the client render.
 
-**[ ] T-188 · Wave 2 fixtures, gates and budgets** — REQ-448, REQ-444, REQ-445
+**[x] T-188 · Wave 2 fixtures, gates and budgets** — REQ-448, REQ-444, REQ-445
 - Plus the two `rootId` state fixtures.
 
-**[ ] T-189 · Wave 2 example apps, docs, changeset** — REQ-449, REQ-438
+**[x] T-189 · Wave 2 example apps, docs, changeset** — REQ-449, REQ-438
 - e2e: tree keyboard on treemap, sunburst and tree with a screen-reader announcement check. `0.5.0`.
+
+**7c ledger, part 2 (Phase 7, 2026-10-09).** Done: T-187..T-189; the `0.5.0` release waits for the
+user. The 8 recipes reach `@silverpoint/core/catalog` and every adapter; 8 catalog rows.
+- **`onRootChange`** (REQ-439): `rootChangeOf(geometry, item)` on `/catalog` is the one mapping the
+  three adapters share — the node's id; for the drawn root its summary's `up`; `null` for the data
+  root. React wraps the client chart (`createDrillableChart`, `drillable.tsx`); Vue emits it beside
+  `select`; Angular's `rootChange` output follows `select`. None holds a root (I-30). **Found in
+  review:** after the consumer passes the new `rootId` back, the active item is still the old
+  drawing's (the shared reducer keeps an item by its place), so Enter on the new centre emitted the
+  old one's parent. Re-resolving the item in the reducer cost every existing build up to +147 B
+  (REQ-444), so `rootChangeOf` reads the item's place in the geometry as drawn now instead; only the
+  two drillable charts pay for it. Mutants (no geometry, no `up`, no data-root case, no emit in each
+  adapter) all caught.
+- **State fixtures** (DM delta §3): a catalog row's `states` (`root: { rootId: 'works' }` on the
+  treemap and the sunburst), drawn over the chart's own axes; a fixture's `state` suffixes its id
+  (`--root`). The matrix is 3,078 nightly and 570 on PR (55 charts + 2 states); e2e titles name the
+  state (`fixtureLabel`).
+- **Gates:** string gate 1,710 comparisons, 0 failures; REQ-124 declares the four toned wave-2 charts
+  — the waffle's and the sunburst's legends, the Marimekko's segment legend (columns are apart by
+  position) and the treemap's first-level frames, **ruled limit:** a frame narrower than its name
+  prints it cut (`Public works…`), whole in the table.
+- **REQ-444, measured minified** (user decision 2026-10-09). Exporting wave 2 moves `polar.ts` into
+  the chunk the catalog shares, so the bundler reorders modules: LineChart's minified build is
+  84,243 → 84,241 B, but gzip grows by 63 B, and five builds went past +100 B gzip with no new code.
+  The no-growth check now compares uncompressed minified bytes (size-limit with `gzip` and `brotli`
+  off) against a v0.3.0 worktree build (`one-chart-0.3.0.json`, `minified`; the same build reproduces
+  the recorded gzip sizes byte for byte), within **0.25 KB** (user decision 2026-10-09): uncompressed,
+  every existing build carries the Phase 4 `moves` branch of `stepActive`, +184..+195 B (it was
+  +65 B gzipped). A 150 B allowance turns the test red. The 45 KB budgets stay min+gzip.
+- **`/catalog` (everything)** is 45.56 kB min+gzip with waves 1 and 2: its own row moves to 50 kB,
+  revisited with wave 3. Every one-chart build of wave 2 is 21–30 kB.
+- **Docs and apps:** method statements for the 8 charts; READMEs list 55 and say how to drill; the
+  four example apps and the docs site carry the 8; `dimensions` and `period` join the accessors
+  (ignored without `data`); `ParallelCoordinatesChart.dimensions` is required in every adapter.
+- **e2e:** `tree-keyboard.spec.ts` walks the three hierarchy charts and the two drilled roots in every
+  app — Right, Right, Left, Down, Up — and checks the live region's words (path, value, share of the
+  parent); hydration and the catalog a11y walk cover the state fixtures too.
 
 ### 7d — Wave 3 (`0.6.0`)
 

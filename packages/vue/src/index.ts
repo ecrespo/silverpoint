@@ -45,6 +45,14 @@ export { default as SpErrorBarChart } from './SpErrorBarChart.vue';
 export { default as SpIntervalChart } from './SpIntervalChart.vue';
 export { default as SpDivergingBarChart } from './SpDivergingBarChart.vue';
 export { default as SpConnectedScatterChart } from './SpConnectedScatterChart.vue';
+export { default as SpWaffleChart } from './SpWaffleChart.vue';
+export { default as SpMarimekkoChart } from './SpMarimekkoChart.vue';
+export { default as SpSquarifiedTreemap } from './SpSquarifiedTreemap.vue';
+export { default as SpSunburstChart } from './SpSunburstChart.vue';
+export { default as SpTreeChart } from './SpTreeChart.vue';
+export { default as SpParallelCoordinatesChart } from './SpParallelCoordinatesChart.vue';
+export { default as SpPolarLineChart } from './SpPolarLineChart.vue';
+export { default as SpPolarScatterChart } from './SpPolarScatterChart.vue';
 export { provideSilverpoint } from './environment';
 export type {
   ActiveItem,
@@ -89,6 +97,14 @@ export type {
   IntervalChartProps,
   DivergingBarChartProps,
   ConnectedScatterChartProps,
+  WaffleChartProps,
+  MarimekkoChartProps,
+  SquarifiedTreemapProps,
+  SunburstChartProps,
+  TreeChartProps,
+  ParallelCoordinatesChartProps,
+  PolarLineChartProps,
+  PolarScatterChartProps,
 
   BulletChartProps,
   ChartHandle,

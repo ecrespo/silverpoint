@@ -10,6 +10,8 @@ export interface HarnessFixture {
   readonly hatchFill: 'tile' | 'per-shape';
   readonly seed: number;
   readonly size: { readonly width: number; readonly height: number };
+  /** A state fixture's name (`root`: a drilled hierarchy, REQ-439); absent for a chart's own cells. */
+  readonly state?: string;
   readonly props: Readonly<Record<string, unknown>>;
   readonly rows: readonly Record<string, unknown>[] | null;
 }
@@ -17,6 +19,8 @@ export interface HarnessFixture {
 export declare const ALL_FIXTURES: readonly HarnessFixture[];
 export declare const FIXTURES: readonly HarnessFixture[];
 export declare function sizeOf(fixture: HarnessFixture): 'sm' | 'md' | 'lg';
+/** The chart a fixture draws, and its state when it is a state fixture: `SunburstChart (root)`. */
+export declare function fixtureLabel(fixture: Pick<HarnessFixture, 'chart' | 'state'>): string;
 export declare function fixtureById(id: string | null | undefined): HarnessFixture | undefined;
 /** A fixture's props: the common ones, typed, plus whatever its chart takes. */
 export type FixtureProps = CommonChartProps & Record<string, unknown>;

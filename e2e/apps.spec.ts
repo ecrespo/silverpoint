@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { DEMO_PROPS, FIXTURES, fixtureProps } from '../examples/harness/index.js';
+import { DEMO_PROPS, FIXTURES, fixtureLabel, fixtureProps } from '../examples/harness/index.js';
 import { lineChart } from '../packages/core/dist/index.js';
 import { renderChart, toSVGString } from '../packages/grounds/dist/index.js';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
@@ -54,7 +54,7 @@ test.describe('example apps', () => {
   }
 
   for (const fixture of FIXTURES.filter((f) => f.chart !== 'LineChart' && f.substrate === 'cream' && f.mode === 'ink')) {
-    test(`REQ-182 · the fixture page of ${fixture.chart} renders that chart`, async ({ page }) => {
+    test(`REQ-182 · the fixture page of ${fixtureLabel(fixture)} renders that chart`, async ({ page }) => {
       const errors: string[] = [];
       page.on('pageerror', (error) => errors.push(error.message));
       await page.goto(`/?fixture=${fixture.id}`);

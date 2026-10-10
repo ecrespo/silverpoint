@@ -49,6 +49,14 @@ import { ErrorBarChart } from '@silverpoint/react/error-bar-chart';
 import { IntervalChart } from '@silverpoint/react/interval-chart';
 import { DivergingBarChart } from '@silverpoint/react/diverging-bar-chart';
 import { ConnectedScatterChart } from '@silverpoint/react/connected-scatter-chart';
+import { WaffleChart } from '@silverpoint/react/waffle-chart';
+import { MarimekkoChart } from '@silverpoint/react/marimekko-chart';
+import { SquarifiedTreemap } from '@silverpoint/react/squarified-treemap';
+import { SunburstChart } from '@silverpoint/react/sunburst-chart';
+import { TreeChart } from '@silverpoint/react/tree-chart';
+import { ParallelCoordinatesChart } from '@silverpoint/react/parallel-coordinates-chart';
+import { PolarLineChart } from '@silverpoint/react/polar-line-chart';
+import { PolarScatterChart } from '@silverpoint/react/polar-scatter-chart';
 
 /** Every chart a fixture can name, by its chart name. */
-export const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart, HistogramChart, EcdfChart, BoxPlotChart, ViolinChart, RidgelineChart, BeeswarmChart, LollipopChart, DumbbellChart, SlopeChart, BumpChart, ErrorBarChart, IntervalChart, DivergingBarChart, ConnectedScatterChart } as const;
+export const CHARTS = { LineChart, BulletChart, PyramidChart, HeatmapChart, TreemapChart, SankeyChart, ActivityGrid, StepChart, SparklineRows, KpiCard, BarChart, StackedBarChart, ComposedChart, WaterfallChart, FunnelChart, CandlestickChart, AreaChart, RangeBandChart, StreamChart, ScatterChart, BubbleChart, DonutChart, RadarChart, PolarBarChart, RadialArcGroup, RadialRings, GaugeArc, MeterChart, CoxcombChart, WindRose, VolvelleChart, ChordRing, OrbitChart, HistogramChart, EcdfChart, BoxPlotChart, ViolinChart, RidgelineChart, BeeswarmChart, LollipopChart, DumbbellChart, SlopeChart, BumpChart, ErrorBarChart, IntervalChart, DivergingBarChart, ConnectedScatterChart, WaffleChart, MarimekkoChart, SquarifiedTreemap, SunburstChart, TreeChart, ParallelCoordinatesChart, PolarLineChart, PolarScatterChart } as const;

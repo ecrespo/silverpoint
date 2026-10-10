@@ -20,3 +20,14 @@ export { errorBarChart } from './charts/error-bar-chart/error-bar-chart';
 export { intervalChart } from './charts/interval-chart/interval-chart';
 export { divergingBarChart } from './charts/diverging-bar-chart/diverging-bar-chart';
 export { connectedScatterChart } from './charts/connected-scatter-chart/connected-scatter-chart';
+// Wave 2 (0.5.0): hierarchy, part-to-whole, multivariate, polar.
+export { squarifiedTreemap } from './charts/squarified-treemap/squarified-treemap';
+export { sunburstChart } from './charts/sunburst-chart/sunburst-chart';
+export { treeChart } from './charts/tree-chart/tree-chart';
+export { waffleChart } from './charts/waffle-chart/waffle-chart';
+export { marimekkoChart } from './charts/marimekko-chart/marimekko-chart';
+export { parallelCoordinatesChart } from './charts/parallel-coordinates-chart/parallel-coordinates-chart';
+export { polarLineChart } from './charts/polar-line-chart/polar-line-chart';
+export { polarScatterChart } from './charts/polar-scatter-chart/polar-scatter-chart';
+// What `onRootChange` carries (REQ-439): the adapters of the two drillable charts share it.
+export { rootChangeOf } from './interaction/root-change';

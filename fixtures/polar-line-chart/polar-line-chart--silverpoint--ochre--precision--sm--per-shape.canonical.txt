@@ -1,0 +1,70 @@
+<svg aria-labelledby="polar-line-chart--silverpoint--ochre--precision--sm--per-shape-title polar-line-chart--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="polar-line-chart--silverpoint--ochre--precision--sm--per-shape-title">
+    "Rainfall"
+  <desc id="polar-line-chart--silverpoint--ochre--precision--sm--per-shape-desc">
+    "Rainfall. Polar line of 12 rain values by month, one turn being 12, closed; radius from 0, the maximum 91 at 10."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M120,104L120,64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L140,69.36" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L154.64,84" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L160,104" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L154.64,124" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L140,138.64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L120,144" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L100,138.64" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L85.36,124" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L80,104" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L85.36,84" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,104L100,69.36" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M100,104A20,20,0,1,0,140,104A20,20,0,1,0,100,104Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M80,104A40,40,0,1,0,160,104A40,40,0,1,0,80,104Z" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M120,71.2L132.4,82.52L138.71,93.2L138,104L139.75,115.4L127.6,117.16L120,114.8L114,114.39L103.37,113.6L91.6,104L88.48,85.8L102.8,74.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M117.5,71.2A2.5,2.5,0,1,0,122.5,71.2A2.5,2.5,0,1,0,117.5,71.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M129.9,82.52A2.5,2.5,0,1,0,134.9,82.52A2.5,2.5,0,1,0,129.9,82.52Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M136.21,93.2A2.5,2.5,0,1,0,141.21,93.2A2.5,2.5,0,1,0,136.21,93.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M135.5,104A2.5,2.5,0,1,0,140.5,104A2.5,2.5,0,1,0,135.5,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M137.25,115.4A2.5,2.5,0,1,0,142.25,115.4A2.5,2.5,0,1,0,137.25,115.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M125.1,117.16A2.5,2.5,0,1,0,130.1,117.16A2.5,2.5,0,1,0,125.1,117.16Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M117.5,114.8A2.5,2.5,0,1,0,122.5,114.8A2.5,2.5,0,1,0,117.5,114.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M111.5,114.39A2.5,2.5,0,1,0,116.5,114.39A2.5,2.5,0,1,0,111.5,114.39Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.87,113.6A2.5,2.5,0,1,0,105.87,113.6A2.5,2.5,0,1,0,100.87,113.6Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89.1,104A2.5,2.5,0,1,0,94.1,104A2.5,2.5,0,1,0,89.1,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M85.98,85.8A2.5,2.5,0,1,0,90.98,85.8A2.5,2.5,0,1,0,85.98,85.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M100.3,74.21A2.5,2.5,0,1,0,105.3,74.21A2.5,2.5,0,1,0,100.3,74.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M84.98,85.8A3.5,3.5,0,1,0,91.98,85.8A3.5,3.5,0,1,0,84.98,85.8Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M84.98,85.8A3.5,3.5,0,1,0,91.98,85.8A3.5,3.5,0,1,0,84.98,85.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Rainfall"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "by month"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "mm"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="120" y="60">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="143.5" y="66.3">
+    "1"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="160.7" y="83.5">
+    "2"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="167" y="107">
+    "3"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="160.7" y="130.5">
+    "4"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="143.5" y="147.7">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="120" y="154">
+    "6"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="96.5" y="147.7">
+    "7"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="79.3" y="130.5">
+    "8"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="73" y="107">
+    "9"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="79.3" y="83.5">
+    "10"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="96.5" y="66.3">
+    "11"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="123" y="82">
+    "50"

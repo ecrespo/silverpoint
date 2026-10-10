@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { FIXTURES, fixtureProps } from '../examples/harness/index.js';
+import { FIXTURES, fixtureLabel, fixtureProps } from '../examples/harness/index.js';
 import { readout, stepActive, type ActiveItem } from '../packages/core/dist/index.js';
 import { renderChart } from '../packages/grounds/dist/index.js';
 import { CATALOG, catalogEntry } from '../tools/visual-gate/catalog';
@@ -104,7 +104,7 @@ test.describe('catalog accessibility', () => {
   });
 
   for (const fixture of FIXTURES.filter((f) => f.chart !== 'LineChart' && f.substrate === 'cream' && f.mode === 'ink')) {
-    test(`REQ-121 · ${fixture.chart}: the tabular alternative is reachable, one row per item`, async ({ page }) => {
+    test(`REQ-121 · ${fixtureLabel(fixture)}: the tabular alternative is reachable, one row per item`, async ({ page }) => {
       const model = modelOf(fixture);
       await page.goto(`/?fixture=${fixture.id}`);
       const table = page.locator('.sp-harness').getByRole('table', { name: model.name });
@@ -112,7 +112,7 @@ test.describe('catalog accessibility', () => {
       await expect(table.getByRole('row')).toHaveCount(model.table.rows.length + 1);
     });
 
-    test(`REQ-122 · ${fixture.chart}: Tab reaches the chart and arrows traverse its items, announcing each`, async ({ page }) => {
+    test(`REQ-122 · ${fixtureLabel(fixture)}: Tab reaches the chart and arrows traverse its items, announcing each`, async ({ page }) => {
       const model = modelOf(fixture);
       const say = (key: string, from: ActiveItem | null) => {
         const next = stepActive(model.geometry, from, key) ?? null;

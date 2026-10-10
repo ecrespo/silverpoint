@@ -350,6 +350,8 @@ describe('REQ-124 · one pass over the catalog', () => {
   const firstColumn = (model: Rendered) => model.table.rows.map((row) => row[0] ?? '');
   const flowEnds = (model: Rendered) => [...new Set(firstColumn(model).flatMap((flow) => flow.split(' → ')))];
   const seriesColumns = (model: Rendered, from: number) => model.table.columns.slice(from);
+  /** A hierarchy's first-level nodes, from the table's paths ("root › node"). */
+  const firstLevel = (model: Rendered) => firstColumn(model).map((path) => path.split(' › ')).filter((parts) => parts.length === 2).map((parts) => parts[1] ?? '');
   const dotted = (model: Rendered) => encodings(model).some((s) => s.dash === 'dotted');
 
   /** The non-hatch channel of every chart that tones its items, as the three phase reviews found it. */
@@ -381,6 +383,14 @@ describe('REQ-124 · one pass over the catalog', () => {
     WindRose: { channel: 'every speed bin named in stack order (the ruled limit: a gap in a stack)', holds: (m) => seriesColumns(m, 2).every((b) => printed(m, b)) },
     ChordRing: { channel: 'every category named at its arc', holds: (m) => flowEnds(m).every((n) => printed(m, n)) },
     DivergingBarChart: { channel: 'every level named in the legend; the side says the sign (feature-003, REQ-440)', holds: (m) => seriesColumns(m, 1).every((level) => printed(m, level)) },
+    WaffleChart: { channel: 'every category named with its share in the legend (feature-003, REQ-440)', holds: (m) => firstColumn(m).every((n) => printed(m, n)) },
+    // Tone tells the segments apart; the columns are apart by position and gap.
+    MarimekkoChart: { channel: 'every segment named in the legend (REQ-440)', holds: (m) => seriesColumns(m, 1).slice(0, -1).every((s) => printed(m, s)) },
+    SquarifiedTreemap: {
+      channel: 'every first-level frame, whose tone its tiles take, named in its corner (the ruled limit: a frame narrower than its name prints it cut, whole in the table) (REQ-440)',
+      holds: (m) => firstLevel(m).every((n) => printed(m, n) || texts(m).some((t) => t.length > 1 && t.endsWith('…') && n.startsWith(t.slice(0, -1)))),
+    },
+    SunburstChart: { channel: 'every first-ring arc, whose tone its descendants take, named with its share in the legend (REQ-440)', holds: (m) => firstLevel(m).every((n) => printed(m, n)) },
   };
 
   test('REQ-124 · every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {

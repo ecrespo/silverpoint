@@ -1,0 +1,22 @@
+{
+  "chart": "PolarLineChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "polar-line-chart--silverpoint--cream--ink--md--per-shape",
+  "req": "REQ-420",
+  "seed": 1592,
+  "props": {
+    "title": "Rainfall",
+    "badge": "by month",
+    "footerLeft": "mm",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-line-chart/polar-line-chart--silverpoint--cream--ink--md--per-shape.canonical.txt"
+}

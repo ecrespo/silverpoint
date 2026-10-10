@@ -1,0 +1,82 @@
+<svg aria-labelledby="parallel-coordinates-chart--silverpoint--green--ink--lg--per-shape-title parallel-coordinates-chart--silverpoint--green--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="parallel-coordinates-chart--silverpoint--green--ink--lg--per-shape-title">
+    "Bicycles"
+  <desc id="parallel-coordinates-chart--silverpoint--green--ink--lg--per-shape-desc">
+    "Bicycles. Parallel coordinates of 30 rows on 5 axes, mass, gears, price, range, rating; every axis spans its data, niced. The first row, Model 01, is drawn heavier."
+  <path d="M0.5 0.5 C133.17 -0.17, 265.01 0.09, 639.5 0.5 M0.5 0.5 C183.44 0.41, 366.26 0.52, 639.5 0.5 M639.5 0.5 C639.31 143.29, 639.58 286.19, 639.5 389.5 M639.5 0.5 C639.22 87.46, 639.54 174.25, 639.5 389.5 M639.5 389.5 C454 388.73, 269 388.69, 0.5 389.5 M639.5 389.5 C404 389.99, 168.67 389.93, 0.5 389.5 M0.5 389.5 C1.03 266.72, 1.33 144.05, 0.5 0.5 M0.5 389.5 C0.17 244.36, 0.5 98.64, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 352 C142.22 352.34, 267.93 352.02, 624 352 M16 352 C194.43 351.81, 373.16 351.55, 624 352" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M38 64 C37.59 117.6, 38.43 172.68, 38 324 M38 64 C37.4 142.52, 37.23 221.06, 38 324" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M179 64 C178.68 118.28, 179.76 172.27, 179 324 M179 64 C178.96 144.38, 179.09 224.88, 179 324" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M320 64 C320.08 117.52, 319.97 171.86, 320 324 M320 64 C320.52 146.23, 320.22 228.7, 320 324" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M461 64 C461.17 118.2, 461.3 172.88, 461 324 M461 64 C460.23 148.09, 460.24 232.52, 461 324" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M602 64 C601.13 118.89, 601.51 172.47, 602 324 M602 64 C601.79 149.95, 602.09 236.34, 602 324" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M38,208.3L179,168L320,145.43L461,96.5L602,291.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,277.2L179,95.2L320,121.36L461,304.5L602,142" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,135.5L179,188.8L320,157.5L461,233L602,200.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,223.9L179,168L320,180.48L461,306.67L602,246" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,92.6L179,105.6L320,298.78L461,282.83L602,200.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,127.7L179,95.2L320,262.74L461,237.33L602,187.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,96.5L179,240.8L320,118.5L461,280.67L602,77" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,95.2L179,157.6L320,250.84L461,79.17L602,278.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,151.1L179,136.8L320,168.94L461,94.33L602,168" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,140.7L179,209.6L320,216.88L461,315.33L602,252.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,208.3L179,230.4L320,197.64L461,198.33L602,226.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,149.8L179,209.6L320,269.61L461,276.33L602,304.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,272L179,272L320,306.16L461,248.17L602,129" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,171.9L179,188.8L320,124.48L461,289.33L602,129" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,118.6L179,136.8L320,134.51L461,135.5L602,77" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,178.4L179,178.4L320,113.24L461,306.67L602,291.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,182.3L179,188.8L320,237.47L461,120.33L602,304.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,253.8L179,282.4L320,136.8L461,204.83L602,265.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,121.2L179,178.4L320,269.3L461,98.67L602,161.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,168L179,282.4L320,200.92L461,259L602,161.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,116L179,261.6L320,191.66L461,159.33L602,187.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,127.7L179,95.2L320,132.95L461,118.17L602,181" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,145.9L179,188.8L320,184.33L461,133.33L602,272" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,110.8L179,251.2L320,279.12L461,237.33L602,220" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,222.6L179,199.2L320,107.52L461,161.5L602,233" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,91.3L179,292.8L320,160.3L461,74.83L602,161.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,225.2L179,199.2L320,162.59L461,98.67L602,116" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,152.4L179,220L320,180.22L461,83.5L602,239.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,151.1L179,240.8L320,276.06L461,137.67L602,135.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,272L179,230.4L320,277.93L461,298L602,259" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.5,208.3A3.5,3.5,0,1,0,41.5,208.3A3.5,3.5,0,1,0,34.5,208.3Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M34.5,208.3A3.5,3.5,0,1,0,41.5,208.3A3.5,3.5,0,1,0,34.5,208.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Bicycles"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "30 models"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "five measures"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="38" y="54">
+    "mass"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="41" y="67">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="41" y="334">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="179" y="54">
+    "gears"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="182" y="67">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="182" y="334">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="320" y="54">
+    "price"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="323" y="67">
+    "5,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="323" y="334">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="461" y="54">
+    "range"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="464" y="67">
+    "140"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="464" y="334">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="602" y="54">
+    "rating"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="605" y="67">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="605" y="334">
+    "1"

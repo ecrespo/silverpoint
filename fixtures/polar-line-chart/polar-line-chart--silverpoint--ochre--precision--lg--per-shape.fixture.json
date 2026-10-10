@@ -1,0 +1,22 @@
+{
+  "chart": "PolarLineChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "polar-line-chart--silverpoint--ochre--precision--lg--per-shape",
+  "req": "REQ-420",
+  "seed": 1592,
+  "props": {
+    "title": "Rainfall",
+    "badge": "by month",
+    "footerLeft": "mm",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-line-chart/polar-line-chart--silverpoint--ochre--precision--lg--per-shape.canonical.txt"
+}

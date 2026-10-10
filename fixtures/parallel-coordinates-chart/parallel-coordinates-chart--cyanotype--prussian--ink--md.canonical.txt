@@ -1,0 +1,82 @@
+<svg aria-labelledby="parallel-coordinates-chart--cyanotype--prussian--ink--md-title parallel-coordinates-chart--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="parallel-coordinates-chart--cyanotype--prussian--ink--md-title">
+    "Bicycles"
+  <desc id="parallel-coordinates-chart--cyanotype--prussian--ink--md-desc">
+    "Bicycles. Parallel coordinates of 30 rows on 5 axes, mass, gears, price, range, rating; every axis spans its data, niced. The first row, Model 01, is drawn heavier."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M38,64V174" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M99,64V174" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M160,64V174" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M221,64V174" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M282,64V174" data-paint="stroke" data-role="ornament" part="sp-axis">
+  <path d="M38,125.05L99,108L160,98.45L221,77.75L282,160.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,154.2L99,77.2L160,88.27L221,165.75L282,97" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,94.25L99,116.8L160,103.56L221,135.5L282,121.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,131.65L99,108L160,113.28L221,166.67L282,141" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,76.1L99,81.6L160,163.33L221,156.58L282,121.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,90.95L99,77.2L160,148.08L221,137.33L282,116.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,77.75L99,138.8L160,87.06L221,155.67L282,69.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,77.2L99,103.6L160,143.05L221,70.42L282,154.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,100.85L99,94.8L160,108.4L221,76.83L282,108" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,96.45L99,125.6L160,128.68L221,170.33L282,143.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,125.05L99,134.4L160,120.54L221,120.83L282,132.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,100.3L99,125.6L160,150.99L221,153.83L282,165.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,152L99,152L160,166.45L221,141.92L282,91.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,109.65L99,116.8L160,89.59L221,159.33L282,91.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,87.1L99,94.8L160,93.83L221,94.25L282,69.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,112.4L99,112.4L160,84.83L221,166.67L282,160.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,114.05L99,116.8L160,137.39L221,87.83L282,165.75" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,144.3L99,156.4L160,94.8L221,123.58L282,149.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,88.2L99,112.4L160,150.86L221,78.67L282,105.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,108L99,156.4L160,121.93L221,146.5L282,105.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,86L99,147.6L160,118.01L221,104.33L282,116.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,90.95L99,77.2L160,93.17L221,86.92L282,113.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,98.65L99,116.8L160,114.91L221,93.33L282,152" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,83.8L99,143.2L160,155.01L221,137.33L282,130" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,131.1L99,121.2L160,82.41L221,105.25L282,135.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,75.55L99,160.8L160,104.74L221,68.58L282,105.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,132.2L99,121.2L160,105.71L221,78.67L282,86" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,101.4L99,130L160,113.17L221,72.25L282,138.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,100.85L99,138.8L160,153.72L221,95.17L282,94.25" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M38,152L99,134.4L160,154.51L221,163L282,146.5" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M34.5,125.05A3.5,3.5,0,1,0,41.5,125.05A3.5,3.5,0,1,0,34.5,125.05Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M34.5,125.05A3.5,3.5,0,1,0,41.5,125.05A3.5,3.5,0,1,0,34.5,125.05Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Bicycles"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "30 models"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "five measures"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="38" y="54">
+    "mass"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="41" y="67">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="41" y="184">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="99" y="54">
+    "gears"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102" y="67">
+    "25"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="102" y="184">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="160" y="54">
+    "price"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163" y="67">
+    "5,000"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="163" y="184">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="221" y="54">
+    "range"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="224" y="67">
+    "140"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="224" y="184">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="282" y="54">
+    "rating"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="285" y="67">
+    "5"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="285" y="184">
+    "1"

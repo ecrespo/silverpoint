@@ -24,8 +24,8 @@ describe('props reference', () => {
 
   describe('what the demo ignores (delta-011)', () => {
     /** Accessor props say where a field lives in the consumer's rows: `…Key`, `keys`, `names`. */
-    // `levels` and `axis` say how the data's columns are read, so they go with the data (feature-003).
-    const isAccessor = (name: string) => name.endsWith('Key') || ['keys', 'names', 'levels', 'axis'].includes(name);
+    // `levels`, `axis`, `dimensions` and `period` say how the data's columns are read, so they go with the data (feature-003).
+    const isAccessor = (name: string) => name.endsWith('Key') || ['keys', 'names', 'levels', 'axis', 'dimensions', 'period'].includes(name);
     const accessors = reference.charts.flatMap(({ chart, own }) => own.filter((p) => isAccessor(p.name)).map((p) => ({ chart, ...p })));
 
     test('REQ-099 · every accessor prop says it is ignored without `data`', () => {
@@ -36,7 +36,7 @@ describe('props reference', () => {
 
     test('REQ-099 · REQ-098 · `data` states the rule: accessors ignored, every other prop applied', () => {
       const data = reference.common.find((p) => p.name === 'data')!;
-      expect(data.doc).toBe('Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`) are ignored, every other prop applies.');
+      expect(data.doc).toBe('Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`, `dimensions`, `period`) are ignored, every other prop applies.');
     });
 
     test('REQ-099 · no other prop claims to be ignored without `data`', () => {

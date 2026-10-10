@@ -23,6 +23,8 @@ export interface Fixture {
   readonly hatchFill: 'tile' | 'per-shape';
   readonly seed: number;
   readonly size: { readonly width: number; readonly height: number };
+  /** A state fixture's name (the catalog row's `states`); absent for the chart's own cells. */
+  readonly state?: string;
   readonly props: Readonly<Record<string, unknown>>;
   /** Path to a JSON data file, relative to the fixtures directory, or `null` for the demo dataset. */
   readonly data: string | null;
@@ -45,8 +47,8 @@ function sizeName(size: { width: number; height: number }): string | undefined {
 }
 
 /** The id a fixture must carry: `<chart>--<ground>--<substrate>--<mode>--<size>`. */
-export function fixtureId(fixture: Pick<Fixture, 'chart' | 'ground' | 'substrate' | 'mode' | 'size' | 'hatchFill'>): string {
-  const suffix = fixture.hatchFill === 'per-shape' ? '--per-shape' : '';
+export function fixtureId(fixture: Pick<Fixture, 'chart' | 'ground' | 'substrate' | 'mode' | 'size' | 'hatchFill' | 'state'>): string {
+  const suffix = `${fixture.hatchFill === 'per-shape' ? '--per-shape' : ''}${fixture.state === undefined ? '' : `--${fixture.state}`}`;
   return `${kebab(fixture.chart)}--${fixture.ground}--${fixture.substrate}--${fixture.mode}--${sizeName(fixture.size) ?? 'custom'}${suffix}`;
 }
 
@@ -66,6 +68,7 @@ export function validateFixture(value: unknown): string[] {
   if (typeof f.props !== 'object' || f.props === null) problems.push('props must be an object');
   if (f.data !== null && typeof f.data !== 'string') problems.push('data must be a path or null');
   if (typeof f.req === 'string' && !/^REQ-\d{3}$/.test(f.req)) problems.push('req must be a REQ-NNN identifier');
+  if (f.state !== undefined && (typeof f.state !== 'string' || !/^[a-z]+$/.test(f.state))) problems.push('state must be a lower-case word');
   if (typeof f.chart === 'string' && !(f.chart in RECIPES)) problems.push(`chart ${f.chart} has no recipe`);
   if (problems.length === 0 && f.id !== fixtureId(value as Fixture)) problems.push(`id must be ${fixtureId(value as Fixture)}`);
   return problems;

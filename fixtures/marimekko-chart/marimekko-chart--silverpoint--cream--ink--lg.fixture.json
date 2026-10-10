@@ -1,0 +1,22 @@
+{
+  "chart": "MarimekkoChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "marimekko-chart--silverpoint--cream--ink--lg",
+  "req": "REQ-415",
+  "seed": 1592,
+  "props": {
+    "title": "Sales",
+    "badge": "by region",
+    "footerLeft": "share by channel",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "marimekko-chart/marimekko-chart--silverpoint--cream--ink--lg.canonical.txt"
+}

@@ -579,6 +579,102 @@
       "import": "./dist/server/connected-scatter-chart.js",
       "default": "./dist/server/connected-scatter-chart.js"
     },
+    "./waffle-chart": {
+      "@silverpoint/source": "./src/waffle-chart.tsx",
+      "types": "./dist/waffle-chart.d.ts",
+      "import": "./dist/waffle-chart.js",
+      "default": "./dist/waffle-chart.js"
+    },
+    "./server/waffle-chart": {
+      "@silverpoint/source": "./src/server/waffle-chart.tsx",
+      "types": "./dist/server/waffle-chart.d.ts",
+      "import": "./dist/server/waffle-chart.js",
+      "default": "./dist/server/waffle-chart.js"
+    },
+    "./marimekko-chart": {
+      "@silverpoint/source": "./src/marimekko-chart.tsx",
+      "types": "./dist/marimekko-chart.d.ts",
+      "import": "./dist/marimekko-chart.js",
+      "default": "./dist/marimekko-chart.js"
+    },
+    "./server/marimekko-chart": {
+      "@silverpoint/source": "./src/server/marimekko-chart.tsx",
+      "types": "./dist/server/marimekko-chart.d.ts",
+      "import": "./dist/server/marimekko-chart.js",
+      "default": "./dist/server/marimekko-chart.js"
+    },
+    "./squarified-treemap": {
+      "@silverpoint/source": "./src/squarified-treemap.tsx",
+      "types": "./dist/squarified-treemap.d.ts",
+      "import": "./dist/squarified-treemap.js",
+      "default": "./dist/squarified-treemap.js"
+    },
+    "./server/squarified-treemap": {
+      "@silverpoint/source": "./src/server/squarified-treemap.tsx",
+      "types": "./dist/server/squarified-treemap.d.ts",
+      "import": "./dist/server/squarified-treemap.js",
+      "default": "./dist/server/squarified-treemap.js"
+    },
+    "./sunburst-chart": {
+      "@silverpoint/source": "./src/sunburst-chart.tsx",
+      "types": "./dist/sunburst-chart.d.ts",
+      "import": "./dist/sunburst-chart.js",
+      "default": "./dist/sunburst-chart.js"
+    },
+    "./server/sunburst-chart": {
+      "@silverpoint/source": "./src/server/sunburst-chart.tsx",
+      "types": "./dist/server/sunburst-chart.d.ts",
+      "import": "./dist/server/sunburst-chart.js",
+      "default": "./dist/server/sunburst-chart.js"
+    },
+    "./tree-chart": {
+      "@silverpoint/source": "./src/tree-chart.tsx",
+      "types": "./dist/tree-chart.d.ts",
+      "import": "./dist/tree-chart.js",
+      "default": "./dist/tree-chart.js"
+    },
+    "./server/tree-chart": {
+      "@silverpoint/source": "./src/server/tree-chart.tsx",
+      "types": "./dist/server/tree-chart.d.ts",
+      "import": "./dist/server/tree-chart.js",
+      "default": "./dist/server/tree-chart.js"
+    },
+    "./parallel-coordinates-chart": {
+      "@silverpoint/source": "./src/parallel-coordinates-chart.tsx",
+      "types": "./dist/parallel-coordinates-chart.d.ts",
+      "import": "./dist/parallel-coordinates-chart.js",
+      "default": "./dist/parallel-coordinates-chart.js"
+    },
+    "./server/parallel-coordinates-chart": {
+      "@silverpoint/source": "./src/server/parallel-coordinates-chart.tsx",
+      "types": "./dist/server/parallel-coordinates-chart.d.ts",
+      "import": "./dist/server/parallel-coordinates-chart.js",
+      "default": "./dist/server/parallel-coordinates-chart.js"
+    },
+    "./polar-line-chart": {
+      "@silverpoint/source": "./src/polar-line-chart.tsx",
+      "types": "./dist/polar-line-chart.d.ts",
+      "import": "./dist/polar-line-chart.js",
+      "default": "./dist/polar-line-chart.js"
+    },
+    "./server/polar-line-chart": {
+      "@silverpoint/source": "./src/server/polar-line-chart.tsx",
+      "types": "./dist/server/polar-line-chart.d.ts",
+      "import": "./dist/server/polar-line-chart.js",
+      "default": "./dist/server/polar-line-chart.js"
+    },
+    "./polar-scatter-chart": {
+      "@silverpoint/source": "./src/polar-scatter-chart.tsx",
+      "types": "./dist/polar-scatter-chart.d.ts",
+      "import": "./dist/polar-scatter-chart.js",
+      "default": "./dist/polar-scatter-chart.js"
+    },
+    "./server/polar-scatter-chart": {
+      "@silverpoint/source": "./src/server/polar-scatter-chart.tsx",
+      "types": "./dist/server/polar-scatter-chart.d.ts",
+      "import": "./dist/server/polar-scatter-chart.js",
+      "default": "./dist/server/polar-scatter-chart.js"
+    },
     "./dashboard": {
       "@silverpoint/source": "./src/dashboard.tsx",
       "types": "./dist/dashboard.d.ts",

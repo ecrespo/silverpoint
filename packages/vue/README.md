@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 47 charts written with `<script setup>`, with typed props and typed emits, and each one
+- 55 charts written with `<script setup>`, with typed props and typed emits, and each one
   importable on its own subpath.
 - Server rendering with `@vue/server-renderer`, hydrating without a mismatch.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -208,7 +208,7 @@ integration.
 | `locale`, `number-format` | environment | Number formatting. |
 | `hatch-fill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 47 charts
+## The 55 charts
 
 Every chart is available as `@silverpoint/vue/<kebab-case-name>` (and from the barrel
 `@silverpoint/vue`), prefixed `Sp`:
@@ -227,7 +227,16 @@ The second catalog, for distributions, comparisons, ranks and uncertainty (since
 `SpBeeswarmChart`, `SpLollipopChart`, `SpDumbbellChart`, `SpSlopeChart`, `SpBumpChart`,
 `SpErrorBarChart`, `SpIntervalChart`, `SpDivergingBarChart`, `SpConnectedScatterChart`.
 
-`SpRidgelineChart` needs `group-key` and `SpDivergingBarChart` needs `levels`, even with the demo dataset, which ignores both.
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+
+`SpWaffleChart`, `SpMarimekkoChart`, `SpSquarifiedTreemap`, `SpSunburstChart`, `SpTreeChart`,
+`SpParallelCoordinatesChart`, `SpPolarLineChart`, `SpPolarScatterChart`.
+
+`SpRidgelineChart` needs `group-key`, `SpDivergingBarChart` needs `levels` and `SpParallelCoordinatesChart` needs `dimensions`, even with the demo dataset, which ignores them.
+
+`SpSquarifiedTreemap` and `SpSunburstChart` drill down under your control: bind `root-id` and update it
+from `@root-change`, which a click, Enter or Space on a node emits with its id (its centre or frame
+emits the parent's, `null` for the top). The component holds no root of its own.
 
 Each chart's own props are typed in its `*Props` type, exported from `@silverpoint/vue`. The
 [repository](https://github.com/ecrespo/silverpoint) holds the API specification and the

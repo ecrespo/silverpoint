@@ -1,0 +1,51 @@
+<svg aria-labelledby="sunburst-chart--cyanotype--prussian--ink--sm--root-title sunburst-chart--cyanotype--prussian--ink--sm--root-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="sunburst-chart--cyanotype--prussian--ink--sm--root-title">
+    "City budget"
+  <desc id="sunburst-chart--cyanotype--prussian--ink--sm--root-desc">
+    "City budget. Sunburst of 3 levels, 9 nodes, 6 leaves, rooted at City budget › Public works, totalling 19,197; each arc's angle is its value, each ring a level. The largest first-level arc is Street lighting, 42% of the whole."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M58,104A18,18,0,1,0,94,104A18,18,0,1,0,58,104Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76,68A36,36,0,0,1,93.83,135.27L84.92,119.64A18,18,0,0,0,76,86Z" data-paint="stroke" data-role="encoding" data-weight="1" part="sp-ink">
+  <path d="M93.83,135.27A36,36,0,0,1,40.1,106.69L58.05,105.35A18,18,0,0,0,84.92,119.64Z" data-paint="stroke" data-role="encoding" data-weight="2" part="sp-ink">
+  <path d="M40.1,106.69A36,36,0,0,1,52.71,76.55L64.35,90.28A18,18,0,0,0,58.05,105.35Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+  <path d="M22.15,108.04A54,54,0,0,1,31.5,73.41L46.34,83.6A36,36,0,0,0,40.1,106.69Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+  <path d="M31.5,73.41A54,54,0,0,1,41.06,62.83L52.71,76.55A36,36,0,0,0,46.34,83.6Z" data-paint="stroke" data-role="encoding" data-weight="3" part="sp-ink">
+  <path d="M52.71,76.55A36,36,0,0,1,76,68L76,86A18,18,0,0,0,64.35,90.28Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+  <path d="M41.06,62.83A54,54,0,0,1,69.13,50.44L71.42,68.29A36,36,0,0,0,52.71,76.55Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+  <path d="M69.13,50.44A54,54,0,0,1,76,50L76,68A36,36,0,0,0,71.42,68.29Z" data-paint="stroke" data-role="encoding" data-weight="4" part="sp-ink">
+  <path d="M150,79H159V86H150Z" data-paint="stroke" data-role="ornament" data-weight="1" part="sp-ink">
+  <path d="M150,93H159V100H150Z" data-paint="stroke" data-role="ornament" data-weight="2" part="sp-ink">
+  <path d="M150,107H159V114H150Z" data-paint="stroke" data-role="ornament" data-weight="3" part="sp-ink">
+  <path d="M150,121H159V128H150Z" data-paint="stroke" data-role="ornament" data-weight="4" part="sp-ink">
+  <path d="M76,68A36,36,0,0,1,93.83,135.27L84.92,119.64A18,18,0,0,0,76,86Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="102.1" y="100.08">
+    "Street light…"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="63.32" y="130.84">
+    "Bridges"
+  <text data-kind="tick" part="sp-text" text-anchor="middle" x="76" y="107">
+    "Publ…"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="164" y="86">
+    "Street lighting"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="86">
+    "42%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="164" y="100">
+    "Bridges"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="100">
+    "32%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="164" y="114">
+    "Water mains"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="114">
+    "15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="164" y="128">
+    "Roads"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="128">
+    "11%"

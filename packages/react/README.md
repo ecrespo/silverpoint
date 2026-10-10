@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 47 charts, each importable on its own subpath so you only ship the charts you use.
+- 55 charts, each importable on its own subpath so you only ship the charts you use.
 - React 18.2+ and 19. Client components (`"use client"`) and server entry points for React
   Server Components.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -201,7 +201,7 @@ export default function Page() {
 | `locale`, `numberFormat` | environment | Number formatting. |
 | `hatchFill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 47 charts
+## The 55 charts
 
 Every chart is available as `@silverpoint/react/<kebab-case-name>` (and from the barrel
 `@silverpoint/react`):
@@ -219,7 +219,16 @@ The second catalog, for distributions, comparisons, ranks and uncertainty (since
 `LollipopChart`, `DumbbellChart`, `SlopeChart`, `BumpChart`, `ErrorBarChart`, `IntervalChart`,
 `DivergingBarChart`, `ConnectedScatterChart`.
 
-`RidgelineChart` needs `groupKey` and `DivergingBarChart` needs `levels`, even with the demo dataset, which ignores both.
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+
+`WaffleChart`, `MarimekkoChart`, `SquarifiedTreemap`, `SunburstChart`, `TreeChart`,
+`ParallelCoordinatesChart`, `PolarLineChart`, `PolarScatterChart`.
+
+`RidgelineChart` needs `groupKey`, `DivergingBarChart` needs `levels` and `ParallelCoordinatesChart` needs `dimensions`, even with the demo dataset, which ignores them.
+
+`SquarifiedTreemap` and `SunburstChart` drill down under your control: pass `rootId` and update it from
+`onRootChange`, which a click, Enter or Space on a node emits with its id (its centre or frame emits
+the parent's, `null` for the top). The chart keeps no root of its own, so it renders the same on the server.
 
 Each chart's own props (`xKey`, `valueKey`, `nameKey`…) are typed and documented in its
 `*Props` type. The [repository](https://github.com/ecrespo/silverpoint) holds the API

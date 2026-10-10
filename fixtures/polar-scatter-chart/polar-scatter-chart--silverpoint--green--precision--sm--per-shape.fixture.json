@@ -1,0 +1,22 @@
+{
+  "chart": "PolarScatterChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "polar-scatter-chart--silverpoint--green--precision--sm--per-shape",
+  "req": "REQ-421",
+  "seed": 1592,
+  "props": {
+    "title": "Sightings",
+    "badge": "150",
+    "footerLeft": "bearing × km",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-scatter-chart/polar-scatter-chart--silverpoint--green--precision--sm--per-shape.canonical.txt"
+}

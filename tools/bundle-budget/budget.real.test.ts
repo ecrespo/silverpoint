@@ -125,17 +125,35 @@ describe('bundle budgets (size-limit)', () => {
   /**
    * REQ-444 (feature-003, API Spec delta §12): the second catalog's statistics, layouts and
    * keyboard models must shake out of every existing chart's build. Each one-chart build is held to
-   * its size in `0.3.0` (`one-chart-0.3.0.json`, measured on a v0.3.0 worktree) within 0.1 KB.
+   * its size in `0.3.0` (`one-chart-0.3.0.json`, measured on a v0.3.0 worktree) within 0.25 KB —
+   * minified, not gzipped: code that grows grows there, while gzip moves by tens of bytes when the
+   * bundler only reorders modules (seen with wave 2). The allowance holds the tree keyboard's
+   * `moves` branch in `stepActive` (Phase 4, ~190 B), and little else (user decision 2026-10-09).
+   * The 45 KB budgets above stay min+gzip.
    */
-  test('REQ-444 · no existing one-chart build grows by more than 0.1 KB against 0.3.0', () => {
-    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.3.0.json'), 'utf8')) as { sizes: Record<string, number> };
-    const sizes = new Map(sizeLimit().results.map((r) => [r.name, r.size]));
-    const grown = Object.entries(record.sizes).flatMap(([name, before]) => {
-      const now = sizes.get(name);
-      if (now === undefined) return [`${name}: no longer measured`];
-      return now - before > 100 ? [`${name}: ${before} B → ${now} B (+${now - before} B)`] : [];
-    });
-    expect(Object.keys(record.sizes).length).toBeGreaterThanOrEqual(33 * 4);
-    expect(grown).toEqual([]);
+  test('REQ-444 · no existing one-chart build grows by more than 0.25 KB minified against 0.3.0', () => {
+    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.3.0.json'), 'utf8')) as { minified: Record<string, number> };
+    const dir = mkdtempSync(join(repo, '.size-limit-'));
+    try {
+      const file = join(dir, 'minified.json');
+      // The same entries, uncompressed (size-limit compresses with brotli unless told not to) and
+      // unbudgeted; paths absolute, as the config sits elsewhere.
+      const absolute = (e: Entry) => ({
+        ...e,
+        ...(e.path ? { path: join(repo, e.path) } : {}),
+        ...(typeof e.import === 'object' ? { import: Object.fromEntries(Object.entries(e.import).map(([f, names]) => [join(repo, f), names])) } : {}),
+      });
+      writeFileSync(file, JSON.stringify(config.filter((e) => e.name in record.minified).map(({ limit: _limit, ...e }) => ({ ...absolute(e), gzip: false, brotli: false }))));
+      const sizes = new Map(sizeLimit(file).results.map((r) => [r.name, r.size]));
+      const grown = Object.entries(record.minified).flatMap(([name, before]) => {
+        const now = sizes.get(name);
+        if (now === undefined) return [`${name}: no longer measured`];
+        return now - before > 250 ? [`${name}: ${before} B → ${now} B (+${now - before} B)`] : [];
+      });
+      expect(Object.keys(record.minified).length).toBeGreaterThanOrEqual(33 * 4);
+      expect(grown).toEqual([]);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   }, 120_000);
 });

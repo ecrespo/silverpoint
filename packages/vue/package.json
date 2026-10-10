@@ -297,6 +297,54 @@
       "import": "./dist/connected-scatter-chart.js",
       "default": "./dist/connected-scatter-chart.js"
     },
+    "./waffle-chart": {
+      "@silverpoint/source": "./src/waffle-chart.ts",
+      "types": "./dist/waffle-chart.d.ts",
+      "import": "./dist/waffle-chart.js",
+      "default": "./dist/waffle-chart.js"
+    },
+    "./marimekko-chart": {
+      "@silverpoint/source": "./src/marimekko-chart.ts",
+      "types": "./dist/marimekko-chart.d.ts",
+      "import": "./dist/marimekko-chart.js",
+      "default": "./dist/marimekko-chart.js"
+    },
+    "./squarified-treemap": {
+      "@silverpoint/source": "./src/squarified-treemap.ts",
+      "types": "./dist/squarified-treemap.d.ts",
+      "import": "./dist/squarified-treemap.js",
+      "default": "./dist/squarified-treemap.js"
+    },
+    "./sunburst-chart": {
+      "@silverpoint/source": "./src/sunburst-chart.ts",
+      "types": "./dist/sunburst-chart.d.ts",
+      "import": "./dist/sunburst-chart.js",
+      "default": "./dist/sunburst-chart.js"
+    },
+    "./tree-chart": {
+      "@silverpoint/source": "./src/tree-chart.ts",
+      "types": "./dist/tree-chart.d.ts",
+      "import": "./dist/tree-chart.js",
+      "default": "./dist/tree-chart.js"
+    },
+    "./parallel-coordinates-chart": {
+      "@silverpoint/source": "./src/parallel-coordinates-chart.ts",
+      "types": "./dist/parallel-coordinates-chart.d.ts",
+      "import": "./dist/parallel-coordinates-chart.js",
+      "default": "./dist/parallel-coordinates-chart.js"
+    },
+    "./polar-line-chart": {
+      "@silverpoint/source": "./src/polar-line-chart.ts",
+      "types": "./dist/polar-line-chart.d.ts",
+      "import": "./dist/polar-line-chart.js",
+      "default": "./dist/polar-line-chart.js"
+    },
+    "./polar-scatter-chart": {
+      "@silverpoint/source": "./src/polar-scatter-chart.ts",
+      "types": "./dist/polar-scatter-chart.d.ts",
+      "import": "./dist/polar-scatter-chart.js",
+      "default": "./dist/polar-scatter-chart.js"
+    },
     "./dashboard": {
       "@silverpoint/source": "./src/dashboard.ts",
       "types": "./dist/dashboard.d.ts",

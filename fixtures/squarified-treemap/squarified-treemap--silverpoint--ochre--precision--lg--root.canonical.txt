@@ -1,0 +1,40 @@
+<svg aria-labelledby="squarified-treemap--silverpoint--ochre--precision--lg--root-title squarified-treemap--silverpoint--ochre--precision--lg--root-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
+  <title id="squarified-treemap--silverpoint--ochre--precision--lg--root-title">
+    "City budget"
+  <desc id="squarified-treemap--silverpoint--ochre--precision--lg--root-desc">
+    "City budget. Squarified treemap of 3 levels, 9 nodes, 6 leaves, rooted at City budget › Public works, totalling 19,197; each tile's area is its value. The largest tile is City budget › Public works › Street lighting, 42% of the whole."
+  <path d="M0.5,0.5H639.5V389.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,352H624" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M18,46H270.18V342H18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M270.18,46H463.8V342H270.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M463.8,46H622V215.43H463.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M463.8,46H622V167.8H463.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M463.8,167.8H622V215.43H463.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M463.8,215.43H622V342H463.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M463.8,215.43H593.3V342H463.8Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M593.3,215.43H622V342H593.3Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M18,46H270.18V342H18Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "City budget"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="624" y="27">
+    "2026"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="370">
+    "by department"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="624" y="370">
+    "silverpoint"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="21" y="56">
+    "Street lighting 42%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="273.18" y="56">
+    "Bridges 32%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="466.8" y="56">
+    "Water mains 15%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="466.8" y="225.43">
+    "Roads 11%"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="466.8" y="69">
+    "Water mains: staff"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="466.8" y="190.8">
+    "Water mains: materials"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="466.8" y="238.43">
+    "Roads: staff"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="596.3" y="238.43">
+    "Roa…"

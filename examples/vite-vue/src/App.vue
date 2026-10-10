@@ -50,6 +50,14 @@ import { SpErrorBarChart } from '@silverpoint/vue/error-bar-chart';
 import { SpIntervalChart } from '@silverpoint/vue/interval-chart';
 import { SpDivergingBarChart } from '@silverpoint/vue/diverging-bar-chart';
 import { SpConnectedScatterChart } from '@silverpoint/vue/connected-scatter-chart';
+import { SpWaffleChart } from '@silverpoint/vue/waffle-chart';
+import { SpMarimekkoChart } from '@silverpoint/vue/marimekko-chart';
+import { SpSquarifiedTreemap } from '@silverpoint/vue/squarified-treemap';
+import { SpSunburstChart } from '@silverpoint/vue/sunburst-chart';
+import { SpTreeChart } from '@silverpoint/vue/tree-chart';
+import { SpParallelCoordinatesChart } from '@silverpoint/vue/parallel-coordinates-chart';
+import { SpPolarLineChart } from '@silverpoint/vue/polar-line-chart';
+import { SpPolarScatterChart } from '@silverpoint/vue/polar-scatter-chart';
 
 /** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
 const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture; uiPage?: boolean }>();
@@ -60,7 +68,7 @@ const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpS
 const uiParts = computed(() => (props.ui ? uiFixtureParts(props.ui) : undefined));
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart } as const;
+const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart, WaffleChart: SpWaffleChart, MarimekkoChart: SpMarimekkoChart, SquarifiedTreemap: SpSquarifiedTreemap, SunburstChart: SpSunburstChart, TreeChart: SpTreeChart, ParallelCoordinatesChart: SpParallelCoordinatesChart, PolarLineChart: SpPolarLineChart, PolarScatterChart: SpPolarScatterChart } as const;
 </script>
 
 <template>

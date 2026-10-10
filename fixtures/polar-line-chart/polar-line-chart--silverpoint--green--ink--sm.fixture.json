@@ -1,0 +1,22 @@
+{
+  "chart": "PolarLineChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "polar-line-chart--silverpoint--green--ink--sm",
+  "req": "REQ-420",
+  "seed": 1592,
+  "props": {
+    "title": "Rainfall",
+    "badge": "by month",
+    "footerLeft": "mm",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "polar-line-chart/polar-line-chart--silverpoint--green--ink--sm.canonical.txt"
+}

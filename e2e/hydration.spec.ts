@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
 import { CATALOG } from '../tools/visual-gate/catalog';
 import { coreSvgFor, loadFixtures } from '../tools/visual-gate/fixtures';
+import { fixtureLabel } from '../examples/harness/index.js';
 import { APPS, type AppName } from '../playwright.config';
 
 /**
@@ -36,7 +37,7 @@ test.describe('second catalog: server rendering and hydration', () => {
   });
 
   for (const fixture of FIXTURES) {
-    test(`REQ-103 · REQ-109 · ${fixture.chart}: the server HTML is the canonical render, and it hydrates with no mismatch`, async ({ page, request }, info) => {
+    test(`REQ-103 · REQ-109 · ${fixtureLabel(fixture)}: the server HTML is the canonical render, and it hydrates with no mismatch`, async ({ page, request }, info) => {
       test.skip(!appOf(info.project.name).ssr, 'client-rendered app');
       const canonical = coreSvgFor(fixture);
       const html = await (await request.get(pathOf(info.project.name, fixture.id))).text();
@@ -48,7 +49,7 @@ test.describe('second catalog: server rendering and hydration', () => {
   }
 
   for (const fixture of FIXTURES.filter((f) => OTHER_ENGINES.includes(f.chart))) {
-    test(`REQ-435 · REQ-103 · ${fixture.chart}: Firefox and WebKit hydrate the server HTML with no mismatch`, async ({ playwright }, info) => {
+    test(`REQ-435 · REQ-103 · ${fixtureLabel(fixture)}: Firefox and WebKit hydrate the server HTML with no mismatch`, async ({ playwright }, info) => {
       test.skip(!appOf(info.project.name).ssr, 'client-rendered app');
       const canonical = coreSvgFor(fixture);
       for (const type of [playwright.firefox, playwright.webkit]) {

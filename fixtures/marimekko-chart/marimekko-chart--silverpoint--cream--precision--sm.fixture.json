@@ -1,0 +1,22 @@
+{
+  "chart": "MarimekkoChart",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "marimekko-chart--silverpoint--cream--precision--sm",
+  "req": "REQ-415",
+  "seed": 1592,
+  "props": {
+    "title": "Sales",
+    "badge": "by region",
+    "footerLeft": "share by channel",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "marimekko-chart/marimekko-chart--silverpoint--cream--precision--sm.canonical.txt"
+}

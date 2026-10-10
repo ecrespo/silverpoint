@@ -1,0 +1,29 @@
+{
+  "chart": "ParallelCoordinatesChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "parallel-coordinates-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-419",
+  "seed": 1592,
+  "props": {
+    "dimensions": [
+      "mass",
+      "gears",
+      "price",
+      "range",
+      "rating"
+    ],
+    "title": "Bicycles",
+    "badge": "30 models",
+    "footerLeft": "five measures",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "parallel-coordinates-chart/parallel-coordinates-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

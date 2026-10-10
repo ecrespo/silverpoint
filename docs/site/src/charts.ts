@@ -46,6 +46,14 @@ import { ErrorBarChart } from '@silverpoint/react/error-bar-chart';
 import { IntervalChart } from '@silverpoint/react/interval-chart';
 import { DivergingBarChart } from '@silverpoint/react/diverging-bar-chart';
 import { ConnectedScatterChart } from '@silverpoint/react/connected-scatter-chart';
+import { WaffleChart } from '@silverpoint/react/waffle-chart';
+import { MarimekkoChart } from '@silverpoint/react/marimekko-chart';
+import { SquarifiedTreemap } from '@silverpoint/react/squarified-treemap';
+import { SunburstChart } from '@silverpoint/react/sunburst-chart';
+import { TreeChart } from '@silverpoint/react/tree-chart';
+import { ParallelCoordinatesChart } from '@silverpoint/react/parallel-coordinates-chart';
+import { PolarLineChart } from '@silverpoint/react/polar-line-chart';
+import { PolarScatterChart } from '@silverpoint/react/polar-scatter-chart';
 
 export interface SiteChart {
   readonly chart: string;
@@ -105,6 +113,15 @@ export const CHARTS: readonly SiteChart[] = [
   // A required prop (`levels`) leaves no overlap with the open record: widened through `unknown`.
   { chart: 'DivergingBarChart', slug: 'diverging-bar-chart', Component: DivergingBarChart as unknown as SiteChart['Component'] },
   { chart: 'ConnectedScatterChart', slug: 'connected-scatter-chart', Component: ConnectedScatterChart as SiteChart['Component'] },
+  { chart: 'WaffleChart', slug: 'waffle-chart', Component: WaffleChart as SiteChart['Component'] },
+  { chart: 'MarimekkoChart', slug: 'marimekko-chart', Component: MarimekkoChart as SiteChart['Component'] },
+  { chart: 'SquarifiedTreemap', slug: 'squarified-treemap', Component: SquarifiedTreemap as SiteChart['Component'] },
+  { chart: 'SunburstChart', slug: 'sunburst-chart', Component: SunburstChart as SiteChart['Component'] },
+  { chart: 'TreeChart', slug: 'tree-chart', Component: TreeChart as SiteChart['Component'] },
+  // A required prop (`dimensions`) leaves no overlap with the open record: widened through `unknown`.
+  { chart: 'ParallelCoordinatesChart', slug: 'parallel-coordinates-chart', Component: ParallelCoordinatesChart as unknown as SiteChart['Component'] },
+  { chart: 'PolarLineChart', slug: 'polar-line-chart', Component: PolarLineChart as SiteChart['Component'] },
+  { chart: 'PolarScatterChart', slug: 'polar-scatter-chart', Component: PolarScatterChart as SiteChart['Component'] },
 ];
 
 export const chartBySlug = (slug: string | undefined): SiteChart | undefined => CHARTS.find((c) => c.slug === slug);

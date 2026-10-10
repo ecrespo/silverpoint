@@ -1,0 +1,22 @@
+{
+  "chart": "TreeChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "tree-chart--silverpoint--ochre--precision--sm",
+  "req": "REQ-418",
+  "seed": 1592,
+  "props": {
+    "title": "City budget",
+    "badge": "2026",
+    "footerLeft": "departments and programmes",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "tree-chart/tree-chart--silverpoint--ochre--precision--sm.canonical.txt"
+}

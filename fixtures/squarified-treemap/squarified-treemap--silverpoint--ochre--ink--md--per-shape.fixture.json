@@ -1,0 +1,22 @@
+{
+  "chart": "SquarifiedTreemap",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "squarified-treemap--silverpoint--ochre--ink--md--per-shape",
+  "req": "REQ-416",
+  "seed": 1592,
+  "props": {
+    "title": "City budget",
+    "badge": "2026",
+    "footerLeft": "by department",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "squarified-treemap/squarified-treemap--silverpoint--ochre--ink--md--per-shape.canonical.txt"
+}

@@ -53,6 +53,14 @@ import { SpErrorBarChart as AngularErrorBarChart } from '@silverpoint/angular/er
 import { SpIntervalChart as AngularIntervalChart } from '@silverpoint/angular/interval-chart';
 import { SpDivergingBarChart as AngularDivergingBarChart } from '@silverpoint/angular/diverging-bar-chart';
 import { SpConnectedScatterChart as AngularConnectedScatterChart } from '@silverpoint/angular/connected-scatter-chart';
+import { SpWaffleChart as AngularWaffleChart } from '@silverpoint/angular/waffle-chart';
+import { SpMarimekkoChart as AngularMarimekkoChart } from '@silverpoint/angular/marimekko-chart';
+import { SpSquarifiedTreemap as AngularSquarifiedTreemap } from '@silverpoint/angular/squarified-treemap';
+import { SpSunburstChart as AngularSunburstChart } from '@silverpoint/angular/sunburst-chart';
+import { SpTreeChart as AngularTreeChart } from '@silverpoint/angular/tree-chart';
+import { SpParallelCoordinatesChart as AngularParallelCoordinatesChart } from '@silverpoint/angular/parallel-coordinates-chart';
+import { SpPolarLineChart as AngularPolarLineChart } from '@silverpoint/angular/polar-line-chart';
+import { SpPolarScatterChart as AngularPolarScatterChart } from '@silverpoint/angular/polar-scatter-chart';
 import { LineChart as ReactLineChart } from '@silverpoint/react/server/line-chart';
 import { BulletChart as ReactBulletChart } from '@silverpoint/react/server/bullet-chart';
 import { PyramidChart as ReactPyramidChart } from '@silverpoint/react/server/pyramid-chart';
@@ -100,6 +108,14 @@ import { ErrorBarChart as ReactErrorBarChart } from '@silverpoint/react/server/e
 import { IntervalChart as ReactIntervalChart } from '@silverpoint/react/server/interval-chart';
 import { DivergingBarChart as ReactDivergingBarChart } from '@silverpoint/react/server/diverging-bar-chart';
 import { ConnectedScatterChart as ReactConnectedScatterChart } from '@silverpoint/react/server/connected-scatter-chart';
+import { WaffleChart as ReactWaffleChart } from '@silverpoint/react/server/waffle-chart';
+import { MarimekkoChart as ReactMarimekkoChart } from '@silverpoint/react/server/marimekko-chart';
+import { SquarifiedTreemap as ReactSquarifiedTreemap } from '@silverpoint/react/server/squarified-treemap';
+import { SunburstChart as ReactSunburstChart } from '@silverpoint/react/server/sunburst-chart';
+import { TreeChart as ReactTreeChart } from '@silverpoint/react/server/tree-chart';
+import { ParallelCoordinatesChart as ReactParallelCoordinatesChart } from '@silverpoint/react/server/parallel-coordinates-chart';
+import { PolarLineChart as ReactPolarLineChart } from '@silverpoint/react/server/polar-line-chart';
+import { PolarScatterChart as ReactPolarScatterChart } from '@silverpoint/react/server/polar-scatter-chart';
 import { SpLineChart as VueLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart as VueBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart as VuePyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -147,6 +163,14 @@ import { SpErrorBarChart as VueErrorBarChart } from '@silverpoint/vue/error-bar-
 import { SpIntervalChart as VueIntervalChart } from '@silverpoint/vue/interval-chart';
 import { SpDivergingBarChart as VueDivergingBarChart } from '@silverpoint/vue/diverging-bar-chart';
 import { SpConnectedScatterChart as VueConnectedScatterChart } from '@silverpoint/vue/connected-scatter-chart';
+import { SpWaffleChart as VueWaffleChart } from '@silverpoint/vue/waffle-chart';
+import { SpMarimekkoChart as VueMarimekkoChart } from '@silverpoint/vue/marimekko-chart';
+import { SpSquarifiedTreemap as VueSquarifiedTreemap } from '@silverpoint/vue/squarified-treemap';
+import { SpSunburstChart as VueSunburstChart } from '@silverpoint/vue/sunburst-chart';
+import { SpTreeChart as VueTreeChart } from '@silverpoint/vue/tree-chart';
+import { SpParallelCoordinatesChart as VueParallelCoordinatesChart } from '@silverpoint/vue/parallel-coordinates-chart';
+import { SpPolarLineChart as VuePolarLineChart } from '@silverpoint/vue/polar-line-chart';
+import { SpPolarScatterChart as VuePolarScatterChart } from '@silverpoint/vue/polar-scatter-chart';
 import { createElement, type ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createSSRApp, h, type Component as VueComponent } from 'vue';
@@ -202,6 +226,14 @@ const REACT: Readonly<Record<string, ComponentType<never>>> = {
   IntervalChart: ReactIntervalChart as ComponentType<never>,
   DivergingBarChart: ReactDivergingBarChart as ComponentType<never>,
   ConnectedScatterChart: ReactConnectedScatterChart as ComponentType<never>,
+  WaffleChart: ReactWaffleChart as ComponentType<never>,
+  MarimekkoChart: ReactMarimekkoChart as ComponentType<never>,
+  SquarifiedTreemap: ReactSquarifiedTreemap as ComponentType<never>,
+  SunburstChart: ReactSunburstChart as ComponentType<never>,
+  TreeChart: ReactTreeChart as ComponentType<never>,
+  ParallelCoordinatesChart: ReactParallelCoordinatesChart as ComponentType<never>,
+  PolarLineChart: ReactPolarLineChart as ComponentType<never>,
+  PolarScatterChart: ReactPolarScatterChart as ComponentType<never>,
 };
 const VUE: Readonly<Record<string, VueComponent>> = {
   LineChart: VueLineChart as VueComponent,
@@ -251,6 +283,14 @@ const VUE: Readonly<Record<string, VueComponent>> = {
   IntervalChart: VueIntervalChart as VueComponent,
   DivergingBarChart: VueDivergingBarChart as VueComponent,
   ConnectedScatterChart: VueConnectedScatterChart as VueComponent,
+  WaffleChart: VueWaffleChart as VueComponent,
+  MarimekkoChart: VueMarimekkoChart as VueComponent,
+  SquarifiedTreemap: VueSquarifiedTreemap as VueComponent,
+  SunburstChart: VueSunburstChart as VueComponent,
+  TreeChart: VueTreeChart as VueComponent,
+  ParallelCoordinatesChart: VueParallelCoordinatesChart as VueComponent,
+  PolarLineChart: VuePolarLineChart as VueComponent,
+  PolarScatterChart: VuePolarScatterChart as VueComponent,
 };
 export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   LineChart: AngularLineChart,
@@ -300,6 +340,14 @@ export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   IntervalChart: AngularIntervalChart,
   DivergingBarChart: AngularDivergingBarChart,
   ConnectedScatterChart: AngularConnectedScatterChart,
+  WaffleChart: AngularWaffleChart,
+  MarimekkoChart: AngularMarimekkoChart,
+  SquarifiedTreemap: AngularSquarifiedTreemap,
+  SunburstChart: AngularSunburstChart,
+  TreeChart: AngularTreeChart,
+  ParallelCoordinatesChart: AngularParallelCoordinatesChart,
+  PolarLineChart: AngularPolarLineChart,
+  PolarScatterChart: AngularPolarScatterChart,
 };
 
 function pick<T>(table: Readonly<Record<string, T>>, chart: string): T {

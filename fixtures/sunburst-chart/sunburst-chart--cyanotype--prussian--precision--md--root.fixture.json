@@ -1,0 +1,24 @@
+{
+  "chart": "SunburstChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "state": "root",
+  "id": "sunburst-chart--cyanotype--prussian--precision--md--root",
+  "req": "REQ-417",
+  "seed": 1592,
+  "props": {
+    "title": "City budget",
+    "badge": "2026",
+    "footerLeft": "by department",
+    "footerRight": "silverpoint",
+    "rootId": "works"
+  },
+  "data": null,
+  "canonical": "sunburst-chart/sunburst-chart--cyanotype--prussian--precision--md--root.canonical.txt"
+}

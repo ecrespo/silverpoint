@@ -47,13 +47,21 @@ import { SpErrorBarChart } from '@silverpoint/angular/error-bar-chart';
 import { SpIntervalChart } from '@silverpoint/angular/interval-chart';
 import { SpDivergingBarChart } from '@silverpoint/angular/diverging-bar-chart';
 import { SpConnectedScatterChart } from '@silverpoint/angular/connected-scatter-chart';
+import { SpWaffleChart } from '@silverpoint/angular/waffle-chart';
+import { SpMarimekkoChart } from '@silverpoint/angular/marimekko-chart';
+import { SpSquarifiedTreemap } from '@silverpoint/angular/squarified-treemap';
+import { SpSunburstChart } from '@silverpoint/angular/sunburst-chart';
+import { SpTreeChart } from '@silverpoint/angular/tree-chart';
+import { SpParallelCoordinatesChart } from '@silverpoint/angular/parallel-coordinates-chart';
+import { SpPolarLineChart } from '@silverpoint/angular/polar-line-chart';
+import { SpPolarScatterChart } from '@silverpoint/angular/polar-scatter-chart';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiGate, UiPage } from './ui-gate';
 
 /** Every chart a fixture can name, by its chart name. */
-const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart };
+const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart, WaffleChart: SpWaffleChart, MarimekkoChart: SpMarimekkoChart, SquarifiedTreemap: SpSquarifiedTreemap, SunburstChart: SpSunburstChart, TreeChart: SpTreeChart, ParallelCoordinatesChart: SpParallelCoordinatesChart, PolarLineChart: SpPolarLineChart, PolarScatterChart: SpPolarScatterChart };
 
 @Component({
   selector: 'app-root',

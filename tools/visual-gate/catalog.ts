@@ -52,9 +52,17 @@ import {
   histogramChart,
   intervalChart,
   lollipopChart,
+  marimekkoChart,
+  parallelCoordinatesChart,
+  polarLineChart,
+  polarScatterChart,
   ridgelineChart,
   slopeChart,
+  squarifiedTreemap,
+  sunburstChart,
+  treeChart,
   violinChart,
+  waffleChart,
 } from '@silverpoint/core/catalog';
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 
@@ -81,6 +89,11 @@ export interface CatalogEntry {
    * names them, so every fixture and type test passes them too. Absent when none is required.
    */
   readonly required?: Readonly<Record<string, unknown>>;
+  /**
+   * State fixtures beyond the demo, by name, for what the demo cannot show (DM delta §3): each is
+   * drawn over the same axes as the chart's own cells, with these props. Absent when none.
+   */
+  readonly states?: Readonly<Record<string, Readonly<Record<string, unknown>>>>;
 }
 
 const entry = (row: Omit<CatalogEntry, 'recipe'> & { readonly recipe: ChartRecipe<never> }): CatalogEntry =>
@@ -533,6 +546,85 @@ export const CATALOG: readonly CatalogEntry[] = [
     demoProbe: { arrows: false },
     sample: { data: [{ u: 4.1, p: 2.0, yr: '2021' }, { u: 3.6, p: 3.4, yr: '2022' }, { u: 3.9, p: 4.8, yr: '2023' }, { u: 4.4, p: 3.1, yr: '2024' }], xKey: 'u', yKey: 'p', labelKey: 'yr' },
   }),
+
+  // The second catalog, wave 2 (feature-003, 0.5.0).
+  entry({
+    chart: 'WaffleChart',
+    req: 'REQ-414',
+    slug: 'waffle-chart',
+    recipe: waffleChart,
+    propsInterface: 'WaffleChartProps',
+    demoProbe: { columns: 20 },
+    sample: { data: [{ n: 'A', v: 6 }, { n: 'B', v: 3 }, { n: 'C', v: 1 }], nameKey: 'n', valueKey: 'v' },
+  }),
+  entry({
+    chart: 'MarimekkoChart',
+    req: 'REQ-415',
+    slug: 'marimekko-chart',
+    recipe: marimekkoChart,
+    propsInterface: 'MarimekkoChartProps',
+    demoProbe: null,
+    sample: { data: [{ c: 'N', s: 'On', v: 3 }, { c: 'N', s: 'Off', v: 1 }, { c: 'S', s: 'On', v: 2 }, { c: 'S', s: 'Off', v: 2 }], columnKey: 'c', segmentKey: 's', valueKey: 'v' },
+  }),
+  entry({
+    chart: 'SquarifiedTreemap',
+    req: 'REQ-416',
+    slug: 'squarified-treemap',
+    recipe: squarifiedTreemap,
+    propsInterface: 'SquarifiedTreemapProps',
+    demoProbe: { depth: 1 },
+    // REQ-439: drawn from a first-level node, the drill the demo cannot show.
+    states: { root: { rootId: 'works' } },
+    sample: { data: [{ k: 'all', p: null, nm: 'All' }, { k: 'a', p: 'all', nm: 'Alpha' }, { k: 'a1', p: 'a', v: 5, nm: 'A one' }, { k: 'a2', p: 'a', v: 3, nm: 'A two' }, { k: 'b', p: 'all', v: 4, nm: 'Beta' }], idKey: 'k', parentKey: 'p', labelKey: 'nm', valueKey: 'v' },
+  }),
+  entry({
+    chart: 'SunburstChart',
+    req: 'REQ-417',
+    slug: 'sunburst-chart',
+    recipe: sunburstChart,
+    propsInterface: 'SunburstChartProps',
+    demoProbe: { depth: 1 },
+    // REQ-439: drawn from a first-level node, the drill the demo cannot show.
+    states: { root: { rootId: 'works' } },
+    sample: { data: [{ k: 'all', p: null, nm: 'All' }, { k: 'a', p: 'all', nm: 'Alpha' }, { k: 'a1', p: 'a', v: 5, nm: 'A one' }, { k: 'a2', p: 'a', v: 3, nm: 'A two' }, { k: 'b', p: 'all', v: 4, nm: 'Beta' }], idKey: 'k', parentKey: 'p', labelKey: 'nm', valueKey: 'v' },
+  }),
+  entry({
+    chart: 'TreeChart',
+    req: 'REQ-418',
+    slug: 'tree-chart',
+    recipe: treeChart,
+    propsInterface: 'TreeChartProps',
+    demoProbe: { orientation: 'vertical' },
+    sample: { data: [{ k: 'all', p: null, nm: 'All' }, { k: 'a', p: 'all', nm: 'Alpha' }, { k: 'a1', p: 'a', v: 5, nm: 'A one' }, { k: 'a2', p: 'a', v: 3, nm: 'A two' }, { k: 'b', p: 'all', v: 4, nm: 'Beta' }], idKey: 'k', parentKey: 'p', labelKey: 'nm', valueKey: 'v' },
+  }),
+  entry({
+    chart: 'ParallelCoordinatesChart',
+    req: 'REQ-419',
+    slug: 'parallel-coordinates-chart',
+    recipe: parallelCoordinatesChart,
+    propsInterface: 'ParallelCoordinatesChartProps',
+    demoProbe: { domains: { price: [0, 5000] } },
+    required: { dimensions: ['mass', 'gears', 'price', 'range', 'rating'] },
+    sample: { data: [{ nm: 'P', a: 1, b: 10, c: 100 }, { nm: 'Q', a: 2, b: 30, c: 50 }, { nm: 'R', a: 3, b: 20, c: 75 }], labelKey: 'nm', dimensions: ['a', 'b', 'c'] },
+  }),
+  entry({
+    chart: 'PolarLineChart',
+    req: 'REQ-420',
+    slug: 'polar-line-chart',
+    recipe: polarLineChart,
+    propsInterface: 'PolarLineChartProps',
+    demoProbe: { startAngle: 90 },
+    sample: { data: [{ m: 0, r: 3 }, { m: 3, r: 5 }, { m: 6, r: 2 }, { m: 9, r: 4 }], angleKey: 'm', valueKey: 'r', period: 12 },
+  }),
+  entry({
+    chart: 'PolarScatterChart',
+    req: 'REQ-421',
+    slug: 'polar-scatter-chart',
+    recipe: polarScatterChart,
+    propsInterface: 'PolarScatterChartProps',
+    demoProbe: null,
+    sample: { data: [{ b: 10, d: 3, w: 2 }, { b: 200, d: 5, w: 8 }, { b: 90, d: 1, w: 4 }], angleKey: 'b', radiusKey: 'd', sizeKey: 'w' },
+  }),
 ];
 
 /** Every chart after the line chart, which every adapter publishes alongside it. */
@@ -546,3 +638,4 @@ export function catalogEntry(chart: string): CatalogEntry {
 
 /** The reference dashboards (Data Model §4), a catalog every dashboard gate iterates like `CATALOG`. */
 export const DASHBOARDS = Object.keys(DASHBOARD_DEMOS) as (keyof typeof DASHBOARD_DEMOS)[];
+

@@ -2168,6 +2168,366 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, WaffleChart (client)",
+    "path": "packages/react/dist/waffle-chart.js",
+    "import": "{ WaffleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, WaffleChart (server)",
+    "path": "packages/react/dist/server/waffle-chart.js",
+    "import": "{ WaffleChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpWaffleChart",
+    "path": "packages/vue/dist/waffle-chart.js",
+    "import": "{ SpWaffleChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpWaffleChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-waffle-chart.mjs",
+    "import": "{ SpWaffleChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, MarimekkoChart (client)",
+    "path": "packages/react/dist/marimekko-chart.js",
+    "import": "{ MarimekkoChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, MarimekkoChart (server)",
+    "path": "packages/react/dist/server/marimekko-chart.js",
+    "import": "{ MarimekkoChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpMarimekkoChart",
+    "path": "packages/vue/dist/marimekko-chart.js",
+    "import": "{ SpMarimekkoChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpMarimekkoChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-marimekko-chart.mjs",
+    "import": "{ SpMarimekkoChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SquarifiedTreemap (client)",
+    "path": "packages/react/dist/squarified-treemap.js",
+    "import": "{ SquarifiedTreemap }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SquarifiedTreemap (server)",
+    "path": "packages/react/dist/server/squarified-treemap.js",
+    "import": "{ SquarifiedTreemap }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpSquarifiedTreemap",
+    "path": "packages/vue/dist/squarified-treemap.js",
+    "import": "{ SpSquarifiedTreemap }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpSquarifiedTreemap",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-squarified-treemap.mjs",
+    "import": "{ SpSquarifiedTreemap }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SunburstChart (client)",
+    "path": "packages/react/dist/sunburst-chart.js",
+    "import": "{ SunburstChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, SunburstChart (server)",
+    "path": "packages/react/dist/server/sunburst-chart.js",
+    "import": "{ SunburstChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpSunburstChart",
+    "path": "packages/vue/dist/sunburst-chart.js",
+    "import": "{ SpSunburstChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpSunburstChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-sunburst-chart.mjs",
+    "import": "{ SpSunburstChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, TreeChart (client)",
+    "path": "packages/react/dist/tree-chart.js",
+    "import": "{ TreeChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, TreeChart (server)",
+    "path": "packages/react/dist/server/tree-chart.js",
+    "import": "{ TreeChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpTreeChart",
+    "path": "packages/vue/dist/tree-chart.js",
+    "import": "{ SpTreeChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpTreeChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-tree-chart.mjs",
+    "import": "{ SpTreeChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ParallelCoordinatesChart (client)",
+    "path": "packages/react/dist/parallel-coordinates-chart.js",
+    "import": "{ ParallelCoordinatesChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ParallelCoordinatesChart (server)",
+    "path": "packages/react/dist/server/parallel-coordinates-chart.js",
+    "import": "{ ParallelCoordinatesChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpParallelCoordinatesChart",
+    "path": "packages/vue/dist/parallel-coordinates-chart.js",
+    "import": "{ SpParallelCoordinatesChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpParallelCoordinatesChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-parallel-coordinates-chart.mjs",
+    "import": "{ SpParallelCoordinatesChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarLineChart (client)",
+    "path": "packages/react/dist/polar-line-chart.js",
+    "import": "{ PolarLineChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarLineChart (server)",
+    "path": "packages/react/dist/server/polar-line-chart.js",
+    "import": "{ PolarLineChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpPolarLineChart",
+    "path": "packages/vue/dist/polar-line-chart.js",
+    "import": "{ SpPolarLineChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpPolarLineChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-polar-line-chart.mjs",
+    "import": "{ SpPolarLineChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarScatterChart (client)",
+    "path": "packages/react/dist/polar-scatter-chart.js",
+    "import": "{ PolarScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, PolarScatterChart (server)",
+    "path": "packages/react/dist/server/polar-scatter-chart.js",
+    "import": "{ PolarScatterChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpPolarScatterChart",
+    "path": "packages/vue/dist/polar-scatter-chart.js",
+    "import": "{ SpPolarScatterChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpPolarScatterChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-polar-scatter-chart.mjs",
+    "import": "{ SpPolarScatterChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
     "name": "@silverpoint/core (everything)",
     "path": "packages/core/dist/index.js",
     "import": "*",
@@ -2179,7 +2539,7 @@
     "path": "packages/core/dist/catalog.js",
     "import": "*",
     "gzip": true,
-    "limit": "45 kB"
+    "limit": "50 kB"
   },
   {
     "name": "@silverpoint/grounds + core (everything)",
