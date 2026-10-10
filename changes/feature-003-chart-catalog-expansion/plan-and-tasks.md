@@ -335,7 +335,7 @@ user. The 8 recipes reach `@silverpoint/core/catalog` and every adapter; 8 catal
 
 ### 7d — Wave 3 (`0.6.0`)
 
-**[ ] T-190 · `shared/field.ts` and `shared/delaunay.ts`** — REQ-430, REQ-435, REQ-444
+**[x] T-190 · `shared/field.ts` and `shared/delaunay.ts`** — REQ-430, REQ-435, REQ-444
 - All owned (DD-028). Grid validation (Data Model delta §2.24), Epanechnikov density splat, marching
   squares with saddle resolution and band rings; Bowyer–Watson on the 2-decimal grid with exact
   `orient2d` and a `BigInt` fallback for `inCircle`; Voronoi by clipping.
@@ -344,13 +344,75 @@ user. The 8 recipes reach `@silverpoint/core/catalog` and every adapter; 8 catal
   collinear and duplicate points; cross-engine determinism.
 - **Done:** tests green; 60 × 60 grid < 8 ms; 500-point triangulation < 8 ms.
 
-**[ ] T-191 · `DensityBinChart` and `shared/field.ts` (2-D bins)** — REQ-422, REQ-443
-**[ ] T-192 · `ContourChart`** — REQ-423, REQ-445, REQ-447 `[P]`
-**[ ] T-193 · `DelaunayChart`** — REQ-424 `[P]` (COULD — OQ-C5)
-**[ ] T-194 · `VectorFieldChart`** — REQ-425 `[P]` (COULD — OQ-C5)
-**[ ] T-195 · `NetworkChart` and `shared/network.ts`** — REQ-426, REQ-435, REQ-436, REQ-445
+**[x] T-191 · `DensityBinChart` and `shared/field.ts` (2-D bins)** — REQ-422, REQ-443
+**[x] T-192 · `ContourChart`** — REQ-423, REQ-445, REQ-447 `[P]`
+**[x] T-193 · `DelaunayChart`** — REQ-424 `[P]` (COULD — OQ-C5)
+**[x] T-194 · `VectorFieldChart`** — REQ-425 `[P]` (COULD — OQ-C5)
+**[x] T-195 · `NetworkChart` and `shared/network.ts`** — REQ-426, REQ-435, REQ-436, REQ-445
 - Benchmark at 150 nodes / 300 iterations **first**; if over 16 ms, settle the default `iterations`
   before the recipe (DD-030).
+**7d ledger, part 1 (Phase 8, 2026-10-10).** Done: T-190..T-195, the three engines and the five
+recipes, core only, test-first in `field.test.ts`, `delaunay.test.ts`, `network.test.ts`, then
+`wave3-field.test.ts` and `wave3-network.test.ts` (the second catalog's contract plus each chart's
+own); every test mutation-checked (25 mutants, all caught but one equivalent, below). Not yet in
+`@silverpoint/core/catalog`: the recipes reach it with their adapters (T-196), as waves 1 and 2 did.
+- **`shared/field.ts`** (DD-028): marching squares over the grid padded by a ring of holes, so
+  every ring closes; a crossing is computed once per edge and shared by the two cells beside it, so
+  segments meet to the last bit; a saddle is resolved by the centre mean. Rings are oriented (the
+  region always on one side), so a band is the rings above its level plus the next level's
+  reversed, and fills under the non-zero rule — no fill-rule attribute. A hole is below every
+  level, its crossing put on the value beside it (the cells round a hole are cut on the diagonal,
+  tested); iso-lines are the rings' runs between exact crossings, so the grid's border and a hole's
+  edge are not drawn as lines. `contours(grid, levels)` traces each level once. The density splat is
+  the product Epanechnikov kernel, summed in `(x, y)` order (I-23, tested by a shuffle to the last
+  bit). Hexagonal bins take the nearest of the candidate centres (each hexagon is exactly its
+  centre's nearest points, tested against every lattice centre near the point); square bins.
+- **`shared/delaunay.ts`**: points in hundredths, inserted in `(x, y, index)` order; `orient2d` and
+  `inCircle` in doubles with an error bound, settled with `BigInt` when it cannot decide — the test
+  that proves it is four integer points on x² + y² = 5²⁰, where doubles give −4 398 046 511 104 for
+  an exact 0. Super-triangle a million spans out; a visibility walk from the last triangle, then the
+  cavity across edges whose circumcircle holds the point strictly. Duplicates on the 2-decimal grid
+  keep the first row; collinear points make no triangle and are chained, so they still have
+  neighbours and Voronoi cells. Voronoi cells by clipping the plot with each neighbour's bisector.
+  Tested: empty circumcircles (exact) and 2n − 2 − h triangles on random, grid-aligned and
+  duplicated sets; the same mesh whatever the order, co-circular grid included. Equivalent mutant:
+  a cavity test of `≥ 0` instead of `> 0` also yields a Delaunay mesh (a co-circular point joins
+  the cavity), so it survives; left as is.
+- **`shared/network.ts`** (DD-030): Fruchterman–Reingold, `k² = 1/n`, temperature 0.1 cooling
+  linearly, start on a seeded grid. **Benchmark first** (as planned): 150 nodes, 600 links, 300
+  iterations took 22.5 ms; one division per pair and local accumulators bring it to ≈ 13.5 ms, under
+  REQ-445's 16 ms, so the default stays **300**. **Seen in review:** walls piled 17 of the demo's 40
+  nodes along the edges; there are no walls now, and the result is fitted to the unit square (at
+  most four nodes on its edge, tested).
+- **REQ-445, measured** (tsx, this machine): five contour levels of a 60 × 60 field ≈ 2 ms; a
+  10 000-point density on 60 × 60 ≈ 7 ms (the `(x, y)` sort is half of it; 10 000 is the ceiling);
+  500-point triangulation ≈ 4–5 ms, its Voronoi cells +2 ms; network as above. All in
+  `bench/stats.bench.ts`.
+- **`shared/xy.ts`**: the x-y frame four charts share (DD-036), the connected scatter's axes.
+- **Recipes.** `DensityBinChart`: a key of the count range each tone holds, above the plot; the
+  derived table is one row per bin (its centre, its count); the keyboard's grid is compressed — the
+  rows that hold a bin, and the bins of a row side by side — so a sparse lattice walls nothing off
+  (I-29; the contract test found it). `ContourChart`: `points` contours the density as a share of
+  its peak (levels `k/(n+1)`, printed as percentages; a given array is read as shares too), each
+  axis' bandwidth by Silverman's rule; `grid` takes the nice ticks strictly inside the values'
+  range; bands toned up the ramp, the highest band heightened; unfilled, the lines alone and the
+  highest region heightened with its outline; level names staggered along their lines, and left to
+  the table where they would collide. `DelaunayChart`: the mesh is built on the drawn (rounded)
+  positions and drawn as one secondary stroke in the order of its coordinates (I-23); a tie for the
+  busiest point goes to the lowest x, then y (the first in data order moved with a shuffle); labels
+  up to 24 points, past that only the busiest. `VectorFieldChart`: the longest arrow fills 0.9 of the
+  grid's spacing unless `scale` is given; the head is a closed triangle, so heightening fills it; a
+  zero vector is a dot; a key arrow above the plot. `NetworkChart`: links under the nodes, a
+  self-link a loop counted once; nodes toned by group (`ringTone`) with a legend of the groups' sizes;
+  the layout runs on the nodes by id and the links by their ends, so the row order cannot move it;
+  keyboard as `moves` — Right and Left walk the nodes, Down the links a node starts, Up back to it.
+- **Run the tests from the root** (`pnpm exec vitest run --project core`): from `packages/core`
+  there is no config, `@silverpoint/core` resolves to `dist`, and REQ-098's ChordRing probe sees no
+  SP010 (two diagnostic registries).
+- **For T-196:** the view props `source`, `binShape`, `binSize`, `mesh`, `scale`, `filled` and
+  `iterations` need demo probes; `nodes` is data (ignored with the demo); `levels` is a view prop
+  here, while REQ-098's test lists it as data (the Likert's) — settle it per chart.
+
 **[ ] T-196 · Wave 3 adapters ×3** — REQ-444
 **[ ] T-197 · Wave 3 fixtures, gates and budgets** — REQ-448, REQ-435, REQ-445
 - Plus the consumer-positions network fixture.
