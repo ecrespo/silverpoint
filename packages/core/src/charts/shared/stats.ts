@@ -240,3 +240,36 @@ export function rank(
   }
   return result;
 }
+
+/**
+ * Whole cells for each value, summing exactly to `cells` (REQ-414, I-26): Hamilton's largest
+ * remainder — each takes the whole part of its share, and the cells left go to the largest
+ * remainders, ties to the earlier value. Then, while there are enough cells, a positive value left
+ * with none takes one from the value holding the most (the later one on a tie).
+ */
+export function allocateCells(values: readonly number[], cells: number): number[] {
+  const total = values.reduce((sum, v) => sum + (v > 0 ? v : 0), 0);
+  if (total <= 0) return values.map(() => 0);
+  const exact = values.map((v) => (v > 0 ? (v * cells) / total : 0));
+  const counts = exact.map((e) => Math.floor(e));
+  let left = cells - counts.reduce((sum, c) => sum + c, 0);
+  const order = exact.map((e, i) => [e - (counts[i] as number), i] as const).sort((a, b) => b[0] - a[0] || a[1] - b[1]);
+  for (const [, i] of order) {
+    if (left <= 0) break;
+    counts[i] = (counts[i] as number) + 1;
+    left -= 1;
+  }
+  const positive = values.filter((v) => v > 0).length;
+  if (cells >= positive) {
+    values.forEach((v, i) => {
+      if (v <= 0 || (counts[i] as number) > 0) return;
+      let donor = 0;
+      counts.forEach((c, j) => {
+        if (c >= (counts[donor] as number)) donor = j;
+      });
+      counts[donor] = (counts[donor] as number) - 1;
+      counts[i] = 1;
+    });
+  }
+  return counts;
+}

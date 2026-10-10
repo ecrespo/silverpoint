@@ -689,6 +689,18 @@ export function checkRadius(chart: string, radius: number | undefined): number |
   return Number.isFinite(radius) && radius > 0 ? radius : invalid(chart, 'radius', radius);
 }
 
+/** A whole number at or above `min` — a depth, a cell count, a column count. */
+export function checkWhole(chart: string, property: string, value: number | undefined, min: number): number | undefined {
+  if (value === undefined) return undefined;
+  return Number.isInteger(value) && value >= min ? value : invalid(chart, property, value);
+}
+
+/** A finite number above 0 — a period. */
+export function checkPositive(chart: string, property: string, value: number | undefined): number | undefined {
+  if (value === undefined) return undefined;
+  return Number.isFinite(value) && value > 0 ? value : invalid(chart, property, value);
+}
+
 /** A group below its statistic's minimum is drawn as points (REQ-434). */
 export function warnTooSmall(chart: string, group: string, count: number, need: number): void {
   if (process.env.NODE_ENV !== 'production') {

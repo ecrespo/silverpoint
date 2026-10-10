@@ -30,11 +30,13 @@ export interface Case {
   readonly rawDatum?: boolean;
   /** Row order is the drawing's order (a path, a sort by data order): no I-23 shuffle. */
   readonly ordered?: boolean;
+  /** The code the hostile rows raise; `SP002` by default (a hierarchy's bad rows raise `SP020`). */
+  readonly hostileCode?: SpCode;
 }
 
 export function secondCatalogContract(cases: readonly Case[]): void {
   afterEach(() => restore());
-  describe.each(cases.map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf, rawDatum, ordered }) => {
+  describe.each(cases.map((c) => [c.recipe.name, c] as const))('%s contract', (_name, { recipe, consumer, items: count, hostile, labelOf, rawDatum, ordered, hostileCode }) => {
   test('REQ-093 · REQ-446 · invoked without data it renders its demo, with no diagnostic', () => {
     const seen = capture();
     const model = recipe.build({}, context);
@@ -132,7 +134,7 @@ export function secondCatalogContract(cases: readonly Case[]): void {
     const data = consumer.data as Datum[];
     const model = recipe.build({ ...consumer, data: [...data.slice(0, 1), ...hostile, ...data.slice(1)] }, context);
     expect(serializeGeometry(model.geometry) + model.description + JSON.stringify(model.table)).not.toMatch(/NaN|Infinity/);
-    expect(seen).toContain('SP002');
+    expect(seen).toContain(hostileCode ?? 'SP002');
     expect(items(model.geometry.hitAreas)).toBe(count);
   });
 

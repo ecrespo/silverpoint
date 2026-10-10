@@ -228,7 +228,7 @@ user's word (CLAUDE.md): the box stays open until `0.4.0` is on npm.
 
 ### 7c — Wave 2 (`0.5.0`)
 
-**[ ] T-180 · `shared/hierarchy.ts`: stratify, squarify, partition, tidy tree** — REQ-437, REQ-430, REQ-444
+**[x] T-180 · `shared/hierarchy.ts`: stratify, squarify, partition, tidy tree** — REQ-437, REQ-430, REQ-444
 - All owned (DD-028). `stratify` + validation (`SP020`), `reroot` (DD-033), squarify (Bruls et al.),
   partition, Buchheim tidy tree.
 - Tests (RED first): every invalid case of the Data Model delta §2.23; I-25 on the demo; hand-computed
@@ -237,13 +237,54 @@ user's word (CLAUDE.md): the box stays open until `0.4.0` is on npm.
 - **Done:** tests green; benchmark 500 nodes < 4 ms; mutation: skip the apportion step of the tidy
   tree → overlap test red.
 
-**[ ] T-181 · `SquarifiedTreemap`** — REQ-416, REQ-438, REQ-439, REQ-440
-**[ ] T-182 · `SunburstChart`** — REQ-417, REQ-438, REQ-439, REQ-440 `[P]`
-**[ ] T-183 · `TreeChart`** — REQ-418, REQ-438 `[P]`
-**[ ] T-184 · `WaffleChart`, `MarimekkoChart`** — REQ-414, REQ-415, REQ-440 `[P]`
+**[x] T-181 · `SquarifiedTreemap`** — REQ-416, REQ-438, REQ-439, REQ-440
+**[x] T-182 · `SunburstChart`** — REQ-417, REQ-438, REQ-439, REQ-440 `[P]`
+**[x] T-183 · `TreeChart`** — REQ-418, REQ-438 `[P]`
+**[x] T-184 · `WaffleChart`, `MarimekkoChart`** — REQ-414, REQ-415, REQ-440 `[P]`
 - I-26; waffle heighten emitted as one `<path>` (I-4).
-**[ ] T-185 · `ParallelCoordinatesChart`** — REQ-419, REQ-097 `[P]`
-**[ ] T-186 · `PolarLineChart`, `PolarScatterChart`** — REQ-420, REQ-421, REQ-443 `[P]`
+**[x] T-185 · `ParallelCoordinatesChart`** — REQ-419, REQ-097 `[P]`
+**[x] T-186 · `PolarLineChart`, `PolarScatterChart`** — REQ-420, REQ-421, REQ-443 `[P]`
+
+**7c ledger, part 1 (Phase 6, 2026-10-09).** Done: T-180..T-186, eight recipes and the hierarchy
+module, test-first in `hierarchy.test.ts` and `waffle-cells.test.ts`, then `wave2-hierarchy.test.ts`
+and `wave2-other.test.ts` (the second catalog's contract plus each chart's own); every test written
+after its recipe mutation-checked (ten mutants, all caught). Not yet in `@silverpoint/core/catalog`:
+the recipes reach it with their adapters (T-187), as wave 1's did.
+- **`shared/hierarchy.ts`** (DD-028): `stratify` (pre-order, depth, sums, share, path), `reroot`
+  (pure; paths stay from the data root), `squarify` (Bruls et al., their 6 × 4 example in the test),
+  `partition`, and Buchheim's tidy tree; skipping `apportion` or `executeShifts` turns a test red.
+  500 nodes in 0.15–0.38 ms (budget 4 ms).
+- **`shared/nodes.ts`**: what the three hierarchy charts share — the table in pre-order (a hit
+  area's index is its node's order), the frozen summary `{ id, path, value, share }`, and the tree's
+  `moves`. **Announcement** (REQ-438): `readout` stays as it is (REQ-444), so the table carries the
+  path in its first column and "value, share of parent" in the value cell — "node City budget ›
+  Parks › Tree care, amount 2,835, 26.7% of Parks". The drawn root's summary carries `up` (the id
+  its centre or frame returns to, `null` for the data root) for `onRootChange` in T-187.
+- **Order** (I-23): treemap and sunburst siblings run largest first, ties by id, so no shuffle of
+  the rows moves a tile; the tree keeps the data order (an organisation reads as given).
+- **Treemap**: no padding or header band, so every tile's area is its share of the whole plot
+  (Art. 1, I-25, tested); first-level frames heavier (`weight: 2`), named with their share in their
+  corner; leaves toned by their first-level ancestor (`ringTone`), named where they fit.
+- **Sunburst**: equal rings below a centre disc (the drawn root); the first ring named on the arc
+  where it fits and in a legend with shares (as the donut's); outer arcs take their ancestor's tone.
+- **Tree**: horizontal by default; links are exact cubics (encoding); only the deepest leaves are
+  named past their node, the rest as inner nodes are (seen in review: shallower leaves' names lay on
+  their siblings' links). The root is heightened.
+- **Waffle**: `allocateCells` in `shared/stats.ts` — Hamilton's largest remainder, then a cell for
+  every positive category while there are enough (I-26); each category is one path (I-4).
+- **Marimekko**: column widths ∝ totals (less a 2 px gap), segments ∝ share of the column; a segment
+  legend above, column names with their share below; grid keyboard.
+- **Parallel coordinates** (REQ-097): an axis spans its data, niced, unless `domains` gives it; the
+  description says which; a value outside a given domain is held at the axis end (`SP002`). The
+  heightening is a fill (the grounds' rule), so the first row is marked with the 3.5 px circle where
+  it meets the first axis and drawn heavier — the API row says "polyline of the first row".
+- **Polar** (`shared/radial.ts`): rings at the radius ticks, spokes one per unit for a whole period up
+  to 24, else every eighth of a turn. `period` says the angle's units, so like `axis` it goes with the
+  data (the demo ignores it); given, the polar line closes. The polar scatter's point area is its size.
+- **Parameters**: `checkWhole` and `checkPositive` join the `SP021` checks (`depth`, `cells`,
+  `columns`, `period`).
+- **For T-187:** add `dimensions` and `period` to the accessor lists of the props tests and of the
+  `data` documentation; `ParallelCoordinatesChartProps.dimensions` is required, as `levels` is.
 
 **[ ] T-187 · Wave 2 adapters ×3, `onRootChange`** — REQ-439, REQ-444, REQ-108
 - Tests: activation emits the node id; the centre emits the parent; Vue component holds no root ref
