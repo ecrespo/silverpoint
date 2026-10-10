@@ -295,15 +295,15 @@ its number), as for Phases 5 and 6. A chart is a catalog row (DD-034), and every
 | Step | Content | Tasks | Depends on | Exit |
 |---|---|---|---|---|
 | 7a | Core foundations: types, contracts, diagnostics, `shared/stats` and `shared/density`, tree keys, `ringTone` shared, demo generator | #164..#167 | Approval | Core unit + property tests, benchmarks green |
-| 7b | **Wave 1** — 14 charts (REQ-400..REQ-413) | #168..#179 | 7a | `0.4.0` from CI |
-| 7c | **Wave 2** — 8 charts (REQ-414..REQ-421), owned hierarchy layouts | #180..#189 | 7b | `0.5.0` from CI |
+| 7b | **Wave 1** — 14 charts (REQ-400..REQ-413) | #168..#179 | 7a | Gates green (released in `0.6.0`) |
+| 7c | **Wave 2** — 8 charts (REQ-414..REQ-421), owned hierarchy layouts | #180..#189 | 7b | Gates green (released in `0.6.0`) |
 | 7d | **Wave 3** — 5 charts (REQ-422..REQ-426), owned contours, triangulation and network layout | #190..#198 | 7c | `0.6.0` from CI |
 | 7e | Fold the deltas into `specs/`, traceability, `CLAUDE.md` status | #199 | 7d | Specs current |
 
 **Status (2026-10-10).** Steps 7a..7e are implemented: 27 charts × 3 adapters, the recipes on
 `@silverpoint/core/catalog`, 3,402 chart fixtures (630 on PR) green in the string and pixel gates,
-the REQ-444 no-growth check against `0.3.0`, and this fold (#199). The three releases —`0.4.0`,
-`0.5.0`, `0.6.0`— wait for the release decision; until then the work is unreleased on `develop`.
+the REQ-444 no-growth check against `0.3.0`, and this fold (#199). The three waves ship together as `0.6.0`
+(user decision 2026-10-10): `0.4.0` and `0.5.0` are never published.
 
 Task summary (each task cites the requirement it implements):
 
@@ -402,7 +402,7 @@ Every task cites at least one requirement; no orphan task.
   hydration in Firefox and WebKit for the beeswarm, violin, network and contours.
 - Budgets: 45 KB per chart; no existing one-chart build grows (REQ-444); REQ-445's benchmarks.
 - Example apps and docs site carry the 27 with their method statements (REQ-449).
-- Each wave released as its minor from CI; the deltas folded into `specs/` (#199).
+- Released as `0.6.0` from CI, the three waves together; the deltas folded into `specs/` (#199).
 
 ## 4. Dependency Map
 

@@ -1206,7 +1206,7 @@ report that feeds the Analyze gate (REQ-184).
 
 | # | Question | Resolution |
 |---|---|---|
-| OQ-C1 | Three waves as `0.4.0`, `0.5.0`, `0.6.0`, or fewer, larger releases? | **Decided 2026-10-08:** three waves |
+| OQ-C1 | Three waves as `0.4.0`, `0.5.0`, `0.6.0`, or fewer, larger releases? | **Decided 2026-10-08:** three waves. **Revised 2026-10-10:** the waves are built in turn but released together as `0.6.0`; `0.4.0` and `0.5.0` are never published |
 | OQ-C2 | Take `d3-hierarchy`, `d3-contour`, `d3-delaunay`, or own them? | **Decided 2026-10-08:** own them in the core (DD-028 A) |
 | OQ-C3 | Export the statistics publicly (`@silverpoint/core/stats`)? | **Decided 2026-10-09:** no for `0.x`; it would freeze method signatures under SemVer before the charts have used them |
 | OQ-C4 | PR fixture matrix for the new charts: full or reduced? | **Decided 2026-10-08:** full on every PR (600 chart fixtures) |

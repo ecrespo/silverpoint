@@ -4,14 +4,14 @@
  * within its 45 kB budget; each recipe still shakes out of every build that does not use it
  * (REQ-444). Their props types are in the main entry, with every other chart's.
  */
-// Wave 1 (0.4.0): distribution.
+// Wave 1: distribution.
 export { histogramChart } from './charts/histogram-chart/histogram-chart';
 export { ecdfChart } from './charts/ecdf-chart/ecdf-chart';
 export { boxPlotChart } from './charts/box-plot-chart/box-plot-chart';
 export { violinChart } from './charts/violin-chart/violin-chart';
 export { ridgelineChart } from './charts/ridgeline-chart/ridgeline-chart';
 export { beeswarmChart } from './charts/beeswarm-chart/beeswarm-chart';
-// Wave 1 (0.4.0): comparison, change, ranking, uncertainty.
+// Wave 1: comparison, change, ranking, uncertainty.
 export { lollipopChart } from './charts/lollipop-chart/lollipop-chart';
 export { dumbbellChart } from './charts/dumbbell-chart/dumbbell-chart';
 export { slopeChart } from './charts/slope-chart/slope-chart';
@@ -20,7 +20,7 @@ export { errorBarChart } from './charts/error-bar-chart/error-bar-chart';
 export { intervalChart } from './charts/interval-chart/interval-chart';
 export { divergingBarChart } from './charts/diverging-bar-chart/diverging-bar-chart';
 export { connectedScatterChart } from './charts/connected-scatter-chart/connected-scatter-chart';
-// Wave 2 (0.5.0): hierarchy, part-to-whole, multivariate, polar.
+// Wave 2: hierarchy, part-to-whole, multivariate, polar.
 export { squarifiedTreemap } from './charts/squarified-treemap/squarified-treemap';
 export { sunburstChart } from './charts/sunburst-chart/sunburst-chart';
 export { treeChart } from './charts/tree-chart/tree-chart';

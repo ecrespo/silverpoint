@@ -1,5 +1,19 @@
 # @silverpoint/grounds
 
+## 0.6.0
+
+### Patch Changes
+
+- Updated dependencies [fa8dc13]
+- Updated dependencies [da77adb]
+- Updated dependencies [c1d0ebd]
+- Updated dependencies [a83ca34]
+- Updated dependencies [2171e7d]
+- Updated dependencies [0e724d6]
+- Updated dependencies [68d2b7c]
+- Updated dependencies [c6191de]
+  - @silverpoint/core@0.6.0
+
 ## 0.3.0
 
 ### Minor Changes

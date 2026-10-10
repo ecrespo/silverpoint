@@ -1,5 +1,78 @@
 # @silverpoint/react
 
+## 0.6.0
+
+### Minor Changes
+
+- fa8dc13: **Second catalog, wave 1 in every adapter (feature-003, T-177, T-178).** The 14 charts of wave 1 —
+  `HistogramChart`, `EcdfChart`, `BoxPlotChart`, `ViolinChart`, `RidgelineChart`, `BeeswarmChart`,
+  `LollipopChart`, `DumbbellChart`, `SlopeChart`, `BumpChart`, `ErrorBarChart`, `IntervalChart`,
+  `DivergingBarChart` and `ConnectedScatterChart` — each at its own subpath of every adapter
+  (`@silverpoint/react/histogram-chart`, `@silverpoint/react/server/histogram-chart`,
+  `@silverpoint/vue/histogram-chart` with `SpHistogramChart`, `@silverpoint/angular/histogram-chart`
+  with `<sp-histogram-chart>`) and in each barrel. Their recipes are on a new core subpath,
+  `@silverpoint/core/catalog`, so the core's main entry keeps its budget; every one-chart build of the
+  first 33 stays within 0.1 KB of its `0.3.0` size.
+  
+  `RidgelineChart` requires `groupKey` and `DivergingBarChart` requires `levels` in every adapter
+  (`input.required` in Angular); the demo ignores both. `levels` and `axis` describe how the data's
+  columns are read, so like the `…Key` props they are ignored without `data`.
+  
+  The keyboard model of a hierarchy now reaches `stepActive` as each hit area's `moves`, computed with
+  the layout, so no chart without one carries its code. No existing output changes.
+  
+  Each package README lists the 47 charts, and the core's names `@silverpoint/core/catalog`; the
+  documentation site states, for every chart of the second catalog, how each derived value is
+  computed.
+- 2171e7d: **Second catalog, wave 2 in every adapter (feature-003, T-187..T-189).** The 8 charts of wave 2 —
+  `WaffleChart`, `MarimekkoChart`, `SquarifiedTreemap`, `SunburstChart`, `TreeChart`,
+  `ParallelCoordinatesChart`, `PolarLineChart` and `PolarScatterChart` — each at its own subpath of
+  every adapter (`@silverpoint/react/sunburst-chart`, `@silverpoint/react/server/sunburst-chart`,
+  `@silverpoint/vue/sunburst-chart` with `SpSunburstChart`, `@silverpoint/angular/sunburst-chart` with
+  `<sp-sunburst-chart>`) and in each barrel; their recipes join `@silverpoint/core/catalog`.
+  
+  `SquarifiedTreemap` and `SunburstChart` drill down under the consumer's control: `rootId` in, and
+  `onRootChange` (React), `@root-change` (Vue) or `(rootChange)` (Angular) out, emitted with the
+  activated node's id — its parent's for the drawn root, `null` for the top. The components keep no
+  root of their own, so a server render with `rootId` is the client's. `rootChangeOf`, on
+  `@silverpoint/core/catalog`, is what the three adapters share.
+  
+  `ParallelCoordinatesChart` requires `dimensions` in every adapter (`input.required` in Angular); the
+  demo ignores it. `dimensions` and `period` describe how the data's columns are read, so like the
+  `…Key` props they are ignored without `data`.
+  
+  Each package README lists the 55 charts; the documentation site states how each wave-2 chart
+  computes what it derives.
+- 68d2b7c: **Second catalog, wave 3 in every adapter (feature-003, T-196..T-198).** The 5 charts of wave 3 —
+  `DensityBinChart`, `ContourChart`, `DelaunayChart`, `VectorFieldChart` and `NetworkChart` — each at
+  its own subpath of every adapter (`@silverpoint/react/network-chart`,
+  `@silverpoint/react/server/network-chart`, `@silverpoint/vue/network-chart` with `SpNetworkChart`,
+  `@silverpoint/angular/network-chart` with `<sp-network-chart>`) and in each barrel, with the
+  `NetworkNode` type; their recipes join `@silverpoint/core/catalog`.
+  
+  `NetworkChart` lays its nodes out by force, the same on the server and in every browser for a given
+  `seed`, or draws them at the consumer's `x` and `y` when every node has them. Its `nodes` are data,
+  and `ContourChart`'s `levels` say how the data's values are read: like the `…Key` props, both are
+  ignored without `data`. The density bins are drawn the smaller the lighter their tone, so the count
+  survives `precision` mode; the heatmap shares that scale. The contours' grid demo is printed as its
+  values, its positions implied: the same rows, a fifth of the weight.
+  
+  Each package README lists the 60 charts; the documentation site states how each wave-3 chart
+  computes what it derives.
+
+### Patch Changes
+
+- Updated dependencies [fa8dc13]
+- Updated dependencies [da77adb]
+- Updated dependencies [c1d0ebd]
+- Updated dependencies [a83ca34]
+- Updated dependencies [2171e7d]
+- Updated dependencies [0e724d6]
+- Updated dependencies [68d2b7c]
+- Updated dependencies [c6191de]
+  - @silverpoint/core@0.6.0
+  - @silverpoint/grounds@0.6.0
+
 ## 0.3.0
 
 ### Minor Changes

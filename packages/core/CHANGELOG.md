@@ -1,5 +1,96 @@
 # @silverpoint/core
 
+## 0.6.0
+
+### Minor Changes
+
+- fa8dc13: **Second catalog, wave 1 in every adapter (feature-003, T-177, T-178).** The 14 charts of wave 1 —
+  `HistogramChart`, `EcdfChart`, `BoxPlotChart`, `ViolinChart`, `RidgelineChart`, `BeeswarmChart`,
+  `LollipopChart`, `DumbbellChart`, `SlopeChart`, `BumpChart`, `ErrorBarChart`, `IntervalChart`,
+  `DivergingBarChart` and `ConnectedScatterChart` — each at its own subpath of every adapter
+  (`@silverpoint/react/histogram-chart`, `@silverpoint/react/server/histogram-chart`,
+  `@silverpoint/vue/histogram-chart` with `SpHistogramChart`, `@silverpoint/angular/histogram-chart`
+  with `<sp-histogram-chart>`) and in each barrel. Their recipes are on a new core subpath,
+  `@silverpoint/core/catalog`, so the core's main entry keeps its budget; every one-chart build of the
+  first 33 stays within 0.1 KB of its `0.3.0` size.
+  
+  `RidgelineChart` requires `groupKey` and `DivergingBarChart` requires `levels` in every adapter
+  (`input.required` in Angular); the demo ignores both. `levels` and `axis` describe how the data's
+  columns are read, so like the `…Key` props they are ignored without `data`.
+  
+  The keyboard model of a hierarchy now reaches `stepActive` as each hit area's `moves`, computed with
+  the layout, so no chart without one carries its code. No existing output changes.
+  
+  Each package README lists the 47 charts, and the core's names `@silverpoint/core/catalog`; the
+  documentation site states, for every chart of the second catalog, how each derived value is
+  computed.
+- da77adb: **Second catalog, comparisons (feature-003, T-172..T-176).** The core recipes of `LollipopChart`,
+  `DumbbellChart` (dot or arrow end), `SlopeChart`, `BumpChart` (ranks computed in the core),
+  `ErrorBarChart`, `IntervalChart` (numbers or ISO dates in UTC), `DivergingBarChart` and
+  `ConnectedScatterChart`, each with a derived table and one heightened mark. They reach the adapters
+  with wave 1; no existing output changes.
+- c1d0ebd: **Second catalog, distributions (feature-003, T-168..T-171).** The core recipes of `HistogramChart`,
+  `EcdfChart`, `BoxPlotChart`, `ViolinChart`, `RidgelineChart` and `BeeswarmChart`: statistics derived
+  in the core (Freedman–Diaconis bins, type-7 quartiles, Tukey whiskers, Epanechnikov densities), a
+  derived tabular alternative, one heightened mark each, and a deterministic beeswarm packing. They
+  reach the adapters with wave 1; no existing output changes.
+- a83ca34: **Second catalog, foundations (feature-003, step 7a).** The props types of the 27 charts of
+  `0.6.0` (API Spec §7.3) and `NetworkNode`; the diagnostics `SP020` (invalid hierarchy),
+  `SP021` (invalid statistic parameter) and `SP022` (group too small for its statistic); `HitArea.node`,
+  through which `stepActive` follows the WAI-ARIA tree pattern when every item is a node. No chart
+  is added yet and no existing output changes: every canonical render is identical.
+- 2171e7d: **Second catalog, wave 2 in every adapter (feature-003, T-187..T-189).** The 8 charts of wave 2 —
+  `WaffleChart`, `MarimekkoChart`, `SquarifiedTreemap`, `SunburstChart`, `TreeChart`,
+  `ParallelCoordinatesChart`, `PolarLineChart` and `PolarScatterChart` — each at its own subpath of
+  every adapter (`@silverpoint/react/sunburst-chart`, `@silverpoint/react/server/sunburst-chart`,
+  `@silverpoint/vue/sunburst-chart` with `SpSunburstChart`, `@silverpoint/angular/sunburst-chart` with
+  `<sp-sunburst-chart>`) and in each barrel; their recipes join `@silverpoint/core/catalog`.
+  
+  `SquarifiedTreemap` and `SunburstChart` drill down under the consumer's control: `rootId` in, and
+  `onRootChange` (React), `@root-change` (Vue) or `(rootChange)` (Angular) out, emitted with the
+  activated node's id — its parent's for the drawn root, `null` for the top. The components keep no
+  root of their own, so a server render with `rootId` is the client's. `rootChangeOf`, on
+  `@silverpoint/core/catalog`, is what the three adapters share.
+  
+  `ParallelCoordinatesChart` requires `dimensions` in every adapter (`input.required` in Angular); the
+  demo ignores it. `dimensions` and `period` describe how the data's columns are read, so like the
+  `…Key` props they are ignored without `data`.
+  
+  Each package README lists the 55 charts; the documentation site states how each wave-2 chart
+  computes what it derives.
+- 0e724d6: **Second catalog, wave 2 recipes (feature-003, T-180..T-186).** The core recipes of
+  `SquarifiedTreemap`, `SunburstChart` (with a controlled `rootId`), `TreeChart`, `WaffleChart`,
+  `MarimekkoChart`, `ParallelCoordinatesChart`, `PolarLineChart` and `PolarScatterChart`, on owned
+  layouts: stratify, reroot, squarify (Bruls et al.), partition and the Buchheim tidy tree, and the
+  waffle's largest-remainder cells. Hierarchy charts walk as a tree by keyboard and announce each
+  node's path, value and share of its parent. They reach the adapters with wave 2; no
+  existing output changes.
+- 68d2b7c: **Second catalog, wave 3 in every adapter (feature-003, T-196..T-198).** The 5 charts of wave 3 —
+  `DensityBinChart`, `ContourChart`, `DelaunayChart`, `VectorFieldChart` and `NetworkChart` — each at
+  its own subpath of every adapter (`@silverpoint/react/network-chart`,
+  `@silverpoint/react/server/network-chart`, `@silverpoint/vue/network-chart` with `SpNetworkChart`,
+  `@silverpoint/angular/network-chart` with `<sp-network-chart>`) and in each barrel, with the
+  `NetworkNode` type; their recipes join `@silverpoint/core/catalog`.
+  
+  `NetworkChart` lays its nodes out by force, the same on the server and in every browser for a given
+  `seed`, or draws them at the consumer's `x` and `y` when every node has them. Its `nodes` are data,
+  and `ContourChart`'s `levels` say how the data's values are read: like the `…Key` props, both are
+  ignored without `data`. The density bins are drawn the smaller the lighter their tone, so the count
+  survives `precision` mode; the heatmap shares that scale. The contours' grid demo is printed as its
+  values, its positions implied: the same rows, a fifth of the weight.
+  
+  Each package README lists the 60 charts; the documentation site states how each wave-3 chart
+  computes what it derives.
+- c6191de: **Second catalog, wave 3 recipes (feature-003, T-190..T-195).** The core recipes of
+  `DensityBinChart` (hexagonal or square bins, toned by count, with a key of the count ranges),
+  `ContourChart` (iso-lines and filled bands of a point density or a regular grid), `DelaunayChart`
+  (the triangulation or its Voronoi cells), `VectorFieldChart` (an arrow per grid point) and
+  `NetworkChart` (a force layout from the seed, or the consumer's positions), on owned engines:
+  marching squares with saddle resolution, the Epanechnikov density splat, 2-D bins, Bowyer–Watson
+  with exact predicates (`BigInt` when doubles cannot settle a sign) and a fixed-iteration
+  Fruchterman–Reingold layout. They reach the adapters with wave 3; no existing output
+  changes.
+
 ## 0.3.0
 
 ### Minor Changes

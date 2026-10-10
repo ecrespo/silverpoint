@@ -205,7 +205,7 @@ adapters; 14 catalog rows; 756 fixtures (140 on PR), no existing canonical chang
   the docs site's chart list (the e2e gallery and docs counts iterate the catalog). The gallery page,
   the docs prose, the READMEs and the release are T-179.
 
-**[ ] T-179 · Wave 1 example apps, docs, changeset** — REQ-449, REQ-103, REQ-109, REQ-122
+**[x] T-179 · Wave 1 example apps, docs, changeset** — REQ-449, REQ-103, REQ-109, REQ-122
 - Gallery page in the four apps; e2e: keyboard traversal per chart, hydration in Chromium, Firefox and
   WebKit (beeswarm and violin specifically), axe. Docs gallery + generated props + method statement.
 - `minor` changeset; release steps of `CLAUDE.md`.
@@ -478,6 +478,12 @@ minified within 0.25 KB, `/catalog` at 75 kB. `spec-check`: 0 errors (the two ol
   (the pending list never showed them): `cyanotype.test.ts` now cites REQ-447 on the catalog-wide
   weight test and adds one that the second catalog's toned charts carry weights (mutation: drop the
   density bins' tones → red); `fixtures.test.ts` cites REQ-448 on the matrix tests.
+
+**Release (2026-10-10, user decision).** No partial releases: `0.4.0` and `0.5.0` are dropped and the
+three waves ship together as **`0.6.0`**. `version-packages` consumed the eight changesets and
+proposed `0.4.0` (they are minors from `0.3.0`); the release commit sets the seven versions, the
+changelog headings and the internal dependency lines to `0.6.0`, and the READMEs, specs and comments
+that named `0.4.0`/`0.5.0` now name `0.6.0`. T-179, T-189 and T-198's releases are this one.
 
 ## Traceability
 

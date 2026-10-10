@@ -137,8 +137,8 @@ with `recharts`.
 | Parity extends to controls | Differences on the component fixtures, three adapters, against canonical renders | 0 | Release 0.3.0 |
 | Accessible controls | axe on the UI page of the four example apps; APG keyboard e2e per composite | 0 A/AA issues; every pattern green | Release 0.3.0 |
 | Controls cost little | One component over the shared UI runtime; the runtime; `ui.css` | ≤ 3 KB; ≤ 8 KB; ≤ 24 KB min+gzip | Release 0.3.0 |
-| Cover the distribution, comparison, hierarchy and relational questions | The charts of §6.4.2 published, each with fixtures, parity and docs | 27 of 27 | Releases 0.4.0, 0.5.0, 0.6.0 |
-| Keep the cost of a chart flat | The one-chart budget (45 KB min+gzip); the one-chart build of an existing chart against `0.3.0` | Unchanged; no growth (REQ-444) | Releases 0.4.0, 0.5.0, 0.6.0 |
+| Cover the distribution, comparison, hierarchy and relational questions | The charts of §6.4.2 published, each with fixtures, parity and docs | 27 of 27 | Release 0.6.0 |
+| Keep the cost of a chart flat | The one-chart budget (45 KB min+gzip); the one-chart build of an existing chart against `0.3.0` | Unchanged; no growth (REQ-444) | Release 0.6.0 |
 
 ### 4.2 User Objectives
 
@@ -847,7 +847,7 @@ commitments.
 | Phase 5 — dashboard | 3-4 weeks | Dashboard composition in three adapters, parity and pixel gates per breakpoint, released in 0.2.0 |
 | Phase 5, delta-012 | 1 week | The `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222), in 0.2.0 |
 | Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
-| Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; one minor per wave: 0.4.0, 0.5.0, 0.6.0 |
+| Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; the three waves released together as 0.6.0 (user decision 2026-10-10) |
 
 ---
 

@@ -27,7 +27,7 @@ export const describe = (item: ActiveItem) => `${item.seriesKey} #${item.index}:
 ```
 
 The recipes of the second catalog — the histogram, the box plot, the sunburst, the network and the
-rest of the 27 charts added in `0.4.0`, `0.5.0` and `0.6.0` — are on their own entry, `@silverpoint/core/catalog`, so the main entry
+rest of the 27 charts added in `0.6.0` — are on their own entry, `@silverpoint/core/catalog`, so the main entry
 stays small; their props types are in the main entry with every other chart's.
 
 The geometry of the data is exact: the ground's hand-drawn inking only touches strokes that

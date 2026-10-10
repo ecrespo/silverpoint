@@ -213,13 +213,13 @@ Every chart is available as `@silverpoint/react/<kebab-case-name>` (and from the
 `BubbleChart`, `HeatmapChart`, `TreemapChart`, `SankeyChart`, `ActivityGrid`, `CoxcombChart`,
 `WindRose`, `VolvelleChart`, `ChordRing`, `OrbitChart`.
 
-The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.4.0`):
+The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.6.0`):
 
 `HistogramChart`, `EcdfChart`, `BoxPlotChart`, `ViolinChart`, `RidgelineChart`, `BeeswarmChart`,
 `LollipopChart`, `DumbbellChart`, `SlopeChart`, `BumpChart`, `ErrorBarChart`, `IntervalChart`,
 `DivergingBarChart`, `ConnectedScatterChart`.
 
-Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.6.0`):
 
 `WaffleChart`, `MarimekkoChart`, `SquarifiedTreemap`, `SunburstChart`, `TreeChart`,
 `ParallelCoordinatesChart`, `PolarLineChart`, `PolarScatterChart`.

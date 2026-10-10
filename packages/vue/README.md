@@ -221,13 +221,13 @@ Every chart is available as `@silverpoint/vue/<kebab-case-name>` (and from the b
 `SpSankeyChart`, `SpActivityGrid`, `SpCoxcombChart`, `SpWindRose`, `SpVolvelleChart`,
 `SpChordRing`, `SpOrbitChart`.
 
-The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.4.0`):
+The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.6.0`):
 
 `SpHistogramChart`, `SpEcdfChart`, `SpBoxPlotChart`, `SpViolinChart`, `SpRidgelineChart`,
 `SpBeeswarmChart`, `SpLollipopChart`, `SpDumbbellChart`, `SpSlopeChart`, `SpBumpChart`,
 `SpErrorBarChart`, `SpIntervalChart`, `SpDivergingBarChart`, `SpConnectedScatterChart`.
 
-Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.6.0`):
 
 `SpWaffleChart`, `SpMarimekkoChart`, `SpSquarifiedTreemap`, `SpSunburstChart`, `SpTreeChart`,
 `SpParallelCoordinatesChart`, `SpPolarLineChart`, `SpPolarScatterChart`.

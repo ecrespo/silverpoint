@@ -241,7 +241,7 @@ Every chart is a secondary entry point, `@silverpoint/angular/<kebab-case-name>`
 | `SpVolvelleChart` | `sp-volvelle-chart` | `SpChordRing` | `sp-chord-ring` |
 | `SpOrbitChart` | `sp-orbit-chart` | | |
 
-The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.4.0`):
+The second catalog, for distributions, comparisons, ranks and uncertainty (since `0.6.0`):
 
 | Component | Selector | Component | Selector |
 |---|---|---|---|
@@ -253,7 +253,7 @@ The second catalog, for distributions, comparisons, ranks and uncertainty (since
 | `SpErrorBarChart` | `sp-error-bar-chart` | `SpIntervalChart` | `sp-interval-chart` |
 | `SpDivergingBarChart` | `sp-diverging-bar-chart` | `SpConnectedScatterChart` | `sp-connected-scatter-chart` |
 
-Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
+Hierarchies, parts of a whole, many dimensions and polar charts (since `0.6.0`):
 
 | Component | Selector | Component | Selector |
 |---|---|---|---|

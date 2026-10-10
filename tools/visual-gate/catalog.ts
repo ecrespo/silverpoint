@@ -443,7 +443,7 @@ export const CATALOG: readonly CatalogEntry[] = [
     sample: { data: [{ label: 'Q', ms: [{ p: 0.1, value: 3 }, { p: 0.6, value: 5 }] }], markerKey: 'ms', periodKey: 'p', orbits: 1 },
   }),
 
-  // The second catalog, wave 1 (feature-003, 0.4.0): one row per chart, as the 33 (DD-034).
+  // The second catalog, wave 1 (feature-003): one row per chart, as the 33 (DD-034).
   entry({
     chart: 'HistogramChart',
     req: 'REQ-400',
@@ -578,7 +578,7 @@ export const CATALOG: readonly CatalogEntry[] = [
     sample: { data: [{ u: 4.1, p: 2.0, yr: '2021' }, { u: 3.6, p: 3.4, yr: '2022' }, { u: 3.9, p: 4.8, yr: '2023' }, { u: 4.4, p: 3.1, yr: '2024' }], xKey: 'u', yKey: 'p', labelKey: 'yr' },
   }),
 
-  // The second catalog, wave 2 (feature-003, 0.5.0).
+  // The second catalog, wave 2 (feature-003).
   entry({
     chart: 'WaffleChart',
     req: 'REQ-414',
