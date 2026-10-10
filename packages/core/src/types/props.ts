@@ -5,8 +5,8 @@ import type { GroundRef } from './ground';
 export interface CommonChartProps {
   /**
    * Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`,
-   * `keys`, `names`, `levels`, `axis`, `dimensions`, `period`) are ignored, every other prop
-   * applies.
+   * `keys`, `names`, `levels`, `axis`, `dimensions`, `period`, `nodes`) are ignored, every other
+   * prop applies.
    */
   data?: readonly Datum[];
 
@@ -724,7 +724,7 @@ export interface ContourChartProps extends CommonChartProps {
   yKey?: Accessor<number | null | undefined>;
   /** The grid value (`source: 'grid'`). Ignored without `data`. */
   valueKey?: Accessor<number | null | undefined>;
-  /** A count of levels, or the thresholds, increasing. */
+  /** A count of levels, or the thresholds, increasing: in the grid's values, or as shares of the density's peak. Ignored without `data`. */
   levels?: number | readonly number[];
   /** Fills the bands between levels; `true` by default. */
   filled?: boolean;
@@ -772,7 +772,7 @@ export interface NetworkChartProps extends CommonChartProps {
   targetKey?: Accessor<string>;
   /** 1 by default. Ignored without `data`. */
   valueKey?: Accessor<number | null | undefined>;
-  /** The nodes; the distinct ends of the links by default. Data: ignored without `data`. */
+  /** The nodes, as data; the distinct ends of the links by default. Ignored without `data`. */
   nodes?: readonly NetworkNode[];
   /** Layout iterations; 300 by default. */
   iterations?: number;

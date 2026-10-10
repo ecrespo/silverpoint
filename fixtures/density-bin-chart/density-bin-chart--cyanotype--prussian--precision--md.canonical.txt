@@ -1,0 +1,61 @@
+<svg aria-labelledby="density-bin-chart--cyanotype--prussian--precision--md-title density-bin-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
+  <title id="density-bin-chart--cyanotype--prussian--precision--md-title">
+    "Readings"
+  <desc id="density-bin-chart--cyanotype--prussian--precision--md-desc">
+    "Readings. 1200 points of x across and y up, counted in 65 hexagonal bins 14 px across and toned by count against the densest, which holds 71 near 42.61, 61.31."
+  <path d="M0.5,0.5H319.5V239.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,202H304" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M26,151.2H294" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26,132.4H294" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26,113.6H294" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26,94.8H294" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26,76H294" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26,170H294" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M70.8,48H82.8V55H70.8Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M124.8,48H136.8V55H124.8Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M178.8,48H190.8V55H178.8Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M173.6,71.55L177.45,73.78V78.22L173.6,80.45L169.75,78.22V73.78ZM124.6,83.68L128.45,85.9V90.35L124.6,92.57L120.75,90.35V85.9ZM138.6,83.68L142.45,85.9V90.35L138.6,92.57L134.75,90.35V85.9ZM152.6,83.68L156.45,85.9V90.35L152.6,92.57L148.75,90.35V85.9ZM166.6,83.68L170.45,85.9V90.35L166.6,92.57L162.75,90.35V85.9ZM180.6,83.68L184.45,85.9V90.35L180.6,92.57L176.75,90.35V85.9ZM194.6,83.68L198.45,85.9V90.35L194.6,92.57L190.75,90.35V85.9ZM117.6,95.8L121.45,98.03V102.47L117.6,104.69L113.75,102.47V98.03ZM173.6,95.8L177.45,98.03V102.47L173.6,104.69L169.75,102.47V98.03ZM187.6,95.8L191.45,98.03V102.47L187.6,104.69L183.75,102.47V98.03ZM82.6,107.93L86.45,110.15V114.6L82.6,116.82L78.75,114.6V110.15ZM96.6,107.93L100.45,110.15V114.6L96.6,116.82L92.75,114.6V110.15ZM180.6,107.93L184.45,110.15V114.6L180.6,116.82L176.75,114.6V110.15ZM194.6,107.93L198.45,110.15V114.6L194.6,116.82L190.75,114.6V110.15ZM75.6,120.05L79.45,122.27V126.72L75.6,128.94L71.75,126.72V122.27ZM89.6,120.05L93.45,122.27V126.72L89.6,128.94L85.75,126.72V122.27ZM215.6,120.05L219.45,122.27V126.72L215.6,128.94L211.75,126.72V122.27ZM229.6,120.05L233.45,122.27V126.72L229.6,128.94L225.75,126.72V122.27ZM68.6,132.18L72.45,134.4V138.84L68.6,141.07L64.75,138.84V134.4ZM82.6,132.18L86.45,134.4V138.84L82.6,141.07L78.75,138.84V134.4ZM96.6,132.18L100.45,134.4V138.84L96.6,141.07L92.75,138.84V134.4ZM110.6,132.18L114.45,134.4V138.84L110.6,141.07L106.75,138.84V134.4ZM124.6,132.18L128.45,134.4V138.84L124.6,141.07L120.75,138.84V134.4ZM138.6,132.18L142.45,134.4V138.84L138.6,141.07L134.75,138.84V134.4ZM152.6,132.18L156.45,134.4V138.84L152.6,141.07L148.75,138.84V134.4ZM236.6,132.18L240.45,134.4V138.84L236.6,141.07L232.75,138.84V134.4ZM250.6,132.18L254.45,134.4V138.84L250.6,141.07L246.75,138.84V134.4ZM264.6,132.18L268.45,134.4V138.84L264.6,141.07L260.75,138.84V134.4ZM75.6,144.3L79.45,146.52V150.97L75.6,153.19L71.75,150.97V146.52ZM89.6,144.3L93.45,146.52V150.97L89.6,153.19L85.75,150.97V146.52ZM103.6,144.3L107.45,146.52V150.97L103.6,153.19L99.75,150.97V146.52ZM131.6,144.3L135.45,146.52V150.97L131.6,153.19L127.75,150.97V146.52ZM159.6,144.3L163.45,146.52V150.97L159.6,153.19L155.75,150.97V146.52ZM173.6,144.3L177.45,146.52V150.97L173.6,153.19L169.75,150.97V146.52ZM187.6,144.3L191.45,146.52V150.97L187.6,153.19L183.75,150.97V146.52ZM229.6,144.3L233.45,146.52V150.97L229.6,153.19L225.75,150.97V146.52ZM243.6,144.3L247.45,146.52V150.97L243.6,153.19L239.75,150.97V146.52ZM257.6,144.3L261.45,146.52V150.97L257.6,153.19L253.75,150.97V146.52ZM180.6,156.42L184.45,158.65V163.09L180.6,165.32L176.75,163.09V158.65ZM222.6,156.42L226.45,158.65V163.09L222.6,165.32L218.75,163.09V158.65ZM236.6,156.42L240.45,158.65V163.09L236.6,165.32L232.75,163.09V158.65ZM250.6,156.42L254.45,158.65V163.09L250.6,165.32L246.75,163.09V158.65Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M131.6,94.59L136.5,97.42V103.08L131.6,105.91L126.7,103.08V97.42ZM159.6,94.59L164.5,97.42V103.08L159.6,105.91L154.7,103.08V97.42ZM110.6,106.72L115.5,109.54V115.2L110.6,118.03L105.7,115.2V109.54ZM166.6,106.72L171.5,109.54V115.2L166.6,118.03L161.7,115.2V109.54ZM145.6,118.84L150.5,121.67V127.33L145.6,130.16L140.7,127.33V121.67ZM159.6,118.84L164.5,121.67V127.33L159.6,130.16L154.7,127.33V121.67ZM173.6,118.84L178.5,121.67V127.33L173.6,130.16L168.7,127.33V121.67ZM201.6,118.84L206.5,121.67V127.33L201.6,130.16L196.7,127.33V121.67ZM166.6,130.96L171.5,133.79V139.45L166.6,142.28L161.7,139.45V133.79ZM180.6,130.96L185.5,133.79V139.45L180.6,142.28L175.7,139.45V133.79ZM201.6,143.09L206.5,145.92V151.58L201.6,154.4L196.7,151.58V145.92ZM215.6,143.09L220.5,145.92V151.58L215.6,154.4L210.7,151.58V145.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.6,93.38L151.55,96.81V103.68L145.6,107.12L139.65,103.68V96.81ZM103.6,117.63L109.55,121.06V127.93L103.6,131.37L97.65,127.93V121.06ZM117.6,117.63L123.55,121.06V127.93L117.6,131.37L111.65,127.93V121.06ZM187.6,117.63L193.55,121.06V127.93L187.6,131.37L181.65,127.93V121.06ZM222.6,129.75L228.55,133.19V140.06L222.6,143.49L216.65,140.06V133.19Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M124.6,104.29L131.6,108.33V116.41L124.6,120.46L117.6,116.41V108.33ZM138.6,104.29L145.6,108.33V116.41L138.6,120.46L131.6,116.41V108.33ZM131.6,116.41L138.6,120.46V128.54L131.6,132.58L124.6,128.54V120.46ZM194.6,128.54L201.6,132.58V140.66L194.6,144.7L187.6,140.66V132.58ZM208.6,128.54L215.6,132.58V140.66L208.6,144.7L201.6,140.66V132.58Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.6,104.29L159.6,108.33V116.41L152.6,120.46L145.6,116.41V108.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M152.6,104.29L159.6,108.33V116.41L152.6,120.46L145.6,116.41V108.33Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Readings"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="304" y="27">
+    "1 200"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="220">
+    "count per bin"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="304" y="220">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="148.2">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="129.4">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="110.6">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="91.8">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="73">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="47.6" y="189">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="96.88" y="189">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="146.16" y="189">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="195.44" y="189">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="244.72" y="189">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="294" y="189">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "1–17"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.8" y="55">
+    "18–35"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="140.8" y="55">
+    "36–53"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="194.8" y="55">
+    "54–71"

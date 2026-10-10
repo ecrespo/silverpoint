@@ -34,6 +34,13 @@ export function toneOf(ratio: number): ToneLevel {
   return 4;
 }
 
+/**
+ * Side of a mark, as a share of its slot, per tone: where a value cannot be printed, its size
+ * carries the level the tone shows, so it survives `precision` mode (REQ-124). The heatmap's cells
+ * when their values do not fit, the density bins always.
+ */
+export const TONE_SCALE: Readonly<Record<ToneLevel, number>> = { 0: 0.4, 1: 0.55, 2: 0.7, 3: 0.85, 4: 1 };
+
 /** A consumer-supplied tone, rounded and held to 0-4. */
 export function toneLevel(raw: number): ToneLevel {
   return Math.min(Math.max(Math.round(raw), 0), 4) as ToneLevel;

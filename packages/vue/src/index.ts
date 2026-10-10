@@ -53,6 +53,11 @@ export { default as SpTreeChart } from './SpTreeChart.vue';
 export { default as SpParallelCoordinatesChart } from './SpParallelCoordinatesChart.vue';
 export { default as SpPolarLineChart } from './SpPolarLineChart.vue';
 export { default as SpPolarScatterChart } from './SpPolarScatterChart.vue';
+export { default as SpDensityBinChart } from './SpDensityBinChart.vue';
+export { default as SpContourChart } from './SpContourChart.vue';
+export { default as SpDelaunayChart } from './SpDelaunayChart.vue';
+export { default as SpVectorFieldChart } from './SpVectorFieldChart.vue';
+export { default as SpNetworkChart } from './SpNetworkChart.vue';
 export { provideSilverpoint } from './environment';
 export type {
   ActiveItem,
@@ -105,6 +110,12 @@ export type {
   ParallelCoordinatesChartProps,
   PolarLineChartProps,
   PolarScatterChartProps,
+  DensityBinChartProps,
+  ContourChartProps,
+  DelaunayChartProps,
+  VectorFieldChartProps,
+  NetworkChartProps,
+  NetworkNode,
 
   BulletChartProps,
   ChartHandle,

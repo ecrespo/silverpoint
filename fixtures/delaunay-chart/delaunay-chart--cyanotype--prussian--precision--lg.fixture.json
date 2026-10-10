@@ -1,0 +1,22 @@
+{
+  "chart": "DelaunayChart",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "delaunay-chart--cyanotype--prussian--precision--lg",
+  "req": "REQ-424",
+  "seed": 1592,
+  "props": {
+    "title": "Stations",
+    "badge": "60",
+    "footerLeft": "nearest neighbours",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "delaunay-chart/delaunay-chart--cyanotype--prussian--precision--lg.canonical.txt"
+}

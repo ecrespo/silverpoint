@@ -1,0 +1,22 @@
+{
+  "chart": "DensityBinChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "density-bin-chart--silverpoint--ochre--precision--sm--per-shape",
+  "req": "REQ-422",
+  "seed": 1592,
+  "props": {
+    "title": "Readings",
+    "badge": "1 200",
+    "footerLeft": "count per bin",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "density-bin-chart/density-bin-chart--silverpoint--ochre--precision--sm--per-shape.canonical.txt"
+}

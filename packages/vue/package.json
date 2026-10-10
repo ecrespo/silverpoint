@@ -345,6 +345,36 @@
       "import": "./dist/polar-scatter-chart.js",
       "default": "./dist/polar-scatter-chart.js"
     },
+    "./density-bin-chart": {
+      "@silverpoint/source": "./src/density-bin-chart.ts",
+      "types": "./dist/density-bin-chart.d.ts",
+      "import": "./dist/density-bin-chart.js",
+      "default": "./dist/density-bin-chart.js"
+    },
+    "./contour-chart": {
+      "@silverpoint/source": "./src/contour-chart.ts",
+      "types": "./dist/contour-chart.d.ts",
+      "import": "./dist/contour-chart.js",
+      "default": "./dist/contour-chart.js"
+    },
+    "./delaunay-chart": {
+      "@silverpoint/source": "./src/delaunay-chart.ts",
+      "types": "./dist/delaunay-chart.d.ts",
+      "import": "./dist/delaunay-chart.js",
+      "default": "./dist/delaunay-chart.js"
+    },
+    "./vector-field-chart": {
+      "@silverpoint/source": "./src/vector-field-chart.ts",
+      "types": "./dist/vector-field-chart.d.ts",
+      "import": "./dist/vector-field-chart.js",
+      "default": "./dist/vector-field-chart.js"
+    },
+    "./network-chart": {
+      "@silverpoint/source": "./src/network-chart.ts",
+      "types": "./dist/network-chart.d.ts",
+      "import": "./dist/network-chart.js",
+      "default": "./dist/network-chart.js"
+    },
     "./dashboard": {
       "@silverpoint/source": "./src/dashboard.ts",
       "types": "./dist/dashboard.d.ts",

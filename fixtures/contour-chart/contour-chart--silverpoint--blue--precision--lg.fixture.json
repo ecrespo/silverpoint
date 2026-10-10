@@ -1,0 +1,22 @@
+{
+  "chart": "ContourChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "contour-chart--silverpoint--blue--precision--lg",
+  "req": "REQ-423",
+  "seed": 1592,
+  "props": {
+    "title": "Readings",
+    "badge": "density",
+    "footerLeft": "share of the peak",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "contour-chart/contour-chart--silverpoint--blue--precision--lg.canonical.txt"
+}

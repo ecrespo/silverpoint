@@ -4,7 +4,7 @@
       "name": "data",
       "type": "readonly Datum[]",
       "optional": true,
-      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`, `dimensions`, `period`) are ignored, every other prop applies."
+      "doc": "Rows to draw. If omitted, the demo dataset is rendered (REQ-093): accessor props (`…Key`, `keys`, `names`, `levels`, `axis`, `dimensions`, `period`, `nodes`) are ignored, every other prop applies."
     },
     {
       "name": "ground",
@@ -1630,6 +1630,175 @@
           "type": "number",
           "optional": true,
           "doc": "One turn, in the units of the angle; 360 by default. Ignored without `data`."
+        }
+      ]
+    },
+    {
+      "chart": "DensityBinChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "binShape",
+          "type": "'hexagon' | 'rect'",
+          "optional": true,
+          "doc": ""
+        },
+        {
+          "name": "binSize",
+          "type": "number",
+          "optional": true,
+          "doc": "Bin size in px; 14 by default."
+        }
+      ]
+    },
+    {
+      "chart": "ContourChart",
+      "own": [
+        {
+          "name": "source",
+          "type": "'points' | 'grid'",
+          "optional": true,
+          "doc": "`points` estimates a density from a point cloud; `grid` reads a regular grid of values."
+        },
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "The grid value (`source: 'grid'`). Ignored without `data`."
+        },
+        {
+          "name": "levels",
+          "type": "number | readonly number[]",
+          "optional": true,
+          "doc": "A count of levels, or the thresholds, increasing: in the grid's values, or as shares of the density's peak. Ignored without `data`."
+        },
+        {
+          "name": "filled",
+          "type": "boolean",
+          "optional": true,
+          "doc": "Fills the bands between levels; `true` by default."
+        }
+      ]
+    },
+    {
+      "chart": "DelaunayChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "labelKey",
+          "type": "Accessor<string | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "mesh",
+          "type": "'delaunay' | 'voronoi'",
+          "optional": true,
+          "doc": ""
+        }
+      ]
+    },
+    {
+      "chart": "VectorFieldChart",
+      "own": [
+        {
+          "name": "xKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "yKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "uKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "vKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "scale",
+          "type": "number",
+          "optional": true,
+          "doc": "Arrow length per unit of magnitude; fitted to the grid by default."
+        }
+      ]
+    },
+    {
+      "chart": "NetworkChart",
+      "own": [
+        {
+          "name": "sourceKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "targetKey",
+          "type": "Accessor<string>",
+          "optional": true,
+          "doc": "Ignored without `data`."
+        },
+        {
+          "name": "valueKey",
+          "type": "Accessor<number | null | undefined>",
+          "optional": true,
+          "doc": "1 by default. Ignored without `data`."
+        },
+        {
+          "name": "nodes",
+          "type": "readonly NetworkNode[]",
+          "optional": true,
+          "doc": "The nodes, as data; the distinct ends of the links by default. Ignored without `data`."
+        },
+        {
+          "name": "iterations",
+          "type": "number",
+          "optional": true,
+          "doc": "Layout iterations; 300 by default."
         }
       ]
     }

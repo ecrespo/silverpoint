@@ -71,6 +71,12 @@ const CARDS: Readonly<Record<string, Readonly<Record<string, unknown>>>> = {
   ParallelCoordinatesChart: { title: 'Bicycles', badge: '30 models', footerLeft: 'five measures', footerRight: 'silverpoint' },
   PolarLineChart: { title: 'Rainfall', badge: 'by month', footerLeft: 'mm', footerRight: 'silverpoint' },
   PolarScatterChart: { title: 'Sightings', badge: '150', footerLeft: 'bearing × km', footerRight: 'silverpoint' },
+  // The second catalog, wave 3 (feature-003).
+  DensityBinChart: { title: 'Readings', badge: '1 200', footerLeft: 'count per bin', footerRight: 'silverpoint' },
+  ContourChart: { title: 'Readings', badge: 'density', footerLeft: 'share of the peak', footerRight: 'silverpoint' },
+  DelaunayChart: { title: 'Stations', badge: '60', footerLeft: 'nearest neighbours', footerRight: 'silverpoint' },
+  VectorFieldChart: { title: 'Current', badge: '20 × 14', footerLeft: 'speed and heading', footerRight: 'silverpoint' },
+  NetworkChart: { title: 'Collaboration', badge: '40 people', footerLeft: 'four teams', footerRight: 'silverpoint' },
 };
 
 /**

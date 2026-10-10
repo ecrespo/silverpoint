@@ -1,0 +1,22 @@
+{
+  "chart": "DensityBinChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "id": "density-bin-chart--silverpoint--blue--precision--md",
+  "req": "REQ-422",
+  "seed": 1592,
+  "props": {
+    "title": "Readings",
+    "badge": "1 200",
+    "footerLeft": "count per bin",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "density-bin-chart/density-bin-chart--silverpoint--blue--precision--md.canonical.txt"
+}

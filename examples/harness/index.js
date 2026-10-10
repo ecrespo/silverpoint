@@ -5,7 +5,7 @@
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { ALL_FIXTURES } from './fixtures.generated.js';
 
-/** The nightly matrix (Data Model §5): 3,078 cells, the drilled-root state fixtures included. */
+/** The nightly matrix (Data Model §5): 3,402 cells, the drilled-root and placed-network state fixtures included. */
 export { ALL_FIXTURES };
 
 /** The PR matrix: the `md` + `tile` slice every PR compares. */

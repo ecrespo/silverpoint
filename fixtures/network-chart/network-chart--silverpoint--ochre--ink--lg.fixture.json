@@ -1,0 +1,22 @@
+{
+  "chart": "NetworkChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "network-chart--silverpoint--ochre--ink--lg",
+  "req": "REQ-426",
+  "seed": 1592,
+  "props": {
+    "title": "Collaboration",
+    "badge": "40 people",
+    "footerLeft": "four teams",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "network-chart/network-chart--silverpoint--ochre--ink--lg.canonical.txt"
+}

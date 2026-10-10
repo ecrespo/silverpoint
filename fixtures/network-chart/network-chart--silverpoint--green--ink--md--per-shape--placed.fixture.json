@@ -1,0 +1,121 @@
+{
+  "chart": "NetworkChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 320,
+    "height": 150
+  },
+  "state": "placed",
+  "id": "network-chart--silverpoint--green--ink--md--per-shape--placed",
+  "req": "REQ-426",
+  "seed": 1592,
+  "props": {
+    "title": "Collaboration",
+    "badge": "40 people",
+    "footerLeft": "four teams",
+    "footerRight": "silverpoint",
+    "data": [
+      {
+        "from": "n1",
+        "to": "n2"
+      },
+      {
+        "from": "n2",
+        "to": "n3"
+      },
+      {
+        "from": "n3",
+        "to": "n4"
+      },
+      {
+        "from": "n4",
+        "to": "n1"
+      },
+      {
+        "from": "s1",
+        "to": "s2"
+      },
+      {
+        "from": "s2",
+        "to": "s3"
+      },
+      {
+        "from": "s3",
+        "to": "s4"
+      },
+      {
+        "from": "s4",
+        "to": "s1"
+      },
+      {
+        "from": "n2",
+        "to": "s4"
+      }
+    ],
+    "sourceKey": "from",
+    "targetKey": "to",
+    "nodes": [
+      {
+        "id": "n1",
+        "label": "North 1",
+        "group": "North",
+        "x": 0,
+        "y": 6
+      },
+      {
+        "id": "n2",
+        "label": "North 2",
+        "group": "North",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "id": "n3",
+        "label": "North 3",
+        "group": "North",
+        "x": 3,
+        "y": 9
+      },
+      {
+        "id": "n4",
+        "label": "North 4",
+        "group": "North",
+        "x": 0,
+        "y": 9
+      },
+      {
+        "id": "s1",
+        "label": "South 1",
+        "group": "South",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "id": "s2",
+        "label": "South 2",
+        "group": "South",
+        "x": 9,
+        "y": 0
+      },
+      {
+        "id": "s3",
+        "label": "South 3",
+        "group": "South",
+        "x": 9,
+        "y": 3
+      },
+      {
+        "id": "s4",
+        "label": "South 4",
+        "group": "South",
+        "x": 6,
+        "y": 3
+      }
+    ]
+  },
+  "data": null,
+  "canonical": "network-chart/network-chart--silverpoint--green--ink--md--per-shape--placed.canonical.txt"
+}

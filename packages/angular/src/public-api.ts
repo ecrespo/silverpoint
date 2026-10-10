@@ -55,6 +55,12 @@ export type {
   ParallelCoordinatesChartProps,
   PolarLineChartProps,
   PolarScatterChartProps,
+  DensityBinChartProps,
+  ContourChartProps,
+  DelaunayChartProps,
+  VectorFieldChartProps,
+  NetworkChartProps,
+  NetworkNode,
 
   BulletChartProps,
   ChartHandle,

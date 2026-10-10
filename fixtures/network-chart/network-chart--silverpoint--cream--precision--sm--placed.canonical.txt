@@ -1,0 +1,50 @@
+<svg aria-labelledby="network-chart--silverpoint--cream--precision--sm--placed-title network-chart--silverpoint--cream--precision--sm--placed-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="network-chart--silverpoint--cream--precision--sm--placed-title">
+    "Collaboration"
+  <desc id="network-chart--silverpoint--cream--precision--sm--placed-desc">
+    "Collaboration. 8 nodes and 9 links, at the given positions, in 2 groups; the busiest, North 2, has 3 links."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M26,87.33L63.2,87.33" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.2,87.33L63.2,54" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.2,54L26,54" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M26,54L26,87.33" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M100.4,154L137.6,154" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M137.6,154L137.6,120.67" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M137.6,120.67L100.4,120.67" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M100.4,120.67L100.4,154" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.2,87.33L100.4,120.67" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M22,87.33A4,4,0,1,0,30,87.33A4,4,0,1,0,22,87.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M59.2,87.33A4,4,0,1,0,67.2,87.33A4,4,0,1,0,59.2,87.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M59.2,54A4,4,0,1,0,67.2,54A4,4,0,1,0,59.2,54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,54A4,4,0,1,0,30,54A4,4,0,1,0,22,54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.4,154A4,4,0,1,0,104.4,154A4,4,0,1,0,96.4,154Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M133.6,154A4,4,0,1,0,141.6,154A4,4,0,1,0,133.6,154Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M133.6,120.67A4,4,0,1,0,141.6,120.67A4,4,0,1,0,133.6,120.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M96.4,120.67A4,4,0,1,0,104.4,120.67A4,4,0,1,0,96.4,120.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.6,93H170.6V100H161.6Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M161.6,107H170.6V114H161.6Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M57.7,87.33A5.5,5.5,0,1,0,68.7,87.33A5.5,5.5,0,1,0,57.7,87.33Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M57.7,87.33A5.5,5.5,0,1,0,68.7,87.33A5.5,5.5,0,1,0,57.7,87.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Collaboration"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "40 people"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "four teams"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="71.7" y="90.83">
+    "North 2"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="108.9" y="124.17">
+    "South 4"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="34.5" y="90.83">
+    "North 1"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="100">
+    "North"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="100">
+    "4"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="114">
+    "South"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="114">
+    "4"

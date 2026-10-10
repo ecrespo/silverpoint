@@ -1,0 +1,113 @@
+<svg aria-labelledby="density-bin-chart--silverpoint--cream--ink--sm-title density-bin-chart--silverpoint--cream--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="density-bin-chart--silverpoint--cream--ink--sm-title">
+    "Readings"
+  <desc id="density-bin-chart--silverpoint--cream--ink--sm-desc">
+    "Readings. 1200 points of x across and y up, counted in 35 hexagonal bins 14 px across and toned by count against the densest, which holds 138 near 33.65, 62.11."
+  <defs>
+    <pattern height="50" id="density-bin-chart--silverpoint--cream--ink--sm-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="density-bin-chart--silverpoint--cream--ink--sm-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="density-bin-chart--silverpoint--cream--ink--sm-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="density-bin-chart--silverpoint--cream--ink--sm-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M26 127.2 C64.76 126.29, 104.88 127.63, 214 127.2 M26 127.2 C82.48 127.86, 138.91 128.09, 214 127.2" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26 114.4 C64.31 114.77, 104.77 114.65, 214 114.4 M26 114.4 C84.16 114.6, 142.4 114.82, 214 114.4" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26 101.6 C65.65 100.44, 104.67 100.66, 214 101.6 M26 101.6 C85.84 101.35, 144.98 101.55, 214 101.6" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26 88.8 C65.19 88.92, 104.57 89.48, 214 88.8 M26 88.8 C86.61 88.09, 147.57 88.27, 214 88.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26 76 C64.74 76.39, 104.47 75.48, 214 76 M26 76 C88.29 75.84, 151.05 76.01, 214 76" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M26 140 C66.08 139.87, 104.37 139.31, 214 140 M26 140 C89.97 140.29, 153.64 139.54, 214 140" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,48H34V55H22Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M22 48 C24.66 48.24, 26.74 48.11, 34 48 M22 48 C26.42 48.1, 30.18 48.18, 34 48 M34 48 C34.28 50.45, 33.92 53.08, 34 55 M34 48 C34.01 50.48, 34.1 53.24, 34 55 M34 55 C29.14 54.43, 25.16 55.32, 22 55 M34 55 C30.09 54.84, 26.47 54.85, 22 55 M22 55 C21.91 52.69, 22.03 49.93, 22 48 M22 55 C22.11 52.67, 21.87 50.06, 22 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M70.8,48H82.8V55H70.8Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M70.8 48 C73.16 47.65, 75.42 47.72, 82.8 48 M70.8 48 C74.92 48.05, 79.54 48.13, 82.8 48 M82.8 48 C83.09 49.24, 82.58 50.6, 82.8 55 M82.8 48 C82.93 50.79, 82.93 53.36, 82.8 55 M82.8 55 C78.97 54.58, 75.36 55.44, 70.8 55 M82.8 55 C79.08 55.12, 74.56 54.81, 70.8 55 M70.8 55 C70.92 52.45, 70.73 50.24, 70.8 48 M70.8 55 C70.66 53.19, 70.85 51.59, 70.8 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M124.8,48H136.8V55H124.8Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M124.8 48 C126.85 48.08, 130.38 48.35, 136.8 48 M124.8 48 C129.16 47.94, 133.56 48.01, 136.8 48 M136.8 48 C137.13 50.06, 137.1 51.55, 136.8 55 M136.8 48 C136.7 49.38, 136.92 51, 136.8 55 M136.8 55 C134 54.66, 130.75 55.51, 124.8 55 M136.8 55 C132.72 54.8, 128.39 55.24, 124.8 55 M124.8 55 C124.51 52.2, 124.62 49.93, 124.8 48 M124.8 55 C124.73 52.63, 124.71 50, 124.8 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M184,48H196V55H184Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M184 48 C186.83 47.49, 189.46 47.96, 196 48 M184 48 C188.6 47.83, 192.77 47.89, 196 48 M196 48 C195.7 50.25, 196.16 52.5, 196 55 M196 48 C195.97 49.7, 196.1 51.12, 196 55 M196 55 C190.74 54.74, 186.54 54.49, 184 55 M196 55 C191.56 55.09, 187.43 55.2, 184 55 M184 55 C183.96 52.59, 183.75 50.24, 184 48 M184 55 C184.01 53.16, 184.08 51.53, 184 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M131.6,71.55L135.45,73.78V78.22L131.6,80.45L127.75,78.22V73.78ZM96.6,83.68L100.45,85.9V90.35L96.6,92.57L92.75,90.35V85.9ZM138.6,83.68L142.45,85.9V90.35L138.6,92.57L134.75,90.35V85.9ZM75.6,95.8L79.45,98.03V102.47L75.6,104.69L71.75,102.47V98.03ZM145.6,95.8L149.45,98.03V102.47L145.6,104.69L141.75,102.47V98.03ZM159.6,95.8L163.45,98.03V102.47L159.6,104.69L155.75,102.47V98.03ZM54.6,107.93L58.45,110.15V114.6L54.6,116.82L50.75,114.6V110.15ZM68.6,107.93L72.45,110.15V114.6L68.6,116.82L64.75,114.6V110.15ZM180.6,107.93L184.45,110.15V114.6L180.6,116.82L176.75,114.6V110.15ZM194.6,107.93L198.45,110.15V114.6L194.6,116.82L190.75,114.6V110.15ZM61.6,120.05L65.45,122.27V126.72L61.6,128.94L57.75,126.72V122.27ZM75.6,120.05L79.45,122.27V126.72L75.6,128.94L71.75,126.72V122.27ZM89.6,120.05L93.45,122.27V126.72L89.6,128.94L85.75,126.72V122.27ZM103.6,120.05L107.45,122.27V126.72L103.6,128.94L99.75,126.72V122.27ZM117.6,120.05L121.45,122.27V126.72L117.6,128.94L113.75,126.72V122.27ZM131.6,120.05L135.45,122.27V126.72L131.6,128.94L127.75,126.72V122.27ZM173.6,120.05L177.45,122.27V126.72L173.6,128.94L169.75,126.72V122.27ZM187.6,120.05L191.45,122.27V126.72L187.6,128.94L183.75,126.72V122.27ZM152.6,132.18L156.45,134.4V138.84L152.6,141.07L148.75,138.84V134.4ZM180.6,132.18L184.45,134.4V138.84L180.6,141.07L176.75,138.84V134.4Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M131.6,71.55L135.45,73.78V78.22L131.6,80.45L127.75,78.22V73.78ZM96.6,83.68L100.45,85.9V90.35L96.6,92.57L92.75,90.35V85.9ZM138.6,83.68L142.45,85.9V90.35L138.6,92.57L134.75,90.35V85.9ZM75.6,95.8L79.45,98.03V102.47L75.6,104.69L71.75,102.47V98.03ZM145.6,95.8L149.45,98.03V102.47L145.6,104.69L141.75,102.47V98.03ZM159.6,95.8L163.45,98.03V102.47L159.6,104.69L155.75,102.47V98.03ZM54.6,107.93L58.45,110.15V114.6L54.6,116.82L50.75,114.6V110.15ZM68.6,107.93L72.45,110.15V114.6L68.6,116.82L64.75,114.6V110.15ZM180.6,107.93L184.45,110.15V114.6L180.6,116.82L176.75,114.6V110.15ZM194.6,107.93L198.45,110.15V114.6L194.6,116.82L190.75,114.6V110.15ZM61.6,120.05L65.45,122.27V126.72L61.6,128.94L57.75,126.72V122.27ZM75.6,120.05L79.45,122.27V126.72L75.6,128.94L71.75,126.72V122.27ZM89.6,120.05L93.45,122.27V126.72L89.6,128.94L85.75,126.72V122.27ZM103.6,120.05L107.45,122.27V126.72L103.6,128.94L99.75,126.72V122.27ZM117.6,120.05L121.45,122.27V126.72L117.6,128.94L113.75,126.72V122.27ZM131.6,120.05L135.45,122.27V126.72L131.6,128.94L127.75,126.72V122.27ZM173.6,120.05L177.45,122.27V126.72L173.6,128.94L169.75,126.72V122.27ZM187.6,120.05L191.45,122.27V126.72L187.6,128.94L183.75,126.72V122.27ZM152.6,132.18L156.45,134.4V138.84L152.6,141.07L148.75,138.84V134.4ZM180.6,132.18L184.45,134.4V138.84L180.6,141.07L176.75,138.84V134.4Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M110.6,82.47L115.5,85.3V90.95L110.6,93.78L105.7,90.95V85.3ZM124.6,82.47L129.5,85.3V90.95L124.6,93.78L119.7,90.95V85.3ZM131.6,94.59L136.5,97.42V103.08L131.6,105.91L126.7,103.08V97.42ZM82.6,106.72L87.5,109.54V115.2L82.6,118.03L77.7,115.2V109.54ZM110.6,106.72L115.5,109.54V115.2L110.6,118.03L105.7,115.2V109.54ZM124.6,106.72L129.5,109.54V115.2L124.6,118.03L119.7,115.2V109.54ZM166.6,106.72L171.5,109.54V115.2L166.6,118.03L161.7,115.2V109.54ZM145.6,118.84L150.5,121.67V127.33L145.6,130.16L140.7,127.33V121.67ZM159.6,118.84L164.5,121.67V127.33L159.6,130.16L154.7,127.33V121.67Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M110.6,82.47L115.5,85.3V90.95L110.6,93.78L105.7,90.95V85.3ZM124.6,82.47L129.5,85.3V90.95L124.6,93.78L119.7,90.95V85.3ZM131.6,94.59L136.5,97.42V103.08L131.6,105.91L126.7,103.08V97.42ZM82.6,106.72L87.5,109.54V115.2L82.6,118.03L77.7,115.2V109.54ZM110.6,106.72L115.5,109.54V115.2L110.6,118.03L105.7,115.2V109.54ZM124.6,106.72L129.5,109.54V115.2L124.6,118.03L119.7,115.2V109.54ZM166.6,106.72L171.5,109.54V115.2L166.6,118.03L161.7,115.2V109.54ZM145.6,118.84L150.5,121.67V127.33L145.6,130.16L140.7,127.33V121.67ZM159.6,118.84L164.5,121.67V127.33L159.6,130.16L154.7,127.33V121.67Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M89.6,93.38L95.55,96.81V103.68L89.6,107.12L83.65,103.68V96.81ZM96.6,105.5L102.55,108.94V115.81L96.6,119.24L90.65,115.81V108.94ZM138.6,105.5L144.55,108.94V115.81L138.6,119.24L132.65,115.81V108.94Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M89.6,93.38L95.55,96.81V103.68L89.6,107.12L83.65,103.68V96.81ZM96.6,105.5L102.55,108.94V115.81L96.6,119.24L90.65,115.81V108.94ZM138.6,105.5L144.55,108.94V115.81L138.6,119.24L132.65,115.81V108.94Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M117.6,92.17L124.6,96.21V104.29L117.6,108.33L110.6,104.29V96.21ZM152.6,104.29L159.6,108.33V116.41L152.6,120.46L145.6,116.41V108.33Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M117.6,92.17L124.6,96.21V104.29L117.6,108.33L110.6,104.29V96.21ZM152.6,104.29L159.6,108.33V116.41L152.6,120.46L145.6,116.41V108.33Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M103.6,92.17L110.6,96.21V104.29L103.6,108.33L96.6,104.29V96.21Z" data-paint="tile" data-role="hatch" fill="url(#density-bin-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M103.6,92.17L110.6,96.21V104.29L103.6,108.33L96.6,104.29V96.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M103.6,92.17L110.6,96.21V104.29L103.6,108.33L96.6,104.29V96.21Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Readings"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "1 200"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "count per bin"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="124.2">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="111.4">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="98.6">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="85.8">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="26" y="73">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="47.6" y="159">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="80.88" y="159">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="114.16" y="159">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="147.44" y="159">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="180.72" y="159">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="214" y="159">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+    "1–34"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.8" y="55">
+    "35–69"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="140.8" y="55">
+    "70–103"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="200" y="55">
+    "104–138"

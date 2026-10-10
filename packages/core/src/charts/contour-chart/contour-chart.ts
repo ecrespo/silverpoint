@@ -19,7 +19,7 @@ const NODE_SPACING = 6;
 const MIN_NODES = 10;
 const MAX_NODES = 60;
 /** A level is named on its longest line when the line is at least this long, in px. */
-const LABEL_ROOM = 60;
+const LABEL_ROOM = 20;
 /** Two level names closer than this, in px, would collide: the later one is left to the table. */
 const LABEL_GAP = 28;
 
@@ -54,7 +54,8 @@ function buildContourChart(props: ContourChartProps, context: RecipeContext): Ch
   const xKey = usesDemo ? demoKeys.xKey : (props.xKey ?? 'x');
   const yKey = usesDemo ? demoKeys.yKey : (props.yKey ?? 'y');
   const valueKey = usesDemo ? CONTOUR_CHART_GRID_DEMO_KEYS.valueKey : (props.valueKey ?? 'value');
-  const levels = checkLevels(CHART, props.levels) ?? LEVELS;
+  // `levels` says how the data's values are read, so it goes with the data (REQ-099).
+  const levels = (usesDemo ? undefined : checkLevels(CHART, props.levels)) ?? LEVELS;
   const filled = props.filled !== false;
   const { locale } = context;
   const numberFormat = props.numberFormat;
@@ -145,13 +146,16 @@ function buildContourChart(props: ContourChartProps, context: RecipeContext): Ch
     // The level is named and reached on its longest line, or its first ring when it draws none.
     const lines = c.lines.length > 0 ? c.lines : c.rings;
     const length = (line: readonly GridPoint[]) => line.map(toPx).reduce((s, q, i, all) => (i === 0 ? 0 : s + Math.sqrt((q.x - (all[i - 1] as typeof q).x) ** 2 + (q.y - (all[i - 1] as typeof q).y) ** 2)), 0);
-    const longest = lines.reduce((best, line) => (length(line) > length(best) ? line : best), lines[0] as readonly GridPoint[]);
-    // Levels are named at staggered places along their lines, and not where a name already is.
-    const pick = (f: number) => toPx(longest[Math.min(Math.floor(longest.length * f), longest.length - 1)] as GridPoint);
-    const spots = [(n + 1) / (drawn.length + 1), 0.5, 0.25, 0.75, 0.1, 0.9].map(pick);
+    // Levels are named at staggered places along their lines, longest line first, and not where a
+    // name already is.
+    const byLength = [...lines].sort((a, b) => length(b) - length(a));
+    const longest = byLength[0] as readonly GridPoint[];
+    const at = (line: readonly GridPoint[], f: number) => toPx(line[Math.min(Math.floor(line.length * f), line.length - 1)] as GridPoint);
+    const fractions = [(n + 1) / (drawn.length + 1), 0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875];
+    const spots = byLength.filter((line) => length(line) >= LABEL_ROOM).flatMap((line) => fractions.map((f) => at(line, f)));
     const free = spots.find((q) => placed.every((o) => (o.x - q.x) * (o.x - q.x) + (o.y - q.y) * (o.y - q.y) >= LABEL_GAP * LABEL_GAP));
-    const mid = free ?? (spots[0] as { x: number; y: number });
-    if (free && c.lines.length > 0 && length(longest) >= LABEL_ROOM) {
+    const mid = free ?? at(longest, fractions[0] as number);
+    if (free && c.lines.length > 0) {
       placed.push(free);
       labels.push({ x: free.x, y: free.y - 3, text: format(c.level), kind: 'tick', part: 'axis', anchor: 'middle' });
     }

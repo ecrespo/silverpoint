@@ -311,9 +311,12 @@ export function rectBins(points: readonly Indexed[], size: number, origin: GridP
   });
 }
 
-/** A pointy-top hexagon `size` px across the flats, centred at `(cx, cy)`. */
+/**
+ * A pointy-top hexagon `size` px across the flats, centred at `(cx, cy)`; its two vertical sides
+ * are written as `V`, so a cloud of bins weighs less (NFR §7).
+ */
 export function hexagonPath(cx: number, cy: number, size: number): string {
   const r = size / Math.sqrt(3);
   const h = size / 2;
-  return `M${cx},${cy - r}L${cx + h},${cy - r / 2}L${cx + h},${cy + r / 2}L${cx},${cy + r}L${cx - h},${cy + r / 2}L${cx - h},${cy - r / 2}Z`;
+  return `M${cx},${cy - r}L${cx + h},${cy - r / 2}V${cy + r / 2}L${cx},${cy + r}L${cx - h},${cy + r / 2}V${cy - r / 2}Z`;
 }

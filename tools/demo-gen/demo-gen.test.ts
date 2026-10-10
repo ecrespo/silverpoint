@@ -7,6 +7,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { DEMO_FILES, demoPath, renderDemoFile } from './demo-gen';
+import { surface } from './generators';
 
 type Row = Record<string, unknown>;
 
@@ -205,6 +206,13 @@ describe('T-167 · each demo exercises its statistic or layout (Data Model delta
     expect(grid).toHaveLength(1200);
     expect(new Set(grid.map((r) => r.x)).size).toBe(40);
     expect(new Set(grid.map((r) => r.y)).size).toBe(30);
+  });
+
+  test('REQ-164 · REQ-446 · the regular grid is printed as its values, row by row, its positions implied: the same rows', async () => {
+    const source = readFileSync(demoPath('contour-chart'), 'utf8');
+    expect(source).toContain('].map((value, k) => Object.freeze({ x: k % 40, y: Math.floor(k / 40), value })),');
+    expect(source).not.toMatch(/\{ x: \d+, y: \d+, value:/);
+    expect((await load('contour-chart')).CONTOUR_CHART_GRID_DEMO).toEqual(surface());
   });
 
   test('REQ-446 · delaunay · 60 distinct points; vector field · a 20 × 14 vortex', async () => {

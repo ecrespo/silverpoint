@@ -62,6 +62,11 @@ export default defineConfig({
     'parallel-coordinates-chart': 'src/parallel-coordinates-chart.ts',
     'polar-line-chart': 'src/polar-line-chart.ts',
     'polar-scatter-chart': 'src/polar-scatter-chart.ts',
+    'density-bin-chart': 'src/density-bin-chart.ts',
+    'contour-chart': 'src/contour-chart.ts',
+    'delaunay-chart': 'src/delaunay-chart.ts',
+    'vector-field-chart': 'src/vector-field-chart.ts',
+    'network-chart': 'src/network-chart.ts',
     // UI components (feature-002): one entry per component, and the barrel.
     ui: 'src/ui/index.ts',
     'ui/button': 'src/ui/button.ts',

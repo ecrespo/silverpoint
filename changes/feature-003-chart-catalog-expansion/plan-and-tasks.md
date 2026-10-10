@@ -413,10 +413,50 @@ own); every test mutation-checked (25 mutants, all caught but one equivalent, be
   `iterations` need demo probes; `nodes` is data (ignored with the demo); `levels` is a view prop
   here, while REQ-098's test lists it as data (the Likert's) — settle it per chart.
 
-**[ ] T-196 · Wave 3 adapters ×3** — REQ-444
-**[ ] T-197 · Wave 3 fixtures, gates and budgets** — REQ-448, REQ-435, REQ-445
+**[x] T-196 · Wave 3 adapters ×3** — REQ-444
+**[x] T-197 · Wave 3 fixtures, gates and budgets** — REQ-448, REQ-435, REQ-445
 - Plus the consumer-positions network fixture.
-**[ ] T-198 · Wave 3 example apps, docs, changeset** — REQ-449. `0.6.0`.
+**[x] T-198 · Wave 3 example apps, docs, changeset** — REQ-449. `0.6.0`.
+
+**7d ledger, part 2 (Phase 9, 2026-10-10).** Done: T-196..T-198; the `0.6.0` release waits for the
+user. The 5 recipes reach `@silverpoint/core/catalog` and every adapter; 5 catalog rows and one state.
+- **Adapters:** one file per chart and adapter, as wave 2's (React client and server, Vue over
+  `ChartShell`, Angular over `SpChart`), in each barrel with `NetworkNode`. `SpContourChart` keeps an
+  absent `filled` absent (`withDefaults(…, { filled: undefined })`), as the donut's `legend`: Vue
+  would cast it to `false` (the string gate found it).
+- **Data, not view (REQ-098, REQ-099):** a network's `nodes` are data, and `ContourChart`'s `levels`
+  say how the data's values are read (thresholds in its units, or shares of its peak), so both are
+  ignored with the demo, like the Likert's `levels`; `nodes` joins the accessor lists of the props
+  tests and of `data`'s documentation. Demo probes: `binShape`, `filled`, `mesh`, `scale`, `iterations`.
+- **State fixture `placed`** (REQ-436, DM delta §3): the network at the consumer's positions — two
+  teams of four on their own squares, joined at a corner. The matrix is 3,402 nightly and 630 on PR
+  (60 charts + 3 states); string gate 1,890 comparisons, 0 failures.
+- **REQ-124, found by the identity test:** the density bins' tone is a count, and nothing else said
+  it in `precision`. A bin is now drawn the smaller the lighter its tone, by the scale the heatmap
+  uses when its values do not fit (`TONE_SCALE`, moved to `shared/cells.ts`; the heatmap's output and
+  every one-chart build unchanged). Contours: every level is named on one of its lines — all of them
+  are searched, longest first — so the demo names all four at every size; the network names its
+  groups with their sizes.
+- **NFR §7, found by the path-weight test:** the demo's density bins weighed 46 KB of path data at
+  `lg` (each bin twice: its outline and its hatch). Bins of one tone are one path (the densest alone,
+  heightened), and a hexagon's two vertical sides are written as `V`: under 40 KB at every size. A
+  larger plot of a dense cloud can still pass 40 KB; SP011 says so, as designed.
+- **REQ-164, found by size-limit:** `ContourChart` carries two demos of 1 200 rows; Angular's build
+  was 46.2 kB. `tools/demo-gen` now prints a regular grid as its values, row by row, its positions
+  implied (`columns`): the same rows (tested against the generator), a fifth of the source; 43.0 kB.
+  Every wave-3 one-chart build is 18–43 kB. **`/catalog` (everything)** is 70 kB with all three
+  waves: its row moves from 50 to **75 kB** (my call, as the 50 was; the one-chart budget of API §12
+  is untouched — say if it should be held lower).
+- **Families:** `ContourChart + DensityBinChart` share the two clusters (tree-shaking test).
+- **Docs and apps:** method statements for the 5 charts; READMEs list 60; the four example apps and
+  the docs gallery carry the 5. **e2e:** `network-keyboard.spec.ts` walks the demo and the placed
+  state in every app — Down to a node's links, Up back, Right on — checking the live region's words.
+  The network and the contours join the beeswarm and the violin in the Firefox and WebKit hydration
+  test (REQ-435; the PRD delta's risk row names the network). Locally Firefox and WebKit are not
+  installed for Playwright 1.63, so the multi-engine specs ran in the pinned image (as the pixel gate
+  does): determinism, hydration and the UI's, all green; the rest of the e2e locally, green. 60 new
+  goldens (5 charts and the placed state × 10 cells), written once and then compared green; no
+  existing golden moved.
 
 ### 7e — Close
 

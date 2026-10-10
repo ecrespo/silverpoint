@@ -72,6 +72,11 @@ export default defineConfig([
       'parallel-coordinates-chart': 'src/parallel-coordinates-chart.tsx',
       'polar-line-chart': 'src/polar-line-chart.tsx',
       'polar-scatter-chart': 'src/polar-scatter-chart.tsx',
+      'density-bin-chart': 'src/density-bin-chart.tsx',
+      'contour-chart': 'src/contour-chart.tsx',
+      'delaunay-chart': 'src/delaunay-chart.tsx',
+      'vector-field-chart': 'src/vector-field-chart.tsx',
+      'network-chart': 'src/network-chart.tsx',
       'dashboard-link': 'src/dashboard-link.tsx',
       // UI components (feature-002): client entries, one per component, and the barrel.
       ui: 'src/ui/index.ts',
@@ -157,6 +162,11 @@ export default defineConfig([
       'server/parallel-coordinates-chart': 'src/server/parallel-coordinates-chart.tsx',
       'server/polar-line-chart': 'src/server/polar-line-chart.tsx',
       'server/polar-scatter-chart': 'src/server/polar-scatter-chart.tsx',
+      'server/density-bin-chart': 'src/server/density-bin-chart.tsx',
+      'server/contour-chart': 'src/server/contour-chart.tsx',
+      'server/delaunay-chart': 'src/server/delaunay-chart.tsx',
+      'server/vector-field-chart': 'src/server/vector-field-chart.tsx',
+      'server/network-chart': 'src/server/network-chart.tsx',
       // Display components for Server Components: props and dashboard cell only (REQ-104).
       'server/ui/card': 'src/server/ui/card.tsx',
       'server/ui/divider': 'src/server/ui/divider.tsx',

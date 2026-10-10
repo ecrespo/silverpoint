@@ -2,7 +2,7 @@ import type { LinearScale } from '../../scales/scales';
 import type { ChartModel, ChartRecipe, DensityBinChartProps, HitArea, RecipeContext, Stroke, TextLabel, ToneLevel } from '../../types';
 import { cardLayout } from '../shared/card';
 import { LEGEND_BAND, cartesianPlot, legend } from '../shared/cartesian';
-import { rectPath, toneOf } from '../shared/cells';
+import { TONE_SCALE, rectPath, toneOf } from '../shared/cells';
 import { checkCeiling, checkPositive, readPointCloud } from '../shared/contracts';
 import { hexBins, hexagonPath, rectBins, type Bin2D } from '../shared/field';
 import { accessorName, formatNumber } from '../shared/format';
@@ -91,20 +91,30 @@ function buildDensityBinChart(props: DensityBinChartProps, context: RecipeContex
   const rowOf = new Map(rows.map((row, r) => [row, r]));
   const columnOf = bins.map((b, k) => bins.slice(0, k).filter((o) => o.row === b.row).length);
   const half = size / 2;
-  const marks = bins.map((bin, k) => {
-    const d = hexagons ? hexagonPath(bin.cx, bin.cy, size) : rectPath({ x: bin.cx - half, y: bin.cy - half, width: size, height: size });
-    // Tone by count against the densest bin, as the heatmap tones by value (DD-032).
-    strokes.push({ d, role: 'encoding', part: 'ink', tone: toneOf(bin.count / max) });
+  // The densest bin, the first of them in reading order, is the heightened one (REQ-442).
+  const densest = bins.findIndex((b) => b.count === max);
+  // Tone by count against the densest bin, as the heatmap tones by value (DD-032); the bin's size
+  // repeats the level, so the count survives `precision` mode (REQ-124). Bins of one tone are one
+  // path, as the waffle's cells of one category are, so a dense cloud stays light (NFR §7).
+  const byTone = new Map<ToneLevel, string[]>();
+  let lone = '';
+  bins.forEach((bin, k) => {
+    const tone = toneOf(bin.count / max);
+    const drawn = size * TONE_SCALE[tone];
+    const d = hexagons ? hexagonPath(bin.cx, bin.cy, drawn) : rectPath({ x: bin.cx - drawn / 2, y: bin.cy - drawn / 2, width: drawn, height: drawn });
+    if (k === densest) lone = d;
+    else byTone.set(tone, [...(byTone.get(tone) ?? []), d]);
     // The readout's mark stays in the plot, whatever the lattice does at its edge.
     const x = Math.min(Math.max(bin.cx, plot.x), plot.x + plot.width);
     const y = Math.min(Math.max(bin.cy, plot.y), plot.y + plot.height);
     hitAreas.push({ seriesKey: 'count', index: k, datum: summaries[k] as (typeof summaries)[number], value: bin.count, x, y, box: { x: bin.cx - half, y: bin.cy - half, width: size, height: size }, cell: { column: columnOf[k] as number, row: rowOf.get(bin.row) as number } });
-    return d;
   });
-
-  // One heightened element (REQ-442): the densest bin, the first of them in reading order.
-  const densest = bins.findIndex((b) => b.count === max);
-  strokes.push({ d: marks[densest] as string, role: 'encoding', part: 'heighten', paint: 'fill' });
+  for (const tone of [1, 2, 3, 4] as const) {
+    const paths = byTone.get(tone);
+    if (paths) strokes.push({ d: paths.join(''), role: 'encoding', part: 'ink', tone });
+  }
+  strokes.push({ d: lone, role: 'encoding', part: 'ink', tone: 4 });
+  strokes.push({ d: lone, role: 'encoding', part: 'heighten', paint: 'fill' });
 
   const peak = summaries[densest] as (typeof summaries)[number];
   const description =

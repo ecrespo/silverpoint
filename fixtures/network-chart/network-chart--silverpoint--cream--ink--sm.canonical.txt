@@ -1,0 +1,260 @@
+<svg aria-labelledby="network-chart--silverpoint--cream--ink--sm-title network-chart--silverpoint--cream--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="network-chart--silverpoint--cream--ink--sm-title">
+    "Collaboration"
+  <desc id="network-chart--silverpoint--cream--ink--sm-desc">
+    "Collaboration. 40 nodes and 90 links, laid out by force (Fruchterman–Reingold, 300 iterations from the seed), in 4 groups; the busiest, Press 3, has 10 links."
+  <defs>
+    <pattern height="50" id="network-chart--silverpoint--cream--ink--sm-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+      <path d="M0 5 C15.88 5.38, 31.11 5.64, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 15 C15.36 15.02, 30.06 15.37, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 25 C14.85 24.66, 30.82 25.1, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35 C14.33 35.83, 29.78 34.56, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 45 C15.62 45.47, 30.53 44.29, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="45" id="network-chart--silverpoint--cream--ink--sm-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+      <path d="M0 3.75 C18.67 3.07, 36.33 2.93, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 11.25 C18.16 12, 35.29 11.95, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 18.75 C17.65 19.13, 36.05 19.17, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 26.25 C17.13 26.02, 35 26.15, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 33.75 C18.42 33.15, 35.76 33.37, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C17.9 41.83, 36.51 40.35, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="network-chart--silverpoint--cream--ink--sm-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C15.31 2.79, 29.23 2.25, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C14.79 7.93, 29.99 7.48, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C14.28 13.07, 28.94 14.51, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C13.76 19.74, 29.7 19.48, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C15.05 24.88, 28.66 24.71, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C14.54 29.75, 29.41 29.67, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C14.02 34.89, 28.37 34.9, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C15.31 41.83, 29.13 41.93, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C14.79 46.71, 29.88 46.89, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+    <pattern height="49.5" id="network-chart--silverpoint--cream--ink--sm-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+      <path d="M0 2.75 C20.05 3.51, 38.34 2.59, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 8.25 C19.53 8.65, 39.1 7.82, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 13.75 C19.02 13.79, 38.05 13.05, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 19.25 C18.51 18.67, 38.81 19.81, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 24.75 C19.79 25.61, 37.77 25.04, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 30.25 C19.28 30.75, 38.52 30.27, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 35.75 C18.76 35.62, 39.28 35.23, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 41.25 C20.05 40.76, 38.24 40.46, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M0 46.75 C19.54 47.43, 38.99 47.22, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M2.75 0 C2.36 19.59, 2.01 38.75, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M8.25 0 C7.37 19.12, 8.29 38.37, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M13.75 0 C14.18 18.65, 14.56 38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M19.25 0 C19.19 19.99, 19.04 39.42, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M24.75 0 C24.2 19.52, 25.32 39.05, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M30.25 0 C31.01 19.06, 29.8 38.67, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M35.75 0 C36.01 18.59, 36.08 38.29, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M41.25 0 C41.02 19.92, 40.56 37.92, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+      <path d="M46.75 0 C46.03 19.46, 46.84 39.34, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+  <path d="M0.5 0.5 C50.62 -0.15, 99.01 0.4, 239.5 0.5 M0.5 0.5 C69.08 0.23, 137.41 0.45, 239.5 0.5 M239.5 0.5 C239.43 77.02, 239.84 153.72, 239.5 209.5 M239.5 0.5 C239.15 47.22, 239.64 93.66, 239.5 209.5 M239.5 209.5 C169.85 208.69, 101.26 208.62, 0.5 209.5 M239.5 209.5 C151.28 209.84, 63.41 209.72, 0.5 209.5 M0.5 209.5 C0.92 143.48, 1.38 77.62, 0.5 0.5 M0.5 209.5 C0.11 131.71, 0.61 53.04, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16 172 C59.34 172.56, 101.57 171.85, 224 172 M16 172 C76.72 172.07, 138.09 171.49, 224 172" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M48.55,93.78L26,92.52" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M111.07,139.24L90.47,142.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M118.69,115.25L102.94,115.53" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M66.17,93.95L43.24,106.2" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L102.42,76.49" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M45.54,88.09L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.46,129.93L54.86,132.01" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M127.73,110.79L118.69,115.25" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M76.03,140.79L70.99,138.07" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.71,108.86L45.54,88.09" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M76.03,140.79L45.84,135.72" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L69.01,79.85" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M75.75,83.72L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M58.4,74.89L69.01,79.85" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M118.69,115.25L107.56,123.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.99,138.07L67.03,151.29" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M88.05,120.87L70.46,129.93" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M111.07,139.24L110.19,130.21" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M107.56,123.79L82.34,116.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M107.56,123.79L111.07,139.24" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M66.64,55.68L69.01,79.85" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.42,76.49L80.74,69.57" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M45.84,135.72L28.55,112.06" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M90.17,92.41L80.74,69.57" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L124.91,121.04" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M124.91,121.04L118.69,115.25" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M45.54,88.09L26,92.52" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M67.03,151.29L54.97,154" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M80.74,69.57L75.75,83.72" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M88.05,120.87L95.09,86.21" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M137.6,127.74L127.73,110.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M107.56,123.79L102.94,115.53" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M66.17,93.95L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M28.55,112.06L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M82.34,116.41L76.03,140.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M37.25,83.1L69.01,79.85" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.99,138.07L54.86,132.01" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M45.54,88.09L69.01,79.85" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M90.47,142.78L76.03,140.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L118.69,115.25" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M58.4,74.89L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.99,138.07L70.46,129.93" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M110.19,130.21L118.69,115.25" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.99,138.07L45.84,135.72" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M66.17,93.95L58.4,74.89" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M76.03,140.79L110.19,130.21" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M43.24,106.2L37.25,83.1" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L82.34,116.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M88.05,120.87L90.47,142.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M37.25,83.1L26,92.52" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.46,129.93L82.34,116.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M86.76,153.35L92.39,127.11" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M76.03,140.79L70.46,129.93" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M54.86,132.01L43.24,106.2" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.94,115.53L63.71,108.86" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M127.73,110.79L103.05,101.66" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M90.17,92.41L92.39,127.11" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M110.19,130.21L90.47,142.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.42,76.49L90.17,92.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M137.6,127.74L110.19,130.21" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M95.09,86.21L112.11,65.18" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M110.19,130.21L103.05,101.66" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M69.01,79.85L95.09,86.21" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M75.75,83.72L79.69,54" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M88.05,120.87L70.99,138.07" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.42,76.49L112.11,65.18" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M80.74,69.57L58.4,74.89" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M54.97,154L76.03,140.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M107.56,123.79L88.05,120.87" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.71,108.86L54.86,132.01" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M131.52,88.17L103.05,101.66" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M124.91,121.04L137.6,127.74" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.94,115.53L111.07,139.24" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M90.47,142.78L70.99,138.07" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M67.03,151.29L76.03,140.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M75.75,83.72L82.34,116.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M110.19,130.21L124.91,121.04" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M70.99,138.07L82.34,116.41" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M80.74,69.57L66.64,55.68" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M54.97,154L54.86,132.01" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M103.05,101.66L66.17,93.95" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M107.56,123.79L124.91,121.04" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M63.71,108.86L48.55,93.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M26,92.52L28.55,112.06" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M90.17,92.41L75.75,83.72" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M67.03,151.29L90.47,142.78" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.94,115.53L103.05,101.66" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M102.94,115.53L127.73,110.79" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M54.86,132.01L67.03,151.29" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M86.76,153.35L70.99,138.07" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+  <path d="M41.84,135.72A4,4,0,1,0,49.84,135.72A4,4,0,1,0,41.84,135.72Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M41.84,135.72A4,4,0,1,0,49.84,135.72A4,4,0,1,0,41.84,135.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.99,138.07A4,4,0,1,0,74.99,138.07A4,4,0,1,0,66.99,138.07Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M66.99,138.07A4,4,0,1,0,74.99,138.07A4,4,0,1,0,66.99,138.07Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M84.05,120.87A4,4,0,1,0,92.05,120.87A4,4,0,1,0,84.05,120.87Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M84.05,120.87A4,4,0,1,0,92.05,120.87A4,4,0,1,0,84.05,120.87Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M72.03,140.79A4,4,0,1,0,80.03,140.79A4,4,0,1,0,72.03,140.79Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M72.03,140.79A4,4,0,1,0,80.03,140.79A4,4,0,1,0,72.03,140.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M66.46,129.93A4,4,0,1,0,74.46,129.93A4,4,0,1,0,66.46,129.93Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M66.46,129.93A4,4,0,1,0,74.46,129.93A4,4,0,1,0,66.46,129.93Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86.47,142.78A4,4,0,1,0,94.47,142.78A4,4,0,1,0,86.47,142.78Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M86.47,142.78A4,4,0,1,0,94.47,142.78A4,4,0,1,0,86.47,142.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M50.86,132.01A4,4,0,1,0,58.86,132.01A4,4,0,1,0,50.86,132.01Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M50.86,132.01A4,4,0,1,0,58.86,132.01A4,4,0,1,0,50.86,132.01Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M50.97,154A4,4,0,1,0,58.97,154A4,4,0,1,0,50.97,154Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M50.97,154A4,4,0,1,0,58.97,154A4,4,0,1,0,50.97,154Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M63.03,151.29A4,4,0,1,0,71.03,151.29A4,4,0,1,0,63.03,151.29Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M63.03,151.29A4,4,0,1,0,71.03,151.29A4,4,0,1,0,63.03,151.29Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M78.34,116.41A4,4,0,1,0,86.34,116.41A4,4,0,1,0,78.34,116.41Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M78.34,116.41A4,4,0,1,0,86.34,116.41A4,4,0,1,0,78.34,116.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M33.25,83.1A4,4,0,1,0,41.25,83.1A4,4,0,1,0,33.25,83.1Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M33.25,83.1A4,4,0,1,0,41.25,83.1A4,4,0,1,0,33.25,83.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M22,92.52A4,4,0,1,0,30,92.52A4,4,0,1,0,22,92.52Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M22,92.52A4,4,0,1,0,30,92.52A4,4,0,1,0,22,92.52Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M24.55,112.06A4,4,0,1,0,32.55,112.06A4,4,0,1,0,24.55,112.06Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M24.55,112.06A4,4,0,1,0,32.55,112.06A4,4,0,1,0,24.55,112.06Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M39.24,106.2A4,4,0,1,0,47.24,106.2A4,4,0,1,0,39.24,106.2Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M39.24,106.2A4,4,0,1,0,47.24,106.2A4,4,0,1,0,39.24,106.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M44.55,93.78A4,4,0,1,0,52.55,93.78A4,4,0,1,0,44.55,93.78Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M44.55,93.78A4,4,0,1,0,52.55,93.78A4,4,0,1,0,44.55,93.78Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M62.17,93.95A4,4,0,1,0,70.17,93.95A4,4,0,1,0,62.17,93.95Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M62.17,93.95A4,4,0,1,0,70.17,93.95A4,4,0,1,0,62.17,93.95Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M54.4,74.89A4,4,0,1,0,62.4,74.89A4,4,0,1,0,54.4,74.89Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M54.4,74.89A4,4,0,1,0,62.4,74.89A4,4,0,1,0,54.4,74.89Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M41.54,88.09A4,4,0,1,0,49.54,88.09A4,4,0,1,0,41.54,88.09Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M41.54,88.09A4,4,0,1,0,49.54,88.09A4,4,0,1,0,41.54,88.09Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M65.01,79.85A4,4,0,1,0,73.01,79.85A4,4,0,1,0,65.01,79.85Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M65.01,79.85A4,4,0,1,0,73.01,79.85A4,4,0,1,0,65.01,79.85Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M91.09,86.21A4,4,0,1,0,99.09,86.21A4,4,0,1,0,91.09,86.21Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M91.09,86.21A4,4,0,1,0,99.09,86.21A4,4,0,1,0,91.09,86.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M71.75,83.72A4,4,0,1,0,79.75,83.72A4,4,0,1,0,71.75,83.72Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M71.75,83.72A4,4,0,1,0,79.75,83.72A4,4,0,1,0,71.75,83.72Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M76.74,69.57A4,4,0,1,0,84.74,69.57A4,4,0,1,0,76.74,69.57Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M76.74,69.57A4,4,0,1,0,84.74,69.57A4,4,0,1,0,76.74,69.57Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M75.69,54A4,4,0,1,0,83.69,54A4,4,0,1,0,75.69,54Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M75.69,54A4,4,0,1,0,83.69,54A4,4,0,1,0,75.69,54Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M88.39,127.11A4,4,0,1,0,96.39,127.11A4,4,0,1,0,88.39,127.11Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M88.39,127.11A4,4,0,1,0,96.39,127.11A4,4,0,1,0,88.39,127.11Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M108.11,65.18A4,4,0,1,0,116.11,65.18A4,4,0,1,0,108.11,65.18Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M108.11,65.18A4,4,0,1,0,116.11,65.18A4,4,0,1,0,108.11,65.18Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M98.42,76.49A4,4,0,1,0,106.42,76.49A4,4,0,1,0,98.42,76.49Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M98.42,76.49A4,4,0,1,0,106.42,76.49A4,4,0,1,0,98.42,76.49Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M82.76,153.35A4,4,0,1,0,90.76,153.35A4,4,0,1,0,82.76,153.35Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M82.76,153.35A4,4,0,1,0,90.76,153.35A4,4,0,1,0,82.76,153.35Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M59.71,108.86A4,4,0,1,0,67.71,108.86A4,4,0,1,0,59.71,108.86Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M59.71,108.86A4,4,0,1,0,67.71,108.86A4,4,0,1,0,59.71,108.86Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M86.17,92.41A4,4,0,1,0,94.17,92.41A4,4,0,1,0,86.17,92.41Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M86.17,92.41A4,4,0,1,0,94.17,92.41A4,4,0,1,0,86.17,92.41Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M62.64,55.68A4,4,0,1,0,70.64,55.68A4,4,0,1,0,62.64,55.68Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M62.64,55.68A4,4,0,1,0,70.64,55.68A4,4,0,1,0,62.64,55.68Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M114.69,115.25A4,4,0,1,0,122.69,115.25A4,4,0,1,0,114.69,115.25Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M114.69,115.25A4,4,0,1,0,122.69,115.25A4,4,0,1,0,114.69,115.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M123.73,110.79A4,4,0,1,0,131.73,110.79A4,4,0,1,0,123.73,110.79Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M123.73,110.79A4,4,0,1,0,131.73,110.79A4,4,0,1,0,123.73,110.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M99.05,101.66A4,4,0,1,0,107.05,101.66A4,4,0,1,0,99.05,101.66Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M99.05,101.66A4,4,0,1,0,107.05,101.66A4,4,0,1,0,99.05,101.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M103.56,123.79A4,4,0,1,0,111.56,123.79A4,4,0,1,0,103.56,123.79Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M103.56,123.79A4,4,0,1,0,111.56,123.79A4,4,0,1,0,103.56,123.79Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M127.52,88.17A4,4,0,1,0,135.52,88.17A4,4,0,1,0,127.52,88.17Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M127.52,88.17A4,4,0,1,0,135.52,88.17A4,4,0,1,0,127.52,88.17Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M120.91,121.04A4,4,0,1,0,128.91,121.04A4,4,0,1,0,120.91,121.04Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M120.91,121.04A4,4,0,1,0,128.91,121.04A4,4,0,1,0,120.91,121.04Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M98.94,115.53A4,4,0,1,0,106.94,115.53A4,4,0,1,0,98.94,115.53Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M98.94,115.53A4,4,0,1,0,106.94,115.53A4,4,0,1,0,98.94,115.53Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M106.19,130.21A4,4,0,1,0,114.19,130.21A4,4,0,1,0,106.19,130.21Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M106.19,130.21A4,4,0,1,0,114.19,130.21A4,4,0,1,0,106.19,130.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M133.6,127.74A4,4,0,1,0,141.6,127.74A4,4,0,1,0,133.6,127.74Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M133.6,127.74A4,4,0,1,0,141.6,127.74A4,4,0,1,0,133.6,127.74Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M107.07,139.24A4,4,0,1,0,115.07,139.24A4,4,0,1,0,107.07,139.24Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M107.07,139.24A4,4,0,1,0,115.07,139.24A4,4,0,1,0,107.07,139.24Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M161.6,79H170.6V86H161.6Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-1)" part="sp-ink">
+  <path d="M161.6 79 C163.76 78.65, 166.29 78.86, 170.6 79 M161.6 79 C164.15 79.2, 166.77 79.18, 170.6 79 M170.6 79 C170.73 81.46, 170.7 84.39, 170.6 86 M170.6 79 C170.67 80.26, 170.76 81.68, 170.6 86 M170.6 86 C167.13 85.77, 164.53 86.35, 161.6 86 M170.6 86 C167.32 85.92, 163.85 86.06, 161.6 86 M161.6 86 C161.58 84.02, 161.45 82.7, 161.6 79 M161.6 86 C161.6 84.4, 161.6 82.89, 161.6 79" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M161.6,93H170.6V100H161.6Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-2)" part="sp-ink">
+  <path d="M161.6 93 C163.53 93.02, 166.2 93.38, 170.6 93 M161.6 93 C164.33 93.11, 166.79 93.09, 170.6 93 M170.6 93 C170.73 94.88, 170.56 95.91, 170.6 100 M170.6 93 C170.75 94.57, 170.75 96.12, 170.6 100 M170.6 100 C167.9 99.83, 165.58 100.4, 161.6 100 M170.6 100 C167.06 100.09, 163.72 99.98, 161.6 100 M161.6 100 C161.84 98.4, 161.38 96.39, 161.6 93 M161.6 100 C161.68 97.84, 161.46 95.62, 161.6 93" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M161.6,107H170.6V114H161.6Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-3)" part="sp-ink">
+  <path d="M161.6 107 C164.12 107.33, 166.11 107.04, 170.6 107 M161.6 107 C164.51 107.03, 167.21 107, 170.6 107 M170.6 107 C170.77 109.07, 170.46 110.86, 170.6 114 M170.6 107 C170.55 108.57, 170.46 110.24, 170.6 114 M170.6 114 C168.67 113.89, 166.62 113.64, 161.6 114 M170.6 114 C168.59 113.9, 166.79 113.95, 161.6 114 M161.6 114 C161.42 112.16, 161.91 110.7, 161.6 107 M161.6 114 C161.75 112.37, 161.63 110.83, 161.6 107" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M161.6,121H170.6V128H161.6Z" data-paint="tile" data-role="hatch" fill="url(#network-chart--silverpoint--cream--ink--sm-tone-4)" part="sp-ink">
+  <path d="M161.6 121 C163.89 120.89, 166.02 120.75, 170.6 121 M161.6 121 C164.29 121, 167.22 120.96, 170.6 121 M170.6 121 C170.78 123.26, 170.32 125.18, 170.6 128 M170.6 121 C170.63 122.88, 170.45 124.68, 170.6 128 M170.6 128 C167.64 128, 164.07 127.73, 161.6 128 M170.6 128 C168.73 128.06, 166.67 127.87, 161.6 128 M161.6 128 C161.63 125.91, 161.8 124.38, 161.6 121 M161.6 128 C161.5 125.81, 161.49 123.56, 161.6 121" data-paint="stroke" data-role="ornament" part="sp-ink">
+  <path d="M97.55,101.66A5.5,5.5,0,1,0,108.55,101.66A5.5,5.5,0,1,0,97.55,101.66Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <path d="M97.55,101.66A5.5,5.5,0,1,0,108.55,101.66A5.5,5.5,0,1,0,97.55,101.66Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Collaboration"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "40 people"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "four teams"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="111.55" y="105.16">
+    "Press 3"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="79.49" y="141.57">
+    "Archive 2"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="84.53" y="144.29">
+    "Archive 4"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="86">
+    "Archive"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="86">
+    "10"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="100">
+    "Studio"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="100">
+    "10"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="114">
+    "Lab"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="114">
+    "10"
+  <text data-kind="tick" part="sp-text" text-anchor="start" x="175.6" y="128">
+    "Press"
+  <text data-kind="tick" part="sp-axis" text-anchor="end" x="224" y="128">
+    "10"

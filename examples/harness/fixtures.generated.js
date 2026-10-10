@@ -13609,6 +13609,1140 @@ export const ALL_FIXTURES = [
     "rows": null
   },
   {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--blue--ink--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--blue--precision--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--cream--ink--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--cream--precision--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--green--ink--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--green--ink--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--green--ink--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--green--precision--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--green--precision--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--green--precision--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "ContourChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "contour-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-423",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "density",
+      "footerLeft": "share of the peak",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
     "chart": "CoxcombChart",
     "ground": "cyanotype",
     "substrate": "prussian",
@@ -14738,6 +15872,2274 @@ export const ALL_FIXTURES = [
       "title": "Tickets",
       "badge": "week",
       "footerLeft": "by weekday",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DelaunayChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "delaunay-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-424",
+    "seed": 1592,
+    "props": {
+      "title": "Stations",
+      "badge": "60",
+      "footerLeft": "nearest neighbours",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "DensityBinChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "density-bin-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-422",
+    "seed": 1592,
+    "props": {
+      "title": "Readings",
+      "badge": "1 200",
+      "footerLeft": "count per bin",
       "footerRight": "silverpoint"
     },
     "rows": null
@@ -32235,6 +35637,7620 @@ export const ALL_FIXTURES = [
       "badge": "now",
       "footerLeft": "of the rated maximum",
       "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--ink--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--ink--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--ink--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--precision--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--precision--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--cyanotype--prussian--precision--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--blue--ink--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--ink--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--blue--precision--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--blue--precision--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--cream--ink--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--ink--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--cream--precision--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--cream--precision--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--green--ink--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--green--ink--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--green--ink--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--ink--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--green--precision--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--green--precision--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--green--precision--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--green--precision--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--ink--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "network-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--lg--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--lg--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "network-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--md--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--md--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "network-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--sm--per-shape--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    "rows": null
+  },
+  {
+    "chart": "NetworkChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "state": "placed",
+    "id": "network-chart--silverpoint--ochre--precision--sm--placed",
+    "req": "REQ-426",
+    "seed": 1592,
+    "props": {
+      "title": "Collaboration",
+      "badge": "40 people",
+      "footerLeft": "four teams",
+      "footerRight": "silverpoint",
+      "data": [
+        {
+          "from": "n1",
+          "to": "n2"
+        },
+        {
+          "from": "n2",
+          "to": "n3"
+        },
+        {
+          "from": "n3",
+          "to": "n4"
+        },
+        {
+          "from": "n4",
+          "to": "n1"
+        },
+        {
+          "from": "s1",
+          "to": "s2"
+        },
+        {
+          "from": "s2",
+          "to": "s3"
+        },
+        {
+          "from": "s3",
+          "to": "s4"
+        },
+        {
+          "from": "s4",
+          "to": "s1"
+        },
+        {
+          "from": "n2",
+          "to": "s4"
+        }
+      ],
+      "sourceKey": "from",
+      "targetKey": "to",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "North 1",
+          "group": "North",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "id": "n2",
+          "label": "North 2",
+          "group": "North",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "n3",
+          "label": "North 3",
+          "group": "North",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "id": "n4",
+          "label": "North 4",
+          "group": "North",
+          "x": 0,
+          "y": 9
+        },
+        {
+          "id": "s1",
+          "label": "South 1",
+          "group": "South",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "id": "s2",
+          "label": "South 2",
+          "group": "South",
+          "x": 9,
+          "y": 0
+        },
+        {
+          "id": "s3",
+          "label": "South 3",
+          "group": "South",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "id": "s4",
+          "label": "South 4",
+          "group": "South",
+          "x": 6,
+          "y": 3
+        }
+      ]
     },
     "rows": null
   },
@@ -60098,6 +71114,1140 @@ export const ALL_FIXTURES = [
       "title": "Traffic sources",
       "badge": "June",
       "footerLeft": "share of visits",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--cyanotype--prussian--ink--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--cyanotype--prussian--ink--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--cyanotype--prussian--ink--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--cyanotype--prussian--precision--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--cyanotype--prussian--precision--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "cyanotype",
+    "substrate": "prussian",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--cyanotype--prussian--precision--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--blue--ink--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "blue",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--blue--precision--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--cream--ink--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "cream",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--cream--precision--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--green--ink--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "green",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--green--precision--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "ink",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--ochre--ink--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--lg",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 640,
+      "height": 300
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--lg--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--md",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 320,
+      "height": 150
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--md--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "tile",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--sm",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
+      "footerRight": "silverpoint"
+    },
+    "rows": null
+  },
+  {
+    "chart": "VectorFieldChart",
+    "ground": "silverpoint",
+    "substrate": "ochre",
+    "mode": "precision",
+    "hatchFill": "per-shape",
+    "size": {
+      "width": 240,
+      "height": 120
+    },
+    "id": "vector-field-chart--silverpoint--ochre--precision--sm--per-shape",
+    "req": "REQ-425",
+    "seed": 1592,
+    "props": {
+      "title": "Current",
+      "badge": "20 × 14",
+      "footerLeft": "speed and heading",
       "footerRight": "silverpoint"
     },
     "rows": null

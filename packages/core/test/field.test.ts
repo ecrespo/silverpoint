@@ -170,9 +170,15 @@ describe('T-190 · 2-D bins', () => {
     }
   });
 
-  test('REQ-422 · a hexagon of size w is w across its flats, pointy at top and bottom', () => {
+  test('REQ-422 · NFR §7 · a hexagon of size w is w across its flats, pointy at top and bottom, its flats written as V', () => {
     const d = hexagonPath(10, 20, 14);
-    const xy = [...d.matchAll(/(-?[\d.]+),(-?[\d.]+)/g)].map((m) => [Number(m[1]), Number(m[2])] as const);
+    expect(d).toMatch(/^M[^L]+L[^V]+V[^L]+L[^L]+L[^V]+V[^Z]+Z$/);
+    // The vertices, a V keeping the x before it.
+    const xy: (readonly [number, number])[] = [];
+    for (const [, command, args] of d.matchAll(/([MLV])([^MLVZ]+)/g)) {
+      const values = (args as string).split(',').map(Number);
+      xy.push(command === 'V' ? [(xy.at(-1) as [number, number])[0], values[0] as number] : [values[0] as number, values[1] as number]);
+    }
     expect(xy).toHaveLength(6);
     expect(Math.max(...xy.map(([x]) => x)) - Math.min(...xy.map(([x]) => x))).toBeCloseTo(14, 9);
     expect(Math.min(...xy.map(([, y]) => y))).toBeCloseTo(20 - 14 / Math.sqrt(3), 9);

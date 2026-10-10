@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 55 standalone components with signal inputs and `OnPush`. They work zoneless.
+- 60 standalone components with signal inputs and `OnPush`. They work zoneless.
 - Angular Package Format, with one secondary entry point per chart, so you only ship the charts
   you use.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -216,7 +216,7 @@ export class Exportable {
 | `locale`, `numberFormat` | environment | Number formatting. |
 | `hatchFill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 55 charts
+## The 60 charts
 
 Every chart is a secondary entry point, `@silverpoint/angular/<kebab-case-name>`, exporting the
 `Sp…` component with the `sp-…` selector:
@@ -261,6 +261,14 @@ Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
 | `SpSquarifiedTreemap` | `sp-squarified-treemap` | `SpSunburstChart` | `sp-sunburst-chart` |
 | `SpTreeChart` | `sp-tree-chart` | `SpParallelCoordinatesChart` | `sp-parallel-coordinates-chart` |
 | `SpPolarLineChart` | `sp-polar-line-chart` | `SpPolarScatterChart` | `sp-polar-scatter-chart` |
+
+Fields and networks (since `0.6.0`):
+
+| Component | Selector | Component | Selector |
+|---|---|---|---|
+| `SpDensityBinChart` | `sp-density-bin-chart` | `SpContourChart` | `sp-contour-chart` |
+| `SpDelaunayChart` | `sp-delaunay-chart` | `SpVectorFieldChart` | `sp-vector-field-chart` |
+| `SpNetworkChart` | `sp-network-chart` | | |
 
 `<sp-ridgeline-chart>` requires `groupKey`, `<sp-diverging-bar-chart>` requires `levels` and `<sp-parallel-coordinates-chart>` requires `dimensions` (`input.required`), even with the demo dataset, which ignores them.
 

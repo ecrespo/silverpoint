@@ -8,12 +8,13 @@ import { APPS, type AppName } from '../playwright.config';
 /**
  * Server rendering and hydration of the second catalog (T-179, REQ-103, REQ-109, REQ-435): every
  * server-rendered app ships each new chart in its HTML, identical to the canonical render, and
- * hydrates it with no mismatch. The beeswarm and the violin — a packing and a density, the two
- * whose arithmetic a browser could round differently — hydrate in Firefox and WebKit too.
+ * hydrates it with no mismatch. The beeswarm, the violin, the network and the contours — a packing,
+ * a density, a force layout and a density field, whose arithmetic a browser could round differently
+ * — hydrate in Firefox and WebKit too.
  */
 const SECOND = CATALOG.filter((c) => Number(c.req.slice(4)) >= 400);
 const FIXTURES = loadFixtures('pr').filter((f) => SECOND.some((c) => c.chart === f.chart) && f.substrate === 'cream' && f.mode === 'ink');
-const OTHER_ENGINES = ['BeeswarmChart', 'ViolinChart'];
+const OTHER_ENGINES = ['BeeswarmChart', 'ViolinChart', 'NetworkChart', 'ContourChart'];
 const HYDRATION_ERROR = /hydrat|mismatch|did not match|NG05\d\d/i;
 
 const appOf = (name: string) => APPS[name as AppName];

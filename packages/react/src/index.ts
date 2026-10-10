@@ -53,6 +53,11 @@ export { TreeChart, type ClientTreeChartProps } from './tree-chart';
 export { ParallelCoordinatesChart, type ClientParallelCoordinatesChartProps } from './parallel-coordinates-chart';
 export { PolarLineChart, type ClientPolarLineChartProps } from './polar-line-chart';
 export { PolarScatterChart, type ClientPolarScatterChartProps } from './polar-scatter-chart';
+export { DensityBinChart, type ClientDensityBinChartProps } from './density-bin-chart';
+export { ContourChart, type ClientContourChartProps } from './contour-chart';
+export { DelaunayChart, type ClientDelaunayChartProps } from './delaunay-chart';
+export { VectorFieldChart, type ClientVectorFieldChartProps } from './vector-field-chart';
+export { NetworkChart, type ClientNetworkChartProps } from './network-chart';
 export type { TooltipRenderer } from './overlay';
 export { SilverpointProvider, type SilverpointProviderProps } from './provider';
 export type {
@@ -105,6 +110,12 @@ export type {
   ParallelCoordinatesChartProps,
   PolarLineChartProps,
   PolarScatterChartProps,
+  DensityBinChartProps,
+  ContourChartProps,
+  DelaunayChartProps,
+  VectorFieldChartProps,
+  NetworkChartProps,
+  NetworkNode,
 
   BulletChartProps,
   HeatmapChartProps,

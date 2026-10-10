@@ -1,0 +1,22 @@
+{
+  "chart": "DelaunayChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "delaunay-chart--silverpoint--green--ink--sm",
+  "req": "REQ-424",
+  "seed": 1592,
+  "props": {
+    "title": "Stations",
+    "badge": "60",
+    "footerLeft": "nearest neighbours",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "delaunay-chart/delaunay-chart--silverpoint--green--ink--sm.canonical.txt"
+}

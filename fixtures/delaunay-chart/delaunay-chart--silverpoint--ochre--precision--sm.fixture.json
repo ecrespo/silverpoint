@@ -1,0 +1,22 @@
+{
+  "chart": "DelaunayChart",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "delaunay-chart--silverpoint--ochre--precision--sm",
+  "req": "REQ-424",
+  "seed": 1592,
+  "props": {
+    "title": "Stations",
+    "badge": "60",
+    "footerLeft": "nearest neighbours",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "delaunay-chart/delaunay-chart--silverpoint--ochre--precision--sm.canonical.txt"
+}

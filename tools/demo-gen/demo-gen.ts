@@ -22,6 +22,11 @@ interface Literal {
   readonly doc: string;
   readonly rows: readonly Row[];
   readonly type?: 'Datum' | 'NetworkNode';
+  /**
+   * A regular grid of `{ x, y, value }`, `x` the column and `y` the row, row by row: printed as its
+   * values alone, the positions implied, so a 1 200-cell field weighs a fifth as much (REQ-164).
+   */
+  readonly columns?: number;
 }
 /** A dataset another chart's demo already holds, re-exported under this chart's name. */
 interface Reexport {
@@ -88,7 +93,7 @@ export const DEMO_FILES: readonly DemoFile[] = [
     exports: [
       reexport('contour-chart', '`ContourChart` (REQ-423), `source: \'points\'`: the density bins\' two clusters', 'density-bin-chart'),
       keys('contour-chart', { xKey: 'x', yKey: 'y' }),
-      { ...literal('contour-chart', '`ContourChart` (REQ-423), `source: \'grid\'`: a smooth surface of two hills and a pit on a 40 × 30 grid', gen.surface()), name: 'CONTOUR_CHART_GRID_DEMO' },
+      { ...literal('contour-chart', '`ContourChart` (REQ-423), `source: \'grid\'`: a smooth surface of two hills and a pit on a 40 × 30 grid', gen.surface()), name: 'CONTOUR_CHART_GRID_DEMO', columns: 40 },
       keys('contour-chart', { xKey: 'x', yKey: 'y', valueKey: 'value' }, 'GRID_DEMO_KEYS'),
     ],
   },
@@ -113,6 +118,19 @@ const value = (v: string | number | null) => (v === null ? 'null' : typeof v ===
 const row = (r: Row) => `{ ${Object.entries(r).map(([k, v]) => `${key(k)}: ${value(v)}`).join(', ')} }`;
 const keyValue = (v: KeyValue) => (Array.isArray(v) ? `/* @__PURE__ */ Object.freeze([${(v as readonly string[]).map(quote).join(', ')}])` : value(v as string | number));
 
+/** A grid's values, ten to a line; it throws unless the rows are that grid, in that order. */
+function gridValues(rows: readonly Row[], columns: number): string[] {
+  const values = rows.map((r, k) => {
+    if (Object.keys(r).join() !== 'x,y,value' || r.x !== k % columns || r.y !== Math.floor(k / columns) || typeof r.value !== 'number') {
+      throw new Error(`Row ${k} is not cell ${k} of a ${columns}-column grid.`);
+    }
+    return String(r.value);
+  });
+  const lines: string[] = [];
+  for (let k = 0; k < values.length; k += 10) lines.push(`    ${values.slice(k, k + 10).join(', ')},`);
+  return lines;
+}
+
 /** The source of one demo module. */
 export function renderDemoFile(file: DemoFile): string {
   const types = [...new Set(file.exports.flatMap((e) => (e.kind === 'literal' ? [e.type ?? 'Datum'] : [])))].sort();
@@ -121,6 +139,16 @@ export function renderDemoFile(file: DemoFile): string {
   for (const e of file.exports) {
     if (e.kind === 'reexport') {
       out.push(`/** Demo dataset of ${e.doc}. */`, `export { ${e.source} as ${e.name} } from '../${e.from}/demo';`, '');
+    } else if (e.kind === 'literal' && e.columns !== undefined) {
+      out.push(
+        `/** Demo dataset of ${e.doc}. Its values row by row, ${e.columns} to a row; a row is \`{ x, y, value }\`, \`x\` the column and \`y\` the row. Part of the stable surface: changing it is never a patch (Data Model §4). */`,
+        `export const ${e.name}: readonly ${e.type ?? 'Datum'}[] = /* @__PURE__ */ Object.freeze(`,
+        '  /* @__PURE__ */ [',
+        ...gridValues(e.rows, e.columns),
+        `  ].map((value, k) => Object.freeze({ x: k % ${e.columns}, y: Math.floor(k / ${e.columns}), value })),`,
+        ');',
+        '',
+      );
     } else if (e.kind === 'literal') {
       out.push(
         `/** Demo dataset of ${e.doc}. Part of the stable surface: changing it is never a patch (Data Model §4). */`,

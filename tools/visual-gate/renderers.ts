@@ -61,6 +61,11 @@ import { SpTreeChart as AngularTreeChart } from '@silverpoint/angular/tree-chart
 import { SpParallelCoordinatesChart as AngularParallelCoordinatesChart } from '@silverpoint/angular/parallel-coordinates-chart';
 import { SpPolarLineChart as AngularPolarLineChart } from '@silverpoint/angular/polar-line-chart';
 import { SpPolarScatterChart as AngularPolarScatterChart } from '@silverpoint/angular/polar-scatter-chart';
+import { SpDensityBinChart as AngularDensityBinChart } from '@silverpoint/angular/density-bin-chart';
+import { SpContourChart as AngularContourChart } from '@silverpoint/angular/contour-chart';
+import { SpDelaunayChart as AngularDelaunayChart } from '@silverpoint/angular/delaunay-chart';
+import { SpVectorFieldChart as AngularVectorFieldChart } from '@silverpoint/angular/vector-field-chart';
+import { SpNetworkChart as AngularNetworkChart } from '@silverpoint/angular/network-chart';
 import { LineChart as ReactLineChart } from '@silverpoint/react/server/line-chart';
 import { BulletChart as ReactBulletChart } from '@silverpoint/react/server/bullet-chart';
 import { PyramidChart as ReactPyramidChart } from '@silverpoint/react/server/pyramid-chart';
@@ -116,6 +121,11 @@ import { TreeChart as ReactTreeChart } from '@silverpoint/react/server/tree-char
 import { ParallelCoordinatesChart as ReactParallelCoordinatesChart } from '@silverpoint/react/server/parallel-coordinates-chart';
 import { PolarLineChart as ReactPolarLineChart } from '@silverpoint/react/server/polar-line-chart';
 import { PolarScatterChart as ReactPolarScatterChart } from '@silverpoint/react/server/polar-scatter-chart';
+import { DensityBinChart as ReactDensityBinChart } from '@silverpoint/react/server/density-bin-chart';
+import { ContourChart as ReactContourChart } from '@silverpoint/react/server/contour-chart';
+import { DelaunayChart as ReactDelaunayChart } from '@silverpoint/react/server/delaunay-chart';
+import { VectorFieldChart as ReactVectorFieldChart } from '@silverpoint/react/server/vector-field-chart';
+import { NetworkChart as ReactNetworkChart } from '@silverpoint/react/server/network-chart';
 import { SpLineChart as VueLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart as VueBulletChart } from '@silverpoint/vue/bullet-chart';
 import { SpPyramidChart as VuePyramidChart } from '@silverpoint/vue/pyramid-chart';
@@ -171,6 +181,11 @@ import { SpTreeChart as VueTreeChart } from '@silverpoint/vue/tree-chart';
 import { SpParallelCoordinatesChart as VueParallelCoordinatesChart } from '@silverpoint/vue/parallel-coordinates-chart';
 import { SpPolarLineChart as VuePolarLineChart } from '@silverpoint/vue/polar-line-chart';
 import { SpPolarScatterChart as VuePolarScatterChart } from '@silverpoint/vue/polar-scatter-chart';
+import { SpDensityBinChart as VueDensityBinChart } from '@silverpoint/vue/density-bin-chart';
+import { SpContourChart as VueContourChart } from '@silverpoint/vue/contour-chart';
+import { SpDelaunayChart as VueDelaunayChart } from '@silverpoint/vue/delaunay-chart';
+import { SpVectorFieldChart as VueVectorFieldChart } from '@silverpoint/vue/vector-field-chart';
+import { SpNetworkChart as VueNetworkChart } from '@silverpoint/vue/network-chart';
 import { createElement, type ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createSSRApp, h, type Component as VueComponent } from 'vue';
@@ -234,6 +249,11 @@ const REACT: Readonly<Record<string, ComponentType<never>>> = {
   ParallelCoordinatesChart: ReactParallelCoordinatesChart as ComponentType<never>,
   PolarLineChart: ReactPolarLineChart as ComponentType<never>,
   PolarScatterChart: ReactPolarScatterChart as ComponentType<never>,
+  DensityBinChart: ReactDensityBinChart as ComponentType<never>,
+  ContourChart: ReactContourChart as ComponentType<never>,
+  DelaunayChart: ReactDelaunayChart as ComponentType<never>,
+  VectorFieldChart: ReactVectorFieldChart as ComponentType<never>,
+  NetworkChart: ReactNetworkChart as ComponentType<never>,
 };
 const VUE: Readonly<Record<string, VueComponent>> = {
   LineChart: VueLineChart as VueComponent,
@@ -291,6 +311,11 @@ const VUE: Readonly<Record<string, VueComponent>> = {
   ParallelCoordinatesChart: VueParallelCoordinatesChart as VueComponent,
   PolarLineChart: VuePolarLineChart as VueComponent,
   PolarScatterChart: VuePolarScatterChart as VueComponent,
+  DensityBinChart: VueDensityBinChart as VueComponent,
+  ContourChart: VueContourChart as VueComponent,
+  DelaunayChart: VueDelaunayChart as VueComponent,
+  VectorFieldChart: VueVectorFieldChart as VueComponent,
+  NetworkChart: VueNetworkChart as VueComponent,
 };
 export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   LineChart: AngularLineChart,
@@ -348,6 +373,11 @@ export const ANGULAR: Readonly<Record<string, Type<unknown>>> = {
   ParallelCoordinatesChart: AngularParallelCoordinatesChart,
   PolarLineChart: AngularPolarLineChart,
   PolarScatterChart: AngularPolarScatterChart,
+  DensityBinChart: AngularDensityBinChart,
+  ContourChart: AngularContourChart,
+  DelaunayChart: AngularDelaunayChart,
+  VectorFieldChart: AngularVectorFieldChart,
+  NetworkChart: AngularNetworkChart,
 };
 
 function pick<T>(table: Readonly<Record<string, T>>, chart: string): T {

@@ -77,6 +77,11 @@
     "parallel-coordinates-chart/**/*.ts",
     "polar-line-chart/**/*.ts",
     "polar-scatter-chart/**/*.ts",
+    "density-bin-chart/**/*.ts",
+    "contour-chart/**/*.ts",
+    "delaunay-chart/**/*.ts",
+    "vector-field-chart/**/*.ts",
+    "network-chart/**/*.ts",
     "ui/**/*.ts",
     "env/**/*.ts"
   ],

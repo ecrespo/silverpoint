@@ -59,6 +59,11 @@ import {
   parallelCoordinatesChart,
   polarLineChart,
   polarScatterChart,
+  densityBinChart,
+  contourChart,
+  delaunayChart,
+  vectorFieldChart,
+  networkChart,
   divergingBarChart,
   dumbbellChart,
   ecdfChart,
@@ -74,7 +79,7 @@ import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps,
 import type { UiNode } from '@silverpoint/core/ui';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
-const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart, HistogramChart: histogramChart, EcdfChart: ecdfChart, BoxPlotChart: boxPlotChart, ViolinChart: violinChart, RidgelineChart: ridgelineChart, BeeswarmChart: beeswarmChart, LollipopChart: lollipopChart, DumbbellChart: dumbbellChart, SlopeChart: slopeChart, BumpChart: bumpChart, ErrorBarChart: errorBarChart, IntervalChart: intervalChart, DivergingBarChart: divergingBarChart, ConnectedScatterChart: connectedScatterChart, WaffleChart: waffleChart, MarimekkoChart: marimekkoChart, SquarifiedTreemap: squarifiedTreemap, SunburstChart: sunburstChart, TreeChart: treeChart, ParallelCoordinatesChart: parallelCoordinatesChart, PolarLineChart: polarLineChart, PolarScatterChart: polarScatterChart } as const;
+const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart, HistogramChart: histogramChart, EcdfChart: ecdfChart, BoxPlotChart: boxPlotChart, ViolinChart: violinChart, RidgelineChart: ridgelineChart, BeeswarmChart: beeswarmChart, LollipopChart: lollipopChart, DumbbellChart: dumbbellChart, SlopeChart: slopeChart, BumpChart: bumpChart, ErrorBarChart: errorBarChart, IntervalChart: intervalChart, DivergingBarChart: divergingBarChart, ConnectedScatterChart: connectedScatterChart, WaffleChart: waffleChart, MarimekkoChart: marimekkoChart, SquarifiedTreemap: squarifiedTreemap, SunburstChart: sunburstChart, TreeChart: treeChart, ParallelCoordinatesChart: parallelCoordinatesChart, PolarLineChart: polarLineChart, PolarScatterChart: polarScatterChart, DensityBinChart: densityBinChart, ContourChart: contourChart, DelaunayChart: delaunayChart, VectorFieldChart: vectorFieldChart, NetworkChart: networkChart } as const;
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const harness = document.querySelector<HTMLElement>('.sp-harness');

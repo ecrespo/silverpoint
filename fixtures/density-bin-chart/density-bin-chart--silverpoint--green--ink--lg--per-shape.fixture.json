@@ -1,0 +1,22 @@
+{
+  "chart": "DensityBinChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "density-bin-chart--silverpoint--green--ink--lg--per-shape",
+  "req": "REQ-422",
+  "seed": 1592,
+  "props": {
+    "title": "Readings",
+    "badge": "1 200",
+    "footerLeft": "count per bin",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "density-bin-chart/density-bin-chart--silverpoint--green--ink--lg--per-shape.canonical.txt"
+}

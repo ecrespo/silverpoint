@@ -54,6 +54,11 @@ import { TreeChart } from '@silverpoint/react/tree-chart';
 import { ParallelCoordinatesChart } from '@silverpoint/react/parallel-coordinates-chart';
 import { PolarLineChart } from '@silverpoint/react/polar-line-chart';
 import { PolarScatterChart } from '@silverpoint/react/polar-scatter-chart';
+import { DensityBinChart } from '@silverpoint/react/density-bin-chart';
+import { ContourChart } from '@silverpoint/react/contour-chart';
+import { DelaunayChart } from '@silverpoint/react/delaunay-chart';
+import { VectorFieldChart } from '@silverpoint/react/vector-field-chart';
+import { NetworkChart } from '@silverpoint/react/network-chart';
 
 export interface SiteChart {
   readonly chart: string;
@@ -122,6 +127,11 @@ export const CHARTS: readonly SiteChart[] = [
   { chart: 'ParallelCoordinatesChart', slug: 'parallel-coordinates-chart', Component: ParallelCoordinatesChart as unknown as SiteChart['Component'] },
   { chart: 'PolarLineChart', slug: 'polar-line-chart', Component: PolarLineChart as SiteChart['Component'] },
   { chart: 'PolarScatterChart', slug: 'polar-scatter-chart', Component: PolarScatterChart as SiteChart['Component'] },
+  { chart: 'DensityBinChart', slug: 'density-bin-chart', Component: DensityBinChart as SiteChart['Component'] },
+  { chart: 'ContourChart', slug: 'contour-chart', Component: ContourChart as SiteChart['Component'] },
+  { chart: 'DelaunayChart', slug: 'delaunay-chart', Component: DelaunayChart as SiteChart['Component'] },
+  { chart: 'VectorFieldChart', slug: 'vector-field-chart', Component: VectorFieldChart as SiteChart['Component'] },
+  { chart: 'NetworkChart', slug: 'network-chart', Component: NetworkChart as SiteChart['Component'] },
 ];
 
 export const chartBySlug = (slug: string | undefined): SiteChart | undefined => CHARTS.find((c) => c.slug === slug);

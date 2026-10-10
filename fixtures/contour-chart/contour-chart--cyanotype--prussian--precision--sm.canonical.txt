@@ -1,0 +1,54 @@
+<svg aria-labelledby="contour-chart--cyanotype--prussian--precision--sm-title contour-chart--cyanotype--prussian--precision--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
+  <title id="contour-chart--cyanotype--prussian--precision--sm-title">
+    "Readings"
+  <desc id="contour-chart--cyanotype--prussian--precision--sm-desc">
+    "Readings. Contours of the density of 1200 points of x and y, estimated with an Epanechnikov kernel (bandwidths 3.61 and 3.29, Silverman's rule) and read as a share of its peak, filled in bands at 4 levels: 20%, 40%, 60%, 80%; the highest band is 80% and above."
+  <path d="M0.5,0.5H239.5V209.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M16,172H224" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M22,125.2H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,106.4H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,87.6H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,68.8H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,50H218" data-paint="stroke" data-role="ornament" part="sp-grid">
+  <path d="M22,144H218" data-paint="stroke" data-role="ornament" part="sp-rule">
+  <path d="M151.85,122.41L157.86,123.63L163.88,124.16L169.89,121.81L175.9,120.7L176.76,120.5L175.96,114.63L181.92,109.33L182.36,108.75L181.92,108.58L175.9,105.98L171.1,102.88L169.89,101.29L163.88,100.6L157.86,98.06L151.85,97.86L149.5,97L145.83,94.53L139.82,93.48L134.72,91.13L133.81,90.36L132.45,85.25L129.67,79.38L131.5,73.5L127.79,69.67L121.78,67.87L115.77,68.4L109.75,68.31L103.74,70.36L97.72,72.75L97.06,73.5L92.35,79.38L91.71,79.98L85.7,82.89L82.63,85.25L79.68,87.62L73.67,90.25L72.32,91.13L72.12,97L73.67,98.6L79.68,101.91L82.36,102.88L79.68,105.8L78.34,108.75L79.68,110.19L85.7,110.02L88.18,108.75L91.71,106.21L97.72,107.44L103.74,106.74L108.67,102.88L109.75,101.94L115.77,100.29L121.78,100.95L122.26,102.88L127.79,108.52L128.02,108.75L127.79,111L127.02,114.63L127.79,115.13L133.81,115.62L139.82,117.65L145.83,119.93L147.53,120.5ZM127.79,95.43L126.61,91.13L127.79,89.81L133.02,91.13ZM145.49,114.63L139.82,112.27L133.81,109.79L132.94,108.75L127.79,103.39L127.29,102.88L127.79,102.29L133.81,98.59L139.82,99.16L145.83,99.42L151.85,100.89L157.86,102.54L158.4,102.88L163.88,105L169.89,105.55L174.07,108.75L169.89,114.15L169.28,114.63L163.88,118.02L157.86,117.86L151.85,117.02L145.83,114.82ZM94.12,102.88L91.71,100.9L85.7,100.83L79.84,97L81.04,91.13L85.7,87.79L88.03,85.25L91.71,83.2L95.73,79.38L97.72,77.05L103.74,75.4L106.23,73.5L109.75,71.48L114.21,73.5L115.77,74.28L121.78,75.51L124.75,79.38L127.46,85.25L122.1,91.13L121.78,91.6L115.77,94.12L111.52,97L109.75,98.2L104.32,102.88L103.74,103.33L97.72,105Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.83,114.82L151.85,117.02L157.86,117.86L163.88,118.02L169.28,114.63L169.89,114.15L174.07,108.75L169.89,105.55L163.88,105L158.4,102.88L157.86,102.54L151.85,100.89L145.83,99.42L139.82,99.16L133.81,98.59L127.79,102.29L127.29,102.88L127.79,103.39L132.94,108.75L133.81,109.79L139.82,112.27L145.49,114.63ZM97.72,105L103.74,103.33L104.32,102.88L109.75,98.2L111.52,97L115.77,94.12L121.78,91.6L122.1,91.13L127.46,85.25L124.75,79.38L121.78,75.51L115.77,74.28L114.21,73.5L109.75,71.48L106.23,73.5L103.74,75.4L97.72,77.05L95.73,79.38L91.71,83.2L88.03,85.25L85.7,87.79L81.04,91.13L79.84,97L85.7,100.83L91.71,100.9L94.12,102.88ZM140.04,108.75L139.82,107.59L137.09,102.88L139.82,102.37L142.43,102.88L145.83,103.86L151.85,103.75L157.86,106.62L163.88,107.83L169.89,108.72L169.93,108.75L169.89,108.8L163.88,112.26L157.86,113.12L151.85,113.42L145.83,111.78ZM83.94,97L85.7,94.19L87.69,91.13L91.71,86.88L93.55,85.25L97.72,81.34L103.74,80.01L104.37,79.38L109.75,75.95L115.77,77.8L119.45,79.38L121.78,81.15L124.03,85.25L121.78,87.68L115.77,90.6L112.64,91.13L109.75,92.37L105.65,97L103.74,98.57L97.72,102.47L91.71,97.52L85.7,98.15Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.83,111.78L151.85,113.42L157.86,113.12L163.88,112.26L169.89,108.8L169.93,108.75L169.89,108.72L163.88,107.83L157.86,106.62L151.85,103.75L145.83,103.86L142.43,102.88L139.82,102.37L137.09,102.88L139.82,107.59L140.04,108.75ZM85.7,98.15L91.71,97.52L97.72,102.47L103.74,98.57L105.65,97L109.75,92.37L112.64,91.13L115.77,90.6L121.78,87.68L124.03,85.25L121.78,81.15L119.45,79.38L115.77,77.8L109.75,75.95L104.37,79.38L103.74,80.01L97.72,81.34L93.55,85.25L91.71,86.88L87.69,91.13L85.7,94.19L83.94,97ZM145.7,108.75L145.83,108.63L151.85,106.29L155.88,108.75L151.85,111.05L145.83,108.82ZM94.98,97L97.72,92.03L100.79,97L97.72,99.27ZM107.2,85.25L109.75,82.71L115.77,81.46L120.24,85.25L115.77,87.93L109.75,87.1Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.83,108.82L151.85,111.05L155.88,108.75L151.85,106.29L145.83,108.63L145.7,108.75ZM97.72,99.27L100.79,97L97.72,92.03L94.98,97ZM109.75,87.1L115.77,87.93L120.24,85.25L115.77,81.46L109.75,82.71L107.2,85.25Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+  <path d="M145.83,108.82L151.85,111.05L155.88,108.75L151.85,106.29L145.83,108.63L145.7,108.75ZM97.72,99.27L100.79,97L97.72,92.03L94.98,97ZM109.75,87.1L115.77,87.93L120.24,85.25L115.77,81.46L109.75,82.71L107.2,85.25Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+  <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+    "Readings"
+  <text data-kind="badge" part="sp-axis" text-anchor="end" x="224" y="27">
+    "density"
+  <text data-kind="footer" part="sp-axis" text-anchor="start" x="16" y="190">
+    "share of the peak"
+  <text data-kind="footer" part="sp-axis" text-anchor="end" x="224" y="190">
+    "silverpoint"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="122.2">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="103.4">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="84.6">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="65.8">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="43.6" y="159">
+    "0"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="78.48" y="159">
+    "20"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="113.36" y="159">
+    "40"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="148.24" y="159">
+    "60"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="183.12" y="159">
+    "80"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="218" y="159">
+    "100"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="163.88" y="97.6">
+    "20%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="121.78" y="72.51">
+    "40%"
+  <text data-kind="tick" part="sp-axis" text-anchor="middle" x="85.7" y="95.15">
+    "60%"

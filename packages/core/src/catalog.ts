@@ -29,5 +29,11 @@ export { marimekkoChart } from './charts/marimekko-chart/marimekko-chart';
 export { parallelCoordinatesChart } from './charts/parallel-coordinates-chart/parallel-coordinates-chart';
 export { polarLineChart } from './charts/polar-line-chart/polar-line-chart';
 export { polarScatterChart } from './charts/polar-scatter-chart/polar-scatter-chart';
+// Wave 3 (0.6.0): fields and networks.
+export { densityBinChart } from './charts/density-bin-chart/density-bin-chart';
+export { contourChart } from './charts/contour-chart/contour-chart';
+export { delaunayChart } from './charts/delaunay-chart/delaunay-chart';
+export { vectorFieldChart } from './charts/vector-field-chart/vector-field-chart';
+export { networkChart } from './charts/network-chart/network-chart';
 // What `onRootChange` carries (REQ-439): the adapters of the two drillable charts share it.
 export { rootChangeOf } from './interaction/root-change';

@@ -45,6 +45,9 @@ import {
   boxPlotChart,
   bumpChart,
   connectedScatterChart,
+  contourChart,
+  delaunayChart,
+  densityBinChart,
   divergingBarChart,
   dumbbellChart,
   ecdfChart,
@@ -53,6 +56,7 @@ import {
   intervalChart,
   lollipopChart,
   marimekkoChart,
+  networkChart,
   parallelCoordinatesChart,
   polarLineChart,
   polarScatterChart,
@@ -61,6 +65,7 @@ import {
   squarifiedTreemap,
   sunburstChart,
   treeChart,
+  vectorFieldChart,
   violinChart,
   waffleChart,
 } from '@silverpoint/core/catalog';
@@ -95,6 +100,32 @@ export interface CatalogEntry {
    */
   readonly states?: Readonly<Record<string, Readonly<Record<string, unknown>>>>;
 }
+
+/**
+ * The placed network state (REQ-436): two teams of four, each on its own square, a corner of each
+ * joined; every node carries `x` and `y`, so no layout runs.
+ */
+const PLACED_NODES = [
+  { id: 'n1', label: 'North 1', group: 'North', x: 0, y: 6 },
+  { id: 'n2', label: 'North 2', group: 'North', x: 3, y: 6 },
+  { id: 'n3', label: 'North 3', group: 'North', x: 3, y: 9 },
+  { id: 'n4', label: 'North 4', group: 'North', x: 0, y: 9 },
+  { id: 's1', label: 'South 1', group: 'South', x: 6, y: 0 },
+  { id: 's2', label: 'South 2', group: 'South', x: 9, y: 0 },
+  { id: 's3', label: 'South 3', group: 'South', x: 9, y: 3 },
+  { id: 's4', label: 'South 4', group: 'South', x: 6, y: 3 },
+];
+const PLACED_LINKS = [
+  { from: 'n1', to: 'n2' },
+  { from: 'n2', to: 'n3' },
+  { from: 'n3', to: 'n4' },
+  { from: 'n4', to: 'n1' },
+  { from: 's1', to: 's2' },
+  { from: 's2', to: 's3' },
+  { from: 's3', to: 's4' },
+  { from: 's4', to: 's1' },
+  { from: 'n2', to: 's4' },
+];
 
 const entry = (row: Omit<CatalogEntry, 'recipe'> & { readonly recipe: ChartRecipe<never> }): CatalogEntry =>
   row as unknown as CatalogEntry;
@@ -624,6 +655,54 @@ export const CATALOG: readonly CatalogEntry[] = [
     propsInterface: 'PolarScatterChartProps',
     demoProbe: null,
     sample: { data: [{ b: 10, d: 3, w: 2 }, { b: 200, d: 5, w: 8 }, { b: 90, d: 1, w: 4 }], angleKey: 'b', radiusKey: 'd', sizeKey: 'w' },
+  }),
+  // The second catalog, wave 3: fields and networks (feature-003).
+  entry({
+    chart: 'DensityBinChart',
+    req: 'REQ-422',
+    slug: 'density-bin-chart',
+    recipe: densityBinChart,
+    propsInterface: 'DensityBinChartProps',
+    demoProbe: { binShape: 'rect' },
+    sample: { data: [{ px: 1, py: 1 }, { px: 1, py: 1 }, { px: 9, py: 9 }, { px: 5, py: 2 }, { px: 5, py: 2 }, { px: 5, py: 2 }], xKey: 'px', yKey: 'py' },
+  }),
+  entry({
+    chart: 'ContourChart',
+    req: 'REQ-423',
+    slug: 'contour-chart',
+    recipe: contourChart,
+    propsInterface: 'ContourChartProps',
+    demoProbe: { filled: false },
+    sample: { data: [0, 1, 2].flatMap((gy) => [0, 1, 2, 3].map((gx) => ({ gx, gy, gv: gx + gy / 2 }))), source: 'grid', xKey: 'gx', yKey: 'gy', valueKey: 'gv', levels: [1.5, 2.5] },
+  }),
+  entry({
+    chart: 'DelaunayChart',
+    req: 'REQ-424',
+    slug: 'delaunay-chart',
+    recipe: delaunayChart,
+    propsInterface: 'DelaunayChartProps',
+    demoProbe: { mesh: 'voronoi' },
+    sample: { data: [{ nm: 'A', sx: 0, sy: 0 }, { nm: 'B', sx: 10, sy: 0 }, { nm: 'C', sx: 10, sy: 8 }, { nm: 'D', sx: 0, sy: 8 }, { nm: 'E', sx: 4, sy: 3 }, { nm: 'F', sx: 7, sy: 5 }], xKey: 'sx', yKey: 'sy', labelKey: 'nm' },
+  }),
+  entry({
+    chart: 'VectorFieldChart',
+    req: 'REQ-425',
+    slug: 'vector-field-chart',
+    recipe: vectorFieldChart,
+    propsInterface: 'VectorFieldChartProps',
+    demoProbe: { scale: 4 },
+    sample: { data: [0, 1].flatMap((vy) => [0, 1, 2].map((vx) => ({ vx, vy, vu: vx - 1, vv: vy + 0.5 }))), xKey: 'vx', yKey: 'vy', uKey: 'vu', vKey: 'vv' },
+  }),
+  entry({
+    chart: 'NetworkChart',
+    req: 'REQ-426',
+    slug: 'network-chart',
+    recipe: networkChart,
+    propsInterface: 'NetworkChartProps',
+    demoProbe: { iterations: 20 },
+    // REQ-436: drawn at the consumer's positions, no layout — what the demo cannot show (DM delta §3).
+    states: { placed: { data: PLACED_LINKS, sourceKey: 'from', targetKey: 'to', nodes: PLACED_NODES } },
+    sample: { data: [{ s: 'a', t: 'b', w: 2 }, { s: 'b', t: 'c' }, { s: 'a', t: 'c', w: 1 }, { s: 'c', t: 'c' }], sourceKey: 's', targetKey: 't', valueKey: 'w' },
   }),
 ];
 

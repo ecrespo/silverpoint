@@ -68,23 +68,40 @@ describe('DensityBinChart (T-191)', () => {
   test('REQ-422 · I-24 · the demo: hexagonal bins whose counts sum to the 1 200 points, toned by count', () => {
     const model = densityBinChart.build({}, context);
     expect(column(model, 'count').reduce((s, c) => s + Number(c), 0)).toBe(1200);
-    const counts = model.geometry.hitAreas.map((h) => h.value);
-    const max = Math.max(...counts);
-    const densest = model.geometry.hitAreas.find((h) => h.value === max);
-    // Seven-sided paths: a hexagon is M plus five L and Z.
-    expect(toned(model).every((s) => (s.d.match(/L/g) ?? []).length === 5)).toBe(true);
-    expect(toned(model).some((s) => s.tone === 4)).toBe(true);
-    expect(heightened(model)[0]?.d).toBe(toned(model)[model.geometry.hitAreas.indexOf(densest as never)]?.d);
+    // One path per tone, the densest bin on its own: every bin is one hexagon, M, three L, two V and Z.
+    const hexagons = toned(model).reduce((n, s) => n + (s.d.match(/M/g) ?? []).length, 0);
+    expect(hexagons).toBe(model.geometry.hitAreas.length);
+    expect(toned(model).every((s) => (s.d.match(/L/g) ?? []).length === 3 * (s.d.match(/M/g) ?? []).length)).toBe(true);
+    expect(toned(model).map((s) => s.tone)).toEqual([1, 2, 3, 4, 4]);
+    // The densest, alone, is the heightened mark.
+    const alone = toned(model).at(-1) as { d: string };
+    expect((alone.d.match(/M/g) ?? []).length).toBe(1);
+    expect(heightened(model)[0]?.d).toBe(alone.d);
+  });
+
+  test('NFR §7 · REQ-029 · one element per tone keeps the demo light: a handful of paths, whatever the bins', () => {
+    expect(toned(densityBinChart.build({ width: 960, height: 400 }, context)).length).toBeLessThanOrEqual(5);
   });
 
   test('REQ-422 · rectangular bins and their size; an invalid size is the default, warned SP021', () => {
     const rect = densityBinChart.build({ binShape: 'rect' }, context);
-    expect(toned(rect).every((s) => /^M[^L]+H[^V]+V[^H]+H[^Z]+Z$/.test(s.d))).toBe(true);
+    expect(toned(rect).every((s) => /^(M[^L]+H[^V]+V[^H]+H[^Z]+Z)+$/.test(s.d))).toBe(true);
     const fine = densityBinChart.build({ binSize: 7 }, context);
     expect(fine.geometry.hitAreas.length).toBeGreaterThan(densityBinChart.build({}, context).geometry.hitAreas.length);
     const seen = capture();
     expect(densityBinChart.build({ binSize: -3 }, context).geometry.hitAreas.length).toBe(densityBinChart.build({}, context).geometry.hitAreas.length);
     expect(seen).toContain('SP021');
+  });
+
+  test('REQ-124 · a bin is drawn smaller the lighter its tone, so precision keeps the count as size', () => {
+    const model = densityBinChart.build({ binShape: 'rect' }, context);
+    const side = (d: string) => Number(d.match(/^M(-?[\d.]+),[^H]+H(-?[\d.]+)/)?.slice(1).reduce((a, b) => String(Number(b) - Number(a))));
+    const byTone = new Map<number, number>();
+    for (const s of toned(model)) byTone.set(s.tone as number, side(s.d));
+    const tones = [...byTone.keys()].sort();
+    expect(tones.length).toBeGreaterThan(2);
+    for (let k = 1; k < tones.length; k += 1) expect(byTone.get(tones[k] as number)).toBeGreaterThan(byTone.get(tones[k - 1] as number) as number);
+    expect(byTone.get(4)).toBeCloseTo(14, 5);
   });
 
   test('REQ-440 · REQ-124 · a key names the count range of each tone', () => {
@@ -120,12 +137,17 @@ describe('ContourChart (T-192)', () => {
     const model = contourChart.build({}, context);
     expect(model.table.rows.map((r) => r[0])).toEqual(['20%', '40%', '60%', '80%']);
     expect(model.description).toMatch(/Epanechnikov/);
-    expect(contourChart.build({ levels: 2 }, context).table.rows.map((r) => r[0])).toEqual(['33%', '67%']);
+    const cloud = { data: Array.from({ length: 40 }, (_, k) => ({ x: k % 8, y: (k * 3) % 7 })), xKey: 'x', yKey: 'y' };
+    expect(contourChart.build({ ...cloud, levels: 2 }, context).table.rows.map((r) => r[0])).toEqual(['33%', '67%']);
+  });
+
+  test('REQ-098 · REQ-099 · `levels` goes with the data: the demo ignores it', () => {
+    expect(contourChart.build({ source: 'grid', levels: [1, 3] }, context).geometry).toEqual(contourChart.build({ source: 'grid' }, context).geometry);
   });
 
   test('REQ-433 · levels not increasing are the default, warned SP021', () => {
     const seen = capture();
-    expect(contourChart.build({ source: 'grid', levels: [3, 1] }, context).geometry.hitAreas.map((h) => h.value)).toEqual([0, 2, 4, 6]);
+    expect(contourChart.build({ ...GRID, levels: [3, 1] }, context).geometry.hitAreas.map((h) => h.value)).toEqual([1, 2, 3]);
     expect(seen).toContain('SP021');
   });
 

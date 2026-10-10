@@ -125,4 +125,54 @@ export const METHODS: Readonly<Record<string, readonly MethodStatement[]>> = {
     { value: 'angle and radius', method: 'As the polar line: the share of `period` (360) of a turn, clockwise from 12 o’clock, and a radius linear from 0.' },
     { value: 'point area', method: 'With `sizeKey`, proportional to the size: the radius goes with its square root, 7 px for the largest and never under 1.5 px.' },
   ],
+  DensityBinChart: [
+    {
+      value: 'bins',
+      method:
+        'The points are placed on the plot and counted in bins `binSize` px across (14): pointy-top hexagons, each holding the points nearest its centre, or squares. A bin’s place in the table is its centre, read back in data units.',
+    },
+    { value: 'tone', method: 'Each bin’s count over the densest bin’s, in quarters of the ground’s ramp; the key prints the counts each level holds.' },
+  ],
+  ContourChart: [
+    {
+      value: 'density',
+      method:
+        'With `source: \'points\'`, a sum of Epanechnikov kernels, ¾(1 − u²) along each axis, on a grid of nodes 6 px apart (60 at most per axis); each axis’ bandwidth by Silverman’s rule, 0.9 · min(σ, IQR / 1.34) · n^(−1/5). The density is read as a share of its peak.',
+    },
+    {
+      value: 'levels',
+      method:
+        'A count of levels (4): of a density, the shares k / (count + 1); of a grid, the nice ticks strictly inside its values’ range. Or the thresholds given, increasing.',
+    },
+    {
+      value: 'lines and bands',
+      method:
+        'Marching squares, linear along each cell edge; a saddle is resolved by the mean of the cell’s corners. A missing grid cell is below every level. A band runs from its level to the next; the highest has none above it.',
+    },
+  ],
+  DelaunayChart: [
+    {
+      value: 'triangles',
+      method:
+        'Bowyer–Watson on the drawn positions, rounded to the 2-decimal grid; the predicates are exact, so co-circular and collinear points need no perturbation. A repeated point is drawn once.',
+    },
+    { value: 'cells', method: 'With `mesh: \'voronoi\'`, each point’s cell is the plot clipped by the bisector between it and each of its neighbours in the triangulation.' },
+    { value: 'degree', method: 'The number of edges at a point; a tie for the most goes to the lowest x, then y.' },
+  ],
+  VectorFieldChart: [
+    { value: 'magnitude', method: 'The length of (u, v), √(u² + v²).' },
+    {
+      value: 'arrow',
+      method:
+        'Centred on its grid point, along (u, v) with +v up the page; its length is the magnitude times `scale` px, by default the scale at which the largest arrow spans 0.9 of the grid’s spacing. A zero vector is a dot.',
+    },
+  ],
+  NetworkChart: [
+    {
+      value: 'layout',
+      method:
+        'Fruchterman–Reingold over `iterations` (300): repulsion k²/d between every pair and attraction d²/k along each link, each step at most a temperature cooling linearly to 0, from a square grid dealt to the nodes by the seed; then fitted to the plot. With `x` and `y` on every node, no layout runs.',
+    },
+    { value: 'degree', method: 'The number of links at a node; a self-link counts once, and a tie for the most goes to the first id.' },
+  ],
 };

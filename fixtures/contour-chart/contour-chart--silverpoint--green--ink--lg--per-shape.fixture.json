@@ -1,0 +1,22 @@
+{
+  "chart": "ContourChart",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "hatchFill": "per-shape",
+  "size": {
+    "width": 640,
+    "height": 300
+  },
+  "id": "contour-chart--silverpoint--green--ink--lg--per-shape",
+  "req": "REQ-423",
+  "seed": 1592,
+  "props": {
+    "title": "Readings",
+    "badge": "density",
+    "footerLeft": "share of the peak",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "contour-chart/contour-chart--silverpoint--green--ink--lg--per-shape.canonical.txt"
+}

@@ -1,6 +1,6 @@
-import type { ChartModel, ChartRecipe, HeatmapChartProps, HitArea, RecipeContext, Stroke, TextLabel, ToneLevel } from '../../types';
+import type { ChartModel, ChartRecipe, HeatmapChartProps, HitArea, RecipeContext, Stroke, TextLabel } from '../../types';
 import { cardLayout } from '../shared/card';
-import { finite, inset, rectPath, toneOf, warnValue } from '../shared/cells';
+import { TONE_SCALE, finite, inset, rectPath, toneOf, warnValue } from '../shared/cells';
 import { accessorName, formatCategory, formatNumber, formatValue, read } from '../shared/format';
 import { emptyModel, measure, modelBase, readyModel } from '../shared/shell';
 import { HEATMAP_CHART_DEMO } from './demo';
@@ -15,8 +15,6 @@ const HEADER_BAND = 14;
 /** Advance of one tabular digit at the 9.5 px tick size, with room to spare. */
 const DIGIT_WIDTH = 5.5;
 const LINE_HEIGHT = 12;
-/** Side of a cell, as a share of its slot, per tone, when the values do not fit as text. */
-const CELL_SCALE: Readonly<Record<ToneLevel, number>> = { 0: 0.4, 1: 0.55, 2: 0.7, 3: 0.85, 4: 1 };
 
 function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): ChartModel {
   const usesDemo = props.data === undefined;
@@ -102,7 +100,7 @@ function buildHeatmapChart(props: HeatmapChartProps, context: RecipeContext): Ch
         continue;
       }
       const tone = toneOf(value / scaleMax);
-      const scale = printed ? 1 : CELL_SCALE[tone];
+      const scale = printed ? 1 : TONE_SCALE[tone];
       const drawn = { x: cx - (cell.width * scale) / 2, y: cy - (cell.height * scale) / 2, width: cell.width * scale, height: cell.height * scale };
       strokes.push({ d: rectPath(drawn), role: 'encoding', part: 'ink', ...(tone > 0 ? { tone } : {}) });
       // The tone is quantised; the printed value, or the cell's size, carries it too (REQ-124).

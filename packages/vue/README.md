@@ -5,7 +5,7 @@ drawing, with a fine silver line on a prepared ground, tone built from hatching,
 heightening on the live value. The hand-drawn irregularity is only in the ornament. The data
 geometry is exact, and every chart has a `precision` mode that turns the inking off.
 
-- 55 charts written with `<script setup>`, with typed props and typed emits, and each one
+- 60 charts written with `<script setup>`, with typed props and typed emits, and each one
   importable on its own subpath.
 - Server rendering with `@vue/server-renderer`, hydrating without a mismatch.
 - Accessible: an accessible name, a hidden data table, keyboard navigation, and a
@@ -208,7 +208,7 @@ integration.
 | `locale`, `number-format` | environment | Number formatting. |
 | `hatch-fill` | `'tile'` | `'per-shape'` gives richer hatching at a much greater weight. |
 
-## The 55 charts
+## The 60 charts
 
 Every chart is available as `@silverpoint/vue/<kebab-case-name>` (and from the barrel
 `@silverpoint/vue`), prefixed `Sp`:
@@ -231,6 +231,10 @@ Hierarchies, parts of a whole, many dimensions and polar charts (since `0.5.0`):
 
 `SpWaffleChart`, `SpMarimekkoChart`, `SpSquarifiedTreemap`, `SpSunburstChart`, `SpTreeChart`,
 `SpParallelCoordinatesChart`, `SpPolarLineChart`, `SpPolarScatterChart`.
+
+Fields and networks (since `0.6.0`):
+
+`SpDensityBinChart`, `SpContourChart`, `SpDelaunayChart`, `SpVectorFieldChart`, `SpNetworkChart`.
 
 `SpRidgelineChart` needs `group-key`, `SpDivergingBarChart` needs `levels` and `SpParallelCoordinatesChart` needs `dimensions`, even with the demo dataset, which ignores them.
 

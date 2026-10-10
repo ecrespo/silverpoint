@@ -92,10 +92,12 @@ describe.each(AFTER_LINE_CHART.map((e) => [e.chart, e] as const))('the %s fixtur
 test('REQ-182 · the PR matrix holds every catalog chart × 10 cells, and each state fixture × 10', () => {
   const states = CATALOG.reduce((n, c) => n + Object.keys(c.states ?? {}).length, 0);
   expect(loadFixtures()).toHaveLength((CATALOG.length + states) * 10);
-  // The first catalog's 33 and the second's waves 1 and 2 (feature-003, DM delta §3).
-  expect(CATALOG).toHaveLength(55);
+  // The first catalog's 33 and the second's three waves (feature-003, DM delta §3).
+  expect(CATALOG).toHaveLength(60);
   // REQ-439: the drilled treemap and sunburst (DM delta §3).
   expect(loadFixtures().filter((f) => f.state === 'root').map((f) => f.chart)).toEqual([...Array(10).fill('SquarifiedTreemap'), ...Array(10).fill('SunburstChart')]);
+  // REQ-436: the network at the consumer's positions (DM delta §3).
+  expect(loadFixtures().filter((f) => f.state === 'placed').map((f) => f.chart)).toEqual(Array(10).fill('NetworkChart'));
 });
 
 /** The nightly product of Data Model §5 (T-091): every cell, not only the PR's `md` + `tile` slice. */
@@ -104,10 +106,10 @@ describe('the full matrix', () => {
 
   const cell = (f: Fixture) => `${f.chart}${f.state ? `/${f.state}` : ''}/${f.ground}/${f.mode}/${f.substrate}/${f.hatchFill}/${f.size.width}x${f.size.height}`;
 
-  test('REQ-182 · 3,078 fixtures: (55 charts + 2 states) × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
-    expect(full).toHaveLength(3078);
-    expect(new Set(full.map(cell)).size).toBe(3078);
-    expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(57 * 48);
+  test('REQ-182 · 3,402 fixtures: (60 charts + 3 states) × 2 modes × 3 sizes × (silverpoint: 4 substrates × 2 hatchFill; cyanotype: 1 × tile), each once', () => {
+    expect(full).toHaveLength(3402);
+    expect(new Set(full.map(cell)).size).toBe(3402);
+    expect(full.filter((f) => f.ground === 'silverpoint')).toHaveLength(63 * 48);
     expect(new Set(full.map((f) => f.hatchFill))).toEqual(new Set(['tile', 'per-shape']));
     // REQ-028: hatchFill has no effect under `weight`, so cyanotype's axis collapses to `tile`.
     expect(new Set(full.filter((f) => f.ground === 'cyanotype').map((f) => `${f.substrate}/${f.hatchFill}`))).toEqual(new Set(['prussian/tile']));
@@ -127,8 +129,8 @@ describe('the full matrix', () => {
 
   test('REQ-182 · the apps can open any cell: the harness embeds the full matrix beside the PR one', async () => {
     const harness = await import('../../examples/harness/index.js');
-    expect(harness.ALL_FIXTURES).toHaveLength(3078);
-    expect(harness.FIXTURES).toHaveLength(570);
+    expect(harness.ALL_FIXTURES).toHaveLength(3402);
+    expect(harness.FIXTURES).toHaveLength(630);
     expect(harness.fixtureById('bar-chart--silverpoint--ochre--precision--lg--per-shape')?.hatchFill).toBe('per-shape');
   });
 });

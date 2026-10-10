@@ -350,6 +350,11 @@ describe('REQ-124 · one pass over the catalog', () => {
   const firstColumn = (model: Rendered) => model.table.rows.map((row) => row[0] ?? '');
   const flowEnds = (model: Rendered) => [...new Set(firstColumn(model).flatMap((flow) => flow.split(' → ')))];
   const seriesColumns = (model: Rendered, from: number) => model.table.columns.slice(from);
+  /** The width of a path's bounding box, from its points and horizontal lines. */
+  const extent = (d: string) => {
+    const xs = [...[...d.matchAll(/(-?[\d.]+),-?[\d.]+/g)].map((m) => Number(m[1])), ...[...d.matchAll(/H(-?[\d.]+)/g)].map((m) => Number(m[1]))];
+    return Math.max(...xs) - Math.min(...xs);
+  };
   /** A hierarchy's first-level nodes, from the table's paths ("root › node"). */
   const firstLevel = (model: Rendered) => firstColumn(model).map((path) => path.split(' › ')).filter((parts) => parts.length === 2).map((parts) => parts[1] ?? '');
   const dotted = (model: Rendered) => encodings(model).some((s) => s.dash === 'dotted');
@@ -391,6 +396,17 @@ describe('REQ-124 · one pass over the catalog', () => {
       holds: (m) => firstLevel(m).every((n) => printed(m, n) || texts(m).some((t) => t.length > 1 && t.endsWith('…') && n.startsWith(t.slice(0, -1)))),
     },
     SunburstChart: { channel: 'every first-ring arc, whose tone its descendants take, named with its share in the legend (REQ-440)', holds: (m) => firstLevel(m).every((n) => printed(m, n)) },
+    // Wave 3. The density's tone is a count: a bin is the larger the denser, as the heatmap's cells.
+    DensityBinChart: {
+      channel: 'every bin drawn the larger the higher its tone, which is its count over the densest (REQ-440)',
+      holds: (m) => {
+        // One path per tone: its first hexagon's width stands for all of them.
+        const sizes = encodings(m).filter((s) => s.tone !== undefined).map((s) => [s.tone as number, extent(s.d.split('M')[1] ?? '')] as const);
+        return sizes.length > 1 && sizes.every(([t, w]) => sizes.every(([o, v]) => o <= t || v > w));
+      },
+    },
+    ContourChart: { channel: 'every level printed on its line, the bands nested in level order (REQ-440)', holds: (m) => firstColumn(m).every((level) => printed(m, level)) },
+    NetworkChart: { channel: 'every group named with its size in the legend (REQ-440)', holds: (m) => [...new Set(m.table.rows.map((row) => row[1] ?? '').filter((g) => g !== ''))].every((g) => printed(m, g)) },
   };
 
   test('REQ-124 · every chart that tells items apart by tone declares its non-hatch channel, and no other does', () => {

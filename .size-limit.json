@@ -2528,6 +2528,231 @@
     "limit": "45 kB"
   },
   {
+    "name": "@silverpoint/react + core, DensityBinChart (client)",
+    "path": "packages/react/dist/density-bin-chart.js",
+    "import": "{ DensityBinChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DensityBinChart (server)",
+    "path": "packages/react/dist/server/density-bin-chart.js",
+    "import": "{ DensityBinChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDensityBinChart",
+    "path": "packages/vue/dist/density-bin-chart.js",
+    "import": "{ SpDensityBinChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDensityBinChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-density-bin-chart.mjs",
+    "import": "{ SpDensityBinChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ContourChart (client)",
+    "path": "packages/react/dist/contour-chart.js",
+    "import": "{ ContourChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, ContourChart (server)",
+    "path": "packages/react/dist/server/contour-chart.js",
+    "import": "{ ContourChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpContourChart",
+    "path": "packages/vue/dist/contour-chart.js",
+    "import": "{ SpContourChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpContourChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-contour-chart.mjs",
+    "import": "{ SpContourChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DelaunayChart (client)",
+    "path": "packages/react/dist/delaunay-chart.js",
+    "import": "{ DelaunayChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, DelaunayChart (server)",
+    "path": "packages/react/dist/server/delaunay-chart.js",
+    "import": "{ DelaunayChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpDelaunayChart",
+    "path": "packages/vue/dist/delaunay-chart.js",
+    "import": "{ SpDelaunayChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpDelaunayChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-delaunay-chart.mjs",
+    "import": "{ SpDelaunayChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, VectorFieldChart (client)",
+    "path": "packages/react/dist/vector-field-chart.js",
+    "import": "{ VectorFieldChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, VectorFieldChart (server)",
+    "path": "packages/react/dist/server/vector-field-chart.js",
+    "import": "{ VectorFieldChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpVectorFieldChart",
+    "path": "packages/vue/dist/vector-field-chart.js",
+    "import": "{ SpVectorFieldChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpVectorFieldChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-vector-field-chart.mjs",
+    "import": "{ SpVectorFieldChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, NetworkChart (client)",
+    "path": "packages/react/dist/network-chart.js",
+    "import": "{ NetworkChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/react + core, NetworkChart (server)",
+    "path": "packages/react/dist/server/network-chart.js",
+    "import": "{ NetworkChart }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/vue + core, SpNetworkChart",
+    "path": "packages/vue/dist/network-chart.js",
+    "import": "{ SpNetworkChart }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
+    "name": "@silverpoint/angular + core, SpNetworkChart",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-network-chart.mjs",
+    "import": "{ SpNetworkChart }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "45 kB"
+  },
+  {
     "name": "@silverpoint/core (everything)",
     "path": "packages/core/dist/index.js",
     "import": "*",
@@ -2539,7 +2764,7 @@
     "path": "packages/core/dist/catalog.js",
     "import": "*",
     "gzip": true,
-    "limit": "50 kB"
+    "limit": "75 kB"
   },
   {
     "name": "@silverpoint/grounds + core (everything)",

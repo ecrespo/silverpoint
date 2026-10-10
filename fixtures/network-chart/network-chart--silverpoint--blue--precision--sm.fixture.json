@@ -1,0 +1,22 @@
+{
+  "chart": "NetworkChart",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "hatchFill": "tile",
+  "size": {
+    "width": 240,
+    "height": 120
+  },
+  "id": "network-chart--silverpoint--blue--precision--sm",
+  "req": "REQ-426",
+  "seed": 1592,
+  "props": {
+    "title": "Collaboration",
+    "badge": "40 people",
+    "footerLeft": "four teams",
+    "footerRight": "silverpoint"
+  },
+  "data": null,
+  "canonical": "network-chart/network-chart--silverpoint--blue--precision--sm.canonical.txt"
+}
