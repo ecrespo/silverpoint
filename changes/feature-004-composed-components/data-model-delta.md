@@ -81,6 +81,11 @@ rowTone: 1 | 2 | 3 | 4;
 | `backdrop` | 2 | 2 | 2 |
 | `rowTone` | 1 | 1 | 1 |
 
+*Amended after review (2026-10-19, user decision):* `silverpoint` and `cyanotype` take these values
+as the **defaults** of `resolveUiTokens`, without declaring them: a ground written before
+feature-004 needs no change (REQ-044, REQ-312). A ground declares `backdrop` or `rowTone` only to
+differ from 2 and 1.
+
 *Amended in implementation (T-210):* `backdrop` is the level of the **hatched** backdrop (the
 level-2 default of REQ-499); where the backdrop is not hatched —a `weight` ground, `precision`— it is
 the opaque substrate, whatever the level. A table's cell holds its text on a `.sp-ui-plate`, so a

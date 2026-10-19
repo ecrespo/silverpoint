@@ -2,9 +2,9 @@
 '@silverpoint/grounds': minor
 ---
 
-The built-in grounds declare the feature-004 `ui` tokens (T-209): `backdrop: 2`, the tonal level
-behind a modal overlay where it is not hatched, and `rowTone: 1`, the level of a table's striped
-and hovered rows.
+Two feature-004 `ui` tokens a ground may declare (T-209): `backdrop`, the tonal level behind a
+modal overlay, and `rowTone`, the level of a table's striped and hovered rows. Unset, they are 2
+and 1; the built-in grounds keep those defaults, so no ground needs a change.
 
 `ui.css` lays out the 21 feature-004 components (T-210): Surface, Glyph, Table (toned rows by the
 ground's `rowTone` level, never opacity), Pagination, Breadcrumb, Avatar, Statistic, Descriptions,

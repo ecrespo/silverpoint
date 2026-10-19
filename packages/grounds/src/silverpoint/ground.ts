@@ -56,7 +56,5 @@ export const silverpoint: Ground = deepFreeze({
     radius: 2,
     focusWidth: 2,
     tone: { selected: 3, primary: 2, danger: 4, disabled: 1, alertError: 1 },
-    backdrop: 2,
-    rowTone: 1,
   },
 });

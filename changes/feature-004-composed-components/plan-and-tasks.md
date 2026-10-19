@@ -186,6 +186,13 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   fails on a failing preset with `SP012 … (REQ-464)`. Tests: `ui-tokens` (core, grounds),
   `contrast-gate.test.ts` (the gate agrees with `checkPalette` on altered presets). 6 RED on
   assertions; 8 mutants → red (one equivalent mutant removed by simplifying `level`).
+  *Amended after review (2026-10-19, user decision):* the two lines `silverpoint` declared are
+  removed. Their values were the core's defaults, so nothing drawn changes (`ui.css` and
+  `styles.css` rebuilt byte for byte); they were the branch's only change to a ground, and with
+  `core/src/ui/` and the adapters' `ui/` in the same range they failed REQ-044's check
+  (`check-ground-pr`, 139 findings). Both built-in grounds now take the levels as a ground written
+  before feature-004 does, which is what REQ-044 and REQ-312 ask. Test: `ui-tokens` (grounds)
+  asserts neither ground declares them and both resolve to 2 and 1 (RED on assertions first).
 
 **[x] T-210 · `ui.css` rules for the 21 rows** — REQ-475, REQ-498, REQ-499, REQ-503, REQ-522 `[P]`
 - Port Reflex's `surfaces.css` layout, rewritten on the root contract; row tone and backdrop by
