@@ -3,8 +3,9 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
-import { UI_PAGE, uiFixtureById, uiFixtureParts, uiSizeOf, type HarnessUiFixture, type HarnessUiPageItem } from '@silverpoint/example-harness';
-import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/react/ui';
+import { UI_PAGE, uiFixtureById, type HarnessUiPageItem } from '@silverpoint/example-harness';
+import { SpTabPanel } from '@silverpoint/react/ui';
+import { UI, UiFixture } from './ui-fixture';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
@@ -77,23 +78,6 @@ import { createRoot } from 'react-dom/client';
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
 const uiFixture = uiFixtureById(new URLSearchParams(location.search).get('ui'));
-
-/** Every UI component a fixture can name, by its slug. */
-const UI: Readonly<Record<string, ComponentType<Record<string, unknown>>>> = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as unknown as Readonly<Record<string, ComponentType<Record<string, unknown>>>>;
-
-/** A UI fixture as a consumer writes it: uncontrolled, the value as its default (REQ-322). */
-function UiFixture({ fixture }: { fixture: HarnessUiFixture }) {
-  const { props, value, slots } = uiFixtureParts(fixture);
-  const Component = UI[fixture.component]!;
-  const bound = value === undefined ? {} : typeof value === 'boolean' ? { defaultChecked: value } : { defaultValue: value };
-  return (
-    <div className={`sp-harness sp-ground-${fixture.ground}`} data-gate="" data-ui="" data-substrate={fixture.substrate} data-size={uiSizeOf(fixture)}>
-      <Component {...props} {...bound} {...(slots.extra ? { extra: slots.extra } : {})}>
-        {slots.content}
-      </Component>
-    </div>
-  );
-}
 
 /** One item of the UI page as a consumer writes it: uncontrolled, the value as its default. */
 function UiPageItem({ item }: { item: HarnessUiPageItem }) {

@@ -366,6 +366,12 @@ describe('Vue Select and Menu (T-216)', () => {
     expect(document.activeElement).toBe(trigger);
   });
 
+  test('REQ-495 · REQ-498 · a menu mounted open focuses its first item, as one opened by a click', async () => {
+    mount(() => h(set.SpDropdownMenu!, { id: 'd', label: 'Actions', items: entries, open: true }));
+    await nextTick();
+    expect(document.activeElement?.getAttribute('data-key')).toBe('edit');
+  });
+
   test('REQ-495 · ArrowUp opens on the last item; Escape closes; a disabled item ignores a click', async () => {
     const selected = vi.fn();
     const host = mount(() => h(set.SpDropdownMenu!, { label: 'Actions', items: entries, onSelect: selected }));

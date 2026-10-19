@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { SpKpiCard } from '@silverpoint/angular/kpi-card';
+import { COMPOSED_UI, UiComposedView } from './ui-composed';
 import { UI_PAGE, uiFixtureParts, uiSizeOf, type HarnessUiFixture, type HarnessUiPageItem } from '@silverpoint/example-harness';
 import {
   SpAlert,
@@ -133,18 +134,23 @@ export class UiItemView {
 /** A UI fixture of the pixel gate (REQ-328), in its harness container. */
 @Component({
   selector: 'app-ui-gate',
-  imports: [UiItemView],
+  imports: [UiItemView, UiComposedView],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { style: 'display: contents' },
   template: `
     @let f = fixture();
     <div [attr.class]="'sp-harness sp-ground-' + f.ground" data-gate="" data-ui="" [attr.data-substrate]="f.substrate" [attr.data-size]="size()">
-      <app-ui-item [item]="item()" />
+      @if (composed()) {
+        <app-ui-composed [fixture]="f" />
+      } @else {
+        <app-ui-item [item]="item()" />
+      }
     </div>
   `,
 })
 export class UiGate {
   readonly fixture = input.required<HarnessUiFixture>();
+  protected readonly composed = computed(() => COMPOSED_UI.has(this.fixture().component));
   protected readonly item = computed(() => ({ component: this.fixture().component, ...uiFixtureParts(this.fixture()) }));
   protected readonly size = computed(() => uiSizeOf(this.fixture()));
 }

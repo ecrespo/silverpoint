@@ -75,8 +75,8 @@ import {
   slopeChart,
   violinChart,
 } from '@silverpoint/core/catalog';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureView, uiSizeOf } from '@silverpoint/example-harness';
-import type { UiNode } from '@silverpoint/core/ui';
+import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureOverlay, uiFixtureTree, uiSizeOf } from '@silverpoint/example-harness';
+import { uiAnchor, uiOverlaySync, type UiNode } from '@silverpoint/core/ui';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
 
 const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart, HistogramChart: histogramChart, EcdfChart: ecdfChart, BoxPlotChart: boxPlotChart, ViolinChart: violinChart, RidgelineChart: ridgelineChart, BeeswarmChart: beeswarmChart, LollipopChart: lollipopChart, DumbbellChart: dumbbellChart, SlopeChart: slopeChart, BumpChart: bumpChart, ErrorBarChart: errorBarChart, IntervalChart: intervalChart, DivergingBarChart: divergingBarChart, ConnectedScatterChart: connectedScatterChart, WaffleChart: waffleChart, MarimekkoChart: marimekkoChart, SquarifiedTreemap: squarifiedTreemap, SunburstChart: sunburstChart, TreeChart: treeChart, ParallelCoordinatesChart: parallelCoordinatesChart, PolarLineChart: polarLineChart, PolarScatterChart: polarScatterChart, DensityBinChart: densityBinChart, ContourChart: contourChart, DelaunayChart: delaunayChart, VectorFieldChart: vectorFieldChart, NetworkChart: networkChart } as const;
@@ -173,6 +173,14 @@ if (ui && uiHarness) {
   uiHarness.dataset.ui = '';
   uiHarness.dataset.substrate = ui.substrate;
   uiHarness.classList.add(`sp-ground-${ui.ground}`);
-  const { view, slots } = uiFixtureView(ui);
-  uiHarness.append(uiNode(view, slots));
+  uiHarness.append(...uiFixtureTree(ui).map((node) => uiNode(node, {})));
+  // An open overlay is opened as its adapter opens it after mount (DD-043): the top layer is drawn.
+  const overlay = uiFixtureOverlay(ui);
+  const element = uiHarness.querySelector<HTMLElement & HTMLDialogElement>(overlay?.kind === 'popover' ? '[popover][data-state="open"]' : 'dialog[data-state="open"]');
+  if (overlay && element) {
+    uiOverlaySync(element, overlay.kind, true);
+    const anchor = element.previousElementSibling;
+    if (overlay.place && anchor) uiAnchor(anchor, element, overlay.place);
+    if (overlay.focus) element.querySelector<HTMLElement>(`[role="menuitem"][data-key="${CSS.escape(overlay.focus)}"]`)?.focus();
+  }
 }

@@ -3,12 +3,13 @@ import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
+import { UI_COMPONENTS } from '../../packages/core/src/ui';
 import { CATALOG } from '../visual-gate/catalog';
 
 const repo = fileURLToPath(new URL('../..', import.meta.url));
 const bin = join(repo, 'node_modules/.bin/size-limit');
 
-interface Entry { name: string; path?: string; import?: string | Record<string, string>; limit?: string }
+interface Entry { name: string; path?: string; import?: string | Record<string, string>; limit?: string; gzip?: boolean; ignore?: string[] }
 interface Result { name: string; passed: boolean; size: number }
 
 function sizeLimit(config?: string): { status: number; results: Result[] } {
@@ -157,5 +158,62 @@ describe('bundle budgets (size-limit)', () => {
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
+  }, 120_000);
+
+  /** The components of feature-004, and where each adapter builds their subpaths (REQ-518). */
+  const FEATURE_004 = UI_COMPONENTS.filter((row) => ['A1', 'A2', 'B'].includes(row.batch));
+  const uiPath = (adapter: 'react' | 'vue' | 'angular', slug: string) =>
+    adapter === 'angular' ? `packages/angular/dist/fesm2022/silverpoint-angular-ui-${slug}.mjs` : `packages/${adapter}/dist/ui/${slug}.js`;
+
+  test('REQ-518 · every new component is budgeted in every adapter: the UI runtime and 3 KB, an overlay 4 KB more', () => {
+    expect(FEATURE_004).toHaveLength(21);
+    const wrong = FEATURE_004.flatMap((row) =>
+      (['react', 'vue', 'angular'] as const).flatMap((adapter) => {
+        const entry = config.find((e) => e.path === uiPath(adapter, row.slug));
+        const limit = row.family === 'overlay' ? '15 kB' : '11 kB';
+        // Measured as 0.3.0's rows are: gzip, the framework left out.
+        const like = config.find((e) => e.path === uiPath(adapter, 'skeleton'));
+        const same = entry?.gzip === true && JSON.stringify(entry.ignore) === JSON.stringify(like?.ignore);
+        return entry?.limit === limit && entry.import === `{ ${row.component} }` && same ? [] : [`${adapter} ${row.slug}: ${entry?.limit ?? 'none'}`];
+      }),
+    );
+    expect(wrong).toEqual([]);
+  });
+
+  test("REQ-518 · Angular's overlay runtime, an entry of its own, is budgeted at the UI runtime and 4 KB; ui.css at 24 KB, timeline.css at 6 KB", () => {
+    const overlay = config.find((e) => e.path === 'packages/angular/dist/fesm2022/silverpoint-angular-ui-overlay.mjs');
+    expect(overlay?.limit).toBe('12 kB');
+    expect(overlay?.ignore).toEqual(config.find((e) => e.path?.endsWith('silverpoint-angular-ui-skeleton.mjs'))?.ignore);
+    expect(config.find((e) => e.path === 'packages/grounds/dist/ui.css')?.limit).toBe('24 kB');
+    expect(config.find((e) => e.path === 'packages/grounds/dist/timeline.css')?.limit).toBe('6 kB');
+  });
+
+  /** One ink of each preset but silverpoint's, whose values are the ground's own. */
+  const PRESET_INKS = ['#8A3A24', '#6B4C2C', '#3C4858', '#2C6355', '#3A4884'];
+  /** The bundle size-limit builds for an entry, as text. */
+  function bundled(entry: Entry): string {
+    const dir = mkdtempSync(join(repo, '.size-limit-'));
+    try {
+      const file = join(dir, 'one.json');
+      const out = join(dir, 'bundle');
+      const imports = typeof entry.import === 'object' ? Object.fromEntries(Object.entries(entry.import).map(([f, names]) => [join(repo, f), names])) : entry.import;
+      writeFileSync(file, JSON.stringify([{ ...entry, ...(entry.path ? { path: join(repo, entry.path) } : {}), ...(imports ? { import: imports } : {}), limit: undefined }]));
+      execFileSync(bin, ['--config', file, '--save-bundle', out], { cwd: repo, stdio: 'ignore' });
+      const files = execFileSync('find', [out, '-name', '*.js'], { encoding: 'utf8' }).trim().split('\n');
+      return files.map((f) => readFileSync(f, 'utf8')).join('\n');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  test('REQ-519 · REQ-463 · a one-chart build, which takes a palette, holds none of the presets', () => {
+    // The probe sees a preset when one is imported.
+    const control = bundled({ name: 'control', path: 'packages/core/dist/palettes.js', import: '{ sanguine }' }).toUpperCase();
+    expect(control).toContain('#8A3A24');
+    const leaks = ['@silverpoint/react + core, LineChart (client)', '@silverpoint/vue + core, SpLineChart', '@silverpoint/angular + core, SpLineChart'].flatMap((name) => {
+      const code = bundled(config.find((e) => e.name === name)!).toUpperCase();
+      return PRESET_INKS.filter((ink) => code.includes(ink)).map((ink) => `${name}: ${ink}`);
+    });
+    expect(leaks).toEqual([]);
   }, 120_000);
 });

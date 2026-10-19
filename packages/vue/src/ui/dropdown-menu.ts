@@ -1,5 +1,5 @@
 import { uiDropdownMenuView, uiMenuItems, type MenuEntry, type SpDropdownMenuProps, type UiElement } from '@silverpoint/core/ui';
-import { computed, defineComponent, ref, watch, type PropType } from 'vue';
+import { computed, defineComponent, onMounted, ref, watch, type PropType } from 'vue';
 import { COMMON, useUi, withClass } from './base';
 import { useListKeys } from './list';
 import { OPEN, useOpen, useOverlay, useTrigger } from './overlay';
@@ -43,14 +43,14 @@ export const SpDropdownMenu = defineComponent({
     );
     const slot = useTrigger('menu', () => props.id, open, false);
 
-    watch(
-      [open.current, list.activeKey],
-      ([isOpen, key]) => {
-        if (!isOpen || key === null) return;
-        for (const item of menu.value?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []) if (item.dataset.key === key) item.focus();
-      },
-      { flush: 'post' },
-    );
+    const focusActive = () => {
+      const key = list.activeKey.value;
+      if (!open.current.value || key === null) return;
+      for (const item of menu.value?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []) if (item.dataset.key === key) item.focus();
+    };
+    watch([open.current, list.activeKey], focusActive, { flush: 'post' });
+    // A menu mounted open focuses its item too.
+    onMounted(focusActive);
 
     const close = (refocus: boolean) => {
       open.set(false);

@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES, UI_FIXTURES, UI_PR_FIXTURES } from '../examples/harness/index.js';
+import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES, UI_FIXTURES, UI_PR_FIXTURES, uiFixtureOverlay, type HarnessUiFixture } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
 import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
@@ -145,14 +145,24 @@ test.describe('dashboard pixel gate', () => {
   }
 });
 
-/** A UI fixture's gate container, once the component and the fonts are in (REQ-328). */
-async function shootUi(page: Page, url: string): Promise<Buffer> {
+/**
+ * A UI fixture's gate container, once the component and the fonts are in (REQ-328). An open
+ * overlay is drawn in the top layer, outside the container: the shot is the 800 × 600 viewport, once
+ * it is open — after hydration in the server-rendered apps —, placed, and its menu item focused (DD-043).
+ */
+async function shootUi(page: Page, url: string, fixture: HarnessUiFixture): Promise<Buffer> {
   await page.goto(url);
   await page.locator('.sp-harness[data-ui] .sp-ui').first().waitFor();
   await page.evaluate(async () => {
     await document.fonts.ready;
   });
-  return page.locator('.sp-harness[data-ui]').screenshot({ animations: 'disabled' });
+  const overlay = uiFixtureOverlay(fixture);
+  if (!overlay) return page.locator('.sp-harness[data-ui]').screenshot({ animations: 'disabled' });
+  const harness = page.locator('.sp-harness[data-ui]');
+  if (overlay.kind === 'popover') await harness.locator(overlay.place ? ':popover-open[data-side]' : ':popover-open').waitFor();
+  else await harness.locator('dialog[open]').waitFor();
+  if (overlay.focus) await harness.locator(`[role="menuitem"][data-key="${overlay.focus}"]:focus`).waitFor();
+  return page.screenshot({ animations: 'disabled' });
 }
 
 /** The UI matrix: the PR cells on every PR, every cell nightly (Data Model §5). */
@@ -166,12 +176,12 @@ test.describe('UI pixel gate', () => {
 
   for (const fixture of UI_MATRIX) {
     test(`REQ-328 · ${fixture.id} passes the three Art. 3 comparisons`, async ({ page }, info) => {
-      const canonical = await shootUi(page, `${CANONICAL}?ui=${fixture.id}`);
+      const canonical = await shootUi(page, `${CANONICAL}?ui=${fixture.id}`, fixture);
       const pr = fixture.scope === 'pr';
       if (pr) expect(canonical).toMatchSnapshot(['ui', `${fixture.id}.png`], { threshold: 0.15, maxDiffPixelRatio: 0.005 });
       const goldenPath = info.snapshotPath('ui', `${fixture.id}.png`);
       const golden = pr && existsSync(goldenPath) ? readFileSync(goldenPath) : undefined;
-      const adapter = await shootUi(page, `/?ui=${fixture.id}`);
+      const adapter = await shootUi(page, `/?ui=${fixture.id}`, fixture);
       expect(gate(adapter, canonical, golden)).toEqual([]);
     });
   }

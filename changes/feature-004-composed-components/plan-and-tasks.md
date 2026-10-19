@@ -382,14 +382,44 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   18 red at once; one killed by an added test (declarations spaced unlike the canonical's), one was a
   redundant `palette` spread in the renderers and is removed.
 
-**[ ] T-219 · Pixel gates (Docker)** — REQ-517
+**[x] T-219 · Pixel gates (Docker)** — REQ-517
 - Overlays open in the harness; goldens with `--update-snapshots=missing`.
 - **Done:** three pixel gates green.
+- **Ledger (2026-10-19):** the four apps' `?ui=` pages write the 21 new components as their
+  consumers do (`vite-react/src/ui-fixture.tsx`, `nextjs/app/ui-fixture.tsx`,
+  `vite-vue/src/UiFixture.vue`, `angular/src/ui-composed.ts`). The canonical page writes the
+  harness's `uiFixtureTree` (the composed demos, and an overlay's trigger as the plain button its
+  consumer writes before it), then opens an overlay as its adapter does (`uiFixtureOverlay`:
+  `uiOverlaySync`, `uiAnchor` on the adapter's default side, the menu's active item focused). An
+  open overlay is shot as the 800 × 600 viewport, once open, placed and focused. 140 goldens (35
+  states × 4 PR cells); the UI gate is 1,444 comparisons green, and the whole pixel spec too.
+  *Amended in implementation* (TD delta DD-043; API delta §2): the gate found four bugs, each fixed
+  test-first or held by the gate itself: (1) `uiAnchor` placed an overlay before the web font
+  replaced its fallback and never again, 1 px off; it now also re-places when the trigger or the
+  overlay changes size (`ResizeObserver`, where the engine has it); (2) and (3) in Angular, the
+  AvatarGroup's overlap and the dividers between CollapseItems were lost, as `+` and `>` see the
+  host and tree wrappers a `display: contents` box hides; both rules in `ui.css` also match through
+  two wrappers (`:has()`); (4) a Vue `SpDropdownMenu` mounted open did not focus its active item.
+  Tests: `harness` (3), core `ui-dom-anchor-ink`, Vue `ui-overlays`; mutants: 15 run, 15 red.
 
-**[ ] T-220 · Budgets** — REQ-518, REQ-519
+**[x] T-220 · Budgets** — REQ-518, REQ-519
 - size-limit rows per new subpath, overlay runtime, `timeline.css`, `SpTimeline`; REQ-444.
 - A gate that a one-chart build with a `palette` holds no preset (the presets tree-shake, T-206).
 - **Done:** budgets green.
+- **Ledger (2026-10-19):** 64 size-limit rows, measured as 0.3.0's are (min+gzip, the framework
+  ignored): the 21 new subpaths × 3 adapters, and Angular's `ui/overlay` entry. A component's row is
+  the UI runtime's 8 kB and its 3 kB (11 kB), an overlay's 4 kB more (15 kB); Angular's overlay
+  runtime alone 12 kB. Measured: React 3.62–6.60 kB, Vue 3.24–6.51 kB, Angular 6.33–10.58 kB; Angular's
+  overlay runtime adds 1.73 kB over its UI runtime (8.17 against 6.44). `ui.css` is 13.78 kB of 24,
+  `timeline.css` 1.93 kB of 6. The REQ-444 gate (`one-chart-0.6.0.json`, 2 KB) was set in T-212.
+  New tests in `budget.real.test.ts`: every new subpath has its row, as 0.3.0's are measured; the
+  overlay entry and the two stylesheets; and REQ-519's gate: the bundle size-limit writes
+  (`--save-bundle`) for the React, Vue and Angular LineChart holds no ink of the five other presets,
+  while a control bundle importing `sanguine` does. *Amended in implementation* (API delta §9): (1)
+  REQ-518's increments are written as absolute limits, as REQ-330's are (8 + 3, 8 + 4 + 3); React
+  and Vue keep their overlay runtime inside each overlay's bundle, so their 4 KB is held by the
+  overlay rows; (2) `SpTimeline`'s row comes with its component in T-221. Mutants: 5 run on the rows
+  (a limit, gzip, ignore, a missing row, the overlay entry), 5 red.
 
 ### 8f — Timeline
 

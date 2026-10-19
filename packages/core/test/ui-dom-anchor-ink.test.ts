@@ -65,6 +65,37 @@ describe('uiAnchor (T-205)', () => {
     expect(at(floating)[0]).toBe('380px');
   });
 
+  test('REQ-493 · it re-places when the trigger or the overlay changes size, as when a web font replaces the fallback', () => {
+    const observed: Element[] = [];
+    let changed = () => {};
+    let disconnected = false;
+    const original = window.ResizeObserver;
+    window.ResizeObserver = class {
+      constructor(callback: () => void) {
+        changed = callback;
+      }
+      observe(element: Element) {
+        observed.push(element);
+      }
+      unobserve() {}
+      disconnect() {
+        disconnected = true;
+      }
+    } as unknown as typeof ResizeObserver;
+    try {
+      const { trigger, floating, anchor } = overlay();
+      const cleanup = uiAnchor(trigger, floating, { side: 'bottom', align: 'center' });
+      expect(observed).toEqual([trigger, floating]);
+      anchor.set({ x: 100, y: 100, width: 80, height: 31 });
+      changed();
+      expect(at(floating)).toEqual(['80px', '137px', 'bottom']);
+      cleanup();
+      expect(disconnected).toBe(true);
+    } finally {
+      window.ResizeObserver = original;
+    }
+  });
+
   test('REQ-493 · the cleanup removes the listeners', () => {
     const { trigger, floating, anchor } = overlay();
     const cleanup = uiAnchor(trigger, floating, { side: 'bottom', align: 'center' });

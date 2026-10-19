@@ -3006,6 +3006,237 @@
     "limit": "11 kB"
   },
   {
+    "name": "@silverpoint/react/ui/surface (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/surface.js",
+    "import": "{ SpSurface }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/glyph (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/glyph.js",
+    "import": "{ SpGlyph }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/table (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/table.js",
+    "import": "{ SpTable }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/pagination (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/pagination.js",
+    "import": "{ SpPagination }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/breadcrumb (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/breadcrumb.js",
+    "import": "{ SpBreadcrumb }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/avatar (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/avatar.js",
+    "import": "{ SpAvatar }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/statistic (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/statistic.js",
+    "import": "{ SpStatistic }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/descriptions (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/descriptions.js",
+    "import": "{ SpDescriptions }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/timeline-list (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/timeline-list.js",
+    "import": "{ SpTimelineList }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/collapse (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/collapse.js",
+    "import": "{ SpCollapse }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/empty (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/empty.js",
+    "import": "{ SpEmpty }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/result (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/result.js",
+    "import": "{ SpResult }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/textarea (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/textarea.js",
+    "import": "{ SpTextarea }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/input-number (runtime + component, REQ-518)",
+    "path": "packages/react/dist/ui/input-number.js",
+    "import": "{ SpInputNumber }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/modal (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/modal.js",
+    "import": "{ SpModal }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/drawer (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/drawer.js",
+    "import": "{ SpDrawer }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/popover (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/popover.js",
+    "import": "{ SpPopover }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/tooltip (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/tooltip.js",
+    "import": "{ SpTooltip }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/select (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/select.js",
+    "import": "{ SpSelect }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/dropdown-menu (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/dropdown-menu.js",
+    "import": "{ SpDropdownMenu }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/react/ui/toast (runtime + overlay + component, REQ-518)",
+    "path": "packages/react/dist/ui/toast.js",
+    "import": "{ SpToast }",
+    "ignore": [
+      "react",
+      "react-dom"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
     "name": "@silverpoint/vue UI runtime (feature-002, REQ-330): SpDivider",
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
@@ -3184,6 +3415,216 @@
     ],
     "gzip": true,
     "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/surface (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/surface.js",
+    "import": "{ SpSurface }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/glyph (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/glyph.js",
+    "import": "{ SpGlyph }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/table (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/table.js",
+    "import": "{ SpTable }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/pagination (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/pagination.js",
+    "import": "{ SpPagination }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/breadcrumb (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/breadcrumb.js",
+    "import": "{ SpBreadcrumb }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/avatar (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/avatar.js",
+    "import": "{ SpAvatar }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/statistic (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/statistic.js",
+    "import": "{ SpStatistic }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/descriptions (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/descriptions.js",
+    "import": "{ SpDescriptions }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/timeline-list (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/timeline-list.js",
+    "import": "{ SpTimelineList }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/collapse (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/collapse.js",
+    "import": "{ SpCollapse }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/empty (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/empty.js",
+    "import": "{ SpEmpty }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/result (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/result.js",
+    "import": "{ SpResult }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/textarea (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/textarea.js",
+    "import": "{ SpTextarea }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/input-number (runtime + component, REQ-518)",
+    "path": "packages/vue/dist/ui/input-number.js",
+    "import": "{ SpInputNumber }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/modal (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/modal.js",
+    "import": "{ SpModal }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/drawer (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/drawer.js",
+    "import": "{ SpDrawer }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/popover (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/popover.js",
+    "import": "{ SpPopover }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/tooltip (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/tooltip.js",
+    "import": "{ SpTooltip }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/select (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/select.js",
+    "import": "{ SpSelect }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/dropdown-menu (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/dropdown-menu.js",
+    "import": "{ SpDropdownMenu }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/ui/toast (runtime + overlay + component, REQ-518)",
+    "path": "packages/vue/dist/ui/toast.js",
+    "import": "{ SpToast }",
+    "ignore": [
+      "vue"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
   },
   {
     "name": "@silverpoint/angular UI runtime (feature-002, REQ-330): SpDivider",
@@ -3436,5 +3877,313 @@
     ],
     "gzip": true,
     "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/overlay (UI runtime + overlay runtime, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-overlay.mjs",
+    "import": "{ SpUiOverlay, SpTrigger, uiListKeys }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "12 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/surface (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-surface.mjs",
+    "import": "{ SpSurface }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/glyph (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-glyph.mjs",
+    "import": "{ SpGlyph }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/table (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-table.mjs",
+    "import": "{ SpTable }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/pagination (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-pagination.mjs",
+    "import": "{ SpPagination }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/breadcrumb (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-breadcrumb.mjs",
+    "import": "{ SpBreadcrumb }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/avatar (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-avatar.mjs",
+    "import": "{ SpAvatar }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/statistic (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-statistic.mjs",
+    "import": "{ SpStatistic }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/descriptions (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-descriptions.mjs",
+    "import": "{ SpDescriptions }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/timeline-list (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-timeline-list.mjs",
+    "import": "{ SpTimelineList }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/collapse (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-collapse.mjs",
+    "import": "{ SpCollapse }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/empty (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-empty.mjs",
+    "import": "{ SpEmpty }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/result (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-result.mjs",
+    "import": "{ SpResult }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/textarea (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-textarea.mjs",
+    "import": "{ SpTextarea }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/input-number (runtime + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-input-number.mjs",
+    "import": "{ SpInputNumber }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/modal (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-modal.mjs",
+    "import": "{ SpModal }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/drawer (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-drawer.mjs",
+    "import": "{ SpDrawer }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/popover (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-popover.mjs",
+    "import": "{ SpPopover }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/tooltip (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-tooltip.mjs",
+    "import": "{ SpTooltip }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/select (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-select.mjs",
+    "import": "{ SpSelect }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/dropdown-menu (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-dropdown-menu.mjs",
+    "import": "{ SpDropdownMenu }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/ui/toast (runtime + overlay + component, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-ui-toast.mjs",
+    "import": "{ SpToast }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib"
+    ],
+    "gzip": true,
+    "limit": "15 kB"
   }
 ]

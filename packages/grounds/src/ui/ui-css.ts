@@ -667,7 +667,9 @@ const COMPOSED = [
   rule('.sp-ui-avatar-image', ['position: absolute', 'inset: 3px', 'inline-size: calc(100% - 6px)', 'block-size: calc(100% - 6px)', 'object-fit: cover', 'border-radius: inherit']),
   rule('.sp-ui-avatar-initials', ['position: relative']),
   rule('.sp-avatar-group', ['display: inline-flex']),
-  rule('.sp-avatar-group > .sp-avatar + .sp-avatar', ['margin-inline-start: -8px']),
+  // Siblings also through the two `display: contents` wrappers a component layer may keep around
+  // each child (Angular's host and its tree): the combinators see the DOM, not the boxes.
+  rule('.sp-avatar-group > .sp-avatar + .sp-avatar,\n.sp-avatar-group > :has(> * > .sp-avatar) + :has(> * > .sp-avatar) > * > .sp-avatar', ['margin-inline-start: -8px']),
   // Statistic: the trend is an exact arrow and text (REQ-479).
   rule('.sp-statistic', ['display: inline-flex', 'flex-direction: column', 'gap: 4px']),
   rule('.sp-ui-statistic-title', caps),
@@ -709,7 +711,7 @@ const COMPOSED = [
   // Collapse: native details; the chevron is exact and the browser's marker is gone.
   rule('.sp-collapse', ['display: block', 'padding: 4px 0']),
   rule('.sp-collapse-item', ['display: block']),
-  rule('.sp-collapse-item + .sp-collapse-item', ['border-block-start: 1px solid var(--sp-rule)']),
+  rule('.sp-collapse-item + .sp-collapse-item,\n.sp-collapse > :has(> * > .sp-collapse-item) + :has(> * > .sp-collapse-item) > * > .sp-collapse-item', ['border-block-start: 1px solid var(--sp-rule)']),
   rule('.sp-ui-collapse-summary', [
     'position: relative',
     'display: flex',

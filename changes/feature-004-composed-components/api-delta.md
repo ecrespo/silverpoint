@@ -232,6 +232,8 @@ export function uiPlace(input: {
  * Client only, on open, scroll and resize.
  */
 export function uiAnchor(anchor: ElementLike, floating: ElementLike, options: AnchorOptions): () => void;  // returns the cleanup
+// Amended in implementation (T-219): also re-places when the anchor or the overlay changes size
+// (a ResizeObserver, where the engine has one), as when a web font replaces its fallback.
 // Amended in implementation (T-215): opens or closes a <dialog> (showModal/show/close) or a popover
 // (showPopover/hidePopover) as `open` says, only from the other state; no Popover API, no call.
 export function uiOverlaySync(element: UiOverlayElement, kind: 'modal' | 'dialog' | 'popover', open: boolean): void;
@@ -384,6 +386,11 @@ from 22 to 25 codes.
 | One-chart builds | REQ-444 allowance | CI fails (REQ-519) |
 | Table rows | 1,000 (advisory) | No diagnostic; documented: page with `SpPagination` |
 | Select and menu items | 50 (advisory) | No diagnostic |
+
+*Amended in implementation (T-220):* the increments are size-limit rows with absolute limits, as
+REQ-330's are: a component's subpath 11 kB (the 8 kB UI runtime and its 3 kB), an overlay's 15 kB
+(and 4 kB of overlay runtime). Angular's overlay runtime is an entry of its own, `ui/overlay`, at
+12 kB; React and Vue keep theirs inside each overlay's bundle.
 
 ## Constitution check
 

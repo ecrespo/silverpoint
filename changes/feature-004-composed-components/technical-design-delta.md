@@ -194,6 +194,10 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
   chart trees with the `<svg>`'s `style` set aside, then the two styles as sorted declarations
   (I-25). The normaliser (DD-017) keeps a hex colour inside a `style` whole: it used to round the
   digits of `#5A5E7A` as a number.
+- *Amended in implementation* (T-219): an open overlay's pixel fixture is the 800 × 600 viewport;
+  the canonical page opens it with `uiOverlaySync` and places it with `uiAnchor` from the trigger
+  written before it. `uiAnchor` re-places on a size change of the trigger or the overlay too. A
+  `ui.css` rule relating two component roots matches through two `display: contents` wrappers.
 
 ## 4. Monorepo structure (§5.1) — additions
 

@@ -156,7 +156,12 @@ export function dashboardPage(/** @type {string} */ search) {
 import {
   resolveUi,
   UI_COMPONENTS,
+  uiAvatarGroupView,
   uiAvatarView,
+  uiCollapseGroup,
+  uiCollapseItemView,
+  uiCollapseView,
+  uiGlyphView,
   uiBreadcrumbView,
   uiDescriptionsView,
   uiDrawerView,
@@ -327,6 +332,74 @@ export function uiFixtureView(fixture) {
     toast: () => uiToastView(p, r, { open }, { action: slots.action !== undefined }),
   };
   return { view: views[/** @type {keyof typeof views} */ (fixture.component)](), slots };
+}
+
+/** A view with its slots filled: a slot takes its text, or the nodes a composed demo puts in it. */
+function fillSlots(/** @type {any} */ node, /** @type {Record<string, unknown>} */ slots) {
+  if ('text' in node) return [node];
+  if ('slot' in node) {
+    const value = slots[node.slot];
+    return Array.isArray(value) ? value : [{ text: /** @type {string | undefined} */ (value) ?? '' }];
+  }
+  return [{ ...node, children: node.children.flatMap((/** @type {any} */ child) => fillSlots(child, slots)) }];
+}
+
+/**
+ * The roots the canonical page writes for a UI fixture (T-219), slots filled. The composed demos
+ * are composed as `ui-canonical` composes them: Glyph `all` a row of glyphs, Avatar `group` an
+ * AvatarGroup holding its avatars, a Collapse its items. An overlay's trigger is the plain button
+ * its consumer writes just before it (the menu draws its own, the select its combobox).
+ * @param {(typeof UI_FIXTURES)[number]} fixture
+ * @returns {import('@silverpoint/core/ui').UiNode[]}
+ */
+export function uiFixtureTree(fixture) {
+  const { props, slots, trigger } = uiFixtureParts(fixture);
+  const { glyphs, avatars, items, ...rest } = /** @type {Record<string, any>} */ (props);
+  const common = { ground: props.ground, substrate: props.substrate, mode: props.mode, size: props.size };
+  const r = resolveUi(common, {});
+  if (glyphs) return glyphs.map((/** @type {string} */ glyph) => uiGlyphView(/** @type {never} */ ({ ...common, glyph }), r));
+  if (avatars) {
+    const inner = avatars.map((/** @type {object} */ avatar) => uiAvatarView(/** @type {never} */ ({ ...common, ...avatar }), r));
+    return fillSlots(uiAvatarGroupView(/** @type {never} */ (rest), resolveUi(rest, {})), { content: inner });
+  }
+  if (fixture.component === 'collapse' && items) {
+    const group = uiCollapseGroup(/** @type {never} */ (rest));
+    const inner = items.flatMap((/** @type {any} */ { content, open, key: _key, ...item }) =>
+      fillSlots(uiCollapseItemView(/** @type {never} */ ({ ...common, ...item }), r, { open: open === true, group }), { content }),
+    );
+    return fillSlots(uiCollapseView(/** @type {never} */ (rest), resolveUi(rest, {})), { content: inner });
+  }
+  const own = trigger !== undefined && fixture.component !== 'dropdown-menu' ? [{ tag: 'button', attrs: { type: 'button' }, children: [{ text: trigger }] }] : [];
+  return [...own, ...fillSlots(uiFixtureView(fixture).view, slots)];
+}
+
+/**
+ * How the canonical page opens a UI fixture's overlay, as its adapter does (DD-043): a dialog with
+ * `showModal()` (`show()` for a non-modal drawer), a popover with `showPopover()` and `uiAnchor`
+ * from the element before it, on the adapter's default side; an open menu focuses its active item.
+ * @param {(typeof UI_FIXTURES)[number]} fixture
+ */
+export function uiFixtureOverlay(fixture) {
+  const { props: p, active } = uiFixtureParts(fixture);
+  const props = /** @type {Record<string, any>} */ (p);
+  if (props.open !== true) return undefined;
+  const offset = props.offset !== undefined ? { offset: props.offset } : {};
+  switch (fixture.component) {
+    case 'modal':
+      return { kind: 'modal' };
+    case 'drawer':
+      return { kind: props.modal === false ? 'dialog' : 'modal' };
+    case 'popover':
+      return { kind: 'popover', place: { side: props.side ?? 'bottom', align: props.align ?? 'center', ...offset } };
+    case 'tooltip':
+      return { kind: 'popover', place: { side: props.side ?? 'top', align: props.align ?? 'center', ...offset } };
+    case 'select':
+      return { kind: 'popover', place: { side: 'bottom', align: 'start' } };
+    case 'dropdown-menu':
+      return { kind: 'popover', place: { side: props.side ?? 'bottom', align: props.align ?? 'start' }, ...(active !== undefined ? { focus: active } : {}) };
+    default:
+      return undefined;
+  }
 }
 
 /*

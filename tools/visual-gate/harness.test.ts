@@ -61,6 +61,48 @@ describe('the harness’s dashboards (T-117, T-118)', () => {
   });
 });
 
+describe('the canonical page of the UI pixel gate (T-219)', () => {
+  test('REQ-516 · REQ-517 · the roots the canonical page writes are the canonical render, composed demos included', async () => {
+    const harness = await import('../../examples/harness/index.js');
+    const { uiMatrix } = await import('./ui-matrix');
+    const { canonicalUiMarkup, serializeUi } = await import('./ui-canonical');
+    const { compareUi } = await import('../svg-normalizer/normalize');
+    for (const fixture of uiMatrix().filter((f) => f.scope === 'pr')) {
+      const markup = harness.uiFixtureTree(harness.uiFixtureById(fixture.id)!).map((node) => serializeUi(node, {})).join('');
+      expect(compareUi(markup, canonicalUiMarkup(fixture)), fixture.id).toEqual({ equal: true });
+    }
+  });
+
+  test('REQ-517 · an overlay hangs from the trigger its consumer writes just before it, as in every app', async () => {
+    const harness = await import('../../examples/harness/index.js');
+    const { serializeUi } = await import('./ui-canonical');
+    const first = (id: string) => serializeUi(harness.uiFixtureTree(harness.uiFixtureById(id)!)[0]!, {});
+    expect(first('modal--open--silverpoint--cream--ink')).toBe('<button type="button">Edit order</button>');
+    expect(first('drawer--end-open--silverpoint--cream--ink')).toBe('<button type="button">Filters</button>');
+    expect(first('popover--open--silverpoint--cream--ink')).toBe('<button type="button">Details</button>');
+    expect(first('tooltip--open--silverpoint--cream--ink')).toBe('<button type="button">Copy id</button>');
+    // The menu draws its own button, the select its combobox: no trigger of the consumer's.
+    expect(first('dropdown-menu--open--silverpoint--cream--ink')).toMatch(/^<span class="sp-ui sp-dropdown-menu/);
+    expect(first('select--open-selected--silverpoint--cream--ink')).toMatch(/^<span class="sp-ui sp-select/);
+    expect(harness.uiFixtureTree(harness.uiFixtureById('modal--open--silverpoint--cream--ink')!)).toHaveLength(2);
+  });
+
+  test('REQ-517 · DD-043 · the canonical page opens each overlay as its adapter does, and places the anchored ones alike', async () => {
+    const harness = await import('../../examples/harness/index.js');
+    const overlay = (id: string) => harness.uiFixtureOverlay(harness.uiFixtureById(id)!);
+    expect(overlay('modal--open--silverpoint--cream--ink')).toEqual({ kind: 'modal' });
+    expect(overlay('drawer--end-open--silverpoint--cream--ink')).toEqual({ kind: 'modal' });
+    expect(overlay('popover--open--silverpoint--cream--ink')).toEqual({ kind: 'popover', place: { side: 'bottom', align: 'center' } });
+    expect(overlay('tooltip--open--silverpoint--cream--ink')).toEqual({ kind: 'popover', place: { side: 'top', align: 'center' } });
+    expect(overlay('select--open-selected--silverpoint--cream--ink')).toEqual({ kind: 'popover', place: { side: 'bottom', align: 'start' } });
+    expect(overlay('dropdown-menu--open--silverpoint--cream--ink')).toEqual({ kind: 'popover', place: { side: 'bottom', align: 'start' }, focus: 'edit' });
+    // A toast is in the page's flow; a closed select opens nothing.
+    expect(overlay('toast--info--silverpoint--cream--ink')).toBeUndefined();
+    expect(overlay('select--placeholder--silverpoint--cream--ink')).toBeUndefined();
+    expect(overlay('button--default--silverpoint--cream--ink')).toBeUndefined();
+  });
+});
+
 describe('the UI reference page (T-157)', () => {
   test('REQ-329 · REQ-331 · three panels —silverpoint ink, precision, cyanotype— each holding all 17 components', async () => {
     const { UI_PAGE } = await import('../../examples/harness/index.js');

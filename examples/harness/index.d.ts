@@ -52,7 +52,7 @@ export declare const REFERENCE_DASHBOARD: HarnessDashboard;
 export declare const LINKED_DASHBOARD: HarnessDashboard;
 export declare function dashboardPage(search: string): HarnessDashboard;
 
-import type { CommonUiProps, UiElement } from '@silverpoint/core/ui';
+import type { CommonUiProps, UiAnchorOptions, UiElement, UiNode, UiOverlayKind } from '@silverpoint/core/ui';
 
 export interface HarnessUiFixture {
   readonly id: string;
@@ -70,7 +70,11 @@ export interface HarnessUiFixture {
 export interface HarnessUiParts {
   readonly props: CommonUiProps & Record<string, unknown>;
   readonly value: unknown;
-  readonly slots: Partial<Record<'content' | 'extra' | 'footer', string>>;
+  readonly slots: Partial<Record<'content' | 'extra' | 'footer' | 'action', string>>;
+  /** An overlay's trigger text: the consumer's element beside it. */
+  readonly trigger?: string;
+  /** An open list's active item (REQ-498). */
+  readonly active?: string;
 }
 export declare const UI_FIXTURES: readonly HarnessUiFixture[];
 export declare const UI_PR_FIXTURES: readonly HarnessUiFixture[];
@@ -80,6 +84,12 @@ export declare function uiSizeOf(fixture: HarnessUiFixture): 'md' | 'lg';
 export declare const UI_VALUE_COMPONENTS: ReadonlySet<string>;
 export declare function uiFixtureParts(fixture: HarnessUiFixture): HarnessUiParts;
 export declare function uiFixtureView(fixture: HarnessUiFixture): { view: UiElement; slots: HarnessUiParts['slots'] };
+/** The roots the canonical page writes for a UI fixture (T-219): composed, slots filled, an overlay's trigger before it. */
+export declare function uiFixtureTree(fixture: HarnessUiFixture): readonly UiNode[];
+/** How the canonical page opens a fixture's overlay as its adapter does (DD-043); `focus` is the menu item that takes focus. */
+export declare function uiFixtureOverlay(
+  fixture: HarnessUiFixture,
+): { readonly kind: UiOverlayKind; readonly place?: UiAnchorOptions; readonly focus?: string } | undefined;
 
 /** One item of the UI reference page (T-157): a demo state under its panel's configuration. */
 export interface HarnessUiPageItem extends HarnessUiParts {
