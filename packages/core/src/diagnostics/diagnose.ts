@@ -21,7 +21,10 @@ export type SpCode =
   | 'SP019'
   | 'SP020'
   | 'SP021'
-  | 'SP022';
+  | 'SP022'
+  | 'SP023'
+  | 'SP024'
+  | 'SP025';
 
 export interface Detail {
   /** The property involved. */
@@ -212,6 +215,21 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
     req: 'REQ-434',
     what: 'a group has too few observations for its statistic; they are drawn as points',
     todo: 'Give the group more observations, or expect it drawn as points',
+  },
+  SP023: {
+    req: 'REQ-466',
+    what: 'a palette colour is below its contrast threshold against its substrate; it is drawn as given',
+    todo: 'Recompute the palette with checkPalette(); colours are not chosen by eye',
+  },
+  SP024: {
+    req: 'REQ-467',
+    what: 'a palette field is unknown, or its value is not a CSS colour; the field is dropped',
+    todo: 'Use the fields of PALETTE_PROPERTIES with plain CSS colour values',
+  },
+  SP025: {
+    req: 'REQ-515',
+    what: '@knight-lab/timelinejs could not be loaded; the fallback is rendered',
+    todo: 'Install the optional peer @knight-lab/timelinejs and import its stylesheet',
   },
   SP013: {
     req: 'REQ-032',

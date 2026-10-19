@@ -92,3 +92,5 @@ export { DASHBOARD_DEFAULTS, perBreakpoint, resolveLayout } from './dashboard/de
 export { breakpointOf, cellChartBox, resolveDashboard } from './dashboard/resolve';
 export { dashboardView, inCell } from './dashboard/view';
 export { linkedItems, linkedMarks, linkFrom, type LinkState } from './dashboard/link';
+export { PALETTE_PROPERTIES, paletteStyle, resolvePalette, type Palette } from './palette/palette';
+export { checkPalette, contrastRatio, PALETTE_PAIRS, type PaletteFinding } from './palette/contrast';

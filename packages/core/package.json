@@ -39,6 +39,12 @@
       "import": "./dist/catalog.js",
       "default": "./dist/catalog.js"
     },
+    "./palettes": {
+      "@silverpoint/source": "./src/palettes.ts",
+      "types": "./dist/palettes.d.ts",
+      "import": "./dist/palettes.js",
+      "default": "./dist/palettes.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

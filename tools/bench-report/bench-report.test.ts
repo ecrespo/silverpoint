@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { benchReport, DASHBOARD_BUDGET_MS, FIELD_BUDGET_MS, GEOMETRY_BUDGET_MS, NETWORK_BUDGET_MS, RENDER_BUDGET_MS, STATS_BUDGET_MS, UI_BUDGET_MS } from './bench-report';
+import { benchReport, DASHBOARD_BUDGET_MS, FIELD_BUDGET_MS, GEOMETRY_BUDGET_MS, NETWORK_BUDGET_MS, RENDER_BUDGET_MS, SORT_BUDGET_MS, STATS_BUDGET_MS, UI_BUDGET_MS } from './bench-report';
 
 /** The shape `vitest bench --reporter=json` writes: each test case carries its benchmarks. */
 const run = (means: Record<string, number>) => ({
@@ -52,6 +52,13 @@ describe('bench report (TD §2, run nightly)', () => {
     const report = benchReport(run({ 'ui · uiRovingKey': 0.01, 'ui · uiProgressArc': 0.06 }));
     expect(report.over).toEqual(['ui · uiProgressArc']);
     expect(report.markdown).toContain('| ui · uiRovingKey | 0.010 | 0.020 | 500 | 0.05 ms | within |');
+  });
+
+  test('REQ-474 · sorting 10,000 table rows is held to 10 ms (feature-004 T-202)', () => {
+    expect(SORT_BUDGET_MS).toBe(10);
+    const report = benchReport(run({ 'sort · uiSortRows (10,000 rows)': 6, 'sort · uiSortRows (mixed)': 11 }));
+    expect(report.over).toEqual(['sort · uiSortRows (mixed)']);
+    expect(report.markdown).toContain('| sort · uiSortRows (10,000 rows) | 6.000 | 12.000 | 500 | 10 ms | within |');
   });
 
   test('REQ-445 · a statistic over 1 000 observations 4 ms, a 60 × 60 field 8 ms, a 150-node network 16 ms (T-165)', () => {

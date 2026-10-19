@@ -15,6 +15,12 @@ export { uiItems, uiSelectedKey } from './items';
 export { uiRequireName } from './names';
 export { resolveUiTokens, UI_TOKEN_DEFAULTS } from './tokens';
 export { uiToneTile, type UiToneLayer } from './tone';
+export { uiSortRows } from './sort';
+export { uiPageWindow, uiPagination, type UiPageEntry, type UiPagination } from './pages';
+export { uiNumberStep, uiNumberValue, type UiNumberRange, type UiNumberValue } from './number';
+export { uiInitials } from './initials';
+export { uiListKey, uiTypeahead, type UiListResult, type UiListState } from './listbox';
+export { uiPlace, type UiAlign, type UiBox, type UiPlaceInput, type UiPlacement, type UiSide } from './place';
 export {
   resolveUi,
   UI_GLYPHS,

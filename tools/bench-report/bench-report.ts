@@ -25,6 +25,9 @@ export const FIELD_BUDGET_MS = 8;
 /** REQ-445: a 150-node network layout in < 16 ms. */
 export const NETWORK_BUDGET_MS = 16;
 
+/** Sorting 10,000 table rows (PRD delta §7, feature-004). */
+export const SORT_BUDGET_MS = 10;
+
 /** Budgets by benchmark name prefix; a name with none of them times geometry. */
 const BUDGETS: readonly (readonly [string, number])[] = [
   ['render · ', RENDER_BUDGET_MS],
@@ -33,6 +36,7 @@ const BUDGETS: readonly (readonly [string, number])[] = [
   ['stats · ', STATS_BUDGET_MS],
   ['field · ', FIELD_BUDGET_MS],
   ['network · ', NETWORK_BUDGET_MS],
+  ['sort · ', SORT_BUDGET_MS],
 ];
 
 const budgetOf = (name: string) => BUDGETS.find(([prefix]) => name.startsWith(prefix))?.[1] ?? GEOMETRY_BUDGET_MS;
@@ -70,7 +74,7 @@ export function benchReport(json: BenchJson): BenchReport {
     .map((task) => ({ name: task.name, mean: task.latency.mean, p99: task.latency.p99, samplesCount: task.latency.samplesCount }))
     .sort((a, b) => b.mean - a.mean);
   const over = rows.filter((r) => r.mean > budgetOf(r.name)).map((r) => r.name);
-  const head = `# Performance benchmarks — TD §2\n\nBudgets (PRD NFR Performance, API Spec §12): ${GEOMETRY_BUDGET_MS} ms of geometry for a 100-point chart; ${RENDER_BUDGET_MS} ms for the full initial render of a card, inking included (\`render · …\`); ${DASHBOARD_BUDGET_MS} ms to resolve a 24-cell dashboard (\`dashboard · …\`); ${UI_BUDGET_MS} ms for a UI component's core computation (\`ui · …\`). Reported, not enforced.\n\n`;
+  const head = `# Performance benchmarks — TD §2\n\nBudgets (PRD NFR Performance, API Spec §12): ${GEOMETRY_BUDGET_MS} ms of geometry for a 100-point chart; ${RENDER_BUDGET_MS} ms for the full initial render of a card, inking included (\`render · …\`); ${DASHBOARD_BUDGET_MS} ms to resolve a 24-cell dashboard (\`dashboard · …\`); ${UI_BUDGET_MS} ms for a UI component's core computation (\`ui · …\`); ${SORT_BUDGET_MS} ms to sort 10,000 table rows (\`sort · …\`). Reported, not enforced.\n\n`;
   if (rows.length === 0) return { rows, over, markdown: `${head}No benchmark results in this run.\n` };
   const table = [
     '| Benchmark | mean (ms) | p99 (ms) | samples | budget | verdict |',
