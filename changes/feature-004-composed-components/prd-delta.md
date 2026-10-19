@@ -94,7 +94,7 @@ Criteria in EARS. Identifiers REQ-460..REQ-523 are new; none is reused.
 | REQ-464 | ubiquitous | Every preset SHALL pass every contrast pair of the gate (Data Model §3.8 and §3.9) against its own substrate; CI SHALL verify it as REQ-127 does. | MUST |
 | REQ-465 | ubiquitous | THE SYSTEM SHALL expose `contrastRatio(a, b)` and `checkPalette(palette, substrate?)`, which measures every hex field of a palette against its thresholds and returns one finding per failing pair (empty when it passes). | MUST |
 | REQ-466 | unwanted | IF a palette given to any element has a hex field below its contrast threshold, THEN THE SYSTEM SHALL render it as given and warn `SP023` in development, once per palette. | MUST |
-| REQ-467 | unwanted | IF a palette has a field outside REQ-460, or a value that is not a CSS colour (contains `;`, `{`, `}`, `<` or `url(`), THEN THE SYSTEM SHALL drop that field and warn `SP024` in development. | MUST |
+| REQ-467 | unwanted | IF a palette has a field outside REQ-460, or a value that is not a CSS colour (by allowlist: a hex, a keyword, or a colour function over numbers, idents and custom properties; so no `;`, `{`, `}`, `<`, quotes, escapes, `url(` or `image-set(`), THEN THE SYSTEM SHALL drop that field and warn `SP024` in development. | MUST |
 | REQ-468 | ubiquitous | A palette SHALL NOT change any geometry, any element or any attribute other than the root's `style`; `precision` mode and REQ-123 SHALL apply over any palette. | MUST |
 
 ### §6.13.2 Composed components (new)

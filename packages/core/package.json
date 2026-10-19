@@ -45,6 +45,12 @@
       "import": "./dist/palettes.js",
       "default": "./dist/palettes.js"
     },
+    "./timeline": {
+      "@silverpoint/source": "./src/timeline/index.ts",
+      "types": "./dist/timeline.d.ts",
+      "import": "./dist/timeline.js",
+      "default": "./dist/timeline.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

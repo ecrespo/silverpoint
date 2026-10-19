@@ -1,16 +1,24 @@
 import { afterEach, describe, expect, test } from 'vitest';
+import * as main from '../src';
+import { __setDiagnosticSink, type Palette as MainPalette, type SpCode } from '../src';
+import * as palettesEntry from '../src/palettes';
 import {
-  __setDiagnosticSink,
   checkPalette,
   contrastRatio,
+  indigo,
+  ironGall,
+  PALETTE_NAMES,
   PALETTE_PAIRS,
   PALETTE_PROPERTIES,
   paletteStyle,
+  PALETTES,
   resolvePalette,
+  sanguine,
+  sepia,
+  silverpoint,
+  verdigris,
   type Palette,
-  type SpCode,
-} from '../src';
-import { indigo, ironGall, PALETTE_NAMES, PALETTES, sanguine, sepia, silverpoint, verdigris } from '../src/palettes';
+} from '../src/palettes';
 
 let restore: () => void = () => {};
 afterEach(() => restore());
@@ -20,6 +28,19 @@ function capture(): Array<{ code: SpCode; message: string }> {
   restore = __setDiagnosticSink((code, message) => seen.push({ code, message }));
   return seen;
 }
+
+describe('palettes — entry points (T-200, REQ-164)', () => {
+  test('REQ-164 · the palette API lives on @silverpoint/core/palettes, off the main entry and its 45 kB budget', () => {
+    const api = ['PALETTE_PROPERTIES', 'paletteStyle', 'resolvePalette', 'checkPalette', 'contrastRatio', 'PALETTE_PAIRS'];
+    for (const name of api) {
+      expect(Object.keys(palettesEntry), name).toContain(name);
+      expect(Object.keys(main), name).not.toContain(name);
+    }
+    // The type is still importable from the main entry, where CommonChartProps uses it.
+    const typed: MainPalette = silverpoint;
+    expect(typed).toBe(silverpoint);
+  });
+});
 
 describe('palettes — model and declarations (T-200)', () => {
   test('REQ-460 · nine fields, each one --sp- property, in the fixed order of Data Model §2.26', () => {
@@ -77,6 +98,26 @@ describe('palettes — model and declarations (T-200)', () => {
       expect(seen.map((s) => s.code)).toEqual(['SP024']);
     },
   );
+
+  test.each(['\\75 rl(evil.svg)', 'image-set("evil.png" 1x)', '"red"', 'expression(alert(1))', 'color-mix(in srgb, image-set(x) 50%, red)', 'red\\;', 'var(--a, url(x))'])(
+    'REQ-467 · a value that is not a CSS colour (%s) is dropped: escapes, quotes and unknown functions, SP024',
+    (value) => {
+      const seen = capture();
+      expect(resolvePalette({ ink: value, text: '#3F4348' })).toEqual({ text: '#3F4348' });
+      expect(seen.map((s) => s.code)).toEqual(['SP024']);
+    },
+  );
+
+  test.each(['#8A3A24', '#8a3a24cc', 'rebeccapurple', 'transparent', 'rgb(10 20 30 / 50%)', 'oklch(0.5 0.1 30)', 'hsl(30deg 50% 40%)', 'var(--brand)', 'color-mix(in srgb, var(--brand) 40%, #fff)'])(
+    'REQ-467 · a CSS colour (%s) is kept',
+    (value) => {
+      expect(resolvePalette({ ink: value })).toEqual({ ink: value });
+    },
+  );
+
+  test('REQ-467 · paletteStyle itself writes only colours, so calling it directly is safe', () => {
+    expect(paletteStyle({ ink: 'image-set("x.png" 1x)', text: '#3F4348', rule: '#fff;color:red' } as Palette)).toBe('--sp-text:#3F4348');
+  });
 
   test('REQ-467 · a non-string or empty value is dropped, SP024', () => {
     const seen = capture();

@@ -61,6 +61,9 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   measures against the palette's own substrate, else cream (the core does not know the ground's
   substrate colour at resolve time); `SP024` warnings are development-only, the dropping is not.
   Mutations: reversed order, SP023 always firing, `focus` without the `ink` fallback → red.
+  *Amended after the commit security review (2026-10-18):* the `;{}<`/`url(` denylist is an
+  allowlist of CSS colours (escapes like `\75 rl(` and `image-set("…")` passed it), also applied in
+  `paletteStyle`; mutations on the character set, the function set and `paletteStyle` → red.
 
 **[x] T-201 · `contrastRatio`, `checkPalette`, `PALETTE_PAIRS`, `@silverpoint/core/palettes`** — REQ-463, REQ-464, REQ-465, REQ-466 `[P]`
 - Tests: WCAG reference pairs (black/white 21, `#777`/`#fff` 4.48); each pair of Data Model §3.9;
@@ -95,28 +98,72 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   same item); a case with two labels sharing a prefix was added and now bites. Benchmarks: all
   < 0.02 ms mean.
 
-**[ ] T-205 · `uiAnchor` and `timelineInk` (DOM side, structural types)** — REQ-493, REQ-512
+**[x] T-205 · `uiAnchor` and `timelineInk` (DOM side, structural types)** — REQ-493, REQ-512
 - Tests (happy-dom): `uiAnchor` writes `--sp-ui-x/y` and `data-side`, re-runs on scroll/resize,
   cleanup removes listeners; `timelineInk` republishes probe values as `--sp-kl-*`, `none` in
   `precision` and with `inked: false`, re-reads on attribute change.
 - **Done:** tests green.
+- **Ledger (2026-10-18):** `src/ui/anchor.ts`, `src/timeline/ink.ts` (new subpath
+  `@silverpoint/core/timeline`, with `TIMELINE_FRAMES`/`TIMELINE_TONES`),
+  `test/ui-dom-anchor-ink.test.ts` (happy-dom; 12 RED on assertions against stubs). `uiAnchor`
+  listens to `scroll` capturing, so a nested scroller re-places too; defaults offset 6, padding 8.
+  `data-kl-toned` is true when any tone probe resolves (Reflex read only the first). 11 mutants
+  (capture, cleanup, defaults, rtl, inked, mode, observer filter, disconnect) → red.
 
-**[ ] T-206 · Glyphs, `uiSurfaceView`, `uiGlyphView`, composed view trees** — REQ-470, REQ-471, REQ-472..REQ-485, REQ-487
+**[x] T-206 · Glyphs, `uiSurfaceView`, `uiGlyphView`, composed view trees** — REQ-470, REQ-471, REQ-472..REQ-485, REQ-487
 - `ui/view-composed.ts`: Surface, Glyph, Table, Pagination, Breadcrumb, Avatar(Group), Statistic,
   Descriptions, TimelineList, Collapse(Item), Empty, Result, Textarea, InputNumber, per API delta §4.
 - Tests: the tree per state of Data Model §5; ids `${id}--part`; duplicate keys `SP019`; at most one
   heightening (I-18); the ten new glyphs are exact 16 × 16 paths.
 - **Done:** tests green.
+- **Ledger (2026-10-18):** `src/ui/view-composed.ts`, prop types in `src/ui/types.ts`, the ten
+  glyphs in `view-kit.ts`, `UiBind` extended; `test/ui-view-composed.test.ts` (60 RED on assertions
+  against stubs). *Amended in implementation:* `uiNumberValue` also returns `range` (the range as
+  drawn, for the `min`/`max`/`step` attributes); `SpSurface` `as` and `name` must be lowercase
+  idents (`script`, `style`, `iframe`, `object`, `embed`, `template`, `noscript` refused), a Table
+  column `width` a plain length (`px`, `%`, `em`, `rem`, `ch`, `vw`), each else dropped with `SP017`;
+  InputNumber steppers are `tabindex="-1"` (the arrows on the input step, as APG's spinbutton);
+  optional keys (Breadcrumb, Descriptions, TimelineList) are deduplicated only when given; the
+  table draws rows as given (DD-040: the consumer sorts, so paging works), and `uiCollapseGroup`
+  gives an accordion's `${id}--accordion` (`SP017` without an id). 16 mutants → red.
+- **Budget (2026-10-18, user decision):** the palette API pushed `@silverpoint/core (everything)` to
+  45,597 B gzip (REQ-164, 45 kB). It moved to `@silverpoint/core/palettes` (only the types stay on the
+  main entry); `PALETTE_NAMES` is written out so an unused preset tree-shakes (`resolvePalette` +
+  `paletteStyle` alone bundle to 807 B min, no preset). All ten budget gates green.
 
-**[ ] T-207 · Overlay view trees** — REQ-490..REQ-502
+**[x] T-207 · Overlay view trees** — REQ-490..REQ-502
 - `ui/view-overlay.ts`: Modal, Drawer, Popover, Tooltip, Select, DropdownMenu, Toast, Toaster: closed
   and open trees; ARIA of the trigger; `data-state`; no `open` attribute; `SP018` without a name.
 - **Done:** tests green.
+- **Ledger (2026-10-18):** `src/ui/view-overlay.ts`, prop types and `MenuEntry` in `types.ts`,
+  `UiSlot` gains `trigger` and `action`; `test/ui-view-overlay.test.ts` (30 RED on assertions).
+  Helpers for the adapters: `uiTriggerView` (the wrapper of a consumer's trigger), `uiTriggerAria`
+  (the ARIA the adapter sets on it at runtime: a slotted element is consumer markup),
+  `uiSelectItems`, `uiMenuItems` (the flat lists `uiListKey` moves over; the active option is passed
+  as a key), `uiToastDuration`; `cssLength` and `iconClose` shared in `view-kit.ts`. *Amended in
+  implementation:* a toast's live role is on `.sp-ui-toast-body`, not the `<li>` (a list item in an
+  `<ol>` may not take another role: axe `aria-allowed-role`); the dialog's id is `${id}--dialog`.
+  13 mutants → red.
 
-**[ ] T-208 · Catalog rows, `UI_DEMOS`, `TIMELINE_DEMO`, `timelineView`** — REQ-470, REQ-513
+**[x] T-208 · Catalog rows, `UI_DEMOS`, `TIMELINE_DEMO`, `timelineView`** — REQ-470, REQ-513
 - `UI_COMPONENTS` gains 21 rows (`family`, batches `A1`, `A2`, `B`) with the 36 states;
   `UI_DEMOS` one entry per state; `TIMELINE_DEMO` deep-frozen.
 - **Done:** tests green. **8a closed.**
+- **Ledger (2026-10-19):** `src/ui/catalog.ts` (`UiFamily`; groups `building-blocks`, `disclosure`,
+  `overlays`; the 21 rows with their 35 states, so 80 in all; the Timeline's 36th state is its own
+  fixture, not a row), `src/ui/demo.ts` (35 states: the composed page's orders, FAQs and history;
+  overlays demoed `open`, with `trigger` the text of their trigger button; `glyph--all` lists
+  `UI_GLYPHS`; the sorted table's rows are sorted by `uiSortRows`, as a consumer would, DD-040),
+  `src/ui/timeline-demo.ts`, `src/timeline/{types.ts,view.ts}` (`SpTimelineProps`, `TimelineData`;
+  `UiBind` gains `probe` and `mount`); `test/ui-demos-composed.test.ts` (every new demo drawn through
+  its view with no diagnostic; 44 RED on assertions against stubs). *Amended in implementation:* the
+  demo is `TIMELINE_DEMO` on `@silverpoint/core/ui-demos`, beside `UI_DEMOS` (the API delta's
+  `TIMELINE_EVENTS` on `/timeline` would ship demo data to applications, REQ-330); the region's name
+  is `label`, else the title's headline, else `SP018`; `data-kl-inked="false"` until `timelineInk`
+  runs; a `height` that is not a plain length is dropped with `SP017` and `600px` holds. The 42
+  undocumented props of the new types got their JSDoc (REQ-332, the docs reference). Consumers kept
+  on the 17 until their own tasks: the harness UI page test (T-222), the docs gallery and its e2e
+  (T-224); the gated batches stay `B1..B3`. 13 mutants → red.
 
 ### 8b — Grounds
 
@@ -181,6 +228,7 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 **[ ] T-220 · Budgets** — REQ-518, REQ-519
 - size-limit rows per new subpath, overlay runtime, `timeline.css`, `SpTimeline`; REQ-444.
+- A gate that a one-chart build with a `palette` holds no preset (the presets tree-shake, T-206).
 - **Done:** budgets green.
 
 ### 8f — Timeline

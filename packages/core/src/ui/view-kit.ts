@@ -1,3 +1,4 @@
+import { diagnose } from '../diagnostics/diagnose';
 import type { CommonUiProps } from './types';
 import type { UiAttrValue, UiBind, UiElement, UiNode, UiResolved, UiSlot } from './view';
 
@@ -47,6 +48,17 @@ export const UI_GLYPHS = Object.freeze({
   /** A Rate mark (C-2). */
   lozenge: 'M8,1.5L14.5,8L8,14.5L1.5,8Z',
   info: 'M14.5,8A6.5,6.5 0 1,1 1.5,8A6.5,6.5 0 1,1 14.5,8Z M8,7.5V11.5 M8,4.75V4.75',
+  // The composed components' own (REQ-472), Reflex 0.7's paths.
+  plus: 'M8,3.5V12.5M3.5,8H12.5',
+  chevronDown: 'M4,6L8,10L12,6',
+  chevronRight: 'M6,4L10,8L6,12',
+  chevronLeft: 'M10,4L6,8L10,12',
+  arrowUp: 'M8,12.5V3.5M4.5,7L8,3.5L11.5,7',
+  arrowDown: 'M8,3.5V12.5M4.5,9L8,12.5L11.5,9',
+  sortUp: 'M5,9.5L8,5.5L11,9.5Z',
+  sortDown: 'M5,6.5L8,10.5L11,6.5Z',
+  sort: 'M5,7L8,3.5L11,7Z M5,9L8,12.5L11,9Z',
+  ellipsis: 'M3.5,8V8 M8,8V8 M12.5,8V8',
 });
 export type UiGlyph = keyof typeof UI_GLYPHS;
 export const glyph = (name: UiGlyph) => el('svg', { part: 'sp-mark', 'data-glyph': name, viewBox: '0 0 16 16', 'aria-hidden': 'true' }, [el('path', { d: UI_GLYPHS[name] })]);
@@ -62,3 +74,16 @@ export const baseOf = (props: { readonly id?: string; readonly name?: string }) 
 export function nativeInput(type: 'checkbox' | 'radio', attrs: Attrs): UiElement {
   return el('input', { type, class: 'sp-ui-native', ...attrs }, [], 'native');
 }
+
+/** A length a component may write inline (a width, an extent), and nothing else. */
+const LENGTH = /^\d+(?:\.\d+)?(?:px|%|em|rem|ch|vw|vh)$/;
+
+/** The length, or `undefined` with `SP017` when it is not a plain CSS length (REQ-486). */
+export function cssLength(value: string | undefined, component: string, property: string): string | undefined {
+  if (value === undefined || LENGTH.test(value)) return value;
+  if (process.env.NODE_ENV !== 'production') diagnose('SP017', component, { property, message: `${JSON.stringify(value)} is not a plain length; it is dropped.` });
+  return undefined;
+}
+
+/** A native button that emits `close`, its only content the exact ✕. */
+export const iconClose = (label: string) => el('button', { type: 'button', class: 'sp-ui-icon-button', 'aria-label': label }, [glyph('cross')], 'close');

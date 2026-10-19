@@ -126,14 +126,14 @@ describe('uiPageWindow and uiPagination (T-202)', () => {
 describe('uiNumberValue and uiNumberStep (T-203)', () => {
   test('REQ-485 · a value in range is kept; bounds are reported', () => {
     const seen = capture();
-    expect(uiNumberValue(4, { min: 0, max: 10 })).toEqual({ value: 4, corrected: false, atMin: false, atMax: false });
-    expect(uiNumberValue(0, { min: 0, max: 10 })).toEqual({ value: 0, corrected: false, atMin: true, atMax: false });
-    expect(uiNumberValue(10, { max: 10 })).toEqual({ value: 10, corrected: false, atMin: false, atMax: true });
+    expect(uiNumberValue(4, { min: 0, max: 10 })).toMatchObject({ value: 4, corrected: false, atMin: false, atMax: false });
+    expect(uiNumberValue(0, { min: 0, max: 10 })).toMatchObject({ value: 0, corrected: false, atMin: true, atMax: false });
+    expect(uiNumberValue(10, { max: 10 })).toMatchObject({ value: 10, corrected: false, atMin: false, atMax: true });
     expect(seen).toEqual([]);
   });
 
   test('REQ-485 · null is a valid, empty value', () => {
-    expect(uiNumberValue(null, { min: 0, max: 10 })).toEqual({ value: null, corrected: false, atMin: false, atMax: false });
+    expect(uiNumberValue(null, { min: 0, max: 10 })).toMatchObject({ value: null, corrected: false, atMin: false, atMax: false });
   });
 
   test('REQ-486 · out of range is clamped, off precision rounded, both warned SP017', () => {

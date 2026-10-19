@@ -1,8 +1,11 @@
-import { UI_COMPONENTS, type UiGroup } from '@silverpoint/core/ui';
+import { UI_COMPONENTS as UI_CATALOG, type UiGroup } from '@silverpoint/core/ui';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/react/ui';
 import type { ComponentType, ReactNode } from 'react';
 import reference from '../../generated/props.json';
+
+/** The 0.3.0 family; feature-004's rows get their own sections in T-224. */
+const UI_COMPONENTS = UI_CATALOG.filter((c) => c.family === 'ui');
 
 interface PropDoc {
   readonly name: string;
@@ -21,8 +24,12 @@ const GROUP_TITLES: Readonly<Record<UiGroup, string>> = {
   navigation: 'Navigation',
   'data-display': 'Data display',
   feedback: 'Feedback',
+  'building-blocks': 'Building blocks',
+  disclosure: 'Disclosure',
+  overlays: 'Overlays',
 };
-const GROUPS = Object.entries(GROUP_TITLES) as [UiGroup, string][];
+/** The groups the gallery holds rows of, in the catalog's order. */
+const GROUPS = (Object.entries(GROUP_TITLES) as [UiGroup, string][]).filter(([group]) => UI_COMPONENTS.some((c) => c.group === group));
 
 /** The components that bind a `value`: uncontrolled in the docs, so the demo's value is the default. */
 const VALUE = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs']);

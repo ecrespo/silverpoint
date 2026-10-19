@@ -20,7 +20,9 @@
 | `focus` | `--sp-ui-focus-color` | 3 |
 
 The order of this table is the order of every emitted declaration (REQ-461). A value is any CSS
-colour; a value holding `;`, `{`, `}`, `<` or `url(` is dropped (`SP024`, REQ-467). A palette
+colour, by allowlist: a hex, a keyword, or a colour function (`rgb`…`oklch`, `color`, `color-mix`,
+`light-dark`, `var`) over numbers, idents and `--custom` names; anything else (quotes, escapes, `;`,
+`{`, `<`, `url(`, `image-set(`) is dropped (`SP024`, REQ-467). `paletteStyle` applies the same test. A palette
 without `substrate` is measured against the resolved ground's substrate, else cream `#EDE7DA`.
 
 **The presets** (`@silverpoint/core/palettes`, deep-frozen, I-23):

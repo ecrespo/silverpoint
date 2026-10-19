@@ -39,8 +39,16 @@ export const PALETTE_PROPERTIES: Readonly<Record<keyof Palette, `--sp-${string}`
   Object.fromEntries(FIELDS.map((field) => [field, property(field)])) as Record<keyof Palette, `--sp-${string}`>,
 );
 
-/** What would end the declaration or load a resource: never written into a `style` (REQ-467). */
-const UNSAFE = /[;{}<]|url\(/i;
+/**
+ * A CSS colour, by allowlist (REQ-467): a hex, a keyword, or a colour function (`var()` and
+ * `color-mix()` included) over numbers, idents and `--custom` names. No quotes, escapes, `;`, `{`,
+ * `<` or `:` can pass, and every function named must be a colour function, so a value can neither
+ * end its declaration nor load a resource (`url()`, `image-set()`).
+ */
+const COLOUR_CHARS = /^[\w\s#%.,/()+-]+$/;
+const COLOUR_FUNCTIONS = new Set(['rgb', 'rgba', 'hsl', 'hsla', 'hwb', 'lab', 'lch', 'oklab', 'oklch', 'color', 'color-mix', 'light-dark', 'var']);
+const isColour = (value: string): boolean =>
+  COLOUR_CHARS.test(value) && [...value.matchAll(/([\w-]*)\(/g)].every(([, name]) => COLOUR_FUNCTIONS.has(name!.toLowerCase()));
 
 /**
  * The palettes of an element's layers merged field by field, a later layer winning: call it as
@@ -53,7 +61,7 @@ export function resolvePalette(...layers: readonly (Palette | undefined)[]): Pal
     if (!layer) continue;
     for (const [field, value] of Object.entries(layer)) {
       const colour = typeof value === 'string' ? value.trim() : '';
-      if (!(FIELDS as readonly string[]).includes(field) || !colour || UNSAFE.test(colour)) {
+      if (!(FIELDS as readonly string[]).includes(field) || !colour || !isColour(colour)) {
         // Dropped in every build; only the warning is development-only (REQ-467).
         if (process.env.NODE_ENV !== 'production') diagnose('SP024', 'Palette', { property: field, message: `${JSON.stringify(value)} is dropped.` });
         continue;
@@ -76,7 +84,7 @@ export function resolvePalette(...layers: readonly (Palette | undefined)[]): Pal
 /** `--sp-ink:#8A3A24;--sp-text:#4A2216`: a palette's declarations, in PALETTE_PROPERTIES order; '' for none (REQ-461). */
 export function paletteStyle(palette: Palette | undefined): string {
   if (!palette) return '';
-  return FIELDS.filter((field) => palette[field]?.trim())
+  return FIELDS.filter((field) => typeof palette[field] === 'string' && isColour(palette[field].trim()))
     .map((field) => `${property(field)}:${palette[field]!.trim()}`)
     .join(';');
 }

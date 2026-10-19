@@ -36,10 +36,13 @@ export interface UiElement {
 /**
  * `native`: a control an adapter binds value, events and forms to —one, or one per item of a
  * composite, told apart by its `value` or `data-key`. `close`: the button that emits `close`.
+ * `sort`, `page`, `stepper`: a Table header (`data-key`), a Pagination button (`data-page`), an
+ * InputNumber stepper (`data-step`); `summary`: a CollapseItem's toggle; `trigger`, `dialog`,
+ * `popover`, `option`, `menuitem`: the parts of an overlay (TD §2).
  */
-export type UiBind = 'native' | 'close';
+export type UiBind = 'native' | 'close' | 'trigger' | 'dialog' | 'popover' | 'option' | 'menuitem' | 'sort' | 'page' | 'stepper' | 'summary' | 'probe' | 'mount';
 
-export type UiSlot = 'content' | 'prefix' | 'suffix' | 'extra' | 'footer';
+export type UiSlot = 'content' | 'prefix' | 'suffix' | 'extra' | 'footer' | 'trigger' | 'action';
 export type UiNode = UiElement | { readonly text: string } | { readonly slot: UiSlot };
 
 /** What a component inherits around it: the provider, the dashboard cell, the environment. */

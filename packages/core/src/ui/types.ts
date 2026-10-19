@@ -1,6 +1,7 @@
 import type { InkMode, Seed, SubstrateName } from '../types/data';
 import type { ToneLevel } from '../types/geometry';
 import type { GroundRef } from '../types/ground';
+import type { UiFrameKind } from './frame';
 
 /** Control size; heights come from the ground's `ui.controlHeight` (Data Model §3.8). */
 export type UiSize = 'sm' | 'md' | 'lg';
@@ -247,5 +248,362 @@ export interface SpSkeletonProps extends CommonUiProps {
   /** Draws an avatar placeholder before the lines. */
   avatar?: boolean;
   /** Default `'Loading'`. */
+  label?: string;
+}
+
+/*
+ * The composed components (feature-004, API delta §2): built from the surface, frame, tone and
+ * glyph pieces above, on the same root contract.
+ */
+
+export interface SpSurfaceProps extends CommonUiProps {
+  /** The element, a lowercase HTML tag name. Default `'div'`. */
+  as?: string;
+  /** Adds the class `sp-<name>`, a lowercase ident. */
+  name?: string;
+  /** Draws a frame of that kind. */
+  frame?: UiFrameKind;
+  /** Lays a tone: a level 1-4 of the ramp, or a state (`selected`, `primary`…). */
+  tone?: UiToneLevel | string;
+}
+
+export interface SpGlyphProps extends CommonUiProps {
+  /** A key of `UI_GLYPHS`. */
+  glyph: string;
+}
+
+export interface TableColumn {
+  readonly key: string;
+  /** The key when omitted. */
+  readonly title?: string;
+  readonly align?: 'start' | 'center' | 'end';
+  readonly sortable?: boolean;
+  /** CSS length; written as an inline width on the header cell. */
+  readonly width?: string;
+}
+
+export interface SpTableProps extends CommonUiProps {
+  /** The columns, in order; each names the key it reads from a row. */
+  columns: readonly TableColumn[];
+  /** The rows, drawn as given: the consumer sorts them (DD-040). */
+  data: readonly Readonly<Record<string, unknown>>[];
+  /** The table's `<caption>`, its accessible name. */
+  caption?: string;
+  /** A sortable column's key; another key sorts nothing, silently. */
+  sortKey?: string;
+  /** Default `'asc'`. */
+  sortOrder?: 'asc' | 'desc';
+  /** Default `false`. */
+  striped?: boolean;
+  /** Default `true`. */
+  hoverable?: boolean;
+  /** Default `true`. */
+  bordered?: boolean;
+  /** Default `'No data'`. */
+  emptyText?: string;
+  /** The column whose value keys each row. */
+  rowKey?: string;
+}
+
+export interface SpPaginationProps extends CommonUiProps {
+  /** The number of items paged over. */
+  total: number;
+  /** Default `10`. */
+  pageSize?: number;
+  /** Pages shown on each side of the current one. Default `1`. */
+  siblings?: number;
+  /** Default `false`. */
+  showTotal?: boolean;
+  /** Default `'{start}–{end} of {total}'`. */
+  totalTemplate?: string;
+  /** Default `'Pagination'`. */
+  label?: string;
+  /** Default `'Previous page'`. */
+  previousLabel?: string;
+  /** Default `'Next page'`. */
+  nextLabel?: string;
+  /** Default `'Page'`. */
+  pageLabel?: string;
+  /** Every page button disabled. */
+  disabled?: boolean;
+}
+
+export interface BreadcrumbItem {
+  readonly key?: string;
+  readonly label: string;
+  readonly href?: string;
+}
+
+export interface SpBreadcrumbProps extends CommonUiProps {
+  /** The last item is the current page. */
+  items: readonly BreadcrumbItem[];
+  /** Default `'Breadcrumb'`. */
+  label?: string;
+}
+
+export interface SpAvatarProps extends CommonUiProps {
+  /** An image; the initials are drawn without one. */
+  src?: string;
+  /** The person's name: the accessible name and the source of the initials. */
+  name?: string;
+  /** Overrides the initials derived from `name`. */
+  initials?: string;
+  /** Overrides `name` as the accessible name. */
+  alt?: string;
+  /** Default `'circle'`. */
+  shape?: 'circle' | 'square';
+  /** Side length in px; the ground's control height when omitted. */
+  pixelSize?: number;
+}
+
+export interface SpAvatarGroupProps extends CommonUiProps {
+  label?: string;
+}
+
+export interface SpStatisticProps extends CommonUiProps {
+  /** The label above the value. */
+  title: string;
+  /** Printed as given. */
+  value: string | number;
+  /** Printed before the value (`$`). */
+  prefix?: string;
+  /** Printed after the value (`%`). */
+  suffix?: string;
+  /** Draws the exact ↑ or ↓ glyph beside the delta. */
+  trend?: 'up' | 'down';
+  /** The change, as text (`+4.2%`). */
+  delta?: string;
+}
+
+export interface DescriptionItem {
+  readonly key?: string;
+  readonly label: string;
+  readonly value: string;
+}
+
+export interface SpDescriptionsProps extends CommonUiProps {
+  /** The label–value pairs, a `<dl>`. Keys, when given, are unique (REQ-325). */
+  items: readonly DescriptionItem[];
+  /** A heading above the list, at `headingLevel`. */
+  title?: string;
+  /** Default `3`, in 1..6. */
+  columns?: number;
+  /** Default `true`. */
+  bordered?: boolean;
+  /** Default `3`. */
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+}
+
+export interface TimelineListItem {
+  readonly key?: string;
+  readonly title: string;
+  readonly time?: string;
+  readonly description?: string;
+  /** Default `'done'`; at most one `current`. */
+  readonly status?: 'done' | 'current' | 'pending' | 'error';
+}
+
+export interface SpTimelineListProps extends CommonUiProps {
+  /** The events, in reading order. */
+  items: readonly TimelineListItem[];
+  /** Accessible name of the list. */
+  label?: string;
+}
+
+export interface SpCollapseProps extends CommonUiProps {
+  /** One item open at a time, natively (`<details name>`). Default `false`. */
+  accordion?: boolean;
+  /** Default `true`. */
+  bordered?: boolean;
+}
+
+export interface SpCollapseItemProps extends CommonUiProps {
+  title: string;
+  disabled?: boolean;
+}
+
+export interface SpEmptyProps extends CommonUiProps {
+  /** Default `'No data'`. */
+  description?: string;
+}
+
+export interface SpResultProps extends CommonUiProps {
+  /** Default `'info'`. */
+  status?: AlertKind;
+  /** The heading, at `headingLevel`. */
+  title: string;
+  /** A paragraph under the title. */
+  subtitle?: string;
+  /** Default `3`. */
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+}
+
+export interface SpTextareaProps extends CommonUiProps {
+  /** Default `3`. */
+  rows?: number;
+  /** Hint shown while empty; not a substitute for the accessible name. */
+  placeholder?: string;
+  /** Accessible name, when no `<label for>` names the control. */
+  label?: string;
+  /** Help or error text under the control, referenced by `aria-describedby` (REQ-334). */
+  message?: string;
+  /** Sets `aria-invalid` and draws the exact ⚠ glyph (REQ-334). */
+  invalid?: boolean;
+  /** Not focusable and not submitted. */
+  disabled?: boolean;
+  /** Focusable and submitted, but not editable. */
+  readOnly?: boolean;
+  /** The native limit; the counter shows it with `showCount`. */
+  maxLength?: number;
+  /** Default `false`. */
+  showCount?: boolean;
+  /** Form field name; the native textarea submits under it (REQ-323). */
+  name?: string;
+}
+
+export interface SpInputNumberProps extends CommonUiProps {
+  /** The lowest value; the value is clamped to it (REQ-485). */
+  min?: number;
+  /** The highest value; the value is clamped to it (REQ-485). */
+  max?: number;
+  /** Default `1`. */
+  step?: number;
+  /** Decimals. */
+  precision?: number;
+  /** Hint shown while empty; not a substitute for the accessible name. */
+  placeholder?: string;
+  /** Accessible name, when no `<label for>` names the control. */
+  label?: string;
+  /** Help or error text under the control, referenced by `aria-describedby` (REQ-334). */
+  message?: string;
+  /** Sets `aria-invalid` and draws the exact ⚠ glyph (REQ-334). */
+  invalid?: boolean;
+  /** Not focusable and not submitted; the steppers are disabled too. */
+  disabled?: boolean;
+  /** Focusable and submitted, but not editable. */
+  readOnly?: boolean;
+  /** Form field name; the native input submits under it (REQ-323). */
+  name?: string;
+  /** Default `'Decrease'`. */
+  decrementLabel?: string;
+  /** Default `'Increase'`. */
+  incrementLabel?: string;
+}
+
+/*
+ * The overlays (feature-004, API delta §2): native `<dialog>` and the Popover API; the open state
+ * is each adapter's binding (`open` + open-change), so it is not here.
+ */
+
+export interface SpModalProps extends CommonUiProps {
+  /** The heading, `${id}--title`, that names the dialog. */
+  title?: string;
+  /** A paragraph, `${id}--description`, that describes the dialog. */
+  description?: string;
+  /** Accessible name without a title (REQ-501). */
+  label?: string;
+  /** Default `true`. */
+  closable?: boolean;
+  /** Default `'Close'`. */
+  closeLabel?: string;
+  /** CSS length. Default `'520px'` (from `ui.css`). */
+  width?: string;
+  /** Escape and a backdrop click close it. Default `true`. */
+  dismissible?: boolean;
+}
+
+export interface SpDrawerProps extends Omit<SpModalProps, 'width'> {
+  /** Default `'end'`. */
+  side?: 'start' | 'end' | 'top' | 'bottom';
+  /** CSS length across the side. Default `'380px'` (start/end) or `'320px'` (top/bottom). */
+  extent?: string;
+  /** `false` opens with `show()`. Default `true`. */
+  modal?: boolean;
+}
+
+export interface SpPopoverProps extends CommonUiProps {
+  /** A heading that names the popover. */
+  title?: string;
+  /** Accessible name without a title. */
+  label?: string;
+  /** Default `'bottom'`. */
+  side?: 'top' | 'end' | 'bottom' | 'start';
+  /** Default `'center'`. */
+  align?: 'start' | 'center' | 'end';
+  /** Default `6`. */
+  offset?: number;
+  /** Default `false`. */
+  closable?: boolean;
+  /** Default `'Close'`. */
+  closeLabel?: string;
+  /** CSS length. Default `'320px'` (from `ui.css`). */
+  width?: string;
+}
+
+export interface SpTooltipProps extends CommonUiProps {
+  /** The tooltip, the trigger's accessible description. */
+  text: string;
+  /** Default `'top'`. */
+  side?: 'top' | 'end' | 'bottom' | 'start';
+  /** Default `'center'`. */
+  align?: 'start' | 'center' | 'end';
+  /** Default `6`. */
+  offset?: number;
+  /** Default `300` ms. */
+  delay?: number;
+}
+
+export interface SpSelectProps extends CommonUiProps {
+  /** A string is its own key and label. */
+  items: readonly (string | UiItem)[];
+  /** Default `'Select…'`. */
+  placeholder?: string;
+  /** Accessible name of the combobox. */
+  label: string;
+  /** Not focusable and not submitted. */
+  disabled?: boolean;
+  /** Sets `aria-required` on the combobox. */
+  required?: boolean;
+  /** Submits the key under this name, from a hidden input (REQ-323). */
+  name?: string;
+  /** CSS length. Default `'180px'` (from `ui.css`). */
+  width?: string;
+}
+
+export type MenuEntry =
+  | { readonly key: string; readonly label: string; readonly shortcut?: string; readonly disabled?: boolean; readonly danger?: boolean; readonly type?: 'item' }
+  | { readonly type: 'separator'; readonly key: string }
+  | { readonly type: 'label'; readonly key: string; readonly label: string };
+
+export interface SpDropdownMenuProps extends CommonUiProps {
+  /** Items, separators and labels, in order. Keys are unique (REQ-325). */
+  items: readonly MenuEntry[];
+  /** The menu's accessible name and the trigger's text when no trigger slot. */
+  label: string;
+  /** Default `'bottom'`. */
+  side?: 'top' | 'end' | 'bottom' | 'start';
+  /** Default `'start'`. */
+  align?: 'start' | 'center' | 'end';
+}
+
+export interface SpToastProps extends CommonUiProps {
+  /** The toast's first line. */
+  title: string;
+  /** A line under the title. */
+  description?: string;
+  /** Default `'info'`. */
+  kind?: AlertKind;
+  /** ms, at least 1000, or `Infinity`; the toaster's when omitted. */
+  duration?: number;
+  /** Default `'Dismiss'`. */
+  closeLabel?: string;
+}
+
+export interface SpToasterProps extends CommonUiProps {
+  /** Default `'bottom-end'`. */
+  position?: 'bottom-end' | 'bottom-start' | 'top-end' | 'top-start';
+  /** Default `5000` ms. */
+  duration?: number;
+  /** Default `'Notifications'`. */
   label?: string;
 }

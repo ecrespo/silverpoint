@@ -16,6 +16,8 @@ export interface UiNumberValue {
   /** The value sits on a bound: that stepper is disabled (REQ-485). */
   readonly atMin: boolean;
   readonly atMax: boolean;
+  /** The range as drawn: invalid bounds, step or precision left out. */
+  readonly range: UiNumberRange;
 }
 
 function warn(component: string, property: string, message: string): void {
@@ -51,10 +53,10 @@ function clamp(value: number, { min, max, precision }: UiNumberRange): number {
 /** A number field's value clamped to `min`/`max` and rounded to `precision`; `null` stays `null` (REQ-485, REQ-486). */
 export function uiNumberValue(value: number | null, range: UiNumberRange, component = 'SpInputNumber'): UiNumberValue {
   const r = valid(range, component);
-  if (value === null) return { value: null, corrected: false, atMin: false, atMax: false };
+  if (value === null) return { value: null, corrected: false, atMin: false, atMax: false, range: r };
   const next = Number.isFinite(value) ? clamp(value, r) : clamp(r.min ?? 0, r);
   if (next !== value) warn(component, 'value', `${value} is drawn as ${next}.`);
-  return { value: next, corrected: next !== value, atMin: r.min !== undefined && next <= r.min, atMax: r.max !== undefined && next >= r.max };
+  return { value: next, corrected: next !== value, atMin: r.min !== undefined && next <= r.min, atMax: r.max !== undefined && next >= r.max, range: r };
 }
 
 /** One stepper press: `value ± step` from the value, else from `min ?? 0`, then clamped and rounded (REQ-485). */

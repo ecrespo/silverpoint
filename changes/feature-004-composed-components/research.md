@@ -77,7 +77,7 @@ Every component is `Sp`-prefixed, kebab-case subpath, one name in the three adap
 | `sp_trigger` | — (`SpButton`) | — |
 | `sp_timeline` | `SpTimeline` | `timeline` (its own subpath, outside `ui/`) |
 | `silverpoint_palette` | `palette` on `SilverpointProvider` / `provideSilverpoint` | — |
-| `PALETTES`, `check_palette`, `contrast_ratio`, `palette_css` | `PALETTES`, `checkPalette`, `contrastRatio`, `paletteStyle` | `@silverpoint/core` |
+| `PALETTES`, `check_palette`, `contrast_ratio`, `palette_css` | `PALETTES`, `checkPalette`, `contrastRatio`, `paletteStyle` | `@silverpoint/core/palettes` |
 
 `SpSelect` is not `SpSegmented` or `SpRadioGroup`: it is the APG *select-only combobox* (a button
 and a listbox), for lists too long for a segmented control.

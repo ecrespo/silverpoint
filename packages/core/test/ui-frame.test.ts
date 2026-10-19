@@ -148,10 +148,10 @@ describe('uiRequireName (T-138)', () => {
 });
 
 describe('UI_DEMOS (T-138)', () => {
-  test('REQ-300 · one entry per catalog component, one per declared state: 45', () => {
+  test('REQ-300 · REQ-470 · one entry per catalog component, one per declared state: 45 + 35', () => {
     expect(Object.keys(UI_DEMOS)).toEqual(UI_COMPONENTS.map((c) => c.slug));
     for (const c of UI_COMPONENTS) expect(Object.keys(UI_DEMOS[c.slug] ?? {})).toEqual(c.states);
-    expect(Object.values(UI_DEMOS).flatMap((states) => Object.keys(states))).toHaveLength(45);
+    expect(Object.values(UI_DEMOS).flatMap((states) => Object.keys(states))).toHaveLength(80);
   });
 
   test('REQ-329 · every demo state carries its own stable id, `<slug>--<state>`', () => {

@@ -2527,6 +2527,843 @@
             "doc": "Default `'Loading'`."
           }
         ]
+      },
+      {
+        "slug": "surface",
+        "name": "SpSurface",
+        "group": "building-blocks",
+        "own": [
+          {
+            "name": "as",
+            "type": "string",
+            "optional": true,
+            "doc": "The element, a lowercase HTML tag name. Default `'div'`."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Adds the class `sp-<name>`, a lowercase ident."
+          },
+          {
+            "name": "frame",
+            "type": "UiFrameKind",
+            "optional": true,
+            "doc": "Draws a frame of that kind."
+          },
+          {
+            "name": "tone",
+            "type": "UiToneLevel | string",
+            "optional": true,
+            "doc": "Lays a tone: a level 1-4 of the ramp, or a state (`selected`, `primary`…)."
+          }
+        ]
+      },
+      {
+        "slug": "glyph",
+        "name": "SpGlyph",
+        "group": "building-blocks",
+        "own": [
+          {
+            "name": "glyph",
+            "type": "string",
+            "optional": false,
+            "doc": "A key of `UI_GLYPHS`."
+          }
+        ]
+      },
+      {
+        "slug": "table",
+        "name": "SpTable",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "columns",
+            "type": "readonly TableColumn[]",
+            "optional": false,
+            "doc": "The columns, in order; each names the key it reads from a row."
+          },
+          {
+            "name": "data",
+            "type": "readonly Readonly<Record<string, unknown>>[]",
+            "optional": false,
+            "doc": "The rows, drawn as given: the consumer sorts them (DD-040)."
+          },
+          {
+            "name": "caption",
+            "type": "string",
+            "optional": true,
+            "doc": "The table's `<caption>`, its accessible name."
+          },
+          {
+            "name": "sortKey",
+            "type": "string",
+            "optional": true,
+            "doc": "A sortable column's key; another key sorts nothing, silently."
+          },
+          {
+            "name": "sortOrder",
+            "type": "'asc' | 'desc'",
+            "optional": true,
+            "doc": "Default `'asc'`."
+          },
+          {
+            "name": "striped",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `false`."
+          },
+          {
+            "name": "hoverable",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          },
+          {
+            "name": "bordered",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          },
+          {
+            "name": "emptyText",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'No data'`."
+          },
+          {
+            "name": "rowKey",
+            "type": "string",
+            "optional": true,
+            "doc": "The column whose value keys each row."
+          }
+        ]
+      },
+      {
+        "slug": "pagination",
+        "name": "SpPagination",
+        "group": "navigation",
+        "own": [
+          {
+            "name": "total",
+            "type": "number",
+            "optional": false,
+            "doc": "The number of items paged over."
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `10`."
+          },
+          {
+            "name": "siblings",
+            "type": "number",
+            "optional": true,
+            "doc": "Pages shown on each side of the current one. Default `1`."
+          },
+          {
+            "name": "showTotal",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `false`."
+          },
+          {
+            "name": "totalTemplate",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'{start}–{end} of {total}'`."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Pagination'`."
+          },
+          {
+            "name": "previousLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Previous page'`."
+          },
+          {
+            "name": "nextLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Next page'`."
+          },
+          {
+            "name": "pageLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Page'`."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Every page button disabled."
+          }
+        ]
+      },
+      {
+        "slug": "breadcrumb",
+        "name": "SpBreadcrumb",
+        "group": "navigation",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly BreadcrumbItem[]",
+            "optional": false,
+            "doc": "The last item is the current page."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Breadcrumb'`."
+          }
+        ]
+      },
+      {
+        "slug": "avatar",
+        "name": "SpAvatar",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "src",
+            "type": "string",
+            "optional": true,
+            "doc": "An image; the initials are drawn without one."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "The person's name: the accessible name and the source of the initials."
+          },
+          {
+            "name": "initials",
+            "type": "string",
+            "optional": true,
+            "doc": "Overrides the initials derived from `name`."
+          },
+          {
+            "name": "alt",
+            "type": "string",
+            "optional": true,
+            "doc": "Overrides `name` as the accessible name."
+          },
+          {
+            "name": "shape",
+            "type": "'circle' | 'square'",
+            "optional": true,
+            "doc": "Default `'circle'`."
+          },
+          {
+            "name": "pixelSize",
+            "type": "number",
+            "optional": true,
+            "doc": "Side length in px; the ground's control height when omitted."
+          }
+        ]
+      },
+      {
+        "slug": "statistic",
+        "name": "SpStatistic",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false,
+            "doc": "The label above the value."
+          },
+          {
+            "name": "value",
+            "type": "string | number",
+            "optional": false,
+            "doc": "Printed as given."
+          },
+          {
+            "name": "prefix",
+            "type": "string",
+            "optional": true,
+            "doc": "Printed before the value (`$`)."
+          },
+          {
+            "name": "suffix",
+            "type": "string",
+            "optional": true,
+            "doc": "Printed after the value (`%`)."
+          },
+          {
+            "name": "trend",
+            "type": "'up' | 'down'",
+            "optional": true,
+            "doc": "Draws the exact ↑ or ↓ glyph beside the delta."
+          },
+          {
+            "name": "delta",
+            "type": "string",
+            "optional": true,
+            "doc": "The change, as text (`+4.2%`)."
+          }
+        ]
+      },
+      {
+        "slug": "descriptions",
+        "name": "SpDescriptions",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly DescriptionItem[]",
+            "optional": false,
+            "doc": "The label–value pairs, a `<dl>`. Keys, when given, are unique (REQ-325)."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true,
+            "doc": "A heading above the list, at `headingLevel`."
+          },
+          {
+            "name": "columns",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `3`, in 1..6."
+          },
+          {
+            "name": "bordered",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          },
+          {
+            "name": "headingLevel",
+            "type": "2 | 3 | 4 | 5 | 6",
+            "optional": true,
+            "doc": "Default `3`."
+          }
+        ]
+      },
+      {
+        "slug": "timeline-list",
+        "name": "SpTimelineList",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly TimelineListItem[]",
+            "optional": false,
+            "doc": "The events, in reading order."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name of the list."
+          }
+        ]
+      },
+      {
+        "slug": "collapse",
+        "name": "SpCollapse",
+        "group": "disclosure",
+        "own": [
+          {
+            "name": "accordion",
+            "type": "boolean",
+            "optional": true,
+            "doc": "One item open at a time, natively (`<details name>`). Default `false`."
+          },
+          {
+            "name": "bordered",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          }
+        ]
+      },
+      {
+        "slug": "empty",
+        "name": "SpEmpty",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'No data'`."
+          }
+        ]
+      },
+      {
+        "slug": "result",
+        "name": "SpResult",
+        "group": "data-display",
+        "own": [
+          {
+            "name": "status",
+            "type": "AlertKind",
+            "optional": true,
+            "doc": "Default `'info'`."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false,
+            "doc": "The heading, at `headingLevel`."
+          },
+          {
+            "name": "subtitle",
+            "type": "string",
+            "optional": true,
+            "doc": "A paragraph under the title."
+          },
+          {
+            "name": "headingLevel",
+            "type": "2 | 3 | 4 | 5 | 6",
+            "optional": true,
+            "doc": "Default `3`."
+          }
+        ]
+      },
+      {
+        "slug": "textarea",
+        "name": "SpTextarea",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "rows",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `3`."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "optional": true,
+            "doc": "Hint shown while empty; not a substitute for the accessible name."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name, when no `<label for>` names the control."
+          },
+          {
+            "name": "message",
+            "type": "string",
+            "optional": true,
+            "doc": "Help or error text under the control, referenced by `aria-describedby` (REQ-334)."
+          },
+          {
+            "name": "invalid",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Sets `aria-invalid` and draws the exact ⚠ glyph (REQ-334)."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "readOnly",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Focusable and submitted, but not editable."
+          },
+          {
+            "name": "maxLength",
+            "type": "number",
+            "optional": true,
+            "doc": "The native limit; the counter shows it with `showCount`."
+          },
+          {
+            "name": "showCount",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `false`."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native textarea submits under it (REQ-323)."
+          }
+        ]
+      },
+      {
+        "slug": "input-number",
+        "name": "SpInputNumber",
+        "group": "data-entry",
+        "own": [
+          {
+            "name": "min",
+            "type": "number",
+            "optional": true,
+            "doc": "The lowest value; the value is clamped to it (REQ-485)."
+          },
+          {
+            "name": "max",
+            "type": "number",
+            "optional": true,
+            "doc": "The highest value; the value is clamped to it (REQ-485)."
+          },
+          {
+            "name": "step",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `1`."
+          },
+          {
+            "name": "precision",
+            "type": "number",
+            "optional": true,
+            "doc": "Decimals."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "optional": true,
+            "doc": "Hint shown while empty; not a substitute for the accessible name."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name, when no `<label for>` names the control."
+          },
+          {
+            "name": "message",
+            "type": "string",
+            "optional": true,
+            "doc": "Help or error text under the control, referenced by `aria-describedby` (REQ-334)."
+          },
+          {
+            "name": "invalid",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Sets `aria-invalid` and draws the exact ⚠ glyph (REQ-334)."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted; the steppers are disabled too."
+          },
+          {
+            "name": "readOnly",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Focusable and submitted, but not editable."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Form field name; the native input submits under it (REQ-323)."
+          },
+          {
+            "name": "decrementLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Decrease'`."
+          },
+          {
+            "name": "incrementLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Increase'`."
+          }
+        ]
+      },
+      {
+        "slug": "modal",
+        "name": "SpModal",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true,
+            "doc": "The heading, `${id}--title`, that names the dialog."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true,
+            "doc": "A paragraph, `${id}--description`, that describes the dialog."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name without a title (REQ-501)."
+          },
+          {
+            "name": "closable",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `true`."
+          },
+          {
+            "name": "closeLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Close'`."
+          },
+          {
+            "name": "width",
+            "type": "string",
+            "optional": true,
+            "doc": "CSS length. Default `'520px'` (from `ui.css`)."
+          },
+          {
+            "name": "dismissible",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Escape and a backdrop click close it. Default `true`."
+          }
+        ]
+      },
+      {
+        "slug": "drawer",
+        "name": "SpDrawer",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "side",
+            "type": "'start' | 'end' | 'top' | 'bottom'",
+            "optional": true,
+            "doc": "Default `'end'`."
+          },
+          {
+            "name": "extent",
+            "type": "string",
+            "optional": true,
+            "doc": "CSS length across the side. Default `'380px'` (start/end) or `'320px'` (top/bottom)."
+          },
+          {
+            "name": "modal",
+            "type": "boolean",
+            "optional": true,
+            "doc": "`false` opens with `show()`. Default `true`."
+          }
+        ]
+      },
+      {
+        "slug": "popover",
+        "name": "SpPopover",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true,
+            "doc": "A heading that names the popover."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true,
+            "doc": "Accessible name without a title."
+          },
+          {
+            "name": "side",
+            "type": "'top' | 'end' | 'bottom' | 'start'",
+            "optional": true,
+            "doc": "Default `'bottom'`."
+          },
+          {
+            "name": "align",
+            "type": "'start' | 'center' | 'end'",
+            "optional": true,
+            "doc": "Default `'center'`."
+          },
+          {
+            "name": "offset",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `6`."
+          },
+          {
+            "name": "closable",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Default `false`."
+          },
+          {
+            "name": "closeLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Close'`."
+          },
+          {
+            "name": "width",
+            "type": "string",
+            "optional": true,
+            "doc": "CSS length. Default `'320px'` (from `ui.css`)."
+          }
+        ]
+      },
+      {
+        "slug": "tooltip",
+        "name": "SpTooltip",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "text",
+            "type": "string",
+            "optional": false,
+            "doc": "The tooltip, the trigger's accessible description."
+          },
+          {
+            "name": "side",
+            "type": "'top' | 'end' | 'bottom' | 'start'",
+            "optional": true,
+            "doc": "Default `'top'`."
+          },
+          {
+            "name": "align",
+            "type": "'start' | 'center' | 'end'",
+            "optional": true,
+            "doc": "Default `'center'`."
+          },
+          {
+            "name": "offset",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `6`."
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "optional": true,
+            "doc": "Default `300` ms."
+          }
+        ]
+      },
+      {
+        "slug": "select",
+        "name": "SpSelect",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly (string | UiItem)[]",
+            "optional": false,
+            "doc": "A string is its own key and label."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Select…'`."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "Accessible name of the combobox."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Not focusable and not submitted."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "optional": true,
+            "doc": "Sets `aria-required` on the combobox."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": true,
+            "doc": "Submits the key under this name, from a hidden input (REQ-323)."
+          },
+          {
+            "name": "width",
+            "type": "string",
+            "optional": true,
+            "doc": "CSS length. Default `'180px'` (from `ui.css`)."
+          }
+        ]
+      },
+      {
+        "slug": "dropdown-menu",
+        "name": "SpDropdownMenu",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "items",
+            "type": "readonly MenuEntry[]",
+            "optional": false,
+            "doc": "Items, separators and labels, in order. Keys are unique (REQ-325)."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": false,
+            "doc": "The menu's accessible name and the trigger's text when no trigger slot."
+          },
+          {
+            "name": "side",
+            "type": "'top' | 'end' | 'bottom' | 'start'",
+            "optional": true,
+            "doc": "Default `'bottom'`."
+          },
+          {
+            "name": "align",
+            "type": "'start' | 'center' | 'end'",
+            "optional": true,
+            "doc": "Default `'start'`."
+          }
+        ]
+      },
+      {
+        "slug": "toast",
+        "name": "SpToast",
+        "group": "overlays",
+        "own": [
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false,
+            "doc": "The toast's first line."
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true,
+            "doc": "A line under the title."
+          },
+          {
+            "name": "kind",
+            "type": "AlertKind",
+            "optional": true,
+            "doc": "Default `'info'`."
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "optional": true,
+            "doc": "ms, at least 1000, or `Infinity`; the toaster's when omitted."
+          },
+          {
+            "name": "closeLabel",
+            "type": "string",
+            "optional": true,
+            "doc": "Default `'Dismiss'`."
+          }
+        ]
       }
     ]
   }

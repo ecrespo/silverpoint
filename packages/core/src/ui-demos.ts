@@ -4,3 +4,4 @@
  * them (REQ-330).
  */
 export { UI_DEMOS, type UiDemoProps, type UiDemos } from './ui/demo';
+export { TIMELINE_DEMO } from './ui/timeline-demo';

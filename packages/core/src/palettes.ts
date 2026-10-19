@@ -1,9 +1,13 @@
 /**
  * The palette presets (REQ-463, Data Model §2.26): named after historical drawing media, each
  * passing every pair of Data Model §3.9 (REQ-464, verified by the contrast gate). A subpath of its
- * own, so an application ships only the presets it imports.
+ * own, with the palette API (resolution, declarations, contrast), so the main entry stays inside its
+ * 45 kB budget (REQ-164) and an application ships only the presets it imports.
  */
 import type { Palette } from './palette/palette';
+
+export { PALETTE_PROPERTIES, paletteStyle, resolvePalette } from './palette/palette';
+export { checkPalette, contrastRatio, PALETTE_PAIRS, type PaletteFinding } from './palette/contrast';
 
 const preset = (palette: Required<Omit<Palette, 'focus'>>): Palette => Object.freeze({ ...palette });
 
@@ -89,6 +93,7 @@ export const PALETTES: Readonly<Record<string, Palette>> = /* @__PURE__ */ Objec
   indigo,
 });
 
-export const PALETTE_NAMES: readonly string[] = /* @__PURE__ */ Object.freeze(Object.keys(PALETTES));
+/** Written out, not `Object.keys(PALETTES)`: a call the bundler cannot drop would keep every preset. */
+export const PALETTE_NAMES: readonly string[] = /* @__PURE__ */ Object.freeze(['silverpoint', 'sanguine', 'sepia', 'ironGall', 'verdigris', 'indigo']);
 
 export type { Palette } from './palette/palette';

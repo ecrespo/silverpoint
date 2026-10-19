@@ -3,9 +3,12 @@ import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { QUICKSTARTS } from '../docs/site/src/quickstart';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
-import { UI_COMPONENTS } from '../packages/core/src/ui/catalog';
+import { UI_COMPONENTS as UI_CATALOG } from '../packages/core/src/ui/catalog';
 import { UI_DEMOS } from '../packages/core/src/ui/demo';
 import { CATALOG } from '../tools/visual-gate/catalog';
+
+/** The 0.3.0 family; feature-004's rows join with their docs sections (T-224). */
+const UI_COMPONENTS = UI_CATALOG.filter((c) => c.family === 'ui');
 
 /**
  * The documentation site (PRD §5.1, Implementation Plan Phase 4): gallery, ground playground,

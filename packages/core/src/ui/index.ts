@@ -4,7 +4,7 @@
  * so the charts' bundle is unchanged and the UI runtime is measured apart (REQ-330).
  */
 export type * from './types';
-export { UI_COMPONENTS, type UiComponentRow, type UiGroup } from './catalog';
+export { UI_COMPONENTS, type UiComponentRow, type UiFamily, type UiGroup } from './catalog';
 export { uiRange, uiRateCount, uiValue, type UiRange, type UiValue } from './value';
 export { UI_PROGRESS_VIEWBOX, uiProgressArc } from './progress';
 export { uiSteps, type UiStep } from './steps';
@@ -21,6 +21,7 @@ export { uiNumberStep, uiNumberValue, type UiNumberRange, type UiNumberValue } f
 export { uiInitials } from './initials';
 export { uiListKey, uiTypeahead, type UiListResult, type UiListState } from './listbox';
 export { uiPlace, type UiAlign, type UiBox, type UiPlaceInput, type UiPlacement, type UiSide } from './place';
+export { uiAnchor, type UiAnchorFloating, type UiAnchorOptions, type UiAnchorTarget } from './anchor';
 export {
   resolveUi,
   UI_GLYPHS,
@@ -41,3 +42,38 @@ export {
 } from './view';
 export { uiRadioGroupView, uiRateView, uiSegmentedView, uiSliderView, uiTabPanelView, uiTabsView } from './view-b2';
 export { uiAlertView, uiBadgeView, uiProgressView, uiSkeletonView, uiStepsView, uiTagView } from './view-b3';
+export {
+  uiAvatarGroupView,
+  uiAvatarView,
+  uiBreadcrumbView,
+  uiCollapseGroup,
+  uiCollapseItemView,
+  uiCollapseView,
+  uiDescriptionsView,
+  uiEmptyView,
+  uiGlyphView,
+  uiInputNumberView,
+  uiPaginationView,
+  uiResultView,
+  uiStatisticView,
+  uiSurfaceView,
+  uiTableView,
+  uiTextareaView,
+  uiTimelineListView,
+} from './view-composed';
+export {
+  uiDrawerView,
+  uiDropdownMenuView,
+  uiMenuItems,
+  uiModalView,
+  uiPopoverView,
+  uiSelectItems,
+  uiSelectView,
+  uiToastDuration,
+  uiToasterView,
+  uiToastView,
+  uiTooltipView,
+  uiTriggerAria,
+  uiTriggerView,
+  type UiTriggerKind,
+} from './view-overlay';

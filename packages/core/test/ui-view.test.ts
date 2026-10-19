@@ -248,5 +248,12 @@ describe('catalog batches', () => {
     expect(UI_COMPONENTS.filter((c) => c.batch === 'B1').map((c) => c.slug)).toEqual(['button', 'input', 'checkbox', 'switch', 'card', 'divider']);
     expect(UI_COMPONENTS.filter((c) => c.batch === 'B2').map((c) => c.slug)).toEqual(['radio-group', 'slider', 'rate', 'segmented', 'tabs']);
     expect(UI_COMPONENTS.filter((c) => c.batch === 'B3')).toHaveLength(6);
+    // feature-004, step 8d (T-208): A1 display, A2 entry and navigation, B overlays.
+    expect(UI_COMPONENTS.filter((c) => c.batch === 'A1').map((c) => c.slug)).toEqual([
+      'surface', 'glyph', 'table', 'breadcrumb', 'avatar', 'statistic', 'descriptions', 'timeline-list', 'empty', 'result',
+    ]);
+    expect(UI_COMPONENTS.filter((c) => c.batch === 'A2').map((c) => c.slug)).toEqual(['pagination', 'collapse', 'textarea', 'input-number']);
+    expect(UI_COMPONENTS.filter((c) => c.batch === 'B').map((c) => c.slug)).toEqual(['modal', 'drawer', 'popover', 'tooltip', 'select', 'dropdown-menu', 'toast']);
+    expect(UI_COMPONENTS.every((c) => (c.family === 'ui') === /^B\d$/.test(c.batch))).toBe(true);
   });
 });

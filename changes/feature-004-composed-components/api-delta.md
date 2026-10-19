@@ -12,11 +12,11 @@ No new package (DD-021 holds). One new optional peer, on one subpath.
 
 | Package | Subpath | Exports |
 |---|---|---|
-| `@silverpoint/core` | `.` (main) | `type Palette`, `paletteStyle`, `resolvePalette`, `checkPalette`, `contrastRatio`, `PALETTE_PROPERTIES` |
-| `@silverpoint/core` | `@silverpoint/core/palettes` (new) | `silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`, `PALETTES` (one record of the six), `PALETTE_NAMES` |
+| `@silverpoint/core` | `.` (main) | `type Palette`, `type PaletteFinding` (types only) |
+| `@silverpoint/core` | `@silverpoint/core/palettes` (new) | `paletteStyle`, `resolvePalette`, `checkPalette`, `contrastRatio`, `PALETTE_PROPERTIES`, `PALETTE_PAIRS`; `silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`, `PALETTES` (one record of the six), `PALETTE_NAMES`. *Amended in implementation (user decision, 2026-10-18):* the functions moved here from the main entry, which they pushed past its 45 kB budget (REQ-164); an unused preset tree-shakes out |
 | `@silverpoint/core` | `@silverpoint/core/ui` | Adds the view functions, types and core functions of §2 |
-| `@silverpoint/core` | `@silverpoint/core/ui-demos` | `UI_DEMOS` gains one entry per state of the new rows (Data Model §5) |
-| `@silverpoint/core` | `@silverpoint/core/timeline` (new) | `timelineView`, `timelineInk` (the probe reader, DOM structural types), `TIMELINE_EVENTS`, types |
+| `@silverpoint/core` | `@silverpoint/core/ui-demos` | `UI_DEMOS` gains one entry per state of the new rows (Data Model §5); `TIMELINE_DEMO` (Data Model §4) |
+| `@silverpoint/core` | `@silverpoint/core/timeline` (new) | `timelineView`, `timelineInk` (the probe reader, DOM structural types), `TIMELINE_FRAMES`, `TIMELINE_TONES`, types (`SpTimelineProps`, `TimelineData`). *Amended in implementation (T-208):* the demo data is `TIMELINE_DEMO` on `@silverpoint/core/ui-demos`, not `TIMELINE_EVENTS` here, so no application ships it (REQ-330) |
 | `@silverpoint/grounds` | `@silverpoint/grounds/ui.css` | Adds the rules of the new components (§7) |
 | `@silverpoint/grounds` | `@silverpoint/grounds/timeline.css` (new) | The TimelineJS skin (REQ-511). Opt-in |
 | `@silverpoint/react` | `ui/<name>`, `server/ui/<name>`, `ui` barrel | `SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpAvatarGroup`, `SpStatistic`, `SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpCollapseItem`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`, `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`, `SpToaster` |
@@ -272,13 +272,13 @@ Every root carries the `0.3.0` root contract (`sp-ui sp-<slug> sp-ground-<ground
 | Result | `<div role="status\|alert" data-status>` | heading at `headingLevel`, `<p>` subtitle | `sp-frame` (round) + status `sp-mark` |
 | Textarea | `<span class="sp-ui sp-input sp-textarea">` | `<textarea class="sp-ui-control">`, counter, `<span id="${id}--message">` | `sp-frame` (control), warning `sp-mark` when `invalid` |
 | InputNumber | `<span class="sp-ui sp-input sp-input-number">` | `<button class="sp-ui-stepper" aria-label>` − `<input type="number" inputmode="decimal">` + | `sp-frame` (control), `dash` / `plus` `sp-mark`s |
-| Modal | `<dialog class="sp-ui sp-modal" aria-labelledby\|aria-label data-state>` | header `<h2 id="${id}--title">`, `<p id="${id}--description">`, body, footer; close `<button class="sp-ui-icon-button">` | `sp-frame` (card), `sp-rule` under the header; `::backdrop` toned by `ui.css` |
+| Modal | `<dialog id="${id}--dialog" class="sp-ui sp-modal" aria-labelledby\|aria-label data-state>` | header `<h2 id="${id}--title">`, `<p id="${id}--description">`, body, footer; close `<button class="sp-ui-icon-button">` | `sp-frame` (card), `sp-rule` under the header; `::backdrop` toned by `ui.css` |
 | Drawer | `<dialog class="sp-ui sp-drawer" data-side>` | as Modal | as Modal |
 | Popover | `<div class="sp-ui sp-popover" popover="auto" id="${id}--popover" role="dialog" aria-labelledby?>` | header, body | `sp-frame` (card) |
 | Tooltip | `<div class="sp-ui sp-tooltip" popover="manual" role="tooltip" id="${id}--tooltip">` | text | `sp-frame` (control) |
 | Select | `<span class="sp-ui sp-select">` | trigger `<button role="combobox" aria-haspopup="listbox" aria-expanded aria-controls aria-activedescendant? aria-label>` with the value; `<div class="sp-ui-select-content" popover="auto">` holding `<div role="listbox" id="${id}--listbox">` of `<div role="option" id="${id}--option-<key>" aria-selected aria-disabled?>`; a hidden `<input type="hidden" name>` when `name` | `sp-frame` (control) on the trigger, `sp-frame` (card) on the list, `sp-heighten` on the active option, tick `sp-mark` on the chosen, chevron `sp-mark` |
 | DropdownMenu | `<span class="sp-ui sp-dropdown-menu">` | trigger `aria-haspopup="menu" aria-expanded aria-controls`; `<div popover="auto" role="menu" id="${id}--menu">` of `<div role="menuitem" tabindex="-1" data-danger? aria-disabled?>`, `role="separator"`, `role="presentation"` labels | `sp-frame` (card), `sp-heighten` on the active item |
-| Toast | `<li class="sp-ui sp-toast" role="status\|alert" data-kind data-state>` | title, description, action, close `<button>` | `sp-frame` (card), kind `sp-mark` |
+| Toast | `<li class="sp-ui sp-toast" data-kind data-state>` | `<div class="sp-ui-toast-body" role="status\|alert">` with the kind glyph, title and description; action, close `<button>` (*amended in implementation:* the role moved off the `<li>`, which may not take one) | `sp-frame` (card), kind `sp-mark` |
 | Toaster | `<section class="sp-ui sp-toaster" aria-label data-position>` holding `<ol>` | — | — |
 | Timeline | `<section class="sp-ui sp-timeline" aria-label data-kl-inked data-kl-card>` | `<span class="sp-kl-probe" aria-hidden>` probes, `<div class="sp-kl-mount">` | `sp-frame` (card, when `card`) |
 

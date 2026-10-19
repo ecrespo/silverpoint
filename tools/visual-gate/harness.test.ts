@@ -70,7 +70,8 @@ describe('the UI reference page (T-157)', () => {
     ]);
     for (const panel of UI_PAGE.panels) {
       const items = panel.sections.flatMap((s: { items: { component: string }[] }) => s.items);
-      expect(new Set(items.map((i: { component: string }) => i.component))).toEqual(new Set(UI_COMPONENTS.map((c) => c.slug)));
+      // The 0.3.0 family; feature-004's rows get pages of their own (T-222).
+      expect(new Set(items.map((i: { component: string }) => i.component))).toEqual(new Set(UI_COMPONENTS.filter((c) => c.family === 'ui').map((c) => c.slug)));
       for (const item of items) expect(item.props).toMatchObject({ ground: panel.ground, substrate: panel.substrate, mode: panel.mode });
     }
   });

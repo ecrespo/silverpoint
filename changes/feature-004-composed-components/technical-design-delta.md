@@ -10,14 +10,14 @@
 
 | Component | Package | Responsibility |
 |---|---|---|
-| `palette/palette.ts` | core (main) | `Palette`, `PALETTE_PROPERTIES`, `resolvePalette`, `paletteStyle`, `SP023`/`SP024` |
-| `palette/contrast.ts` | core (main) | `contrastRatio`, `checkPalette`, `PALETTE_PAIRS` (the pairs of Data Model §3.9) |
+| `palette/palette.ts` | core (`/palettes`) | `Palette`, `PALETTE_PROPERTIES`, `resolvePalette`, `paletteStyle`, `SP023`/`SP024` |
+| `palette/contrast.ts` | core (`/palettes`) | `contrastRatio`, `checkPalette`, `PALETTE_PAIRS` (the pairs of Data Model §3.9) |
 | `palettes.ts` | core (`/palettes`) | The six frozen presets and `PALETTES` |
 | `ui/sort.ts`, `ui/pages.ts`, `ui/number.ts`, `ui/initials.ts` | core (`/ui`) | `uiSortRows`, `uiPageWindow`/`uiPagination`, `uiNumberValue`/`uiNumberStep`, `uiInitials` |
 | `ui/listbox.ts` | core (`/ui`) | `uiListKey`, `uiTypeahead` |
 | `ui/place.ts`, `ui/anchor.ts` | core (`/ui`) | `uiPlace` (pure); `uiAnchor` (the DOM side, structural types, as `uiRovingFocus`) |
 | `ui/view-composed.ts`, `ui/view-overlay.ts` | core (`/ui`) | The view trees of API delta §4 |
-| `timeline/*` | core (`/timeline`) | `timelineView`, `timelineInk` (probe reader), `TIMELINE_EVENTS` |
+| `timeline/*` | core (`/timeline`) | `timelineView`, `timelineInk` (probe reader); the demo `TIMELINE_DEMO` on `/ui-demos` (*amended in implementation*, T-208) |
 | `ui/ui-css.ts` | grounds | Rules of the new components; row tone, backdrop, list heightening |
 | `timeline/timeline-css.ts` | grounds | `dist/timeline.css`, generated like `ui.css` (no literal colour, I-19) |
 | `ui/*`, `timeline` | react, vue, angular | Bind values, events, slots and the platform calls; nothing else |
@@ -172,7 +172,7 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
 ## 4. Monorepo structure (§5.1) — additions
 
 ```
-packages/core/src/palette/{palette.ts, contrast.ts}       # main entry
+packages/core/src/palette/{palette.ts, contrast.ts}       # on /palettes (types on main)
 packages/core/src/palettes.ts                             # /palettes
 packages/core/src/ui/{sort.ts, pages.ts, number.ts, initials.ts, listbox.ts, place.ts, anchor.ts}
 packages/core/src/ui/{view-composed.ts, view-overlay.ts}
