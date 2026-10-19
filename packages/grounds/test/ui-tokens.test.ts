@@ -11,12 +11,16 @@ describe('ui tokens of the built-in grounds (T-139)', () => {
       radius: 2,
       focusWidth: 2,
       tone: { selected: 3, primary: 2, danger: 4, disabled: 1, alertError: 1 },
+      backdrop: 2,
+      rowTone: 1,
     });
   });
 
   test('REQ-312 · cyanotype declares an exact css frame and one variant: a contact print is not inked', () => {
     expect(cyanotype.ui).toMatchObject({ frame: 'css', frameVariants: 1, focusWidth: 2, radius: 2 });
     expect(cyanotype.ui?.tone).toEqual(silverpoint.ui?.tone);
+    // Data Model delta §3.8 (T-209, REQ-499, REQ-475).
+    expect(cyanotype.ui).toMatchObject({ backdrop: 2, rowTone: 1 });
   });
 
   test('REQ-312 · both are in their domain, so resolving them changes nothing', () => {

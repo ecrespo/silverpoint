@@ -6,6 +6,7 @@
  * Usage: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
  */
 import type { Ground } from '@silverpoint/core';
+import { PALETTE_PAIRS, PALETTES, type Palette } from '../../packages/core/src/palettes';
 import { cyanotype, silverpoint } from '../../packages/grounds/src';
 
 type InkToken = keyof Ground['ink'];
@@ -22,8 +23,8 @@ const THRESHOLDS: Readonly<Record<Exclude<InkToken, 'heighten'>, number>> = {
 
 export interface AuditRow {
   readonly ground: string;
-  /** An ink token, or a UI pair of Data Model §3.8 (`ui.…`). */
-  readonly token: InkToken | `ui.${string}`;
+  /** An ink token, a UI pair of Data Model §3.8 (`ui.…`), or a palette pair of §3.9 (`palette.…`). */
+  readonly token: InkToken | `ui.${string}` | `palette.${string}`;
   /** Worst ratio rounded to 2 decimals, as Data Model §3.2 reports it; `pass` uses the exact value. */
   readonly min: number;
   /** Substrate (or outline) on which the worst ratio falls. */
@@ -125,6 +126,12 @@ export const UI_CONTRAST_PAIRS: readonly UiContrastPair[] = [
   { name: 'ui.heighten-text', fg: (g) => g.ink.text, bg: { label: 'heightening', colour: (g) => g.ink.heighten }, threshold: 4.5 },
   // WCAG 1.4.3 exempts disabled text; silverpoint still keeps it legible (Data Model §3.8).
   { name: 'ui.disabled-text', fg: (g) => g.ink.textMuted, threshold: 3 },
+  // feature-004 (Data Model delta §3.8, REQ-522): a toned row's text stands on the cell's plate.
+  { name: 'ui.row-tone-text', fg: (g) => g.ink.text, threshold: 4.5 },
+  { name: 'ui.overlay-text', fg: (g) => g.ink.text, threshold: 4.5 },
+  { name: 'ui.option-active', fg: (g) => g.ink.text, bg: { label: 'heightening', colour: (g) => g.ink.heighten }, threshold: 4.5 },
+  { name: 'ui.option-outline', fg: (g) => g.ink.primary, bg: { label: 'heightening', colour: (g) => g.ink.heighten }, threshold: 3 },
+  { name: 'ui.crumb-separator', fg: (g) => g.ink.rule, threshold: 3 },
 ];
 
 /** Audits one ground's UI pairs: one row per pair, with its worst case. */
@@ -148,9 +155,39 @@ export function auditUi(ground: Ground): AuditRow[] {
   });
 }
 
-/** Audits every ground `@silverpoint/grounds` registers by default, charts and UI (REQ-127, REQ-313). */
+/**
+ * Audits one palette on the pairs of Data Model §3.9 (`PALETTE_PAIRS`, REQ-464), measured here
+ * with the gate's own ratio, against the palette's own substrate. A pair with a colour unset or not
+ * hex is skipped, as `checkPalette` skips it.
+ */
+export function auditPalette(name: string, palette: Palette): AuditRow[] {
+  const substrate = palette.substrate ?? silverpoint.substrates.cream!;
+  const hex = (colour: string | undefined): colour is string => colour !== undefined && /^#[0-9a-f]{6}$/i.test(colour);
+  return PALETTE_PAIRS.flatMap(({ pair, threshold, foreground, background }) => {
+    const fg = foreground(palette);
+    const bg = background ? background(palette) : substrate;
+    if (!hex(fg) || !hex(bg)) return [];
+    const ratio = contrastRatio(fg, bg);
+    return [{
+      ground: `palette.${name}`,
+      token: `palette.${pair}` as const,
+      min: round2(ratio),
+      worst: background ? 'heighten' : 'substrate',
+      threshold,
+      pass: ratio >= threshold,
+      against: background ? ('heightening' as const) : ('substrate' as const),
+    }];
+  });
+}
+
+/** Audits the six presets of `@silverpoint/core/palettes` (REQ-463, REQ-464). */
+export function auditPalettes(): AuditRow[] {
+  return Object.entries(PALETTES).flatMap(([name, palette]) => auditPalette(name, palette));
+}
+
+/** Audits every ground `@silverpoint/grounds` registers by default, charts and UI, and the palette presets (REQ-127, REQ-313, REQ-464). */
 export function auditBuiltins(): AuditRow[] {
-  return [silverpoint, cyanotype].flatMap((ground) => [...auditGround(ground), ...auditUi(ground)]);
+  return [...[silverpoint, cyanotype].flatMap((ground) => [...auditGround(ground), ...auditUi(ground)]), ...auditPalettes()];
 }
 
 function main(): void {
@@ -162,7 +199,8 @@ function main(): void {
   const failing = rows.filter((row) => !row.pass);
   if (failing.length > 0) {
     for (const row of failing) {
-      console.error(`[SP012] ${row.ground}: the ground does not reach the minimum contrast (\`${row.token}\`). ${row.min} < ${row.threshold}. (REQ-127)`);
+      const preset = row.ground.startsWith('palette.');
+      console.error(`[SP012] ${row.ground}: the ${preset ? 'preset' : 'ground'} does not reach the minimum contrast (\`${row.token}\`). ${row.min} < ${row.threshold}. (${preset ? 'REQ-464' : 'REQ-127'})`);
     }
     process.exit(1);
   }

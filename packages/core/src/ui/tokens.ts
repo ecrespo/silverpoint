@@ -8,6 +8,8 @@ export const UI_TOKEN_DEFAULTS: UiTokens = /* @__PURE__ */ Object.freeze({
   radius: 2,
   focusWidth: 2,
   tone: Object.freeze({ selected: 3, primary: 2, danger: 4, disabled: 1, alertError: 1 }),
+  backdrop: 2,
+  rowTone: 1,
 });
 
 /** The smallest target WCAG 2.5.8 allows, and the thinnest focus REQ-316 allows. */
@@ -17,12 +19,18 @@ const MIN_FOCUS = 2;
 const within = (value: number, lo: number, hi: number, fallback: number) =>
   Number.isFinite(value) ? Math.min(Math.max(value, lo), hi) : fallback;
 
+type Level = 1 | 2 | 3 | 4;
+/** A level of the ramp, 1..4, rounded; the default when unset or not finite. */
+const level = (value: number | undefined, fallback: Level): Level =>
+  value === undefined ? fallback : (Math.round(within(value, 1, 4, fallback)) as Level);
+
 /**
  * A ground's `ui` tokens, or the defaults, held to their domain: heights ≥ 24 px, focus ≥ 2 px,
- * 1..6 variants. A `weight` ground has no inker that draws by hand, so its frame is always the
+ * 1..6 variants, backdrop and row tone a level 1..4 (2 and 1 when a section written before
+ * feature-004 has none). A `weight` ground has no inker that draws by hand, so its frame is always the
  * exact `css` one with a single variant (DD-022). Pure.
  */
-export function resolveUiTokens(ground: Ground): UiTokens {
+export function resolveUiTokens(ground: Ground): UiTokens & { readonly backdrop: Level; readonly rowTone: Level } {
   const ui = ground.ui ?? UI_TOKEN_DEFAULTS;
   const inked = ui.frame === 'inked' && ground.tonalMechanism === 'hatch';
   const { sm, md, lg } = ui.controlHeight;
@@ -37,5 +45,7 @@ export function resolveUiTokens(ground: Ground): UiTokens {
     radius: within(ui.radius, 0, Infinity, 2),
     focusWidth: within(ui.focusWidth, MIN_FOCUS, Infinity, 2),
     tone: ui.tone,
+    backdrop: level(ui.backdrop, 2),
+    rowTone: level(ui.rowTone, 1),
   };
 }

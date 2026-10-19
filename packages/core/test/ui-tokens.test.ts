@@ -31,6 +31,8 @@ describe('resolveUiTokens (T-139)', () => {
       radius: 2,
       focusWidth: 2,
       tone: { selected: 3, primary: 2, danger: 4, disabled: 1, alertError: 1 },
+      backdrop: 2,
+      rowTone: 1,
     });
     expect(resolveUiTokens(consumer)).toEqual(UI_TOKEN_DEFAULTS);
     expect(Object.isFrozen(UI_TOKEN_DEFAULTS)).toBe(true);
@@ -50,5 +52,22 @@ describe('resolveUiTokens (T-139)', () => {
   test('REQ-312 · a weight ground cannot ink a frame: it always gets the exact css frame', () => {
     const weight = { ...consumer, tonalMechanism: 'weight', ui: { ...UI_TOKEN_DEFAULTS, frame: 'inked', frameVariants: 4 } } as const;
     expect(resolveUiTokens(weight)).toMatchObject({ frame: 'css', frameVariants: 1 });
+  });
+
+  test('REQ-499 · REQ-475 · a `ui` section written before feature-004 gets backdrop 2 and row tone 1 (Data Model §3.8)', () => {
+    const { backdrop: _b, rowTone: _r, ...legacy } = UI_TOKEN_DEFAULTS;
+    const ui = { ...legacy, frame: 'inked', frameVariants: 3 } as const;
+    expect(resolveUiTokens({ ...consumer, ui })).toEqual({ ...ui, backdrop: 2, rowTone: 1 });
+    expect(resolveUiTokens({ ...consumer, ui: { ...UI_TOKEN_DEFAULTS, backdrop: 3, rowTone: 2 } })).toMatchObject({ backdrop: 3, rowTone: 2 });
+  });
+
+  test('REQ-499 · REQ-475 · backdrop and row tone are held to a level of the ramp, 1..4', () => {
+    const held = (backdrop: number, rowTone: number) => {
+      const { backdrop: b, rowTone: t } = resolveUiTokens({ ...consumer, ui: { ...UI_TOKEN_DEFAULTS, backdrop, rowTone } as never });
+      return [b, t];
+    };
+    expect(held(0, 9)).toEqual([1, 4]);
+    expect(held(2.6, 1.2)).toEqual([3, 1]);
+    expect(held(Number.NaN, Number.POSITIVE_INFINITY)).toEqual([2, 1]);
   });
 });

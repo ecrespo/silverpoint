@@ -23,3 +23,6 @@ diagnostics `SP023`, `SP024` and `SP025`.
 
 A link's `href` (`SpButton`, `SpBreadcrumb`) now keeps only relative URLs and the `http`, `https`,
 `mailto` and `tel` schemes, and a `headingLevel` outside 2..6 draws `h3`; both warn `SP017`.
+
+`UiTokens` gains the optional `backdrop` and `rowTone` levels; `resolveUiTokens` holds them to 1..4
+and gives a ground that declares none `2` and `1` (T-209).

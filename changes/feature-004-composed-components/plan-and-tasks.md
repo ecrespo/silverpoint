@@ -172,10 +172,20 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8b — Grounds
 
-**[ ] T-209 · `ui` tokens `backdrop`, `rowTone`; contrast pairs** — REQ-464, REQ-499, REQ-522
+**[x] T-209 · `ui` tokens `backdrop`, `rowTone`; contrast pairs** — REQ-464, REQ-499, REQ-522
 - Data Model §3.8 values on both grounds; defaults for consumer grounds; `tools/contrast-gate`:
   presets × §3.9 pairs, and the new `ui.*` pairs on every substrate.
 - **Done:** gate green; mutation: a failing preset → gate red.
+- **Ledger (2026-10-19):** `UiTokens.backdrop?` / `rowTone?` (optional, so a ground written for
+  `0.3.0` still type-checks), `UI_TOKEN_DEFAULTS` 2 and 1, `resolveUiTokens` rounds and holds them to
+  1..4; `silverpoint` declares 2 and 1, `cyanotype` inherits them. The gate gains the five
+  `ui.*` pairs (`row-tone-text`, `overlay-text`, `crumb-separator` on every substrate;
+  `option-active`, `option-outline` on the heightening) and `auditPalette` / `auditPalettes`: the
+  six presets × `PALETTE_PAIRS`, measured with the gate's own ratio against each preset's substrate
+  (54 rows, all pass; worst `silverpoint.ui.crumb-separator` 3.03), part of `auditBuiltins`, so CI
+  fails on a failing preset with `SP012 … (REQ-464)`. Tests: `ui-tokens` (core, grounds),
+  `contrast-gate.test.ts` (the gate agrees with `checkPalette` on altered presets). 6 RED on
+  assertions; 8 mutants → red (one equivalent mutant removed by simplifying `level`).
 
 **[ ] T-210 · `ui.css` rules for the 21 rows** — REQ-475, REQ-498, REQ-499, REQ-503, REQ-522 `[P]`
 - Port Reflex's `surfaces.css` layout, rewritten on the root contract; row tone and backdrop by
