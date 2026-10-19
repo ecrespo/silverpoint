@@ -25,6 +25,12 @@
       "doc": "`ink` by default; `precision` disables inking (REQ-021)."
     },
     {
+      "name": "palette",
+      "type": "Palette",
+      "optional": true,
+      "doc": "Colours over the ground's, field by field, written on the root's `style` (REQ-461). Merged over the dashboard's and the provider's (REQ-462); presets are on `@silverpoint/core/palettes`."
+    },
+    {
       "name": "seed",
       "type": "Seed",
       "optional": true,
@@ -1878,6 +1884,12 @@
         "doc": ""
       },
       {
+        "name": "palette",
+        "type": "Palette",
+        "optional": true,
+        "doc": "The section's colours, written on its root and merged under every chart's and component's own (REQ-462)."
+      },
+      {
         "name": "className",
         "type": "string",
         "optional": true,
@@ -1962,6 +1974,12 @@
         "type": "InkMode",
         "optional": true,
         "doc": "`ink` by default; `precision` disables inking (REQ-021, REQ-306)."
+      },
+      {
+        "name": "palette",
+        "type": "Palette",
+        "optional": true,
+        "doc": "Colours over the ground's, merged over the dashboard's and the provider's (REQ-461, REQ-462)."
       },
       {
         "name": "size",

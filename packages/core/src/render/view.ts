@@ -152,7 +152,7 @@ function pathString(path: PathView): string {
  * Serialises a view to SVG markup. This is the canonical render stored with each fixture;
  * user text is always escaped, never interpolated as markup (TD §6).
  */
-export function svgString(view: SvgView): string {
+export function svgString(view: SvgView, style = ''): string {
   const { svg } = view;
   const open = `<svg${attributes([
     ['xmlns', 'http://www.w3.org/2000/svg'],
@@ -164,6 +164,8 @@ export function svgString(view: SvgView): string {
     ['data-mode', svg.mode],
     ['role', svg.role],
     ['aria-labelledby', svg.labelledby],
+    // A palette's declarations (REQ-461): the only attribute it changes (REQ-468).
+    ['style', style || null],
   ])}>`;
   const title = `<title id="${escape(view.title.id)}">${escape(view.title.text)}</title>`;
   const desc = `<desc id="${escape(view.desc.id)}">${escape(view.desc.text)}</desc>`;

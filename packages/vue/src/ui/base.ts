@@ -10,6 +10,7 @@ export const COMMON = {
   ground: [String, Object] as PropType<CommonUiProps['ground']>,
   substrate: String as PropType<CommonUiProps['substrate']>,
   mode: String as PropType<CommonUiProps['mode']>,
+  palette: Object as PropType<CommonUiProps['palette']>,
   size: String as PropType<CommonUiProps['size']>,
   className: String,
 } as const;

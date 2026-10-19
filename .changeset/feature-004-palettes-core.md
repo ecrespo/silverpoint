@@ -27,3 +27,9 @@ A link's `href` (`SpButton`, `SpBreadcrumb`) now keeps only relative URLs and th
 `UiTokens` gains the optional `backdrop` and `rowTone` levels; `resolveUiTokens` holds them to 1..4
 and gives a ground that declares none `2` and `1` (T-209).
 A table cell's text stands on a `.sp-ui-plate`, so a toned row keeps its contrast.
+
+`palette` on `CommonChartProps`, `CommonUiProps`, `DashboardProps` and `ProviderConfig` (T-212):
+`resolveUi` resolves it provider → dashboard cell → prop and every UI root writes it first in its
+`style`; `dashboardView` takes the section's declarations and hands the palette to its cells, where
+`inCell` merges it under the chart's own; `svgString` writes it on the `<svg>`. `nestProvider` on
+`@silverpoint/core/palettes`: a nested provider's set fields win and the palettes merge field by field.

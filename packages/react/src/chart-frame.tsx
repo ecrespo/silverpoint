@@ -2,6 +2,7 @@ import type { DataTable } from '@silverpoint/core';
 import type { RenderedChart } from '@silverpoint/grounds';
 import type { HTMLAttributes, ReactNode, Ref } from 'react';
 import { ChartSvg } from './chart-svg';
+import { styleObject } from './style';
 
 function Table({ table, id, visibility }: { readonly table: DataTable; readonly id: string; readonly visibility: string }) {
   return (
@@ -56,6 +57,7 @@ export function ChartFrame({ rendered, className, rootProps, rootRef, overlay }:
       data-substrate={rendered.substrate}
       data-chrome={rendered.chrome}
       data-status={rendered.status}
+      style={rendered.style ? styleObject(rendered.style) : undefined}
       ref={rootRef}
       {...rootProps}
     >

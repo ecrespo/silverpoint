@@ -17,6 +17,7 @@ import {
   type ProviderConfig,
   type SvgView,
 } from '@silverpoint/core';
+import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 import { RoughInker } from './ink/rough-inker';
 import { WeightInker } from './ink/weight-inker';
 import { resolveGround } from './registry';
@@ -39,6 +40,8 @@ export interface RenderedChart extends ChartModel {
   readonly substrate: string;
   readonly mode: InkMode;
   readonly view: SvgView;
+  /** The palette's declarations for the root's `style`, provider's under the chart's own; '' for none (REQ-461). */
+  readonly style: string;
 }
 
 /** Inkers that ship with the grounds package and resolve without registration. */
@@ -102,10 +105,12 @@ export function renderChart<P extends CommonChartProps>(
   }
 
   const rendered = { ...model, id, geometry, ground: ground.name, substrate: config.substrate, mode: config.mode };
-  return { ...rendered, view: toSvgView(rendered, rendered) };
+  // A dashboard cell's palette is already merged into the chart's own (inCell, REQ-462).
+  const style = paletteStyle(resolvePalette(environment.provider?.palette, props.palette));
+  return { ...rendered, view: toSvgView(rendered, rendered), style };
 }
 
 /** The canonical SVG markup of a rendered chart (`ChartHandle.toSVGString`, API Spec §8.1). */
 export function toSVGString(rendered: RenderedChart): string {
-  return svgString(rendered.view);
+  return svgString(rendered.view, rendered.style);
 }

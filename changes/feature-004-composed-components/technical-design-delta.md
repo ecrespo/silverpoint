@@ -73,6 +73,14 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
 - **Validation:** a value containing `;`, `{`, `}`, `<` or `url(` is dropped (`SP024`): it would
   break out of the declaration. Hex fields are measured in development (`SP023`), once per palette
   object (a `WeakSet`).
+- *Amended in implementation (T-212):* (1) a nested provider inherits every field it leaves unset
+  from the enclosing one (`nestProvider`, on `/palettes`), so a section re-coloured by a nested
+  provider keeps the app's ground; before, a nested React provider replaced the whole configuration.
+  (2) A dashboard's root carries its own palette only: React's `Dashboard` renders in Server
+  Components, which read no provider, and Vue and Angular do the same for parity; the provider's
+  palette still reaches every chart and component in its cells. (3) Vue gains a
+  `SilverpointProvider` component for sections, as `provideSilverpoint` is an app plugin; Angular's
+  `provideSilverpoint` returns a `Provider`, so it scopes a section from a component's `providers`.
 - **Rejected:** a palette as a ground (Art. 7 would be satisfied, but a ground is registered
   globally and carries inker and tonal mechanism; a palette is a per-section colour override); a
   `<style>` element per palette (a stylesheet in the body of every chart, and selectors to scope).
@@ -218,7 +226,7 @@ is compatible with the MIT packages because it is not bundled.
 |---|---|---|
 | OQ-C1 | Overlays: platform or headless library | **Decided 2026-10-18:** the platform (DD-038) |
 | OQ-C2 | Timeline: optional subpath, CSS only, or out | **Decided 2026-10-18:** optional subpath (DD-042) |
-| OQ-C3 | If `paletteStyle` pushes a one-chart build past the REQ-444 allowance | **Decided 2026-10-18:** measured in T-200 at ≈ 0.56 KB minified for the core part alone (the allowance had ≈ 60 B left), so the gate is **re-baselined to `0.6.0`**: `one-chart-0.6.0.json`, measured on a v0.6.0 worktree, with a 1 KB allowance that holds the palette; the 0.25 KB no-growth rule applies again from `0.7.0` on (T-220) |
+| OQ-C3 | If `paletteStyle` pushes a one-chart build past the REQ-444 allowance | **Decided 2026-10-18:** measured in T-200 at ≈ 0.56 KB minified for the core part alone (the allowance had ≈ 60 B left), so the gate is **re-baselined to `0.6.0`**: `one-chart-0.6.0.json`, measured on a v0.6.0 worktree, with a 1 KB allowance that holds the palette; the 0.25 KB no-growth rule applies again from `0.7.0` on (T-220). *Amended in implementation (T-212, user decision 2026-10-19):* with the `SP023` check, the cell merge and Angular's `palette` input and nested `provideSilverpoint`, the growth against `0.6.0` is up to 1305 B (React), 819 B (Vue) and 1736 B (Angular), so the allowance is **2 KB**; the re-baseline was done in T-212 (all 244 one-chart entries) |
 | OQ-C4 | Should `SpTable` page by itself (`pageSize` + an internal `SpPagination`)? | No in `0.7.0`, as in Reflex: the consumer composes `SpTable` and `SpPagination` |
 
 ## Constitution check

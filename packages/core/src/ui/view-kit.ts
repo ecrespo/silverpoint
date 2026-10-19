@@ -20,7 +20,9 @@ export const el = (tag: string, attrs: Attrs, children: readonly UiNode[] = [], 
 export const text = (value: string): UiNode => ({ text: value });
 export const slot = (name: UiSlot): UiNode => ({ slot: name });
 
+/** A root's attributes; a palette is the first declaration of its `style`, the component's own follow (REQ-461). */
 export function root(slug: string, props: CommonUiProps, r: UiResolved, attrs: Attrs = {}): Attrs {
+  const own = typeof attrs.style === 'string' ? attrs.style : '';
   return {
     class: ['sp-ui', `sp-${slug}`, `sp-ground-${r.ground}`, props.className].filter(Boolean).join(' '),
     'data-ground': r.ground,
@@ -29,6 +31,7 @@ export function root(slug: string, props: CommonUiProps, r: UiResolved, attrs: A
     'data-size': r.size,
     'data-frame': String(r.frame),
     ...attrs,
+    style: [r.palette, own].filter(Boolean).join(';') || undefined,
   };
 }
 
@@ -97,7 +100,6 @@ const SAFE_SCHEMES = new Set(['http', 'https', 'mailto', 'tel']);
  */
 export function safeHref(href: string | undefined, component: string, property = 'href'): string | undefined {
   if (href === undefined) return undefined;
-  // eslint-disable-next-line no-control-regex
   const scheme = /^([a-z][a-z0-9+.-]*):/i.exec(href.replace(/[\u0000-\u0020\u007f]/g, ''))?.[1];
   if (scheme === undefined || SAFE_SCHEMES.has(scheme.toLowerCase())) return href;
   if (process.env.NODE_ENV !== 'production') diagnose('SP017', component, { property, message: `The scheme "${scheme}:" is not allowed; the link is dropped.` });

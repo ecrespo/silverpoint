@@ -6,7 +6,7 @@
  */
 import type { Palette } from './palette/palette';
 
-export { PALETTE_PROPERTIES, paletteStyle, resolvePalette } from './palette/palette';
+export { nestProvider, PALETTE_PROPERTIES, paletteStyle, resolvePalette } from './palette/palette';
 export { checkPalette, contrastRatio, PALETTE_PAIRS, type PaletteFinding } from './palette/contrast';
 
 const preset = (palette: Required<Omit<Palette, 'focus'>>): Palette => Object.freeze({ ...palette });

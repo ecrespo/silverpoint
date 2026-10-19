@@ -106,7 +106,7 @@ describe('sp-line-chart component contract', () => {
     expect(names).toEqual(
       [
         'badge', 'chrome', 'className', 'connectNulls', 'curve', 'data', 'dataTable', 'description', 'footerLeft',
-        'footerRight', 'ground', 'hatchFill', 'height', 'id', 'label', 'locale', 'mode', 'numberFormat', 'secondaryKey',
+        'footerRight', 'ground', 'hatchFill', 'height', 'id', 'label', 'locale', 'mode', 'numberFormat', 'palette', 'secondaryKey',
         'seed', 'series', 'substrate', 'title', 'unit', 'value', 'valueKey', 'width', 'xKey',
       ].sort(),
     );

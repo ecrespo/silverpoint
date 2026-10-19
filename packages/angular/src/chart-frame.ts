@@ -16,6 +16,7 @@ import type { RenderedChart } from '@silverpoint/grounds';
       [attr.data-substrate]="r.substrate"
       [attr.data-chrome]="r.chrome"
       [attr.data-status]="r.status"
+      [attr.style]="r.style || null"
       [attr.tabindex]="interactive() ? 0 : null"
       [attr.role]="interactive() ? 'group' : null"
       [attr.aria-label]="interactive() ? r.name : null"

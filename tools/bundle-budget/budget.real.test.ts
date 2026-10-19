@@ -123,16 +123,18 @@ describe('bundle budgets (size-limit)', () => {
   }, 120_000);
 
   /**
-   * REQ-444 (feature-003, API Spec delta §12): the second catalog's statistics, layouts and
-   * keyboard models must shake out of every existing chart's build. Each one-chart build is held to
-   * its size in `0.3.0` (`one-chart-0.3.0.json`, measured on a v0.3.0 worktree) within 0.25 KB —
-   * minified, not gzipped: code that grows grows there, while gzip moves by tens of bytes when the
-   * bundler only reorders modules (seen with wave 2). The allowance holds the tree keyboard's
-   * `moves` branch in `stepActive` (Phase 4, ~190 B), and little else (user decision 2026-10-09).
-   * The 45 KB budgets above stay min+gzip.
+   * REQ-444 (feature-003, API Spec delta §12): what a release adds must shake out of every existing
+   * chart's build. Each one-chart build is held to its size in `0.6.0` (`one-chart-0.6.0.json`,
+   * measured on a v0.6.0 worktree, all 60 charts) within an allowance — minified, not gzipped: code
+   * that grows grows there, while gzip moves by tens of bytes when the bundler only reorders modules
+   * (seen with wave 2). For `0.7.0` the allowance is 2 KB: it holds the palette on the chart path
+   * (`resolvePalette`, `paletteStyle`, the SP023 check, Angular's `palette` input and nested
+   * `provideSilverpoint`), measured at up to 1.9 KB against 0.3.0 (OQ-C3, user decision 2026-10-19).
+   * From 0.7.0 on it is 0.25 KB again. The 45 KB budgets above stay min+gzip.
    */
-  test('REQ-444 · no existing one-chart build grows by more than 0.25 KB minified against 0.3.0', () => {
-    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.3.0.json'), 'utf8')) as { minified: Record<string, number> };
+  const ALLOWANCE = 2000;
+  test('REQ-444 · no existing one-chart build grows by more than the allowance, minified, against 0.6.0', () => {
+    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.6.0.json'), 'utf8')) as { minified: Record<string, number> };
     const dir = mkdtempSync(join(repo, '.size-limit-'));
     try {
       const file = join(dir, 'minified.json');
@@ -148,9 +150,9 @@ describe('bundle budgets (size-limit)', () => {
       const grown = Object.entries(record.minified).flatMap(([name, before]) => {
         const now = sizes.get(name);
         if (now === undefined) return [`${name}: no longer measured`];
-        return now - before > 250 ? [`${name}: ${before} B → ${now} B (+${now - before} B)`] : [];
+        return now - before > ALLOWANCE ? [`${name}: ${before} B → ${now} B (+${now - before} B)`] : [];
       });
-      expect(Object.keys(record.minified).length).toBeGreaterThanOrEqual(33 * 4);
+      expect(Object.keys(record.minified).length).toBeGreaterThanOrEqual(60 * 4);
       expect(grown).toEqual([]);
     } finally {
       rmSync(dir, { recursive: true, force: true });

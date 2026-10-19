@@ -1,4 +1,5 @@
 import { dashboardView, type DashboardCellContext, type DashboardProps } from '@silverpoint/core';
+import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 import { Children, cloneElement, isValidElement, type CSSProperties, type ReactElement, type ReactNode } from 'react';
 
 export interface DashboardCellProps {
@@ -35,7 +36,8 @@ export function DashboardMarkup({ children, wrapGrid, ...props }: DashboardProps
     const chart = isValidElement<{ id?: string }>(content) ? content : undefined;
     return { cell: marked ? child.props.cell : undefined, id: chart?.props.id, content, chart };
   });
-  const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })));
+  // Its own palette only: this renders in Server Components, which read no provider (DD-037).
+  const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })), paletteStyle(resolvePalette(props.palette)));
   const Heading = view.heading ? (`h${view.heading.level}` as const) : undefined;
   const grid = (
     <div className="sp-dashboard-grid" part="dashboard-grid">

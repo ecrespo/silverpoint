@@ -1,4 +1,5 @@
 import { dashboardView, type DashboardProps, type LinkState } from '@silverpoint/core';
+import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 import { cloneVNode, Comment, defineComponent, Fragment, h, isVNode, provide, ref, type Slots, type VNode } from 'vue';
 import { DASHBOARD_LINK } from './dashboard-context';
 import { SpDashboardCell } from './SpDashboardCell';
@@ -18,7 +19,7 @@ function chartIdOf(cell: VNode): string | undefined {
   return typeof id === 'string' ? id : undefined;
 }
 
-const PROPS = ['id', 'title', 'label', 'layout', 'description', 'headingLevel', 'ssrWidth', 'link', 'ground', 'substrate', 'mode', 'locale', 'className'] as const;
+const PROPS = ['id', 'title', 'label', 'layout', 'description', 'headingLevel', 'ssrWidth', 'link', 'ground', 'substrate', 'mode', 'locale', 'palette', 'className'] as const;
 
 /**
  * `SpDashboard` (REQ-200): a declarative grid of cards laid out in the core from a data-only
@@ -44,7 +45,8 @@ export const SpDashboard = defineComponent(
         const marked = node.type === SpDashboardCell;
         return { node, cell: marked ? (node.props?.cell as string | undefined) : undefined, id: marked ? chartIdOf(node) : (node.props?.id as string | undefined) };
       });
-      const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })));
+      // Its own palette only, as in React, whose dashboard reads no provider (DD-037).
+      const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })), paletteStyle(resolvePalette(props.palette)));
       const { section, heading, description } = view;
       return h(
         'section',

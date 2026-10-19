@@ -1,6 +1,7 @@
 import type { InkMode, SubstrateName } from '../types/data';
 import type { ProviderConfig } from '../types/props';
 import type { GroundRef } from '../types/ground';
+import type { Palette } from '../palette/palette';
 
 /** The three container breakpoints; their widths are fixed (TD DD-014). */
 export type DashboardBreakpoint = 'sm' | 'md' | 'lg';
@@ -56,6 +57,8 @@ export type DashboardProps = DashboardName & {
   substrate?: SubstrateName;
   mode?: InkMode;
   locale?: string;
+  /** The section's colours, written on its root and merged under every chart's and component's own (REQ-462). */
+  palette?: Palette;
 
   className?: string;
 };

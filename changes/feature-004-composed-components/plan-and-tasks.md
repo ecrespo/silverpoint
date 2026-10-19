@@ -227,11 +227,29 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8c — Palettes in the adapters
 
-**[ ] T-212 · `palette` on charts, UI components, dashboard and provider ×3** — REQ-461, REQ-462, REQ-468
+**[x] T-212 · `palette` on charts, UI components, dashboard and provider ×3** — REQ-461, REQ-462, REQ-468
 - React, Vue, Angular: `palette` on every chart and component (through the shared bases, no
   per-chart code: REQ-044), on `Dashboard` (cell context) and on the provider; nested providers.
 - Tests: precedence element → dashboard → provider; I-25 (only `style` changes); `toSVGString`.
 - **Done:** tests green; palette fixtures (T-219) green.
+- **Ledger (2026-10-19):** the core resolves, the adapters write `style`. Charts: `renderChart`
+  returns `rendered.style` (`paletteStyle(resolvePalette(provider, props))`; `inCell` has already
+  merged the cell's palette under the chart's own, field by field), the three chart frames write it
+  on `.sp-root` and `svgString(view, style)` on the `<svg>` of `toSVGString`. UI: `resolveUi` gives
+  `UiResolved.palette` (provider → cell → prop) and `root()` writes it first in `style`, the
+  component's own declarations after, so every UI, composed, overlay and timeline root has it with
+  no per-component code. Dashboard: `dashboardView(props, children, palette)` puts the section's
+  declarations before its layout variables, and its cells hand `palette` on. `resolvePalette` skips
+  an `undefined` field silently (Vue and Angular hand absent ones). Providers nest through
+  `nestProvider`; Vue's section is a `SilverpointProvider` component (a `shallowReactive` config
+  re-provided on change, no wrapper element); Vue binds the chart root's `style` only when there is
+  one (its SSR writes `style=""` for `undefined`). *Amended in implementation* (API and TD deltas,
+  DD-037): nested providers inherit, the dashboard root carries its own palette only, Vue's
+  `SilverpointProvider`, Angular's `provideSilverpoint` returns a `Provider`. REQ-444: re-baselined
+  to `tools/bundle-budget/one-chart-0.6.0.json` (244 entries, v0.6.0 worktree) with a 2 KB allowance
+  (user decision 2026-10-19; OQ-C3 amended). Tests: `palette-layers` (core), `palette-render`
+  (grounds), `palette` ×3 adapters. 12 core/grounds and 3–4 per adapter RED on assertions; 22
+  mutants → red. Palette fixtures stay with T-219.
 
 ### 8d — Adapters (three batches)
 

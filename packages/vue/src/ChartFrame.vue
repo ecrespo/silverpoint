@@ -12,6 +12,7 @@ defineProps<{ rendered: RenderedChart; rootClass: string }>();
     :data-substrate="rendered.substrate"
     :data-chrome="rendered.chrome"
     :data-status="rendered.status"
+    v-bind="rendered.style ? { style: rendered.style } : {}"
   >
     <ChartSvg :view="rendered.view" />
     <slot />

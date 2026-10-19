@@ -1,6 +1,7 @@
 import type { InkMode, Seed, SubstrateName } from '../types/data';
 import type { ToneLevel } from '../types/geometry';
 import type { GroundRef } from '../types/ground';
+import type { Palette } from '../palette/palette';
 import type { UiFrameKind } from './frame';
 
 /** Control size; heights come from the ground's `ui.controlHeight` (Data Model §3.8). */
@@ -18,6 +19,8 @@ export interface CommonUiProps {
   substrate?: SubstrateName;
   /** `ink` by default; `precision` disables inking (REQ-021, REQ-306). */
   mode?: InkMode;
+  /** Colours over the ground's, merged over the dashboard's and the provider's (REQ-461, REQ-462). */
+  palette?: Palette;
   /** Default `'md'`. */
   size?: UiSize;
   /** Added to the component's root element, after its own classes. */

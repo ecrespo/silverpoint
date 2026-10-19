@@ -1,7 +1,8 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, contentChildren, forwardRef, inject, input, output, signal, viewChild, type OnInit, type Signal, type TemplateRef } from '@angular/core';
 import { SP_DASHBOARD_CELL, SP_DASHBOARD_LINK, type DashboardCellHandle, type DashboardLinkHandle } from '@silverpoint/angular';
-import { dashboardView, type LinkState, type DashboardLayout, type DashboardLink, type DashboardProps, type GroundRef, type InkMode, type SubstrateName } from '@silverpoint/core';
+import { dashboardView, type LinkState, type DashboardLayout, type DashboardLink, type DashboardProps, type GroundRef, type InkMode, type Palette, type SubstrateName } from '@silverpoint/core';
+import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 
 /** `--name:value;…`, the variables as one `style` attribute. */
 const styleOf = (vars: Readonly<Record<string, string>>) => Object.entries(vars).map(([name, value]) => `${name}:${value}`).join(';');
@@ -72,6 +73,8 @@ export class SpDashboard implements DashboardLinkHandle {
   readonly substrate = input<SubstrateName>();
   readonly mode = input<InkMode>();
   readonly locale = input<string>();
+  /** The section's colours; merged under every chart's and component's own (REQ-462). */
+  readonly palette = input<Palette>();
   readonly className = input<string>();
 
   /** The linked value changed; `null` when the source cleared (API Spec §9, REQ-216). */
@@ -105,15 +108,18 @@ export class SpDashboard implements DashboardLinkHandle {
       substrate: this.substrate(),
       mode: this.mode(),
       locale: this.locale(),
+      palette: this.palette(),
       className: this.className(),
     } as DashboardProps;
+    // Its own palette only, as in React, whose dashboard reads no provider (DD-037).
+    const palette = paletteStyle(resolvePalette(props.palette));
     const cells = this.cells();
     // A cell an `@for` generates can be queried before its inputs are set, while an earlier cell's chart
     // already renders. Until every cell is ready, children go in source order with no layout, so that
     // transient state raises no SP015 (REQ-205).
-    if (!cells.every((cell) => cell.ready())) return dashboardView({ ...props, layout: undefined }, cells.map((cell) => ({ id: cell.chartId() })));
+    if (!cells.every((cell) => cell.ready())) return dashboardView({ ...props, layout: undefined }, cells.map((cell) => ({ id: cell.chartId() })), palette);
     // Signal inputs cannot say "title or label" (REQ-214): the core warns SP002 when neither is set.
-    return dashboardView(props, cells.map((cell) => ({ cell: cell.cell(), id: cell.chartId() })));
+    return dashboardView(props, cells.map((cell) => ({ cell: cell.cell(), id: cell.chartId() })), palette);
   });
 
   /** The content of the child at `index`, placed in its cell's `article`. */

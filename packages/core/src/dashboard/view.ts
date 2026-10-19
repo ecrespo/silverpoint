@@ -9,9 +9,15 @@ import type { DashboardCellContext, DashboardProps, DashboardView } from './type
  * The dashboard as an adapter writes it (REQ-200, REQ-214): the section's class, substrate, name
  * and variables, the heading and description, and per cell its variables, its label and the
  * context its chart reads. `children` gives, in source order, each child's `cell` and its chart's
- * own `id` when the adapter can read it.
+ * own `id` when the adapter can read it. `palette` is the section's own palette as declarations
+ * (`paletteStyle`, from `@silverpoint/core/palettes`, off this entry's budget), written first in its
+ * style; the cells hand the palette on to their charts and components (REQ-461, REQ-462).
  */
-export function dashboardView(props: DashboardProps, children: readonly { readonly cell?: string; readonly id?: string }[]): DashboardView {
+export function dashboardView(
+  props: DashboardProps,
+  children: readonly { readonly cell?: string; readonly id?: string }[],
+  palette = '',
+): DashboardView {
   const model = resolveDashboard(props, children.map((c) => c.cell));
   // React and Vue reject a nameless dashboard by type; Angular's signal inputs cannot (REQ-214).
   if (props.title === undefined && props.label === undefined && process.env.NODE_ENV !== 'production') {
@@ -24,7 +30,7 @@ export function dashboardView(props: DashboardProps, children: readonly { readon
   const heading = titled ? { level: props.headingLevel ?? DASHBOARD_DEFAULTS.headingLevel, id: `${base}-title`, text: props.title } : undefined;
   const description = props.description !== undefined ? { id: `${base}-desc`, text: props.description } : undefined;
   const config: ProviderConfig = {};
-  for (const key of ['ground', 'substrate', 'mode', 'locale'] as const) {
+  for (const key of ['ground', 'substrate', 'mode', 'locale', 'palette'] as const) {
     if (props[key] !== undefined) (config as Record<string, unknown>)[key] = props[key];
   }
   return {
@@ -34,7 +40,7 @@ export function dashboardView(props: DashboardProps, children: readonly { readon
       substrate: props.substrate ?? DEFAULTS.substrate,
       ...(heading ? { labelledby: heading.id } : { label: props.label }),
       ...(description ? { describedby: description.id } : {}),
-      style: model.style,
+      style: { ...Object.fromEntries(palette.split(';').filter(Boolean).map((d) => d.split(':') as [string, string])), ...model.style },
     },
     ...(heading ? { heading } : {}),
     ...(description ? { description } : {}),
@@ -58,6 +64,12 @@ export function inCell<P extends CommonChartProps>(props: P, cell: DashboardCell
   // An own prop wins only when it has a value: Vue hands every declared prop, absent ones undefined.
   const merged: Record<string, unknown> = { ...(props as Record<string, unknown>) };
   for (const [key, value] of Object.entries(cell.config)) merged[key] ??= value;
+  // A palette merges field by field, the chart's own fields over the dashboard's (REQ-462).
+  if (props.palette && cell.config.palette) {
+    const palette: Record<string, unknown> = { ...cell.config.palette };
+    for (const [field, value] of Object.entries(props.palette)) if (value !== undefined) palette[field] = value;
+    merged.palette = palette;
+  }
   return {
     props: { ...merged, id: props.id ?? cell.chartId, height: props.height ?? box.height } as P,
     width: props.width ?? box.width,

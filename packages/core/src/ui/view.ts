@@ -1,4 +1,5 @@
 import { DEFAULTS } from '../config/resolve';
+import { paletteStyle, resolvePalette } from '../palette/palette';
 import type { InkMode, ProviderConfig, SubstrateName } from '../types';
 import { uiFrameVariant } from './frame';
 import { uiRequireName } from './names';
@@ -61,13 +62,15 @@ export interface UiResolved {
   readonly size: UiSize;
   /** 0..5: `ui.css` folds it onto the variants the ground draws. */
   readonly frame: number;
+  /** The resolved palette's declarations, first in the root's `style`; '' for none (REQ-461). */
+  readonly palette?: string;
 }
 
 /** The most frame variants a ground may draw (Data Model §3.8); the runtime needs no ground tokens. */
 const FRAME_SLOTS = 6;
 
 /**
- * Ground, substrate and mode with the charts' precedence: prop, then dashboard, then provider,
+ * Ground, substrate, mode and palette with the charts' precedence: prop, then dashboard, then provider,
  * then the library default; a forced `precision` applies after, and nothing overrides it (REQ-311).
  */
 export function resolveUi(props: CommonUiProps, env: UiEnvironment): UiResolved {
@@ -79,6 +82,8 @@ export function resolveUi(props: CommonUiProps, env: UiEnvironment): UiResolved 
     mode: env.forcedPrecision ? 'precision' : (props.mode ?? cell.mode ?? provider.mode ?? DEFAULTS.mode),
     size: props.size ?? 'md',
     frame: uiFrameVariant(props.seed, props.id, FRAME_SLOTS),
+    // Colours are not mode: a forced precision leaves them as resolved (REQ-468).
+    palette: paletteStyle(resolvePalette(provider.palette, cell.palette, props.palette)),
   };
 }
 

@@ -35,6 +35,7 @@ export abstract class SpChart<P extends CommonChartProps> {
   readonly ground = input<Prop<'ground'>>();
   readonly substrate = input<Prop<'substrate'>>();
   readonly mode = input<Prop<'mode'>>();
+  readonly palette = input<Prop<'palette'>>();
   readonly seed = input<Prop<'seed'>>();
   readonly id = input<Prop<'id'>>();
   readonly height = input<Prop<'height'>>();
@@ -79,6 +80,7 @@ export abstract class SpChart<P extends CommonChartProps> {
     ground: this.ground(),
     substrate: this.substrate(),
     mode: this.mode(),
+    palette: this.palette(),
     seed: this.seed(),
     id: this.id(),
     height: this.height(),

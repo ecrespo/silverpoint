@@ -1,5 +1,6 @@
 import type { Accessor, Datum, InkMode, Seed, SubstrateName } from './data';
 import type { GroundRef } from './ground';
+import type { Palette } from '../palette/palette';
 
 /** Props present in every chart, identical in React and Angular (REQ-094). */
 export interface CommonChartProps {
@@ -16,6 +17,11 @@ export interface CommonChartProps {
   substrate?: SubstrateName;
   /** `ink` by default; `precision` disables inking (REQ-021). */
   mode?: InkMode;
+  /**
+   * Colours over the ground's, field by field, written on the root's `style` (REQ-461). Merged over
+   * the dashboard's and the provider's (REQ-462); presets are on `@silverpoint/core/palettes`.
+   */
+  palette?: Palette;
   /** Seed. If omitted, it is derived from `id` stably (REQ-003). */
   seed?: Seed;
 
@@ -72,6 +78,8 @@ export interface ProviderConfig {
   substrate?: SubstrateName;
   mode?: InkMode;
   locale?: string;
+  /** Colours for every chart and component below, under their own and their dashboard's (REQ-462). */
+  palette?: Palette;
 }
 
 /** `BulletChart` (REQ-069): one bar per target, with a marker at the target. Values in 0-100. */

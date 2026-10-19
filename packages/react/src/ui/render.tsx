@@ -1,18 +1,10 @@
 import type { UiElement, UiNode, UiSlot } from '@silverpoint/core/ui';
 import { createElement, type ReactNode } from 'react';
+import { styleObject } from '../style';
 
 /** HTML attribute names React spells differently. */
 const PROPS: Readonly<Record<string, string>> = { class: 'className', for: 'htmlFor', readonly: 'readOnly', tabindex: 'tabIndex' };
 
-/** `--a:1;b:2` as React's style object; custom properties keep their names. */
-function styleObject(value: string): Record<string, string> {
-  const out: Record<string, string> = {};
-  for (const declaration of value.split(';')) {
-    const at = declaration.indexOf(':');
-    if (at > 0) out[declaration.slice(0, at).trim()] = declaration.slice(at + 1).trim();
-  }
-  return out;
-}
 
 export interface UiBindings {
   /** Props added to the root element: a ref, a click handler. */

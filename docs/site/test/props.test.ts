@@ -64,7 +64,7 @@ describe('props reference', () => {
   describe('the UI components (REQ-332)', () => {
     test('REQ-332 · every component of the catalog has its own props, and the common ones are listed once', () => {
       expect(reference.ui.components.map((c) => c.slug)).toEqual(UI_COMPONENTS.map((c) => c.slug));
-      expect(reference.ui.common.map((p) => p.name)).toEqual(['id', 'seed', 'ground', 'substrate', 'mode', 'size', 'className']);
+      expect(reference.ui.common.map((p) => p.name)).toEqual(['id', 'seed', 'ground', 'substrate', 'mode', 'palette', 'size', 'className']);
     });
 
     test('REQ-332 · a prop is read from the type: name, type, optionality and JSDoc', () => {

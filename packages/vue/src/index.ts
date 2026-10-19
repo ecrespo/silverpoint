@@ -59,6 +59,7 @@ export { default as SpDelaunayChart } from './SpDelaunayChart.vue';
 export { default as SpVectorFieldChart } from './SpVectorFieldChart.vue';
 export { default as SpNetworkChart } from './SpNetworkChart.vue';
 export { provideSilverpoint } from './environment';
+export { SilverpointProvider } from './provider';
 export type {
   ActiveItem,
   ActivityGridProps,

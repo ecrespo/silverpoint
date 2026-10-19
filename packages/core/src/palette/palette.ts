@@ -1,4 +1,5 @@
 import { diagnose } from '../diagnostics/diagnose';
+import type { ProviderConfig } from '../types/props';
 import { checkPalette } from './contrast';
 
 /**
@@ -60,6 +61,8 @@ export function resolvePalette(...layers: readonly (Palette | undefined)[]): Pal
   for (const layer of layers) {
     if (!layer) continue;
     for (const [field, value] of Object.entries(layer)) {
+      // An unset field keeps the layer below (REQ-460): Vue and Angular hand absent ones as undefined.
+      if (value === undefined) continue;
       const colour = typeof value === 'string' ? value.trim() : '';
       if (!(FIELDS as readonly string[]).includes(field) || !colour || !isColour(colour)) {
         // Dropped in every build; only the warning is development-only (REQ-467).
@@ -88,3 +91,17 @@ export function paletteStyle(palette: Palette | undefined): string {
     .map((field) => `${property(field)}:${palette[field]!.trim()}`)
     .join(';');
 }
+
+
+/**
+ * A provider inside another (REQ-462): the inner one's set fields win, the rest is the outer's, and
+ * the palettes merge field by field, so a nested provider re-colours a section and keeps the rest.
+ */
+export function nestProvider(outer: ProviderConfig | undefined, own: ProviderConfig): ProviderConfig {
+  const out: Record<string, unknown> = { ...outer };
+  for (const [key, value] of Object.entries(own)) if (value !== undefined) out[key] = value;
+  if (outer?.palette && own.palette) out.palette = { ...outer.palette, ...defined(own.palette) };
+  return out;
+}
+
+const defined = (palette: Palette): Palette => Object.fromEntries(Object.entries(palette).filter(([, value]) => value !== undefined));

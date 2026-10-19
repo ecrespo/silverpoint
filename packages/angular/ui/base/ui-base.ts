@@ -1,5 +1,5 @@
 import { computed, Directive, inject, input } from '@angular/core';
-import type { GroundRef, InkMode, Seed, SubstrateName } from '@silverpoint/core';
+import type { GroundRef, InkMode, Palette, Seed, SubstrateName } from '@silverpoint/core';
 import { resolveUi, type CommonUiProps, type UiSize } from '@silverpoint/core/ui';
 import { injectForcedPrecision, SILVERPOINT_CONFIG, SP_DASHBOARD_CELL } from '@silverpoint/angular/env';
 
@@ -15,6 +15,7 @@ export abstract class SpUiBase {
   readonly ground = input<GroundRef>();
   readonly substrate = input<SubstrateName>();
   readonly mode = input<InkMode>();
+  readonly palette = input<Palette>();
   readonly size = input<UiSize>();
   readonly className = input<string>();
 
@@ -28,6 +29,7 @@ export abstract class SpUiBase {
     ground: this.ground(),
     substrate: this.substrate(),
     mode: this.mode(),
+    palette: this.palette(),
     size: this.size(),
     className: this.className(),
   }));

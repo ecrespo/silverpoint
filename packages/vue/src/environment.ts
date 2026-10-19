@@ -3,7 +3,7 @@ import { inject, onBeforeUnmount, onMounted, ref, type InjectionKey, type Plugin
 
 export const SILVERPOINT: InjectionKey<ProviderConfig> = Symbol('silverpoint');
 
-/** Plugin that sets ground, substrate, mode and locale once for the app (API Spec §8.3). */
+/** Plugin that sets ground, substrate, mode, locale and palette once for the app (API Spec §8.3); `SilverpointProvider` scopes a section. */
 export function provideSilverpoint(config: ProviderConfig): Plugin {
   return {
     install(app) {

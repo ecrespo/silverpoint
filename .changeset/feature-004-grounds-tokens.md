@@ -15,3 +15,6 @@ the ground's `backdrop` level.
 New opt-in stylesheet `@silverpoint/grounds/timeline.css` (T-211): Knight Lab TimelineJS drawn with
 the ground's `--sp-` properties, scoped to `SpTimeline`'s surface, and, once `timelineInk` has read
 the probes, framed and hatched with the ground's own frame masks and tone tiles.
+
+`renderChart` returns the palette's declarations as `rendered.style` (the provider's palette under the
+chart's own), and `toSVGString` writes them on its `<svg>` (T-212).

@@ -91,7 +91,13 @@ export function checkPalette(palette: Palette, substrate?: string): readonly Pal
 ```
 
 `palette?: Palette` is added to `CommonChartProps`, `CommonUiProps`, `DashboardProps`,
-`ProviderConfig` and `SpTimelineProps`. Presets are `Palette` objects; the prop takes the object, not
+`ProviderConfig` and `SpTimelineProps`. *Amended in implementation (T-212, DD-037):*
+`nestProvider(outer, own)` joins `@silverpoint/core/palettes` (a nested provider's set fields win, the
+rest are inherited, palettes merge field by field); Vue exports a `SilverpointProvider` component
+(props `ground`, `substrate`, `mode`, `locale`, `palette`; renders its slot and no element) for
+sections; Angular's `provideSilverpoint` returns a `Provider` instead of `EnvironmentProviders`, so it
+is accepted in a component's `providers` as well as at bootstrap; a dashboard's root carries its own
+palette, not the provider's; `ChartHandle.toSVGString()` writes the palette on its `<svg>`. Presets are `Palette` objects; the prop takes the object, not
 a name, so a chart that names no preset ships none (REQ-463, REQ-519). Reflex's string names map to
 `PALETTES[name]` for consumers who want them.
 
