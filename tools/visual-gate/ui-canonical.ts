@@ -12,7 +12,18 @@ import { join } from 'node:path';
 import {
   resolveUi,
   uiAlertView,
+  uiAvatarGroupView,
+  uiAvatarView,
   uiBadgeView,
+  uiBreadcrumbView,
+  uiDescriptionsView,
+  uiEmptyView,
+  uiGlyphView,
+  uiResultView,
+  uiStatisticView,
+  uiSurfaceView,
+  uiTableView,
+  uiTimelineListView,
   uiButtonView,
   uiCardView,
   uiCheckboxView,
@@ -89,12 +100,49 @@ export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiS
       return { view: uiAlertView(p, r, { closable: (props as { closable?: boolean }).closable === true }), slots };
     case 'skeleton':
       return { view: uiSkeletonView(p, r), slots };
+    case 'surface':
+      return { view: uiSurfaceView(p, r), slots };
+    case 'table':
+      return { view: uiTableView(p, r), slots };
+    case 'breadcrumb':
+      return { view: uiBreadcrumbView(p, r), slots };
+    case 'avatar':
+      return { view: uiAvatarView(p, r), slots };
+    case 'statistic':
+      return { view: uiStatisticView(p, r), slots };
+    case 'descriptions':
+      return { view: uiDescriptionsView(p, r), slots };
+    case 'timeline-list':
+      return { view: uiTimelineListView(p, r), slots };
+    case 'empty':
+      return { view: uiEmptyView(p, r, { extra: slots.extra !== undefined }), slots };
+    case 'result':
+      return { view: uiResultView(p, r, { extra: slots.extra !== undefined }), slots };
     default:
       throw new Error(`No view for ${fixture.component}`);
   }
 }
 
+/**
+ * The demos that compose (Data Model §5): Glyph `all` is every glyph in a row, each a root of its
+ * own; Avatar `group` is an AvatarGroup holding its avatars. Each piece takes the fixture's ground,
+ * substrate, mode and size.
+ */
+function composedMarkup(fixture: UiFixture): string | undefined {
+  const { props } = uiFixtureParts(fixture);
+  const { glyphs, avatars, ...rest } = props as typeof props & { glyphs?: readonly string[]; avatars?: readonly Record<string, unknown>[] };
+  const common = { ground: rest.ground, substrate: rest.substrate, mode: rest.mode, size: rest.size };
+  if (glyphs) return glyphs.map((glyph) => serializeUi(uiGlyphView({ ...common, glyph } as never, resolveUi(common, {})), {})).join('');
+  if (avatars) {
+    const inner = avatars.map((avatar) => serializeUi(uiAvatarView({ ...common, ...avatar } as never, resolveUi(common, {})), {})).join('');
+    return serializeUi(uiAvatarGroupView(rest as never, resolveUi(rest, {})), { content: '\u0000' }).replace('\u0000', inner);
+  }
+  return undefined;
+}
+
 export function canonicalUiMarkup(fixture: UiFixture): string {
+  const composed = composedMarkup(fixture);
+  if (composed !== undefined) return composed;
   const { view, slots } = uiFixtureView(fixture);
   return serializeUi(view, slots);
 }

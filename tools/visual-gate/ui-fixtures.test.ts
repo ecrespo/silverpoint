@@ -83,6 +83,7 @@ describe('parseUi (T-154)', () => {
     const angular = '<button spbutton="" class="sp-ui sp-button" type="button"></button>';
     const react = '<button class="sp-ui sp-button" type="button"></button>';
     expect(compareUi(angular, react)).toEqual({ equal: true });
+    expect(compareUi('<section spsurface="" class="sp-ui sp-surface"></section>', '<section class="sp-ui sp-surface"></section>')).toEqual({ equal: true });
   });
 });
 

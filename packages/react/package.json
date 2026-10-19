@@ -861,6 +861,66 @@
       "import": "./dist/ui/skeleton.js",
       "default": "./dist/ui/skeleton.js"
     },
+    "./ui/surface": {
+      "@silverpoint/source": "./src/ui/surface.tsx",
+      "types": "./dist/ui/surface.d.ts",
+      "import": "./dist/ui/surface.js",
+      "default": "./dist/ui/surface.js"
+    },
+    "./ui/glyph": {
+      "@silverpoint/source": "./src/ui/glyph.tsx",
+      "types": "./dist/ui/glyph.d.ts",
+      "import": "./dist/ui/glyph.js",
+      "default": "./dist/ui/glyph.js"
+    },
+    "./ui/table": {
+      "@silverpoint/source": "./src/ui/table.tsx",
+      "types": "./dist/ui/table.d.ts",
+      "import": "./dist/ui/table.js",
+      "default": "./dist/ui/table.js"
+    },
+    "./ui/breadcrumb": {
+      "@silverpoint/source": "./src/ui/breadcrumb.tsx",
+      "types": "./dist/ui/breadcrumb.d.ts",
+      "import": "./dist/ui/breadcrumb.js",
+      "default": "./dist/ui/breadcrumb.js"
+    },
+    "./ui/avatar": {
+      "@silverpoint/source": "./src/ui/avatar.tsx",
+      "types": "./dist/ui/avatar.d.ts",
+      "import": "./dist/ui/avatar.js",
+      "default": "./dist/ui/avatar.js"
+    },
+    "./ui/statistic": {
+      "@silverpoint/source": "./src/ui/statistic.tsx",
+      "types": "./dist/ui/statistic.d.ts",
+      "import": "./dist/ui/statistic.js",
+      "default": "./dist/ui/statistic.js"
+    },
+    "./ui/descriptions": {
+      "@silverpoint/source": "./src/ui/descriptions.tsx",
+      "types": "./dist/ui/descriptions.d.ts",
+      "import": "./dist/ui/descriptions.js",
+      "default": "./dist/ui/descriptions.js"
+    },
+    "./ui/timeline-list": {
+      "@silverpoint/source": "./src/ui/timeline-list.tsx",
+      "types": "./dist/ui/timeline-list.d.ts",
+      "import": "./dist/ui/timeline-list.js",
+      "default": "./dist/ui/timeline-list.js"
+    },
+    "./ui/empty": {
+      "@silverpoint/source": "./src/ui/empty.tsx",
+      "types": "./dist/ui/empty.d.ts",
+      "import": "./dist/ui/empty.js",
+      "default": "./dist/ui/empty.js"
+    },
+    "./ui/result": {
+      "@silverpoint/source": "./src/ui/result.tsx",
+      "types": "./dist/ui/result.d.ts",
+      "import": "./dist/ui/result.js",
+      "default": "./dist/ui/result.js"
+    },
     "./server/ui/card": {
       "@silverpoint/source": "./src/server/ui/card.tsx",
       "types": "./dist/server/ui/card.d.ts",
@@ -908,6 +968,66 @@
       "types": "./dist/server/ui/skeleton.d.ts",
       "import": "./dist/server/ui/skeleton.js",
       "default": "./dist/server/ui/skeleton.js"
+    },
+    "./server/ui/surface": {
+      "@silverpoint/source": "./src/server/ui/surface.tsx",
+      "types": "./dist/server/ui/surface.d.ts",
+      "import": "./dist/server/ui/surface.js",
+      "default": "./dist/server/ui/surface.js"
+    },
+    "./server/ui/glyph": {
+      "@silverpoint/source": "./src/server/ui/glyph.tsx",
+      "types": "./dist/server/ui/glyph.d.ts",
+      "import": "./dist/server/ui/glyph.js",
+      "default": "./dist/server/ui/glyph.js"
+    },
+    "./server/ui/table": {
+      "@silverpoint/source": "./src/server/ui/table.tsx",
+      "types": "./dist/server/ui/table.d.ts",
+      "import": "./dist/server/ui/table.js",
+      "default": "./dist/server/ui/table.js"
+    },
+    "./server/ui/breadcrumb": {
+      "@silverpoint/source": "./src/server/ui/breadcrumb.tsx",
+      "types": "./dist/server/ui/breadcrumb.d.ts",
+      "import": "./dist/server/ui/breadcrumb.js",
+      "default": "./dist/server/ui/breadcrumb.js"
+    },
+    "./server/ui/avatar": {
+      "@silverpoint/source": "./src/server/ui/avatar.tsx",
+      "types": "./dist/server/ui/avatar.d.ts",
+      "import": "./dist/server/ui/avatar.js",
+      "default": "./dist/server/ui/avatar.js"
+    },
+    "./server/ui/statistic": {
+      "@silverpoint/source": "./src/server/ui/statistic.tsx",
+      "types": "./dist/server/ui/statistic.d.ts",
+      "import": "./dist/server/ui/statistic.js",
+      "default": "./dist/server/ui/statistic.js"
+    },
+    "./server/ui/descriptions": {
+      "@silverpoint/source": "./src/server/ui/descriptions.tsx",
+      "types": "./dist/server/ui/descriptions.d.ts",
+      "import": "./dist/server/ui/descriptions.js",
+      "default": "./dist/server/ui/descriptions.js"
+    },
+    "./server/ui/timeline-list": {
+      "@silverpoint/source": "./src/server/ui/timeline-list.tsx",
+      "types": "./dist/server/ui/timeline-list.d.ts",
+      "import": "./dist/server/ui/timeline-list.js",
+      "default": "./dist/server/ui/timeline-list.js"
+    },
+    "./server/ui/empty": {
+      "@silverpoint/source": "./src/server/ui/empty.tsx",
+      "types": "./dist/server/ui/empty.d.ts",
+      "import": "./dist/server/ui/empty.js",
+      "default": "./dist/server/ui/empty.js"
+    },
+    "./server/ui/result": {
+      "@silverpoint/source": "./src/server/ui/result.tsx",
+      "types": "./dist/server/ui/result.d.ts",
+      "import": "./dist/server/ui/result.js",
+      "default": "./dist/server/ui/result.js"
     },
     "./package.json": "./package.json"
   },

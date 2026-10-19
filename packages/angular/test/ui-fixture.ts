@@ -4,9 +4,13 @@ import { provideServerRendering, renderApplication } from '@angular/platform-ser
 import { SpCardExtra } from '@silverpoint/angular/ui/card';
 import { uiFixtureParts, type UiFixture } from '../../../tools/visual-gate/ui-matrix';
 
-/** How a consumer writes a component in a template: `<sp-<slug>>`, but `SpButton` is an attribute component (DD-024). */
+/** How a consumer writes a component in a template: `<sp-<slug>>`, but `SpButton` and `SpSurface` are attribute components (DD-024). */
 export const selectorOf = (slug: string): { open: string; close: string } =>
-  slug === 'button' ? { open: '<button spButton', close: '</button>' } : { open: `<sp-${slug}`, close: `</sp-${slug}>` };
+  slug === 'button'
+    ? { open: '<button spButton', close: '</button>' }
+    : slug === 'surface'
+      ? { open: '<div spSurface', close: '</div>' }
+      : { open: `<sp-${slug}`, close: `</sp-${slug}>` };
 
 const escapeText = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/{/g, "{{ '{' }}");
 

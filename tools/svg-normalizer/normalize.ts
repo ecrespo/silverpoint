@@ -37,9 +37,10 @@ interface TreeOptions {
  * Attributes a framework injects, filtered by explicit, versioned list. A new one breaks the
  * gate until someone adds it here deliberately — the desired behaviour (DD-004).
  */
-// `spbutton`: the selector of the Angular attribute component `button[spButton]` (DD-024), written by
-// the consumer on their own element — outside the parity contract, as any consumer attribute is (A-03).
-const FILTERED_NAMES = new Set(['ng-version', 'ngh', 'ngskiphydration', 'spbutton']);
+// `spbutton`, `spsurface`: the selectors of the Angular attribute components `button[spButton]` and
+// `[spSurface]` (DD-024), written by the consumer on their own element — outside the parity contract,
+// as any consumer attribute is (A-03).
+const FILTERED_NAMES = new Set(['ng-version', 'ngh', 'ngskiphydration', 'spbutton', 'spsurface']);
 const FILTERED_PREFIXES = ['_ngcontent-', '_nghost-', 'ng-reflect-'];
 
 /**
@@ -233,13 +234,11 @@ export function compareDashboard(actual: string, expected: string): { equal: tru
   return found === undefined ? { equal: true } : { equal: false, difference: found };
 }
 
-function findUiRoot(node: ParsedNode): ParsedElement | undefined {
-  if (isElement(node) && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-ui')) return node;
-  for (const child of 'childNodes' in node ? node.childNodes : []) {
-    const found = findUiRoot(child);
-    if (found) return found;
-  }
-  return undefined;
+/** Every outermost `.sp-ui` element, in document order: a component's root, or several side by side. */
+function findUiRoots(node: ParsedNode, out: ParsedElement[] = []): ParsedElement[] {
+  if (isElement(node) && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-ui')) return out.push(node), out;
+  for (const child of 'childNodes' in node ? node.childNodes : []) findUiRoots(child, out);
+  return out;
 }
 
 /**
@@ -248,9 +247,12 @@ function findUiRoot(node: ParsedNode): ParsedElement | undefined {
  * compared as declarations.
  */
 export function parseUi(markup: string): NormalElement {
-  const root = findUiRoot(parseFragment(markup));
-  if (!root) throw new Error('No element with class "sp-ui" in the markup.');
-  return toTree(root, new Map(), { dashboard: true });
+  const roots = findUiRoots(parseFragment(markup));
+  if (roots.length === 0) throw new Error('No element with class "sp-ui" in the markup.');
+  const ids = new Map();
+  const trees = roots.map((root) => toTree(root, ids, { dashboard: true }));
+  // Several roots side by side (Glyph `all`) are compared as the children of one fragment.
+  return trees.length === 1 ? trees[0]! : { tag: '#roots', attrs: [], children: trees };
 }
 
 /** The normalised component as text, one node per line: what a UI fixture's canonical file holds. */

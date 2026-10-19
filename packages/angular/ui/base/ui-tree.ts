@@ -74,6 +74,18 @@ export class SpUiAttrs implements OnChanges {
     `@case ('ol') {<ol [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></ol>}` +
     `@case ('ul') {<ul [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></ul>}` +
     `@case ('li') {<li [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></li>}` +
+    `@case ('nav') {<nav [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></nav>}` +
+    `@case ('table') {<table [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></table>}` +
+    `@case ('caption') {<caption [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></caption>}` +
+    `@case ('thead') {<thead [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></thead>}` +
+    `@case ('tbody') {<tbody [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></tbody>}` +
+    `@case ('tr') {<tr [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></tr>}` +
+    `@case ('th') {<th [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></th>}` +
+    `@case ('td') {<td [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></td>}` +
+    `@case ('dl') {<dl [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dl>}` +
+    `@case ('dt') {<dt [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dt>}` +
+    `@case ('dd') {<dd [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dd>}` +
+    `@case ('img') {<img [spUiAttrs]="n.attrs" />}` +
     `@case ('button') {<button [spUiAttrs]="n.attrs" (click)="clicked.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></button>}` +
     `@case ('a') {<a [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></a>}` +
     `@case ('input') {<input [spUiAttrs]="n.attrs" (input)="n.bind === 'native' && nativeInput.emit($event)" (change)="n.bind === 'native' && nativeChange.emit($event)" (click)="n.bind === 'native' && nativeClick.emit($event)" />}` +

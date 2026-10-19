@@ -489,6 +489,66 @@
       "import": "./dist/ui/skeleton.js",
       "default": "./dist/ui/skeleton.js"
     },
+    "./ui/surface": {
+      "@silverpoint/source": "./src/ui/surface.ts",
+      "types": "./dist/ui/surface.d.ts",
+      "import": "./dist/ui/surface.js",
+      "default": "./dist/ui/surface.js"
+    },
+    "./ui/glyph": {
+      "@silverpoint/source": "./src/ui/glyph.ts",
+      "types": "./dist/ui/glyph.d.ts",
+      "import": "./dist/ui/glyph.js",
+      "default": "./dist/ui/glyph.js"
+    },
+    "./ui/table": {
+      "@silverpoint/source": "./src/ui/table.ts",
+      "types": "./dist/ui/table.d.ts",
+      "import": "./dist/ui/table.js",
+      "default": "./dist/ui/table.js"
+    },
+    "./ui/breadcrumb": {
+      "@silverpoint/source": "./src/ui/breadcrumb.ts",
+      "types": "./dist/ui/breadcrumb.d.ts",
+      "import": "./dist/ui/breadcrumb.js",
+      "default": "./dist/ui/breadcrumb.js"
+    },
+    "./ui/avatar": {
+      "@silverpoint/source": "./src/ui/avatar.ts",
+      "types": "./dist/ui/avatar.d.ts",
+      "import": "./dist/ui/avatar.js",
+      "default": "./dist/ui/avatar.js"
+    },
+    "./ui/statistic": {
+      "@silverpoint/source": "./src/ui/statistic.ts",
+      "types": "./dist/ui/statistic.d.ts",
+      "import": "./dist/ui/statistic.js",
+      "default": "./dist/ui/statistic.js"
+    },
+    "./ui/descriptions": {
+      "@silverpoint/source": "./src/ui/descriptions.ts",
+      "types": "./dist/ui/descriptions.d.ts",
+      "import": "./dist/ui/descriptions.js",
+      "default": "./dist/ui/descriptions.js"
+    },
+    "./ui/timeline-list": {
+      "@silverpoint/source": "./src/ui/timeline-list.ts",
+      "types": "./dist/ui/timeline-list.d.ts",
+      "import": "./dist/ui/timeline-list.js",
+      "default": "./dist/ui/timeline-list.js"
+    },
+    "./ui/empty": {
+      "@silverpoint/source": "./src/ui/empty.ts",
+      "types": "./dist/ui/empty.d.ts",
+      "import": "./dist/ui/empty.js",
+      "default": "./dist/ui/empty.js"
+    },
+    "./ui/result": {
+      "@silverpoint/source": "./src/ui/result.ts",
+      "types": "./dist/ui/result.d.ts",
+      "import": "./dist/ui/result.js",
+      "default": "./dist/ui/result.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

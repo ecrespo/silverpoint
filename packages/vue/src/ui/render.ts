@@ -1,4 +1,4 @@
-import type { UiElement, UiNode, UiSlot } from '@silverpoint/core/ui';
+import type { UiBind, UiElement, UiNode, UiSlot } from '@silverpoint/core/ui';
 import { h, type VNodeChild } from 'vue';
 
 export interface UiBindings {
@@ -11,6 +11,8 @@ export interface UiBindings {
   readonly native?: Readonly<Record<string, unknown>> | ((node: UiElement) => Readonly<Record<string, unknown>>);
   /** Props added to the close button of a Tag or an Alert. */
   readonly close?: Readonly<Record<string, unknown>>;
+  /** Props added to each element of another bind (a sortable header's `sort`), told apart by its attributes. */
+  readonly bound?: Partial<Record<UiBind, (node: UiElement) => Readonly<Record<string, unknown>>>>;
   /** Slot content, already rendered. */
   readonly slots?: Partial<Record<UiSlot, VNodeChild>>;
 }
@@ -26,5 +28,6 @@ export function renderUi(node: UiNode, bindings: UiBindings, root = true): VNode
   if (root) Object.assign(props, bindings.root);
   if (node.bind === 'native') Object.assign(props, typeof bindings.native === 'function' ? bindings.native(node) : bindings.native);
   if (node.bind === 'close') Object.assign(props, bindings.close);
+  else if (node.bind && node.bind !== 'native') Object.assign(props, bindings.bound?.[node.bind]?.(node));
   return h(node.tag, props, node.children.map((child) => renderUi(child, bindings, false)));
 }

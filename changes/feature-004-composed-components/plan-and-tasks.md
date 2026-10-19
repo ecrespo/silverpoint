@@ -253,10 +253,27 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8d — Adapters (three batches)
 
-**[ ] T-213 · Batch A1 ×3** — REQ-470, REQ-472..REQ-483, REQ-489
+**[x] T-213 · Batch A1 ×3** — REQ-470, REQ-472..REQ-483, REQ-489
 - Surface, Glyph, Table (with `sort`), Breadcrumb, Avatar(Group), Statistic, Descriptions,
   TimelineList, Empty, Result. React client and server entries; Vue; Angular.
 - **Done:** adapter tests green; A1 fixtures green (T-218). **Review point.**
+- **Ledger (2026-10-19):** ten components ×3 adapters, each the core's view written attribute for
+  attribute, with no maths (Art. 2). React: `ui/<slug>` and `server/ui/<slug>` entries (the server
+  ones resolve without hooks, the server Table takes no `onSort`), `colspan` mapped to `colSpan`.
+  Vue: `ui/<slug>` entries; Empty and Result take an `extra` slot, the avatar group and the surface
+  the default one. Angular: `ui/<slug>` secondary entry points and the `ui` barrel; `sp-ui-tree`
+  gains `nav`, `table`, `caption`, `thead`, `tbody`, `tr`, `th`, `td`, `dl`, `dt`, `dd` and `img`.
+  The renderers of React and Vue gain `bound`, the props of an element by its bind (Table's `sort`
+  reads the header's `data-key`); Angular reads it from `clicked`'s `currentTarget`.
+  *Amended in implementation* (API delta §1): Angular's surface is `[spSurface]` (DD-024), and the
+  normaliser filters its selector attribute `spsurface` as it does `spbutton` (A-03). Tooling:
+  `uiMatrix(batches)` builds a batch's fixtures before it is gated (A1 joins `GATED_BATCHES` in
+  T-218); the Glyph `all` and Avatar `group` states compose (`composedMarkup`), and `parseUi`
+  compares a markup with several roots as one fragment. Tests: `ui-a1` ×3 adapters, the
+  `ui-a1-client` behaviour test for Angular and `ui-a1` for the tooling: 72 PR fixtures per adapter, client
+  and server for React, plus sort, surface, `extra`, exports and no Vue warning. RED on
+  assertions against stubs; 16 mutants → red (the `colspan` one by the no-React-warning test).
+  A1 fixtures are committed and gated in T-218.
 
 **[ ] T-214 · Batch A2 ×3** — REQ-476, REQ-482, REQ-484, REQ-485, REQ-488
 - Pagination, Collapse(Item), Textarea, InputNumber; controlled/uncontrolled; Angular CVA.

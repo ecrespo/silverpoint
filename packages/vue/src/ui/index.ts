@@ -15,6 +15,16 @@ export { SpBadge } from './badge';
 export { SpProgress } from './progress';
 export { SpAlert } from './alert';
 export { SpSkeleton } from './skeleton';
+export { SpSurface } from './surface';
+export { SpGlyph } from './glyph';
+export { SpTable } from './table';
+export { SpBreadcrumb } from './breadcrumb';
+export { SpAvatar, SpAvatarGroup } from './avatar';
+export { SpStatistic } from './statistic';
+export { SpDescriptions } from './descriptions';
+export { SpTimelineList } from './timeline-list';
+export { SpEmpty } from './empty';
+export { SpResult } from './result';
 export type {
   AlertKind,
   SpAlertProps,
@@ -35,6 +45,20 @@ export type {
   SpTabsProps,
   SpTagProps,
   StepItem,
+  SpSurfaceProps,
+  SpGlyphProps,
+  SpTableProps,
+  TableColumn,
+  SpBreadcrumbProps,
+  SpAvatarProps,
+  SpAvatarGroupProps,
+  SpStatisticProps,
+  SpDescriptionsProps,
+  SpTimelineListProps,
+  TimelineListItem,
+  SpEmptyProps,
+  SpResultProps,
+  UiGlyph,
   UiItem,
   UiSize,
   UiVariant,

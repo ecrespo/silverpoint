@@ -19,7 +19,7 @@ export const GATED_UI: readonly UiComponentRow[] = UI_COMPONENTS.filter((c) => G
 /** Components drawn at every size, in their first state (nightly; Data Model §5). */
 const SIZED: ReadonlySet<string> = new Set(['button', 'input', 'segmented']);
 /** Harness widths: 640 for the wide components, 320 for the rest. */
-const WIDE: ReadonlySet<string> = new Set(['card', 'alert']);
+const WIDE: ReadonlySet<string> = new Set(['card', 'alert', 'table', 'descriptions']);
 const PR_GROUNDS = new Set(['silverpoint/cream', 'cyanotype/prussian']);
 
 export interface UiFixture {
@@ -39,9 +39,10 @@ export interface UiFixture {
   readonly canonical: string;
 }
 
-export function uiMatrix(): UiFixture[] {
+/** The fixtures of the gated batches, or of the given ones (a batch's adapters are tested before it is gated). */
+export function uiMatrix(batches: readonly UiComponentRow['batch'][] = GATED_BATCHES): UiFixture[] {
   const out: UiFixture[] = [];
-  for (const row of GATED_UI) {
+  for (const row of UI_COMPONENTS.filter((c) => batches.includes(c.batch))) {
     const sizes: UiSize[] = ['md', ...(SIZED.has(row.slug) ? (['sm', 'lg'] as const) : [])];
     for (const size of sizes) {
       for (const state of size === 'md' ? row.states : row.states.slice(0, 1)) {
