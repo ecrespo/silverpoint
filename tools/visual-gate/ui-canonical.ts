@@ -16,6 +16,12 @@ import {
   uiAvatarView,
   uiBadgeView,
   uiBreadcrumbView,
+  uiCollapseGroup,
+  uiCollapseItemView,
+  uiCollapseView,
+  uiInputNumberView,
+  uiPaginationView,
+  uiTextareaView,
   uiDescriptionsView,
   uiEmptyView,
   uiGlyphView,
@@ -118,6 +124,12 @@ export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiS
       return { view: uiEmptyView(p, r, { extra: slots.extra !== undefined }), slots };
     case 'result':
       return { view: uiResultView(p, r, { extra: slots.extra !== undefined }), slots };
+    case 'pagination':
+      return { view: uiPaginationView(p, r, { current: (props as { current?: number }).current ?? 1 }), slots };
+    case 'textarea':
+      return { view: uiTextareaView(p, r, { value: (value as string | undefined) ?? '' }), slots };
+    case 'input-number':
+      return { view: uiInputNumberView(p, r, { value: (value as number | undefined) ?? null }), slots };
     default:
       throw new Error(`No view for ${fixture.component}`);
   }
@@ -125,14 +137,32 @@ export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiS
 
 /**
  * The demos that compose (Data Model §5): Glyph `all` is every glyph in a row, each a root of its
- * own; Avatar `group` is an AvatarGroup holding its avatars. Each piece takes the fixture's ground,
- * substrate, mode and size.
+ * own; Avatar `group` is an AvatarGroup holding its avatars; a Collapse holds one CollapseItem per
+ * item, its content in the item's slot. Each piece takes the fixture's ground, substrate, mode and size.
  */
+/** A Collapse demo's item: a CollapseItem's props, its `open` state and its content. */
+interface CollapseDemoItem {
+  readonly key?: string;
+  readonly title: string;
+  readonly content: string;
+  readonly open?: boolean;
+  readonly disabled?: boolean;
+}
+
 function composedMarkup(fixture: UiFixture): string | undefined {
   const { props } = uiFixtureParts(fixture);
   const { glyphs, avatars, ...rest } = props as typeof props & { glyphs?: readonly string[]; avatars?: readonly Record<string, unknown>[] };
   const common = { ground: rest.ground, substrate: rest.substrate, mode: rest.mode, size: rest.size };
+  const { items, ...collapseProps } = rest as typeof rest & { items?: readonly CollapseDemoItem[] };
+  const collapse = fixture.component === 'collapse' ? items : undefined;
   if (glyphs) return glyphs.map((glyph) => serializeUi(uiGlyphView({ ...common, glyph } as never, resolveUi(common, {})), {})).join('');
+  if (collapse) {
+    const group = uiCollapseGroup(collapseProps as never);
+    const inner = collapse
+      .map(({ content, open, key: _key, ...item }) => serializeUi(uiCollapseItemView({ ...common, ...item } as never, resolveUi(common, {}), { open: open === true, group }), { content }))
+      .join('');
+    return serializeUi(uiCollapseView(collapseProps as never, resolveUi(collapseProps, {})), { content: '\u0000' }).replace('\u0000', inner);
+  }
   if (avatars) {
     const inner = avatars.map((avatar) => serializeUi(uiAvatarView({ ...common, ...avatar } as never, resolveUi(common, {})), {})).join('');
     return serializeUi(uiAvatarGroupView(rest as never, resolveUi(rest, {})), { content: '\u0000' }).replace('\u0000', inner);

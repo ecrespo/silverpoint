@@ -11,6 +11,7 @@ import {
   PLATFORM_ID,
   Renderer2,
   type OnChanges,
+  type SimpleChanges,
   type TemplateRef,
 } from '@angular/core';
 import type { UiAttrValue, UiElement, UiSlot } from '@silverpoint/core/ui';
@@ -35,13 +36,19 @@ export function syncUiAttrs(renderer: Renderer2, element: Element, previous: Att
 @Directive({ selector: '[spUiAttrs]' })
 export class SpUiAttrs implements OnChanges {
   readonly spUiAttrs = input.required<Attrs>();
+  /** A `<textarea>`'s value: its text in the markup, its live property in the browser. */
+  readonly spUiValue = input<string>();
   private readonly element = inject<ElementRef<Element>>(ElementRef).nativeElement;
   private readonly renderer = inject(Renderer2);
   private readonly browser = isPlatformBrowser(inject(PLATFORM_ID));
   private previous: Attrs = {};
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     this.previous = syncUiAttrs(this.renderer, this.element, this.previous, this.spUiAttrs(), this.browser);
+    const value = this.spUiValue();
+    if (this.browser && 'spUiValue' in changes && value !== undefined && (this.element as HTMLTextAreaElement).value !== value) {
+      this.renderer.setProperty(this.element, 'value', value);
+    }
   }
 }
 
@@ -86,6 +93,9 @@ export class SpUiAttrs implements OnChanges {
     `@case ('dt') {<dt [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dt>}` +
     `@case ('dd') {<dd [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dd>}` +
     `@case ('img') {<img [spUiAttrs]="n.attrs" />}` +
+    `@case ('details') {<details [spUiAttrs]="n.attrs" (toggle)="toggled.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></details>}` +
+    `@case ('summary') {<summary [spUiAttrs]="n.attrs" (click)="clicked.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></summary>}` +
+    `@case ('textarea') {<textarea [spUiAttrs]="n.attrs" [spUiValue]="n.children[0]?.text ?? ''" (input)="n.bind === 'native' && nativeInput.emit($event)" (change)="n.bind === 'native' && nativeChange.emit($event)">{{ n.children[0]?.text ?? '' }}</textarea>}` +
     `@case ('button') {<button [spUiAttrs]="n.attrs" (click)="clicked.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></button>}` +
     `@case ('a') {<a [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></a>}` +
     `@case ('input') {<input [spUiAttrs]="n.attrs" (input)="n.bind === 'native' && nativeInput.emit($event)" (change)="n.bind === 'native' && nativeChange.emit($event)" (click)="n.bind === 'native' && nativeClick.emit($event)" />}` +
@@ -103,8 +113,10 @@ export class SpUiTree {
   readonly nativeChange = output<Event>();
   /** A click on a native input: a read-only Rate cancels it. */
   readonly nativeClick = output<Event>();
-  /** A click on any button of the view: a tab, a close button; `currentTarget` tells which. */
+  /** A click on any button or summary of the view: a tab, a close button; `currentTarget` tells which. */
   readonly clicked = output<Event>();
+  /** A `<details>` of the view opened or closed. */
+  readonly toggled = output<Event>();
 
   private readonly slotMap = computed(() => this.slots());
   protected slotOf(slot: UiSlot): TemplateRef<unknown> | null {

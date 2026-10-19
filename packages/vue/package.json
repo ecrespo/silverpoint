@@ -549,6 +549,30 @@
       "import": "./dist/ui/result.js",
       "default": "./dist/ui/result.js"
     },
+    "./ui/pagination": {
+      "@silverpoint/source": "./src/ui/pagination.ts",
+      "types": "./dist/ui/pagination.d.ts",
+      "import": "./dist/ui/pagination.js",
+      "default": "./dist/ui/pagination.js"
+    },
+    "./ui/collapse": {
+      "@silverpoint/source": "./src/ui/collapse.ts",
+      "types": "./dist/ui/collapse.d.ts",
+      "import": "./dist/ui/collapse.js",
+      "default": "./dist/ui/collapse.js"
+    },
+    "./ui/textarea": {
+      "@silverpoint/source": "./src/ui/textarea.ts",
+      "types": "./dist/ui/textarea.d.ts",
+      "import": "./dist/ui/textarea.js",
+      "default": "./dist/ui/textarea.js"
+    },
+    "./ui/input-number": {
+      "@silverpoint/source": "./src/ui/input-number.ts",
+      "types": "./dist/ui/input-number.d.ts",
+      "import": "./dist/ui/input-number.js",
+      "default": "./dist/ui/input-number.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

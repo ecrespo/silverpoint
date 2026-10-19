@@ -25,4 +25,8 @@ export { SpDescriptions } from '@silverpoint/angular/ui/descriptions';
 export { SpTimelineList } from '@silverpoint/angular/ui/timeline-list';
 export { SpEmpty } from '@silverpoint/angular/ui/empty';
 export { SpResult } from '@silverpoint/angular/ui/result';
+export { SpPagination } from '@silverpoint/angular/ui/pagination';
+export { SpCollapse, SpCollapseItem } from '@silverpoint/angular/ui/collapse';
+export { SpTextarea } from '@silverpoint/angular/ui/textarea';
+export { SpInputNumber } from '@silverpoint/angular/ui/input-number';
 export type { AlertKind, StepItem, TableColumn, TimelineListItem, UiGlyph, UiItem, UiSize, UiVariant } from '@silverpoint/core/ui';

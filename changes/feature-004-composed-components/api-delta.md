@@ -172,6 +172,9 @@ Reflex's `left`/`right` become `start`/`end` (REQ-523: logical sides mirror in R
 
 Value binding of Pagination, Textarea, InputNumber and Select follows REQ-322 (`current` for
 Pagination: React `current`/`defaultCurrent`/`onChange`, Vue `v-model:current`, Angular `[(current)]`).
+*Amended in implementation (T-214):* an InputNumber reports what is typed on commit (blur or Enter;
+`change` in Vue and Angular), clamped and rounded by `uiNumberValue`, `null` when emptied; its steppers
+report `uiNumberStep` at once. Clamping on every keystroke would rewrite a value mid-typing.
 
 ### The timeline
 
@@ -299,7 +302,9 @@ every id is `${id}--${part}`; overlays emit `data-state="open|closed"`, never th
   number `<input>`, the Select's trigger, the `<dialog>`). Overlay triggers are a `trigger` prop
   (`ReactElement`) that the overlay clones with its ARIA and handlers, as the dashboard clones its
   charts. `"use client"` on every overlay, Pagination, Textarea, InputNumber, sortable Table,
-  Collapse with `onToggle`, and `SpTimeline`.
+  Collapse with `onToggle`, and `SpTimeline`. *Amended in implementation (T-214):* Pagination, Collapse,
+  CollapseItem, Textarea and InputNumber are client components only, with no `server/ui/*` entry, as
+  `0.3.0`'s Input: a disabled CollapseItem is held shut by a handler.
 - **Vue (§8.3):** slots `trigger`, `footer`, `action`, `extra`, `fallback`; `v-model`, `v-model:open`,
   `v-model:current`.
 - **Angular (§8.2):** standalone, signal inputs, `OnPush`; `open = model<boolean>()`; triggers are

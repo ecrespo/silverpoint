@@ -19,7 +19,7 @@ export const GATED_UI: readonly UiComponentRow[] = UI_COMPONENTS.filter((c) => G
 /** Components drawn at every size, in their first state (nightly; Data Model §5). */
 const SIZED: ReadonlySet<string> = new Set(['button', 'input', 'segmented']);
 /** Harness widths: 640 for the wide components, 320 for the rest. */
-const WIDE: ReadonlySet<string> = new Set(['card', 'alert', 'table', 'descriptions']);
+const WIDE: ReadonlySet<string> = new Set(['card', 'alert', 'table', 'descriptions', 'collapse']);
 const PR_GROUNDS = new Set(['silverpoint/cream', 'cyanotype/prussian']);
 
 export interface UiFixture {
@@ -70,8 +70,8 @@ export function uiMatrix(batches: readonly UiComponentRow['batch'][] = GATED_BAT
   return out;
 }
 
-/** The components whose `value` each framework binds (REQ-322); a Progress's `value` is a plain prop. */
-export const UI_VALUE_COMPONENTS: ReadonlySet<string> = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs']);
+/** The components whose `value` each framework binds (REQ-322, REQ-488); a Progress's `value` is a plain prop, a Pagination binds `current`. */
+export const UI_VALUE_COMPONENTS: ReadonlySet<string> = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs', 'textarea', 'input-number']);
 
 /** Demo keys that are content, not props: each adapter puts them in its slots. */
 const SLOTS = ['content', 'extra', 'footer'] as const;

@@ -275,9 +275,28 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   assertions against stubs; 16 mutants → red (the `colspan` one by the no-React-warning test).
   A1 fixtures are committed and gated in T-218.
 
-**[ ] T-214 · Batch A2 ×3** — REQ-476, REQ-482, REQ-484, REQ-485, REQ-488
+**[x] T-214 · Batch A2 ×3** — REQ-476, REQ-482, REQ-484, REQ-485, REQ-488
 - Pagination, Collapse(Item), Textarea, InputNumber; controlled/uncontrolled; Angular CVA.
 - **Done:** adapter tests green; A2 fixtures green. **Review point.**
+- **Ledger (2026-10-19):** five components ×3 adapters on the core's views. Pagination binds
+  `current` (React `current`/`defaultCurrent`/`onChange`, Vue `v-model:current`, Angular
+  `[(current)]`); its page buttons are bound by `page` and report `data-page`. Collapse hands its
+  accordion `name` (`uiCollapseGroup`) to its items through a React context, Vue `provide`/`inject`
+  and Angular's injection of `SpCollapse`; an item binds `open` (`toggle` event) from the native
+  `toggle`, and a disabled one cancels its summary's click. Textarea binds `value` (Angular CVA);
+  React and Vue write its content from `value`, Angular's tree writes it as text and sets the live
+  property through `spUiValue`. InputNumber binds `value` (Angular CVA); steppers report
+  `uiNumberStep`. React maps `maxlength` and `inputmode`; Angular's tree gains `details`, `summary`
+  and `textarea`. *Amended in implementation* (API delta §4, §5): (1) the A2 components are client
+  components with no `server/ui/*` entry, like `0.3.0`'s Input: each needs a handler (a disabled
+  CollapseItem cannot be held shut without one); (2) an InputNumber reports a typed value on commit
+  (blur or Enter; `change` in Vue and Angular), clamped by `uiNumberValue`, `null` when emptied:
+  a value clamped on every keystroke would turn "12" into 5 under `min: 5` before the second key.
+  Tooling: Textarea and InputNumber join `UI_VALUE_COMPONENTS`, Collapse is wide (640 px) and
+  composes its items in `composedMarkup`. Tests: `ui-a2` ×3 adapters (32 PR fixtures each), Angular
+  `ui-a2-client` (including CVA), tooling `ui-a2`. RED on assertions against stubs; 32 mutants:
+  28 red at once, 3 killed by added tests (a stepper's `-1`, a form's `null` with a `defaultValue`), 1
+  showed Vue's textarea branch redundant (its SSR writes the content from `value`) and it was removed.
 
 **[ ] T-215 · Overlay base ×3** — REQ-491, REQ-492, REQ-493, REQ-500, REQ-502
 - Per adapter: open state binding, trigger cloning/projection with ARIA, `showModal`/`showPopover`

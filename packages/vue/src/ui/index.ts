@@ -25,6 +25,10 @@ export { SpDescriptions } from './descriptions';
 export { SpTimelineList } from './timeline-list';
 export { SpEmpty } from './empty';
 export { SpResult } from './result';
+export { SpPagination } from './pagination';
+export { SpCollapse, SpCollapseItem } from './collapse';
+export { SpTextarea } from './textarea';
+export { SpInputNumber } from './input-number';
 export type {
   AlertKind,
   SpAlertProps,
@@ -58,6 +62,11 @@ export type {
   TimelineListItem,
   SpEmptyProps,
   SpResultProps,
+  SpPaginationProps,
+  SpCollapseProps,
+  SpCollapseItemProps,
+  SpTextareaProps,
+  SpInputNumberProps,
   UiGlyph,
   UiItem,
   UiSize,

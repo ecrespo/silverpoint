@@ -3,8 +3,15 @@ import { createElement, type ReactNode } from 'react';
 import { styleObject } from '../style';
 
 /** HTML attribute names React spells differently. */
-const PROPS: Readonly<Record<string, string>> = { class: 'className', for: 'htmlFor', readonly: 'readOnly', tabindex: 'tabIndex', colspan: 'colSpan' };
-
+const PROPS: Readonly<Record<string, string>> = {
+  class: 'className',
+  for: 'htmlFor',
+  readonly: 'readOnly',
+  tabindex: 'tabIndex',
+  colspan: 'colSpan',
+  maxlength: 'maxLength',
+  inputmode: 'inputMode',
+};
 
 export interface UiBindings {
   /** Props added to the root element: a ref, a click handler. */
@@ -36,6 +43,8 @@ export function renderUi(node: UiNode, bindings: UiBindings, root = true): React
   if (node.bind === 'native') Object.assign(props, typeof bindings.native === 'function' ? bindings.native(node) : bindings.native);
   if (node.bind === 'close') Object.assign(props, bindings.close);
   else if (node.bind && node.bind !== 'native') Object.assign(props, bindings.bound?.[node.bind]?.(node));
+  // React writes a `<textarea>`'s content from its `value`, which the native binding gives.
+  if (node.tag === 'textarea') return createElement(node.tag, props);
   return createElement(node.tag, props, ...node.children.map((child) => renderUi(child, bindings, false)));
 }
 

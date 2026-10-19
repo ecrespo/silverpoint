@@ -25,4 +25,8 @@ export { SpTimelineList, type SpTimelineListProps } from './timeline-list';
 export { SpEmpty, type SpEmptyProps } from './empty';
 export { SpResult, type SpResultProps } from './result';
 export { SpAvatar, SpAvatarGroup, type SpAvatarProps, type SpAvatarGroupProps } from './avatar';
+export { SpPagination, type SpPaginationProps } from './pagination';
+export { SpCollapse, SpCollapseItem, type SpCollapseProps, type SpCollapseItemProps } from './collapse';
+export { SpTextarea, type SpTextareaProps } from './textarea';
+export { SpInputNumber, type SpInputNumberProps } from './input-number';
 export type { UiItem, UiSize, UiVariant, StepItem, AlertKind, TableColumn, TimelineListItem, UiGlyph } from '@silverpoint/core/ui';
