@@ -19,6 +19,7 @@
     },
     "./styles.css": "./dist/styles.css",
     "./ui.css": "./dist/ui.css",
+    "./timeline.css": "./dist/timeline.css",
     "./package.json": "./package.json"
   },
   "files": [

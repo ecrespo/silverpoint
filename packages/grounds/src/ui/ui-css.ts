@@ -19,11 +19,11 @@ const KINDS = Object.keys(UI_FRAME_KINDS) as UiFrameKind[];
 const SLICED: readonly Exclude<UiPieceName, 'all'>[] = ['tl', 'tr', 'bl', 'br', 't', 'b', 'l', 'r'];
 const WHOLE: ReadonlySet<UiFrameKind> = new Set(['box', 'round']);
 
-const rule = (selector: string, declarations: readonly string[]) => `${selector} {\n${declarations.map((d) => `  ${d};`).join('\n')}\n}`;
-const media = (query: string, body: readonly string[]) => `${query} {\n${body.map((b) => b.replace(/^/gm, '  ')).join('\n\n')}\n}`;
+export const rule = (selector: string, declarations: readonly string[]) => `${selector} {\n${declarations.map((d) => `  ${d};`).join('\n')}\n}`;
+export const media = (query: string, body: readonly string[]) => `${query} {\n${body.map((b) => b.replace(/^/gm, '  ')).join('\n\n')}\n}`;
 
 /** Both spellings of a mask property: WebKit still wants the prefix on some; the value is one variable. */
-const mask = (property: string, value: string) => [`-webkit-mask-${property}: ${value}`, `mask-${property}: ${value}`];
+export const mask = (property: string, value: string) => [`-webkit-mask-${property}: ${value}`, `mask-${property}: ${value}`];
 
 function tokens(ground: Ground): string {
   const ui = resolveUiTokens(ground);

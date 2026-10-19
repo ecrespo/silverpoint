@@ -153,6 +153,11 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
   `MutationObserver` on the host's `data-mode`, `data-substrate`, `data-ground`, `data-frame` and
   `class` re-reads them. In `precision`, under `weight` grounds or with `inkedFrames: false`, every
   `--sp-kl-mask-*` is `none` and the rules fall back to an exact border.
+- *Amended in implementation (T-211):* eras are hatched with the probed tone tiles whenever
+  `timelineInk` found them (`data-kl-toned`), in every mode, since tone is value (C-7); Reflex keyed
+  them to `ink`. Untoned (a `weight` ground, or before the probes are read), an era is a rule along
+  its top of `--sp-stroke-width × --sp-weight-N` instead of Reflex's semi-transparent gradient
+  (I-24), and a long marker headline is cut instead of faded out.
 - **Parity:** only the surface, the probes and the empty mount are server markup (REQ-513); the
   TimelineJS DOM is third-party markup the library does not emit (Art. 3 as amended). A pixel
   fixture over a pinned TimelineJS version guards the skin.

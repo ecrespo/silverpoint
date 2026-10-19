@@ -2788,6 +2788,13 @@
     "limit": "24 kB"
   },
   {
+    "name": "@silverpoint/grounds/timeline.css",
+    "path": "packages/grounds/dist/timeline.css",
+    "rolldown": false,
+    "gzip": true,
+    "limit": "6 kB"
+  },
+  {
     "name": "@silverpoint/fonts (three woff2 cuts)",
     "path": "packages/fonts/files/*.woff2",
     "rolldown": false,

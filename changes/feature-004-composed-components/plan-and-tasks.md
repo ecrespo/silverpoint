@@ -207,10 +207,23 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   level (Data Model delta §3.8). `ui.css` is 14.2 KB gzip (was 11.4). Every rule parses in Chromium
   (Firefox and WebKit in the pixel gate, T-218). 12 RED on assertions; 10 mutants → red.
 
-**[ ] T-211 · `timeline.css`** — REQ-511, REQ-512
+**[x] T-211 · `timeline.css`** — REQ-511, REQ-512
 - Port Reflex's `timeline.css` (phases 1 and 2) to `src/timeline/timeline-css.ts`; I-19, I-24;
   ≤ 6 KB gzip.
 - **Done:** tests green. **8b closed.**
+- **Ledger (2026-10-19):** `src/timeline/timeline-css.ts` (`buildTimelineCss`), written to
+  `dist/timeline.css` by `scripts/build-ui-css.ts` and exported as `./timeline.css`; it reuses
+  `ui.css`'s `rule`, `media` and `mask` helpers. Every rule is scoped to `.sp-ui.sp-timeline` (the
+  surface `timelineView` draws), so TimelineJS elsewhere on the page is untouched. Phase 1 as in
+  Reflex, without its `color-mix` (the time-group rule is `--sp-grid` dashed), its fade-out
+  gradients (`background: none`) or its era `opacity` and gradient. Phase 2 under
+  `[data-kl-inked='true']` (marker `control` and menubar `box` frames on `::before`) and
+  `[data-kl-toned='true']` (eras fold colours 0..5 onto tone levels 1, 2, 3, 4, 1, 2; the hovered
+  marker takes level 1). Forced colours: `CanvasText` frames, no masks, eras an exact rule.
+  *Amended in implementation* (TD delta, DD-042): toned eras are not keyed to `ink`, and untoned
+  eras are a rule of the ramp's weight (`var(--sp-kl-era-weight, 1)`, so a ground with no ramp
+  draws the stroke width). `timeline.css` is 1.93 KB gzip; 79 rules, all parsed by Chromium.
+  Shared CSS reader moved to `test/support/css.ts`. 9 RED on assertions; 16 mutants → red.
 
 ### 8c — Palettes in the adapters
 
