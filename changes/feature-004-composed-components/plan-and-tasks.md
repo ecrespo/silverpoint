@@ -298,14 +298,51 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   28 red at once, 3 killed by added tests (a stepper's `-1`, a form's `null` with a `defaultValue`), 1
   showed Vue's textarea branch redundant (its SSR writes the content from `value`) and it was removed.
 
-**[ ] T-215 · Overlay base ×3** — REQ-491, REQ-492, REQ-493, REQ-500, REQ-502
+**[x] T-215 · Overlay base ×3** — REQ-491, REQ-492, REQ-493, REQ-500, REQ-502
 - Per adapter: open state binding, trigger cloning/projection with ARIA, `showModal`/`showPopover`
   after mount, `uiAnchor` on open, return focus, `cancel` handling.
 - **Done:** adapter tests green; overlay runtime ≤ 4 KB (T-220).
+- **Ledger (2026-10-19):** the open state is controlled or held and reports a change only (React
+  `useOpen`, Vue `useOpen`, Angular `SpUiOverlay` with `open = model<boolean>()`). After render the
+  adapter calls the core's new `uiOverlaySync` and, while open, `uiAnchor`; it reports the
+  platform's closes (`close`, `cancel`, a popover's `toggle` to `closed`), and a dialog that is not
+  `dismissible` cancels Escape and ignores its backdrop. The list keyboard (`useListKeys` ×2,
+  Angular `uiListKeys`) runs every key through `uiListKey`/`uiTypeahead` and clears its buffer 500 ms
+  after the last key. *Amended in implementation* (TD delta DD-038, API delta §2, §5): (1)
+  `uiOverlaySync(element, kind, open)` joins `@silverpoint/core/ui`: it calls `showModal`/`show`/
+  `close`/`showPopover`/`hidePopover` only from the other state, and leaves a popover in flow without
+  the Popover API; (2) React and Vue hang an overlay from the element just before it, so no ref is
+  merged into the consumer's trigger; Angular hangs it from `spTrigger`, as its host sits between
+  the two; (3) Angular's overlay base, `SpTrigger` and `uiListKeys` are a new entry, `ui/overlay`:
+  left in `ui/base`, which every component imports, their partial declarations survived tree
+  shaking and put `SpDivider` 25 B over its 8 kB budget (REQ-330); (4) the overlay runtime's 4 KB
+  is measured in T-220. Tooling: `stubPopoverApi()`
+  (`tools/visual-gate/popover-stub.ts`), as happy-dom has no Popover API.
 
-**[ ] T-216 · Batch B ×3** — REQ-490..REQ-503
+**[x] T-216 · Batch B ×3** — REQ-490..REQ-503
 - Modal, Drawer, Popover, Tooltip, Select, DropdownMenu, Toast, Toaster.
 - **Done:** adapter tests green; B fixtures green. **Review point.**
+- **Ledger (2026-10-19):** eight components ×3 adapters on the core's views, each on its own
+  `ui/<name>` subpath and the barrel. Triggers: a React `trigger` prop, a Vue `trigger` slot (first
+  element cloned), an Angular `[spTrigger]` projected and bound to its overlay through
+  `SP_TRIGGER_OWNER`; each writes the pattern's ARIA on the server too. Select binds `value` (Angular
+  CVA, `writeValue` keeps a form's `null`) and keeps focus on its combobox; DropdownMenu moves focus
+  to its active item, returns it to the trigger and reports `select(key)`; Tooltip waits `delay`,
+  stays while hovered (100 ms grace) and hides on blur or Escape; Toast takes `uiToastDuration`
+  (its own, its toaster's, 5000 ms). Angular's tree gains `dialog`; its Select and Menu listen on
+  their host. *Amended in implementation* (API delta §5, §6; TD delta DD-038): (1) the overlays are
+  React client components only, as T-214's; (2) a paused toast restarts its whole duration once
+  pointer and focus leave it: the time left would need a clock on the render path (Art. 4); (3) the
+  Toaster takes `tabindex="-1"` on F8, never in the server markup; (4) Angular's footer is
+  `<ng-template spFooter>` (`SpCardFooter`), the toast's action `<ng-template spAction>`. Tooling:
+  `trigger` and `active` are demo parts, not props; `select` joins `UI_VALUE_COMPONENTS`; the
+  `action` slot. Tests: `ui-overlays` ×3 adapters (36 PR fixtures each) plus Angular
+  `ui-overlays-client`, core `ui-overlay-sync`, tooling `ui-b`. RED on assertions against stubs;
+  mutants: 48 run, 41 red at once, 7 killed by added tests (a click on a dialog's content, an
+  option's press, a list reopened by a click, the menu fixture's own button, a form's `null` in
+  `sp-select`, a held-open tooltip asked to open). One found a bug: Angular's linked signal is lazy,
+  so a list closed and reopened between two reads kept its old active item; it is now read on
+  every render.
 
 ### 8e — Gates
 

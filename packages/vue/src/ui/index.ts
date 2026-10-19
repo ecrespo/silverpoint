@@ -29,6 +29,13 @@ export { SpPagination } from './pagination';
 export { SpCollapse, SpCollapseItem } from './collapse';
 export { SpTextarea } from './textarea';
 export { SpInputNumber } from './input-number';
+export { SpModal } from './modal';
+export { SpDrawer } from './drawer';
+export { SpPopover } from './popover';
+export { SpTooltip } from './tooltip';
+export { SpSelect } from './select';
+export { SpDropdownMenu } from './dropdown-menu';
+export { SpToast, SpToaster } from './toast';
 export type {
   AlertKind,
   SpAlertProps,
@@ -67,6 +74,15 @@ export type {
   SpCollapseItemProps,
   SpTextareaProps,
   SpInputNumberProps,
+  SpModalProps,
+  SpDrawerProps,
+  SpPopoverProps,
+  SpTooltipProps,
+  SpSelectProps,
+  SpDropdownMenuProps,
+  MenuEntry,
+  SpToastProps,
+  SpToasterProps,
   UiGlyph,
   UiItem,
   UiSize,

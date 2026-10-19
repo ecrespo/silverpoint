@@ -232,6 +232,9 @@ export function uiPlace(input: {
  * Client only, on open, scroll and resize.
  */
 export function uiAnchor(anchor: ElementLike, floating: ElementLike, options: AnchorOptions): () => void;  // returns the cleanup
+// Amended in implementation (T-215): opens or closes a <dialog> (showModal/show/close) or a popover
+// (showPopover/hidePopover) as `open` says, only from the other state; no Popover API, no call.
+export function uiOverlaySync(element: UiOverlayElement, kind: 'modal' | 'dialog' | 'popover', open: boolean): void;
 ```
 
 View functions, one per catalog row, as in `0.3.0`: `uiSurfaceView`, `uiGlyphView`, `uiTableView`,
@@ -305,12 +308,24 @@ every id is `${id}--${part}`; overlays emit `data-state="open|closed"`, never th
   Collapse with `onToggle`, and `SpTimeline`. *Amended in implementation (T-214):* Pagination, Collapse,
   CollapseItem, Textarea and InputNumber are client components only, with no `server/ui/*` entry, as
   `0.3.0`'s Input: a disabled CollapseItem is held shut by a handler.
+  *Amended in implementation (T-216):* the overlays are client components only too, and an overlay
+  finds its trigger as the element rendered just before it, so no ref is merged into the consumer's.
 - **Vue (§8.3):** slots `trigger`, `footer`, `action`, `extra`, `fallback`; `v-model`, `v-model:open`,
   `v-model:current`.
+  *Amended in implementation (T-216):* a `trigger` slot's first element is cloned with the ARIA and
+  the toggle; DropdownMenu emits `select(key)`, Select `update:modelValue(key)`.
 - **Angular (§8.2):** standalone, signal inputs, `OnPush`; `open = model<boolean>()`; triggers are
   projected with an `spTrigger` directive on the consumer's element (`<button spButton spTrigger>`);
   footers and actions as `<ng-template spFooter>`, `spAction`, `spExtra`, `spFallback`.
   `SpTextarea`, `SpInputNumber` and `SpSelect` extend `SpUiControl` (ControlValueAccessor).
+  *Amended in implementation (T-215, T-216):* `SpTrigger`, the base `SpUiOverlay` and the helpers
+  `uiOverlayNative` and `uiListKeys` live on a new entry, `@silverpoint/angular/ui/overlay`, apart
+  from `ui/base`: Angular's partial declarations are not tree-shaken, and in `ui/base` they put
+  every component over its REQ-330 budget (`SpDivider` at 8,217 B of 8 kB). Each overlay subpath
+  re-exports `SpTrigger`. A Modal's or Drawer's footer is `<ng-template spFooter>` (`SpCardFooter`,
+  re-exported); a toast's action is `<ng-template spAction>` (`SpToastAction`). `SpTrigger` writes
+  its ARIA on the server as well. The Select and the Menu listen on their host for the keys and
+  clicks of their tree.
 
 ## 6. Events and interaction (§9) — additions
 
@@ -318,7 +333,9 @@ Value and open events fire on user input only, never on a prop change, never whe
 (REQ-326). Overlay keyboard: `uiListKey` / `uiTypeahead` (REQ-494, REQ-495), the typeahead buffer
 reset 500 ms after the last key by the adapter. `SpModal` with `dismissible: false` cancels the
 dialog's `cancel` event. Toasts pause their timer on `pointerenter` and `focusin`. F8 moves focus to
-the toaster region.
+the toaster region. *Amended in implementation (T-216):* a paused toast counts its whole duration again once the
+pointer and focus have left it (no clock is read, Art. 4); F8 makes the region focusable
+(`tabindex="-1"`) as it moves focus there.
 
 ## 7. DOM and CSS contract (§10) — additions
 

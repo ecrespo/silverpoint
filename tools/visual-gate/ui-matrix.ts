@@ -71,30 +71,44 @@ export function uiMatrix(batches: readonly UiComponentRow['batch'][] = GATED_BAT
 }
 
 /** The components whose `value` each framework binds (REQ-322, REQ-488); a Progress's `value` is a plain prop, a Pagination binds `current`. */
-export const UI_VALUE_COMPONENTS: ReadonlySet<string> = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs', 'textarea', 'input-number']);
+export const UI_VALUE_COMPONENTS: ReadonlySet<string> = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs', 'textarea', 'input-number', 'select']);
 
 /** Demo keys that are content, not props: each adapter puts them in its slots. */
-const SLOTS = ['content', 'extra', 'footer'] as const;
+const SLOTS = ['content', 'extra', 'footer', 'action'] as const;
 export type UiSlotText = Partial<Record<(typeof SLOTS)[number], string>>;
 
 /**
  * What every adapter receives for a fixture: the demo's props with the fixture's ground, substrate,
  * mode and size; the value apart (each framework binds it in its own idiom); the slot text apart.
  */
-export function uiFixtureParts(fixture: UiFixture): { props: CommonUiProps & Record<string, unknown>; value: unknown; slots: UiSlotText } {
+export function uiFixtureParts(fixture: UiFixture): {
+  props: CommonUiProps & Record<string, unknown>;
+  value: unknown;
+  slots: UiSlotText;
+  /** An overlay's trigger text: the consumer's own element beside it, outside its tree (REQ-500). */
+  trigger?: string;
+  /** An open list's active item: state the adapter derives through `uiListKey`, never a prop (REQ-498). */
+  active?: string;
+} {
   const demo = UI_DEMOS[fixture.component]?.[fixture.state];
   if (!demo) throw new Error(`No demo ${fixture.component}/${fixture.state}`);
   const props: Record<string, unknown> = {};
   const slots: UiSlotText = {};
   let value: unknown;
+  let trigger: string | undefined;
+  let active: string | undefined;
   for (const [key, v] of Object.entries(demo)) {
     if ((SLOTS as readonly string[]).includes(key)) slots[key as (typeof SLOTS)[number]] = v as string;
     else if (key === 'value' && UI_VALUE_COMPONENTS.has(fixture.component)) value = v;
+    else if (key === 'trigger') trigger = v as string;
+    else if (key === 'active') active = v as string;
     else props[key] = v;
   }
   return {
     props: { ...props, ground: fixture.ground, substrate: fixture.substrate as CommonUiProps['substrate'], mode: fixture.mode, size: fixture.size },
     value,
     slots,
+    ...(trigger !== undefined ? { trigger } : {}),
+    ...(active !== undefined ? { active } : {}),
   };
 }

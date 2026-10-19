@@ -22,6 +22,7 @@ export { uiInitials } from './initials';
 export { uiListKey, uiTypeahead, type UiListResult, type UiListState } from './listbox';
 export { uiPlace, type UiAlign, type UiBox, type UiPlaceInput, type UiPlacement, type UiSide } from './place';
 export { uiAnchor, type UiAnchorFloating, type UiAnchorOptions, type UiAnchorTarget } from './anchor';
+export { uiOverlaySync, type UiOverlayElement, type UiOverlayKind } from './overlay';
 export {
   resolveUi,
   UI_GLYPHS,

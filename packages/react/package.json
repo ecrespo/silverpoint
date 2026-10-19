@@ -945,6 +945,48 @@
       "import": "./dist/ui/input-number.js",
       "default": "./dist/ui/input-number.js"
     },
+    "./ui/modal": {
+      "@silverpoint/source": "./src/ui/modal.tsx",
+      "types": "./dist/ui/modal.d.ts",
+      "import": "./dist/ui/modal.js",
+      "default": "./dist/ui/modal.js"
+    },
+    "./ui/drawer": {
+      "@silverpoint/source": "./src/ui/drawer.tsx",
+      "types": "./dist/ui/drawer.d.ts",
+      "import": "./dist/ui/drawer.js",
+      "default": "./dist/ui/drawer.js"
+    },
+    "./ui/popover": {
+      "@silverpoint/source": "./src/ui/popover.tsx",
+      "types": "./dist/ui/popover.d.ts",
+      "import": "./dist/ui/popover.js",
+      "default": "./dist/ui/popover.js"
+    },
+    "./ui/tooltip": {
+      "@silverpoint/source": "./src/ui/tooltip.tsx",
+      "types": "./dist/ui/tooltip.d.ts",
+      "import": "./dist/ui/tooltip.js",
+      "default": "./dist/ui/tooltip.js"
+    },
+    "./ui/select": {
+      "@silverpoint/source": "./src/ui/select.tsx",
+      "types": "./dist/ui/select.d.ts",
+      "import": "./dist/ui/select.js",
+      "default": "./dist/ui/select.js"
+    },
+    "./ui/dropdown-menu": {
+      "@silverpoint/source": "./src/ui/dropdown-menu.tsx",
+      "types": "./dist/ui/dropdown-menu.d.ts",
+      "import": "./dist/ui/dropdown-menu.js",
+      "default": "./dist/ui/dropdown-menu.js"
+    },
+    "./ui/toast": {
+      "@silverpoint/source": "./src/ui/toast.tsx",
+      "types": "./dist/ui/toast.d.ts",
+      "import": "./dist/ui/toast.js",
+      "default": "./dist/ui/toast.js"
+    },
     "./server/ui/card": {
       "@silverpoint/source": "./src/server/ui/card.tsx",
       "types": "./dist/server/ui/card.d.ts",

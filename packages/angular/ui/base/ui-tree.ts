@@ -92,6 +92,7 @@ export class SpUiAttrs implements OnChanges {
     `@case ('dl') {<dl [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dl>}` +
     `@case ('dt') {<dt [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dt>}` +
     `@case ('dd') {<dd [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dd>}` +
+    `@case ('dialog') {<dialog [spUiAttrs]="n.attrs"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></dialog>}` +
     `@case ('img') {<img [spUiAttrs]="n.attrs" />}` +
     `@case ('details') {<details [spUiAttrs]="n.attrs" (toggle)="toggled.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></details>}` +
     `@case ('summary') {<summary [spUiAttrs]="n.attrs" (click)="clicked.emit($event)"><ng-container *ngTemplateOutlet="kids; context: { $implicit: n }" /></summary>}` +

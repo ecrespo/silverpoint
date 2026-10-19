@@ -19,6 +19,13 @@ import {
   uiCollapseGroup,
   uiCollapseItemView,
   uiCollapseView,
+  uiDrawerView,
+  uiDropdownMenuView,
+  uiModalView,
+  uiPopoverView,
+  uiSelectView,
+  uiToastView,
+  uiTooltipView,
   uiInputNumberView,
   uiPaginationView,
   uiTextareaView,
@@ -68,8 +75,9 @@ export function serializeUi(node: UiNode, slots: Readonly<Record<string, string 
 
 /** The core's view of a fixture: the tree every adapter must write. */
 export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiSlotText } {
-  const { props, value, slots } = uiFixtureParts(fixture);
+  const { props, value, slots, active } = uiFixtureParts(fixture);
   const r = resolveUi(props, {});
+  const open = (props as { open?: boolean }).open === true;
   const p = props as never;
   switch (fixture.component) {
     case 'button':
@@ -130,6 +138,20 @@ export function uiFixtureView(fixture: UiFixture): { view: UiElement; slots: UiS
       return { view: uiTextareaView(p, r, { value: (value as string | undefined) ?? '' }), slots };
     case 'input-number':
       return { view: uiInputNumberView(p, r, { value: (value as number | undefined) ?? null }), slots };
+    case 'modal':
+      return { view: uiModalView(p, r, { open }, { footer: slots.footer !== undefined }), slots };
+    case 'drawer':
+      return { view: uiDrawerView(p, r, { open }, { footer: slots.footer !== undefined }), slots };
+    case 'popover':
+      return { view: uiPopoverView(p, r, { open }), slots };
+    case 'tooltip':
+      return { view: uiTooltipView(p, r, { open }), slots };
+    case 'select':
+      return { view: uiSelectView(p, r, { value: (value as string | null | undefined) ?? null, open, active: active ?? null }), slots };
+    case 'dropdown-menu':
+      return { view: uiDropdownMenuView(p, r, { open, active: active ?? null }, { trigger: false }), slots };
+    case 'toast':
+      return { view: uiToastView(p, r, { open }, { action: slots.action !== undefined }), slots };
     default:
       throw new Error(`No view for ${fixture.component}`);
   }

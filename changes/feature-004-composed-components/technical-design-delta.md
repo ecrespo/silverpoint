@@ -105,6 +105,14 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
 - **Server render:** an overlay renders `data-state="open|closed"` and its full content; it never
   writes the `open` attribute (a `<dialog open>` would be non-modal) nor a position. The adapter
   calls `showModal()`/`showPopover()` after hydration and `uiAnchor` after that (REQ-502).
+  *Amended in implementation (T-215):* the open and close calls are the core's `uiOverlaySync(element,
+  kind, open)`: it calls them only when the element is in the other state, so no second `close` or
+  `toggle` fires, and without the Popover API it leaves a popover in the page's flow. `uiAnchor`
+  hangs an overlay from the element just before it (React, Vue, and the Select and Menu's own
+  buttons) or from the Angular `spTrigger`, as an Angular host sits between the two. A toast's pause
+  restarts its whole duration when the pointer and focus leave: measuring the time left would read
+  a clock on the render path (Art. 4). The Toaster takes `tabindex="-1"` when F8 is pressed, never in
+  the server markup.
 - **Backdrop** (REQ-499): `::backdrop` is painted by `ui.css` with the level-2 tone mask over a
   transparent background; hatch lines leave the page visible between them, so no opacity is needed.
   Under `weight` grounds and in `precision`, `background: var(--sp-substrate)` at the ground's
