@@ -1,0 +1,13 @@
+{
+  "id": "input-number--at-min--silverpoint--blue--ink",
+  "component": "input-number",
+  "state": "at-min",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input-number--at-min--silverpoint--blue--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "collapse--one-open--silverpoint--cream--ink",
+  "component": "collapse",
+  "state": "one-open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/collapse--one-open--silverpoint--cream--ink.canonical.txt"
+}

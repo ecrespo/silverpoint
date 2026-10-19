@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--plain--silverpoint--green--ink",
+  "component": "descriptions",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/descriptions--plain--silverpoint--green--ink.canonical.txt"
+}

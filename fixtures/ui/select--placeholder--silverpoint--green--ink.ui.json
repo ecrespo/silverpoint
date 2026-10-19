@@ -1,0 +1,13 @@
+{
+  "id": "select--placeholder--silverpoint--green--ink",
+  "component": "select",
+  "state": "placeholder",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/select--placeholder--silverpoint--green--ink.canonical.txt"
+}

@@ -156,6 +156,25 @@ export function dashboardPage(/** @type {string} */ search) {
 import {
   resolveUi,
   UI_COMPONENTS,
+  uiAvatarView,
+  uiBreadcrumbView,
+  uiDescriptionsView,
+  uiDrawerView,
+  uiDropdownMenuView,
+  uiEmptyView,
+  uiInputNumberView,
+  uiModalView,
+  uiPaginationView,
+  uiPopoverView,
+  uiResultView,
+  uiSelectView,
+  uiStatisticView,
+  uiSurfaceView,
+  uiTableView,
+  uiTextareaView,
+  uiTimelineListView,
+  uiToastView,
+  uiTooltipView,
   uiAlertView,
   uiBadgeView,
   uiButtonView,
@@ -176,14 +195,14 @@ import {
 } from '@silverpoint/core/ui';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 
-/** The batches of step 6c whose adapters exist. */
-const UI_GATED_BATCHES = ['B1', 'B2', 'B3'];
+/** The batches whose adapters exist: 0.3.0's B1..B3 and feature-004's A1, A2 and B (T-218). */
+const UI_GATED_BATCHES = ['B1', 'B2', 'B3', 'A1', 'A2', 'B'];
 const UI_GROUND_SUBSTRATES = [
   ...['cream', 'green', 'blue', 'ochre'].map((substrate) => ({ ground: 'silverpoint', substrate })),
   { ground: 'cyanotype', substrate: 'prussian' },
 ];
 const UI_SIZED = new Set(['button', 'input', 'segmented']);
-const UI_WIDE = new Set(['card', 'alert']);
+const UI_WIDE = new Set(['card', 'alert', 'table', 'descriptions', 'timeline-list', 'collapse', 'result']);
 const UI_PR_GROUNDS = new Set(['silverpoint/cream', 'cyanotype/prussian']);
 
 /** Every UI fixture: the nightly matrix. */
@@ -227,9 +246,9 @@ export function uiSizeOf(/** @type {{ width: number }} */ fixture) {
   return fixture.width === 640 ? 'lg' : 'md';
 }
 
-const UI_SLOTS = ['content', 'extra', 'footer'];
+const UI_SLOTS = ['content', 'extra', 'footer', 'action'];
 /** The components whose `value` each framework binds; a Progress's `value` is a plain prop. */
-export const UI_VALUE_COMPONENTS = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs']);
+export const UI_VALUE_COMPONENTS = new Set(['input', 'checkbox', 'radio-group', 'switch', 'slider', 'rate', 'segmented', 'tabs', 'textarea', 'input-number', 'select']);
 
 /**
  * What every app receives for a UI fixture: the demo's props with the fixture's ground, substrate,
@@ -241,12 +260,23 @@ export function uiFixtureParts(fixture) {
   /** @type {Record<string, unknown>} */ const props = {};
   /** @type {Record<string, string>} */ const slots = {};
   let value;
+  /** @type {string | undefined} */ let trigger;
+  /** @type {string | undefined} */ let active;
   for (const [key, v] of Object.entries(demo)) {
     if (UI_SLOTS.includes(key)) slots[key] = /** @type {string} */ (v);
     else if (key === 'value' && UI_VALUE_COMPONENTS.has(fixture.component)) value = v;
+    // An overlay's trigger is the consumer's element beside it; an open list's active item is state (REQ-498).
+    else if (key === 'trigger') trigger = /** @type {string} */ (v);
+    else if (key === 'active') active = /** @type {string} */ (v);
     else props[key] = v;
   }
-  return { props: { ...props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, size: fixture.size }, value, slots };
+  return {
+    props: { ...props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, size: fixture.size },
+    value,
+    slots,
+    ...(trigger !== undefined ? { trigger } : {}),
+    ...(active !== undefined ? { active } : {}),
+  };
 }
 
 /**
@@ -254,7 +284,8 @@ export function uiFixtureParts(fixture) {
  * @param {(typeof UI_FIXTURES)[number]} fixture
  */
 export function uiFixtureView(fixture) {
-  const { props, value, slots } = uiFixtureParts(fixture);
+  const { props, value, slots, active } = uiFixtureParts(fixture);
+  const open = props.open === true;
   const r = resolveUi(props, {});
   const p = /** @type {never} */ (props);
   const views = {
@@ -275,6 +306,25 @@ export function uiFixtureView(fixture) {
     progress: () => uiProgressView(p, r),
     alert: () => uiAlertView(p, r, { closable: props.closable === true }),
     skeleton: () => uiSkeletonView(p, r),
+    surface: () => uiSurfaceView(p, r),
+    table: () => uiTableView(p, r),
+    breadcrumb: () => uiBreadcrumbView(p, r),
+    avatar: () => uiAvatarView(p, r),
+    statistic: () => uiStatisticView(p, r),
+    descriptions: () => uiDescriptionsView(p, r),
+    'timeline-list': () => uiTimelineListView(p, r),
+    empty: () => uiEmptyView(p, r, { extra: slots.extra !== undefined }),
+    result: () => uiResultView(p, r, { extra: slots.extra !== undefined }),
+    pagination: () => uiPaginationView(p, r, { current: /** @type {number | undefined} */ (props.current) ?? 1 }),
+    textarea: () => uiTextareaView(p, r, { value: /** @type {string | undefined} */ (value) ?? '' }),
+    'input-number': () => uiInputNumberView(p, r, { value: /** @type {number | undefined} */ (value) ?? null }),
+    modal: () => uiModalView(p, r, { open }, { footer: slots.footer !== undefined }),
+    drawer: () => uiDrawerView(p, r, { open }, { footer: slots.footer !== undefined }),
+    popover: () => uiPopoverView(p, r, { open }),
+    tooltip: () => uiTooltipView(p, r, { open }),
+    select: () => uiSelectView(p, r, { value: /** @type {string | null | undefined} */ (value) ?? null, open, active: active ?? null }),
+    'dropdown-menu': () => uiDropdownMenuView(p, r, { open, active: active ?? null }, { trigger: false }),
+    toast: () => uiToastView(p, r, { open }, { action: slots.action !== undefined }),
   };
   return { view: views[/** @type {keyof typeof views} */ (fixture.component)](), slots };
 }

@@ -1,0 +1,13 @@
+{
+  "id": "surface--tone-2--silverpoint--blue--ink",
+  "component": "surface",
+  "state": "tone-2",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/surface--tone-2--silverpoint--blue--ink.canonical.txt"
+}

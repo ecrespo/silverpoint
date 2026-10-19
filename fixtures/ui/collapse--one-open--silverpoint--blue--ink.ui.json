@@ -1,0 +1,13 @@
+{
+  "id": "collapse--one-open--silverpoint--blue--ink",
+  "component": "collapse",
+  "state": "one-open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/collapse--one-open--silverpoint--blue--ink.canonical.txt"
+}

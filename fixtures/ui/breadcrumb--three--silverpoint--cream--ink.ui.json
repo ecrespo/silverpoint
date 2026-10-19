@@ -1,0 +1,13 @@
+{
+  "id": "breadcrumb--three--silverpoint--cream--ink",
+  "component": "breadcrumb",
+  "state": "three",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/breadcrumb--three--silverpoint--cream--ink.canonical.txt"
+}

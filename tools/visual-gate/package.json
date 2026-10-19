@@ -11,7 +11,9 @@
     "dashboard-canonical": "tsx --conditions=@silverpoint/source dashboard-canonical.ts",
     "dashboard-gate": "tsx dashboard-gate.ts",
     "ui-canonical": "tsx --conditions=@silverpoint/source ui-canonical.ts",
-    "ui-gate": "tsx ui-gate.ts"
+    "ui-gate": "tsx ui-gate.ts",
+    "palette-canonical": "tsx --conditions=@silverpoint/source palette-fixtures.ts",
+    "palette-gate": "tsx palette-gate.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",

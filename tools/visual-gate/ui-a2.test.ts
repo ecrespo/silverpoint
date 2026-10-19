@@ -6,7 +6,7 @@ import { uiFixtureParts, uiMatrix, UI_VALUE_COMPONENTS } from './ui-matrix';
 
 /*
  * The A2 batch's fixtures, ahead of the gates (T-214): Pagination, Collapse, Textarea and
- * InputNumber. The batch joins GATED_BATCHES, the goldens and the harness in T-218.
+ * InputNumber. The batch joined GATED_BATCHES and the harness in T-218, the goldens in T-219.
  */
 
 const A2 = UI_COMPONENTS.filter((c) => c.batch === 'A2');

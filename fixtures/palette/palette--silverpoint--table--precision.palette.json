@@ -1,0 +1,9 @@
+{
+  "id": "palette--silverpoint--table--precision",
+  "preset": "silverpoint",
+  "target": "table",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--silverpoint--table--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "avatar--group--silverpoint--cream--ink",
+  "component": "avatar",
+  "state": "group",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/avatar--group--silverpoint--cream--ink.canonical.txt"
+}

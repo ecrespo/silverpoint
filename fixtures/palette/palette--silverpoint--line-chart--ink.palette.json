@@ -1,0 +1,9 @@
+{
+  "id": "palette--silverpoint--line-chart--ink",
+  "preset": "silverpoint",
+  "target": "line-chart",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--silverpoint--line-chart--ink.canonical.txt"
+}

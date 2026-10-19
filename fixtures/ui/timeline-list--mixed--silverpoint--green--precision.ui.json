@@ -1,0 +1,13 @@
+{
+  "id": "timeline-list--mixed--silverpoint--green--precision",
+  "component": "timeline-list",
+  "state": "mixed",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/timeline-list--mixed--silverpoint--green--precision.canonical.txt"
+}

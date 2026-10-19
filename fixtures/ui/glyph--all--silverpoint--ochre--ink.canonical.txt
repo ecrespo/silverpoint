@@ -1,0 +1,35 @@
+<#roots>
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="tick" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="dash" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M4,8H12">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="cross" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="warning" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,2.5L14.5,13.5H1.5Z M8,6.5V9.5 M8,11.5V11.5">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="dot" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M11,8A3,3 0 1,1 5,8A3,3 0 1,1 11,8Z">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="lozenge" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,1.5L14.5,8L8,14.5L1.5,8Z">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="info" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M14.5,8A6.5,6.5 0 1,1 1.5,8A6.5,6.5 0 1,1 14.5,8Z M8,7.5V11.5 M8,4.75V4.75">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="plus" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,3.5V12.5M3.5,8H12.5">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="chevronDown" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M4,6L8,10L12,6">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="chevronRight" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M6,4L10,8L6,12">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="chevronLeft" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M10,4L6,8L10,12">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="arrowUp" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,12.5V3.5M4.5,7L8,3.5L11.5,7">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="arrowDown" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M8,3.5V12.5M4.5,9L8,12.5L11.5,9">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="sortUp" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M5,9.5L8,5.5L11,9.5Z">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="sortDown" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M5,6.5L8,10.5L11,6.5Z">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="sort" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M5,7L8,3.5L11,7Z M5,9L8,12.5L11,9Z">
+  <svg aria-hidden="true" class="sp-ui sp-glyph sp-ground-silverpoint" data-frame="0" data-glyph="ellipsis" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="ochre" part="sp-mark" viewBox="0 0 16 16">
+    <path d="M3.5,8V8 M8,8V8 M12.5,8V8">

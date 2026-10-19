@@ -1,0 +1,13 @@
+<dialog aria-describedby="modal--open--description" aria-labelledby="modal--open--title" class="sp-ui sp-modal sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-state="open" data-substrate="cream" id="modal--open--dialog">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-overlay-header">
+    <h2 class="sp-ui-overlay-title" id="modal--open--title">
+      "Edit order"
+    <button aria-label="Close" class="sp-ui-icon-button" type="button">
+      <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+  <span aria-hidden="true" part="sp-rule">
+  <p class="sp-ui-overlay-description" id="modal--open--description">
+    "Order 1042, placed on 14 October."
+  <div class="sp-ui-overlay-body">
+    "Changes reach the workshop before the order is packed."

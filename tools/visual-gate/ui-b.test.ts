@@ -7,7 +7,7 @@ import { uiFixtureParts, uiMatrix, UI_VALUE_COMPONENTS } from './ui-matrix';
 /*
  * The overlay batch's fixtures, ahead of the gates (T-215, T-216): the overlay's own root, rendered
  * on the server as it opens (REQ-502). A consumer's trigger beside it is not part of the component's
- * tree; each adapter's tests check its ARIA (REQ-500). The batch joins GATED_BATCHES in T-218.
+ * tree; each adapter's tests check its ARIA (REQ-500). The batch joined GATED_BATCHES in T-218.
  */
 
 const B = UI_COMPONENTS.filter((c) => c.batch === 'B');

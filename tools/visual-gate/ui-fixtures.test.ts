@@ -9,17 +9,24 @@ import { GATED_UI, loadUiFixtures, uiFixtureParts, uiMatrix } from './ui-fixture
 import { committedUi, runUiGate } from './ui-gate';
 
 describe('UI fixture matrix (T-153)', () => {
-  test('REQ-327 · REQ-182 · Data Model §5: the 17 components, every state × 5 ground substrates × 2 modes, plus sm and lg of Button, Input and Segmented', () => {
-    expect(GATED_UI).toHaveLength(17);
+  test('REQ-327 · REQ-182 · REQ-516 · Data Model §5: the 38 components, every state × 5 ground substrates × 2 modes, plus sm and lg of Button, Input and Segmented', () => {
+    // 0.3.0's 17 components (45 states) and feature-004's batches A1, A2 and B (21 components, 35 states).
+    expect(GATED_UI).toHaveLength(38);
     const states = GATED_UI.reduce((n, c) => n + c.states.length, 0);
-    expect(states).toBe(45);
+    expect(states).toBe(80);
     const matrix = uiMatrix();
-    expect(matrix).toHaveLength(510);
+    expect(matrix).toHaveLength(860);
     expect(matrix).toHaveLength(states * 10 + 3 * 2 * 10);
     expect(new Set(matrix.map((f) => f.id)).size).toBe(matrix.length);
     // On every PR: every state × 2 modes × silverpoint/cream and cyanotype/prussian (Data Model §5).
     expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(states * 2 * 2);
-    expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(180);
+    expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(320);
+  });
+
+  test('REQ-516 · DD-043 · the harness widths: 640 for Table, Descriptions, TimelineList, Collapse and Result', () => {
+    const width = (component: string) => uiMatrix().find((f) => f.component === component)!.width;
+    for (const component of ['table', 'descriptions', 'timeline-list', 'collapse', 'result']) expect(width(component), component).toBe(640);
+    for (const component of ['glyph', 'select', 'modal']) expect(width(component), component).toBe(320);
   });
 
   test('REQ-329 · a fixture carries its component, state, ground and harness width; Card is laid out at 640', () => {
@@ -60,7 +67,10 @@ describe('the reference writer (T-153)', () => {
   test('REQ-327 · every fixture has a canonical markup whose root is the component', () => {
     for (const fixture of uiMatrix()) {
       const markup = canonicalUiMarkup(fixture);
-      expect(parseUi(markup).attrs.find(([n]) => n === 'class')?.[1]).toContain(`sp-${fixture.component}`);
+      // Several roots side by side (Glyph `all`) are each the component.
+      const tree = parseUi(markup);
+      const roots = tree.tag === '#roots' ? (tree.children as typeof tree[]) : [tree];
+      for (const root of roots) expect(root.attrs.find(([n]) => n === 'class')?.[1], fixture.id).toContain(`sp-${fixture.component}`);
     }
   });
 });
@@ -92,7 +102,7 @@ describe('committed UI fixtures (T-153, T-154)', () => {
     const committed = loadUiFixtures();
     expect(committed.map((f) => f.id)).toEqual(uiMatrix().map((f) => f.id).sort());
     for (const fixture of committed) expect(readFileSync(`${FIXTURES_DIR}/${fixture.canonical}`, 'utf8'), fixture.id).toBe(canonicalUiFor(fixture));
-    expect(loadUiFixtures('pr')).toHaveLength(180);
+    expect(loadUiFixtures('pr')).toHaveLength(320);
   });
 
   test('REQ-327 · the gate compares with the committed file, and an adapter that moves one attribute fails', async () => {

@@ -1,0 +1,9 @@
+{
+  "id": "palette--verdigris--table--precision",
+  "preset": "verdigris",
+  "target": "table",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--verdigris--table--precision.canonical.txt"
+}

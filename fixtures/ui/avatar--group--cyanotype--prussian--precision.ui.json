@@ -1,0 +1,13 @@
+{
+  "id": "avatar--group--cyanotype--prussian--precision",
+  "component": "avatar",
+  "state": "group",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/avatar--group--cyanotype--prussian--precision.canonical.txt"
+}

@@ -1,0 +1,9 @@
+<div class="sp-ui sp-result sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-status="success" data-substrate="blue" id="result--success" role="status">
+  <span aria-hidden="true" class="sp-ui-result-mark">
+    <span aria-hidden="true" data-kind="round" part="sp-frame">
+    <svg aria-hidden="true" data-glyph="tick" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+  <h3 class="sp-ui-result-title">
+    "Order placed"
+  <p class="sp-ui-result-subtitle">
+    "Order 1042 is on its way to the workshop."

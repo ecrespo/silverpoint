@@ -1,0 +1,13 @@
+{
+  "id": "empty--plain--silverpoint--green--precision",
+  "component": "empty",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/empty--plain--silverpoint--green--precision.canonical.txt"
+}

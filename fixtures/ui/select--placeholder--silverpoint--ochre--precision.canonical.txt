@@ -1,0 +1,26 @@
+<span class="sp-ui sp-select sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="select--placeholder">
+  <button aria-controls="select--placeholder--listbox" aria-expanded="false" aria-haspopup="listbox" aria-label="Status" class="sp-ui-select-trigger" role="combobox" type="button">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <span class="sp-ui-select-value" data-placeholder="true">
+      "Select…"
+    <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4,6L8,10L12,6">
+  <div class="sp-ui-select-content" data-state="closed" popover="auto">
+    <span aria-hidden="true" data-kind="card" part="sp-frame">
+    <div aria-label="Status" id="select--placeholder--listbox" role="listbox">
+      <div aria-selected="false" class="sp-ui-option" data-key="placed" id="select--placeholder--option-placed" role="option">
+        <span class="sp-ui-label">
+          "Placed"
+      <div aria-selected="false" class="sp-ui-option" data-key="paid" id="select--placeholder--option-paid" role="option">
+        <span class="sp-ui-label">
+          "Paid"
+      <div aria-selected="false" class="sp-ui-option" data-key="packed" id="select--placeholder--option-packed" role="option">
+        <span class="sp-ui-label">
+          "Packed"
+      <div aria-selected="false" class="sp-ui-option" data-key="shipped" id="select--placeholder--option-shipped" role="option">
+        <span class="sp-ui-label">
+          "Shipped"
+      <div aria-disabled="true" aria-selected="false" class="sp-ui-option" data-key="returned" id="select--placeholder--option-returned" role="option">
+        <span class="sp-ui-label">
+          "Returned"
+  <input name="status" type="hidden" value="">

@@ -1,0 +1,13 @@
+{
+  "id": "collapse--accordion-disabled--silverpoint--cream--precision",
+  "component": "collapse",
+  "state": "accordion-disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/collapse--accordion-disabled--silverpoint--cream--precision.canonical.txt"
+}

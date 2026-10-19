@@ -1,0 +1,9 @@
+{
+  "id": "palette--ironGall--line-chart--ink",
+  "preset": "ironGall",
+  "target": "line-chart",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--ironGall--line-chart--ink.canonical.txt"
+}

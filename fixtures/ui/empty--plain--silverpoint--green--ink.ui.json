@@ -1,0 +1,13 @@
+{
+  "id": "empty--plain--silverpoint--green--ink",
+  "component": "empty",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/empty--plain--silverpoint--green--ink.canonical.txt"
+}

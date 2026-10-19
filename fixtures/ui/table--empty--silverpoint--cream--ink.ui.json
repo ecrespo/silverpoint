@@ -1,0 +1,13 @@
+{
+  "id": "table--empty--silverpoint--cream--ink",
+  "component": "table",
+  "state": "empty",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/table--empty--silverpoint--cream--ink.canonical.txt"
+}

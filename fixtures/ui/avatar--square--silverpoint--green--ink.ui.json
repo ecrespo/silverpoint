@@ -1,0 +1,13 @@
+{
+  "id": "avatar--square--silverpoint--green--ink",
+  "component": "avatar",
+  "state": "square",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/avatar--square--silverpoint--green--ink.canonical.txt"
+}

@@ -1,0 +1,35 @@
+<nav aria-label="Pagination" class="sp-ui sp-pagination sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="pagination--total">
+  <span class="sp-ui-page-total">
+    "1–10 of 48"
+  <ul class="sp-ui-pages">
+    <li>
+      <button aria-label="Previous page" class="sp-ui-page" data-page="0" disabled="" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <svg aria-hidden="true" data-glyph="chevronLeft" part="sp-mark" viewBox="0 0 16 16">
+          <path d="M10,4L6,8L10,12">
+    <li>
+      <span aria-current="page" class="sp-ui-page">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span aria-hidden="true" part="sp-heighten">
+        <span class="sp-ui-label sp-ui-plate">
+          <span class="sp-ui-sr">
+            "Page"
+          "1"
+    <li>
+      <button aria-label="Page 2" class="sp-ui-page" data-page="2" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "2"
+    <li aria-hidden="true" class="sp-ui-page-gap">
+      <svg aria-hidden="true" data-glyph="ellipsis" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M3.5,8V8 M8,8V8 M12.5,8V8">
+    <li>
+      <button aria-label="Page 5" class="sp-ui-page" data-page="5" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "5"
+    <li>
+      <button aria-label="Next page" class="sp-ui-page" data-page="2" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <svg aria-hidden="true" data-glyph="chevronRight" part="sp-mark" viewBox="0 0 16 16">
+          <path d="M6,4L10,8L6,12">

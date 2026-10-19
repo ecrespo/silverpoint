@@ -1,0 +1,90 @@
+<div class="sp-ui sp-table sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-hoverable="true" data-mode="ink" data-size="md" data-striped="true" data-substrate="green" id="table--sorted-striped">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-table-scroll">
+    <table class="sp-ui-table">
+      <caption>
+        "Orders"
+      <thead>
+        <tr>
+          <th scope="col">
+            "Order"
+          <th scope="col">
+            <button class="sp-ui-sort" data-key="customer" type="button">
+              <span class="sp-ui-label">
+                "Customer"
+              <svg aria-hidden="true" data-glyph="sort" part="sp-mark" viewBox="0 0 16 16">
+                <path d="M5,7L8,3.5L11,7Z M5,9L8,12.5L11,9Z">
+          <th scope="col">
+            "Status"
+          <th aria-sort="descending" data-align="end" scope="col">
+            <button class="sp-ui-sort" data-key="amount" type="button">
+              <span class="sp-ui-label">
+                "Amount"
+              <svg aria-hidden="true" data-glyph="sortDown" part="sp-mark" viewBox="0 0 16 16">
+                <path d="M5,6.5L8,10.5L11,6.5Z">
+      <tbody>
+        <tr data-key="1044">
+          <td>
+            <span class="sp-ui-plate">
+              "1044"
+          <td>
+            <span class="sp-ui-plate">
+              "Alan Turing"
+          <td>
+            <span class="sp-ui-plate">
+              "Paid"
+          <td data-align="end">
+            <span class="sp-ui-plate">
+              "312"
+        <tr data-key="1042">
+          <td>
+            <span class="sp-ui-plate">
+              "1042"
+          <td>
+            <span class="sp-ui-plate">
+              "Ada Lovelace"
+          <td>
+            <span class="sp-ui-plate">
+              "Shipped"
+          <td data-align="end">
+            <span class="sp-ui-plate">
+              "128"
+        <tr data-key="1046">
+          <td>
+            <span class="sp-ui-plate">
+              "1046"
+          <td>
+            <span class="sp-ui-plate">
+              "Kurt Gödel"
+          <td>
+            <span class="sp-ui-plate">
+              "Shipped"
+          <td data-align="end">
+            <span class="sp-ui-plate">
+              "96"
+        <tr data-key="1043">
+          <td>
+            <span class="sp-ui-plate">
+              "1043"
+          <td>
+            <span class="sp-ui-plate">
+              "Grace Hopper"
+          <td>
+            <span class="sp-ui-plate">
+              "Packed"
+          <td data-align="end">
+            <span class="sp-ui-plate">
+              "64.5"
+        <tr data-key="1045">
+          <td>
+            <span class="sp-ui-plate">
+              "1045"
+          <td>
+            <span class="sp-ui-plate">
+              "Emmy Noether"
+          <td>
+            <span class="sp-ui-plate">
+              "Placed"
+          <td data-align="end">
+            <span class="sp-ui-plate">
+              "18.25"

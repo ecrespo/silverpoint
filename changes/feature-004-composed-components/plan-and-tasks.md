@@ -346,14 +346,41 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8e — Gates
 
-**[ ] T-217 · Fixture generation** — REQ-516
+**[x] T-217 · Fixture generation** — REQ-516
 - `tools/visual-gate`: fixtures for the 36 states on the axes of Data Model §5 and the 36 palette
   fixtures; canonical renders from the core trees.
 - **Done:** 396 nightly / 180 PR fixtures written.
+- **Ledger (2026-10-19):** `ui-canonical` writes the 35 states of batches A1, A2 and B on the five
+  ground × substrate axes and two modes: 350 new UI fixtures (140 PR), 860 in all (320 PR); the
+  committed 0.3.0 canonicals are unchanged. `palette-fixtures.ts` (`palette-canonical`) writes the
+  36 palette fixtures, `palette--<preset>--<target>--<mode>`, all PR: the card's `titled` and the
+  table's `plain` state, and the committed `md` LineChart cell, on silverpoint/cream with the preset
+  added. The composed demos (Glyph `all`, Avatar `group`, Collapse) are serialised piece by piece
+  (`composedMarkup`, `isComposedUi`). *Amended in implementation* (Data Model §5): (1) the Timeline's
+  `surface` state comes with its component in T-221; with it the counts are §5's (360 nightly / 144
+  PR, and the 36 palette fixtures: 396 / 180); (2) a UI fixture may name a `palette`, resolved
+  through `PALETTES`, and an unknown name is an error.
 
-**[ ] T-218 · Tree gate and mode invariance** — REQ-516, REQ-468, REQ-522
+**[x] T-218 · Tree gate and mode invariance** — REQ-516, REQ-468, REQ-522
 - Add the batches to `GATED_BATCHES` and `UI_GATED_BATCHES`; I-17 over the new rows.
 - **Done:** gate green for the three adapters.
+- **Ledger (2026-10-19):** A1, A2 and B join `GATED_BATCHES` and `UI_GATED_BATCHES`; the UI gate
+  compares 320 PR fixtures × 3 adapters, and I-17 runs over the new rows. The fixture renderers
+  (`ui-renderers.ts`) compose the demos in each adapter's own idiom (a React Fragment and children,
+  Vue slots, Angular templates with `spTrigger`, `spExtra`, `spFooter`, `spAction`). The new palette
+  gate (`palette-gate.ts`, `palette-gate.real.test.ts` in `gates`) compares the 36 palette fixtures
+  × 3 adapters. The harness (`examples/harness/index.js`) renders the 21 new components.
+  *Amended in implementation* (TD delta DD-043): (1) a chart's palette is on the adapter's
+  `.sp-root` frame, and the core's `toSVGString` writes it on the `<svg>` (REQ-461): the palette
+  gate compares the trees with the `<svg>`'s `style` set aside, then the two styles as sorted
+  declarations (I-25); (2) the harness widths add TimelineList and Result to the 640 px row, as
+  DD-043 lists; (3) the harness's own view-parity test skips the composed fixtures, which have no
+  single view; their parity is the UI gate's. A bug found on the way, fixed test-first (DD-017):
+  the normaliser rounded the numbers inside a hex colour of a `style` (`#5A5E7A` read `5E7` as a
+  number); hex tokens are now kept whole. Tests: `ui-fixtures` (38 components, 80 states, 860
+  fixtures), `palette-fixtures`, `palette-gate`, `normalize`, `ui-a1`, `harness`; mutants: 20 run,
+  18 red at once; one killed by an added test (declarations spaced unlike the canonical's), one was a
+  redundant `palette` spread in the renderers and is removed.
 
 **[ ] T-219 · Pixel gates (Docker)** — REQ-517
 - Overlays open in the harness; goldens with `--update-snapshots=missing`.

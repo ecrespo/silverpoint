@@ -1,0 +1,13 @@
+<div class="sp-ui sp-statistic sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="blue" data-trend="down" id="statistic--trend-down">
+  <span class="sp-ui-statistic-title">
+    "Returns"
+  <span class="sp-ui-statistic-value">
+    <span class="sp-ui-statistic-number">
+      "3.1"
+    <span class="sp-ui-statistic-affix">
+      "%"
+  <span class="sp-ui-statistic-trend" data-trend="down">
+    <svg aria-hidden="true" data-glyph="arrowDown" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M8,3.5V12.5M4.5,9L8,12.5L11.5,9">
+    <span class="sp-ui-statistic-delta">
+      "−0.4%"

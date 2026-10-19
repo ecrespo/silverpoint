@@ -1,0 +1,7 @@
+<span class="sp-ui sp-input sp-textarea sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="ink" data-size="md" data-substrate="prussian">
+  <span class="sp-ui-box">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <textarea aria-label="Notes" class="sp-ui-control" id="textarea--count" maxlength="120" name="notes" rows="3">
+      "Leave it at the door."
+  <span class="sp-ui-count">
+    "21 / 120"

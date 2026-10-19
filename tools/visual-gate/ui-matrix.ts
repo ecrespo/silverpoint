@@ -4,6 +4,7 @@
  * carries its canonical render, written from the core's view alone (ui-canonical.ts).
  */
 import { UI_COMPONENTS, type CommonUiProps, type UiComponentRow, type UiSize } from '@silverpoint/core/ui';
+import { PALETTES } from '@silverpoint/core/palettes';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 
 /** Each ground with its substrates, as the chart and dashboard matrices have them. No `fs` here: adapter tests import this. */
@@ -12,14 +13,14 @@ const GROUND_SUBSTRATES = [
   { ground: 'cyanotype', substrate: 'prussian' },
 ] as const;
 
-/** The batches of step 6c whose adapters exist; a batch joins every gate by joining this list. */
-export const GATED_BATCHES: readonly UiComponentRow['batch'][] = ['B1', 'B2', 'B3'];
+/** The batches whose adapters exist: 0.3.0's B1..B3 and feature-004's A1, A2 and B (T-218). A batch joins every gate by joining this list. */
+export const GATED_BATCHES: readonly UiComponentRow['batch'][] = ['B1', 'B2', 'B3', 'A1', 'A2', 'B'];
 export const GATED_UI: readonly UiComponentRow[] = UI_COMPONENTS.filter((c) => GATED_BATCHES.includes(c.batch));
 
 /** Components drawn at every size, in their first state (nightly; Data Model §5). */
 const SIZED: ReadonlySet<string> = new Set(['button', 'input', 'segmented']);
-/** Harness widths: 640 for the wide components, 320 for the rest. */
-const WIDE: ReadonlySet<string> = new Set(['card', 'alert', 'table', 'descriptions', 'collapse']);
+/** Harness widths: 640 for the wide components, 320 for the rest (DD-027, DD-043). */
+const WIDE: ReadonlySet<string> = new Set(['card', 'alert', 'table', 'descriptions', 'timeline-list', 'collapse', 'result']);
 const PR_GROUNDS = new Set(['silverpoint/cream', 'cyanotype/prussian']);
 
 export interface UiFixture {
@@ -37,6 +38,8 @@ export interface UiFixture {
   /** `pr`: compared on every PR; `nightly`: in the full run. */
   readonly scope: 'pr' | 'nightly';
   readonly canonical: string;
+  /** A palette fixture's preset, by name (Data Model §5, REQ-468); absent from the component matrix. */
+  readonly palette?: string;
 }
 
 /** The fixtures of the gated batches, or of the given ones (a batch's adapters are tested before it is gated). */
@@ -104,8 +107,10 @@ export function uiFixtureParts(fixture: UiFixture): {
     else if (key === 'active') active = v as string;
     else props[key] = v;
   }
+  const palette = fixture.palette === undefined ? undefined : PALETTES[fixture.palette];
+  if (fixture.palette !== undefined && !palette) throw new Error(`No palette ${fixture.palette}`);
   return {
-    props: { ...props, ground: fixture.ground, substrate: fixture.substrate as CommonUiProps['substrate'], mode: fixture.mode, size: fixture.size },
+    props: { ...props, ground: fixture.ground, substrate: fixture.substrate as CommonUiProps['substrate'], mode: fixture.mode, size: fixture.size, ...(palette ? { palette } : {}) },
     value,
     slots,
     ...(trigger !== undefined ? { trigger } : {}),

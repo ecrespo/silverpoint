@@ -1,0 +1,13 @@
+{
+  "id": "toast--error-action--silverpoint--green--precision",
+  "component": "toast",
+  "state": "error-action",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/toast--error-action--silverpoint--green--precision.canonical.txt"
+}

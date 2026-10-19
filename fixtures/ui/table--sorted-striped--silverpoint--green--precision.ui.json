@@ -1,0 +1,13 @@
+{
+  "id": "table--sorted-striped--silverpoint--green--precision",
+  "component": "table",
+  "state": "sorted-striped",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/table--sorted-striped--silverpoint--green--precision.canonical.txt"
+}

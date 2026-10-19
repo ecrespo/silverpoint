@@ -1,0 +1,13 @@
+{
+  "id": "table--sorted-striped--cyanotype--prussian--ink",
+  "component": "table",
+  "state": "sorted-striped",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/table--sorted-striped--cyanotype--prussian--ink.canonical.txt"
+}

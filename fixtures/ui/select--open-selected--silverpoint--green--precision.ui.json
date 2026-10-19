@@ -1,0 +1,13 @@
+{
+  "id": "select--open-selected--silverpoint--green--precision",
+  "component": "select",
+  "state": "open-selected",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/select--open-selected--silverpoint--green--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--bordered--silverpoint--cream--precision",
+  "component": "descriptions",
+  "state": "bordered",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/descriptions--bordered--silverpoint--cream--precision.canonical.txt"
+}

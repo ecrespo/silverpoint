@@ -1,0 +1,13 @@
+<div aria-label="Reviewers" class="sp-ui sp-avatar-group sp-ground-silverpoint" data-frame="1" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="avatar--group" role="group">
+  <span aria-label="Ada Lovelace" class="sp-ui sp-avatar sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-shape="circle" data-size="md" data-substrate="ochre" role="img">
+    <span aria-hidden="true" data-kind="round" part="sp-frame">
+    <span aria-hidden="true" class="sp-ui-avatar-initials">
+      "AL"
+  <span aria-label="Alan Turing" class="sp-ui sp-avatar sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-shape="circle" data-size="md" data-substrate="ochre" role="img">
+    <span aria-hidden="true" data-kind="round" part="sp-frame">
+    <span aria-hidden="true" class="sp-ui-avatar-initials">
+      "AT"
+  <span aria-label="Emmy Noether" class="sp-ui sp-avatar sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-shape="square" data-size="md" data-substrate="ochre" role="img">
+    <span aria-hidden="true" data-kind="box" part="sp-frame">
+    <span aria-hidden="true" class="sp-ui-avatar-initials">
+      "EN"

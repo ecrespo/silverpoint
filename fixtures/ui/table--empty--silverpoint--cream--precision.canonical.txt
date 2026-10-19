@@ -1,0 +1,28 @@
+<div class="sp-ui sp-table sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-hoverable="true" data-mode="precision" data-size="md" data-substrate="cream" id="table--empty">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-table-scroll">
+    <table class="sp-ui-table">
+      <caption>
+        "Returns"
+      <thead>
+        <tr>
+          <th scope="col">
+            "Order"
+          <th scope="col">
+            <button class="sp-ui-sort" data-key="customer" type="button">
+              <span class="sp-ui-label">
+                "Customer"
+              <svg aria-hidden="true" data-glyph="sort" part="sp-mark" viewBox="0 0 16 16">
+                <path d="M5,7L8,3.5L11,7Z M5,9L8,12.5L11,9Z">
+          <th scope="col">
+            "Status"
+          <th data-align="end" scope="col">
+            <button class="sp-ui-sort" data-key="amount" type="button">
+              <span class="sp-ui-label">
+                "Amount"
+              <svg aria-hidden="true" data-glyph="sort" part="sp-mark" viewBox="0 0 16 16">
+                <path d="M5,7L8,3.5L11,7Z M5,9L8,12.5L11,9Z">
+      <tbody>
+        <tr>
+          <td class="sp-ui-table-empty" colspan="4">
+            "No returns yet"

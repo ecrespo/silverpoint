@@ -1,0 +1,26 @@
+<div class="sp-ui sp-collapse sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green" id="collapse--one-open">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <details class="sp-ui sp-collapse-item sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green" open="">
+    <summary class="sp-ui-collapse-summary">
+      <span class="sp-ui-label">
+        "What is a ground?"
+      <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4,6L8,10L12,6">
+    <div class="sp-ui-collapse-body">
+      "The prepared surface a metal stylus can mark: bone ash, gum and a little pigment."
+  <details class="sp-ui sp-collapse-item sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green">
+    <summary class="sp-ui-collapse-summary">
+      <span class="sp-ui-label">
+        "Can a line be erased?"
+      <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4,6L8,10L12,6">
+    <div class="sp-ui-collapse-body">
+      "No. Every line stays, so the drawing is planned before it is drawn."
+  <details class="sp-ui sp-collapse-item sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green">
+    <summary class="sp-ui-collapse-summary">
+      <span class="sp-ui-label">
+        "Where does the tone come from?"
+      <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4,6L8,10L12,6">
+    <div class="sp-ui-collapse-body">
+      "From hatching, level by level, never from transparency."

@@ -1,0 +1,13 @@
+{
+  "id": "tooltip--open--silverpoint--ochre--ink",
+  "component": "tooltip",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/tooltip--open--silverpoint--ochre--ink.canonical.txt"
+}

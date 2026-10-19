@@ -1,0 +1,39 @@
+<ol aria-label="Order history" class="sp-ui sp-timeline-list sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="cream" id="timeline-list--mixed">
+  <li class="sp-ui-timeline-item" data-status="done">
+    <span aria-hidden="true" class="sp-ui-timeline-mark">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+      <span aria-hidden="true" data-kind="round" data-tone="selected" part="sp-tone">
+    <span class="sp-ui-timeline-text">
+      <span class="sp-ui-timeline-time">
+        "14 Oct, 09:12"
+      <span class="sp-ui-timeline-title">
+        "Placed"
+      <span class="sp-ui-timeline-description">
+        "Two prints, one framed."
+  <li class="sp-ui-timeline-item" data-status="error">
+    <span aria-hidden="true" class="sp-ui-timeline-mark">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+      <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+    <span class="sp-ui-timeline-text">
+      <span class="sp-ui-timeline-time">
+        "14 Oct, 09:14"
+      <span class="sp-ui-timeline-title">
+        "Payment"
+      <span class="sp-ui-timeline-description">
+        "Card declined; paid on the second try."
+  <li aria-current="step" class="sp-ui-timeline-item" data-status="current">
+    <span aria-hidden="true" class="sp-ui-timeline-mark">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+      <span aria-hidden="true" part="sp-heighten">
+    <span class="sp-ui-timeline-text">
+      <span class="sp-ui-timeline-time">
+        "15 Oct, 16:40"
+      <span class="sp-ui-timeline-title">
+        "Packed"
+  <li class="sp-ui-timeline-item" data-status="pending">
+    <span aria-hidden="true" class="sp-ui-timeline-mark">
+      <span aria-hidden="true" data-kind="round" part="sp-frame">
+    <span class="sp-ui-timeline-text">
+      <span class="sp-ui-timeline-title">
+        "Shipped"

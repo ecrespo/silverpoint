@@ -1,0 +1,9 @@
+{
+  "id": "palette--sepia--card--precision",
+  "preset": "sepia",
+  "target": "card",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--sepia--card--precision.canonical.txt"
+}

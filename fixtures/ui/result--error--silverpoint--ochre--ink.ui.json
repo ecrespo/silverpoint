@@ -1,0 +1,13 @@
+{
+  "id": "result--error--silverpoint--ochre--ink",
+  "component": "result",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/result--error--silverpoint--ochre--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "result--success--silverpoint--green--ink",
+  "component": "result",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/result--success--silverpoint--green--ink.canonical.txt"
+}

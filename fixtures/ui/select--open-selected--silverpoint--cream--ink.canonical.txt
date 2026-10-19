@@ -1,0 +1,29 @@
+<span class="sp-ui sp-select sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="cream" id="select--open-selected">
+  <button aria-activedescendant="select--open-selected--option-packed" aria-controls="select--open-selected--listbox" aria-expanded="true" aria-haspopup="listbox" aria-label="Status" class="sp-ui-select-trigger" role="combobox" type="button">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+    <span class="sp-ui-select-value">
+      "Packed"
+    <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4,6L8,10L12,6">
+  <div class="sp-ui-select-content" data-state="open" popover="auto">
+    <span aria-hidden="true" data-kind="card" part="sp-frame">
+    <div aria-label="Status" id="select--open-selected--listbox" role="listbox">
+      <div aria-selected="false" class="sp-ui-option" data-key="placed" id="select--open-selected--option-placed" role="option">
+        <span class="sp-ui-label">
+          "Placed"
+      <div aria-selected="false" class="sp-ui-option" data-key="paid" id="select--open-selected--option-paid" role="option">
+        <span class="sp-ui-label">
+          "Paid"
+      <div aria-selected="true" class="sp-ui-option" data-key="packed" id="select--open-selected--option-packed" role="option">
+        <span aria-hidden="true" part="sp-heighten">
+        <span class="sp-ui-label sp-ui-plate">
+          "Packed"
+        <svg aria-hidden="true" data-glyph="tick" part="sp-mark" viewBox="0 0 16 16">
+          <path d="M3.5,8.5L6.5,11.5L12.5,4.5">
+      <div aria-selected="false" class="sp-ui-option" data-key="shipped" id="select--open-selected--option-shipped" role="option">
+        <span class="sp-ui-label">
+          "Shipped"
+      <div aria-disabled="true" aria-selected="false" class="sp-ui-option" data-key="returned" id="select--open-selected--option-returned" role="option">
+        <span class="sp-ui-label">
+          "Returned"
+  <input name="status" type="hidden" value="packed">

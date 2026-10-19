@@ -1,0 +1,13 @@
+{
+  "id": "collapse--one-open--silverpoint--cream--precision",
+  "component": "collapse",
+  "state": "one-open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/collapse--one-open--silverpoint--cream--precision.canonical.txt"
+}

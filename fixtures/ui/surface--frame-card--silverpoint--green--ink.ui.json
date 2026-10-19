@@ -1,0 +1,13 @@
+{
+  "id": "surface--frame-card--silverpoint--green--ink",
+  "component": "surface",
+  "state": "frame-card",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/surface--frame-card--silverpoint--green--ink.canonical.txt"
+}

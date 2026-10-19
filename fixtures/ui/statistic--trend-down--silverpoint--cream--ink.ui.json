@@ -1,0 +1,13 @@
+{
+  "id": "statistic--trend-down--silverpoint--cream--ink",
+  "component": "statistic",
+  "state": "trend-down",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/statistic--trend-down--silverpoint--cream--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "tooltip--open--cyanotype--prussian--ink",
+  "component": "tooltip",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tooltip--open--cyanotype--prussian--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "glyph--all--silverpoint--green--precision",
+  "component": "glyph",
+  "state": "all",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/glyph--all--silverpoint--green--precision.canonical.txt"
+}

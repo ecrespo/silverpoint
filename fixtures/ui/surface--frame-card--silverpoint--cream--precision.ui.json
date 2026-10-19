@@ -1,0 +1,13 @@
+{
+  "id": "surface--frame-card--silverpoint--cream--precision",
+  "component": "surface",
+  "state": "frame-card",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/surface--frame-card--silverpoint--cream--precision.canonical.txt"
+}

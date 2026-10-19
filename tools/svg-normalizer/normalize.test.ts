@@ -126,6 +126,15 @@ describe('dashboard tree comparison (DD-017, T-116)', () => {
     expect(compareDashboard(at('288.01px'), at('288px')).equal).toBe(false);
   });
 
+  test('DD-017 · REQ-468 · a hex colour in style is a colour, not numbers: kept as written, one digit apart is a difference', () => {
+    const at = (ink: string) => wrapper(`--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-ink:${ink}`);
+    // `5E7` and `123E45` read as exponents would be rewritten, and two colours could normalise alike.
+    expect(normalizeDashboard(at('#5A5E7A'))).toContain('--sp-ink:#5A5E7A');
+    expect(normalizeDashboard(at('#123E45'))).toContain('--sp-ink:#123E45');
+    expect(compareDashboard(at('#5A5E7A'), at('#5A5E7B')).equal).toBe(false);
+    expect(compareDashboard(at('#123E45'), at('#123E46')).equal).toBe(false);
+  });
+
   test('DD-017 · Angular’s component hosts are transparent: React and Vue never write an sp- element', () => {
     const angular = wrapper().replace(/<div class="sp-root"/, '<sp-line-chart><sp-chart-frame><div class="sp-root"').replace(/<\/div><\/article>/, '</div></sp-chart-frame></sp-line-chart></article>');
     expect(angular).toContain('<sp-line-chart>');

@@ -1,0 +1,13 @@
+{
+  "id": "collapse--accordion-disabled--silverpoint--ochre--ink",
+  "component": "collapse",
+  "state": "accordion-disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/collapse--accordion-disabled--silverpoint--ochre--ink.canonical.txt"
+}

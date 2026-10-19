@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--bordered--silverpoint--ochre--ink",
+  "component": "descriptions",
+  "state": "bordered",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/descriptions--bordered--silverpoint--ochre--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "timeline-list--mixed--silverpoint--ochre--precision",
+  "component": "timeline-list",
+  "state": "mixed",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/timeline-list--mixed--silverpoint--ochre--precision.canonical.txt"
+}

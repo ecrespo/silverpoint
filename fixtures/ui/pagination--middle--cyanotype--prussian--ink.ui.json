@@ -1,0 +1,13 @@
+{
+  "id": "pagination--middle--cyanotype--prussian--ink",
+  "component": "pagination",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/pagination--middle--cyanotype--prussian--ink.canonical.txt"
+}

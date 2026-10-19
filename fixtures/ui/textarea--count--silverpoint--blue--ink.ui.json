@@ -1,0 +1,13 @@
+{
+  "id": "textarea--count--silverpoint--blue--ink",
+  "component": "textarea",
+  "state": "count",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/textarea--count--silverpoint--blue--ink.canonical.txt"
+}

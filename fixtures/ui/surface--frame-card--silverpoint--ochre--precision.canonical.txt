@@ -1,0 +1,3 @@
+<div class="sp-ui sp-surface sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="surface--frame-card">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  "A surface takes the ground: its substrate, its ink and a hand-drawn frame."

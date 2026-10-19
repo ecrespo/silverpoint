@@ -1,0 +1,9 @@
+{
+  "id": "palette--sanguine--table--precision",
+  "preset": "sanguine",
+  "target": "table",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--sanguine--table--precision.canonical.txt"
+}

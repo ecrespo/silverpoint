@@ -1,0 +1,9 @@
+{
+  "id": "palette--indigo--card--precision",
+  "preset": "indigo",
+  "target": "card",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--indigo--card--precision.canonical.txt"
+}

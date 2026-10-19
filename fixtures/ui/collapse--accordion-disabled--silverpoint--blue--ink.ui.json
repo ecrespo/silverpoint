@@ -1,0 +1,13 @@
+{
+  "id": "collapse--accordion-disabled--silverpoint--blue--ink",
+  "component": "collapse",
+  "state": "accordion-disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/collapse--accordion-disabled--silverpoint--blue--ink.canonical.txt"
+}

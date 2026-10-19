@@ -1,0 +1,13 @@
+{
+  "id": "textarea--count--silverpoint--ochre--ink",
+  "component": "textarea",
+  "state": "count",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/textarea--count--silverpoint--ochre--ink.canonical.txt"
+}

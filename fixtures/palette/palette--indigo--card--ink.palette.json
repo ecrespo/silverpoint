@@ -1,0 +1,9 @@
+{
+  "id": "palette--indigo--card--ink",
+  "preset": "indigo",
+  "target": "card",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--indigo--card--ink.canonical.txt"
+}

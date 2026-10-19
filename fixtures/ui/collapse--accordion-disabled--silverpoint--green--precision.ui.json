@@ -1,0 +1,13 @@
+{
+  "id": "collapse--accordion-disabled--silverpoint--green--precision",
+  "component": "collapse",
+  "state": "accordion-disabled",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/collapse--accordion-disabled--silverpoint--green--precision.canonical.txt"
+}

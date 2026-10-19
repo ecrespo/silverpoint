@@ -1,0 +1,13 @@
+{
+  "id": "result--success--silverpoint--green--precision",
+  "component": "result",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/result--success--silverpoint--green--precision.canonical.txt"
+}

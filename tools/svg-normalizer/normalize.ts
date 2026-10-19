@@ -53,6 +53,7 @@ const GENERATED_ID_TOKENS = [/_r_[0-9a-z]+_/gi, /\bv-\d+\b/g, /\bng\d+\b/g];
 /** Attributes whose values are numbers or number lists, compared at 2 decimals (REQ-002). */
 const NUMERIC = new Set(['d', 'x', 'y', 'x1', 'x2', 'y1', 'y2', 'cx', 'cy', 'r', 'width', 'height', 'viewBox', 'points', 'transform', 'patternTransform']);
 const NUMBER = /-?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?/g;
+const HEX_OR_NUMBER = new RegExp(`#[0-9a-fA-F]+\\b|${NUMBER.source}`, 'g');
 
 function round2(value: number): string {
   const rounded = Math.round(value * 100) / 100;
@@ -93,7 +94,8 @@ function styleDeclarations(value: string): string {
     .map((declaration) => {
       const colon = declaration.indexOf(':');
       const name = declaration.slice(0, colon).trim();
-      const body = declaration.slice(colon + 1).trim().replace(NUMBER, (token) => round2(Number(token)));
+      // A hex colour is matched first and kept: its digits are not numbers (`#5A5E7A` holds `5E7`).
+      const body = declaration.slice(colon + 1).trim().replace(HEX_OR_NUMBER, (token) => (token.startsWith('#') ? token : round2(Number(token))));
       return `${name}:${body}`;
     })
     .join(';');

@@ -1,0 +1,46 @@
+<nav aria-label="Pagination" class="sp-ui sp-pagination sp-ground-silverpoint" data-frame="4" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="pagination--middle">
+  <ul class="sp-ui-pages">
+    <li>
+      <button aria-label="Previous page" class="sp-ui-page" data-page="9" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <svg aria-hidden="true" data-glyph="chevronLeft" part="sp-mark" viewBox="0 0 16 16">
+          <path d="M10,4L6,8L10,12">
+    <li>
+      <button aria-label="Page 1" class="sp-ui-page" data-page="1" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "1"
+    <li aria-hidden="true" class="sp-ui-page-gap">
+      <svg aria-hidden="true" data-glyph="ellipsis" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M3.5,8V8 M8,8V8 M12.5,8V8">
+    <li>
+      <button aria-label="Page 9" class="sp-ui-page" data-page="9" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "9"
+    <li>
+      <span aria-current="page" class="sp-ui-page">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span aria-hidden="true" part="sp-heighten">
+        <span class="sp-ui-label sp-ui-plate">
+          <span class="sp-ui-sr">
+            "Page"
+          "10"
+    <li>
+      <button aria-label="Page 11" class="sp-ui-page" data-page="11" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "11"
+    <li aria-hidden="true" class="sp-ui-page-gap">
+      <svg aria-hidden="true" data-glyph="ellipsis" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M3.5,8V8 M8,8V8 M12.5,8V8">
+    <li>
+      <button aria-label="Page 20" class="sp-ui-page" data-page="20" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <span class="sp-ui-label">
+          "20"
+    <li>
+      <button aria-label="Next page" class="sp-ui-page" data-page="11" type="button">
+        <span aria-hidden="true" data-kind="control" part="sp-frame">
+        <svg aria-hidden="true" data-glyph="chevronRight" part="sp-mark" viewBox="0 0 16 16">
+          <path d="M6,4L10,8L6,12">

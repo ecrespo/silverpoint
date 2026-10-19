@@ -1,0 +1,10 @@
+<article aria-labelledby="card--titled--title" class="sp-ui sp-card sp-ground-silverpoint" data-frame="1" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="cream" id="card--titled" style="--sp-substrate:#E7EDE6;--sp-ink:#2C6355;--sp-ink-secondary:#65563F;--sp-heighten:#FFFFFF;--sp-rule:#5C7B71;--sp-grid:#5C7B71;--sp-text:#1F3D36;--sp-text-muted:#3E6A5E">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-card-header">
+    <h3 class="sp-ui-card-title" id="card--titled--title">
+      "Revenue"
+    <div class="sp-ui-card-extra">
+      "Q3"
+  <span aria-hidden="true" part="sp-rule">
+  <div class="sp-ui-card-body">
+    "128 thousands, up 6.4 on the quarter."

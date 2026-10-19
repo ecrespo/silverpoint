@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--plain--silverpoint--green--precision",
+  "component": "descriptions",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/descriptions--plain--silverpoint--green--precision.canonical.txt"
+}

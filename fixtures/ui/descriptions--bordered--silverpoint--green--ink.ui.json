@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--bordered--silverpoint--green--ink",
+  "component": "descriptions",
+  "state": "bordered",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/descriptions--bordered--silverpoint--green--ink.canonical.txt"
+}

@@ -1,0 +1,15 @@
+<li class="sp-ui sp-toast sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-kind="error" data-mode="ink" data-size="md" data-state="open" data-substrate="cream" id="toast--error-action">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-toast-body" role="alert">
+    <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+    <div class="sp-ui-toast-text">
+      <span class="sp-ui-toast-title">
+        "Payment failed"
+      <span class="sp-ui-toast-description">
+        "The card was declined."
+  <div class="sp-ui-toast-action">
+    "Retry"
+  <button aria-label="Dismiss" class="sp-ui-icon-button" type="button">
+    <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">

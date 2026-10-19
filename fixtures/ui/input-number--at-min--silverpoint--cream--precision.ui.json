@@ -1,0 +1,13 @@
+{
+  "id": "input-number--at-min--silverpoint--cream--precision",
+  "component": "input-number",
+  "state": "at-min",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/input-number--at-min--silverpoint--cream--precision.canonical.txt"
+}

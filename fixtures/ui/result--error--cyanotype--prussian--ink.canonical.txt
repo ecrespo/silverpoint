@@ -1,0 +1,9 @@
+<div class="sp-ui sp-result sp-ground-cyanotype" data-frame="2" data-ground="cyanotype" data-mode="ink" data-size="md" data-status="error" data-substrate="prussian" id="result--error" role="alert">
+  <span aria-hidden="true" class="sp-ui-result-mark">
+    <span aria-hidden="true" data-kind="round" part="sp-frame">
+    <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+      <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+  <h3 class="sp-ui-result-title">
+    "Payment failed"
+  <p class="sp-ui-result-subtitle">
+    "The card was declined; nothing was charged."

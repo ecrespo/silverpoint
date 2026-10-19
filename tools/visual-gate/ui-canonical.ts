@@ -192,6 +192,9 @@ function composedMarkup(fixture: UiFixture): string | undefined {
   return undefined;
 }
 
+/** Whether a fixture composes several components (Glyph `all`, Avatar `group`, Collapse): it has no single view. */
+export const isComposedUi = (fixture: UiFixture): boolean => composedMarkup(fixture) !== undefined;
+
 export function canonicalUiMarkup(fixture: UiFixture): string {
   const composed = composedMarkup(fixture);
   if (composed !== undefined) return composed;

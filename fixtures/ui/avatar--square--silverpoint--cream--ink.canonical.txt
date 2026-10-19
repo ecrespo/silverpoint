@@ -1,0 +1,4 @@
+<span aria-label="Grace Hopper" class="sp-ui sp-avatar sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="ink" data-shape="square" data-size="md" data-substrate="cream" id="avatar--square" role="img">
+  <span aria-hidden="true" data-kind="box" part="sp-frame">
+  <span aria-hidden="true" class="sp-ui-avatar-initials">
+    "GH"

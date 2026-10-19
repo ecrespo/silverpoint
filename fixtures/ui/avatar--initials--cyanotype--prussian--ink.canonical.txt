@@ -1,0 +1,4 @@
+<span aria-label="Ada Lovelace" class="sp-ui sp-avatar sp-ground-cyanotype" data-frame="3" data-ground="cyanotype" data-mode="ink" data-shape="circle" data-size="md" data-substrate="prussian" id="avatar--initials" role="img">
+  <span aria-hidden="true" data-kind="round" part="sp-frame">
+  <span aria-hidden="true" class="sp-ui-avatar-initials">
+    "AL"

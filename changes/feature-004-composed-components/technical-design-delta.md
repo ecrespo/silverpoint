@@ -189,6 +189,11 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
   Palette fixtures put each preset on a `LineChart`, an `SpCard` and an `SpTable`.
 - **Harness widths:** 320 px; 640 px for Table, Descriptions, TimelineList, Collapse and Result;
   overlays in a 800 × 600 viewport.
+- *Amended in implementation* (T-218): a chart's palette is written twice, on the adapter's
+  `.sp-root` frame and on the core's `<svg>` (`toSVGString`, REQ-461). The palette gate compares the
+  chart trees with the `<svg>`'s `style` set aside, then the two styles as sorted declarations
+  (I-25). The normaliser (DD-017) keeps a hex colour inside a `style` whole: it used to round the
+  digits of `#5A5E7A` as a number.
 
 ## 4. Monorepo structure (§5.1) — additions
 

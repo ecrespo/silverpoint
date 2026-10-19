@@ -1,0 +1,13 @@
+{
+  "id": "pagination--middle--silverpoint--cream--ink",
+  "component": "pagination",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/pagination--middle--silverpoint--cream--ink.canonical.txt"
+}

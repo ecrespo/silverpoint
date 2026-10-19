@@ -1,0 +1,13 @@
+{
+  "id": "pagination--total--silverpoint--cream--precision",
+  "component": "pagination",
+  "state": "total",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/pagination--total--silverpoint--cream--precision.canonical.txt"
+}

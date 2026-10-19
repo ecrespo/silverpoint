@@ -1,0 +1,9 @@
+{
+  "id": "palette--sepia--line-chart--precision",
+  "preset": "sepia",
+  "target": "line-chart",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--sepia--line-chart--precision.canonical.txt"
+}

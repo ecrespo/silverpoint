@@ -1,0 +1,13 @@
+{
+  "id": "pagination--middle--silverpoint--blue--precision",
+  "component": "pagination",
+  "state": "middle",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/pagination--middle--silverpoint--blue--precision.canonical.txt"
+}

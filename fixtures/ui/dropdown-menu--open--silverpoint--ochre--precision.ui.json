@@ -1,0 +1,13 @@
+{
+  "id": "dropdown-menu--open--silverpoint--ochre--precision",
+  "component": "dropdown-menu",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/dropdown-menu--open--silverpoint--ochre--precision.canonical.txt"
+}

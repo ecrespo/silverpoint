@@ -1,0 +1,13 @@
+{
+  "id": "drawer--end-open--cyanotype--prussian--precision",
+  "component": "drawer",
+  "state": "end-open",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/drawer--end-open--cyanotype--prussian--precision.canonical.txt"
+}

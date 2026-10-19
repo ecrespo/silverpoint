@@ -1,0 +1,13 @@
+{
+  "id": "modal--open--silverpoint--green--precision",
+  "component": "modal",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/modal--open--silverpoint--green--precision.canonical.txt"
+}

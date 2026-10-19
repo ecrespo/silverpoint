@@ -1,0 +1,9 @@
+{
+  "id": "palette--verdigris--card--ink",
+  "preset": "verdigris",
+  "target": "card",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--verdigris--card--ink.canonical.txt"
+}

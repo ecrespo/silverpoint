@@ -1,0 +1,13 @@
+{
+  "id": "empty--plain--silverpoint--cream--precision",
+  "component": "empty",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/empty--plain--silverpoint--cream--precision.canonical.txt"
+}

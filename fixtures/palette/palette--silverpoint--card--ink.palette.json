@@ -1,0 +1,9 @@
+{
+  "id": "palette--silverpoint--card--ink",
+  "preset": "silverpoint",
+  "target": "card",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--silverpoint--card--ink.canonical.txt"
+}

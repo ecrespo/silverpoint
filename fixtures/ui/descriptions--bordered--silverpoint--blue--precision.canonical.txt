@@ -1,0 +1,25 @@
+<section aria-labelledby="descriptions--bordered--title" class="sp-ui sp-descriptions sp-ground-silverpoint" data-bordered="true" data-columns="2" data-frame="3" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="blue" id="descriptions--bordered">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <h3 class="sp-ui-descriptions-title" id="descriptions--bordered--title">
+    "Order 1042"
+  <dl>
+    <div class="sp-ui-description">
+      <dt>
+        "Customer"
+      <dd>
+        "Ada Lovelace"
+    <div class="sp-ui-description">
+      <dt>
+        "Status"
+      <dd>
+        "Shipped"
+    <div class="sp-ui-description">
+      <dt>
+        "Amount"
+      <dd>
+        "128.00"
+    <div class="sp-ui-description">
+      <dt>
+        "Placed"
+      <dd>
+        "14 October 2026"

@@ -1,0 +1,6 @@
+<div class="sp-ui sp-statistic sp-ground-silverpoint" data-frame="3" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="blue" id="statistic--plain">
+  <span class="sp-ui-statistic-title">
+    "Orders"
+  <span class="sp-ui-statistic-value">
+    <span class="sp-ui-statistic-number">
+      "1284"

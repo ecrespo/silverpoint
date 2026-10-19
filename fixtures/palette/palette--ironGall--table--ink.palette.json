@@ -1,0 +1,9 @@
+{
+  "id": "palette--ironGall--table--ink",
+  "preset": "ironGall",
+  "target": "table",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--ironGall--table--ink.canonical.txt"
+}

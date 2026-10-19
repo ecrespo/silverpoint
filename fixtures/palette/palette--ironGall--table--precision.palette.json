@@ -1,0 +1,9 @@
+{
+  "id": "palette--ironGall--table--precision",
+  "preset": "ironGall",
+  "target": "table",
+  "mode": "precision",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--ironGall--table--precision.canonical.txt"
+}

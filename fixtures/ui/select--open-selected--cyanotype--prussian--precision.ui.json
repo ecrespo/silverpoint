@@ -1,0 +1,13 @@
+{
+  "id": "select--open-selected--cyanotype--prussian--precision",
+  "component": "select",
+  "state": "open-selected",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/select--open-selected--cyanotype--prussian--precision.canonical.txt"
+}

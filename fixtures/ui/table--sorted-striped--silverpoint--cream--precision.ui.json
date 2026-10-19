@@ -1,0 +1,13 @@
+{
+  "id": "table--sorted-striped--silverpoint--cream--precision",
+  "component": "table",
+  "state": "sorted-striped",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/table--sorted-striped--silverpoint--cream--precision.canonical.txt"
+}

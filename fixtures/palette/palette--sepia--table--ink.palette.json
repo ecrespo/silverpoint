@@ -1,0 +1,9 @@
+{
+  "id": "palette--sepia--table--ink",
+  "preset": "sepia",
+  "target": "table",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--sepia--table--ink.canonical.txt"
+}

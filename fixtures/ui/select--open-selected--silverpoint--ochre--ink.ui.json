@@ -1,0 +1,13 @@
+{
+  "id": "select--open-selected--silverpoint--ochre--ink",
+  "component": "select",
+  "state": "open-selected",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/select--open-selected--silverpoint--ochre--ink.canonical.txt"
+}

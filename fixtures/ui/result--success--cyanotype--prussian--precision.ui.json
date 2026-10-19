@@ -1,0 +1,13 @@
+{
+  "id": "result--success--cyanotype--prussian--precision",
+  "component": "result",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/result--success--cyanotype--prussian--precision.canonical.txt"
+}

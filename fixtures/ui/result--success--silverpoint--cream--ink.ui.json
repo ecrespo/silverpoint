@@ -1,0 +1,13 @@
+{
+  "id": "result--success--silverpoint--cream--ink",
+  "component": "result",
+  "state": "success",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/result--success--silverpoint--cream--ink.canonical.txt"
+}

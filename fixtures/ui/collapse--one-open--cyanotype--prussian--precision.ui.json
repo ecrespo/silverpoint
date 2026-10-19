@@ -1,0 +1,13 @@
+{
+  "id": "collapse--one-open--cyanotype--prussian--precision",
+  "component": "collapse",
+  "state": "one-open",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/collapse--one-open--cyanotype--prussian--precision.canonical.txt"
+}

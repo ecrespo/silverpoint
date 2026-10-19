@@ -1,0 +1,13 @@
+{
+  "id": "descriptions--plain--silverpoint--cream--ink",
+  "component": "descriptions",
+  "state": "plain",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 640,
+  "scope": "pr",
+  "canonical": "ui/descriptions--plain--silverpoint--cream--ink.canonical.txt"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "palette--indigo--table--ink",
+  "preset": "indigo",
+  "target": "table",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--indigo--table--ink.canonical.txt"
+}

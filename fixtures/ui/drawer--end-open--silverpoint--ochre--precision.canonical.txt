@@ -1,0 +1,11 @@
+<dialog aria-labelledby="drawer--end-open--title" class="sp-ui sp-drawer sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="precision" data-side="end" data-size="md" data-state="open" data-substrate="ochre" id="drawer--end-open--dialog">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <div class="sp-ui-overlay-header">
+    <h2 class="sp-ui-overlay-title" id="drawer--end-open--title">
+      "Filters"
+    <button aria-label="Close" class="sp-ui-icon-button" type="button">
+      <svg aria-hidden="true" data-glyph="cross" part="sp-mark" viewBox="0 0 16 16">
+        <path d="M4.5,4.5L11.5,11.5M11.5,4.5L4.5,11.5">
+  <span aria-hidden="true" part="sp-rule">
+  <div class="sp-ui-overlay-body">
+    "Narrow the orders by status, customer or amount."

@@ -1,0 +1,6 @@
+<div class="sp-ui sp-empty sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="blue" id="empty--plain">
+  <span aria-hidden="true" class="sp-ui-empty-tray">
+    <span aria-hidden="true" data-kind="control" data-tone="1" part="sp-tone">
+    <span aria-hidden="true" data-kind="control" part="sp-frame">
+  <p class="sp-ui-empty-description">
+    "No orders yet"

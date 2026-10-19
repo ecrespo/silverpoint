@@ -1,0 +1,13 @@
+{
+  "id": "popover--open--silverpoint--ochre--precision",
+  "component": "popover",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/popover--open--silverpoint--ochre--precision.canonical.txt"
+}

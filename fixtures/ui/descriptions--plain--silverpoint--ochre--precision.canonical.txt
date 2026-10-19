@@ -1,0 +1,22 @@
+<section class="sp-ui sp-descriptions sp-ground-silverpoint" data-columns="2" data-frame="0" data-ground="silverpoint" data-mode="precision" data-size="md" data-substrate="ochre" id="descriptions--plain">
+  <dl>
+    <div class="sp-ui-description">
+      <dt>
+        "Customer"
+      <dd>
+        "Ada Lovelace"
+    <div class="sp-ui-description">
+      <dt>
+        "Status"
+      <dd>
+        "Shipped"
+    <div class="sp-ui-description">
+      <dt>
+        "Amount"
+      <dd>
+        "128.00"
+    <div class="sp-ui-description">
+      <dt>
+        "Placed"
+      <dd>
+        "14 October 2026"

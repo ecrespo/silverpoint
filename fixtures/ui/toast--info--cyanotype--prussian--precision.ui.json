@@ -1,0 +1,13 @@
+{
+  "id": "toast--info--cyanotype--prussian--precision",
+  "component": "toast",
+  "state": "info",
+  "req": "REQ-327",
+  "ground": "cyanotype",
+  "substrate": "prussian",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/toast--info--cyanotype--prussian--precision.canonical.txt"
+}

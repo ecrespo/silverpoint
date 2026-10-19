@@ -6,21 +6,21 @@ import { GATED_BATCHES, uiMatrix } from './ui-matrix';
 
 /*
  * The A1 batch's fixtures, ahead of the gates (T-213): each adapter compares its render with the
- * canonical one from T-213 on; the batch joins GATED_BATCHES, the goldens and the harness in T-218.
+ * canonical one from T-213 on; the batch joined GATED_BATCHES and the harness in T-218, the goldens in T-219.
  */
 
 const A1 = UI_COMPONENTS.filter((c) => c.batch === 'A1');
 
 describe('A1 fixtures (T-213)', () => {
-  test('REQ-470 · uiMatrix(["A1"]) gives every A1 state × 5 ground substrates × 2 modes; the gated matrix is unchanged', () => {
+  test('REQ-470 · uiMatrix(["A1"]) gives every A1 state × 5 ground substrates × 2 modes; A1 is gated (T-218)', () => {
     const states = A1.reduce((n, c) => n + c.states.length, 0);
     expect(states).toBe(18);
     const matrix = uiMatrix(['A1']);
     expect(matrix).toHaveLength(states * 10);
     expect(matrix.filter((f) => f.scope === 'pr')).toHaveLength(states * 4);
     expect(new Set(matrix.map((f) => f.component))).toEqual(new Set(A1.map((c) => c.slug)));
-    expect(GATED_BATCHES).toEqual(['B1', 'B2', 'B3']);
-    expect(uiMatrix()).toHaveLength(510);
+    expect(GATED_BATCHES).toEqual(['B1', 'B2', 'B3', 'A1', 'A2', 'B']);
+    expect(uiMatrix()).toHaveLength(860);
   });
 
   test('REQ-472..REQ-483 · every A1 fixture has a canonical render rooted in its own component', () => {

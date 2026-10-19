@@ -1,0 +1,4 @@
+<div class="sp-ui sp-surface sp-ground-cyanotype" data-frame="3" data-ground="cyanotype" data-mode="ink" data-size="md" data-substrate="prussian" id="surface--tone-2">
+  <span aria-hidden="true" data-kind="box" part="sp-frame">
+  <span aria-hidden="true" data-kind="box" data-tone="2" part="sp-tone">
+  "Tone is hatched, level by level."

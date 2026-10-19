@@ -1,0 +1,13 @@
+{
+  "id": "textarea--count--silverpoint--cream--ink",
+  "component": "textarea",
+  "state": "count",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/textarea--count--silverpoint--cream--ink.canonical.txt"
+}

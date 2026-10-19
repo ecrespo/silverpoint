@@ -1,0 +1,13 @@
+{
+  "id": "input-number--value--silverpoint--green--precision",
+  "component": "input-number",
+  "state": "value",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/input-number--value--silverpoint--green--precision.canonical.txt"
+}

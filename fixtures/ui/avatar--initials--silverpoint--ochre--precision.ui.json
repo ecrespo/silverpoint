@@ -1,0 +1,13 @@
+{
+  "id": "avatar--initials--silverpoint--ochre--precision",
+  "component": "avatar",
+  "state": "initials",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "nightly",
+  "canonical": "ui/avatar--initials--silverpoint--ochre--precision.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "result--error--silverpoint--green--precision",
+  "component": "result",
+  "state": "error",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "green",
+  "mode": "precision",
+  "size": "md",
+  "width": 640,
+  "scope": "nightly",
+  "canonical": "ui/result--error--silverpoint--green--precision.canonical.txt"
+}

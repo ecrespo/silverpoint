@@ -1,0 +1,13 @@
+{
+  "id": "avatar--initials--silverpoint--cream--precision",
+  "component": "avatar",
+  "state": "initials",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/avatar--initials--silverpoint--cream--precision.canonical.txt"
+}

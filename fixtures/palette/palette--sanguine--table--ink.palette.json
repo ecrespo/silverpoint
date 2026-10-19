@@ -1,0 +1,9 @@
+{
+  "id": "palette--sanguine--table--ink",
+  "preset": "sanguine",
+  "target": "table",
+  "mode": "ink",
+  "req": "REQ-468",
+  "scope": "pr",
+  "canonical": "palette/palette--sanguine--table--ink.canonical.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "tooltip--open--silverpoint--cream--ink",
+  "component": "tooltip",
+  "state": "open",
+  "req": "REQ-327",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "ink",
+  "size": "md",
+  "width": 320,
+  "scope": "pr",
+  "canonical": "ui/tooltip--open--silverpoint--cream--ink.canonical.txt"
+}
