@@ -7,8 +7,8 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-/** A ground lives in its own directory under grounds/src; `ink/` houses the inkers and `ui/` the ui.css build, not grounds. */
-const GROUND = /^packages\/grounds\/src\/(?!ink\/|ui\/)([^/]+)\//;
+/** A ground lives in its own directory under grounds/src; `ink/` houses the inkers, `ui/` and `timeline/` the ui.css and timeline.css builds, not grounds. */
+const GROUND = /^packages\/grounds\/src\/(?!ink\/|ui\/|timeline\/)([^/]+)\//;
 /** What a ground may never require touching: the charts, the UI core and each adapter's ui/ (REQ-312). */
 const CHARTS = /^packages\/(?:core\/src\/(?:charts|ui)\/|(?:react|vue)\/src\/ui\/|angular\/ui\/)/;
 

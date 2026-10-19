@@ -34,5 +34,7 @@ describe('check-ground-pr', () => {
   test('REQ-312 · a UI change that touches no ground passes, and so does the grounds\' shared ui build', () => {
     expect(checkGroundChange(['packages/core/src/ui/frame.ts', 'packages/react/src/ui/button.tsx'])).toEqual([]);
     expect(checkGroundChange(['packages/grounds/src/ui/pieces.ts', 'packages/core/src/ui/frame.ts'])).toEqual([]);
+    // timeline.css is built like ui.css, from no ground (T-211, REQ-511).
+    expect(checkGroundChange(['packages/grounds/src/timeline/timeline-css.ts', 'packages/core/src/ui/view-kit.ts'])).toEqual([]);
   });
 });
