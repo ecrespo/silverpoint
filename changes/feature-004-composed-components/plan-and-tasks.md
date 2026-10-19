@@ -164,6 +164,11 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   undocumented props of the new types got their JSDoc (REQ-332, the docs reference). Consumers kept
   on the 17 until their own tasks: the harness UI page test (T-222), the docs gallery and its e2e
   (T-224); the gated batches stay `B1..B3`. 13 mutants → red.
+- **Security review of `9f538f5` (2026-10-19):** a link's `href` (SpButton, SpBreadcrumb) keeps only
+  relative URLs and `http`, `https`, `mailto`, `tel`, read as a browser reads it (controls and spaces
+  ignored); any other scheme is dropped with `SP017` (`safeHref`). `headingLevel` (SpCard,
+  SpDescriptions, SpResult) is held to 2..6, else `h3` with `SP017` (`headingTag`): a tag is never
+  built from a value. `test/ui-safety.test.ts`; 5 mutants → red.
 
 ### 8b — Grounds
 

@@ -22,7 +22,7 @@ import type {
   SpTextareaProps,
   SpTimelineListProps,
 } from './types';
-import { baseOf, cssLength, el, frame, glyph, root, slot, sr, text, tone, UI_GLYPHS, type UiGlyph } from './view-kit';
+import { baseOf, cssLength, el, frame, glyph, headingTag, root, safeHref, slot, sr, text, tone, UI_GLYPHS, type UiGlyph } from './view-kit';
 import type { UiElement, UiNode, UiResolved } from './view';
 
 /*
@@ -36,7 +36,7 @@ function warn(component: string, property: string, message: string): void {
 }
 
 const heighten = () => el('span', { part: 'sp-heighten', 'aria-hidden': 'true' });
-const heading = (level: number | undefined, attrs: Record<string, string | undefined>, title: string) => el(`h${level ?? 3}`, attrs, [text(title)]);
+const heading = (level: number | undefined, component: string, attrs: Record<string, string | undefined>, title: string) => el(headingTag(level, component), attrs, [text(title)]);
 /** A text node, or none for an empty string (API delta §4: no empty text nodes). */
 const maybeText = (value: string): UiNode[] => (value === '' ? [] : [text(value)]);
 
@@ -193,10 +193,11 @@ export function uiBreadcrumbView(props: SpBreadcrumbProps, r: UiResolved): UiEle
       { class: 'sp-ui-crumbs' },
       items.map((item, i) => {
         const last = i === items.length - 1;
+        const href = last ? undefined : safeHref(item.href, 'SpBreadcrumb', 'items');
         const inner = last
           ? el('span', { 'aria-current': 'page' }, [text(item.label)])
-          : item.href !== undefined
-            ? el('a', { href: item.href }, [text(item.label)])
+          : href !== undefined
+            ? el('a', { href }, [text(item.label)])
             : el('span', {}, [text(item.label)]);
         return el('li', { class: 'sp-ui-crumb' }, [inner]);
       }),
@@ -280,7 +281,7 @@ export function uiDescriptionsView(props: SpDescriptionsProps, r: UiResolved): U
     }),
     [
       ...(bordered ? [frame('card')] : []),
-      ...(titled ? [heading(props.headingLevel, { class: 'sp-ui-descriptions-title', id: titleId }, props.title!)] : []),
+      ...(titled ? [heading(props.headingLevel, 'SpDescriptions', { class: 'sp-ui-descriptions-title', id: titleId }, props.title!)] : []),
       el(
         'dl',
         {},
@@ -365,7 +366,7 @@ export function uiResultView(props: SpResultProps, r: UiResolved, slots: { reado
   const alert = status === 'warning' || status === 'error';
   return el('div', root('result', props, r, { id: props.id, role: alert ? 'alert' : 'status', 'data-status': status }), [
     el('span', { class: 'sp-ui-result-mark', 'aria-hidden': 'true' }, [frame('round'), glyph(RESULT_GLYPHS[status])]),
-    heading(props.headingLevel, { class: 'sp-ui-result-title' }, props.title),
+    heading(props.headingLevel, 'SpResult', { class: 'sp-ui-result-title' }, props.title),
     ...(props.subtitle ? [el('p', { class: 'sp-ui-result-subtitle' }, [text(props.subtitle)])] : []),
     ...(slots.extra ? [el('div', { class: 'sp-ui-result-extra' }, [slot('extra')])] : []),
   ]);

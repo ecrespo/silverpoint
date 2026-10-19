@@ -20,3 +20,6 @@ subpath `@silverpoint/core/timeline`: `timelineView`, `timelineInk`, `TIMELINE_F
 with a `family` field (`ui`, `composed`, `overlay`), three groups and batches `A1`, `A2`, `B`;
 `UI_DEMOS` gains their 35 states, and `@silverpoint/core/ui-demos` exports `TIMELINE_DEMO`. New
 diagnostics `SP023`, `SP024` and `SP025`.
+
+A link's `href` (`SpButton`, `SpBreadcrumb`) now keeps only relative URLs and the `http`, `https`,
+`mailto` and `tel` schemes, and a `headingLevel` outside 2..6 draws `h3`; both warn `SP017`.

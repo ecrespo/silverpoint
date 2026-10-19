@@ -87,3 +87,27 @@ export function cssLength(value: string | undefined, component: string, property
 
 /** A native button that emits `close`, its only content the exact ✕. */
 export const iconClose = (label: string) => el('button', { type: 'button', class: 'sp-ui-icon-button', 'aria-label': label }, [glyph('cross')], 'close');
+
+/** The schemes a link may carry; a URL without one is relative and always allowed. */
+const SAFE_SCHEMES = new Set(['http', 'https', 'mailto', 'tel']);
+
+/**
+ * The href, or `undefined` with `SP017` when it names a scheme other than http(s), mailto or tel
+ * (`javascript:`, `data:`…). Read as a browser does: control characters and spaces are ignored.
+ */
+export function safeHref(href: string | undefined, component: string, property = 'href'): string | undefined {
+  if (href === undefined) return undefined;
+  // eslint-disable-next-line no-control-regex
+  const scheme = /^([a-z][a-z0-9+.-]*):/i.exec(href.replace(/[\u0000-\u0020\u007f]/g, ''))?.[1];
+  if (scheme === undefined || SAFE_SCHEMES.has(scheme.toLowerCase())) return href;
+  if (process.env.NODE_ENV !== 'production') diagnose('SP017', component, { property, message: `The scheme "${scheme}:" is not allowed; the link is dropped.` });
+  return undefined;
+}
+
+/** A heading's tag from `headingLevel`: `h2`..`h6`, `h3` when unset, else `h3` with `SP017`. */
+export function headingTag(level: unknown, component: string): string {
+  if (level === undefined) return 'h3';
+  if (level === 2 || level === 3 || level === 4 || level === 5 || level === 6) return `h${level}`;
+  if (process.env.NODE_ENV !== 'production') diagnose('SP017', component, { property: 'headingLevel', message: `${JSON.stringify(level)} is not a level in 2..6; h3 is drawn.` });
+  return 'h3';
+}

@@ -12,7 +12,7 @@ import type {
   SpSwitchProps,
   UiSize,
 } from './types';
-import { baseOf, el, frame, glyph, root, slot, text, tone } from './view-kit';
+import { baseOf, el, frame, glyph, headingTag, root, safeHref, slot, text, tone } from './view-kit';
 
 export { UI_GLYPHS, type UiGlyph } from './view-kit';
 
@@ -86,14 +86,15 @@ export function resolveUi(props: CommonUiProps, env: UiEnvironment): UiResolved 
 export function uiButtonView(props: SpButtonProps, r: UiResolved, content: { readonly text?: string }): UiElement {
   uiRequireName('SpButton', content.text, props.label);
   const variant = props.variant ?? 'default';
-  const link = props.href !== undefined;
+  const href = safeHref(props.href, 'SpButton');
+  const link = href !== undefined;
   const toned = props.disabled ? 'disabled' : variant === 'default' ? undefined : variant;
   return el(
     link ? 'a' : 'button',
     root('button', props, r, {
       id: props.id,
       type: link ? undefined : (props.type ?? 'button'),
-      href: link && !props.disabled ? props.href : undefined,
+      href: link && !props.disabled ? href : undefined,
       disabled: !link && props.disabled === true,
       'aria-disabled': link && props.disabled ? 'true' : undefined,
       'aria-label': props.label,
@@ -188,7 +189,7 @@ export function uiCardView(props: SpCardProps, r: UiResolved, slots: { readonly 
       ...(header
         ? [
             el('div', { class: 'sp-ui-card-header' }, [
-              ...(titled ? [el(`h${props.headingLevel ?? 3}`, { class: 'sp-ui-card-title', id: titleId }, [text(props.title!)])] : []),
+              ...(titled ? [el(headingTag(props.headingLevel, 'SpCard'), { class: 'sp-ui-card-title', id: titleId }, [text(props.title!)])] : []),
               ...(slots.extra ? [el('div', { class: 'sp-ui-card-extra' }, [slot('extra')])] : []),
             ]),
             el('span', { part: 'sp-rule', 'aria-hidden': 'true' }),
