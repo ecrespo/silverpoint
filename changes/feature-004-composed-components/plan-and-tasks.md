@@ -187,11 +187,25 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   `contrast-gate.test.ts` (the gate agrees with `checkPalette` on altered presets). 6 RED on
   assertions; 8 mutants → red (one equivalent mutant removed by simplifying `level`).
 
-**[ ] T-210 · `ui.css` rules for the 21 rows** — REQ-475, REQ-498, REQ-499, REQ-503, REQ-522 `[P]`
+**[x] T-210 · `ui.css` rules for the 21 rows** — REQ-475, REQ-498, REQ-499, REQ-503, REQ-522 `[P]`
 - Port Reflex's `surfaces.css` layout, rewritten on the root contract; row tone and backdrop by
   the ramp; `::backdrop`; the active option heightened; reduced motion; forced colours.
 - Tests: I-19, I-24; `ui.css` ≤ 24 KB gzip.
 - **Done:** tests green.
+- **Ledger (2026-10-19):** `src/ui/ui-css.ts` gains `COMPOSED` and `OVERLAYS` (Reflex 0.7's layout,
+  rewritten without its `opacity` and `color-mix(… transparent)`), and `unhatched(ground)`. Row tone:
+  a `td::before` layer under the cell's text (`td` is `position: relative; z-index: 0`), painted
+  `--sp-ink-secondary` through `--sp-ui-tone`; the table borrows the tile of its ground's `rowTone`
+  level by joining that level's tone rule (`.sp-ground-X .sp-ui-table`), so the tile is written once;
+  under a weight ground the layer is a rule of `--sp-weight-<rowTone>`. Backdrop: `::backdrop` joins
+  the tone rule of the ground's `backdrop` level; `precision` and weight grounds paint the opaque
+  substrate; forced colours paint `Canvas`. Anchored overlays are `position: fixed` at
+  `translate: var(--sp-ui-x) var(--sp-ui-y)` (uiPlace already resolves `dir`, so physical
+  coordinates are right); the drawer sits on logical sides; pagination chevrons mirror under
+  `:dir(rtl)`; the chevron's turn moves only under `no-preference`. *Amended in implementation:* the
+  table cell's text is on a `.sp-ui-plate` (core, `uiTableView`), and `backdrop` is the hatched
+  level (Data Model delta §3.8). `ui.css` is 14.2 KB gzip (was 11.4). Every rule parses in Chromium
+  (Firefox and WebKit in the pixel gate, T-218). 12 RED on assertions; 10 mutants → red.
 
 **[ ] T-211 · `timeline.css`** — REQ-511, REQ-512
 - Port Reflex's `timeline.css` (phases 1 and 2) to `src/timeline/timeline-css.ts`; I-19, I-24;

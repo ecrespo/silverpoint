@@ -19,7 +19,7 @@ export interface UiTokens {
   readonly focusWidth: number;
   /** Tonal level per state (DD-026); `alertError` fills an error Alert's box (C-3). */
   readonly tone: Readonly<{ selected: ToneStep; primary: ToneStep; danger: ToneStep; disabled: ToneStep; alertError: ToneStep }>;
-  /** Level of the substrate behind a modal overlay where it is not hatched (weight grounds, precision). Default `2` (REQ-499). */
+  /** Tonal level of the hatched backdrop behind a modal overlay; unhatched (weight grounds, precision) it is the opaque substrate. Default `2` (REQ-499). */
   readonly backdrop?: ToneStep;
   /** Level of a table's striped and hovered rows. Default `1` (REQ-475). */
   readonly rowTone?: ToneStep;

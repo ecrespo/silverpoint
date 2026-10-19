@@ -125,7 +125,11 @@ export function uiTableView(props: SpTableProps, r: UiResolved): UiElement {
           el(
             'tr',
             { 'data-key': props.rowKey !== undefined ? cell(row[props.rowKey]) : undefined },
-            columns.map((column) => el('td', { 'data-align': column.align }, maybeText(cell(row[column.key])))),
+            // The text sits on a plate, so a toned row keeps the contrast of the substrate (Data Model §3.8).
+            columns.map((column) => {
+              const value = cell(row[column.key]);
+              return el('td', { 'data-align': column.align }, value === '' ? [] : [el('span', { class: 'sp-ui-plate' }, [text(value)])]);
+            }),
           ),
         );
   return el(

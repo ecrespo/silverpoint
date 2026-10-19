@@ -1,4 +1,6 @@
 import { createHash } from 'node:crypto';
+import { gzipSync } from 'node:zlib';
+import { UI_COMPONENTS } from '@silverpoint/core/ui';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
@@ -238,5 +240,115 @@ describe('ui.css (T-141)', () => {
 
   test('Art. 4 · the stylesheet is the same bytes on every build', () => {
     expect(buildUiCss([silverpoint, cyanotype])).toBe(css);
+  });
+});
+
+describe('ui.css, the feature-004 rows (T-210)', () => {
+  const body = (selector: string) => all.find((r) => r.selector === selector)?.body ?? '';
+  const withSelector = (pick: (selector: string) => boolean) => all.filter((r) => pick(r.selector));
+
+  test('REQ-470 · every composed and overlay row is laid out: its root class has a rule of its own', () => {
+    const missing = UI_COMPONENTS.filter((c) => c.family !== 'ui')
+      .map((c) => `.sp-${c.slug}`)
+      .filter((root) => !all.some((r) => r.selector.split(/,\s*/).some((one) => one.trim().startsWith(root) && !/[\w-]/.test(one.trim()[root.length] ?? ''))));
+    expect(missing).toEqual([]);
+  });
+
+  test('REQ-475 · REQ-499 · I-24 · no opacity, no gradient, no colour mix anywhere: tone is hatching or line weight (Art. 6)', () => {
+    expect(css).not.toMatch(/opacity|gradient\(|color-mix\(|mix-blend-mode:\s*(?!normal)/);
+  });
+
+  test('REQ-475 · striped and hovered rows take the ground\'s row-tone level on a cell layer under the text; the text keeps its plate', () => {
+    const paint = withSelector((s) => !s.startsWith('.sp-ground') && s.includes('nth-child(even)') && s.includes(':hover') && s.includes('td::before'));
+    expect(paint).toHaveLength(1);
+    expect(paint[0]!.body).toMatch(/background: var\(--sp-ink-secondary\)/);
+    expect(paint[0]!.body).toMatch(/mask-image: var\(--sp-ui-tone\)/);
+    expect(paint[0]!.body).toMatch(/z-index: -1/);
+    expect(paint[0]!.selector).toContain(".sp-table[data-striped='true']");
+    expect(paint[0]!.selector).toContain(".sp-table[data-hoverable='true']");
+    // The level is the ground's `rowTone`: the table borrows that level's tile (DD-040).
+    const level = (ground: typeof silverpoint, n: number) =>
+      rules(buildUiCss([ground])).find((r) => r.selector.startsWith(`.sp-ground-${ground.name} [part='sp-tone']:is(`) && r.selector.includes(`[data-tone='${n}']`))?.selector ?? '';
+    expect(level(silverpoint, 1)).toContain(`.sp-ground-silverpoint .sp-ui-table`);
+    const two = { ...silverpoint, ui: { ...silverpoint.ui!, rowTone: 2 as const } };
+    expect(level(two, 1)).not.toContain('.sp-ui-table');
+    expect(level(two, 2)).toContain('.sp-ground-silverpoint .sp-ui-table');
+    expect(body('.sp-ui-table td')).toMatch(/position: relative/);
+    expect(body('.sp-ui-table td')).toMatch(/z-index: 0/);
+  });
+
+  test('REQ-475 · DD-040 · under a weight ground a toned row is a weighted rule, not a hatch', () => {
+    const rule = withSelector((s) => s.startsWith('.sp-ground-cyanotype') && s.includes('td::before'));
+    expect(rule).toHaveLength(1);
+    expect(rule[0]!.body).toMatch(/mask-image: none/);
+    expect(rule[0]!.body).toMatch(/border-block-end-width: calc\(var\(--sp-stroke-width\) \* var\(--sp-weight-1\) \* 1px\)/);
+  });
+
+  test('REQ-499 · a modal\'s backdrop is the ground\'s backdrop level of hatching in ink; an opaque substrate in precision and under a weight ground', () => {
+    const level = (ground: typeof silverpoint, n: number) =>
+      rules(buildUiCss([ground])).find((r) => r.selector.startsWith(`.sp-ground-${ground.name} [part='sp-tone']:is(`) && r.selector.includes(`[data-tone='${n}']`))?.selector ?? '';
+    expect(level(silverpoint, 2)).toContain(".sp-ground-silverpoint:is(.sp-modal, .sp-drawer)::backdrop");
+    const three = { ...silverpoint, ui: { ...silverpoint.ui!, backdrop: 3 as const } };
+    expect(level(three, 2)).not.toContain('::backdrop');
+    expect(level(three, 3)).toContain('::backdrop');
+    const hatch = withSelector((s) => s === ':is(.sp-modal, .sp-drawer)::backdrop')[0];
+    expect(hatch?.body).toMatch(/background: var\(--sp-ink-secondary\)/);
+    expect(hatch?.body).toMatch(/mask-image: var\(--sp-ui-tone\)/);
+    const opaque = [
+      withSelector((s) => s === ":is(.sp-modal, .sp-drawer)[data-mode='precision']::backdrop")[0],
+      withSelector((s) => s === '.sp-ground-cyanotype:is(.sp-modal, .sp-drawer)::backdrop')[0],
+    ];
+    for (const r of opaque) {
+      expect(r?.body).toMatch(/background: var\(--sp-substrate\)/);
+      expect(r?.body).toMatch(/mask-image: none/);
+    }
+    expect(all.filter(inForcedColors).some((r) => r.selector.includes('::backdrop'))).toBe(true);
+  });
+
+  test('REQ-498 · I-28 · the active option or item is the heightening, laid inside the row; a disabled one is italic', () => {
+    expect(body(":is(.sp-ui-option, .sp-ui-menuitem) [part~='sp-heighten']")).toMatch(/position: absolute/);
+    expect(body(":is(.sp-ui-option, .sp-ui-menuitem)[aria-disabled='true']")).toMatch(/font-style: italic/);
+  });
+
+  test('REQ-317 · REQ-522 · every new target is at least 24 px: a --sp-ui-height or a 24 px minimum', () => {
+    for (const selector of ['.sp-ui-page', '.sp-ui-collapse-summary', '.sp-ui-select-trigger,\n.sp-ui-menu-trigger']) {
+      expect(body(selector), selector).toMatch(/min-block-size: var\(--sp-ui-height\)/);
+    }
+    for (const selector of ['.sp-ui-sort', '.sp-ui-stepper', '.sp-ui-icon-button', '.sp-ui-option,\n.sp-ui-menuitem']) {
+      expect(body(selector), selector).toMatch(/min-block-size: 24px/);
+    }
+    for (const selector of ['.sp-ui-stepper', '.sp-ui-icon-button']) expect(body(selector), selector).toMatch(/min-inline-size: 24px/);
+  });
+
+  test('REQ-493 · REQ-502 · an anchored overlay sits where uiAnchor writes it, and nowhere before', () => {
+    const anchored = body(':is(.sp-popover, .sp-tooltip, .sp-ui-select-content, .sp-ui-menu)');
+    expect(anchored).toMatch(/position: fixed/);
+    expect(anchored).toMatch(/translate: var\(--sp-ui-x, 0\) var\(--sp-ui-y, 0\)/);
+    expect(anchored).toMatch(/margin: 0/);
+  });
+
+  test('REQ-523 · rtl mirrors the drawer by logical sides and the pagination chevrons by :dir(rtl)', () => {
+    expect(body(".sp-drawer[data-side='end']")).toMatch(/inset-inline: auto 0/);
+    expect(body(".sp-drawer[data-side='start']")).toMatch(/inset-inline: 0 auto/);
+    expect(css).toContain(":dir(rtl) .sp-pagination [data-glyph^='chevron']");
+  });
+
+  test('REQ-481 · a connector to a pending item is dashed, as Steps\' are (C-4)', () => {
+    expect(body(".sp-ui-timeline-item[data-status='pending']:not(:last-child)::before")).toMatch(/border-inline-start-style: dashed/);
+  });
+
+  test('REQ-482 · a collapse\'s summary draws no marker of the browser\'s; the chevron turns when open, only if motion is welcome', () => {
+    expect(body('.sp-ui-collapse-summary')).toMatch(/list-style: none/);
+    expect(css).toContain('.sp-ui-collapse-summary::-webkit-details-marker');
+    expect(body("[open] > .sp-ui-collapse-summary [data-glyph='chevronDown']")).toMatch(/rotate: 180deg/);
+  });
+
+  test('REQ-485 · the number input draws no spinner of the browser\'s: the steppers are the exact ones', () => {
+    expect(body('.sp-input-number .sp-ui-control')).toMatch(/appearance: textfield/);
+    expect(css).toContain('::-webkit-inner-spin-button');
+  });
+
+  test('REQ-305 · ui.css stays within 24 kB gzipped', () => {
+    expect(gzipSync(css).length).toBeLessThanOrEqual(24_000);
   });
 });

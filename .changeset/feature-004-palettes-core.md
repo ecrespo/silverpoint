@@ -26,3 +26,4 @@ A link's `href` (`SpButton`, `SpBreadcrumb`) now keeps only relative URLs and th
 
 `UiTokens` gains the optional `backdrop` and `rowTone` levels; `resolveUiTokens` holds them to 1..4
 and gives a ground that declares none `2` and `1` (T-209).
+A table cell's text stands on a `.sp-ui-plate`, so a toned row keeps its contrast.

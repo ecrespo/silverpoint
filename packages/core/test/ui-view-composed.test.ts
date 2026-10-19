@@ -190,6 +190,12 @@ describe('uiTableView (T-206)', () => {
     expect(texts(rows(view)[0]!)).toEqual(['A-3', '30', 'paid']);
   });
 
+  test('REQ-475 · a cell\'s text stands on a plate of the substrate, so a toned row keeps its contrast (Data Model §3.8, T-210)', () => {
+    const view = uiTableView({ columns, data, rowKey: 'id' }, r());
+    expect(rows(view)[0]!.children[0]).toEqual({ tag: 'td', attrs: {}, children: [{ tag: 'span', attrs: { class: 'sp-ui-plate' }, children: [{ text: 'A-3' }] }] });
+    expect((rows(view)[1]!.children[1] as UiElement).children).toEqual([]);
+  });
+
   test('REQ-474 · sortable headers hold a native sort button with the neutral sort glyph', () => {
     const view = uiTableView({ columns, data }, r());
     const buttons = all(view).filter((e) => e.bind === 'sort');

@@ -81,6 +81,11 @@ rowTone: 1 | 2 | 3 | 4;
 | `backdrop` | 2 | 2 | 2 |
 | `rowTone` | 1 | 1 | 1 |
 
+*Amended in implementation (T-210):* `backdrop` is the level of the **hatched** backdrop (the
+level-2 default of REQ-499); where the backdrop is not hatched —a `weight` ground, `precision`— it is
+the opaque substrate, whatever the level. A table's cell holds its text on a `.sp-ui-plate`, so a
+toned row's text keeps the contrast `ui.row-tone-text` measures.
+
 **Contrast pairs added** (REQ-313, REQ-522), on every substrate of every ground:
 
 | Pair | Foreground | Background | Threshold |

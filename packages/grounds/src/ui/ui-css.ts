@@ -80,14 +80,21 @@ function inkedFrames(ground: Ground): string[] {
 }
 
 function tones(ground: Ground): string[] {
-  const states = Object.entries(resolveUiTokens(ground).tone);
+  const ui = resolveUiTokens(ground);
+  const states = Object.entries(ui.tone);
   return ([1, 2, 3, 4] as const).map((level) => {
     // A component names a tone by level (Tag) or by state (`primary`…); the ground's tokens map a state to its level (DD-026).
     const names = [String(level), ...states.filter(([, at]) => at === level).map(([state]) => state)];
-    const selector = `.sp-ground-${ground.name} [part='sp-tone']:is(${names.map((n) => `[data-tone='${n}']`).join(', ')})`;
+    const part = `.sp-ground-${ground.name} [part='sp-tone']:is(${names.map((n) => `[data-tone='${n}']`).join(', ')})`;
+    // A table's toned rows and a modal's backdrop borrow their level's tile (DD-040, REQ-499): one copy of it.
+    const borrowers = [
+      ...(level === ui.rowTone ? [`.sp-ground-${ground.name} .sp-ui-table`] : []),
+      ...(level === ui.backdrop ? [`.sp-ground-${ground.name}:is(.sp-modal, .sp-drawer)::backdrop`] : []),
+    ];
+    const selector = [part, ...borrowers].join(',\n');
     if (ground.tonalMechanism === 'weight') {
       // No hatching: the tone is a heavier exact line (DD-019, DD-026).
-      return rule(selector, [
+      return rule(part, [
         'background: none',
         ...mask('image', 'none'),
         'border: solid var(--sp-ink)',
@@ -172,6 +179,24 @@ const BASE = [
   // Their ring is the box's, the item's or the thumb's: the browser draws none of its own.
   rule(':is(.sp-ui-native, .sp-ui-control, .sp-ui-range)', ['outline: none']),
 ];
+
+/**
+ * Where a ground does not hatch, a toned table row is a weighted rule under its cells, and a modal's
+ * backdrop the opaque substrate: a see-through flat backdrop would be opacity as tone (DD-038, DD-040).
+ */
+function unhatched(ground: Ground): string[] {
+  if (ground.tonalMechanism !== 'weight') return [];
+  const g = `.sp-ground-${ground.name}`;
+  return [
+    rule(rowTone(g), [
+      'background: none',
+      ...mask('image', 'none'),
+      'border-block-end: 0 solid var(--sp-ink)',
+      `border-block-end-width: calc(var(--sp-stroke-width) * var(--sp-weight-${resolveUiTokens(ground).rowTone}) * 1px)`,
+    ]),
+    rule(`${g}:is(.sp-modal, .sp-drawer)::backdrop`, ['background: var(--sp-substrate)', ...mask('image', 'none')]),
+  ];
+}
 
 /** Batch B1 (T-144..T-146): Button, Input, Checkbox, Switch, Card, Divider (API delta §4). */
 const B1 = [
@@ -542,6 +567,289 @@ const B3 = [
   rule('.sp-ui-skeleton-line:last-child:not(:first-child)', ['inline-size: 60%']),
 ];
 
+/** The tone layer of a table's toned rows: striped even rows and the hovered row (REQ-475); `root` narrows the table. */
+const rowTone = (root = '') =>
+  `${root}.sp-table[data-striped='true'] tbody tr:nth-child(even) td::before,\n${root}.sp-table[data-hoverable='true'] tbody tr:hover td::before`;
+
+/** A native button with no chrome of its own: the frame or the glyph is its drawing. */
+const plainButton = [
+  'position: relative',
+  'display: inline-flex',
+  'align-items: center',
+  'justify-content: center',
+  'gap: 6px',
+  'margin: 0',
+  'padding: 0',
+  'border: 0',
+  'background: transparent',
+  'color: inherit',
+  'font: inherit',
+  'cursor: pointer',
+];
+
+const caps = ['color: var(--sp-text-muted)', 'font-size: 12px', 'letter-spacing: 0.08em', 'text-transform: uppercase'];
+
+/** feature-004, the composed components (API delta §4): Reflex 0.7's layout on the root contract. */
+const COMPOSED = [
+  rule('.sp-surface', ['display: block']),
+  rule('.sp-glyph', ['display: inline-block', 'vertical-align: middle']),
+  rule(".sp-ui :is([data-glyph='sort'], [data-glyph='sortUp'], [data-glyph='sortDown'])", ['fill: currentColor', 'stroke: none']),
+  rule('.sp-ui-icon-button', [...plainButton, 'min-inline-size: 24px', 'min-block-size: 24px', 'color: var(--sp-text)']),
+  // Table
+  rule('.sp-table', ['display: block', 'padding: 6px 0 8px', 'font-size: 15px']),
+  rule('.sp-ui-table-scroll', ['position: relative', 'overflow-x: auto']),
+  rule('.sp-ui-table', ['inline-size: 100%', 'border-collapse: collapse', 'font-variant-numeric: tabular-nums', 'color: var(--sp-text)']),
+  rule('.sp-ui-table caption', ['padding: 6px 16px 8px', 'caption-side: top', 'text-align: start', 'font-size: 17px', 'font-weight: 500']),
+  rule('.sp-ui-table th', [
+    'padding: 8px 14px',
+    'border-block-end: 1px solid var(--sp-ink)',
+    'color: var(--sp-text-muted)',
+    'font-weight: 500',
+    'text-align: start',
+    'white-space: nowrap',
+  ]),
+  // A cell is a stacking context, so its tone layer stays under its own text (REQ-475).
+  rule('.sp-ui-table td', ['position: relative', 'z-index: 0', 'padding: 8px 14px', 'border-block-end: 1px solid var(--sp-grid)', 'vertical-align: top']),
+  rule('.sp-ui-table td .sp-ui-plate', ['padding-inline: 2px']),
+  rule('.sp-ui-table tbody tr:last-child td', ['border-block-end: 0']),
+  rule(".sp-ui-table [data-align='end']", ['text-align: end']),
+  rule(".sp-ui-table [data-align='center']", ['text-align: center']),
+  rule(".sp-table[data-size='sm'] .sp-ui-table :is(th, td)", ['padding: 4px 10px']),
+  rule(".sp-table[data-size='lg'] .sp-ui-table :is(th, td)", ['padding: 12px 18px']),
+  rule(rowTone(), [
+    "content: ''",
+    'position: absolute',
+    'inset: 0',
+    'z-index: -1',
+    'pointer-events: none',
+    'background: var(--sp-ink-secondary)',
+    ...mask('image', 'var(--sp-ui-tone)'),
+    ...mask('size', 'var(--sp-ui-tone-size)'),
+    ...mask('repeat', 'repeat'),
+  ]),
+  rule('.sp-ui-sort', [...plainButton, 'min-block-size: 24px', 'color: inherit', 'font-weight: inherit']),
+  rule(".sp-ui-sort [part='sp-mark']", ['inline-size: 12px', 'block-size: 12px', 'color: var(--sp-rule)']),
+  rule(".sp-ui-table th[aria-sort]", ['color: var(--sp-text)']),
+  rule(".sp-ui-table th[aria-sort] .sp-ui-sort [part='sp-mark']", ['color: var(--sp-ink)']),
+  rule('.sp-ui-table-empty', ['padding: 18px', 'color: var(--sp-text-muted)', 'font-style: italic', 'text-align: center']),
+  // Pagination
+  rule('.sp-pagination', ['display: inline-flex', 'flex-wrap: wrap', 'align-items: center', 'gap: 12px', 'font-size: 15px']),
+  rule('.sp-ui-pages', ['display: flex', 'flex-wrap: wrap', 'align-items: center', 'gap: 6px', 'margin: 0', 'padding: 0', 'list-style: none']),
+  rule('.sp-ui-page', [...plainButton, 'min-inline-size: var(--sp-ui-height)', 'min-block-size: var(--sp-ui-height)', 'padding: 0 6px', 'font-variant-numeric: tabular-nums']),
+  rule('.sp-ui-page:disabled', ['color: var(--sp-text-muted)', 'font-style: italic', 'cursor: not-allowed']),
+  rule('span.sp-ui-page', ['cursor: default']),
+  rule(".sp-ui-page [part~='sp-heighten']", ['position: absolute', 'inset: 4px', 'border-radius: 1px']),
+  rule('.sp-ui-page-gap', ['display: inline-flex', 'padding: 0 2px', 'color: var(--sp-text-muted)']),
+  rule('.sp-ui-page-total', ['color: var(--sp-text-muted)', 'font-size: 14px']),
+  rule(":dir(rtl) .sp-pagination [data-glyph^='chevron']", ['scale: -1 1']),
+  // Breadcrumb: the separators are exact rules in --sp-rule (Data Model §3.8, ui.crumb-separator).
+  rule('.sp-breadcrumb', ['font-size: 15px']),
+  rule('.sp-ui-crumbs', ['display: flex', 'flex-wrap: wrap', 'align-items: center', 'gap: 4px 0', 'margin: 0', 'padding: 0', 'list-style: none']),
+  rule('.sp-ui-crumb', ['display: inline-flex', 'align-items: center']),
+  rule('.sp-ui-crumb + .sp-ui-crumb::before', ["content: '/'", 'padding: 0 10px', 'color: var(--sp-rule)']),
+  rule('.sp-ui-crumb a', ['color: var(--sp-text-muted)', 'text-decoration: underline', 'text-decoration-color: var(--sp-rule)', 'text-underline-offset: 3px']),
+  rule('.sp-ui-crumb a:hover', ['color: var(--sp-text)', 'text-decoration-color: currentColor']),
+  rule(".sp-ui-crumb [aria-current='page']", ['color: var(--sp-text)', 'font-weight: 500']),
+  // Avatar and its group
+  rule('.sp-avatar', [
+    'display: inline-flex',
+    'align-items: center',
+    'justify-content: center',
+    'flex: none',
+    'inline-size: var(--sp-ui-avatar-size, var(--sp-ui-height))',
+    'block-size: var(--sp-ui-avatar-size, var(--sp-ui-height))',
+    'border-radius: 50%',
+    'background: var(--sp-substrate)',
+    'font-size: 13px',
+    'letter-spacing: 0.04em',
+  ]),
+  rule(".sp-avatar[data-shape='square']", ['border-radius: var(--sp-ui-radius)']),
+  rule('.sp-ui-avatar-image', ['position: absolute', 'inset: 3px', 'inline-size: calc(100% - 6px)', 'block-size: calc(100% - 6px)', 'object-fit: cover', 'border-radius: inherit']),
+  rule('.sp-ui-avatar-initials', ['position: relative']),
+  rule('.sp-avatar-group', ['display: inline-flex']),
+  rule('.sp-avatar-group > .sp-avatar + .sp-avatar', ['margin-inline-start: -8px']),
+  // Statistic: the trend is an exact arrow and text (REQ-479).
+  rule('.sp-statistic', ['display: inline-flex', 'flex-direction: column', 'gap: 4px']),
+  rule('.sp-ui-statistic-title', caps),
+  rule('.sp-ui-statistic-value', ['display: inline-flex', 'align-items: baseline', 'gap: 4px', 'font-size: 32px', 'font-variant-numeric: tabular-nums', 'line-height: 1.1']),
+  rule(".sp-statistic[data-size='sm'] .sp-ui-statistic-value", ['font-size: 22px']),
+  rule(".sp-statistic[data-size='lg'] .sp-ui-statistic-value", ['font-size: 44px']),
+  rule('.sp-ui-statistic-affix', ['color: var(--sp-text-muted)', 'font-size: 0.55em']),
+  rule('.sp-ui-statistic-trend', ['display: inline-flex', 'align-items: center', 'gap: 4px', 'color: var(--sp-text-muted)', 'font-size: 14px', 'font-variant-numeric: tabular-nums']),
+  // Descriptions
+  rule('.sp-descriptions', ['display: block', 'container-type: inline-size']),
+  rule(".sp-descriptions[data-bordered='true']", ['padding: 14px 20px 18px']),
+  rule('.sp-ui-descriptions-title', ['position: relative', 'margin: 0 0 10px', 'font-size: 18px', 'font-weight: 500']),
+  rule('.sp-descriptions dl', ['position: relative', 'display: grid', 'grid-template-columns: repeat(var(--sp-ui-columns, 3), minmax(0, 1fr))', 'gap: 12px 24px', 'margin: 0']),
+  ...[1, 2, 3, 4, 5, 6].map((n) => rule(`.sp-descriptions[data-columns='${n}']`, [`--sp-ui-columns: ${n}`])),
+  rule('.sp-ui-description', ['display: flex', 'flex-direction: column', 'gap: 2px', 'min-inline-size: 0']),
+  rule('.sp-ui-description dt', caps),
+  rule('.sp-ui-description dd', ['margin: 0', 'font-size: 15px', 'overflow-wrap: anywhere']),
+  media('@container (max-width: 520px)', [rule('.sp-descriptions dl', ['grid-template-columns: minmax(0, 1fr)'])]),
+  // TimelineList: connectors are exact rules, dashed toward a pending item (C-4).
+  rule('.sp-timeline-list', ['display: block', 'margin: 0', 'padding: 0', 'list-style: none', 'font-size: 15px']),
+  rule('.sp-ui-timeline-item', ['position: relative', 'display: grid', 'grid-template-columns: 22px 1fr', 'gap: 0 12px', 'padding-block-end: 18px']),
+  rule('.sp-ui-timeline-item:last-child', ['padding-block-end: 0']),
+  rule('.sp-ui-timeline-item:not(:last-child)::before', [
+    "content: ''",
+    'position: absolute',
+    'inset-block: 24px 2px',
+    'inset-inline-start: 10px',
+    'border-inline-start: 1px solid var(--sp-ink)',
+  ]),
+  rule(".sp-ui-timeline-item[data-status='pending']:not(:last-child)::before", ['border-inline-start-style: dashed', 'border-inline-start-color: var(--sp-rule)']),
+  rule('.sp-ui-timeline-mark', ['position: relative', 'display: inline-flex', 'align-items: center', 'justify-content: center', 'inline-size: 22px', 'block-size: 22px']),
+  rule(".sp-ui-timeline-mark [part='sp-mark']", ['inline-size: 12px', 'block-size: 12px']),
+  rule(".sp-ui-timeline-mark [part~='sp-heighten']", ['inline-size: 10px', 'block-size: 10px', 'border-radius: 50%']),
+  rule('.sp-ui-timeline-text', ['display: flex', 'flex-direction: column', 'gap: 2px', 'min-inline-size: 0']),
+  rule('.sp-ui-timeline-time', ['color: var(--sp-text-muted)', 'font-size: 13px', 'font-variant-numeric: tabular-nums']),
+  rule('.sp-ui-timeline-title', ['font-weight: 500']),
+  rule(".sp-ui-timeline-item[data-status='pending'] .sp-ui-timeline-title", ['color: var(--sp-text-muted)', 'font-style: italic', 'font-weight: 400']),
+  rule('.sp-ui-timeline-description', ['color: var(--sp-text-muted)']),
+  // Collapse: native details; the chevron is exact and the browser's marker is gone.
+  rule('.sp-collapse', ['display: block', 'padding: 4px 0']),
+  rule('.sp-collapse-item', ['display: block']),
+  rule('.sp-collapse-item + .sp-collapse-item', ['border-block-start: 1px solid var(--sp-rule)']),
+  rule('.sp-ui-collapse-summary', [
+    'position: relative',
+    'display: flex',
+    'align-items: center',
+    'justify-content: space-between',
+    'gap: 12px',
+    'min-block-size: var(--sp-ui-height)',
+    'padding: 6px 18px',
+    'list-style: none',
+    'font-size: 15px',
+    'cursor: pointer',
+  ]),
+  rule('.sp-ui-collapse-summary::-webkit-details-marker', ['display: none']),
+  rule("[open] > .sp-ui-collapse-summary [data-glyph='chevronDown']", ['rotate: 180deg']),
+  rule(".sp-collapse-item[data-disabled='true'] > .sp-ui-collapse-summary", ['color: var(--sp-text-muted)', 'font-style: italic', 'cursor: not-allowed']),
+  rule('.sp-ui-collapse-body', ['position: relative', 'padding: 0 18px 14px', 'font-size: 15px']),
+  // Empty and Result
+  rule('.sp-empty,\n.sp-result', ['display: flex', 'flex-direction: column', 'align-items: center', 'gap: 8px', 'padding: 18px 12px', 'text-align: center']),
+  rule('.sp-ui-empty-tray', ['position: relative', 'display: block', 'inline-size: 64px', 'block-size: 40px', 'margin-block-end: 4px']),
+  rule('.sp-ui-empty-description', ['margin: 0', 'color: var(--sp-text-muted)', 'font-style: italic']),
+  rule('.sp-ui-result-mark', ['position: relative', 'display: inline-flex', 'align-items: center', 'justify-content: center', 'inline-size: 64px', 'block-size: 64px']),
+  rule(".sp-ui-result-mark [part='sp-mark']", ['inline-size: 30px', 'block-size: 30px', 'stroke-width: 1.2']),
+  rule('.sp-ui-result-title', ['margin: 6px 0 0', 'font-size: 22px', 'font-weight: 500']),
+  rule('.sp-ui-result-subtitle', ['margin: 0', 'color: var(--sp-text-muted)']),
+  rule('.sp-ui-result-extra,\n.sp-ui-empty-extra', ['display: flex', 'flex-wrap: wrap', 'justify-content: center', 'gap: 8px', 'margin-block-start: 8px']),
+  // Textarea and InputNumber, on the SpInput contract.
+  rule('.sp-textarea', ['display: inline-flex']),
+  rule('.sp-textarea .sp-ui-box', ['align-items: flex-start', 'padding: 8px 10px 8px 12px']),
+  rule('.sp-textarea .sp-ui-control', ['min-block-size: 4.5em', 'line-height: 1.5', 'resize: vertical']),
+  rule('.sp-ui-count', ['align-self: flex-end', 'color: var(--sp-text-muted)', 'font-size: 12px', 'font-variant-numeric: tabular-nums']),
+  rule('.sp-input-number', ['display: inline-flex']),
+  rule('.sp-input-number .sp-ui-box', ['min-block-size: var(--sp-ui-height)', 'padding: 0 4px']),
+  rule('.sp-input-number .sp-ui-control', ['min-inline-size: 4ch', 'text-align: center', 'font-variant-numeric: tabular-nums', '-moz-appearance: textfield', 'appearance: textfield']),
+  rule('.sp-input-number .sp-ui-control::-webkit-inner-spin-button,\n.sp-input-number .sp-ui-control::-webkit-outer-spin-button', ['-webkit-appearance: none', 'margin: 0']),
+  rule('.sp-ui-stepper', [...plainButton, 'flex: none', 'min-inline-size: 24px', 'min-block-size: 24px', 'color: var(--sp-text)']),
+  rule('.sp-ui-stepper:disabled', ['color: var(--sp-text-muted)', 'cursor: not-allowed']),
+];
+
+/** An overlay's paper: the substrate, the text, no chrome of the browser's (Popover API, `<dialog>`). */
+const paper = ['margin: 0', 'padding: 0', 'border: 0', 'background: var(--sp-substrate)', 'color: var(--sp-text)', 'overflow: visible'];
+
+/** feature-004, the overlays (DD-038): native `<dialog>` and the Popover API, placed by `uiAnchor`. */
+const OVERLAYS = [
+  rule('.sp-modal,\n.sp-drawer', [...paper, 'max-inline-size: calc(100vw - 32px)', 'max-block-size: calc(100vh - 32px)']),
+  rule('.sp-modal', [
+    'inline-size: var(--sp-ui-overlay-width, 520px)',
+    'margin: auto',
+    'padding: 18px 22px 20px',
+  ]),
+  rule('.sp-modal[open],\n.sp-drawer[open]', ['display: flex', 'flex-direction: column', 'gap: 10px']),
+  rule('.sp-drawer', ['position: fixed', 'padding: 18px 22px 20px', 'max-inline-size: 100vw', 'max-block-size: 100vh']),
+  rule(".sp-drawer:is([data-side='start'], [data-side='end'])", ['inset-block: 0', 'block-size: 100%', 'inline-size: min(var(--sp-ui-drawer-extent, 380px), 100vw)']),
+  rule(".sp-drawer[data-side='end']", ['inset-inline: auto 0']),
+  rule(".sp-drawer[data-side='start']", ['inset-inline: 0 auto']),
+  rule(".sp-drawer:is([data-side='top'], [data-side='bottom'])", ['inset-inline: 0', 'inline-size: 100%', 'block-size: min(var(--sp-ui-drawer-extent, 320px), 100vh)']),
+  rule(".sp-drawer[data-side='top']", ['inset-block: 0 auto']),
+  rule(".sp-drawer[data-side='bottom']", ['inset-block: auto 0']),
+  // The backdrop: the ground's tone tile over the page, never opacity (REQ-499); its level is set per ground.
+  rule(':is(.sp-modal, .sp-drawer)::backdrop', [
+    'background: var(--sp-ink-secondary)',
+    ...mask('image', 'var(--sp-ui-tone)'),
+    ...mask('size', 'var(--sp-ui-tone-size)'),
+    ...mask('repeat', 'repeat'),
+  ]),
+  rule(":is(.sp-modal, .sp-drawer)[data-mode='precision']::backdrop", ['background: var(--sp-substrate)', ...mask('image', 'none')]),
+  rule('.sp-ui-overlay-header', ['position: relative', 'display: flex', 'align-items: baseline', 'justify-content: space-between', 'gap: 12px']),
+  rule('.sp-ui-overlay-title', ['margin: 0', 'font-size: 20px', 'font-weight: 500']),
+  rule(".sp-popover .sp-ui-overlay-title", ['font-size: 16px']),
+  rule(":is(.sp-modal, .sp-drawer) > [part='sp-rule']", ['position: relative', 'display: block', 'border-block-start: 1px solid var(--sp-rule)']),
+  rule('.sp-ui-overlay-description', ['position: relative', 'margin: 0', 'color: var(--sp-text-muted)', 'font-size: 15px']),
+  rule('.sp-ui-overlay-body', ['position: relative', 'font-size: 15px']),
+  rule('.sp-ui-overlay-footer', ['position: relative', 'display: flex', 'flex-wrap: wrap', 'justify-content: flex-end', 'gap: 8px', 'margin-block-start: 6px']),
+  // Anchored overlays: uiAnchor writes --sp-ui-x and --sp-ui-y after open (REQ-493, REQ-502).
+  rule(':is(.sp-popover, .sp-tooltip, .sp-ui-select-content, .sp-ui-menu)', [
+    ...paper,
+    'position: fixed',
+    'inset: 0 auto auto 0',
+    'translate: var(--sp-ui-x, 0) var(--sp-ui-y, 0)',
+  ]),
+  rule('.sp-popover', [
+    'inline-size: max-content',
+    'max-inline-size: min(var(--sp-ui-overlay-width, 320px), calc(100vw - 24px))',
+    'padding: 12px 16px 14px',
+    'font-size: 15px',
+  ]),
+  rule('.sp-popover:popover-open', ['display: flex', 'flex-direction: column', 'gap: 6px']),
+  rule('.sp-tooltip', ['max-inline-size: 260px', 'padding: 4px 10px 5px', 'font-size: 13px', 'line-height: 1.35']),
+  rule('.sp-ui-tooltip-text', ['position: relative']),
+  rule('.sp-ui-trigger', ['display: inline-flex']),
+  // Select and DropdownMenu: triggers on the control frame, a list of options or items.
+  rule('.sp-select,\n.sp-dropdown-menu', ['display: inline-flex', 'font-size: 15px']),
+  rule('.sp-ui-select-trigger,\n.sp-ui-menu-trigger', [...plainButton, 'min-block-size: var(--sp-ui-height)', 'padding: 0 10px 0 12px', 'color: var(--sp-text)']),
+  rule('.sp-ui-select-trigger', ['justify-content: space-between', 'min-inline-size: var(--sp-ui-select-width, 180px)']),
+  rule(".sp-ui-select-value[data-placeholder='true']", ['color: var(--sp-text-muted)', 'font-style: italic']),
+  rule(':is(.sp-ui-select-trigger, .sp-ui-menu-trigger):disabled', ['font-style: italic', 'cursor: not-allowed']),
+  rule('.sp-ui-select-content,\n.sp-ui-menu', ['min-inline-size: 160px', 'max-block-size: 320px', 'padding: 6px 0', 'font-size: 15px', 'overflow: auto']),
+  rule('.sp-ui-option,\n.sp-ui-menuitem', [
+    'position: relative',
+    'display: flex',
+    'align-items: center',
+    'gap: 10px',
+    'min-block-size: 24px',
+    'padding: 5px 14px',
+    'cursor: pointer',
+  ]),
+  // The active option or item: the one heightening of the list (REQ-498, I-28).
+  rule(":is(.sp-ui-option, .sp-ui-menuitem) [part~='sp-heighten']", ['position: absolute', 'inset: 1px 4px']),
+  rule(":is(.sp-ui-option, .sp-ui-menuitem)[aria-disabled='true']", ['color: var(--sp-text-muted)', 'font-style: italic', 'cursor: not-allowed']),
+  rule(".sp-ui-option [data-glyph='tick']", ['margin-inline-start: auto']),
+  rule(".sp-ui-menuitem[data-danger='true']", ['font-style: italic']),
+  rule('.sp-ui-menu-label', ['padding: 6px 14px 2px', ...caps]),
+  rule('.sp-ui-menu-separator', ['position: relative', 'block-size: 0', 'margin: 5px 10px', 'border-block-start: 1px solid var(--sp-rule)']),
+  rule('.sp-ui-menu-shortcut', ['position: relative', 'margin-inline-start: auto', 'padding-inline-start: 16px', 'color: var(--sp-text-muted)', 'font-size: 13px']),
+  // Toaster and Toast: a corner region, a list of framed notes.
+  rule('.sp-toaster', ['position: fixed', 'z-index: 2147483000', 'inline-size: min(380px, calc(100vw - 32px))', 'pointer-events: none']),
+  rule(".sp-toaster[data-position^='bottom']", ['inset-block-end: 16px']),
+  rule(".sp-toaster[data-position^='top']", ['inset-block-start: 16px']),
+  rule(".sp-toaster[data-position$='end']", ['inset-inline-end: 16px']),
+  rule(".sp-toaster[data-position$='start']", ['inset-inline-start: 16px']),
+  rule('.sp-ui-toaster-list', ['display: flex', 'flex-direction: column', 'gap: 8px', 'margin: 0', 'padding: 0', 'list-style: none']),
+  rule('.sp-toast', [
+    'display: grid',
+    'grid-template-columns: 1fr auto',
+    'align-items: start',
+    'gap: 4px 8px',
+    'padding: 12px 10px 14px 14px',
+    'background: var(--sp-substrate)',
+    'font-size: 15px',
+    'pointer-events: auto',
+  ]),
+  rule(".sp-toast[data-state='closed']", ['display: none']),
+  rule('.sp-ui-toast-body', ['position: relative', 'display: flex', 'align-items: flex-start', 'gap: 12px']),
+  rule(".sp-ui-toast-body > [part='sp-mark']", ['inline-size: 18px', 'block-size: 18px', 'margin-block-start: 2px']),
+  rule('.sp-ui-toast-text', ['display: flex', 'flex-direction: column', 'gap: 2px']),
+  rule('.sp-ui-toast-title', ['font-weight: 500']),
+  rule('.sp-ui-toast-description', ['color: var(--sp-text-muted)', 'font-size: 14px']),
+  rule('.sp-ui-toast-action', ['position: relative', 'grid-column: 1', 'margin-inline-start: 30px']),
+  rule('.sp-toast > .sp-ui-icon-button', ['grid-column: 2', 'grid-row: 1']),
+];
+
 const MOTION = media('@media (prefers-reduced-motion: no-preference)', [
   rule(".sp-ui [part='sp-knob'],\n.sp-ui [part='sp-thumb'],\n.sp-ui [part='sp-fill']", [
     'transition: inset-inline-start 120ms ease-out, inline-size 120ms ease-out',
@@ -549,6 +857,7 @@ const MOTION = media('@media (prefers-reduced-motion: no-preference)', [
   // An indeterminate progress moves only when motion is welcome; otherwise it is a static tone (REQ-320).
   rule(".sp-progress[data-indeterminate='true'][data-shape='line'] [part='sp-fill']", ['inline-size: 30%', 'animation: sp-ui-sweep 1.6s ease-in-out infinite alternate']),
   rule(".sp-progress[data-indeterminate='true'][data-shape='circle'] .sp-ui-ring", ['animation: sp-ui-spin 1.2s linear infinite']),
+  rule(".sp-ui-collapse-summary [data-glyph='chevronDown']", ['transition: rotate 120ms ease-out']),
   media('@keyframes sp-ui-sweep', [rule('from', ['inset-inline-start: 0']), rule('to', ['inset-inline-start: 70%'])]),
   media('@keyframes sp-ui-spin', [rule('to', ['rotate: 1turn'])]),
 ]);
@@ -558,6 +867,7 @@ const FORCED = media('@media (forced-colors: active)', [
   rule(".sp-ui [part='sp-frame']", [...mask('image', 'none !important'), 'background: none !important', 'border-color: CanvasText !important']),
   rule(".sp-ui [part='sp-tone']", ['forced-color-adjust: none', 'background: CanvasText']),
   rule(".sp-ui [part~='sp-heighten']", ['forced-color-adjust: none', 'background: Canvas', 'outline-color: CanvasText']),
+  rule(':is(.sp-modal, .sp-drawer)::backdrop', [...mask('image', 'none !important'), 'background: Canvas !important']),
 ]);
 
 const HEADER = `/*
@@ -580,9 +890,12 @@ export function buildUiCss(grounds: readonly Ground[]): string {
     ...B1,
     ...B2,
     ...B3,
+    ...COMPOSED,
+    ...OVERLAYS,
     ...KINDS.map(kindLayout),
     ...grounds.flatMap(inkedFrames),
     ...grounds.flatMap(tones),
+    ...grounds.flatMap(unhatched),
     MOTION,
     FORCED,
   ].join('\n\n') + '\n';
