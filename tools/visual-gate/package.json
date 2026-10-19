@@ -13,6 +13,7 @@
     "ui-canonical": "tsx --conditions=@silverpoint/source ui-canonical.ts",
     "ui-gate": "tsx ui-gate.ts",
     "palette-canonical": "tsx --conditions=@silverpoint/source palette-fixtures.ts",
+    "timeline-canonical": "tsx --conditions=@silverpoint/source timeline-fixtures.ts",
     "palette-gate": "tsx palette-gate.ts"
   },
   "dependencies": {

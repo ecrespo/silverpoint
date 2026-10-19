@@ -11,7 +11,7 @@ interface InkStyle {
 interface InkView {
   getComputedStyle(element: never): InkStyle;
   readonly MutationObserver: new (callback: () => void) => {
-    observe(target: never, options: { readonly attributes: boolean; readonly attributeFilter: readonly string[] }): void;
+    observe(target: never, options: { readonly attributes: boolean; readonly attributeFilter: string[] }): void;
     disconnect(): void;
   };
 }

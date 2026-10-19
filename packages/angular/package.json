@@ -27,7 +27,13 @@
   "peerDependencies": {
     "@angular/common": ">=21.0.0 <23.0.0",
     "@angular/core": ">=21.0.0 <23.0.0",
-    "@angular/forms": ">=21.0.0 <23.0.0"
+    "@angular/forms": ">=21.0.0 <23.0.0",
+    "@knight-lab/timelinejs": "^3.9.13"
+  },
+  "peerDependenciesMeta": {
+    "@knight-lab/timelinejs": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@angular/common": "^21.2.23",
@@ -37,6 +43,7 @@
     "@angular/forms": "21.2.23",
     "@angular/platform-browser": "^21.2.23",
     "@angular/platform-server": "^21.2.23",
+    "@knight-lab/timelinejs": "3.9.13",
     "happy-dom": "^20.14.5",
     "ng-packagr": "^21.2.7",
     "rxjs": "^7.8.2",

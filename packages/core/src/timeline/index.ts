@@ -5,3 +5,4 @@
 export type * from './types';
 export { TIMELINE_FRAMES, TIMELINE_TONES, timelineInk, type TimelineInkHost, type TimelineInkProbe } from './ink';
 export { timelineView } from './view';
+export { TIMELINE_EVENTS, timelineMount, timelineOptions, type TimelineJsModule, type TimelineMountHost, type TimelineMountOptions } from './mount';

@@ -29,6 +29,13 @@ const PEERS = {
 };
 const FRAMEWORKS = Object.values(PEERS).flat();
 
+/** Peers an adapter may declare only as optional: one subpath's own library (REQ-510, DD-042). */
+const OPTIONAL_PEERS = {
+  '@silverpoint/react': ['@knight-lab/timelinejs'],
+  '@silverpoint/vue': ['@knight-lab/timelinejs'],
+  '@silverpoint/angular': ['@knight-lab/timelinejs'],
+};
+
 /** Packages that ship a stylesheet and must keep it as a side effect (REQ-034). */
 const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts', '@silverpoint/tailwind'];
 
@@ -78,8 +85,13 @@ export function checkManifests(manifests) {
       ...Object.keys(manifest.peerDependencies ?? {}),
       ...Object.keys(manifest.optionalDependencies ?? {}),
     ];
+    const optional = OPTIONAL_PEERS[name] ?? [];
     for (const dependency of declared) {
-      if (!allowed.includes(dependency) && !(PEERS[name] ?? []).includes(dependency)) {
+      if (optional.includes(dependency) && dependency in (manifest.peerDependencies ?? {})) {
+        if (manifest.peerDependenciesMeta?.[dependency]?.optional !== true) {
+          problems.push(`REQ-510 · ${name} must mark ${dependency} optional in peerDependenciesMeta.`);
+        }
+      } else if (!allowed.includes(dependency) && !(PEERS[name] ?? []).includes(dependency)) {
         problems.push(`REQ-162 · ${name} declares ${dependency}, which is outside its allowlist (${allowed.join(', ') || 'none'}).`);
       }
     }

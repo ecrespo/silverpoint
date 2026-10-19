@@ -160,6 +160,12 @@ Criteria in EARS. Identifiers REQ-460..REQ-523 are new; none is reused.
 | REQ-514 | ubiquitous | `SpTimeline` SHALL forward TimelineJS's events —`change`, `loaded`, `nav_next`, `nav_previous`, `zoom_in`, `zoom_out`, `back_to_start`— in each framework's idiom, and ignore the `font` and `theme` options, which the skin owns. | MUST |
 | REQ-515 | unwanted | IF `@knight-lab/timelinejs` cannot be loaded, THEN `SpTimeline` SHALL keep its surface, render its `fallback` slot (empty by default) and warn `SP025` in development, and SHALL NOT throw. | MUST |
 
+*Amended in implementation (T-221):* "cannot be loaded" is a failure at run time: a chunk that does
+not arrive, a blocked request, a module that throws as it is evaluated. The import is a literal, so
+that the consumer's bundler splits TimelineJS into a chunk of its own; a consumer who imports the
+`timeline` subpath without installing the peer therefore has a build that fails to resolve it, not a
+page that warns. A consumer who does not import that subpath needs nothing (REQ-510).
+
 ### Parity, budgets, integration and documentation
 
 | ID | Pattern | Criterion | Priority |

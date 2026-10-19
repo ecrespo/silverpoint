@@ -7,8 +7,8 @@ import { UI_COMPONENTS, type CommonUiProps, type UiComponentRow, type UiSize } f
 import { PALETTES } from '@silverpoint/core/palettes';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 
-/** Each ground with its substrates, as the chart and dashboard matrices have them. No `fs` here: adapter tests import this. */
-const GROUND_SUBSTRATES = [
+/** Each ground with its substrates, as the chart and dashboard matrices have them. No `fs` here: adapter tests import this; so do the timeline fixtures. */
+export const GROUND_SUBSTRATES = [
   ...(['cream', 'green', 'blue', 'ochre'] as const).map((substrate) => ({ ground: 'silverpoint', substrate })),
   { ground: 'cyanotype', substrate: 'prussian' },
 ] as const;

@@ -76,6 +76,20 @@ describe('check-deps', () => {
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-161.*@silverpoint\/react.*react/);
   });
 
+  test('REQ-510 · REQ-162 · TimelineJS is an adapter’s optional peer, never a required peer nor a dependency, nor the core’s', () => {
+    const optional = { peerDependencies: { '@knight-lab/timelinejs': '^3.9.13' }, peerDependenciesMeta: { '@knight-lab/timelinejs': { optional: true } } };
+    const withPeer = (name: string, extra: Partial<Manifest>) => replace(valid(), name, (m) => ({ ...m, ...extra, peerDependencies: { ...(m.peerDependencies as object), ...(extra.peerDependencies as object) } }));
+    for (const adapter of ['@silverpoint/react', '@silverpoint/vue', '@silverpoint/angular']) expect(checkManifests(withPeer(adapter, optional)), adapter).toEqual([]);
+    expect(checkManifests(withPeer('@silverpoint/react', { peerDependencies: { '@knight-lab/timelinejs': '^3.9.13' } }))).toEqual([
+      'REQ-510 · @silverpoint/react must mark @knight-lab/timelinejs optional in peerDependenciesMeta.',
+    ]);
+    const asDependency = replace(valid(), '@silverpoint/vue', (m) => ({ ...m, dependencies: { ...m.dependencies, '@knight-lab/timelinejs': '^3.9.13' } }));
+    expect(checkManifests(asDependency)).toEqual(['REQ-162 · @silverpoint/vue depends on @knight-lab/timelinejs, which is outside its allowlist (@silverpoint/core, @silverpoint/grounds).']);
+    const asOptionalDependency = replace(valid(), '@silverpoint/angular', (m) => ({ ...m, optionalDependencies: { '@knight-lab/timelinejs': '^3.9.13' } }));
+    expect(checkManifests(asOptionalDependency)).toEqual(['REQ-162 · @silverpoint/angular declares @knight-lab/timelinejs, which is outside its allowlist (@silverpoint/core, @silverpoint/grounds, tslib).']);
+    expect(checkManifests(withPeer('@silverpoint/core', optional))).toEqual(['REQ-162 · @silverpoint/core declares @knight-lab/timelinejs, which is outside its allowlist (d3-scale, d3-shape, d3-chord).']);
+  });
+
   test('REQ-161 · Vue missing from peerDependencies fails', () => {
     const manifests = replace(valid(), '@silverpoint/vue', (m) => ({ ...m, peerDependencies: {} }));
     expect(checkManifests(manifests).join('\n')).toMatch(/REQ-161.*@silverpoint\/vue.*vue/);

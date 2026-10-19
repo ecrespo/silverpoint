@@ -107,6 +107,8 @@ export default defineConfig({
     'ui/select': 'src/ui/select.ts',
     'ui/dropdown-menu': 'src/ui/dropdown-menu.ts',
     'ui/toast': 'src/ui/toast.ts',
+    // TimelineJS, loaded on the client only (feature-004, REQ-510).
+    timeline: 'src/timeline.ts',
   },
   format: ['esm'],
   target: 'es2022',
@@ -114,6 +116,6 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ['vue', '@silverpoint/core', '@silverpoint/grounds'],
+  external: ['vue', '@silverpoint/core', '@silverpoint/grounds', '@knight-lab/timelinejs'],
   esbuildPlugins: [Vue()],
 });

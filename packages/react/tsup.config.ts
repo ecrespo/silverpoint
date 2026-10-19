@@ -7,7 +7,7 @@ const shared = {
   sourcemap: true,
   // Rollup's treeshake pass drops module-level directives; esbuild already tree-shakes.
   treeshake: false,
-  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/react/dashboard-link'],
+  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/react/dashboard-link', '@knight-lab/timelinejs'],
 };
 
 // Client entries carry the "use client" marker; server entries must not (REQ-104).
@@ -119,6 +119,8 @@ export default defineConfig([
       'ui/select': 'src/ui/select.tsx',
       'ui/dropdown-menu': 'src/ui/dropdown-menu.tsx',
       'ui/toast': 'src/ui/toast.tsx',
+      // TimelineJS, loaded on the client only (feature-004, REQ-510).
+      timeline: 'src/timeline.tsx',
     },
     banner: { js: "'use client';" },
   },

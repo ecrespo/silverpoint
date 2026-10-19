@@ -177,6 +177,16 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
 - **Parity:** only the surface, the probes and the empty mount are server markup (REQ-513); the
   TimelineJS DOM is third-party markup the library does not emit (Art. 3 as amended). A pixel
   fixture over a pinned TimelineJS version guards the skin.
+- *Amended in implementation (T-221):* the client half is the core's `timelineMount`; each adapter
+  only hands it the host, a literal `import()` of `@knight-lab/timelinejs/src/js/timeline/Timeline.js`
+  (the package entry imports Less, which no consumer bundler loads), its event sink and its
+  `failed` flag, from `useEffect`, `onMounted` and `afterRenderEffect`. The surface fixtures sit
+  beside the component matrix (`fixtures/timeline`, canonicals in `fixtures/ui`), compared by each
+  adapter's own tests; the app tree gate and the pixel fixture over pinned TimelineJS come with the
+  timeline pages of T-222, where the apps install TimelineJS.
+  The dependency check (TD §5.3, `check-deps`) allows `@knight-lab/timelinejs` to the three
+  adapters only as a peer marked optional in `peerDependenciesMeta`; as a dependency, a required
+  peer or in any other package it still fails (REQ-162).
 - **Rejected:** bundling TimelineJS (~100 KB, MPL-2.0, its own CSS) or re-implementing it (a
   narrative timeline engine is a product of its own).
 

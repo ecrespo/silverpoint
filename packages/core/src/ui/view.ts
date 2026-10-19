@@ -43,7 +43,7 @@ export interface UiElement {
  */
 export type UiBind = 'native' | 'close' | 'trigger' | 'dialog' | 'popover' | 'option' | 'menuitem' | 'sort' | 'page' | 'stepper' | 'summary' | 'probe' | 'mount';
 
-export type UiSlot = 'content' | 'prefix' | 'suffix' | 'extra' | 'footer' | 'trigger' | 'action';
+export type UiSlot = 'content' | 'prefix' | 'suffix' | 'extra' | 'footer' | 'trigger' | 'action' | 'fallback';
 export type UiNode = UiElement | { readonly text: string } | { readonly slot: UiSlot };
 
 /** What a component inherits around it: the provider, the dashboard cell, the environment. */

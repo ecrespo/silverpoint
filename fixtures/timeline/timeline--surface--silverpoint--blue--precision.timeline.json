@@ -1,0 +1,11 @@
+{
+  "id": "timeline--surface--silverpoint--blue--precision",
+  "component": "timeline",
+  "state": "surface",
+  "req": "REQ-513",
+  "ground": "silverpoint",
+  "substrate": "blue",
+  "mode": "precision",
+  "scope": "nightly",
+  "canonical": "ui/timeline--surface--silverpoint--blue--precision.canonical.txt"
+}

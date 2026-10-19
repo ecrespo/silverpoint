@@ -16,7 +16,7 @@ No new package (DD-021 holds). One new optional peer, on one subpath.
 | `@silverpoint/core` | `@silverpoint/core/palettes` (new) | `paletteStyle`, `resolvePalette`, `checkPalette`, `contrastRatio`, `PALETTE_PROPERTIES`, `PALETTE_PAIRS`; `silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`, `PALETTES` (one record of the six), `PALETTE_NAMES`. *Amended in implementation (user decision, 2026-10-18):* the functions moved here from the main entry, which they pushed past its 45 kB budget (REQ-164); an unused preset tree-shakes out |
 | `@silverpoint/core` | `@silverpoint/core/ui` | Adds the view functions, types and core functions of §2 |
 | `@silverpoint/core` | `@silverpoint/core/ui-demos` | `UI_DEMOS` gains one entry per state of the new rows (Data Model §5); `TIMELINE_DEMO` (Data Model §4) |
-| `@silverpoint/core` | `@silverpoint/core/timeline` (new) | `timelineView`, `timelineInk` (the probe reader, DOM structural types), `TIMELINE_FRAMES`, `TIMELINE_TONES`, types (`SpTimelineProps`, `TimelineData`). *Amended in implementation (T-208):* the demo data is `TIMELINE_DEMO` on `@silverpoint/core/ui-demos`, not `TIMELINE_EVENTS` here, so no application ships it (REQ-330) |
+| `@silverpoint/core` | `@silverpoint/core/timeline` (new) | `timelineView`, `timelineInk` (the probe reader, DOM structural types), `TIMELINE_FRAMES`, `TIMELINE_TONES`, types (`SpTimelineProps`, `TimelineData`). *Amended in implementation (T-208):* the demo data is `TIMELINE_DEMO` on `@silverpoint/core/ui-demos`, not `TIMELINE_EVENTS` here, so no application ships it (REQ-330). *Amended in implementation (T-221):* the client half is here too, so the three adapters share it: `timelineMount` (inks the surface, loads TimelineJS through the adapter's `load`, builds it in the mount, forwards its events, warns `SP025` and calls `failed` on a failed load; its cleanup cancels a pending load and removes only TimelineJS's DOM), `timelineOptions` (drops `font` and `theme`) and `TIMELINE_EVENTS` (TimelineJS's seven event names, each with the name the adapters forward it under) |
 | `@silverpoint/grounds` | `@silverpoint/grounds/ui.css` | Adds the rules of the new components (§7) |
 | `@silverpoint/grounds` | `@silverpoint/grounds/timeline.css` (new) | The TimelineJS skin (REQ-511). Opt-in |
 | `@silverpoint/react` | `ui/<name>`, `server/ui/<name>`, `ui` barrel | `SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpAvatarGroup`, `SpStatistic`, `SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpCollapseItem`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`, `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`, `SpToaster` |
@@ -31,6 +31,13 @@ Subpath names: `ui/avatar` exports `SpAvatar` and `SpAvatarGroup`; `ui/collapse`
 three adapters with `peerDependenciesMeta: { optional: true }`. Only the `timeline` subpath imports it,
 dynamically, on the client (REQ-510, REQ-513). TimelineJS's own stylesheet
 (`@knight-lab/timelinejs/dist/css/timeline.css`) is imported by the consumer before ours.
+*Amended in implementation (T-221):* the subpath imports `@knight-lab/timelinejs/src/js/timeline/Timeline.js`,
+not the package entry: 3.9.13's entry imports a Less stylesheet that no consumer bundler loads
+without a loader (esbuild, the engine of Vite and the Angular CLI, refuses it), while `Timeline.js`
+is plain ES modules that split into a chunk of their own. The package ships no types; the adapters
+read the module as `TimelineJsModule`. The adapters also carry it as an exact dev dependency
+(`3.9.13`), for their tests. The import is a literal, so a consumer who imports the `timeline`
+subpath must install the peer (PRD REQ-515 as amended).
 
 ```ts
 import '@silverpoint/grounds/styles.css';
@@ -181,6 +188,14 @@ report `uiNumberStep` at once. Clamping on every keystroke would rewrite a value
 | Component | Props | Events |
 |---|---|---|
 | **Timeline** | `data: TimelineData` (TimelineJS JSON: `title`, `events`, `eras`, `scale`), `options?: Record<string, unknown>` (`font`, `theme` ignored), `height?: string` (`'600px'`), `inkedFrames?` (`true`), `card?` (`true`), `label?` (accessible name of the region) | `change(uniqueId)`, `loaded(payload)`, `navNext`, `navPrevious`, `zoomIn`, `zoomOut`, `backToStart`; slot `fallback` |
+
+*Amended in implementation (T-221):* in each framework's idiom, the events are React's `onChange`,
+`onLoaded`, `onNavNext`, `onNavPrevious`, `onZoomIn`, `onZoomOut` and `onBackToStart` props, Vue's
+emits and Angular's outputs, under the names above; the fallback is React's `fallback` prop, Vue's
+`fallback` slot and Angular's `<ng-template spFallback>` (`SpTimelineFallback`, exported from the
+`timeline` entry). `fallback` joins the core's `UiSlot`; `timelineView` takes `{ failed }` and puts
+the slot in the mount once a load has failed, never on the server. TimelineJS is built again when
+`data`, `options` or `inkedFrames` change.
 
 ### Core internal surface (§2) — additions on `@silverpoint/core/ui`
 
@@ -386,6 +401,9 @@ from 22 to 25 codes.
 | One-chart builds | REQ-444 allowance | CI fails (REQ-519) |
 | Table rows | 1,000 (advisory) | No diagnostic; documented: page with `SpPagination` |
 | Select and menu items | 50 (advisory) | No diagnostic |
+
+*Amended in implementation (T-221):* `SpTimeline`'s 3 KB is written the same way, 11 kB per adapter
+with TimelineJS left out (`ignore`), on `@silverpoint/<adapter>/timeline`.
 
 *Amended in implementation (T-220):* the increments are size-limit rows with absolute limits, as
 REQ-330's are: a component's subpath 11 kB (the 8 kB UI runtime and its 3 kB), an overlay's 15 kB

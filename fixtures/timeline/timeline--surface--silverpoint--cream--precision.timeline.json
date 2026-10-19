@@ -1,0 +1,11 @@
+{
+  "id": "timeline--surface--silverpoint--cream--precision",
+  "component": "timeline",
+  "state": "surface",
+  "req": "REQ-513",
+  "ground": "silverpoint",
+  "substrate": "cream",
+  "mode": "precision",
+  "scope": "pr",
+  "canonical": "ui/timeline--surface--silverpoint--cream--precision.canonical.txt"
+}

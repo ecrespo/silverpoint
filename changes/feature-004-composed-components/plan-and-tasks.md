@@ -430,18 +430,44 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8f — Timeline
 
-**[ ] T-221 · `SpTimeline` ×3** — REQ-510, REQ-512..REQ-515
+**[x] T-221 · `SpTimeline` ×3** — REQ-510, REQ-512..REQ-515
 - Optional peer in the three adapters' `package.json` (`peerDependenciesMeta.optional`); dynamic
   import after hydration; events; fallback slot and `SP025`; `inkedFrames`, `card`.
 - Tests: no import on the server; `SP025` when the import fails; events forwarded; `font`/`theme`
   stripped from `options`.
 - **Done:** tests green; surface fixtures green; one nightly pixel fixture over pinned TimelineJS.
+- **Ledger (2026-10-19):** the client half is the core's: `timelineMount` (`/timeline`) inks the
+  surface from its probes, loads TimelineJS through the adapter's `load`, builds it in the mount with
+  `timelineOptions` (no `font`, no `theme`) and forwards the seven events under `TIMELINE_EVENTS`'
+  names (`change` with the slide's `unique_id`, `loaded` with its payload, the rest bare); a failed
+  load warns `SP025` and calls `failed`; the cleanup cancels a pending load and removes TimelineJS's
+  DOM only, never a fallback the framework rendered. `timelineView(props, r, { failed })` puts the
+  new `fallback` slot in the mount. Adapters: React `@silverpoint/react/timeline` (a client entry,
+  `useEffect`, `on*` props, a `fallback` prop), Vue `@silverpoint/vue/timeline` (`onMounted` and a
+  watch, emits, a `fallback` slot), Angular `@silverpoint/angular/timeline` (`afterRenderEffect`,
+  outputs, `<ng-template spFallback>`). The peer is optional in the three `package.json`, and an
+  exact dev dependency (`3.9.13`) for the tests, which mock it per test (`vi.doMock`). The 10
+  surface fixtures (`timeline-fixtures.ts`, `timeline-canonical`; 4 PR) are compared by each
+  adapter's server render; size-limit rows at 11 kB (React 4.78, Vue 4.76, Angular 8.37 kB).
+  `TimelineInkHost`'s `attributeFilter` became a mutable array, which a real `HTMLElement` needs.
+  `check-deps` allows TimelineJS to the adapters only as an optional peer. Tests: core 7, React 4,
+  Vue 4, Angular 2 + 2, fixtures 4, budget 1, check-deps 1 (and the APF manifest). Mutants: 19 run
+  (core 7, React 3, Vue 2, Angular 2, fixtures 1, budget 1, check-deps 3), 19 red. *Amended in implementation* (PRD
+  REQ-515, API delta §1, §2 and §9, TD DD-042, Data Model §5): (1) the subpath imports
+  `@knight-lab/timelinejs/src/js/timeline/Timeline.js`, since 3.9.13's package entry imports a
+  Less stylesheet no consumer bundler loads (esbuild refuses it); (2) the import is a literal, so a
+  consumer who imports the `timeline` subpath must install the peer: without it the build fails to
+  resolve it, and `SP025` covers failures at run time; (3) the surface fixtures sit beside the
+  component matrix, as the palette fixtures do; the app tree gate and the nightly pixel fixture
+  over pinned TimelineJS come with the timeline pages of T-222.
 
 ### 8g — Example apps
 
 **[ ] T-222 · Composed, palettes and timeline pages in the four apps** — REQ-520
 - `vite-react`, `vite-vue`, `nextjs`, `angular`; `@knight-lab/timelinejs` as an exact dev dependency
   of each example app.
+- From T-221: the 10 timeline surface fixtures join the apps' tree gate, and the one nightly pixel
+  fixture over pinned TimelineJS is written.
 - **Done:** pages render; no hydration mismatch.
 
 **[ ] T-223 · E2E and axe** — REQ-491..REQ-498, REQ-503, REQ-520, REQ-522, REQ-523

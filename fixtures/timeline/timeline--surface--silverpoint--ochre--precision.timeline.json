@@ -1,0 +1,11 @@
+{
+  "id": "timeline--surface--silverpoint--ochre--precision",
+  "component": "timeline",
+  "state": "surface",
+  "req": "REQ-513",
+  "ground": "silverpoint",
+  "substrate": "ochre",
+  "mode": "precision",
+  "scope": "nightly",
+  "canonical": "ui/timeline--surface--silverpoint--ochre--precision.canonical.txt"
+}

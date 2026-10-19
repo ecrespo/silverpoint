@@ -180,6 +180,18 @@ describe('bundle budgets (size-limit)', () => {
     expect(wrong).toEqual([]);
   });
 
+  test('REQ-518 · SpTimeline is budgeted in every adapter at the UI runtime and 3 KB, TimelineJS left out', () => {
+    const paths = { react: 'packages/react/dist/timeline.js', vue: 'packages/vue/dist/timeline.js', angular: 'packages/angular/dist/fesm2022/silverpoint-angular-timeline.mjs' };
+    const wrong = (['react', 'vue', 'angular'] as const).flatMap((adapter) => {
+      const entry = config.find((e) => e.path === paths[adapter]);
+      const like = config.find((e) => e.path === uiPath(adapter, 'skeleton'));
+      const ignore = [...(like?.ignore ?? []), '@knight-lab/timelinejs'];
+      const right = entry?.limit === '11 kB' && entry.import === '{ SpTimeline }' && entry.gzip === true && JSON.stringify(entry.ignore) === JSON.stringify(ignore);
+      return right ? [] : [`${adapter}: ${entry?.limit ?? 'none'}`];
+    });
+    expect(wrong).toEqual([]);
+  });
+
   test("REQ-518 · Angular's overlay runtime, an entry of its own, is budgeted at the UI runtime and 4 KB; ui.css at 24 KB, timeline.css at 6 KB", () => {
     const overlay = config.find((e) => e.path === 'packages/angular/dist/fesm2022/silverpoint-angular-ui-overlay.mjs');
     expect(overlay?.limit).toBe('12 kB');

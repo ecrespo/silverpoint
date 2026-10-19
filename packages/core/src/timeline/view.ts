@@ -1,6 +1,6 @@
 import { uiRequireName } from '../ui/names';
 import type { UiElement, UiResolved } from '../ui/view';
-import { cssLength, el, frame, root } from '../ui/view-kit';
+import { cssLength, el, frame, root, slot } from '../ui/view-kit';
 import { TIMELINE_FRAMES, TIMELINE_TONES } from './ink';
 import type { SpTimelineProps } from './types';
 
@@ -9,7 +9,7 @@ import type { SpTimelineProps } from './types';
  * reads, and an empty mount TimelineJS fills on the client. Nothing of `data` is drawn here but the
  * region's name; TimelineJS's DOM is third-party markup, outside the tree gate (Art. 3 as amended).
  */
-export function timelineView(props: SpTimelineProps, r: UiResolved): UiElement {
+export function timelineView(props: SpTimelineProps, r: UiResolved, state: { readonly failed?: boolean } = {}): UiElement {
   const card = props.card !== false;
   const label = props.label ?? props.data.title?.text?.headline;
   uiRequireName('SpTimeline', undefined, label);
@@ -35,7 +35,8 @@ export function timelineView(props: SpTimelineProps, r: UiResolved): UiElement {
         ],
         'probe',
       ),
-      el('div', { class: 'sp-kl-mount' }, [], 'mount'),
+      // Once the load has failed, the consumer's fallback fills the mount (REQ-515); never on the server.
+      el('div', { class: 'sp-kl-mount' }, state.failed ? [slot('fallback')] : [], 'mount'),
     ],
   );
 }

@@ -32,7 +32,9 @@ describe('Angular Package Format', () => {
   test('REQ-161 · the published manifest keeps Angular as peers and is side-effect free', () => {
     const published = manifest();
     // @angular/forms: the UI components' ControlValueAccessor (REQ-323).
-    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms']);
+    // @knight-lab/timelinejs: the `timeline` entry's optional peer (REQ-510).
+    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms', '@knight-lab/timelinejs']);
+    expect(published.peerDependenciesMeta).toEqual({ '@knight-lab/timelinejs': { optional: true } });
     expect(published.dependencies).not.toHaveProperty('@angular/core');
     expect(published.sideEffects).toBe(false);
   });

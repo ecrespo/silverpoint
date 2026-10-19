@@ -3237,6 +3237,18 @@
     "limit": "15 kB"
   },
   {
+    "name": "@silverpoint/react/timeline (runtime + SpTimeline, without TimelineJS, REQ-518)",
+    "path": "packages/react/dist/timeline.js",
+    "import": "{ SpTimeline }",
+    "ignore": [
+      "react",
+      "react-dom",
+      "@knight-lab/timelinejs"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
     "name": "@silverpoint/vue UI runtime (feature-002, REQ-330): SpDivider",
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
@@ -3625,6 +3637,17 @@
     ],
     "gzip": true,
     "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/vue/timeline (runtime + SpTimeline, without TimelineJS, REQ-518)",
+    "path": "packages/vue/dist/timeline.js",
+    "import": "{ SpTimeline }",
+    "ignore": [
+      "vue",
+      "@knight-lab/timelinejs"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
   },
   {
     "name": "@silverpoint/angular UI runtime (feature-002, REQ-330): SpDivider",
@@ -4185,5 +4208,20 @@
     ],
     "gzip": true,
     "limit": "15 kB"
+  },
+  {
+    "name": "@silverpoint/angular/timeline (runtime + SpTimeline, without TimelineJS, REQ-518)",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-timeline.mjs",
+    "import": "{ SpTimeline }",
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/forms",
+      "rxjs",
+      "tslib",
+      "@knight-lab/timelinejs"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
   }
 ]

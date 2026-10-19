@@ -162,6 +162,12 @@ targets (`LineChart`, `SpCard`, `SpTable`) × two modes on `silverpoint/cream` =
 PR**. Totals: 1,782 chart + 90 dashboard + 906 component and palette fixtures nightly; 330 chart + 30
 dashboard + 360 component and palette fixtures on PR. The timeline's pixel fixture (one, TimelineJS pinned) is nightly only.
 
+*Amended in implementation (T-221):* the Timeline's 10 `surface` fixtures,
+`timeline--surface--<ground>--<substrate>--<mode>`, are written beside the component matrix
+(`fixtures/timeline`, by `timeline-canonical`; their canonicals in `fixtures/ui`), as the palette
+fixtures are, since `SpTimeline` has no `ui/` subpath; each adapter compares its server markup with
+them. With the matrix's 350 and 140 they make §5's 360 nightly and 144 on PR.
+
 ## §6 Invariants — additions
 
 | # | Invariant | Requirement |

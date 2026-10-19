@@ -1,0 +1,13 @@
+<section aria-label="Silverpoint" class="sp-ui sp-timeline sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-kl-card="true" data-kl-inked="false" data-mode="ink" data-size="md" data-substrate="cream" style="height:600px">
+  <span aria-hidden="true" data-kind="card" part="sp-frame">
+  <span aria-hidden="true" class="sp-kl-probe">
+    <span data-kind="control" part="sp-frame">
+    <span data-kind="card" part="sp-frame">
+    <span data-kind="round" part="sp-frame">
+    <span data-kind="box" part="sp-frame">
+    <span data-kind="pill" part="sp-frame">
+    <span data-tone="1" part="sp-tone">
+    <span data-tone="2" part="sp-tone">
+    <span data-tone="3" part="sp-tone">
+    <span data-tone="4" part="sp-tone">
+  <div class="sp-kl-mount">

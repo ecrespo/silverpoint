@@ -987,6 +987,12 @@
       "import": "./dist/ui/toast.js",
       "default": "./dist/ui/toast.js"
     },
+    "./timeline": {
+      "@silverpoint/source": "./src/timeline.tsx",
+      "types": "./dist/timeline.d.ts",
+      "import": "./dist/timeline.js",
+      "default": "./dist/timeline.js"
+    },
     "./server/ui/card": {
       "@silverpoint/source": "./src/server/ui/card.tsx",
       "types": "./dist/server/ui/card.d.ts",
@@ -1119,9 +1125,16 @@
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",
-    "react-dom": "^18.2.0 || ^19.0.0"
+    "react-dom": "^18.2.0 || ^19.0.0",
+    "@knight-lab/timelinejs": "^3.9.13"
+  },
+  "peerDependenciesMeta": {
+    "@knight-lab/timelinejs": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@knight-lab/timelinejs": "3.9.13",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "happy-dom": "^20.14.5",

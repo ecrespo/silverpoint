@@ -615,6 +615,12 @@
       "import": "./dist/ui/toast.js",
       "default": "./dist/ui/toast.js"
     },
+    "./timeline": {
+      "@silverpoint/source": "./src/timeline.ts",
+      "types": "./dist/timeline.d.ts",
+      "import": "./dist/timeline.js",
+      "default": "./dist/timeline.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -638,9 +644,16 @@
     "@silverpoint/grounds": "workspace:*"
   },
   "peerDependencies": {
-    "vue": "^3.5.0"
+    "vue": "^3.5.0",
+    "@knight-lab/timelinejs": "^3.9.13"
+  },
+  "peerDependenciesMeta": {
+    "@knight-lab/timelinejs": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@knight-lab/timelinejs": "3.9.13",
     "@vitejs/plugin-vue": "^6.0.9",
     "@vue/test-utils": "^2.5.1",
     "happy-dom": "^20.14.5",
