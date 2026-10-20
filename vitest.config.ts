@@ -117,6 +117,11 @@ export default defineConfig({
         test: { name: 'fonts', root: 'packages/fonts', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {
+        resolve: source,
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: { name: 'mcp', root: 'packages/mcp', environment: 'node', include: ['test/**/*.test.ts'] },
+      },
+      {
         test: { name: 'tailwind', root: 'packages/tailwind', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {

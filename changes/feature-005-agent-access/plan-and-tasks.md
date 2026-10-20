@@ -57,11 +57,11 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9c — The server, read-only tools
 
-- [ ] **T-232** `packages/mcp` scaffold in the fixed group: `createServer`, stdio bin, `get_version`, catalog loading; trusted publisher noted for the first release. *REQ-538, REQ-550*
-- [ ] **T-233** `list_charts`, `get_chart`, `list_components`, `get_component`, `search_catalog`; error contract with suggestions. *REQ-539, REQ-549, REQ-566*
-- [ ] **T-234** `recommend.rules.ts` + `recommend_chart`; golden tables; I-42. *REQ-540*
-- [ ] **T-235** `generate_code` for react, vue, angular, reflex; golden outputs compiled in the example apps and in a Reflex check; no `SpButton` trigger. *REQ-541, REQ-547, REQ-557*
-- [ ] **T-236** Resources (catalog, charts, components, diagnostics, guides) and the two prompts. *REQ-546, REQ-548*
+- [x] **T-232** `packages/mcp` scaffold in the fixed group: `createServer`, stdio bin, `get_version`, catalog loading; trusted publisher noted for the first release. *REQ-538, REQ-550*
+- [x] **T-233** `list_charts`, `get_chart`, `list_components`, `get_component`, `search_catalog`; error contract with suggestions. *REQ-539, REQ-549, REQ-566*
+- [x] **T-234** `recommend.rules.ts` + `recommend_chart`; golden tables; I-42. *REQ-540*
+- [x] **T-235** `generate_code` for react, vue, angular, reflex; golden outputs compiled in the example apps and in a Reflex check; no `SpButton` trigger. *REQ-541, REQ-547, REQ-557*
+- [x] **T-236** Resources (catalog, charts, components, diagnostics, guides) and the two prompts. *REQ-546, REQ-548*
 
 ### 9d — Validation and render
 
@@ -132,4 +132,51 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 - A stale Reflex catalog marks each chart and component entry `stale: <wrapped version>` (REQ-556).
 - `ReflexCatalog` gains the optional `derived` and `common` (the shared props' Python names).
 - Component summaries live in `components.meta.ts`: the core's component types carry no summary.
+
+### 9c — the server, read-only tools (2026-10-20, branch `feat/silverpoint-0.8`)
+
+- T-232 — `packages/mcp` (`@silverpoint/mcp`, eighth package of the `fixed` group, `minor` changeset
+  → `0.8.0`): `createServer()`, `AGENT_CATALOG`, the types; `bin: silverpoint-mcp` over stdio
+  (shebang from `src/bin.ts`; tsup splitting keeps the catalog in one shared chunk). Allowlisted in
+  `check-deps.mjs` with core, grounds, `@modelcontextprotocol/sdk` 1.32.1 and zod 4 — no framework.
+  The release, README and dependency tests now count eight packages. `mcp` vitest project, run in CI.
+  **Before the first CI release** the package needs its npm trusted publisher (and, as for
+  `tailwind`, a first hand publish so npm knows the name).
+- T-233 — `list_charts`, `get_chart`, `list_components`, `get_component`, `search_catalog`
+  (`src/tools/`); names resolve by slug or any framework's name, case and separators ignored; every
+  unknown name is a `ToolError` with up to three closest names (head distance first, so `sankie` →
+  `sankey-chart`). Enum-like inputs are strings in the schemas, checked by the tools, so a typo gets
+  suggestions instead of a protocol error.
+- T-234 — `recommend_chart` over `recommend.rules.ts`: rule candidates plus adjustments; charts
+  outside the rule that fit shape and intent score 0.25, intent only 0.15, shape only 0.1 — below
+  every curated score; ties by catalog order; top five. Golden table in `test/recommend.test.ts`.
+  Three rules tuned against it (lollipop past 12 rows +0.2, treemap past 6 rows +0.1, histogram
+  under 30 rows −0.2) to remove ties; `stacked-bar-chart` added to `parts/part-to-whole`.
+- T-235 — `generate_code` (`src/codegen/`): a plan resolved against the catalog, then four
+  spellings. 40 golden files (`test/golden/`, 10 cases × 4 frameworks) compiled by
+  `pnpm --filter @silverpoint/agent-catalog typecheck-golden` in the example apps (`tsc`, `vue-tsc`,
+  `ngc` with `strictTemplates`); Reflex goldens checked by `reflex/check_golden.py` against the
+  pinned Reflex catalog (builders and keywords). CI step after `pnpm -r run typecheck`. The check
+  was mutation-tested in all four frameworks. Overlays take a native `<button type="button">`
+  (Angular `spTrigger`, Reflex `trigger="…"`), never `SpButton` (REQ-547).
+- T-236 — Resources `silverpoint://catalog`, `silverpoint://diagnostics`,
+  `silverpoint://charts/{slug}`, `silverpoint://components/{slug}` and the prompts `choose-chart`,
+  `build-dashboard`; contract tests through a real MCP client over `InMemoryTransport`
+  (`test/server.test.ts`). `silverpoint://guides/{topic}` waits for the skill's references (9f).
+
+*Amended in implementation*:
+
+- `AgentCatalog.recommend` carries the rule table (Data Model §2.31); I-42 checks its slugs.
+- `ComponentEntry.demo`: the first `UI_DEMOS` state's props, the start of generated component code.
+- `./http` is not exported until T-241 (9e).
+- Every Angular input is written as a binding (`[title]="'…'"`): `strictTemplates` checks bindings,
+  never static attributes, and the golden check proved a misspelt static attribute passes.
+- A ground with a single substrate (cyanotype's `prussian`) writes no `substrate`: the typed
+  `SubstrateName` does not hold it, and the ground paints it whatever `substrate` says.
+- A palette preset is imported from `@silverpoint/core/palettes`, so the Vue and Angular example
+  apps now depend on `@silverpoint/core`, as the React one already did; the generated notes say so.
+- The interim Reflex derivation reads the `SilverpointChart` base class too: `palette`, `tooltip`,
+  `on_active_change` and `on_select` were missing from its shared chart props.
+- `@silverpoint/mcp` has no size-limit budget: it is a Node server, not a browser bundle; its cost
+  is REQ-559's latency, measured in 9d.
 

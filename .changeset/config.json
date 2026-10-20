@@ -10,7 +10,8 @@
       "@silverpoint/angular",
       "@silverpoint/vue",
       "@silverpoint/fonts",
-      "@silverpoint/tailwind"
+      "@silverpoint/tailwind",
+      "@silverpoint/mcp"
     ]
   ],
   "access": "public",

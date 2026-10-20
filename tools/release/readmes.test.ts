@@ -12,7 +12,7 @@ import { CATALOG } from '../visual-gate/catalog';
  * word for word, and every `@silverpoint/*` import in a code sample is an entry point that exists.
  */
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
-const PACKAGES = ['angular', 'core', 'fonts', 'grounds', 'react', 'tailwind', 'vue'];
+const PACKAGES = ['angular', 'core', 'fonts', 'grounds', 'mcp', 'react', 'tailwind', 'vue'];
 const ADAPTERS = { react: 'React', vue: 'Vue', angular: 'Angular' } as const;
 
 const readme = (pkg: string) => readFileSync(join(ROOT, 'packages', pkg, 'README.md'), 'utf8');

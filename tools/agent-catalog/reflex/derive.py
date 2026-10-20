@@ -132,6 +132,13 @@ def main(root: Path) -> dict:
         components.append({"slug": slug, "builder": builder, "cls": cls, "props": props, "positional": positional, "deprecated": {}})
 
     common_ui = class_props(*classes["SilverpointUi"]) if "SilverpointUi" in classes else []
+    # `COMMON_PROPS` documents the shared chart props; the chart base class holds them all
+    # (`palette` among them), so its props complete the list.
+    base_src = (pkg / "base.py").read_text()
+    base = next((n for n in ast.parse(base_src).body if isinstance(n, ast.ClassDef) and n.name == "SilverpointChart"), None)
+    if base is not None:
+        documented = {p["name"] for p in common_chart}
+        common_chart += [p for p in class_props(base, base_src) if p["name"] not in documented]
     init = ast.parse((pkg / "__init__.py").read_text())
     exported: list[str] = []
     for node in ast.walk(init):

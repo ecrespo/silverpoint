@@ -92,6 +92,12 @@ describe('the components (REQ-532)', () => {
     }
   });
 
+  test('REQ-532 · each component carries its first demo state, the props a working example passes', () => {
+    expect(component('select').demo).toMatchObject({ label: 'Status', name: 'status', value: null });
+    expect(component('modal').demo).toMatchObject({ trigger: 'Edit order', title: 'Edit order' });
+    expect(catalog.components.filter((c) => 'id' in c.demo)).toEqual([]);
+  });
+
   test('REQ-532 · names and imports per framework, the Angular names read from the selectors', () => {
     expect(component('select').names).toEqual({ react: 'SpSelect', vue: 'SpSelect', angular: 'sp-select', reflex: 'sp_select' });
     expect(component('select').imports.angular).toBe('@silverpoint/angular/ui/select');
@@ -187,6 +193,31 @@ describe('versions (REQ-534, REQ-556)', () => {
     expect(chart('sankey-chart').props.find((p) => p.name === 'sourceKey')?.reflex).toBe('source_key');
     expect(catalog.common.chart.find((p) => p.name === 'hatchFill')?.reflex).toBe('hatch_fill');
     expect(component('input-number').names.reflex).toBe('sp_input_number');
+  });
+});
+
+describe('the recommender table (REQ-540, DD-046)', () => {
+  test('REQ-540 · I-42 · every slug a rule names is a chart, every shape and intent is known, no pair twice', () => {
+    const slugs = new Set(catalog.charts.map((c) => c.slug));
+    const pairs = new Set<string>();
+    expect(catalog.recommend.length).toBeGreaterThan(30);
+    for (const rule of catalog.recommend) {
+      expect(SHAPES).toContain(rule.shape);
+      expect(INTENTS).toContain(rule.intent);
+      expect(pairs.has(`${rule.shape}/${rule.intent}`), `${rule.shape}/${rule.intent}`).toBe(false);
+      pairs.add(`${rule.shape}/${rule.intent}`);
+      for (const { slug } of [...rule.charts, ...(rule.adjust ?? [])]) expect(slugs.has(slug), slug).toBe(true);
+    }
+  });
+
+  test('REQ-540 · I-42 · a rule naming a chart that does not exist fails the check', () => {
+    const wrong: AgentCatalog = { ...catalog, recommend: [{ shape: 'series', intent: 'trend', charts: [{ slug: 'pie-chart', score: 1, reason: 'x' }] }] };
+    expect(checkCatalog(wrong, { release: false }).errors.join('\n')).toMatch(/I-42 · .*pie-chart/);
+  });
+
+  test('REQ-540 · every chart is reachable: named by a rule, or matching its own shape and intent', () => {
+    const named = new Set(catalog.recommend.flatMap((r) => r.charts.map((c) => c.slug)));
+    expect(catalog.charts.filter((c) => !named.has(c.slug)).map((c) => c.slug)).toEqual(['volvelle-chart', 'orbit-chart']);
   });
 });
 

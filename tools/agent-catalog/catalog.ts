@@ -11,6 +11,7 @@ import ts from 'typescript';
 import { cyanotype, silverpoint } from '../../packages/grounds/src/index';
 import { PALETTE_NAMES, PALETTES } from '../../packages/core/src/palettes';
 import { UI_COMPONENTS } from '../../packages/core/src/ui/catalog';
+import { UI_DEMOS } from '../../packages/core/src/ui/demo';
 import type {
   AgentCatalog,
   ChartEntry,
@@ -28,6 +29,7 @@ import { CHART_META, FAMILIES } from './charts.meta';
 import { COMPONENT_SUMMARY } from './components.meta';
 import { chartFallbacks, docDefault, specDefaults } from './defaults';
 import { propsReference, type PropDoc } from './props';
+import { RECOMMEND_RULES } from './recommend.rules';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 export const CATALOG_FILE = join(ROOT, 'packages/mcp/agent-catalog.json');
@@ -99,6 +101,12 @@ function angularSelector(entry: string, component: string): string {
   return selector.split(',')[0]!.trim();
 }
 
+/** A component's demo state as plain data, without the fixture's `id`. */
+function demoOf(slug: string, state: string): Record<string, unknown> {
+  const { id: _id, ...props } = UI_DEMOS[slug]?.[state] ?? { id: '' };
+  return JSON.parse(JSON.stringify(props)) as Record<string, unknown>;
+}
+
 const REFLEX_PACKAGE = 'reflex_silverpoint_react';
 const imports = (path: (adapter: string) => string): Imports => ({ react: path('react'), vue: path('vue'), angular: path('angular'), reflex: REFLEX_PACKAGE });
 
@@ -151,6 +159,7 @@ export async function baseCatalog(): Promise<AgentCatalog> {
       events: surface.events,
       slots: surface.slots,
       states: [...row.states],
+      demo: demoOf(row.slug, row.states[0]!),
     };
   });
 
@@ -189,6 +198,7 @@ export async function baseCatalog(): Promise<AgentCatalog> {
       peer: `${timelinePeer}@${peers[timelinePeer]}`,
     },
     diagnostics: diagnostics(),
+    recommend: RECOMMEND_RULES,
     stylesheets: {
       always: ['@silverpoint/fonts/fonts.css', '@silverpoint/grounds/styles.css'],
       ui: ['@silverpoint/grounds/ui.css'],

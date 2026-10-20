@@ -1,0 +1,50 @@
+{
+  "name": "@silverpoint/mcp",
+  "version": "0.7.0",
+  "description": "An MCP server for silverpoint: the agent catalog as tools and resources, a chart recommender, code generation, prop validation and the canonical render.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "silverpoint-mcp": "./dist/bin.js"
+  },
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./agent-catalog.json": "./agent-catalog.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "agent-catalog.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/mcp"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  }
+}

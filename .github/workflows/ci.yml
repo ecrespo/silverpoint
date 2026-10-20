@@ -45,8 +45,11 @@ jobs:
       - run: pnpm exec tsx tools/contrast-gate/contrast-gate.ts
       # Every package's own typecheck, tests and templates included (vue-tsc, ngc).
       - run: pnpm -r run typecheck
+      # REQ-557: generate_code's golden files compile in the example apps (tsc, vue-tsc, ngc
+      # strictTemplates); the Reflex ones name only builders and props the pinned Reflex catalog holds.
+      - run: pnpm --filter @silverpoint/agent-catalog typecheck-golden
       # Browser-free suites here; the gates that launch Chromium run in the pinned image below.
-      - run: pnpm exec vitest run --project core --project grounds --project fonts --project tailwind --project tools --project react --project react-18 --project vue --project angular --project docs
+      - run: pnpm exec vitest run --project core --project grounds --project fonts --project tailwind --project mcp --project tools --project react --project react-18 --project vue --project angular --project docs
       # REQ-180: every adapter against the canonical render of every fixture.
       - run: pnpm --filter @silverpoint/visual-gate string-gate
       # REQ-164: every package within its declared budget.

@@ -66,6 +66,13 @@ export function checkCatalog(catalog: AgentCatalog, { release }: { readonly rele
     }
   }
 
+  // I-42: the recommender names charts that exist.
+  for (const rule of catalog.recommend) {
+    for (const { slug } of [...rule.charts, ...(rule.adjust ?? [])]) {
+      if (!charts.has(slug)) errors.push(`I-42 · the rule ${rule.shape}/${rule.intent} names ${slug}, which is not a chart`);
+    }
+  }
+
   // REQ-531, REQ-532: a name in every framework.
   for (const e of [...catalog.charts, ...catalog.components, catalog.dashboard, catalog.timeline]) {
     for (const [framework, name] of Object.entries(e.names)) if (!name) errors.push(`REQ-531 · ${'slug' in e ? e.slug : 'an entry'} has no ${framework} name`);

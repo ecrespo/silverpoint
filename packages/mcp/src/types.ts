@@ -127,6 +127,11 @@ export interface ComponentEntry {
   readonly slots: Readonly<Record<AdapterFramework, readonly string[]>>;
   /** Declared states (Data Model §5). */
   readonly states: readonly string[];
+  /**
+   * The first state's demo props (`UI_DEMOS`, `id` left out): own props plus `value` for a bound
+   * value, `content` for the text it holds and `trigger` for an overlay's trigger text.
+   */
+  readonly demo: Readonly<Record<string, unknown>>;
   readonly stale?: string;
 }
 
@@ -142,6 +147,20 @@ export interface Ground {
   readonly name: string;
   readonly substrates: readonly string[];
   readonly summary: string;
+}
+
+/** One row of the recommender's table (Data Model §2.31, DD-046). */
+export interface RecommendRule {
+  readonly shape: DataShape;
+  readonly intent: Intent;
+  readonly charts: readonly { readonly slug: string; readonly score: number; readonly reason: string }[];
+  readonly adjust?: readonly {
+    readonly when: 'rows>' | 'rows<' | 'values>';
+    readonly n: number;
+    readonly slug: string;
+    readonly delta: number;
+    readonly reason: string;
+  }[];
 }
 
 export interface AgentCatalog {
@@ -165,6 +184,8 @@ export interface AgentCatalog {
   readonly palettes: { readonly fields: readonly PropEntry[]; readonly presets: Readonly<Record<string, Readonly<Record<string, string>>>> };
   readonly timeline: { readonly props: readonly PropEntry[]; readonly names: Names; readonly imports: Imports; readonly peer: string };
   readonly diagnostics: readonly Diagnostic[];
+  /** The recommender's table (DD-046): `recommend_chart` reads it, never a model. */
+  readonly recommend: readonly RecommendRule[];
   readonly stylesheets: { readonly always: readonly string[]; readonly ui: readonly string[]; readonly timeline: readonly string[] };
 }
 

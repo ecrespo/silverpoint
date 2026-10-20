@@ -85,6 +85,7 @@
       },
       {
         "name": "palette",
+        "reflex": "palette",
         "type": "Palette",
         "optional": true,
         "doc": "Colours over the ground's, field by field, written on the root's `style` (REQ-461). Merged over the dashboard's and the provider's (REQ-462); presets are on `@silverpoint/core/palettes`."
@@ -6056,7 +6057,10 @@
         "primary",
         "danger",
         "disabled"
-      ]
+      ],
+      "demo": {
+        "content": "Default"
+      }
     },
     {
       "slug": "input",
@@ -6169,7 +6173,14 @@
         "filled",
         "invalid",
         "disabled"
-      ]
+      ],
+      "demo": {
+        "label": "Search charts",
+        "placeholder": "Search charts…",
+        "type": "search",
+        "name": "q",
+        "value": ""
+      }
     },
     {
       "slug": "checkbox",
@@ -6244,7 +6255,12 @@
         "checked",
         "indeterminate",
         "disabled"
-      ]
+      ],
+      "demo": {
+        "label": "Legend",
+        "name": "legend",
+        "value": false
+      }
     },
     {
       "slug": "radio-group",
@@ -6318,7 +6334,23 @@
       "states": [
         "selected",
         "disabled-item"
-      ]
+      ],
+      "demo": {
+        "label": "Ground",
+        "name": "ground",
+        "items": [
+          {
+            "key": "silverpoint",
+            "label": "silverpoint"
+          },
+          {
+            "key": "cyanotype",
+            "label": "cyanotype"
+          }
+        ],
+        "value": "silverpoint",
+        "orientation": "horizontal"
+      }
     },
     {
       "slug": "switch",
@@ -6385,7 +6417,12 @@
         "off",
         "on",
         "disabled"
-      ]
+      ],
+      "demo": {
+        "label": "Linked hover",
+        "name": "linked",
+        "value": false
+      }
     },
     {
       "slug": "slider",
@@ -6482,7 +6519,19 @@
       "states": [
         "marks",
         "disabled"
-      ]
+      ],
+      "demo": {
+        "label": "Volume",
+        "name": "volume",
+        "value": 30,
+        "marks": [
+          0,
+          25,
+          50,
+          75,
+          100
+        ]
+      }
     },
     {
       "slug": "rate",
@@ -6563,7 +6612,13 @@
       "states": [
         "three",
         "read-only"
-      ]
+      ],
+      "demo": {
+        "label": "Quality",
+        "name": "quality",
+        "value": 3,
+        "count": 5
+      }
     },
     {
       "slug": "segmented",
@@ -6636,7 +6691,30 @@
       "states": [
         "first",
         "middle"
-      ]
+      ],
+      "demo": {
+        "label": "Period",
+        "name": "period",
+        "items": [
+          {
+            "key": "day",
+            "label": "Day"
+          },
+          {
+            "key": "week",
+            "label": "Week"
+          },
+          {
+            "key": "month",
+            "label": "Month"
+          },
+          {
+            "key": "year",
+            "label": "Year"
+          }
+        ],
+        "value": "day"
+      }
     },
     {
       "slug": "tabs",
@@ -6717,7 +6795,29 @@
       "states": [
         "first",
         "disabled-tab"
-      ]
+      ],
+      "demo": {
+        "label": "Views",
+        "items": [
+          {
+            "key": "overview",
+            "label": "Overview"
+          },
+          {
+            "key": "traffic",
+            "label": "Traffic"
+          },
+          {
+            "key": "errors",
+            "label": "Errors"
+          },
+          {
+            "key": "settings",
+            "label": "Settings"
+          }
+        ],
+        "value": "overview"
+      }
     },
     {
       "slug": "steps",
@@ -6780,7 +6880,29 @@
       "states": [
         "current",
         "error"
-      ]
+      ],
+      "demo": {
+        "label": "Release",
+        "items": [
+          {
+            "key": "install",
+            "title": "Install"
+          },
+          {
+            "key": "import",
+            "title": "Import"
+          },
+          {
+            "key": "configure",
+            "title": "Configure"
+          },
+          {
+            "key": "publish",
+            "title": "Publish"
+          }
+        ],
+        "current": 2
+      }
     },
     {
       "slug": "card",
@@ -6841,7 +6963,10 @@
       "states": [
         "plain",
         "titled"
-      ]
+      ],
+      "demo": {
+        "content": "Hits per hour rose through the afternoon and eased at night."
+      }
     },
     {
       "slug": "tag",
@@ -6909,7 +7034,11 @@
       "states": [
         "tone-1",
         "closable"
-      ]
+      ],
+      "demo": {
+        "content": "draft",
+        "tone": 1
+      }
     },
     {
       "slug": "badge",
@@ -6979,7 +7108,11 @@
         "count",
         "dot",
         "overflow"
-      ]
+      ],
+      "demo": {
+        "content": "Inbox",
+        "count": 12
+      }
     },
     {
       "slug": "divider",
@@ -7036,7 +7169,8 @@
       "states": [
         "plain",
         "text"
-      ]
+      ],
+      "demo": {}
     },
     {
       "slug": "progress",
@@ -7101,7 +7235,11 @@
         "line",
         "circle",
         "indeterminate"
-      ]
+      ],
+      "demo": {
+        "label": "Upload",
+        "value": 40
+      }
     },
     {
       "slug": "alert",
@@ -7179,7 +7317,12 @@
         "success",
         "warning",
         "error"
-      ]
+      ],
+      "demo": {
+        "kind": "info",
+        "title": "New ground available",
+        "content": "cyanotype ships in 0.2.0."
+      }
     },
     {
       "slug": "skeleton",
@@ -7236,7 +7379,10 @@
       "states": [
         "paragraph",
         "avatar"
-      ]
+      ],
+      "demo": {
+        "lines": 3
+      }
     },
     {
       "slug": "surface",
@@ -7304,7 +7450,11 @@
       "states": [
         "frame-card",
         "tone-2"
-      ]
+      ],
+      "demo": {
+        "frame": "card",
+        "content": "A surface takes the ground: its substrate, its ink and a hand-drawn frame."
+      }
     },
     {
       "slug": "glyph",
@@ -7344,7 +7494,28 @@
       },
       "states": [
         "all"
-      ]
+      ],
+      "demo": {
+        "glyphs": [
+          "tick",
+          "dash",
+          "cross",
+          "warning",
+          "dot",
+          "lozenge",
+          "info",
+          "plus",
+          "chevronDown",
+          "chevronRight",
+          "chevronLeft",
+          "arrowUp",
+          "arrowDown",
+          "sortUp",
+          "sortDown",
+          "sort",
+          "ellipsis"
+        ]
+      }
     },
     {
       "slug": "table",
@@ -7460,7 +7631,64 @@
         "plain",
         "sorted-striped",
         "empty"
-      ]
+      ],
+      "demo": {
+        "caption": "Orders",
+        "columns": [
+          {
+            "key": "order",
+            "title": "Order"
+          },
+          {
+            "key": "customer",
+            "title": "Customer",
+            "sortable": true
+          },
+          {
+            "key": "status",
+            "title": "Status"
+          },
+          {
+            "key": "amount",
+            "title": "Amount",
+            "align": "end",
+            "sortable": true
+          }
+        ],
+        "data": [
+          {
+            "order": "1042",
+            "customer": "Ada Lovelace",
+            "status": "Shipped",
+            "amount": 128
+          },
+          {
+            "order": "1043",
+            "customer": "Grace Hopper",
+            "status": "Packed",
+            "amount": 64.5
+          },
+          {
+            "order": "1044",
+            "customer": "Alan Turing",
+            "status": "Paid",
+            "amount": 312
+          },
+          {
+            "order": "1045",
+            "customer": "Emmy Noether",
+            "status": "Placed",
+            "amount": 18.25
+          },
+          {
+            "order": "1046",
+            "customer": "Kurt Gödel",
+            "status": "Shipped",
+            "amount": 96
+          }
+        ],
+        "rowKey": "order"
+      }
     },
     {
       "slug": "pagination",
@@ -7581,7 +7809,12 @@
       "states": [
         "middle",
         "total"
-      ]
+      ],
+      "demo": {
+        "total": 200,
+        "pageSize": 10,
+        "current": 10
+      }
     },
     {
       "slug": "breadcrumb",
@@ -7629,7 +7862,25 @@
       },
       "states": [
         "three"
-      ]
+      ],
+      "demo": {
+        "items": [
+          {
+            "key": "home",
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "key": "orders",
+            "label": "Orders",
+            "href": "/orders"
+          },
+          {
+            "key": "1042",
+            "label": "Order 1042"
+          }
+        ]
+      }
     },
     {
       "slug": "avatar",
@@ -7707,7 +7958,10 @@
         "initials",
         "square",
         "group"
-      ]
+      ],
+      "demo": {
+        "name": "Ada Lovelace"
+      }
     },
     {
       "slug": "statistic",
@@ -7783,7 +8037,11 @@
       "states": [
         "plain",
         "trend-down"
-      ]
+      ],
+      "demo": {
+        "title": "Orders",
+        "value": 1284
+      }
     },
     {
       "slug": "descriptions",
@@ -7855,7 +8113,33 @@
       "states": [
         "bordered",
         "plain"
-      ]
+      ],
+      "demo": {
+        "title": "Order 1042",
+        "items": [
+          {
+            "key": "customer",
+            "label": "Customer",
+            "value": "Ada Lovelace"
+          },
+          {
+            "key": "status",
+            "label": "Status",
+            "value": "Shipped"
+          },
+          {
+            "key": "amount",
+            "label": "Amount",
+            "value": "128.00"
+          },
+          {
+            "key": "placed",
+            "label": "Placed",
+            "value": "14 October 2026"
+          }
+        ],
+        "columns": 2
+      }
     },
     {
       "slug": "timeline-list",
@@ -7902,7 +8186,36 @@
       },
       "states": [
         "mixed"
-      ]
+      ],
+      "demo": {
+        "label": "Order history",
+        "items": [
+          {
+            "key": "placed",
+            "title": "Placed",
+            "time": "14 Oct, 09:12",
+            "description": "Two prints, one framed."
+          },
+          {
+            "key": "paid",
+            "title": "Payment",
+            "time": "14 Oct, 09:14",
+            "description": "Card declined; paid on the second try.",
+            "status": "error"
+          },
+          {
+            "key": "packed",
+            "title": "Packed",
+            "time": "15 Oct, 16:40",
+            "status": "current"
+          },
+          {
+            "key": "shipped",
+            "title": "Shipped",
+            "status": "pending"
+          }
+        ]
+      }
     },
     {
       "slug": "collapse",
@@ -7958,7 +8271,27 @@
       "states": [
         "one-open",
         "accordion-disabled"
-      ]
+      ],
+      "demo": {
+        "items": [
+          {
+            "key": "ground",
+            "title": "What is a ground?",
+            "content": "The prepared surface a metal stylus can mark: bone ash, gum and a little pigment.",
+            "open": true
+          },
+          {
+            "key": "erase",
+            "title": "Can a line be erased?",
+            "content": "No. Every line stays, so the drawing is planned before it is drawn."
+          },
+          {
+            "key": "tone",
+            "title": "Where does the tone come from?",
+            "content": "From hatching, level by level, never from transparency."
+          }
+        ]
+      }
     },
     {
       "slug": "empty",
@@ -8005,7 +8338,10 @@
       },
       "states": [
         "plain"
-      ]
+      ],
+      "demo": {
+        "description": "No orders yet"
+      }
     },
     {
       "slug": "result",
@@ -8075,7 +8411,12 @@
       "states": [
         "success",
         "error"
-      ]
+      ],
+      "demo": {
+        "status": "success",
+        "title": "Order placed",
+        "subtitle": "Order 1042 is on its way to the workshop."
+      }
     },
     {
       "slug": "textarea",
@@ -8192,7 +8533,14 @@
       "states": [
         "count",
         "invalid"
-      ]
+      ],
+      "demo": {
+        "label": "Notes",
+        "name": "notes",
+        "value": "Leave it at the door.",
+        "maxLength": 120,
+        "showCount": true
+      }
     },
     {
       "slug": "input-number",
@@ -8329,7 +8677,14 @@
       "states": [
         "value",
         "at-min"
-      ]
+      ],
+      "demo": {
+        "label": "Quantity",
+        "name": "quantity",
+        "value": 3,
+        "min": 1,
+        "max": 10
+      }
     },
     {
       "slug": "modal",
@@ -8436,7 +8791,14 @@
       },
       "states": [
         "open"
-      ]
+      ],
+      "demo": {
+        "open": true,
+        "trigger": "Edit order",
+        "title": "Edit order",
+        "description": "Order 1042, placed on 14 October.",
+        "content": "Changes reach the workshop before the order is packed."
+      }
     },
     {
       "slug": "drawer",
@@ -8514,7 +8876,14 @@
       },
       "states": [
         "end-open"
-      ]
+      ],
+      "demo": {
+        "open": true,
+        "side": "end",
+        "trigger": "Filters",
+        "title": "Filters",
+        "content": "Narrow the orders by status, customer or amount."
+      }
     },
     {
       "slug": "popover",
@@ -8627,7 +8996,13 @@
       },
       "states": [
         "open"
-      ]
+      ],
+      "demo": {
+        "open": true,
+        "trigger": "Details",
+        "title": "Order 1042",
+        "content": "Two prints, one framed; shipped on 16 October."
+      }
     },
     {
       "slug": "tooltip",
@@ -8714,7 +9089,12 @@
       },
       "states": [
         "open"
-      ]
+      ],
+      "demo": {
+        "open": true,
+        "trigger": "Copy id",
+        "text": "Copy the order id"
+      }
     },
     {
       "slug": "select",
@@ -8814,7 +9194,35 @@
       "states": [
         "placeholder",
         "open-selected"
-      ]
+      ],
+      "demo": {
+        "label": "Status",
+        "name": "status",
+        "items": [
+          {
+            "key": "placed",
+            "label": "Placed"
+          },
+          {
+            "key": "paid",
+            "label": "Paid"
+          },
+          {
+            "key": "packed",
+            "label": "Packed"
+          },
+          {
+            "key": "shipped",
+            "label": "Shipped"
+          },
+          {
+            "key": "returned",
+            "label": "Returned",
+            "disabled": true
+          }
+        ],
+        "value": null
+      }
     },
     {
       "slug": "dropdown-menu",
@@ -8897,7 +9305,44 @@
       },
       "states": [
         "open"
-      ]
+      ],
+      "demo": {
+        "label": "Actions",
+        "trigger": "Actions",
+        "items": [
+          {
+            "type": "label",
+            "key": "order",
+            "label": "Order 1042"
+          },
+          {
+            "key": "edit",
+            "label": "Edit",
+            "shortcut": "E"
+          },
+          {
+            "key": "duplicate",
+            "label": "Duplicate",
+            "shortcut": "D"
+          },
+          {
+            "key": "archive",
+            "label": "Archive",
+            "disabled": true
+          },
+          {
+            "type": "separator",
+            "key": "end"
+          },
+          {
+            "key": "delete",
+            "label": "Delete",
+            "danger": true
+          }
+        ],
+        "open": true,
+        "active": "edit"
+      }
     },
     {
       "slug": "toast",
@@ -8983,7 +9428,13 @@
       "states": [
         "info",
         "error-action"
-      ]
+      ],
+      "demo": {
+        "kind": "info",
+        "title": "Order saved",
+        "description": "Order 1042 was updated.",
+        "open": true
+      }
     }
   ],
   "dashboard": {
@@ -9528,6 +9979,895 @@
       "req": "REQ-515",
       "what": "@knight-lab/timelinejs could not be loaded; the fallback is rendered",
       "todo": "Install the optional peer @knight-lab/timelinejs and import its stylesheet"
+    }
+  ],
+  "recommend": [
+    {
+      "shape": "series",
+      "intent": "trend",
+      "charts": [
+        {
+          "slug": "line-chart",
+          "score": 0.9,
+          "reason": "A line is the plainest reading of a value over an ordered axis."
+        },
+        {
+          "slug": "area-chart",
+          "score": 0.8,
+          "reason": "An area gives one series the weight of its magnitude."
+        },
+        {
+          "slug": "step-chart",
+          "score": 0.6,
+          "reason": "Steps show a value that holds until it changes."
+        },
+        {
+          "slug": "stream-chart",
+          "score": 0.5,
+          "reason": "Several value columns overlay or stack as waves."
+        },
+        {
+          "slug": "polar-line-chart",
+          "score": 0.3,
+          "reason": "A cyclic axis (hours, months, degrees) closes the line around a circle."
+        }
+      ],
+      "adjust": [
+        {
+          "when": "values>",
+          "n": 1,
+          "slug": "stream-chart",
+          "delta": 0.3,
+          "reason": "Several value fields read together as streams."
+        },
+        {
+          "when": "values>",
+          "n": 1,
+          "slug": "area-chart",
+          "delta": -0.2,
+          "reason": "An area draws one series only."
+        }
+      ]
+    },
+    {
+      "shape": "series",
+      "intent": "change",
+      "charts": [
+        {
+          "slug": "line-chart",
+          "score": 0.8,
+          "reason": "The slope between points is the change."
+        },
+        {
+          "slug": "step-chart",
+          "score": 0.75,
+          "reason": "Steps mark when the value changed and by how much."
+        },
+        {
+          "slug": "area-chart",
+          "score": 0.6,
+          "reason": "An area shows the change in magnitude."
+        },
+        {
+          "slug": "bump-chart",
+          "score": 0.5,
+          "reason": "When the change that matters is in rank."
+        }
+      ]
+    },
+    {
+      "shape": "series",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "line-chart",
+          "score": 0.8,
+          "reason": "A second series draws as a dotted baseline against the first."
+        },
+        {
+          "slug": "composed-chart",
+          "score": 0.75,
+          "reason": "Columns and a line share one value scale."
+        },
+        {
+          "slug": "stream-chart",
+          "score": 0.6,
+          "reason": "Several series overlaid on one axis."
+        },
+        {
+          "slug": "sparkline-rows",
+          "score": 0.55,
+          "reason": "One small line per series, side by side with its readout."
+        },
+        {
+          "slug": "polar-line-chart",
+          "score": 0.3,
+          "reason": "Values around a cycle compared by angle."
+        }
+      ]
+    },
+    {
+      "shape": "series",
+      "intent": "rank",
+      "charts": [
+        {
+          "slug": "bump-chart",
+          "score": 0.9,
+          "reason": "The rank of each series at each x, ranks joined across x."
+        }
+      ]
+    },
+    {
+      "shape": "series",
+      "intent": "kpi",
+      "charts": [
+        {
+          "slug": "sparkline-rows",
+          "score": 0.85,
+          "reason": "One row per series: its name, its trend and its latest readout."
+        },
+        {
+          "slug": "kpi-card",
+          "score": 0.75,
+          "reason": "One metric, its delta and its trend."
+        }
+      ]
+    },
+    {
+      "shape": "series",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "stream-chart",
+          "score": 0.8,
+          "reason": "Stacked waves show each part of a total over x."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "bar-chart",
+          "score": 0.9,
+          "reason": "Bars compare values against one common baseline."
+        },
+        {
+          "slug": "lollipop-chart",
+          "score": 0.75,
+          "reason": "A lighter mark per category, readable with many of them."
+        },
+        {
+          "slug": "radar-chart",
+          "score": 0.5,
+          "reason": "Spokes compare a few subjects at once."
+        },
+        {
+          "slug": "polar-bar-chart",
+          "score": 0.4,
+          "reason": "Bars around a circle, for a cyclic set of categories."
+        },
+        {
+          "slug": "coxcomb-chart",
+          "score": 0.35,
+          "reason": "Equal angles, area by value: cyclic categories such as months."
+        },
+        {
+          "slug": "radial-arc-group",
+          "score": 0.3,
+          "reason": "Concentric tracks, each swept by its value."
+        }
+      ],
+      "adjust": [
+        {
+          "when": "rows>",
+          "n": 12,
+          "slug": "lollipop-chart",
+          "delta": 0.2,
+          "reason": "Many categories read better as lollipops."
+        },
+        {
+          "when": "rows>",
+          "n": 12,
+          "slug": "radar-chart",
+          "delta": -0.3,
+          "reason": "Radial layouts crowd past a dozen categories."
+        },
+        {
+          "when": "rows>",
+          "n": 12,
+          "slug": "polar-bar-chart",
+          "delta": -0.3,
+          "reason": "Radial layouts crowd past a dozen categories."
+        },
+        {
+          "when": "rows>",
+          "n": 12,
+          "slug": "coxcomb-chart",
+          "delta": -0.3,
+          "reason": "Radial layouts crowd past a dozen categories."
+        },
+        {
+          "when": "values>",
+          "n": 1,
+          "slug": "bar-chart",
+          "delta": 0.05,
+          "reason": "A second value field draws as a second series of bars."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "rank",
+      "charts": [
+        {
+          "slug": "bar-chart",
+          "score": 0.85,
+          "reason": "Sorted bars read as a ranking."
+        },
+        {
+          "slug": "lollipop-chart",
+          "score": 0.85,
+          "reason": "Lollipops sort themselves with `sort`."
+        },
+        {
+          "slug": "pyramid-chart",
+          "score": 0.5,
+          "reason": "Stacked tiers, widest at the base."
+        },
+        {
+          "slug": "polar-bar-chart",
+          "score": 0.4,
+          "reason": "A ranking around a circle."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "stacked-bar-chart",
+          "score": 0.85,
+          "reason": "Each bar stacks its parts, one segment per value column."
+        },
+        {
+          "slug": "waterfall-chart",
+          "score": 0.6,
+          "reason": "Parts that add up to a running total."
+        },
+        {
+          "slug": "coxcomb-chart",
+          "score": 0.4,
+          "reason": "Sectors whose area is each part."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "change",
+      "charts": [
+        {
+          "slug": "dumbbell-chart",
+          "score": 0.9,
+          "reason": "Two values per category joined by a segment: before and after."
+        },
+        {
+          "slug": "slope-chart",
+          "score": 0.85,
+          "reason": "Two period axes, one segment per category: the slope is the change."
+        },
+        {
+          "slug": "waterfall-chart",
+          "score": 0.75,
+          "reason": "Each step a delta from the running total."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "progress",
+      "charts": [
+        {
+          "slug": "bullet-chart",
+          "score": 0.9,
+          "reason": "Each bar against its own target."
+        },
+        {
+          "slug": "radial-rings",
+          "score": 0.75,
+          "reason": "Concentric rings, each swept to its percent."
+        },
+        {
+          "slug": "funnel-chart",
+          "score": 0.7,
+          "reason": "Stages that narrow, such as a conversion."
+        },
+        {
+          "slug": "radial-arc-group",
+          "score": 0.5,
+          "reason": "Tracks swept relative to the largest."
+        }
+      ]
+    },
+    {
+      "shape": "categories",
+      "intent": "kpi",
+      "charts": [
+        {
+          "slug": "bullet-chart",
+          "score": 0.8,
+          "reason": "Each measure against its target, compact."
+        },
+        {
+          "slug": "radial-rings",
+          "score": 0.6,
+          "reason": "A few percents at a glance."
+        }
+      ]
+    },
+    {
+      "shape": "parts",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "donut-chart",
+          "score": 0.9,
+          "reason": "A ring reads a few shares of one whole around a central figure."
+        },
+        {
+          "slug": "waffle-chart",
+          "score": 0.85,
+          "reason": "Unit cells make the shares countable."
+        },
+        {
+          "slug": "treemap-chart",
+          "score": 0.7,
+          "reason": "Tiles sized by share."
+        },
+        {
+          "slug": "diverging-bar-chart",
+          "score": 0.4,
+          "reason": "For ordered levels (agree… disagree) around a neutral centre."
+        },
+        {
+          "slug": "stacked-bar-chart",
+          "score": 0.35,
+          "reason": "One bar stacked with the shares, to set beside other wholes."
+        }
+      ],
+      "adjust": [
+        {
+          "when": "rows>",
+          "n": 6,
+          "slug": "donut-chart",
+          "delta": -0.3,
+          "reason": "A ring loses its shares past six slices."
+        },
+        {
+          "when": "rows>",
+          "n": 6,
+          "slug": "treemap-chart",
+          "delta": 0.1,
+          "reason": "Tiles hold many shares better than a ring."
+        }
+      ]
+    },
+    {
+      "shape": "parts",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "diverging-bar-chart",
+          "score": 0.8,
+          "reason": "Likert-style levels on both sides of a neutral centre, row by row."
+        },
+        {
+          "slug": "waffle-chart",
+          "score": 0.6,
+          "reason": "Countable cells per part."
+        }
+      ]
+    },
+    {
+      "shape": "parts",
+      "intent": "progress",
+      "charts": [
+        {
+          "slug": "waffle-chart",
+          "score": 0.8,
+          "reason": "A hundred cells filled to the share done."
+        }
+      ]
+    },
+    {
+      "shape": "matrix",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "heatmap-chart",
+          "score": 0.9,
+          "reason": "One toned cell per row and column."
+        },
+        {
+          "slug": "marimekko-chart",
+          "score": 0.7,
+          "reason": "Columns by total, segments by share."
+        },
+        {
+          "slug": "parallel-coordinates-chart",
+          "score": 0.6,
+          "reason": "One polyline per row across many dimensions."
+        }
+      ]
+    },
+    {
+      "shape": "matrix",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "marimekko-chart",
+          "score": 0.9,
+          "reason": "Each column a whole, each segment its share, column width by total."
+        }
+      ]
+    },
+    {
+      "shape": "matrix",
+      "intent": "correlation",
+      "charts": [
+        {
+          "slug": "parallel-coordinates-chart",
+          "score": 0.9,
+          "reason": "Crossing lines between axes show how dimensions move together."
+        },
+        {
+          "slug": "heatmap-chart",
+          "score": 0.6,
+          "reason": "A grid of values, read for patterns."
+        }
+      ]
+    },
+    {
+      "shape": "matrix",
+      "intent": "distribution",
+      "charts": [
+        {
+          "slug": "heatmap-chart",
+          "score": 0.8,
+          "reason": "Where the high values gather in the grid."
+        }
+      ]
+    },
+    {
+      "shape": "hierarchy",
+      "intent": "hierarchy",
+      "charts": [
+        {
+          "slug": "tree-chart",
+          "score": 0.85,
+          "reason": "The structure itself, node by node."
+        },
+        {
+          "slug": "squarified-treemap",
+          "score": 0.8,
+          "reason": "Nested rectangles, drillable."
+        },
+        {
+          "slug": "sunburst-chart",
+          "score": 0.75,
+          "reason": "Rings of arcs, one ring per level, drillable."
+        }
+      ]
+    },
+    {
+      "shape": "hierarchy",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "squarified-treemap",
+          "score": 0.9,
+          "reason": "Area by value, nested by level."
+        },
+        {
+          "slug": "sunburst-chart",
+          "score": 0.85,
+          "reason": "Each arc its share of its parent."
+        }
+      ]
+    },
+    {
+      "shape": "links",
+      "intent": "flow",
+      "charts": [
+        {
+          "slug": "sankey-chart",
+          "score": 0.9,
+          "reason": "Bands between layered stages, width by value."
+        },
+        {
+          "slug": "chord-ring",
+          "score": 0.75,
+          "reason": "Flows between categories around a circle, both ways."
+        },
+        {
+          "slug": "network-chart",
+          "score": 0.5,
+          "reason": "When the links matter more than their volume."
+        }
+      ]
+    },
+    {
+      "shape": "links",
+      "intent": "network",
+      "charts": [
+        {
+          "slug": "network-chart",
+          "score": 0.9,
+          "reason": "Nodes and links laid out by a seeded force."
+        },
+        {
+          "slug": "chord-ring",
+          "score": 0.7,
+          "reason": "Who connects to whom, around a circle."
+        }
+      ]
+    },
+    {
+      "shape": "links",
+      "intent": "part-to-whole",
+      "charts": [
+        {
+          "slug": "sankey-chart",
+          "score": 0.8,
+          "reason": "How a total splits and merges across stages."
+        }
+      ]
+    },
+    {
+      "shape": "points",
+      "intent": "correlation",
+      "charts": [
+        {
+          "slug": "scatter-chart",
+          "score": 0.9,
+          "reason": "Points on two linear scales."
+        },
+        {
+          "slug": "bubble-chart",
+          "score": 0.75,
+          "reason": "A third variable as each point’s area."
+        },
+        {
+          "slug": "density-bin-chart",
+          "score": 0.6,
+          "reason": "Counts per bin when points overlap."
+        },
+        {
+          "slug": "connected-scatter-chart",
+          "score": 0.5,
+          "reason": "When the points have an order."
+        },
+        {
+          "slug": "polar-scatter-chart",
+          "score": 0.3,
+          "reason": "When one variable is an angle."
+        }
+      ],
+      "adjust": [
+        {
+          "when": "rows>",
+          "n": 500,
+          "slug": "density-bin-chart",
+          "delta": 0.35,
+          "reason": "Hundreds of points read better as counts per bin."
+        },
+        {
+          "when": "rows>",
+          "n": 500,
+          "slug": "scatter-chart",
+          "delta": -0.2,
+          "reason": "Points overplot and hide their density."
+        },
+        {
+          "when": "values>",
+          "n": 2,
+          "slug": "bubble-chart",
+          "delta": 0.2,
+          "reason": "A third numeric field can size the points."
+        }
+      ]
+    },
+    {
+      "shape": "points",
+      "intent": "distribution",
+      "charts": [
+        {
+          "slug": "density-bin-chart",
+          "score": 0.85,
+          "reason": "Points counted in hexagonal or square bins."
+        },
+        {
+          "slug": "contour-chart",
+          "score": 0.8,
+          "reason": "Iso-lines of the density."
+        },
+        {
+          "slug": "scatter-chart",
+          "score": 0.6,
+          "reason": "Every point, when there are few."
+        },
+        {
+          "slug": "polar-scatter-chart",
+          "score": 0.4,
+          "reason": "Points by angle and radius."
+        }
+      ]
+    },
+    {
+      "shape": "points",
+      "intent": "change",
+      "charts": [
+        {
+          "slug": "connected-scatter-chart",
+          "score": 0.9,
+          "reason": "An ordered path through x-y points: how two values moved together."
+        }
+      ]
+    },
+    {
+      "shape": "points",
+      "intent": "network",
+      "charts": [
+        {
+          "slug": "delaunay-chart",
+          "score": 0.85,
+          "reason": "Neighbours by triangulation, or each point’s Voronoi cell."
+        }
+      ]
+    },
+    {
+      "shape": "points",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "bubble-chart",
+          "score": 0.7,
+          "reason": "Positions and sizes compared at once."
+        }
+      ]
+    },
+    {
+      "shape": "distribution",
+      "intent": "distribution",
+      "charts": [
+        {
+          "slug": "histogram-chart",
+          "score": 0.9,
+          "reason": "Observations binned in the core."
+        },
+        {
+          "slug": "box-plot-chart",
+          "score": 0.8,
+          "reason": "Quartiles, median, whiskers and outliers."
+        },
+        {
+          "slug": "violin-chart",
+          "score": 0.75,
+          "reason": "The density’s shape, mirrored."
+        },
+        {
+          "slug": "beeswarm-chart",
+          "score": 0.7,
+          "reason": "Every observation, packed without overlap."
+        },
+        {
+          "slug": "ecdf-chart",
+          "score": 0.65,
+          "reason": "The cumulative share below each value."
+        },
+        {
+          "slug": "wind-rose",
+          "score": 0.3,
+          "reason": "When the observations carry a bearing."
+        }
+      ],
+      "adjust": [
+        {
+          "when": "rows<",
+          "n": 30,
+          "slug": "beeswarm-chart",
+          "delta": 0.25,
+          "reason": "Few observations: show each one."
+        },
+        {
+          "when": "rows<",
+          "n": 30,
+          "slug": "histogram-chart",
+          "delta": -0.2,
+          "reason": "Few observations make coarse bins."
+        },
+        {
+          "when": "rows>",
+          "n": 1000,
+          "slug": "beeswarm-chart",
+          "delta": -0.4,
+          "reason": "Too many observations to draw one by one."
+        }
+      ]
+    },
+    {
+      "shape": "distribution",
+      "intent": "compare",
+      "charts": [
+        {
+          "slug": "box-plot-chart",
+          "score": 0.9,
+          "reason": "Quartiles side by side, one box per group."
+        },
+        {
+          "slug": "violin-chart",
+          "score": 0.85,
+          "reason": "Density shapes side by side."
+        },
+        {
+          "slug": "ridgeline-chart",
+          "score": 0.8,
+          "reason": "Densities on overlapping baselines, one per group."
+        },
+        {
+          "slug": "ecdf-chart",
+          "score": 0.75,
+          "reason": "Cumulative curves of each group on one axis."
+        }
+      ]
+    },
+    {
+      "shape": "distribution",
+      "intent": "change",
+      "charts": [
+        {
+          "slug": "ridgeline-chart",
+          "score": 0.85,
+          "reason": "A density per period, stacked in order."
+        }
+      ]
+    },
+    {
+      "shape": "intervals",
+      "intent": "uncertainty",
+      "charts": [
+        {
+          "slug": "error-bar-chart",
+          "score": 0.9,
+          "reason": "A point estimate with its interval per category."
+        },
+        {
+          "slug": "range-band-chart",
+          "score": 0.85,
+          "reason": "A band between low and high over x."
+        }
+      ]
+    },
+    {
+      "shape": "intervals",
+      "intent": "trend",
+      "charts": [
+        {
+          "slug": "range-band-chart",
+          "score": 0.85,
+          "reason": "The band between low and high over time."
+        },
+        {
+          "slug": "candlestick-chart",
+          "score": 0.8,
+          "reason": "Open, high, low and close per period."
+        }
+      ]
+    },
+    {
+      "shape": "intervals",
+      "intent": "change",
+      "charts": [
+        {
+          "slug": "candlestick-chart",
+          "score": 0.9,
+          "reason": "Each period’s open-to-close change and its range."
+        }
+      ]
+    },
+    {
+      "shape": "intervals",
+      "intent": "schedule",
+      "charts": [
+        {
+          "slug": "interval-chart",
+          "score": 0.95,
+          "reason": "Floating bars from start to end on lanes."
+        }
+      ]
+    },
+    {
+      "shape": "events",
+      "intent": "schedule",
+      "charts": [
+        {
+          "slug": "activity-grid",
+          "score": 0.85,
+          "reason": "One cell per day, a column per week."
+        }
+      ]
+    },
+    {
+      "shape": "events",
+      "intent": "trend",
+      "charts": [
+        {
+          "slug": "activity-grid",
+          "score": 0.8,
+          "reason": "Activity per day over weeks."
+        }
+      ]
+    },
+    {
+      "shape": "single",
+      "intent": "kpi",
+      "charts": [
+        {
+          "slug": "kpi-card",
+          "score": 0.9,
+          "reason": "The figure, its delta and its trend."
+        },
+        {
+          "slug": "gauge-arc",
+          "score": 0.75,
+          "reason": "A percent on a 240° arc."
+        },
+        {
+          "slug": "meter-chart",
+          "score": 0.7,
+          "reason": "A percent with a needle."
+        }
+      ]
+    },
+    {
+      "shape": "single",
+      "intent": "progress",
+      "charts": [
+        {
+          "slug": "gauge-arc",
+          "score": 0.85,
+          "reason": "An arc swept to the percent done."
+        },
+        {
+          "slug": "meter-chart",
+          "score": 0.8,
+          "reason": "A needle at the percent done."
+        }
+      ]
+    },
+    {
+      "shape": "field",
+      "intent": "flow",
+      "charts": [
+        {
+          "slug": "vector-field-chart",
+          "score": 0.95,
+          "reason": "An arrow per grid point, its direction and magnitude."
+        }
+      ]
+    },
+    {
+      "shape": "field",
+      "intent": "distribution",
+      "charts": [
+        {
+          "slug": "contour-chart",
+          "score": 0.85,
+          "reason": "Iso-lines and bands of a scalar grid (`source: 'grid'`)."
+        }
+      ]
     }
   ],
   "stylesheets": {

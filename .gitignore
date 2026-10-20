@@ -108,3 +108,7 @@ playwright-report/
 next-env.d.ts
 reports/*.local.*
 dist-server/
+
+# generate_code goldens, copied in by tools/agent-catalog/typecheck-golden.ts
+examples/*/src/__agent__/
+examples/angular/tsconfig.__agent__.json

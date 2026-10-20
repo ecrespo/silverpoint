@@ -19,6 +19,8 @@ const ALLOWLIST = {
   '@silverpoint/fonts': [],
   // A preset of names: not even Tailwind as a peer (DD-020, Art. 8).
   '@silverpoint/tailwind': [],
+  // The MCP server describes the library to agents: no framework, ever (Art. 8, REQ-538).
+  '@silverpoint/mcp': ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod'],
 };
 
 /** Frameworks each adapter must declare as peers, and nobody may declare as dependencies. */

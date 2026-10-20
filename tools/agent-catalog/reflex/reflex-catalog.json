@@ -115,6 +115,26 @@
         "name": "class_name",
         "js": "className",
         "type": "string"
+      },
+      {
+        "name": "palette",
+        "js": "palette",
+        "type": "dict[str, str]"
+      },
+      {
+        "name": "tooltip",
+        "js": "tooltip",
+        "type": "Any"
+      },
+      {
+        "name": "on_active_change",
+        "js": "onActiveChange",
+        "type": "event"
+      },
+      {
+        "name": "on_select",
+        "js": "onSelect",
+        "type": "event"
       }
     ],
     "ui": [

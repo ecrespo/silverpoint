@@ -41,6 +41,9 @@ function valid(): Manifest[] {
       peerDependencies: { '@angular/core': '>=21', '@angular/common': '>=21', '@angular/forms': '>=21' },
     },
     { name: '@silverpoint/fonts', sideEffects: ['*.css'], exports: { '.': './fonts.css' } },
+    library('@silverpoint/mcp', {
+      dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*', '@modelcontextprotocol/sdk': '1.32.1', zod: '^4' },
+    }),
     {
       name: '@silverpoint/tailwind',
       sideEffects: ['*.css'],
@@ -54,7 +57,7 @@ function replace(manifests: Manifest[], name: string, change: (m: Manifest) => M
 }
 
 describe('check-deps', () => {
-  test('REQ-160 · the seven packages of the allowlist pass', () => {
+  test('REQ-160 · REQ-538 · the eight packages of the allowlist pass', () => {
     expect(checkManifests(valid())).toEqual([]);
   });
 
@@ -66,6 +69,11 @@ describe('check-deps', () => {
   test('REQ-160 · a missing package is reported', () => {
     const problems = checkManifests(valid().filter((m) => m.name !== '@silverpoint/vue'));
     expect(problems.join('\n')).toMatch(/REQ-160.*@silverpoint\/vue/);
+  });
+
+  test('REQ-538 · Art. 8 · the MCP server takes no framework: React as its dependency fails', () => {
+    const manifests = replace(valid(), '@silverpoint/mcp', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), react: '^19' } }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-161.*@silverpoint\/mcp.*react/);
   });
 
   test('REQ-161 · React declared as a dependency fails', () => {
