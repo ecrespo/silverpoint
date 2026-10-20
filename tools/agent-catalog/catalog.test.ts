@@ -258,3 +258,16 @@ describe('drift (REQ-535, REQ-536)', () => {
     expect(Object.keys(CHART_META).sort()).toEqual(CATALOG.map((c) => c.slug).sort());
   });
 });
+
+describe('render assets (DD-047, OQ-E3)', async () => {
+  const { ASSETS_FILE, assetsSource, minifyCss } = await import('./assets');
+  const { readFileSync } = await import('node:fs');
+
+  test('REQ-543 · the stylesheet loses comments and whitespace, never the spaces inside a value', () => {
+    expect(minifyCss("/* a */\n.x {\n  --f: 'EB Garamond', Georgia, serif;\n  fill: none;\n}\n")).toBe(".x{--f:'EB Garamond', Georgia, serif;fill:none}");
+  });
+
+  test('REQ-535 · DD-047 · the committed assets module is what the sources generate', () => {
+    expect(readFileSync(ASSETS_FILE, 'utf8')).toBe(assetsSource());
+  });
+});

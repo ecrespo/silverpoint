@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@silverpoint/core": "workspace:*",
+    "@silverpoint/fonts": "workspace:*",
     "@silverpoint/grounds": "workspace:*"
   }
 }

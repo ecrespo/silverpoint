@@ -65,10 +65,10 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9d — Validation and render
 
-- [ ] **T-237** `validate_props` with the capturing sink; tests per `SP` warn and error code reachable from props. *REQ-542*
-- [ ] **T-238** `render_chart` (SVG) with the inlined stylesheet and font fallback; limits. *REQ-543, REQ-560*
-- [ ] **T-239** Parity job: every PR-matrix chart fixture through `render_chart` vs its canonical. *REQ-567*
-- [ ] **T-240** `check_palette`; PNG output and `embedFonts` per OQ-E3/E4; latency bench for REQ-559. *REQ-544, REQ-545, REQ-559*
+- [x] **T-237** `validate_props` with the capturing sink; tests per `SP` warn and error code reachable from props. *REQ-542*
+- [x] **T-238** `render_chart` (SVG) with the inlined stylesheet and font fallback; limits. *REQ-543, REQ-560*
+- [x] **T-239** Parity job: every PR-matrix chart fixture through `render_chart` vs its canonical. *REQ-567*
+- [x] **T-240** `check_palette`; PNG output and `embedFonts` per OQ-E3/E4; latency bench for REQ-559. *REQ-544, REQ-545, REQ-559*
 
 ### 9e — Hosting and the site
 
@@ -179,4 +179,49 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
   `on_active_change` and `on_select` were missing from its shared chart props.
 - `@silverpoint/mcp` has no size-limit budget: it is a Node server, not a browser bundle; its cost
   is REQ-559's latency, measured in 9d.
+
+### 9d — validation and render (2026-10-20, branch `feat/silverpoint-0.8`)
+
+- T-237 — `validate_props` (`src/tools/validate.ts`) through `src/diagnostics.ts`: the core's sink
+  swapped for a collector around one synchronous build and restored in `finally`; error codes
+  caught as `SilverpointError`. Thirteen codes are reachable from a chart's props and each has a
+  test: SP001, SP002, SP004, SP007, SP008, SP009, SP010, SP011, SP020..SP024. The others belong to
+  the adapters (SP003 a 0-px container, SP013 the font), the dashboard (SP014..SP016), the UI
+  (SP017..SP019), the timeline (SP025) or a custom ground (SP005, SP006, SP012). `valid` means no
+  diagnostic and no undeclared prop.
+- T-238 — `render_chart` (`src/tools/render.ts`): `renderChart` + `toSVGString` exactly as the
+  canonical render, the recipe found by name among the core's 60 (`src/recipes.ts`), then
+  `<style>` as the root's first child holding the grounds' `styles.css`, minified. The stylesheet
+  and the EB Garamond 400 face (`embedFonts`) are generated into `src/assets.generated.ts` by
+  `tools/agent-catalog` (`assets.ts`) and diffed by its `check`, so the server reads no file at run
+  time. Limits (`src/limits.ts`, REQ-560): 256 KB input, 5,000 rows, 1,000 characters per string
+  (applied by the server to every tool), width 320..1600, height 120..1200, a safe `id`, and the
+  path budget after the render. Width defaults to 480; the id to the slug.
+- T-239 — `tools/visual-gate/mcp-parity.ts` + its test, in the `tools` project: every PR-matrix
+  chart fixture through `render_chart`, compared as a tree with the committed canonical, the root's
+  leading `<style>` the only node set aside (`compareSvgTrees`, split out of `compareSvg`). All
+  pass. A state fixture's inline rows go in as `data`.
+- T-240 — `check_palette` (`src/tools/palette.ts`): the core's `checkPalette` for a preset or a
+  palette of fields; the substrate as a hex or a built-in ground's substrate name. REQ-559 in
+  `tools/mcp-latency/latency.real.test.ts` (gates, after the build), over the built `bin.js` by
+  stdio: cold start 0.31 s (budget 1.5 s), `render_chart` p95 13 ms over the 60 demos (budget 300 ms).
+  `embedFonts` per OQ-E3.
+
+*Amended in implementation*:
+
+- **PNG (REQ-544, SHOULD) is deferred** (user decision 2026-10-20). resvg, the WASM rasteriser OQ-E4
+  named, resolves no `var(--sp-*)` and reads no WOFF2: a bar chart came out with no substrate,
+  black fills and a system monospace. A faithful PNG needs the ground's paint flattened into
+  presentation attributes first; that is a delta of its own if it is wanted. `render_chart` takes
+  no `format`.
+- The core strips its warnings where `NODE_ENV` is `production`, as a deployment sets it; the
+  published build reads it at call time, so `capturing` runs the build as `development` and
+  restores the variable. 9e's bundle of the handler must not inline `process.env.NODE_ENV`.
+- `validate_props` and `render_chart` default the width to 480: without one the core defers the
+  render (SP003) and reads no data.
+- `render_chart` refuses `data`, size, `id` and appearance inside `props` (they are inputs of their
+  own) and an undeclared prop (`unknown_name`), where `validate_props` lists it.
+- `check_palette` returns the substrate it measured against beside the findings.
+- The Vue and Angular example apps depend on `@silverpoint/core` (9c), and `tools/agent-catalog`
+  on `@silverpoint/fonts` (the face it encodes).
 

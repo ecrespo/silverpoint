@@ -35,6 +35,9 @@ claude mcp add silverpoint -- npx -y @silverpoint/mcp
 | `list_components`, `get_component` | The UI components; one component's props, binding, events and slots |
 | `recommend_chart` | Up to five charts for a data shape and an intent, from a reviewed table |
 | `generate_code` | The imports, stylesheets and code for one chart or component in one framework |
+| `validate_props` | Every diagnostic the core raises for a chart's props, and the props it does not declare |
+| `render_chart` | The chart's canonical render as a standalone SVG, the ground's stylesheet inlined |
+| `check_palette` | The contrast findings of a palette preset or of your own palette's fields |
 | `search_catalog` | A token search over names, summaries, prop docs and diagnostic codes |
 
 Every result carries the version it describes. A name the catalog does not hold is a tool error with

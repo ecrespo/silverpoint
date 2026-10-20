@@ -24,7 +24,7 @@ afterAll(async () => {
 type Structured = Record<string, unknown> & { version?: string };
 const call = async (name: string, args: Record<string, unknown> = {}) => client.callTool({ name, arguments: args });
 
-/** One valid call per tool: every tool of step 9c answers with the catalog's version. */
+/** One valid call per tool: every tool answers with the catalog's version. */
 const VALID: Readonly<Record<string, Record<string, unknown>>> = {
   get_version: {},
   list_charts: { family: 'flows' },
@@ -34,10 +34,13 @@ const VALID: Readonly<Record<string, Record<string, unknown>>> = {
   recommend_chart: { shape: 'series', intent: 'trend' },
   generate_code: { target: { chart: 'line-chart' }, framework: 'react' },
   search_catalog: { query: 'sankey' },
+  validate_props: { chart: 'line-chart', props: { xKey: 'day' } },
+  render_chart: { chart: 'line-chart', width: 320 },
+  check_palette: { palette: 'sanguine' },
 };
 
 describe('tools (REQ-539, REQ-566)', () => {
-  test('REQ-539 · the read-only tools, each with an input and an output schema and read-only annotations', async () => {
+  test('REQ-539 · the eleven tools, each with an input and an output schema and read-only annotations', async () => {
     const { tools } = await client.listTools();
     expect(tools.map((t) => t.name).sort()).toEqual(Object.keys(VALID).sort());
     for (const tool of tools) {
@@ -64,6 +67,30 @@ describe('tools (REQ-539, REQ-566)', () => {
     const result = (await call('generate_code', { target: { component: 'modal' }, framework: 'angular' })).structuredContent as Structured;
     expect(result.code).toContain('spTrigger');
     expect(result.imports).toContain('@silverpoint/angular/ui/modal');
+  });
+});
+
+describe('validation and render over the wire (REQ-542, REQ-543, REQ-545, REQ-560)', () => {
+  test('REQ-543 · render_chart answers with the SVG, its size and its diagnostics', async () => {
+    const result = (await call('render_chart', { chart: 'sankey-chart', width: 320, height: 150 })).structuredContent as Structured;
+    expect(result).toMatchObject({ width: 320, diagnostics: [] });
+    expect(String(result.svg)).toMatch(/^<svg[^>]*><style>/);
+  });
+
+  test('REQ-542 · validate_props reports diagnostics and unknown props as data', async () => {
+    const result = (await call('validate_props', { chart: 'line-chart', props: { data: [], colour: 'red' } })).structuredContent as Structured;
+    expect(result).toMatchObject({ valid: false, unknownProps: ['colour'], diagnostics: [expect.objectContaining({ code: 'SP001' })] });
+  });
+
+  test('REQ-545 · check_palette takes a preset or a palette of fields', async () => {
+    const result = (await call('check_palette', { palette: { substrate: '#FFFFFF', rule: '#DDDDDD' } })).structuredContent as Structured;
+    expect(result.findings).toEqual([expect.objectContaining({ pair: 'rule' })]);
+  });
+
+  test('REQ-560 · a string past 1,000 characters is refused in any tool, before any work', async () => {
+    const result = await call('get_chart', { slug: 'x'.repeat(1001) });
+    expect(result.isError).toBe(true);
+    expect((result.structuredContent as Structured).code).toBe('limit_exceeded');
   });
 });
 

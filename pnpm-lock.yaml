@@ -651,6 +651,9 @@ importers:
       '@silverpoint/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@silverpoint/fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
       '@silverpoint/grounds':
         specifier: workspace:*
         version: link:../../packages/grounds

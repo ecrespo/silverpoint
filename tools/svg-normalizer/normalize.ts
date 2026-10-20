@@ -201,10 +201,15 @@ function difference(actual: NormalNode, expected: NormalNode, path: string): str
   return undefined;
 }
 
+/** Compares two normalised trees, reporting the first difference. */
+export function compareSvgTrees(actual: NormalElement, expected: NormalElement): { equal: true } | { equal: false; difference: string } {
+  const found = difference(actual, expected, 'svg');
+  return found === undefined ? { equal: true } : { equal: false, difference: found };
+}
+
 /** Compares two renders as normalised trees, reporting the first difference. */
 export function compareSvg(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
-  const found = difference(parseSvg(actual), parseSvg(expected), 'svg');
-  return found === undefined ? { equal: true } : { equal: false, difference: found };
+  return compareSvgTrees(parseSvg(actual), parseSvg(expected));
 }
 
 function findDashboard(node: ParsedNode): ParsedElement | undefined {

@@ -13,7 +13,11 @@ import { ToolError } from './errors';
 import { getChart, getComponent, listCharts, listComponents } from './tools/entries';
 import { recommendChart } from './tools/recommend';
 import { SEARCH_LIMIT, searchCatalog } from './tools/search';
+import { checkPaletteTool } from './tools/palette';
+import { renderChart } from './tools/render';
+import { validateProps } from './tools/validate';
 import { getVersion } from './tools/version';
+import { checkPayload } from './limits';
 import type { AgentCatalog } from './types';
 
 export interface ServerOptions {
@@ -23,8 +27,11 @@ export interface ServerOptions {
 
 const READ_ONLY = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } as const;
 
-/** Enum-like inputs are strings the tools check themselves, so a typo gets suggestions (REQ-549). */
-const name = (what: string) => z.string().max(200).describe(what);
+/**
+ * Enum-like inputs are strings the tools check themselves, so a typo gets suggestions (REQ-549);
+ * lengths and row counts are `checkPayload`'s, so an oversized input is `limit_exceeded` (REQ-560).
+ */
+const name = (what: string) => z.string().describe(what);
 const versioned = <T extends z.ZodRawShape>(shape: T) => z.looseObject({ version: z.string(), ...shape });
 const ERROR_SHAPE = { code: z.string().optional(), message: z.string().optional(), suggestions: z.array(z.string()).optional() };
 
@@ -42,6 +49,7 @@ export function createServer(options: ServerOptions = {}): McpServer {
     <I>(tool: string, body: (input: I) => object) =>
     async (input: I): Promise<CallToolResult> => {
       try {
+        checkPayload(input);
         const result = { version, ...body(input) };
         return { structuredContent: result, content: [{ type: 'text', text: summary(tool, result) }] };
       } catch (error) {
@@ -121,8 +129,8 @@ export function createServer(options: ServerOptions = {}): McpServer {
         intent: name(`What the reader should see: ${INTENTS.join(', ')}.`),
         rows: z.number().int().min(0).max(1_000_000).optional().describe('How many rows the data holds.'),
         fields: z
-          .array(z.object({ name: z.string().max(200), type: z.enum(['string', 'number', 'date', 'boolean']) }))
-          .max(100)
+          .array(z.object({ name: z.string(), type: z.enum(['string', 'number', 'date', 'boolean']) }))
+          
           .optional()
           .describe('The fields of a row; numeric ones count as value fields.'),
       },
@@ -139,9 +147,9 @@ export function createServer(options: ServerOptions = {}): McpServer {
       description:
         'The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names.',
       inputSchema: {
-        target: z.object({ chart: z.string().max(200).optional(), component: z.string().max(200).optional() }).describe('Exactly one of `chart` or `component`.'),
+        target: z.object({ chart: z.string().optional(), component: z.string().optional() }).describe('Exactly one of `chart` or `component`.'),
         framework: name('react, vue, angular or reflex.'),
-        fields: z.record(z.string(), z.union([z.string().max(200), z.array(z.string().max(200)).max(50)])).optional().describe('Data role → field name in your rows.'),
+        fields: z.record(z.string(), z.union([z.string(), z.array(z.string())])).optional().describe('Data role → field name in your rows.'),
         props: z.record(z.string(), z.unknown()).optional().describe('Props, by their camelCase or Python name.'),
         ground: name('silverpoint or cyanotype.').optional(),
         substrate: name('A substrate of the ground.').optional(),
@@ -167,11 +175,67 @@ export function createServer(options: ServerOptions = {}): McpServer {
     {
       title: 'Search the catalog',
       description: `A token search over chart and component names, summaries, prop docs and diagnostic codes, best first; at most ${SEARCH_LIMIT.max} hits.`,
-      inputSchema: { query: z.string().max(1000), limit: z.number().int().min(1).optional().describe(`At most ${SEARCH_LIMIT.max}; ${SEARCH_LIMIT.default} by default.`) },
+      inputSchema: { query: z.string(), limit: z.number().int().min(1).optional().describe(`At most ${SEARCH_LIMIT.max}; ${SEARCH_LIMIT.default} by default.`) },
       outputSchema: versioned({ hits: z.array(z.looseObject({})).optional(), ...ERROR_SHAPE }),
       annotations: READ_ONLY,
     },
     answer('search_catalog', (input: { query: string; limit?: number }) => searchCatalog(catalog, input)),
+  );
+
+  const palette = z.union([z.string(), z.record(z.string(), z.string())]);
+
+  server.registerTool(
+    'validate_props',
+    {
+      title: 'Validate props',
+      description: 'Builds the chart with the core and returns every diagnostic it raises (code, severity, requirement, message, remedy) and the props it does not declare.',
+      inputSchema: {
+        chart: name('The chart, by slug or by any framework’s name.'),
+        props: z.record(z.string(), z.unknown()).describe('The props, `data` included; without `data` the demo dataset is used.'),
+        width: z.number().optional().describe('320..1600 px; 480 by default.'),
+        height: z.number().optional().describe('120..1200 px.'),
+      },
+      outputSchema: versioned({ valid: z.boolean().optional(), diagnostics: z.array(z.looseObject({})).optional(), unknownProps: z.array(z.string()).optional(), ...ERROR_SHAPE }),
+      annotations: READ_ONLY,
+    },
+    answer('validate_props', (input: Parameters<typeof validateProps>[1]) => validateProps(catalog, input)),
+  );
+
+  server.registerTool(
+    'render_chart',
+    {
+      title: 'Render a chart',
+      description:
+        'The canonical render of one chart as a standalone SVG, the ground’s stylesheet inlined: what every adapter draws for the same props, data, size and id. Without `data`, the demo dataset.',
+      inputSchema: {
+        chart: name('The chart, by slug or by any framework’s name.'),
+        props: z.record(z.string(), z.unknown()).optional().describe('The chart’s own props; data, size, id and appearance are inputs of their own.'),
+        data: z.array(z.record(z.string(), z.unknown())).optional().describe('At most 5,000 rows.'),
+        width: z.number().optional().describe('320..1600 px; 480 by default.'),
+        height: z.number().optional().describe('120..1200 px.'),
+        id: name('Stems the SVG’s ids; the slug by default.').optional(),
+        ground: name('silverpoint or cyanotype.').optional(),
+        substrate: name('A substrate of the ground.').optional(),
+        mode: name('ink or precision.').optional(),
+        palette: palette.optional().describe('A preset name, or a palette’s fields.'),
+        embedFonts: z.boolean().optional().describe('Inline EB Garamond; otherwise the face is referenced with a serif fallback.'),
+      },
+      outputSchema: versioned({ svg: z.string().optional(), width: z.number().optional(), height: z.number().optional(), diagnostics: z.array(z.looseObject({})).optional(), ...ERROR_SHAPE }),
+      annotations: READ_ONLY,
+    },
+    answer('render_chart', (input: Parameters<typeof renderChart>[1]) => renderChart(catalog, input)),
+  );
+
+  server.registerTool(
+    'check_palette',
+    {
+      title: 'Check a palette',
+      description: 'The contrast findings of the core’s checkPalette for a preset or a palette of fields, over a substrate given as a hex or by name.',
+      inputSchema: { palette: palette.describe('A preset name, or a palette’s fields.'), substrate: name('A hex, or a substrate name such as cream or prussian.').optional() },
+      outputSchema: versioned({ findings: z.array(z.looseObject({})).optional(), substrate: z.string().optional(), ...ERROR_SHAPE }),
+      annotations: READ_ONLY,
+    },
+    answer('check_palette', (input: Parameters<typeof checkPaletteTool>[1]) => checkPaletteTool(catalog, input)),
   );
 
   const json = (uri: string, value: unknown) => ({ contents: [{ uri, mimeType: 'application/json', text: JSON.stringify(value, null, 2) }] });
@@ -201,7 +265,7 @@ export function createServer(options: ServerOptions = {}): McpServer {
 
   server.registerPrompt(
     'choose-chart',
-    { title: 'Choose a chart', description: 'From a description of the data and the question, pick a chart, look at it, and write its code.', argsSchema: { description: z.string().max(1000) } },
+    { title: 'Choose a chart', description: 'From a description of the data and the question, pick a chart, look at it, and write its code.', argsSchema: { description: z.string() } },
     ({ description }) => ({
       messages: [
         {
@@ -227,7 +291,7 @@ export function createServer(options: ServerOptions = {}): McpServer {
     {
       title: 'Build a dashboard',
       description: 'From a list of needs, one chart per need laid out as a silverpoint dashboard.',
-      argsSchema: { framework: z.string().max(20), charts: z.string().max(1000).describe('The needs, separated by semicolons.') },
+      argsSchema: { framework: z.string(), charts: z.string().describe('The needs, separated by semicolons.') },
     },
     ({ framework, charts }) => ({
       messages: [

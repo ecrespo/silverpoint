@@ -109,6 +109,10 @@ async function main(): Promise<void> {
   if (!existsSync(CATALOG_FILE) || readFileSync(CATALOG_FILE, 'utf8') !== serialise(catalog)) {
     errors.unshift('REQ-535 · packages/mcp/agent-catalog.json is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
+  const { ASSETS_FILE, assetsSource } = await import('./assets');
+  if (!existsSync(ASSETS_FILE) || readFileSync(ASSETS_FILE, 'utf8') !== assetsSource()) {
+    errors.unshift('DD-047 · packages/mcp/src/assets.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
   if (catalog.reflex.stale) console.warn(`reflex-silverpoint-react ${catalog.reflex.version} wraps ${catalog.reflex.wraps}; every Reflex entry is marked stale (REQ-556)`);
   for (const error of errors) console.error(error);
   if (errors.length > 0) process.exit(1);
