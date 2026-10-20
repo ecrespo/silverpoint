@@ -817,7 +817,7 @@ const OVERLAYS = [
     'padding: 5px 14px',
     'cursor: pointer',
   ]),
-  // The active option or item: the one heightening of the list (REQ-498, I-28).
+  // The active option or item: the one heightening of the list (REQ-498, I-36).
   rule(":is(.sp-ui-option, .sp-ui-menuitem) [part~='sp-heighten']", ['position: absolute', 'inset: 1px 4px']),
   rule(":is(.sp-ui-option, .sp-ui-menuitem)[aria-disabled='true']", ['color: var(--sp-text-muted)', 'font-style: italic', 'cursor: not-allowed']),
   rule(".sp-ui-option [data-glyph='tick']", ['margin-inline-start: auto']),

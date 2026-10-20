@@ -40,7 +40,7 @@ const OPPOSITE: Readonly<Record<UiSide, UiSide>> = { top: 'bottom', bottom: 'top
 const shift = (at: number, extent: number, size: number, padding: number) => Math.max(padding, Math.min(at, size - padding - extent));
 
 /**
- * Where an anchored overlay goes (REQ-493, I-27): on the preferred side of its anchor, flipped to the
+ * Where an anchored overlay goes (REQ-493, I-35): on the preferred side of its anchor, flipped to the
  * opposite side when it does not fit there and fits there, aligned along the side, then shifted to
  * stay in the viewport. Pure.
  */

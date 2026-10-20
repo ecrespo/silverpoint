@@ -1,5 +1,5 @@
 /**
- * The palette gate (T-218, REQ-516, I-25): every adapter server-renders every palette fixture over
+ * The palette gate (T-218, REQ-516, I-33): every adapter server-renders every palette fixture over
  * the published builds and is compared with the fixture's committed canonical render. A UI target
  * is compared as any UI fixture. A chart's palette is on the adapter's `.sp-root` frame and on the
  * core's `<svg>` (`toSVGString`, REQ-461): the trees must agree once that `style` is set aside, and

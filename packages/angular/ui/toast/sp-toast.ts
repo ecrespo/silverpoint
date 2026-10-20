@@ -34,8 +34,12 @@ export class SpToaster extends SpUiBase {
       region.setAttribute('tabindex', '-1');
       region.focus();
     };
-    afterNextRender(() => document.addEventListener('keydown', f8));
-    inject(DestroyRef).onDestroy(() => document.removeEventListener('keydown', f8));
+    // Only the client listens, so only the client unlistens: the server has no `document`.
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => {
+      document.addEventListener('keydown', f8);
+      destroyRef.onDestroy(() => document.removeEventListener('keydown', f8));
+    });
   }
 }
 

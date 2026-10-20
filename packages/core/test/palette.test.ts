@@ -216,13 +216,13 @@ describe('palettes — presets (T-201)', () => {
     expect(sepia.text).toBe('#3B2A18');
   });
 
-  test('I-23 · presets and the record are deep-frozen', () => {
+  test('I-31 · presets and the record are deep-frozen', () => {
     expect(Object.isFrozen(PALETTES)).toBe(true);
     expect(Object.isFrozen(PALETTE_NAMES)).toBe(true);
     for (const palette of Object.values(presets)) expect(Object.isFrozen(palette)).toBe(true);
   });
 
-  test.each(Object.keys(presets))('REQ-464 · I-23 · %s passes every pair of Data Model §3.9', (name) => {
+  test.each(Object.keys(presets))('REQ-464 · I-31 · %s passes every pair of Data Model §3.9', (name) => {
     expect(checkPalette(PALETTES[name]!)).toEqual([]);
   });
 });

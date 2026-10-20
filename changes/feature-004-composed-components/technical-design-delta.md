@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-10-18 by Ernesto Crespo (drafted the same day) |
+| **Status** | `APPROVED` — gate 3, approved 2026-10-18 by Ernesto Crespo (drafted the same day); **folded into `specs/technical-design.md` (v1.10) on 2026-10-20** (T-225) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.9 → v1.10: §3.2, §3.3, new DD-037..DD-043, §5.1, §5.3, §8, §10 |
 | **Inputs** | [`prd-delta.md`](prd-delta.md), [`api-delta.md`](api-delta.md), [`research.md`](research.md) |
 

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — with gate 1, approved 2026-10-18 by Ernesto Crespo (drafted the same day) |
+| **Status** | `APPROVED` — with gate 1, approved 2026-10-18 by Ernesto Crespo (drafted the same day); **folded into `specs/constitution.md` (v1.9) on 2026-10-20** (T-225) |
 | **Articles touched** | preamble ("What it is not"), Art. 3, Art. 6 |
 
 ## 1. Preamble — "What it is not"

@@ -21,7 +21,7 @@ import type { UiElement, UiNode, UiResolved } from './view';
  * The overlays (API delta §4, DD-038): native `<dialog>` and the Popover API. The server markup
  * carries `data-state` and the full content, never the `open` attribute (a `<dialog open>` is
  * non-modal) nor a position: the adapter calls `showModal()`/`showPopover()` after hydration, then
- * `uiAnchor` (REQ-502). In an open list the active item is the one heightened (REQ-498, I-28).
+ * `uiAnchor` (REQ-502). In an open list the active item is the one heightened (REQ-498, I-36).
  */
 
 const heighten = () => el('span', { part: 'sp-heighten', 'aria-hidden': 'true' });

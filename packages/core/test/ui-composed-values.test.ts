@@ -47,7 +47,7 @@ describe('uiSortRows (T-202)', () => {
     expect(ids(rows)).toBe(before);
   });
 
-  test('I-26 · for random rows the output is a permutation, nulls last, ordered and stable (fixed seed)', () => {
+  test('I-34 · for random rows the output is a permutation, nulls last, ordered and stable (fixed seed)', () => {
     const next = createPrng(20261018);
     for (let round = 0; round < 50; round++) {
       const input = Array.from({ length: 40 }, (_, i) => {

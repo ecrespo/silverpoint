@@ -116,6 +116,13 @@ describe('adapter-boundary', () => {
     expect(await rulesHit('packages/angular/line-chart/y.ts', 'export const d = Date.now();')).toContain('silverpoint/no-nondeterminism');
   });
 
+  test('REQ-471 · a UI component that clamps, sorts or windows by itself fails, in all three adapters', async () => {
+    const clamp = 'export const v = (n: number) => Math.min(n, 10);';
+    expect(await rulesHit('packages/react/src/ui/input-number.tsx', clamp)).toEqual(['silverpoint/adapter-boundary']);
+    expect(await rulesHit('packages/vue/src/ui/input-number.ts', clamp)).toEqual(['silverpoint/adapter-boundary']);
+    expect(await rulesHit('packages/angular/ui/input-number/input-number.ts', clamp)).toEqual(['silverpoint/adapter-boundary']);
+  });
+
   test('REQ-102 · the core may do maths', async () => {
     expect(await rulesHit('packages/core/src/x.ts', 'export const w = (n: number) => Math.round(n);')).toEqual([]);
   });

@@ -24,8 +24,6 @@ async function open(page: Page, path = '/composed'): Promise<Locator> {
   return panel;
 }
 
-const activeOption = (combobox: Locator) => combobox.getAttribute('aria-activedescendant');
-
 /** WCAG relative luminance contrast of two `rgb(…)` colours. */
 function contrast(a: string, b: string): number {
   const lum = (c: string) => {
@@ -60,18 +58,18 @@ test.describe('the overlays’ keyboard patterns (T-223)', () => {
     await expect(list).toBeVisible();
     expect(await list.evaluate((el) => el.matches(':popover-open'))).toBe(true);
     // No value: the first option is active, and heightened alone (REQ-498).
-    expect(await activeOption(combobox)).toBe(option('placed'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('placed'));
     await expect(list.locator("[part='sp-heighten']")).toHaveCount(1);
     await expect(list.locator(`#${option('placed')} [part='sp-heighten']`)).toHaveCount(1);
     await page.keyboard.press('ArrowDown');
-    expect(await activeOption(combobox)).toBe(option('paid'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('paid'));
     // End stops on the last enabled option: Returned is disabled.
     await page.keyboard.press('End');
-    expect(await activeOption(combobox)).toBe(option('shipped'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('shipped'));
     await page.keyboard.press('ArrowDown');
-    expect(await activeOption(combobox)).toBe(option('shipped'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('shipped'));
     await page.keyboard.press('Home');
-    expect(await activeOption(combobox)).toBe(option('placed'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('placed'));
     // Escape closes without choosing; focus stays on the combobox.
     await page.keyboard.press('Escape');
     await expect(list).toBeHidden();
@@ -89,13 +87,13 @@ test.describe('the overlays’ keyboard patterns (T-223)', () => {
     await expect(combobox).toBeFocused();
     // Reopened, the chosen option is active, selected and ticked.
     await page.keyboard.press('Enter');
-    expect(await activeOption(combobox)).toBe(option('paid'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('paid'));
     await expect(list.locator('[aria-selected="true"]')).toHaveCount(1);
     await expect(list.locator(`#${option('paid')}`)).toHaveAttribute('aria-selected', 'true');
     await expect(list.locator(`#${option('paid')} svg`)).toHaveCount(1);
     // Typeahead moves the active option (a Space typed within it would be a character).
     await page.keyboard.type('pac');
-    expect(await activeOption(combobox)).toBe(option('packed'));
+    await expect(combobox).toHaveAttribute('aria-activedescendant', option('packed'));
     // A disabled option takes no click.
     await list.locator(`#${option('returned')}`).click({ force: true });
     await expect(select.locator('input[type="hidden"]')).toHaveValue('paid');
@@ -283,7 +281,7 @@ test.describe('the toaster (T-223)', () => {
     }
     await open(page);
     await page.keyboard.press('F8');
-    expect(await page.evaluate(() => document.activeElement?.matches('.sp-toaster[tabindex="-1"]'))).toBe(true);
+    await expect.poll(() => page.evaluate(() => document.activeElement?.matches('.sp-toaster[tabindex="-1"]'))).toBe(true);
   });
 });
 

@@ -52,7 +52,7 @@ describe('timeline.css (T-211)', () => {
     expect(all.filter((r) => !inForcedColors(r)).filter((r) => system.test(r.body))).toEqual([]);
   });
 
-  test('I-24 · no opacity, gradient or colour mix: eras are toned by hatching or line weight (Art. 6)', () => {
+  test('I-32 · no opacity, gradient or colour mix: eras are toned by hatching or line weight (Art. 6)', () => {
     expect(css).not.toMatch(/opacity|gradient\(|color-mix\(/);
   });
 

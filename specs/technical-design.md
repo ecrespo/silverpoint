@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.9 |
-| **Date** | 2026-09-29 |
-| **Related PRD** | [`prd.md`](prd.md) v1.12 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.10 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.8 |
+| **Version** | 1.10 |
+| **Date** | 2026-10-20 |
+| **Related PRD** | [`prd.md`](prd.md) v1.13 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.9 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -110,6 +110,19 @@ except the measured dimensions of the container.
 | `interaction/tree.ts`, `interaction/root-change.ts` | core | The tree keyboard as `HitArea.moves`; `rootChangeOf` (DD-031, DD-033) |
 | `catalog.ts` (`@silverpoint/core/catalog`) | core | The second catalog's 27 recipes and their demos (DD-036) |
 | `tools/demo-gen` | in-house, build only | Generates the synthetic demos with a fixed seed and prints them as frozen literals (REQ-446) |
+| `palette/palette.ts` | core (`/palettes`) | `Palette`, `PALETTE_PROPERTIES`, `resolvePalette`, `paletteStyle`, `nestProvider`, `SP023`/`SP024` (DD-037) |
+| `palette/contrast.ts` | core (`/palettes`) | `contrastRatio`, `checkPalette`, `PALETTE_PAIRS` (the pairs of Data Model §3.9) |
+| `palettes.ts` | core (`/palettes`) | The six frozen presets and `PALETTES` |
+| `ui/sort.ts`, `ui/pages.ts`, `ui/number.ts`, `ui/initials.ts` | core (`/ui`) | `uiSortRows`, `uiPageWindow`/`uiPagination`, `uiNumberValue`/`uiNumberStep`, `uiInitials` (DD-040) |
+| `ui/listbox.ts` | core (`/ui`) | `uiListKey`, `uiTypeahead` (DD-039) |
+| `ui/place.ts`, `ui/anchor.ts` | core (`/ui`) | `uiPlace` (pure); `uiAnchor` (the DOM side, structural types, as `uiRovingFocus`) (DD-038) |
+| `ui/overlay.ts` | core (`/ui`) | Amended in implementation (#215): `uiOverlaySync`, the platform's open and close calls, made only from the other state (DD-038) |
+| `ui/view-composed.ts`, `ui/view-overlay.ts` | core (`/ui`) | The view trees of the markup contract (API Spec §7.2) (DD-040) |
+| `timeline/*` | core (`/timeline`) | `timelineView`, `timelineInk` (probe reader); amended in implementation (#221): `timelineMount`, the client half the three adapters share (DD-042); the demo `TIMELINE_DEMO` on `/ui-demos` (#208) |
+| `ui/ui-css.ts` | grounds | Rules of the new components; row tone, backdrop, list heightening |
+| `timeline/timeline-css.ts` | grounds | `dist/timeline.css`, generated like `ui.css` (no literal colour, I-19) |
+| `ui/*`, `timeline` | react, vue, angular | Bind values, events, slots and the platform calls; nothing else. Amended in implementation (#215): Angular's overlay base, `SpTrigger` and `uiListKeys` are their own entry, `@silverpoint/angular/ui/overlay` |
+| `tools/contrast-gate` | tools | `PALETTE_PAIRS` × the six presets join the gate (REQ-464) |
 | `tools/svg-normalizer` | in-house | Canonical form for the string gate |
 | `tools/visual-gate` | Playwright | Art. 3 pixel gates |
 | `tools/lint-rules` | in-house ESLint | Forbids `Math.random`, `Date.now` and cross imports |
@@ -192,6 +205,59 @@ keyboard (client):
 ```
 
 No step measures the DOM, runs an inker, or reads the clock at render time.
+
+**Palettes, composed components, overlays and the timeline** (feature-004, API Spec §7.2)
+
+```
+palette (render time, server and client):
+  prop ─┐
+  cell ─┼─► core.resolvePalette(provider, cell, prop) ─► core.paletteStyle ─► root style="--sp-ink:…"
+  provider ┘                                                   (fixed order; consumer style appended)
+
+composed component (render time):
+  props ─► core.uiSortRows / uiPagination / uiNumberValue / uiInitials ─► core.ui<Name>View ─► tree
+  adapter: binds `sort`, `page`, `stepper`, `summary`, `native` elements; writes slots
+
+overlay:
+  render time ─► core.ui<Name>View(open) ─► <dialog data-state> / <div popover data-state>
+  after hydration, when open ─► adapter: dialog.showModal() | el.showPopover()
+                              ─► core.uiAnchor(trigger, overlay, opts) ─► uiPlace ─► --sp-ui-x/y, data-side
+  keydown ─► core.uiListKey / uiTypeahead ─► active index | intent ─► focus / select / close
+  toast ─► adapter setTimeout(duration), paused on pointerenter/focusin ─► open-change(false)
+
+timeline (client only):
+  render ─► core.timelineView ─► surface + probes + mount
+  after hydration ─► import('@knight-lab/timelinejs') ─► new TL.Timeline(mount, data, options)
+                  ─► core.timelineInk(host, probe) ─► --sp-kl-* on the host; MutationObserver re-reads
+  import fails ─► fallback slot + SP025
+```
+
+No step on the render path measures the DOM, reads the clock or runs an inker.
+
+**Amended in implementation (feature-004).**
+
+- *Palette (#212).* The core resolves and the adapters only write `style`. A chart's
+  `renderChart` returns `rendered.style` (`paletteStyle(resolvePalette(provider, props))`, the
+  cell's palette already merged under the chart's own, field by field); the three chart frames write
+  it on `.sp-root`, and `toSVGString` writes it on the `<svg>` too (REQ-461). A UI component's
+  `resolveUi` gives `UiResolved.palette` (provider → cell → prop) and `root()` writes it first in
+  `style`, the component's own declarations after, so every UI, composed, overlay and timeline root
+  carries it with no per-component code. The dashboard's `dashboardView(props, children, palette)`
+  puts the section's declarations before its layout variables. A nested provider inherits every
+  field it leaves unset (`nestProvider`). `resolvePalette` skips an `undefined` field silently.
+- *Overlay (#215, #216, #219).* The open and close calls are the core's
+  `uiOverlaySync(element, kind, open)` (`showModal`/`show`/`close`/`showPopover`/`hidePopover`, only
+  from the other state). React and Vue hang the overlay from the element just before it (its
+  `previousElementSibling`), so no ref is merged into the consumer's trigger; Angular hangs it from
+  `[spTrigger]`, bound to its overlay through `SP_TRIGGER_OWNER`, as an Angular host sits between the
+  two. `uiAnchor` re-places on scroll (captured), resize, and a size change of the trigger or the
+  overlay (`ResizeObserver`, where the engine has it). A paused toast restarts its whole duration
+  when pointer and focus leave it: the time left would need a clock (Art. 4).
+- *Timeline (#221, #222).* The client half is the core's `timelineMount`; each adapter hands it
+  the host, a literal `import('@knight-lab/timelinejs/src/js/timeline/Timeline.js')`, its event sink
+  and its `failed` flag. TimelineJS is built in a `<div>` of its own inside the mount, on a
+  `structuredClone` of the data; an error thrown while it is built counts as a failed load
+  (fallback + `SP025`).
 
 ## 4. Design Decisions
 
@@ -952,6 +1018,198 @@ share a skeleton, it becomes a family builder in `shared/` (as `buildPoints`, `b
 `packages/core/src/catalog.ts` (`@silverpoint/core/catalog`), not from `index.ts`; their props types
 stay in the main entry. React's drillable charts use `createDrillableChart`.
 
+**Palettes, composed components, overlays and the timeline** (feature-004, DD-037..DD-043):
+
+### DD-037: Palettes are inline declarations computed by the core; sections are providers
+
+- **Decision:** `palette` resolves field by field (element → dashboard → provider) in the core and
+  is written as an inline `style` of `--sp-` declarations on the element's root —the chart root
+  (`.sp-root`, or the `<svg>` of `toSVGString`), the UI root, the dashboard root— in the fixed order
+  of `PALETTE_PROPERTIES`. A section is a nested `SilverpointProvider` / `provideSilverpoint`.
+- **Why inline:** the ground's rules are `:where(...)`, zero specificity (`styles.css`); an inline
+  declaration on the same element beats them without any selector trick, on the server as on the
+  client, and it is part of the markup the tree gate compares. The Reflex `&&` class and the
+  `display: contents` wrapper with a descendant rule are CSS-in-JS devices each framework would need
+  its own of.
+- **Why the provider:** the three adapters already scope configuration by context (React context,
+  Vue `provide`, Angular DI); a palette is configuration like `ground` or `substrate` (REQ-311's
+  chain). No wrapper element is added, so layout and parity are untouched.
+- **Presets on a subpath:** a chart that takes `palette: Palette` and no name ships no preset; only
+  `paletteStyle` and `resolvePalette` enter the chart path (≈ 0.3 KB min, measured in #200 against
+  the REQ-444 allowance). Names (Reflex's `palette="sanguine"`) are a consumer lookup in `PALETTES`.
+- **Validation:** a value containing `;`, `{`, `}`, `<` or `url(` is dropped (`SP024`): it would
+  break out of the declaration. Hex fields are measured in development (`SP023`), once per palette
+  object (a `WeakSet`).
+- *Amended in implementation (#200, #206):* (1) validation is an **allowlist of CSS colours**,
+  not the denylist above (escapes such as `\75 rl(` and `image-set("…")` passed it; commit security
+  review, 2026-10-18), applied in `resolvePalette` and again in `paletteStyle`; the dropping always
+  happens, the `SP024` warning in development only. (2) `SP023` measures against the palette's own
+  `substrate`, else cream: the core does not know the ground's substrate colour at resolve time.
+  (3) The palette API pushed the core's full bundle past its 45 kB (REQ-164), so all of it lives on
+  `@silverpoint/core/palettes`, with only the types on the main entry; `PALETTE_NAMES` is written
+  out so an unused preset tree-shakes. `resolvePalette` + `paletteStyle` alone bundle to 807 B
+  minified, no preset (≈ 0.56 KB for the chart path, #200; see OQ-C3 below).
+- *Amended in implementation (#212):* (1) a nested provider inherits every field it leaves unset
+  from the enclosing one (`nestProvider`, on `/palettes`), so a section re-coloured by a nested
+  provider keeps the app's ground; before, a nested React provider replaced the whole configuration.
+  (2) A dashboard's root carries its own palette only: React's `Dashboard` renders in Server
+  Components, which read no provider, and Vue and Angular do the same for parity; the provider's
+  palette still reaches every chart and component in its cells. (3) Vue gains a
+  `SilverpointProvider` component for sections, as `provideSilverpoint` is an app plugin; Angular's
+  `provideSilverpoint` returns a `Provider`, so it scopes a section from a component's `providers`.
+- **Rejected:** a palette as a ground (Art. 7 would be satisfied, but a ground is registered
+  globally and carries inker and tonal mechanism; a palette is a per-section colour override); a
+  `<style>` element per palette (a stylesheet in the body of every chart, and selectors to scope).
+
+### DD-038: Overlays on the platform, behaviour gaps in the core
+
+- **Decision (user, 2026-10-18):** Modal and Drawer are `<dialog>` opened with `showModal()`
+  (`show()` for a non-modal Drawer): the browser gives focus moving, trapping and return, the inert
+  page, Escape (`cancel`) and the top layer. Popover, the Select list and the Menu are
+  `popover="auto"` (top layer, light dismiss, one open `auto` popover per stack); the Tooltip is
+  `popover="manual"`, so it never closes an open popover. What the platform does not give is core:
+  placement (`uiPlace`), listbox and menu keys (`uiListKey`), typeahead (`uiTypeahead`).
+- **Options:**
+
+| Option | For | Against |
+|---|---|---|
+| **A. Platform + core (chosen)** | No dependency (Art. 8); one markup (Art. 3); focus trap and inertness by the browser, the hardest part to get right by hand | The Popover API has no anchoring that is Baseline in every pinned engine, hence `uiPlace`; `<dialog>` styling needs `::backdrop` |
+| B. Radix / Reka UI / Angular CDK | Mature | Three engines, three markups: the tree gate fails by construction (DD-023 option C) |
+| C. Zag.js | One engine | No Angular adapter; a runtime dependency |
+| D. CSS anchor positioning instead of `uiPlace` | No JS for placement | Not Baseline in the pinned Firefox and WebKit; a progressive enhancement can come later without an API change |
+
+- **Server render:** an overlay renders `data-state="open|closed"` and its full content; it never
+  writes the `open` attribute (a `<dialog open>` would be non-modal) nor a position. The adapter
+  calls `showModal()`/`showPopover()` after hydration and `uiAnchor` after that (REQ-502).
+  *Amended in implementation (#215):* the open and close calls are the core's `uiOverlaySync(element,
+  kind, open)`: it calls them only when the element is in the other state, so no second `close` or
+  `toggle` fires, and without the Popover API it leaves a popover in the page's flow. `uiAnchor`
+  hangs an overlay from the element just before it (React, Vue, and the Select and Menu's own
+  buttons) or from the Angular `spTrigger`, as an Angular host sits between the two. A toast's pause
+  restarts its whole duration when the pointer and focus leave: measuring the time left would read
+  a clock on the render path (Art. 4). The Toaster takes `tabindex="-1"` when F8 is pressed, never in
+  the server markup.
+- **Backdrop** (REQ-499): `::backdrop` is painted by `ui.css` with the level-2 tone mask over a
+  transparent background; hatch lines leave the page visible between them, so no opacity is needed.
+  Under `weight` grounds and in `precision`, `background: var(--sp-substrate)` at the ground's
+  `ui.backdrop` token, `mix-blend-mode: normal`: an opaque backdrop. A see-through flat backdrop
+  would be opacity as tone.
+  *Amended in implementation (#209, #210):* `::backdrop` joins the `ui.css` tone rule of the
+  ground's `backdrop` level, so the tile is written once; forced colours paint `Canvas`. `backdrop`
+  and `rowTone` are optional `UiTokens` with core defaults 2 and 1 (`UI_TOKEN_DEFAULTS`, held to
+  1..4); neither built-in ground declares them, so a ground written for `0.3.0` resolves them as
+  `silverpoint` and `cyanotype` do (REQ-044, REQ-312). Anchored overlays are `position: fixed` at
+  `translate: var(--sp-ui-x) var(--sp-ui-y)`; `uiPlace` has already resolved `dir`.
+
+### DD-039: One listbox engine for Select and Menu
+
+- **Decision:** `uiListKey(state, key, kind)` returns the next active index and an intent (`open`,
+  `close`, `select`) for the APG select-only combobox (`listbox`) and menu button (`menu`)
+  patterns; disabled items are skipped; arrows do not wrap in a listbox and wrap in a menu, as the
+  APG examples do. `uiTypeahead` finds the next enabled label starting with the buffer, wrapping;
+  the adapter keeps the buffer and clears it 500 ms after the last key.
+- **Focus model:** the Select keeps DOM focus on its trigger and points at the active option with
+  `aria-activedescendant` (APG select-only combobox); the Menu moves DOM focus to the active
+  `menuitem` (`tabindex="-1"`), as `uiRovingFocus` does. The active element is the one heightened
+  (REQ-498): the heightening follows the keyboard, at most one per instance.
+
+### DD-040: Table and the composed components as view trees with core computations
+
+- **Decision:** every composed component is a `ui<Name>View` in the core, like the 17 of `0.3.0`;
+  sorting (`uiSortRows`), the page window (`uiPageWindow`), number clamping (`uiNumberValue`) and
+  initials (`uiInitials`) are pure core functions. The table does not sort by itself: `sortKey` and
+  `sortOrder` are the consumer's state and `sort(key)` reports the click, as in Reflex; the
+  consumer calls `uiSortRows` (exported) or sorts on its server.
+- **Row tone** (REQ-475): even rows (`striped`) and the hovered row (`hoverable`) take the level-1
+  tone of the ground's ramp as a `background` mask on the cells, painted with
+  `var(--sp-ink-secondary)` as every tone (DD-026). `precision` keeps the tone (C-7: tone is value);
+  a striped table under `cyanotype` takes `--sp-weight-1` as a cell rule instead.
+- **Collapse** uses `<details name>` for `accordion`, Baseline since 2024; the core emits the same
+  `name` (`${id}--accordion`) in every adapter (REQ-329).
+- *Amended in implementation (#206, #210):* the row tone is a `td::before` layer under the cell's
+  text, which sits on a `.sp-ui-plate` (`uiTableView`); the table borrows the tile of its ground's
+  `rowTone` level by joining that level's tone rule, and under a `weight` ground the layer is a rule
+  of `--sp-weight-<rowTone>`. The table draws its rows as given (the consumer sorts, so paging
+  works); the accordion's name comes from `uiCollapseGroup` (`SP017` without an `id`).
+
+### DD-041: The surface and glyph as public building blocks
+
+- **Decision:** `SpSurface` and `SpGlyph` are exported, as Reflex exported `sp_surface` and
+  `sp_glyph`, so a consumer can draw a framed, toned box or a mark in the ground without a
+  component of the catalog. `SpSurface` takes `as` (the element), `name` (`sp-<name>`), `frame` and
+  `tone`. The ten new glyphs join `UI_GLYPHS` (exact 16 × 16 paths, `role: 'encoding'` in spirit:
+  never inked).
+
+### DD-042: The timeline wraps TimelineJS on an optional subpath
+
+- **Decision (user, 2026-10-18):** `SpTimeline` on `@silverpoint/<adapter>/timeline`, with
+  `@knight-lab/timelinejs` an optional peer imported dynamically after hydration; the skin as
+  `@silverpoint/grounds/timeline.css`, generated like `ui.css`; the probe reader `timelineInk` in the
+  core (`/timeline`), so the three adapters share it.
+- **Phase 1, the skin:** TimelineJS's colours, type and rules become `--sp-` properties (palettes,
+  substrates, `cyanotype`, `precision` apply), as in Reflex.
+- **Phase 2, the hand:** the ground's frame and tone masks are CSS custom properties that `ui.css`
+  assigns to `[part='sp-frame'][data-kind]` and `[part='sp-tone'][data-tone]` inside an `.sp-ui`;
+  hidden probes of each kind and level are rendered in the surface, `timelineInk` reads their
+  resolved `--sp-ui-mask*` / `--sp-ui-tone*` values and republishes them as `--sp-kl-*` on the
+  host, and `timeline.css` lays them on TimelineJS's markers, eras, menubar and card. A
+  `MutationObserver` on the host's `data-mode`, `data-substrate`, `data-ground`, `data-frame` and
+  `class` re-reads them. In `precision`, under `weight` grounds or with `inkedFrames: false`, every
+  `--sp-kl-mask-*` is `none` and the rules fall back to an exact border.
+- *Amended in implementation (#211):* eras are hatched with the probed tone tiles whenever
+  `timelineInk` found them (`data-kl-toned`), in every mode, since tone is value (C-7); Reflex keyed
+  them to `ink`. Untoned (a `weight` ground, or before the probes are read), an era is a rule along
+  its top of `--sp-stroke-width × --sp-weight-N` instead of Reflex's semi-transparent gradient
+  (I-24), and a long marker headline is cut instead of faded out.
+- **Parity:** only the surface, the probes and the empty mount are server markup (REQ-513); the
+  TimelineJS DOM is third-party markup the library does not emit (Art. 3 as amended). A pixel
+  fixture over a pinned TimelineJS version guards the skin.
+- *Amended in implementation (#221):* the client half is the core's `timelineMount`; each adapter
+  only hands it the host, a literal `import()` of `@knight-lab/timelinejs/src/js/timeline/Timeline.js`
+  (the package entry imports Less, which no consumer bundler loads), its event sink and its
+  `failed` flag, from `useEffect`, `onMounted` and `afterRenderEffect`. The surface fixtures sit
+  beside the component matrix (`fixtures/timeline`, canonicals in `fixtures/ui`), compared by each
+  adapter's own tests; the app tree gate and the pixel fixture over pinned TimelineJS come with the
+  timeline pages of #222, where the apps install TimelineJS.
+  The dependency check (§5.3, `check-deps`) allows `@knight-lab/timelinejs` to the three
+  adapters only as a peer marked optional in `peerDependenciesMeta`; as a dependency, a required
+  peer or in any other package it still fails (REQ-162).
+- *Amended in implementation (#222):* the mount is the framework's and TimelineJS gets a `<div>` of
+  its own inside it (it rewrites its container's `className`) and a `structuredClone` of the data (it
+  writes `unique_id` into each slide); an error thrown while it is built counts as a failed load. The
+  four example apps install TimelineJS `3.9.13` exactly and draw it on `/timeline`. The 10 surface
+  fixtures are compared over the published builds by `timeline-gate.ts` (gates project, 30
+  comparisons), and the page's TimelineJS is one nightly pixel fixture, `timeline/timeline--page.png`,
+  one golden for the four apps. TimelineJS has no destroy method: its `document` and `window`
+  listeners outlive the component.
+- *Amended in implementation (after #224, user decision 2026-10-19, added 2026-10-20; REQ-511):*
+  TimelineJS lays its 40px era over its 39px axis, the title on the major ticks' row and the hatching
+  across every label. With an era, `timeline.css` grows the axis to 57px (TimelineJS reads the
+  height back, so the markers give the room up) and lays the era in the 18px strip below the axis
+  labels, its title on a plate of the substrate. The nightly golden `timeline--page.png` is the same
+  in the four apps.
+- **Rejected:** bundling TimelineJS (~100 KB, MPL-2.0, its own CSS) or re-implementing it (a
+  narrative timeline engine is a product of its own).
+
+### DD-043: The new rows join the gates as fixtures
+
+- **Decision:** DD-027 applies unchanged: one fixture per declared state (Data Model §5) in a
+  fixed-width harness, tree gate against the core's canonical render, three pixel gates. Overlays
+  are rendered open in the pixel harness (`showModal()`/`showPopover()` called by the harness, so the
+  top layer is exercised); their tree fixture is the server markup with `data-state="open"`.
+  Palette fixtures put each preset on a `LineChart`, an `SpCard` and an `SpTable`.
+- **Harness widths:** 320 px; 640 px for Table, Descriptions, TimelineList, Collapse and Result;
+  overlays in a 800 × 600 viewport.
+- *Amended in implementation* (#218): a chart's palette is written twice, on the adapter's
+  `.sp-root` frame and on the core's `<svg>` (`toSVGString`, REQ-461). The palette gate compares the
+  chart trees with the `<svg>`'s `style` set aside, then the two styles as sorted declarations
+  (I-25). The normaliser (DD-017) keeps a hex colour inside a `style` whole: it used to round the
+  digits of `#5A5E7A` as a number.
+- *Amended in implementation* (#219): an open overlay's pixel fixture is the 800 × 600 viewport;
+  the canonical page opens it with `uiOverlaySync` and places it with `uiAnchor` from the trigger
+  written before it. `uiAnchor` re-places on a size change of the trigger or the overlay too. A
+  `ui.css` rule relating two component roots matches through two `display: contents` wrappers.
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -1021,6 +1279,32 @@ from `catalog.ts`; the modules its families share sit in `charts/shared/` (§3.2
 prints them as literals (a regular grid as its values, row by row); its output is committed and
 checked byte for byte, and it never runs at render time (REQ-446).
 
+**Palettes, composed components, overlays and the timeline (DD-037..DD-043)** add:
+
+```
+packages/core/src/palette/{palette.ts, contrast.ts}       # on /palettes (types on main)
+packages/core/src/palettes.ts                             # /palettes
+packages/core/src/ui/{sort.ts, pages.ts, number.ts, initials.ts, listbox.ts, place.ts, anchor.ts, overlay.ts}
+packages/core/src/ui/{view-composed.ts, view-overlay.ts, timeline-demo.ts}
+packages/core/src/timeline/{view.ts, ink.ts, mount.ts, types.ts, index.ts}   # /timeline
+packages/grounds/src/timeline/timeline-css.ts             # → dist/timeline.css
+packages/react/src/ui/{surface, glyph, table, …}.tsx  packages/react/src/timeline.tsx
+packages/vue/src/ui/{surface, glyph, table, …}.ts     packages/vue/src/timeline.ts
+packages/angular/ui/{surface, glyph, table, …, overlay}/  packages/angular/timeline/
+fixtures/ui/<component>--<state>--<ground>-<substrate>--<mode>.{fixture.json, canonical.txt}
+fixtures/palette/palette--<preset>--<target>--<mode>.{palette.json, canonical.txt}
+fixtures/timeline/timeline--surface--<ground>--<substrate>--<mode>.timeline.json   # canonicals in fixtures/ui
+examples/*/…/{composed, palettes, timeline} pages
+```
+
+Amended in implementation: `ui/overlay.ts` (`uiOverlaySync`, #215) and `timeline/mount.ts`
+(`timelineMount`, #221) are core; `TIMELINE_DEMO` is `ui/timeline-demo.ts`, exported from
+`@silverpoint/core/ui-demos` beside `UI_DEMOS`, so `/timeline` ships no demo data (REQ-330). Angular's
+overlay base is the secondary entry point `@silverpoint/angular/ui/overlay`: left in `ui/base`, which
+every component imports, its partial declarations survived tree shaking and put `SpDivider` over its
+8 kB budget. The palette fixtures are named `palette--<preset>--<target>--<mode>` and the 10 timeline
+surface fixtures sit in `fixtures/timeline`, beside the component matrix (#217, #221).
+
 
 ### 5.2 Patterns applied
 
@@ -1051,6 +1335,17 @@ enters as a transitive of `d3-scale` but **is not imported directly**: `extent`,
 from growing without anyone noticing. The same rule owns every statistic and layout of the second
 catalog (DD-028): binning, quantiles, densities, packing, hierarchy, mosaic, contours,
 triangulation and graph layout add no dependency.
+
+Feature-004 leaves the runtime allowlist unchanged. `@knight-lab/timelinejs` `^3.9.13` is an
+**optional peer** of the three adapters (`peerDependenciesMeta.optional`), imported only by their
+`timeline` subpath, and a dev dependency of the example apps and of `tools/visual-gate` (pinned
+exactly there, for the pixel fixture). Its MPL-2.0 licence is compatible with the MIT packages
+because it is not bundled. Amended in implementation (#221, #222, #224): `3.9.13` is pinned
+exactly as a dev dependency of the three adapters (their tests), the four example apps (which draw
+the pixel fixture) and the docs site, not of `tools/visual-gate`; the subpath imports `@knight-lab/timelinejs/src/js/timeline/Timeline.js` literally
+(the package entry imports a Less stylesheet no consumer bundler loads), so a consumer who imports
+`timeline` must install the peer. `check-deps` allows TimelineJS to the three adapters only as a peer
+marked optional; as a dependency, a required peer or in any other package it still fails (REQ-162).
 
 ### 5.4 Error handling
 
@@ -1093,6 +1388,8 @@ developer doing the integration.
 | `SP014`–`SP016` | `core/dashboard`, `core/interaction` | Yes |
 | `SP020` | `charts/shared/contracts.ts` (hierarchy rows) | Yes |
 | `SP021`, `SP022` | `charts/shared/contracts.ts`, `stats.ts`, `density.ts`, recipes | Yes |
+| `SP023`, `SP024` | `palette/palette.ts` (`/palettes`); the dropping of `SP024` is not stripped | Yes |
+| `SP025` | `timeline/mount.ts` (`/timeline`) | Yes |
 
 The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what to do>. (REQ-NNN)`.
 
@@ -1154,9 +1451,38 @@ The messages follow a single template: `[SPNNN] <Chart>: <what happened>. <what 
 | Grammar | Type test: the new recipes compile against the unchanged `StrokePart`, `StrokePaint`, `LabelKind`; the stylesheet diff of each wave adds no `--sp-` variable and no `part` | REQ-450 |
 | Tree keyboard | `stepTree` over every key × leaf/root/middle × first/last sibling | REQ-438 |
 | Hierarchy validation | Each invalid case drops the right rows and raises `SP020` once with the first id | REQ-437 |
-| No-growth | Every existing one-chart build's uncompressed minified size against a v0.3.0 build (`tools/bundle-budget/one-chart-0.3.0.json`), within 0.25 KB | REQ-444 |
+| No-growth | Every existing one-chart build's uncompressed minified size against a v0.3.0 build (`tools/bundle-budget/one-chart-0.3.0.json`), within 0.25 KB; re-baselined by feature-004 to `one-chart-0.6.0.json` with a 2 KB allowance (OQ-C3 of feature-004, §10) | REQ-444 |
 | Benchmarks | REQ-445's four budgets (`packages/core/bench/stats.bench.ts`, held by `tools/bench-report`) | REQ-445 |
 | Category identity | Every toned chart carries the toned value on a channel besides hatch (a label, a legend, size or position) | REQ-124, REQ-440 |
+
+**Palettes, composed components, overlays and the timeline** (feature-004, DD-037..DD-043) add:
+
+| Level | What | REQ |
+|---|---|---|
+| Core unit | `resolvePalette` merge and `SP024`; `paletteStyle` order; `contrastRatio` against WCAG reference pairs; `checkPalette` per pair; `uiSortRows` stability, nulls last, mixed types; `uiPageWindow` for counts 1..12 × every current × siblings 0..2; `uiPagination` and `uiNumberValue` corrections (`SP017`); `uiInitials`; `uiListKey` every key × kind × disabled pattern; `uiTypeahead` wrapping; `uiPlace` flip, shift, RTL, 2 decimals; benchmarks | 460–467, 474, 476, 485, 486, 493–495 |
+| Core DOM (happy-dom) | `uiAnchor` writes `--sp-ui-x/y` and cleans up; `timelineInk` reads probes and republishes, `none` in `precision` | 493, 512 |
+| Grounds | `ui.css` and `timeline.css` contain no literal colour (I-19); no `opacity` on any tone or backdrop rule (I-24); contrast gate over the presets (REQ-464) | 464, 475, 499, 511 |
+| Adapter unit | Markup per component and state; controlled/uncontrolled values and `open`; Angular CVA; disabled emits nothing; overlay calls `showModal`/`showPopover` only after mount; toast timer pause; palette precedence | 470, 488, 490–503 |
+| Mode invariance | I-17 over the new rows | 468, 522 |
+| Parity (Node) | Tree gate on the new fixtures, three adapters vs canonical | 516 |
+| Pixel (Docker) | Three gates per fixture, overlays open | 517 |
+| E2E (four apps) | Composed, palettes and timeline pages: hydration, axe, APG keyboard for Select, Menu, Modal (focus trap and return), Tooltip (1.4.13), Toast (F8, pause); exclusive Collapse; native form submit with Textarea, InputNumber and Select; reduced motion; RTL (SHOULD); targets ≥ 24 px | 491–498, 503, 520, 522, 523 |
+| Budget | size-limit per new subpath, overlay runtime, `ui.css`, `timeline.css`, the timeline wrapper; REQ-444 one-chart no-growth | 518, 519 |
+
+**Amended in implementation (feature-004).** The core's `uiOverlaySync` and `timelineMount` have
+unit tests of their own (`ui-overlay-sync`, `timeline-mount`), and
+`uiAnchor`'s DOM test covers its `ResizeObserver` re-placement (#219). The palette gate
+(`palette-gate.ts`, gates project) compares the 36 palette fixtures × 3 adapters: the chart trees
+with the `<svg>`'s `style` set aside, then the two styles as sorted declarations (I-25); the
+normaliser (DD-017) keeps a hex colour inside a `style` whole (#218). The 10 timeline surface
+fixtures are compared over the published builds by `timeline-gate.ts` (30 comparisons), and the
+page's TimelineJS is one nightly pixel fixture, `timeline/timeline--page.png`, one golden for the
+four apps; axe excludes TimelineJS's own DOM (#222, #223). REQ-444's gate reads
+`tools/bundle-budget/one-chart-0.6.0.json` (244 entries, measured on a v0.6.0 worktree) with a 2 KB
+allowance, and REQ-519's gate checks that the LineChart bundle of each adapter holds no preset
+while a control bundle importing `sanguine` does (#212, #220). Overlay rows are absolute limits
+(the UI runtime's 8 kB + 4 kB + 3 kB); React and Vue keep the overlay runtime inside each overlay's
+bundle, and Angular's `ui/overlay` entry has its own row (#220).
 
 **Traceability (REQ-183).** Every test cites its requirement in the name:
 `test('REQ-006 · identical vertices between ink and precision', …)`. A CI script extracts
@@ -1212,6 +1538,16 @@ report that feeds the Analyze gate (REQ-184).
 | OQ-C4 | PR fixture matrix for the new charts: full or reduced? | **Decided 2026-10-08:** full on every PR (600 chart fixtures) |
 | OQ-C5 | Ship `DelaunayChart` and `VectorFieldChart` (COULD) in wave 3, or drop them to a later minor? | **Decided 2026-10-09:** ship if wave 3 is on budget; they are cheap once the field engine exists |
 
+**Palettes, composed components, overlays and the timeline** (feature-004; its questions keep the
+OQ-C numbers the feature's ledger cites):
+
+| # | Question | Resolution |
+|---|---|---|
+| OQ-C1 | Overlays: platform or headless library | **Decided 2026-10-18:** the platform (DD-038); closes OQ-U6 |
+| OQ-C2 | Timeline: optional subpath, CSS only, or out | **Decided 2026-10-18:** optional subpath (DD-042) |
+| OQ-C3 | If `paletteStyle` pushes a one-chart build past the REQ-444 allowance | **Decided 2026-10-18:** measured in #200 at ≈ 0.56 KB minified for the core part alone (the allowance had ≈ 60 B left), so the gate is **re-baselined to `0.6.0`**: `one-chart-0.6.0.json`, measured on a v0.6.0 worktree, with a 1 KB allowance that holds the palette; the 0.25 KB no-growth rule applies again from `0.7.0` on (#220). *Amended in implementation (#212, user decision 2026-10-19):* with the `SP023` check, the cell merge and Angular's `palette` input and nested `provideSilverpoint`, the growth against `0.6.0` is up to 1305 B (React), 819 B (Vue) and 1736 B (Angular), so the allowance is **2 KB**; the re-baseline was done in #212 (all 244 one-chart entries) |
+| OQ-C4 | Should `SpTable` page by itself (`pageSize` + an internal `SpPagination`)? | No in `0.7.0`, as in Reflex: the consumer composes `SpTable` and `SpPagination` |
+
 ### Open
 
 - [ ] **Concrete family for the small-caps subset.** If real small caps are wanted later,
@@ -1224,8 +1560,9 @@ report that feeds the Analyze gate (REQ-184).
 - [ ] **Shared hatch tiles across a dashboard.** DD-007 scopes tiles per instance (REQ-030); a
       dashboard could share one `<defs>` across its cards and cut weight further, at the cost of
       per-chart stroke variation. *— measure on the reference dashboard first.*
-- [ ] **OQ-U6 · Overlays: core machines or per-framework headless libraries.** Out of
-      feature-002 (PRD §5.3); DD-023 is revisited when overlays are specified.
+- [x] **OQ-U6 · Overlays: core machines or per-framework headless libraries.** Out of
+      feature-002 (PRD §5.3); DD-023 is revisited when overlays are specified. *— Resolved
+      2026-10-18 by feature-004 (OQ-C1): the platform plus the core, DD-038.*
 - [ ] **Shared scales across a dashboard's cards** (Vega-Lite `resolve`). Needs a common domain
       prop on the cartesian charts. *— PRD §5.3.*
 
@@ -1244,6 +1581,7 @@ report that feeds the Analyze gate (REQ-184).
 | 1.5 | 2026-09-25 | Ernesto Crespo | Deltas folded: `tslib` in the Angular allowlist (002); TypeScript 6.x for Angular 22 (001). Dashboard composition: DD-013..DD-018, components, flow, structure, tests and open questions (feature-001) |
 | 1.8 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: UI components (§3.2, §3.3), DD-021..DD-027, structure (§5.1), tests (§8), decisions OQ-U1..OQ-U6 (§10) |
 | 1.9 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: the second catalog's modules (§3.2, §5.1), DD-028..DD-036 with their implementation amendments, allowlist rule (§5.3), `SP020`–`SP022` (§7), tests (§8), decisions OQ-C1..OQ-C5 (§10) |
+| 1.10 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: palettes, composed components, overlays and the timeline — modules (§3.2), data flow (§3.3), DD-037..DD-043 with their implementation amendments (43 design decisions), structure (§5.1), TimelineJS as an optional peer (§5.3), `SP023`–`SP025` (§7), tests (§8), decisions OQ-C1..OQ-C4 of feature-004 and OQ-U6 closed (§10) |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check
@@ -1268,3 +1606,20 @@ report that feeds the Analyze gate (REQ-184).
 - **Art. 6 / Art. 7** (feature-003) — DD-035 draws the 27 charts with the existing tones, parts and
   heighten rule; DD-032 leaves the hatch angle to the ground.
 - **Art. 8** (feature-003) — DD-028 adds no dependency, and the new code tree-shakes (REQ-444).
+- **Art. 1** (feature-004) — sort marks, steppers, trend arrows, ticks and placement are exact;
+  frames, tones, the backdrop hatch and the timeline masks are ornament (DD-038, DD-040, DD-042).
+- **Art. 2** (feature-004) — every computation in the core, the overlay's platform calls and the
+  timeline's client half included (`uiOverlaySync`, `timelineMount`); adapters bind and call
+  (DD-037..DD-040, DD-042).
+- **Art. 3** (feature-004) — the new fixtures are under the tree gate; the TimelineJS DOM is outside
+  it by the amendment of Constitution v1.9 (DD-042, DD-043).
+- **Art. 4** (feature-004) — no measurement, timer or clock on the render path; ids from `id`; a
+  paused toast restarts its duration instead of reading a clock (DD-038).
+- **Art. 5** (feature-004) — `<dialog>`, the Popover API, `<details>`, native table and inputs; APG
+  for listbox and menu (DD-038, DD-039).
+- **Art. 6** (feature-004) — tone by the ramp for rows, backdrop and eras; heightening on the one
+  active item (DD-039, DD-040, DD-042).
+- **Art. 7** (feature-004) — palettes and presets are data; `ui.backdrop` and `ui.rowTone` are
+  ground tokens with core defaults (DD-037, DD-038).
+- **Art. 8** (feature-004) — no runtime dependency; one optional peer, not bundled; budgets (§5.3,
+  DD-042).

@@ -31,7 +31,7 @@ const parse = (markup: string) => {
   return host;
 };
 const colour = (element: Element | null, property: string) => (element as HTMLElement).style.getPropertyValue(property);
-/** The markup with every root's `style` removed: what a palette may not change (I-25). */
+/** The markup with every root's `style` removed: what a palette may not change (I-33). */
 const unstyled = (markup: string) => markup.replace(/ style="--sp-[^"]*"/g, '');
 
 const PROVIDER: Palette = { ink: '#111111', text: '#222222' };
@@ -95,7 +95,7 @@ describe('React palettes (T-212)', () => {
     expect([colour(outer, '--sp-ink'), colour(inner, '--sp-ink'), colour(inner, '--sp-text')]).toEqual(['#111111', '#303030', '#222222']);
   });
 
-  test('REQ-468 · I-25 · a palette changes only the root\'s style', () => {
+  test('REQ-468 · I-33 · a palette changes only the root\'s style', () => {
     const plain = renderToStaticMarkup(
       <>
         <LineChart id="l" width={320} />

@@ -8,7 +8,7 @@ import { mask, media, rule } from '../ui/ui-css';
  * `timelineInk` republishes the ground's frame masks and tone tiles as `--sp-kl-*` (and says so
  * with `data-kl-inked` / `data-kl-toned`), markers and menubar buttons are framed and eras hatched
  * with the very pieces the Sp components use. Without them every frame is an exact rule and every
- * era a rule of the ramp's weight. No opacity, gradient or colour mix (I-24); the only literal
+ * era a rule of the ramp's weight. No opacity, gradient or colour mix (I-32); the only literal
  * colours are system colours under forced colours (I-19). Opt-in, like `ui.css`.
  */
 
@@ -111,7 +111,7 @@ const navigator = [
 const markers = [
   rule(BOX, ['background-color: var(--sp-substrate)', 'border: 1px solid var(--sp-ink)', 'border-radius: var(--sp-ui-radius, 2px)', 'box-shadow: none']),
   rule(`${MARKER} ${HEADLINE}, ${MARKER} ${HEADLINE} p`, ['color: var(--sp-text)', DISPLAY, 'font-size: 12px', 'text-transform: none']),
-  // TimelineJS fades a long headline out with a gradient; here it is simply cut (I-24).
+  // TimelineJS fades a long headline out with a gradient; here it is simply cut (I-32).
   rule(`${MARKER} ${HEADLINE}.tl-headline-fadeout::after, ${ERA_HEADLINE}.tl-headline-fadeout::after`, ['background: none']),
   rule(`${BOX} .tl-timemarker-media-container [class^='tl-icon-']`, ['color: var(--sp-ink)']),
   rule(`${MARKER} :is(.tl-timemarker-line-left, .tl-timemarker-line-right)`, ['border-color: var(--sp-rule)', 'box-shadow: none']),

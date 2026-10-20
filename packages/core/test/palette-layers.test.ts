@@ -34,7 +34,7 @@ describe('palettes — UI components (T-212)', () => {
     expect(uiButtonView({}, r, { text: 'Go' }).attrs.style).toBe(paletteStyle(sanguine));
   });
 
-  test('REQ-468 · I-25 · without a palette the root has no style; with one, nothing else changes', () => {
+  test('REQ-468 · I-33 · without a palette the root has no style; with one, nothing else changes', () => {
     const plain = uiButtonView({}, resolveUi({}, {}), { text: 'Go' });
     const toned = uiButtonView({}, resolveUi({ palette: sanguine }, {}), { text: 'Go' });
     expect('style' in plain.attrs).toBe(false);

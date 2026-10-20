@@ -23,7 +23,7 @@ describe('palettes — the chart pipeline (T-212)', () => {
     expect(svg).toMatch(new RegExp(`^<svg [^>]*style="${paletteStyle(sanguine)}"`));
   });
 
-  test('REQ-468 · I-25 · a palette changes only the root\'s style: the drawing is byte for byte the same', () => {
+  test('REQ-468 · I-33 · a palette changes only the root\'s style: the drawing is byte for byte the same', () => {
     const plain = toSVGString(renderChart(lineChart, {}, env));
     const toned = toSVGString(renderChart(lineChart, { palette: sanguine }, env));
     expect(toned.replace(/ style="[^"]*"/, '')).toBe(plain);

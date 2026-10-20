@@ -6,18 +6,18 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.8 |
-| **Date** | 2026-10-10 |
-| **PRD** | [`prd.md`](prd.md) v1.12 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.9 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.7 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.10 |
+| **Version** | 1.9 |
+| **Date** | 2026-10-20 |
+| **PRD** | [`prd.md`](prd.md) v1.13 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.10 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.8 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
 
 ---
 
 ## 1. Implementation Summary
 
-Five phases for the catalog, a sixth —Phase 5— for the dashboard composition, a seventh —Phase 6— for the interface components, and an eighth —Phase 7— for the second catalog. The first delivers no catalog: it delivers **a single chart travelling
+Five phases for the catalog, a sixth —Phase 5— for the dashboard composition, a seventh —Phase 6— for the interface components, an eighth —Phase 7— for the second catalog, and a ninth —Phase 8— for the palettes, composed components, overlays and timeline. The first delivers no catalog: it delivers **a single chart travelling
 through the entire system** — core, inking, interaction, all three adapters and the gates — to
 retire the risks that could invalidate the architecture. If that slice closes, the three
 that follow are repetition over engines that are already proven.
@@ -404,6 +404,180 @@ Every task cites at least one requirement; no orphan task.
 - Example apps and docs site carry the 27 with their method statements (REQ-449).
 - Released as `0.6.0` from CI, the three waves together; the deltas folded into `specs/` (#199).
 
+### Phase 8 — Palettes, composed components, overlays and the timeline
+
+**Effort:** one minor. **Goal:** the inventory of `reflex-silverpoint-react` 0.7 (PRD §6.13,
+REQ-460..REQ-523; API Spec §7.4; DD-037..DD-043; Data Model §2.26, §2.27, §3.8, §3.9) made
+silverpoint's, in React, Vue and Angular, on one core and under every gate: verified **palettes**
+in the inks of historical media, **twelve composed components** (table, pagination, breadcrumb,
+avatar, statistic, descriptions, timeline list, collapse, empty, result, textarea, number input)
+with the surface and glyph rows they share, **seven overlays** (modal, drawer, popover, tooltip,
+select, dropdown menu, toast) on the platform's `<dialog>` and Popover API, and a **Knight Lab
+timeline** behind an optional peer. No new runtime dependency (Art. 8).
+
+**Tasks:** #200..#225, continuing the global sequence; defined in the feature's ledger
+(`changes/feature-004-composed-components/plan-and-tasks.md`, where each reads `T-` followed by its
+number), as for Phases 5, 6 and 7. A component is a `UI_COMPONENTS` row, and every gate iterates it.
+
+| Step | Content | Tasks | Depends on | Exit |
+|---|---|---|---|---|
+| 8a | Core: palettes, presets, contrast; sort, pages, number, initials; listbox, typeahead, placement, anchor; view trees; catalog rows; demos | #200..#208 | Approval | Core unit + DOM tests and benchmarks green; REQ-444 measured with `paletteStyle` on the chart path |
+| 8b | Grounds: `ui` tokens `backdrop`/`rowTone`; `ui.css` rules; `timeline.css`; contrast gate over presets and new pairs | #209..#211 | 8a | Grounds tests; I-19, I-24; `ui.css` ≤ 24 KB, `timeline.css` ≤ 6 KB |
+| 8c | Palettes in the three adapters (charts, UI, dashboard, provider) | #212 | 8a | Adapter tests; palette fixtures green |
+| 8d | Adapters ×3 in three batches: **A1** Surface, Glyph, Table, Breadcrumb, Avatar, Statistic, Descriptions, TimelineList, Empty, Result · **A2** Pagination, Collapse, Textarea, InputNumber · **B** Modal, Drawer, Popover, Tooltip, Select, DropdownMenu, Toast — on an overlay base | #213..#216 | 8b | Adapter tests and the 8e gates per batch; each batch a review point |
+| 8e | Fixtures, tree and pixel gates, mode invariance, budgets | #217..#220 | 8d | 180 PR / 396 nightly new fixtures green |
+| 8f | `SpTimeline` ×3, `TIMELINE_DEMO`, its surface fixtures | #221 | 8b | Adapter tests; surface fixtures green; `SP025` path tested |
+| 8g | Example apps: composed, palettes and timeline pages; e2e (APG, focus trap, 1.4.13, forms, hydration, reduced motion, RTL); axe | #222, #223 | 8e, 8f | Four apps green |
+| 8h | Docs site, READMEs, changeset, fold of the deltas, `CLAUDE.md`, the Next.js demo served | #224, #225 | 8g | Ready for the `0.7.0` release commit |
+
+**Status (2026-10-20).** Steps 8a..8h are implemented on `feat/silverpoint-0.7`: 21 new
+`UI_COMPONENTS` rows (38 in all) with 35 states, and `SpTimeline`, × 3 adapters, each on its own
+`ui/<slug>` subpath (`timeline` for the timeline); the six palette presets on
+`@silverpoint/core/palettes`; 360 new UI fixtures (144 on PR) and 36 palette fixtures green in the
+tree and pixel gates, with the 10 timeline surface fixtures and one nightly pixel fixture over pinned
+TimelineJS 3.9.13; the composed, palettes and timeline pages green in e2e and axe in the four apps;
+the docs site's Composed, Overlays, Palettes and Timeline sections; and this fold (#225, with the
+`minor` changeset). The work is unreleased until the `0.7.0` release commit on `develop`.
+
+What the implementation changed, folded into the specs as built ("amended in implementation"):
+
+- **Palettes (#200, #206, #212).** A palette's values pass an allowlist of CSS colours, not a
+  denylist of characters (security review: escapes passed the denylist); `SP023` measures against
+  the palette's own substrate, else cream; `SP024` warns in development only, the dropping is
+  unconditional. The presets left the core's main entry for `@silverpoint/core/palettes`, as the
+  palette API pushed the full bundle past REQ-164's 45 kB. Nested providers inherit; the dashboard
+  root carries its own palette only; Vue gains `SilverpointProvider`; Angular's
+  `provideSilverpoint` returns a `Provider`. REQ-444 measured ≈ 0.56 KB over the 0.3.0 baseline
+  with `paletteStyle` on the chart path, so it was re-baselined (user decision, OQ-C3 amended) to
+  `tools/bundle-budget/one-chart-0.6.0.json` with a 2 KB allowance.
+- **Composed components (#206, #208, #213, #214).** `uiNumberValue` also returns the range as drawn;
+  `SpSurface`'s `as` and `name` are lowercase idents with a refused set, a table column's `width` a
+  plain length, a link's `href` a relative or `http`/`https`/`mailto`/`tel` URL (`safeHref`) and
+  `headingLevel` 2..6 (`headingTag`), each else dropped with `SP017`; InputNumber steppers are
+  `tabindex="-1"` and an InputNumber reports on commit, not per keystroke; the table draws rows as
+  given (DD-040: the consumer sorts). The A2 components and the overlays are React client components
+  with no `server/ui/*` entry. Angular's surface is `[spSurface]`.
+- **Overlays (#207, #215, #216, #223).** `uiOverlaySync` joins `@silverpoint/core/ui` (DD-038);
+  React and Vue hang an overlay from the element before it, Angular from `spTrigger`; Angular's
+  overlay base is its own `ui/overlay` entry (left in `ui/base`, it put `SpDivider` over REQ-330).
+  A toast's live role is on its body, explicit list roles on the toaster, a paused toast restarts its
+  whole duration (Art. 4: no clock on the render path), the Toaster takes `tabindex="-1"` on F8
+  only, a disabled CollapseItem's summary is `tabindex="-1"`, the Tooltip's Escape listens on the
+  document.
+- **Grounds (#209..#211).** `backdrop` and `rowTone` are optional `ui` tokens with core defaults
+  (2 and 1); neither built-in ground declares them (REQ-044, user decision after review). A table
+  cell's text sits on `.sp-ui-plate`; `backdrop` is a hatched level. Toned timeline eras are not keyed
+  to `ink`; untoned eras are a rule of the ramp's weight (DD-042); with an era, `timeline.css` lays
+  it in its own 18 px strip below the axis labels (user decision 2026-10-19, REQ-511).
+- **Timeline (#208, #221, #222).** The demo is `TIMELINE_DEMO` on `@silverpoint/core/ui-demos`
+  (REQ-330: no demo data on `/timeline`); the subpath imports TimelineJS's `Timeline.js` source as a
+  literal, so a consumer of the `timeline` subpath installs the peer, and `SP025` covers run-time
+  failures; `timelineMount` builds TimelineJS in a `<div>` of its own on a `structuredClone` of the
+  data, and treats a throw while building as a failed load. TimelineJS 3.9.13 has no destroy, so its
+  document and window listeners outlive the component.
+- **Gates (#217..#220).** A UI fixture may name a `palette`; a chart's palette is on the adapter's
+  `.sp-root` and on `toSVGString`'s `<svg>`, compared as sorted declarations (I-25, DD-043); the
+  normaliser keeps hex colours whole inside `style` (DD-017); `uiAnchor` re-places on a size change
+  (`ResizeObserver`); two `ui.css` sibling rules match through Angular's wrappers (`:has()`). REQ-518's
+  increments are written as absolute size-limit rows (11 kB a component, 15 kB an overlay).
+
+Task summary (each task cites the requirement it implements):
+
+| Step | Task | Content | REQ |
+|---|---|---|---|
+| 8a | #200 | `Palette`, `resolvePalette`, `paletteStyle`, `PALETTE_PROPERTIES` | REQ-460, REQ-461, REQ-462, REQ-467, REQ-468 |
+| 8a | #201 | `contrastRatio`, `checkPalette`, `PALETTE_PAIRS`, `@silverpoint/core/palettes` | REQ-463..REQ-466 |
+| 8a | #202 | `uiSortRows`, `uiPageWindow`, `uiPagination` | REQ-474, REQ-476, REQ-486 |
+| 8a | #203 | `uiNumberValue`, `uiNumberStep`, `uiInitials` | REQ-478, REQ-485, REQ-486 |
+| 8a | #204 | `uiListKey`, `uiTypeahead`, `uiPlace` | REQ-493, REQ-494, REQ-495, REQ-523 |
+| 8a | #205 | `uiAnchor` and `timelineInk` | REQ-493, REQ-512 |
+| 8a | #206 | Glyphs, `uiSurfaceView`, `uiGlyphView`, composed view trees | REQ-470..REQ-485, REQ-487 |
+| 8a | #207 | Overlay view trees | REQ-490..REQ-502 |
+| 8a | #208 | Catalog rows, `UI_DEMOS`, `TIMELINE_DEMO`, `timelineView` | REQ-470, REQ-513 |
+| 8b | #209 | `ui` tokens `backdrop`, `rowTone`; contrast pairs | REQ-464, REQ-499, REQ-522 |
+| 8b | #210 | `ui.css` rules for the 21 rows | REQ-475, REQ-498, REQ-499, REQ-503, REQ-522 |
+| 8b | #211 | `timeline.css` | REQ-511, REQ-512 |
+| 8c | #212 | `palette` on charts, UI components, dashboard and provider ×3 | REQ-461, REQ-462, REQ-468 |
+| 8d | #213 | Batch A1 ×3 | REQ-470, REQ-472..REQ-483, REQ-489 |
+| 8d | #214 | Batch A2 ×3 | REQ-476, REQ-482, REQ-484, REQ-485, REQ-488 |
+| 8d | #215 | Overlay base ×3 | REQ-491, REQ-492, REQ-493, REQ-500, REQ-502 |
+| 8d | #216 | Batch B ×3 | REQ-490..REQ-503 |
+| 8e | #217 | Fixture generation | REQ-516 |
+| 8e | #218 | Tree gate, palette gate and mode invariance | REQ-516, REQ-468, REQ-522 |
+| 8e | #219 | Pixel gates (Docker) | REQ-517 |
+| 8e | #220 | Budgets | REQ-518, REQ-519 |
+| 8f | #221 | `SpTimeline` ×3 | REQ-510, REQ-512..REQ-515 |
+| 8g | #222 | Composed, palettes and timeline pages in the four apps | REQ-520 |
+| 8g | #223 | E2E and axe | REQ-491..REQ-498, REQ-503, REQ-520, REQ-522, REQ-523 |
+| 8h | #224 | Docs site and READMEs | REQ-521 |
+| 8h | #225 | Changeset, fold, traceability, status, demo | REQ-183 |
+
+**Traceability — REQ → tasks**
+
+| REQ | Tasks |
+|---|---|
+| REQ-460, REQ-467 | #200 |
+| REQ-461, REQ-462 | #200, #212 |
+| REQ-463, REQ-465, REQ-466 | #201 |
+| REQ-464 | #201, #209 |
+| REQ-468 | #200, #212, #218 |
+| REQ-470 | #206, #208, #213 |
+| REQ-471, REQ-487 | #206 |
+| REQ-472, REQ-473, REQ-477, REQ-479..REQ-481, REQ-483 | #206, #213 |
+| REQ-474 | #202, #206, #213 |
+| REQ-475 | #206, #210, #213 |
+| REQ-476 | #202, #206, #213, #214 |
+| REQ-478 | #203, #206, #213 |
+| REQ-482 | #206, #213, #214 |
+| REQ-484 | #206, #214 |
+| REQ-485 | #203, #206, #214 |
+| REQ-486 | #202, #203 |
+| REQ-488 | #214 |
+| REQ-489 | #213 |
+| REQ-490, REQ-501 | #207, #216 |
+| REQ-491, REQ-492 | #207, #215, #216, #223 |
+| REQ-493 | #204, #205, #207, #215, #216, #223 |
+| REQ-494, REQ-495 | #204, #207, #216, #223 |
+| REQ-496, REQ-497 | #207, #216, #223 |
+| REQ-498 | #207, #210, #216, #223 |
+| REQ-499 | #207, #209, #210, #216 |
+| REQ-500, REQ-502 | #207, #215, #216 |
+| REQ-503 | #210, #216, #223 |
+| REQ-510, REQ-514, REQ-515 | #221 |
+| REQ-511 | #211 |
+| REQ-512 | #205, #211, #221 |
+| REQ-513 | #208, #221 |
+| REQ-516 | #217, #218 |
+| REQ-517 | #219 |
+| REQ-518, REQ-519 | #220 |
+| REQ-520 | #222, #223 |
+| REQ-521 | #224 |
+| REQ-522 | #209, #210, #218, #223 |
+| REQ-523 (SHOULD) | #204, #223 |
+
+Every task cites at least one requirement; no orphan task.
+
+**Done criteria**
+- Every MUST in REQ-460..REQ-523 cited by a test; traceability 0 blocking (REQ-183, REQ-184).
+- Tree gate green on the 180 PR / 396 nightly new fixtures (the 36 palette fixtures included);
+  pixel gates green on all.
+- The four example apps have the composed, palettes and timeline pages, green in e2e (Chromium,
+  Firefox, WebKit) and axe, TimelineJS's own DOM excluded (Art. 3, DD-042).
+- Budgets of REQ-518 and REQ-519 green; REQ-444 against the `0.6.0` baseline with 2 KB.
+- Docs site: a section per new family with live examples and generated props (REQ-521).
+- Released as `0.7.0` (changeset `minor` from `0.6.0`) from CI; the deltas folded into `specs/`
+  and `CLAUDE.md`'s status updated (#225); the Next.js example served for the user's review.
+
+**Dependency graph — tasks**
+
+```
+#200 ─┬─► #212 ─────────────────────────────┐
+#201 ─┤                                     │
+#202 ─┼─► #206 ─► #208 ─► #209 ─► #210 ─► #213 ─► #214 ─► #215 ─► #216 ─► #217..#220 ─► #222 ─► #223 ─► #224 ─► #225
+#203 ─┤       #207 ─┘                #211 ─► #221 ────────────────────────────┘
+#204 ─┴─► #205
+```
+
 ## 4. Dependency Map
 
 ```
@@ -423,6 +597,9 @@ Phase 0 ── vertical slice, gates operational
                                                        │
                                                        ▼
                                           Phase 7 ── second catalog (waves 1, 2, 3)
+                                                       │
+                                                       ▼
+                                          Phase 8 ── palettes, composed components, overlays, timeline
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -443,6 +620,8 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | Linked interaction grows into per-adapter state machines | Medium | Medium | Matching in the core (DD-016); it is SHOULD and may slip without blocking the release |
 | 27 charts nearly double the catalog | High | High | Three waves, each complete on its own; families share an engine; a chart is mostly a core recipe and a catalog row |
 | Owned tidy tree, squarify, marching squares and Delaunay are subtle | High | Medium | Hand-computed cases and property tests; exact predicates with a `BigInt` fallback (DD-028) |
+| Overlays need a positioning or focus library per framework | Medium | High | The platform's `<dialog>` and Popover API; keyboard and placement in the core (DD-038), so the three adapters share them |
+| A third-party widget (TimelineJS) cannot meet Art. 3's markup gate | High | Medium | Optional peer on its own subpath; the gate covers the library's surface, the widget gets a pinned pixel fixture (Art. 3, v1.9; DD-042) |
 | The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
@@ -471,6 +650,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.9 | 2026-10-20 | Ernesto Crespo | Phase 8 added: palettes, composed components, overlays and the timeline (steps 8a..8h, #200..#225), feature-004, target `0.7.0`; recorded as built |
 | 1.8 | 2026-10-10 | Ernesto Crespo | Phase 7 added: the second catalog, 27 charts in three waves (steps 7a..7e, #164..#199), feature-003 |
 | 1.7 | 2026-09-29 | Ernesto Crespo | Phase 6 added: the 17 UI components (steps 6a..6f, #135..#163), released in `0.3.0` (feature-002) |
 | 1.6 | 2026-09-26 | Ernesto Crespo | Step 5h (delta-013): the Tailwind preset package |
@@ -493,4 +673,8 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
   component fixtures, `ink`/`precision` box equivalence (I-17) and one heightening per instance.
 - **Art. 3, 8, 9** (feature-003) — each wave goes through the gates before its release and proves
   no existing canonical moved; no dependency enters (DD-028); every task cites its REQ.
+- **Art. 3, 6, 8** (v1.9, feature-004) — Phase 8's Done includes the tree and pixel gates over the
+  new component, palette and timeline-surface fixtures, TimelineJS's own DOM held by a pinned pixel
+  fixture instead; one heightening per instance, the active option of an open list included; the
+  timeline is an optional peer, and no runtime dependency enters.
 - **Exception requested:** none.

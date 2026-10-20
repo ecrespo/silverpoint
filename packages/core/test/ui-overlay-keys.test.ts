@@ -162,13 +162,13 @@ describe('uiPlace (T-204)', () => {
     });
   });
 
-  test('I-27 · it shifts along the side into the viewport minus padding', () => {
+  test('I-35 · it shifts along the side into the viewport minus padding', () => {
     expect(place({ anchor: { x: 780, y: 100, width: 20, height: 30 } })).toMatchObject({ x: 672 });
     expect(place({ anchor: { x: 0, y: 100, width: 20, height: 30 } })).toMatchObject({ x: 8 });
     expect(place({ side: 'end', anchor: { x: 100, y: 590, width: 80, height: 10 } })).toMatchObject({ y: 552 });
   });
 
-  test('I-27 · an overlay wider than the viewport starts at the padding; output has 2 decimals', () => {
+  test('I-35 · an overlay wider than the viewport starts at the padding; output has 2 decimals', () => {
     expect(place({ floating: { width: 900, height: 40 } })).toMatchObject({ x: 8 });
     expect(place({ anchor: { x: 100.333, y: 100.004, width: 80.111, height: 30 } })).toEqual({ x: 80.39, y: 136, side: 'bottom', align: 'center' });
   });

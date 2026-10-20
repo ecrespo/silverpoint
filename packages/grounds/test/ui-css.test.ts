@@ -209,7 +209,7 @@ describe('ui.css, the feature-004 rows (T-210)', () => {
     expect(missing).toEqual([]);
   });
 
-  test('REQ-475 · REQ-499 · I-24 · no opacity, no gradient, no colour mix anywhere: tone is hatching or line weight (Art. 6)', () => {
+  test('REQ-475 · REQ-499 · I-32 · no opacity, no gradient, no colour mix anywhere: tone is hatching or line weight (Art. 6)', () => {
     expect(css).not.toMatch(/opacity|gradient\(|color-mix\(|mix-blend-mode:\s*(?!normal)/);
   });
 
@@ -260,7 +260,7 @@ describe('ui.css, the feature-004 rows (T-210)', () => {
     expect(all.filter(inForcedColors).some((r) => r.selector.includes('::backdrop'))).toBe(true);
   });
 
-  test('REQ-498 · I-28 · the active option or item is the heightening, laid inside the row; a disabled one is italic', () => {
+  test('REQ-498 · I-36 · the active option or item is the heightening, laid inside the row; a disabled one is italic', () => {
     expect(body(":is(.sp-ui-option, .sp-ui-menuitem) [part~='sp-heighten']")).toMatch(/position: absolute/);
     expect(body(":is(.sp-ui-option, .sp-ui-menuitem)[aria-disabled='true']")).toMatch(/font-style: italic/);
   });

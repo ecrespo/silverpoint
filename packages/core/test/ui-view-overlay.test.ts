@@ -184,7 +184,7 @@ describe('uiPopoverView and uiTooltipView (T-207)', () => {
 describe('uiSelectItems and uiSelectView (T-207)', () => {
   const items = ['Silverpoint', { key: 'cyanotype', label: 'Cyanotype', disabled: true }, { key: 'burin', label: 'Burin' }];
 
-  test('REQ-494 · items: a string is its own key and label; repeated keys are skipped, SP019', () => {
+  test('REQ-494 · REQ-487 · items: a string is its own key and label; repeated keys are skipped, SP019', () => {
     expect(uiSelectItems(items)).toEqual([
       { key: 'Silverpoint', label: 'Silverpoint' },
       { key: 'cyanotype', label: 'Cyanotype', disabled: true },
@@ -228,7 +228,7 @@ describe('uiSelectItems and uiSelectView (T-207)', () => {
     drawnAreHidden(view);
   });
 
-  test('REQ-498 · I-28 · open with a value: the active option heightened and active-descendant, the chosen one ticked', () => {
+  test('REQ-498 · I-36 · open with a value: the active option heightened and active-descendant, the chosen one ticked', () => {
     const view = uiSelectView({ id: 's', label: 'Ground', items, name: 'ground' }, r(), { value: 'burin', open: true, active: 'Silverpoint' });
     const trigger = view.children[0] as UiElement;
     expect(trigger.attrs).toMatchObject({ 'aria-expanded': 'true', 'aria-activedescendant': 's--option-Silverpoint' });
@@ -246,7 +246,7 @@ describe('uiSelectItems and uiSelectView (T-207)', () => {
     noOpenNorPosition(view);
   });
 
-  test('I-28 · closed, or with a disabled or unknown active key, nothing is heightened', () => {
+  test('I-36 · closed, or with a disabled or unknown active key, nothing is heightened', () => {
     for (const state of [
       { value: null, open: false, active: 'burin' },
       { value: null, open: true, active: 'cyanotype' },
@@ -292,7 +292,7 @@ describe('uiMenuItems and uiDropdownMenuView (T-207)', () => {
     ]);
   });
 
-  test('REQ-325 · a key repeated across entries is skipped, SP019', () => {
+  test('REQ-325 · REQ-487 · a key repeated across entries is skipped, SP019', () => {
     const seen = capture();
     expect(uiMenuItems([{ key: 'a', label: 'A' }, { type: 'separator', key: 'a' }, { key: 'b', label: 'B' }]).map((i) => i.key)).toEqual(['a', 'b']);
     expect(seen.map((s) => s.code)).toEqual(['SP019']);

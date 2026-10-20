@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.10 |
-| **Date** | 2026-10-10 |
-| **Related PRD** | [`prd.md`](prd.md) v1.12 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.8 |
+| **API version** | v1.11 |
+| **Date** | 2026-10-20 |
+| **Related PRD** | [`prd.md`](prd.md) v1.13 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.9 |
 | **Surface** | npm packages — there is no network API |
 
 ---
@@ -36,11 +36,11 @@ that the Analyze gate does not read it as an omission:
 
 | Package | Contents | Dependencies |
 |---|---|---|
-| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types; the second catalog's recipes under `/catalog` (§7.3); the UI components' framework-neutral surface under `/ui` and `/ui-demos` (§1.2) | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
-| `@silverpoint/grounds` | Declarative style tokens, the `styles.css` sheet and the opt-in `ui.css` sheet (§1.2) | `@silverpoint/core` |
-| `@silverpoint/react` | React components: charts, the dashboard and the UI components (§1.2) | `peer`: `react`, `react-dom` |
-| `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common`, `@angular/forms` (UI components, REQ-323) |
-| `@silverpoint/vue` | Vue 3 components authored with `<script setup>`: charts, the dashboard and the UI components | `peer`: `vue` |
+| `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types; the second catalog's recipes under `/catalog` (§7.3); the UI components' framework-neutral surface under `/ui` and `/ui-demos` (§1.2, §1.3); the palette API under `/palettes` and the timeline's under `/timeline` (§1.3) | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
+| `@silverpoint/grounds` | Declarative style tokens, the `styles.css` sheet, the opt-in `ui.css` sheet (§1.2) and the opt-in `timeline.css` sheet (§1.3) | `@silverpoint/core` |
+| `@silverpoint/react` | React components: charts, the dashboard, the UI components (§1.2, §1.3) and `SpTimeline` | `peer`: `react`, `react-dom`; optional `peer`: `@knight-lab/timelinejs` (§1.3) |
+| `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common`, `@angular/forms` (UI components, REQ-323); optional `peer`: `@knight-lab/timelinejs` (§1.3) |
+| `@silverpoint/vue` | Vue 3 components authored with `<script setup>`: charts, the dashboard, the UI components and `SpTimeline` | `peer`: `vue`; optional `peer`: `@knight-lab/timelinejs` (§1.3) |
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
 | `@silverpoint/tailwind` | **Optional.** A Tailwind preset naming the public `--sp-` variables as theme tokens (§10.4, REQ-047) | none, not even a peer |
 
@@ -131,15 +131,64 @@ import '@silverpoint/grounds/ui.css';       // once, only if the app uses compon
 import { SpSegmented } from '@silverpoint/react/ui/segmented';
 ```
 
+### 1.3 Palettes, composed components, overlays and the timeline (feature-004)
+
+No new package (DD-021 holds). One new optional peer, on one subpath.
+
+| Package | Subpath | Exports |
+|---|---|---|
+| `@silverpoint/core` | `.` (main) | `type Palette`, `type PaletteFinding` (types only) |
+| `@silverpoint/core` | `@silverpoint/core/palettes` | `paletteStyle`, `resolvePalette`, `nestProvider`, `checkPalette`, `contrastRatio`, `PALETTE_PROPERTIES`, `PALETTE_PAIRS`; the presets `silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`, `PALETTES` (one record of the six) and `PALETTE_NAMES`. *Amended in implementation (user decision, 2026-10-18):* the functions sit here, not on the main entry, which they pushed past its 45 kB budget (REQ-164); only the types stay on the main entry. `PALETTE_NAMES` is written out, so an unused preset tree-shakes out |
+| `@silverpoint/core` | `@silverpoint/core/ui` | Adds the view functions, types and core functions of §2.1 |
+| `@silverpoint/core` | `@silverpoint/core/ui-demos` | `UI_DEMOS` gains one entry per state of the new rows (Data Model §5); `TIMELINE_DEMO` (Data Model §4). *Amended in implementation:* the timeline's demo data is `TIMELINE_DEMO` here, not `TIMELINE_EVENTS` on `/timeline`, so no application ships it (REQ-330) |
+| `@silverpoint/core` | `@silverpoint/core/timeline` | `timelineView`, `timelineInk` (the probe reader, DOM structural types), `TIMELINE_FRAMES`, `TIMELINE_TONES`, types (`SpTimelineProps`, `TimelineData`). *Amended in implementation:* the client half is here too, so the three adapters share it: `timelineMount` (inks the surface, loads TimelineJS through the adapter's `load`, builds it in the mount, forwards its events, warns `SP025` and calls `failed` on a failed load; its cleanup cancels a pending load and removes only TimelineJS's DOM), `timelineOptions` (drops `font` and `theme`) and `TIMELINE_EVENTS` (TimelineJS's seven event names, each with the name the adapters forward it under) |
+| `@silverpoint/grounds` | `@silverpoint/grounds/ui.css` | Adds the rules of the new components (§7.4) |
+| `@silverpoint/grounds` | `@silverpoint/grounds/timeline.css` | The TimelineJS skin (REQ-511). Opt-in |
+| `@silverpoint/react` | `ui/<name>`, `server/ui/<name>`, `ui` barrel | `SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpAvatarGroup`, `SpStatistic`, `SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpCollapseItem`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`, `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`, `SpToaster`. *Amended in implementation:* `server/ui/<name>` exists for the display components of batch A1 only (`surface`, `glyph`, `table` —sorting needs the client entry—, `breadcrumb`, `avatar`, `statistic`, `descriptions`, `timeline-list`, `empty`, `result`); Pagination, Collapse, Textarea, InputNumber and the eight overlays are client components only (§8.1) |
+| `@silverpoint/react` | `@silverpoint/react/timeline` | `SpTimeline` |
+| `@silverpoint/vue` | `ui/<name>`, `ui`, `timeline` | The same names; `SilverpointProvider` on the main entry (§3.4) |
+| `@silverpoint/angular` | `ui/<name>`, `ui`, `timeline` (secondary entry points) | `[spSurface]`, `sp-glyph`, `sp-table`, `sp-pagination`, `sp-breadcrumb`, `sp-avatar`, `sp-avatar-group`, `sp-statistic`, `sp-descriptions`, `sp-timeline-list`, `sp-collapse`, `sp-collapse-item`, `sp-empty`, `sp-result`, `sp-textarea`, `sp-input-number`, `sp-modal`, `sp-drawer`, `sp-popover`, `sp-tooltip`, `sp-select`, `sp-dropdown-menu`, `sp-toast`, `sp-toaster`, `sp-timeline`. *Amended in implementation:* the surface is the attribute component `[spSurface]` (DD-024): the consumer's own element is the root, so `as` does not apply in Angular, and `sp-ui-tree` needs no case for every tag `as` may name; `sp-empty` and `sp-result` take `<ng-template spExtra>`, the card's `SpCardExtra`, re-exported from their entry points |
+| `@silverpoint/angular` | `@silverpoint/angular/ui/overlay` (secondary entry point) | *Amended in implementation:* `SpTrigger`, the overlay base `SpUiOverlay` and the helpers `uiOverlayNative` and `uiListKeys`, apart from `ui/base` (§8.2). Each overlay subpath re-exports `SpTrigger` |
+
+Subpath names: `ui/avatar` exports `SpAvatar` and `SpAvatarGroup`; `ui/collapse` exports
+`SpCollapse` and `SpCollapseItem`; `ui/toast` exports `SpToast` and `SpToaster`.
+
+**Peer dependencies.** `@knight-lab/timelinejs` `^3.9.13` is in the `peerDependencies` of the
+three adapters with `peerDependenciesMeta: { optional: true }`. Only the `timeline` subpath imports it,
+dynamically, on the client (REQ-510, REQ-513). TimelineJS's own stylesheet
+(`@knight-lab/timelinejs/dist/css/timeline.css`) is imported by the consumer before ours.
+*Amended in implementation:* the subpath imports `@knight-lab/timelinejs/src/js/timeline/Timeline.js`,
+not the package entry: 3.9.13's entry imports a Less stylesheet that no consumer bundler loads
+without a loader (esbuild, the engine of Vite and the Angular CLI, refuses it), while `Timeline.js`
+is plain ES modules that split into a chunk of their own. The package ships no types; the adapters
+read the module as `TimelineJsModule`. The adapters also carry it as an exact dev dependency
+(`3.9.13`), for their tests. The import is a literal, so a consumer who imports the `timeline`
+subpath must install the peer: without it the build fails to resolve it, and `SP025` covers
+failures at run time (PRD REQ-515 as amended).
+
+```ts
+import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
+import { sanguine } from '@silverpoint/core/palettes';
+import { SilverpointProvider } from '@silverpoint/react';
+import { SpTable } from '@silverpoint/react/ui/table';
+import { SpModal } from '@silverpoint/react/ui/modal';
+
+<SilverpointProvider palette={sanguine}>
+  <SpTable caption="Orders" columns={columns} data={rows} sortKey={key} sortOrder={order} onSort={sortBy} />
+  <SpModal title="Edit order" trigger={<SpButton>Edit</SpButton>}>…</SpModal>
+</SilverpointProvider>
+```
+
 ## 2. Public versus internal surface
 
 **Public** —subject to SemVer—: component names and selectors, props and inputs, the
 types exported in §3, the ground token schema (§6), the CSS custom properties of §10, the
-error codes of §11 and the subpath names; for the UI components (§7.2), the `Sp<Name>` names and selectors, their props, the markup contract and `part` names, and `@silverpoint/grounds/ui.css`.
+error codes of §11 and the subpath names; for the UI components (§7.2, §7.4), the `Sp<Name>` names and selectors, their props, the markup contract and `part` names, and `@silverpoint/grounds/ui.css`; the palette API of `@silverpoint/core/palettes` and its six presets (§3.4); `SpTimeline`'s props and events and `@silverpoint/grounds/timeline.css` (§7.4).
 
 **Internal** —may change in a minor version—: the shape of the `Geometry` objects the core
 returns, the implementation of each `Inker`, the structure of the SVG DOM except for the
-`part` attributes documented in §10, and any symbol exported under the `__` prefix. The whole of `@silverpoint/core/ui` (§2.1) is internal: adapters consume it, applications do not.
+`part` attributes documented in §10, and any symbol exported under the `__` prefix. The whole of `@silverpoint/core/ui` (§2.1) is internal: adapters consume it, applications do not. So are the functions of `@silverpoint/core/timeline` (`timelineView`, `timelineInk`, `timelineMount`, `timelineOptions`), which the adapters share, and Angular's `@silverpoint/angular/ui/overlay` base. The DOM TimelineJS builds inside `SpTimeline` is not markup the library emits (Art. 3).
 
 THE SYSTEM marks internals with `@internal` in TSDoc and excludes them from the public
 `.d.ts`.
@@ -221,6 +270,88 @@ export function uiRovingFocus(event: { readonly key: string; preventDefault(): v
 - The `ui*View` trees (`uiButtonView`, `uiInputView`, …) are the markup contract of §7.2 as data:
   every attribute, text and node an adapter writes. The canonical render of a fixture is that tree,
   written by a reference writer (`tools/visual-gate/ui-canonical.ts`).
+
+**Additions for the composed components and overlays (feature-004).**
+
+```ts
+/** Rows in order of `key`, stable; null/undefined last; numbers before strings; strings by code point after lowercasing. Pure (REQ-474). */
+export function uiSortRows<T extends Datum>(rows: readonly T[], key: string | undefined, order?: 'asc' | 'desc'): readonly T[];
+
+/** 1, a gap, a window of 2·siblings + 1 around `current`, a gap, `count` (REQ-476). */
+export function uiPageWindow(count: number, current: number, siblings: number): readonly UiPageEntry[];  // number | 'start-gap' | 'end-gap'
+
+/** Pages, the corrected current page and the "start–end of total" numbers (SP017 when current is out of range). */
+export function uiPagination(total: number, pageSize: number, current: number, component?: string): UiPagination;  // { count, current, start, end, corrected }
+
+/** Clamp to min/max, round to `precision` decimals; null stays null (REQ-485, SP017 on correction). */
+export function uiNumberValue(value: number | null, range: UiNumberRange, component?: string): UiNumberValue;
+//  UiNumberRange: { min?, max?, step?, precision? }
+//  UiNumberValue: { value: number | null; corrected; atMin; atMax; range }
+//  Amended in implementation: `range` is the range as drawn (invalid bounds, step or
+//  precision left out), for the `min`/`max`/`step` attributes.
+
+/** `value ± step`, from `min ?? 0` when the value is null, then uiNumberValue. */
+export function uiNumberStep(value: number | null, direction: 1 | -1, range: UiNumberRange, component?: string): number;
+
+/** First letters of the first two words, upper-cased; '?' for none. */
+export function uiInitials(name: string | undefined): string;
+
+/** APG listbox / menu transitions: next active index, or open/close/select intents (REQ-494, REQ-495). Pure. */
+export function uiListKey(state: UiListState, key: string, kind: 'listbox' | 'menu'): UiListResult;
+//  UiListState: { active; count; disabled: readonly boolean[]; open }
+//  UiListResult: { active; intent?: 'open' | 'close' | 'select' }
+
+/** Typeahead: the first enabled label starting with `buffer` after `from`, wrapping; -1 for none. */
+export function uiTypeahead(labels: readonly string[], disabled: readonly boolean[], buffer: string, from: number): number;
+
+export interface UiBox { readonly x: number; readonly y: number; readonly width: number; readonly height: number }
+export type UiSide = 'top' | 'end' | 'bottom' | 'start';
+export type UiAlign = 'start' | 'center' | 'end';
+/** Anchored placement with flip and shift, 2 decimals (REQ-493). Pure. */
+export function uiPlace(input: {
+  readonly anchor: UiBox;
+  readonly floating: { readonly width: number; readonly height: number };
+  readonly viewport: { readonly width: number; readonly height: number };
+  readonly side: UiSide;
+  readonly align: UiAlign;
+  readonly offset: number;
+  readonly padding: number;
+  readonly dir: 'ltr' | 'rtl';
+}): { readonly x: number; readonly y: number; readonly side: UiSide; readonly align: UiAlign };
+
+/**
+ * The DOM side of an anchored overlay, as uiRovingFocus is for REQ-315: measures the anchor and the
+ * overlay, calls uiPlace in the nearest `dir`, writes --sp-ui-x / --sp-ui-y and data-side.
+ * Structural types, no DOM library. Client only, on open; again on scroll and resize.
+ * Amended in implementation: also re-places when the anchor or the overlay changes size
+ * (a ResizeObserver, where the engine has one), as when a web font replaces its fallback.
+ */
+export function uiAnchor(anchor: UiAnchorTarget, floating: UiAnchorFloating, options: UiAnchorOptions): () => void;  // returns the cleanup
+//  UiAnchorOptions: { side; align; offset? (6); padding? (8) }
+
+/**
+ * Amended in implementation: opens or closes a <dialog> (showModal/show/close) or a popover
+ * (showPopover/hidePopover) as `open` says, only from the other state; without the Popover API the
+ * popover is left in flow and nothing is called.
+ */
+export function uiOverlaySync(element: UiOverlayElement, kind: 'modal' | 'dialog' | 'popover', open: boolean): void;
+```
+
+View functions, one per catalog row, as in `0.3.0`: `uiSurfaceView`, `uiGlyphView`, `uiTableView`,
+`uiPaginationView`, `uiBreadcrumbView`, `uiAvatarView`, `uiAvatarGroupView`, `uiStatisticView`,
+`uiDescriptionsView`, `uiTimelineListView`, `uiCollapseView`, `uiCollapseItemView`, `uiEmptyView`,
+`uiResultView`, `uiTextareaView`, `uiInputNumberView`, `uiModalView`, `uiDrawerView`,
+`uiPopoverView`, `uiTooltipView`, `uiSelectView`, `uiDropdownMenuView`, `uiToastView`,
+`uiToasterView`. The view element's `bind` gains `trigger`, `dialog`, `popover`, `option`,
+`menuitem`, `sort`, `page`, `stepper` and `summary` (TD §2); `UiSlot` gains `trigger`, `action` and
+`fallback`. *Amended in implementation:* the helpers the adapters share join them:
+`uiCollapseGroup` (an accordion's `${id}--accordion`, `SP017` without an id), `uiTriggerView` (the
+wrapper of a consumer's trigger), `uiTriggerAria` (the ARIA an adapter sets on it at runtime: a
+slotted element is consumer markup), `uiSelectItems` and `uiMenuItems` (the flat lists `uiListKey`
+moves over), `uiToastDuration` (a toast's own, its toaster's, else 5000 ms) and `UI_GLYPHS`.
+
+`UI_COMPONENTS` gains the 21 rows of Data Model §5 with a `family: 'ui' | 'composed' | 'overlay'`
+field (the 17 existing rows are `ui`) and batches `A1`, `A2`, `B`.
 
 ## 3. Shared types
 
@@ -330,6 +461,8 @@ export interface CommonUiProps {
   mode?: InkMode;
   /** Default `'md'`. */
   size?: UiSize;
+  /** Colours over the ground's own, field by field (§3.4, REQ-460). */
+  palette?: Palette;
   className?: string;
 }
 
@@ -389,6 +522,183 @@ The status of one Steps item, `StepStatus`, is `'wait' | 'process' | 'finish' | 
 and rounded with `SP017` (REQ-324). An unknown key is not a range error, and is corrected silently: RadioGroup falls back to `null`, Segmented and Tabs to their first enabled key, with no
 diagnostic — a key that disappears from `items` is an ordinary state of dynamic data (A-06).
 
+### 3.4 Palettes (feature-004)
+
+On `@silverpoint/core/palettes` (§1.3); the two types are on the main entry as well.
+
+```ts
+/** Up to nine colours; unset fields keep the ground's own (REQ-460). Any CSS colour; checkPalette measures hex only. */
+export interface Palette {
+  readonly substrate?: string;
+  readonly ink?: string;
+  readonly inkSecondary?: string;
+  readonly heighten?: string;
+  readonly rule?: string;
+  readonly grid?: string;
+  readonly text?: string;
+  readonly textMuted?: string;
+  /** The UI focus ring; `ink` by default. */
+  readonly focus?: string;
+}
+
+/** Field → custom property, in the fixed order of every emitted `style` (REQ-461). */
+export const PALETTE_PROPERTIES: Readonly<Record<keyof Palette, `--sp-${string}`>>;
+//  substrate → --sp-substrate, ink → --sp-ink, inkSecondary → --sp-ink-secondary, heighten → --sp-heighten,
+//  rule → --sp-rule, grid → --sp-grid, text → --sp-text, textMuted → --sp-text-muted, focus → --sp-ui-focus-color
+
+/** Field-wise merge, later wins; invalid fields dropped with SP024 (REQ-462, REQ-467). */
+export function resolvePalette(...layers: readonly (Palette | undefined)[]): Palette | undefined;
+
+/** `--sp-ink:#8A3A24;--sp-text:#4A2216` — the declarations of a palette, in PALETTE_PROPERTIES order; '' for none. */
+export function paletteStyle(palette: Palette | undefined): string;
+
+/** WCAG 2 contrast ratio of two hex colours (#rgb or #rrggbb), 1..21. */
+export function contrastRatio(foreground: string, background: string): number;
+
+export interface PaletteFinding {
+  readonly pair: string;          // 'ink', 'rule', 'text/heighten', … (Data Model §3.9)
+  readonly foreground: string;
+  readonly background: string;
+  readonly ratio: number;         // 2 decimals
+  readonly threshold: number;
+}
+/** Every pair of Data Model §3.9 whose two colours are hex; `substrate` defaults to the palette's, else cream #EDE7DA. */
+export function checkPalette(palette: Palette, substrate?: string): readonly PaletteFinding[];
+```
+
+`palette?: Palette` is a prop of `CommonChartProps`, `CommonUiProps`, `DashboardProps`,
+`ProviderConfig` and `SpTimelineProps`. Presets are `Palette` objects; the prop takes the object,
+not a name, so a chart that names no preset ships none (REQ-463, REQ-519). Reflex's string names
+map to `PALETTES[name]` for consumers who want them.
+
+*Amended in implementation:* `SP023` measures against the palette's own substrate, else
+cream (the core does not know the ground's substrate colour at resolve time); `SP024`'s warning is
+development-only, the dropping is not. A value is kept only if it is a CSS colour (an allowlist of
+colour syntaxes, applied in `paletteStyle` as well), never a declaration fragment.
+
+*Amended in implementation (DD-037):* `nestProvider(outer, own)` joins
+`@silverpoint/core/palettes`: a nested provider's set fields win, the rest are inherited, palettes
+merge field by field. Vue exports a `SilverpointProvider` component (props `ground`, `substrate`,
+`mode`, `locale`, `palette`; renders its slot and no element) for sections. Angular's
+`provideSilverpoint` returns a `Provider` instead of `EnvironmentProviders`, so it is accepted in a
+component's `providers` as well as at bootstrap. A dashboard's root carries its own palette, not
+the provider's. `ChartHandle.toSVGString()` writes the palette on its `<svg>`.
+
+### 3.5 Composed components, overlays and the timeline (feature-004)
+
+Own props, beside `CommonUiProps` (which includes `palette`). Names per adapter are in §1.3; the
+markup contract is §7.4.
+
+#### Composed components
+
+| Component | Props | Value / events |
+|---|---|---|
+| **Surface** | `as?: string` (element, `div`), `name?: string` (adds `sp-<name>`), `frame?: UiFrameKind`, `tone?: UiToneLevel \| UiToneState` | — (content slot) |
+| **Glyph** | `glyph: UiGlyph` | — |
+| **Table** | `columns: readonly TableColumn[]`, `data: readonly Datum[]`, `caption?: string`, `sortKey?: string`, `sortOrder?: 'asc' \| 'desc'`, `striped?` (`false`), `hoverable?` (`true`), `bordered?` (`true`), `emptyText?` (`'No data'`), `rowKey?: string` | `sort(key)` — `onSort` / `@sort` / `(sort)` |
+| **Pagination** | `total: number`, `pageSize?` (`10`), `siblings?` (`1`), `showTotal?` (`false`), `totalTemplate?` (`'{start}–{end} of {total}'`), `label?` (`'Pagination'`), `previousLabel?` (`'Previous page'`), `nextLabel?` (`'Next page'`), `pageLabel?` (`'Page'`), `disabled?` | value: `number` (`current`, 1-based) |
+| **Breadcrumb** | `items: readonly { key?: string; label: string; href?: string }[]`, `label?` (`'Breadcrumb'`) | — |
+| **Avatar** | `src?`, `name?`, `initials?`, `alt?`, `shape?: 'circle' \| 'square'` (`circle`), `pixelSize?: number` | — |
+| **AvatarGroup** | `label?` | — (avatars as children) |
+| **Statistic** | `title: string`, `value: string \| number` (printed as given), `prefix?`, `suffix?`, `trend?: 'up' \| 'down'`, `delta?: string` | — |
+| **Descriptions** | `items: readonly { key?: string; label: string; value: string }[]`, `title?`, `columns?` (`3`, 1..6), `bordered?` (`true`), `headingLevel?` (`3`) | — |
+| **TimelineList** | `items: readonly TimelineListItem[]`, `label?` | — |
+| **Collapse** | `accordion?` (`false`), `bordered?` (`true`) | — (`SpCollapseItem` children) |
+| **CollapseItem** | `title: string`, `defaultOpen?`, `open?`, `disabled?` | `toggle(open: boolean)` |
+| **Empty** | `description?` (`'No data'`) | — (`extra` slot: actions) |
+| **Result** | `status?: 'success' \| 'info' \| 'warning' \| 'error'` (`info`), `title: string`, `subtitle?`, `headingLevel?` (`3`) | — (`extra` slot) |
+| **Textarea** | `rows?` (`3`), `placeholder?`, `label?`, `message?`, `invalid?`, `disabled?`, `readOnly?`, `maxLength?`, `showCount?` (`false`), `name?` | value: `string` |
+| **InputNumber** | `min?`, `max?`, `step?` (`1`), `precision?: number` (decimals), `placeholder?`, `label?`, `message?`, `invalid?`, `disabled?`, `readOnly?`, `name?`, `decrementLabel?` (`'Decrease'`), `incrementLabel?` (`'Increase'`) | value: `number \| null` |
+
+```ts
+export interface TableColumn {
+  readonly key: string;
+  readonly title?: string;               // the key when omitted
+  readonly align?: 'start' | 'center' | 'end';
+  readonly sortable?: boolean;
+  /** CSS length; written as an inline width on the header cell. */
+  readonly width?: string;
+}
+export interface TimelineListItem {
+  readonly key?: string;
+  readonly title: string;
+  readonly time?: string;
+  readonly description?: string;
+  readonly status?: 'done' | 'current' | 'pending' | 'error';   // 'done' by default
+}
+```
+
+*Amended in implementation:* `SpSurface`'s `as` and `name` must be lowercase idents
+(`script`, `style`, `iframe`, `object`, `embed`, `template` and `noscript` are refused), and a
+`TableColumn.width` a plain length (`px`, `%`, `em`, `rem`, `ch`, `vw`); anything else is dropped
+with `SP017`. The table draws its rows as given: the consumer sorts (`uiSortRows`, DD-040), so
+paging works. Optional keys (Breadcrumb, Descriptions, TimelineList) are deduplicated only when
+given. A link's `href` (Breadcrumb, as `SpButton`'s) keeps only relative URLs and the `http`,
+`https`, `mailto` and `tel` schemes; any other is dropped with `SP017`.
+
+#### Overlays
+
+| Component | Props | Value / events |
+|---|---|---|
+| **Modal** | `title?`, `description?`, `label?` (accessible name without title), `closable?` (`true`), `closeLabel?` (`'Close'`), `width?: string` (`'520px'`), `dismissible?` (`true`: Escape and backdrop click close it) | open: `boolean`; slots `trigger`, `content`, `footer` |
+| **Drawer** | as Modal, plus `side?: 'start' \| 'end' \| 'top' \| 'bottom'` (`end`), `extent?: string` (`'380px'` / `'320px'`), `modal?` (`true`) | open: `boolean` |
+| **Popover** | `title?`, `label?`, `side?: 'top' \| 'end' \| 'bottom' \| 'start'` (`bottom`), `align?: 'start' \| 'center' \| 'end'` (`center`), `offset?` (`6`), `closable?` (`false`), `width?` (`'320px'`) | open: `boolean`; slots `trigger`, `content` |
+| **Tooltip** | `text: string`, `side?` (`top`), `align?` (`center`), `offset?` (`6`), `delay?` (`300` ms) | open: `boolean`; slot `trigger` (the described element) |
+| **Select** | `items: readonly (string \| UiItem)[]`, `placeholder?` (`'Select…'`), `label: string`, `disabled?`, `required?`, `name?`, `width?` (`'180px'`) | value: `string \| null`; open: `boolean` |
+| **DropdownMenu** | `items: readonly MenuEntry[]`, `label: string` (the trigger's text when no trigger slot), `side?` (`bottom`), `align?` (`start`) | `select(key)`; open: `boolean`; slot `trigger` |
+| **Toast** | `title: string`, `description?`, `kind?: 'info' \| 'success' \| 'warning' \| 'error'` (`info`), `duration?` (the toaster's), `closeLabel?` (`'Dismiss'`) | open: `boolean`; slot `action` |
+| **Toaster** | `position?: 'bottom-end' \| 'bottom-start' \| 'top-end' \| 'top-start'` (`bottom-end`), `duration?` (`5000`), `label?` (`'Notifications'`) | — (`SpToast` children) |
+
+```ts
+export type MenuEntry =
+  | { readonly key: string; readonly label: string; readonly shortcut?: string; readonly disabled?: boolean; readonly danger?: boolean }
+  | { readonly type: 'separator'; readonly key: string }
+  | { readonly type: 'label'; readonly key: string; readonly label: string };
+```
+
+Reflex's `left`/`right` become `start`/`end` (REQ-523: logical sides mirror in RTL). A Select's
+`required` sets `aria-required="true"` (and, in Angular, the `required` validator through the CVA):
+its hidden input is not validated by the browser.
+
+**Open-state binding** (REQ-500), as value binding (REQ-322):
+
+| | Controlled | Uncontrolled | Change |
+|---|---|---|---|
+| React | `open` | `defaultOpen` | `onOpenChange(open)` |
+| Vue | `v-model:open` | `default-open` | `update:open` |
+| Angular | `[(open)]` (`model()`) | `[defaultOpen]` | `(openChange)` |
+
+Value binding of Pagination, Textarea, InputNumber and Select follows REQ-322 (`current` for
+Pagination: React `current`/`defaultCurrent`/`onChange`, Vue `v-model:current`, Angular `[(current)]`).
+*Amended in implementation:* an InputNumber reports what is typed on commit (blur or Enter;
+`change` in Vue and Angular), clamped and rounded by `uiNumberValue`, `null` when emptied; its steppers
+report `uiNumberStep` at once. Clamping on every keystroke would rewrite a value mid-typing.
+
+#### The timeline
+
+| Component | Props | Events |
+|---|---|---|
+| **Timeline** | `data: TimelineData` (TimelineJS JSON: `title`, `events`, `eras`, `scale`), `options?: Record<string, unknown>` (`font`, `theme` ignored), `height?: string` (`'600px'`), `inkedFrames?` (`true`), `card?` (`true`), `label?` (accessible name of the region) | `change(uniqueId)`, `loaded(payload)`, `navNext`, `navPrevious`, `zoomIn`, `zoomOut`, `backToStart`; slot `fallback` |
+
+*Amended in implementation:* the region's name is `label`, else the title's headline, else
+`SP018`; a `height` that is not a plain length is dropped with `SP017` and `600px` holds.
+
+*Amended in implementation:* in each framework's idiom, the events are React's `onChange`,
+`onLoaded`, `onNavNext`, `onNavPrevious`, `onZoomIn`, `onZoomOut` and `onBackToStart` props, Vue's
+emits and Angular's outputs, under the names above; the fallback is React's `fallback` prop, Vue's
+`fallback` slot and Angular's `<ng-template spFallback>` (`SpTimelineFallback`, exported from the
+`timeline` entry). `fallback` joins the core's `UiSlot`; `timelineView` takes `{ failed }` and puts
+the slot in the mount once a load has failed, never on the server. TimelineJS is built again when
+`data`, `options` or `inkedFrames` change.
+
+*Amended in implementation:* TimelineJS is built in a `<div>` of its own inside the mount,
+since it rewrites its container's `className` (`tl-timeline`), and on a copy of `data`
+(`structuredClone`), since it writes each slide's `unique_id` into the data it is given: the
+consumer's object is never touched, and a frozen one (`TIMELINE_DEMO`) does not stop the build. An
+error thrown while TimelineJS is built is a failed load (REQ-515): its container is removed, `SP025`
+is warned and the fallback is shown. TimelineJS 3.9.13 has no destroy method: the cleanup removes its
+DOM, but its listeners on `document` (keydown) and `window` (resize) stay until the page goes.
+
 ## 4. Naming conventions
 
 | Scope | Convention | Example |
@@ -427,6 +737,8 @@ export interface CommonChartProps {
   mode?: InkMode;
   /** Seed. If omitted, it is derived from `id` stably (REQ-003). */
   seed?: Seed;
+  /** Colours over the ground's own, field by field (§3.4, REQ-460). */
+  palette?: Palette;
 
   /** Stable identifier. If omitted, it is generated deterministically. */
   id?: string;
@@ -497,6 +809,20 @@ UI components add (`CommonUiProps`, §3.3):
 | `mode` | from provider, else `'ink'` | `precision` forced by REQ-123, after resolution |
 | Frame variant | `0` without `seed` and `id` | So an anonymous component renders the same in every adapter |
 
+Palettes, overlays and the timeline add (feature-004):
+
+| Prop | Default | Note |
+|---|---|---|
+| `palette` | none | The ground's own colours |
+| overlay `open` | `false` | `defaultOpen` sets the uncontrolled initial state |
+| `SpToaster` `duration` | `5000` ms | A toast's own `duration` wins |
+| `SpTimeline` `height` | `'600px'` | |
+
+**Palette precedence** (REQ-462): element → dashboard → provider, field by field (`resolvePalette`;
+nested providers merge through `nestProvider`, §3.4). A palette does not take part in the
+`precision` override: forced `precision` changes the mode, never the colours, and
+`forced-colors: active` is the browser's.
+
 The **resolution precedence** below (REQ-311) is the charts' own: component prop → dashboard → provider →
 library default, with the media-query `precision` override applied after resolution. A component
 inside a dashboard cell reads the dashboard's configuration exactly as a chart does; it gets no cell
@@ -557,8 +883,18 @@ export interface UiTokens {
   readonly focusWidth: number;
   /** Tonal level per state (DD-026); `alertError` fills an error Alert's box. */
   readonly tone: Readonly<{ selected: ToneStep; primary: ToneStep; danger: ToneStep; disabled: ToneStep; alertError: ToneStep }>;
+  /** Tonal level of the hatched backdrop behind a modal overlay (REQ-499). Default `2`. */
+  readonly backdrop?: ToneStep;
+  /** Level of a table's striped and hovered rows (REQ-475). Default `1`. */
+  readonly rowTone?: ToneStep;
 }
 ```
+
+`backdrop` and `rowTone` (feature-004, Data Model §3.8) are optional: `resolveUiTokens` supplies 2
+and 1, so a ground written before them needs no change (REQ-044, REQ-312), and the built-in grounds
+do not declare them. *Amended in implementation:* `backdrop` is the level of the **hatched**
+backdrop; where the backdrop is not hatched —a `weight` ground, `precision`— it is the opaque
+substrate, whatever the level. A palette (§3.4) overrides a ground's colours, never its tokens.
 
 ```ts
 export type ToneSpec =
@@ -707,6 +1043,8 @@ export type DashboardProps = DashboardName & {
   substrate?: SubstrateName;
   mode?: InkMode;
   locale?: string;
+  /** Below the chart's own `palette`, above the provider's, field by field (REQ-462). */
+  palette?: Palette;
 
   className?: string;
 };
@@ -841,13 +1179,15 @@ dashboard instantiates inside the cell's `article`, in reading order:
 
 ### 7.2 UI component catalog (feature-002)
 
-17 components (REQ-300..334): `Button`, `Input`, `Checkbox`, `RadioGroup`, `Switch`, `Slider`, `Rate`, `Segmented`, `Tabs`, `Steps`, `Card`, `Tag`, `Badge`, `Divider`, `Progress`, `Alert`, `Skeleton`. Each takes `CommonUiProps` (§3.3) and the own props of §3.3; names per adapter are in §1.2. The core catalog `UI_COMPONENTS` lists them (name, slug, component, group, states).
+17 components (REQ-300..334): `Button`, `Input`, `Checkbox`, `RadioGroup`, `Switch`, `Slider`, `Rate`, `Segmented`, `Tabs`, `Steps`, `Card`, `Tag`, `Badge`, `Divider`, `Progress`, `Alert`, `Skeleton`. Each takes `CommonUiProps` (§3.3) and the own props of §3.3; names per adapter are in §1.2. The core catalog `UI_COMPONENTS` lists them (name, slug, component, group, states). The 21 composed components and overlays of feature-004 and `SpTimeline` are in §7.4; what this section states of every component holds for them too.
 
 #### Markup contract (normative; parity is checked on it, REQ-327)
 
 Every component root carries `class="sp-ui sp-<name> sp-ground-<ground>"` (the ground class, as a
 chart root and a dashboard carry it, is what `styles.css` hangs the `--sp-` palette on),
-`data-ground`, `data-substrate`, `data-mode`, `data-size` and, when inked, `data-frame="0..3"`.
+`data-ground`, `data-substrate`, `data-mode`, `data-size` and, when inked, `data-frame="0..3"`;
+with a palette (§3.4), `style` holds `paletteStyle(...)` followed by any style the component
+computes and the consumer's own (REQ-461).
 Drawn pieces are `aria-hidden` elements with a `part`; an `sp-frame` names its shape with
 `data-kind` (`control`, `pill`, `box`, `card`, `round`), an `sp-tone` its level with `data-tone`
 (1-4) and its shape with `data-kind`. A native input hidden for sight carries `class="sp-ui-native"`,
@@ -964,6 +1304,65 @@ Own props the tables leave implicit:
 - **`axis: 'date'`** on `IntervalChart` — `start`/`end` are ISO `YYYY-MM-DD`, day arithmetic in UTC
   (`charts/shared/dates.ts`), never the host time zone.
 
+### 7.4 Composed components, overlays and the timeline (feature-004)
+
+21 catalog rows (REQ-470..REQ-503): batch **A1**, display — `Surface`, `Glyph`, `Table`,
+`Breadcrumb`, `Avatar` (with `AvatarGroup`), `Statistic`, `Descriptions`, `TimelineList`, `Empty`,
+`Result`; batch **A2**, stateful — `Pagination`, `Collapse` (with `CollapseItem`), `Textarea`,
+`InputNumber`; batch **B**, overlays — `Modal`, `Drawer`, `Popover`, `Tooltip`, `Select`,
+`DropdownMenu`, `Toast` (with `Toaster`). `SpTimeline` (REQ-510..REQ-515) is not a row of
+`UI_COMPONENTS`: it sits on a subpath of its own, with surface fixtures of its own. Props are in §3.5, names per adapter in §1.3. Each
+takes `CommonUiProps`, `palette` included.
+
+#### Markup contract additions (normative, REQ-516)
+
+Every root carries the `0.3.0` root contract of §7.2 (`sp-ui sp-<slug> sp-ground-<ground>`,
+`data-ground`, `data-substrate`, `data-mode`, `data-size`, `data-frame`) and, with a palette,
+`style` holding `paletteStyle(...)` followed by any style the component computes and the consumer's own.
+
+| Component | Root | Native / semantic core | Drawn parts |
+|---|---|---|---|
+| Surface | the `as` element (Angular: the consumer's element, `[spSurface]`) | itself | `sp-frame` (`frame`), `sp-tone` (`tone`) |
+| Glyph | `<svg part="sp-mark" data-glyph viewBox="0 0 16 16" aria-hidden>` | — | the exact path |
+| Table | `<div class="sp-ui sp-table">` with `data-striped`, `data-hoverable` | `<div class="sp-ui-table-scroll"><table class="sp-ui-table">`, `<caption>`, `<th scope="col" data-align aria-sort>`, sortable headers hold `<button class="sp-ui-sort">`; a cell's text sits on a `.sp-ui-plate` (*amended in implementation*) | `sp-frame` (card, when `bordered`), sort `sp-mark`, row tone by `ui.css` |
+| Pagination | `<nav aria-label>` | `<ul class="sp-ui-pages">` of `<li>`; pages `<button class="sp-ui-page" aria-label="Page n">`; the current `<span aria-current="page">` | `sp-frame` (control) per page, `sp-heighten` on the current, chevron `sp-mark`s |
+| Breadcrumb | `<nav aria-label>` | `<ol class="sp-ui-crumbs">`, `<a>` / `<span aria-current="page">` | the `/` separators as `::before` in `--sp-rule` |
+| Avatar | `<span data-shape>` (`role="img" aria-label` with initials) | `<img alt>` or `<span class="sp-ui-avatar-initials" aria-hidden>` | `sp-frame` (`round` / `box`) |
+| AvatarGroup | `<div class="sp-ui sp-avatar-group" role="group">` | — | — |
+| Statistic | `<div>` | title, value, affixes as `<span>` | trend `sp-mark` (`arrowUp`/`arrowDown`) |
+| Descriptions | `<section data-bordered>` | `<h3>` title, `<dl>` of `<div><dt><dd>` | `sp-frame` (card, when `bordered`) |
+| TimelineList | `<ol aria-label>` | `<li data-status aria-current="step"?>` | per item `sp-frame` (round); `sp-tone` (selected) for `done`, `sp-heighten` for `current`, cross `sp-mark` for `error`; connectors as `::before`, dashed for `pending` |
+| Collapse | `<div>` | `SpCollapseItem` = `<details name?><summary>` + body | `sp-frame` (card, when `bordered`), chevron `sp-mark` |
+| Empty | `<div>` | `<p>` description | toned tray (`sp-tone` 1 + `sp-frame` control, `aria-hidden`) |
+| Result | `<div role="status\|alert" data-status>` | heading at `headingLevel`, `<p>` subtitle | `sp-frame` (round) + status `sp-mark` |
+| Textarea | `<span class="sp-ui sp-input sp-textarea">` | `<textarea class="sp-ui-control">`, counter, `<span id="${id}--message">` | `sp-frame` (control), warning `sp-mark` when `invalid` |
+| InputNumber | `<span class="sp-ui sp-input sp-input-number">` | `<button class="sp-ui-stepper" aria-label tabindex="-1">` − `<input type="number" inputmode="decimal">` + (the steppers leave the tab order: the arrows on the input step, as APG's spinbutton; *amended in implementation*) | `sp-frame` (control), `dash` / `plus` `sp-mark`s |
+| Modal | `<dialog id="${id}--dialog" class="sp-ui sp-modal" aria-labelledby\|aria-label data-state>` | header `<h2 id="${id}--title">`, `<p id="${id}--description">`, body, footer; close `<button class="sp-ui-icon-button">` | `sp-frame` (card), `sp-rule` under the header; `::backdrop` toned by `ui.css` |
+| Drawer | `<dialog class="sp-ui sp-drawer" data-side>` | as Modal | as Modal |
+| Popover | `<div class="sp-ui sp-popover" popover="auto" id="${id}--popover" role="dialog" aria-labelledby?>` | header, body | `sp-frame` (card) |
+| Tooltip | `<div class="sp-ui sp-tooltip" popover="manual" role="tooltip" id="${id}--tooltip">` | text | `sp-frame` (control) |
+| Select | `<span class="sp-ui sp-select">` | trigger `<button role="combobox" aria-haspopup="listbox" aria-expanded aria-controls aria-activedescendant? aria-label>` with the value; `<div class="sp-ui-select-content" popover="auto">` holding `<div role="listbox" id="${id}--listbox">` of `<div role="option" id="${id}--option-<key>" aria-selected aria-disabled?>`; a hidden `<input type="hidden" name>` when `name` | `sp-frame` (control) on the trigger, `sp-frame` (card) on the list, `sp-heighten` on the active option, tick `sp-mark` on the chosen, chevron `sp-mark` |
+| DropdownMenu | `<span class="sp-ui sp-dropdown-menu">` | trigger `aria-haspopup="menu" aria-expanded aria-controls`; `<div popover="auto" role="menu" id="${id}--menu">` of `<div role="menuitem" tabindex="-1" data-danger? aria-disabled?>`, `role="separator"`, `role="presentation"` labels | `sp-frame` (card), `sp-heighten` on the active item |
+| Toast | `<li class="sp-ui sp-toast" role="listitem" data-kind data-state>` | `<div class="sp-ui-toast-body" role="status\|alert">` with the kind glyph, title and description; action, close `<button>` | `sp-frame` (card), kind `sp-mark` |
+| Toaster | `<section class="sp-ui sp-toaster" aria-label data-position>` holding `<ol class="sp-ui-toaster-list" role="list">` | — | — |
+| Timeline | `<section class="sp-ui sp-timeline" aria-label data-kl-inked data-kl-card>` | `<span class="sp-kl-probe" aria-hidden>` probes, `<div class="sp-kl-mount">` | `sp-frame` (card, when `card`) |
+
+Rules (as in `0.3.0`): no framework comments or empty text nodes; element order is reading order;
+every id is `${id}--${part}`; overlays emit `data-state="open|closed"`, never the `open` attribute
+(the browser sets it on `showModal()`); placement is written on the overlay as `--sp-ui-x`,
+`--sp-ui-y` and `data-side` after open, never in the server markup (REQ-502). An accordion's
+`<details>` share the `name` `${id}--accordion` (`uiCollapseGroup`; `SP017` without an `id`).
+`data-kl-inked` is `"false"` until `timelineInk` has run. The DOM TimelineJS builds inside
+`sp-kl-mount` is not part of the contract (Art. 3).
+
+*Amended in implementation:* a toast's live role is on `.sp-ui-toast-body`, not the `<li>`,
+which may not take one (axe `aria-allowed-role`); the dialog's id is `${id}--dialog`.
+*Amended in implementation:* a disabled `SpCollapseItem`'s `<summary>` carries
+`tabindex="-1"` beside `aria-disabled="true"`, since `<summary>` has no `disabled` attribute and Tab
+must skip it (REQ-522). The toaster's list is `<ol class="sp-ui-toaster-list" role="list">` and a
+toast is `<li role="listitem">`: in Angular the `<sp-toast>` host sits between them, and only explicit
+roles let a list keep its items across it (axe `list` / `listitem`).
+
 ## 8. API by adapter
 
 ### 8.1 React
@@ -1004,6 +1403,19 @@ export interface ChartHandle {
 
 **UI components (§7.2).** Function components; `forwardRef` to the native element (`SpButton`, `SpInput` and the hidden inputs); `onChange` receives the value. `SpTabs` renders `SpTabPanel` children matched by `value`. Display components also have server entries (§1.2).
 
+**Composed components, overlays and the timeline (§7.4).** Function components; `forwardRef` to the
+native element (`<textarea>`, the number `<input>`, the Select's trigger, the `<dialog>`). Overlay
+triggers are a `trigger` prop (`ReactElement`) that the overlay clones with its ARIA and handlers,
+as the dashboard clones its charts. `"use client"` on every overlay, Pagination, Textarea,
+InputNumber, sortable Table, Collapse with `onToggle`, and `SpTimeline`. `SilverpointProvider` takes
+`palette`, and a nested provider inherits what it does not set (`nestProvider`, §3.4).
+*Amended in implementation:* Pagination, Collapse, CollapseItem, Textarea and InputNumber
+are client components only, with no `server/ui/*` entry, as `0.3.0`'s Input: a disabled
+CollapseItem is held shut by a handler. *Amended in implementation:* the overlays are
+client components only too, and an overlay finds its trigger as the element rendered just before
+it, so no ref is merged into the consumer's. The A1 display components keep server entries; the
+server `SpTable` renders the same markup and takes no `onSort`.
+
 ### 8.2 Angular
 
 Standalone components with signal inputs and `OnPush` (REQ-101).
@@ -1038,6 +1450,22 @@ SHALL NOT expose public methods beyond `getGeometry()` and `toSVGString()`, so a
 symmetry with `ChartHandle`.
 
 **UI components (§7.2).** Standalone, signal inputs, `OnPush`, zoneless-safe (REQ-101). Value components share the `SpUiControl` base (`ui/base`), expose `value = model<T>()` and implement `ControlValueAccessor` (REQ-323). `SpButton` is an attribute component on the consumer's native element (`button[spButton]`, `a[spButton]`), so the host is the native control (DD-024). `SpInput` is an **element**, `<sp-input>`, not `input[spInput]`: a native `<input>` can hold neither the frame nor the message. Named slots are templates: `<ng-template spExtra>`, `spFooter`, `spPrefix`, `spSuffix`. Panels read their tabs through the `SP_TABS` token. A Tag reads its projected text after render, for its close button's name.
+
+**Composed components, overlays and the timeline (§7.4).** Standalone, signal inputs, `OnPush`;
+`open = model<boolean>()`; triggers are projected with an `spTrigger` directive on the consumer's
+element (`<button spButton spTrigger>`); footers and actions as `<ng-template spFooter>`, `spAction`,
+`spExtra`, `spFallback`. `SpTextarea`, `SpInputNumber` and `SpSelect` extend `SpUiControl`
+(ControlValueAccessor). The surface is the attribute component `[spSurface]` (DD-024).
+`provideSilverpoint` takes `palette` and returns a `Provider` (*amended in implementation*),
+so a component's `providers` may nest one.
+*Amended in implementation:* `SpTrigger`, the base `SpUiOverlay` and the helpers
+`uiOverlayNative` and `uiListKeys` live on a new entry, `@silverpoint/angular/ui/overlay`, apart
+from `ui/base`: Angular's partial declarations are not tree-shaken, and in `ui/base` they put
+every component over its REQ-330 budget (`SpDivider` at 8,217 B of 8 kB). Each overlay subpath
+re-exports `SpTrigger`. A Modal's or Drawer's footer is `<ng-template spFooter>` (`SpCardFooter`,
+re-exported); a toast's action is `<ng-template spAction>` (`SpToastAction`); the timeline's
+fallback `<ng-template spFallback>` (`SpTimelineFallback`). `SpTrigger` writes its ARIA on the
+server as well. The Select and the Menu listen on their host for the keys and clicks of their tree.
 
 ### 8.3 Vue
 
@@ -1079,6 +1507,14 @@ chart.value?.getGeometry();
 ```
 
 **UI components (§7.2).** `<script setup>` with typed props and emits (REQ-108), `defineModel` for the value, slots `prefix`, `suffix`, `extra` and `footer`.
+
+**Composed components, overlays and the timeline (§7.4).** Slots `trigger`, `footer`, `action`,
+`extra`, `fallback`; `v-model`, `v-model:open`, `v-model:current`. `provideSilverpoint` takes
+`palette`; *amended in implementation:* a `SilverpointProvider` component (props `ground`,
+`substrate`, `mode`, `locale`, `palette`; renders its slot and no element) provides a section, and
+inherits what it does not set. *Amended in implementation:* a `trigger` slot's first
+element is cloned with the ARIA and the toggle; DropdownMenu emits `select(key)`, Select
+`update:modelValue(key)`.
 
 ### 8.4 Ribbon generator
 
@@ -1135,6 +1571,26 @@ item (REQ-326). Composite keyboard transitions come from `uiRovingKey` (REQ-315)
 | `onClose` | `@close` | `(close)` | — | A closable `Tag` or `Alert` is dismissed |
 | `onClick` | `@click` | `(click)` | native event | `Button`, native |
 
+**Composed components, overlays and the timeline (§7.4).**
+
+| React | Vue | Angular | Payload | When |
+|---|---|---|---|---|
+| `onOpenChange(open)` | `update:open` | `(openChange)` | `boolean` | An overlay opens or closes by user action or by the platform (Escape, a light dismiss) (REQ-500) |
+| `onSort(key)` | `@sort` | `(sort)` | `string` | A sortable `Table` header is pressed |
+| `onToggle(open)` | `@toggle` | `(toggle)` | `boolean` | A `CollapseItem` is toggled; its `open` binds as a value (React `open`/`defaultOpen`, Vue `v-model:open`, Angular `[(open)]`) |
+| `onSelect(key)` | `@select` | `(select)` | `string` | A `DropdownMenu` item is chosen |
+| `onChange`, `onLoaded`, `onNavNext`, `onNavPrevious`, `onZoomIn`, `onZoomOut`, `onBackToStart` | the same names as emits | the same names as outputs | TimelineJS's payload (`change`: the slide's `unique_id`) | `SpTimeline` forwards TimelineJS's events (`TIMELINE_EVENTS`) |
+
+Value and open events fire on user input only, never on a prop change, never when disabled
+(REQ-326). Overlay keyboard: `uiListKey` / `uiTypeahead` (REQ-494, REQ-495), the typeahead buffer
+reset 500 ms after the last key by the adapter. `SpModal` with `dismissible: false` cancels the
+dialog's `cancel` event. Toasts pause their timer on `pointerenter` and `focusin`. F8 moves focus to
+the toaster region. *Amended in implementation:* a paused toast counts its whole duration
+again once the pointer and focus have left it (no clock is read, Art. 4); F8 makes the region
+focusable (`tabindex="-1"`) as it moves focus there, never in the server markup.
+*Amended in implementation:* a tooltip listens for Escape on its document, not on its
+trigger, so a tooltip shown by hover is dismissed without moving the pointer or focus (WCAG 1.4.13).
+
 ## 10. DOM and CSS contract
 
 ### 10.1 `part` attributes
@@ -1153,7 +1609,7 @@ properties of §10.2 (REQ-450): every ground, substrate and the Tailwind preset 
 | `sp-grid` | `stroke` | `--sp-grid` |
 | `sp-axis` | `fill` | `--sp-text-muted` |
 
-UI components (§7.2) add `sp-frame`, `sp-tone`, `sp-mark`, `sp-knob`, `sp-track`, `sp-fill`, `sp-thumb` and `sp-connector`; `sp-rule` and `sp-heighten` keep their meaning.
+UI components (§7.2) add `sp-frame`, `sp-tone`, `sp-mark`, `sp-knob`, `sp-track`, `sp-fill`, `sp-thumb` and `sp-connector`; `sp-rule` and `sp-heighten` keep their meaning. The components of §7.4 add no new value: `sp-mark` covers the ten new glyphs.
 
 The dashboard composition (§7.1) adds, on HTML elements: `dashboard` (the `section`),
 `dashboard-title` (the heading), `dashboard-description`, `dashboard-grid` (the grid inside the
@@ -1221,6 +1677,20 @@ UI components add these public properties (`@silverpoint/grounds/ui.css`):
 | `--sp-ui-focus-color` | `var(--sp-ink)` | Must keep 3:1 (REQ-313) |
 | `--sp-ui-gap` | 8 px | Spacing inside composites |
 
+The components of §7.4 add:
+
+| Property | Default | Note |
+|---|---|---|
+| `--sp-avatar-size` | 40 px (28 / 56 for `sm` / `lg`) | Avatar box |
+| `--sp-descriptions-columns` | `3` | Written by the core from `columns` |
+| `--sp-textarea-rows` | `3` | Written by the core from `rows` |
+| `--sp-modal-width`, `--sp-drawer-size`, `--sp-popover-width`, `--sp-select-width` | 520 px, 380 / 320 px, 320 px, 180 px | Written by the core from the props |
+| `--sp-ui-x`, `--sp-ui-y` | — | Placement, written by `uiAnchor` on open |
+
+A palette (§3.4) sets the same `--sp-` properties as an inline declaration on the root it is given
+to (`paletteStyle`), so it wins over the ground's sheet and over `ui.css`'s `:where()` default of
+`--sp-ui-focus-color`; no new property is added for it.
+
 **There is no monospace variable.** The system uses a single family: monospace is an
 invention of the typewriter and has no place in a Renaissance ground. What motivated its
 use —aligning figures— is solved by EB Garamond's `tnum` feature, verified present. Small
@@ -1242,7 +1712,7 @@ deterministic in any engine; the Google Fonts build of EB Garamond does not incl
 | Dashboard order | DOM order = reading order at every breakpoint (REQ-203); the dashboard adds no tab stop (REQ-215) |
 | Linked marks | `aria-hidden`; no live-region update (REQ-218) |
 
-UI components (§7.2) additionally follow REQ-314..REQ-320, REQ-334 and the markup table. The drawing never takes focus and never carries a name; the native or semantic element does.
+UI components (§7.2) additionally follow REQ-314..REQ-320, REQ-334 and the markup table. The drawing never takes focus and never carries a name; the native or semantic element does. The components of §7.4 follow REQ-473..REQ-503, REQ-522 and their markup table, on the same terms.
 
 Parity holds for the markup the library emits. With the Angular attribute components (DD-024)
 the host is the consumer's own `<button>` or `<input>`: attributes the consumer adds to it are
@@ -1276,6 +1746,10 @@ export default { presets: [require('@silverpoint/tailwind')] };
 
 Under Tailwind 3.4 a variable colour takes no opacity modifier (`bg-sp-ink/50`); under 4 it does.
 
+Palettes (§3.4) add nothing to the preset: eight of a palette's nine fields set the colour
+properties it already maps, so its utilities follow a palette as they follow a ground (the ninth,
+`focus`, sets `--sp-ui-focus-color`, which the preset does not name).
+
 ## 11. Catalog of errors and warnings
 
 Stable codes, part of the public surface. Those with `warn` severity are stripped from the
@@ -1305,8 +1779,18 @@ production bundle; those with `error` severity are always thrown.
 | `SP020` | warn | REQ-437 | Invalid hierarchy: duplicate `id`, missing `parent`, cycle, or several roots; offending rows dropped (a synthetic root added for several roots). Names the first offending `id` |
 | `SP021` | warn | REQ-433 | A statistic parameter is invalid (`bins`, `bandwidth`, `whisker`, `levels`, `overlap`, `iterations`); the default is used |
 | `SP022` | warn | REQ-434 | A group is too small for its statistic; its observations are drawn as points |
+| `SP023` | warn | REQ-466 | A palette's hex field is below its contrast threshold against its substrate (the palette's own `substrate`, else cream; *amended in implementation*) |
+| `SP024` | warn | REQ-467 | A palette has an unknown field, or a value that is not a CSS colour; the field is dropped (the warning is development-only, the dropping is not) |
+| `SP025` | warn | REQ-515 | `@knight-lab/timelinejs` could not be loaded, or threw while it was built (*amended in implementation*); `SpTimeline` renders its fallback |
 
 `SP002` keeps its meaning for charts and is not reused by the UI components (each diagnostic names its own REQ).
+`SP017`, `SP018` and `SP019` widen to the components of §7.4 (REQ-486, REQ-501, REQ-487): `SP017`
+also covers an InputNumber's value and a Pagination's `current` out of range; `SP018` a Modal,
+Drawer or Popover with neither `title` nor `label`; `SP019` shared keys among a Table's columns or
+the items of a Breadcrumb, TimelineList, Select or DropdownMenu. *Amended in implementation:* `SP017` also reports the props the core refuses as given and drops (`SpSurface`'s
+`as` and `name`, a column `width`, an `href`'s scheme, a timeline `height`, an accordion without
+`id`), and `SP018` a timeline with neither `label` nor a title headline.
+That is 25 codes (22 before feature-004).
 `SP008` (volume) carries the second catalog's ceilings too (REQ-443, §12).
 
 Every diagnostic includes the chart name, the property involved and the `REQ-NNN` that
@@ -1342,8 +1826,28 @@ motivates it.
 | 60 × 60 field | 8 ms | The CI benchmark fails |
 | 150-node network layout (300 iterations) | 16 ms | The CI benchmark fails |
 | `core` + `react` with one chart of §7.3 | 45 KB min+gzip, as any chart | CI fails (REQ-164) |
-| One-chart build of a first-catalog chart, against `0.3.0` | No growth: within 0.25 KB of uncompressed minified bytes (gzip moves when the bundler only reorders modules) | CI fails (REQ-444) |
+| One-chart build of any of the 60 charts, against `0.6.0` (`one-chart-0.6.0.json`) | Within 2 KB (2,000 B) of uncompressed minified bytes (gzip moves when the bundler only reorders modules). *Amended in implementation (feature-004):* re-baselined from `0.3.0` and 0.25 KB, to hold the palette on the chart path | CI fails (REQ-444, REQ-519) |
 | `@silverpoint/core/catalog`, everything | 75 kB min+gzip | CI fails |
+| One component's subpath of §7.4 over the shared UI runtime | 3 KB min+gzip | CI fails (REQ-518) |
+| Overlay runtime over the shared UI runtime, per adapter | 4 KB min+gzip | CI fails (REQ-518) |
+| `@silverpoint/grounds/ui.css`, with the components of §7.4 | 24 KB gzip | CI fails |
+| `@silverpoint/grounds/timeline.css` | 6 KB gzip | CI fails |
+| `SpTimeline` wrapper, without TimelineJS | 3 KB min+gzip | CI fails (REQ-518) |
+| One-chart build with a `palette` | Holds none of the presets it does not import | CI fails (REQ-519) |
+| Table rows | 1,000 (advisory) | No diagnostic; documented: page with `SpPagination` |
+| Select and menu items | 50 (advisory) | No diagnostic |
+
+*Amended in implementation:* the increments are size-limit rows with absolute limits, as
+REQ-330's are: 64 rows, the 21 new subpaths × 3 adapters and Angular's `ui/overlay` entry. A
+component's subpath is held at 11 kB (the 8 kB UI runtime and its 3 kB), an overlay's at 15 kB (and
+4 kB of overlay runtime). Angular's overlay runtime is an entry of its own, `ui/overlay`, at 12 kB;
+React and Vue keep theirs inside each overlay's bundle, so their 4 KB is held by the overlay rows.
+*Amended in implementation:* `SpTimeline`'s 3 KB is written the same way, 11 kB per adapter
+with TimelineJS left out (`ignore`), on `@silverpoint/<adapter>/timeline`.
+*Amended in implementation (user decisions 2026-10-18 and 2026-10-19, OQ-C3):* REQ-444's
+no-growth check is re-baselined from `one-chart-0.3.0.json` to `tools/bundle-budget/one-chart-0.6.0.json`
+(244 entries, measured on a `0.6.0` worktree) with a 2 KB allowance, which holds the palette on the
+chart path (the delta proposed 1 KB); the REQ-444 row above states it.
 
 ## 13. Versioning and deprecation
 
@@ -1351,13 +1855,13 @@ SemVer over the public surface of §2.
 
 - **Major**: removing or renaming a prop, a component, an `SPNNN` code, a `--sp-` variable
   or a `part`; changing a default value observably.
-- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, new codes.
+- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, palette presets, new codes, and an optional peer imported by one subpath only (feature-004 is `minor`, shipped as `0.7.0`).
 - **Patch**: fixes that do not alter the normalised SVG output. A change that does alter
   it **is not a patch**, even if it is a visual improvement: it breaks the golden images of
   consumers using the same gate.
 
 Deprecation: a prop marked `@deprecated` warns for at least two minor versions before
-being removed in the next major. The four packages are always published with the same
+being removed in the next major. The seven packages are always published with the same
 version.
 
 ---
@@ -1372,6 +1876,7 @@ version.
 | 1.5 | 2026-09-13 | Vue adapter added: package, naming, a Vue column across the 33-row catalog, §8.3, and Vue emits in §9 |
 | 1.4 | 2026-09-13 | §1.1 added: bundler consumption guarantees for Vite and Next.js (REQ-033, REQ-034) |
 | 1.3 | 2026-09-13 | Converted to English; diagnostic SP013 added for typeface load failure (Analyze finding A-05) |
+| 1.11 | 2026-10-20 | Feature-004: palettes, composed components, overlays and the timeline — §1 and new §1.3 (`@silverpoint/core/palettes`, `/timeline`, `TIMELINE_DEMO` on `/ui-demos`, `grounds/timeline.css`, 21 new `ui/<name>` subpaths × 3 adapters, `timeline` subpath, Angular `ui/overlay`, the optional `@knight-lab/timelinejs` peer), §2 and §2.1 surface (list keyboard, placement, `uiAnchor`, `uiOverlaySync`, view functions and helpers), new §3.4 `Palette` and §3.5 props, `palette` on `CommonChartProps`, `CommonUiProps` and `DashboardProps`, §5.1 defaults and palette precedence, §6 `backdrop` and `rowTone` tokens, new §7.4 catalog and markup contract, §8.1–8.3 adapters (Vue `SilverpointProvider`, Angular `provideSilverpoint` returns a `Provider`), §9 open-state and timeline events, §10.1–10.4, `SP023`–`SP025` (22 → 25 codes), §12 budgets (REQ-518, REQ-519; REQ-444 re-baselined to `0.6.0` with 2 KB), §13; folds the amendments made in implementation in the ledger of `changes/feature-004-composed-components/` |
 | 1.10 | 2026-10-10 | Feature-003: the second catalog — §1 (27 subpaths per adapter, `@silverpoint/core/catalog`), new §7.3 (27 charts with heighten and keyboard model per chart, `NetworkNode`, `levels` and `nodes` as data), §9 `onRootChange`, `SP020`–`SP022` (19 → 22 codes), §12 ceilings, benchmarks and the REQ-444 no-growth budget |
 | 1.9 | 2026-09-29 | Feature-002: the 17 `Sp` UI components — §1.2 (subpaths `ui`, `ui-demos`, `ui.css`, `server/ui`, `angular/env`; `@angular/forms` peer), §2.1 core surface, §3.3 types and props, §5.1 defaults, `Ground.ui` (§6), new §7.2 catalog and markup contract, §8 adapters, §9 events, §10 parts/properties/accessibility, `SP017`–`SP019` (16 → 19 codes), §12 budgets; includes the Phase 3–5 amendments (Angular `<sp-input>` element, `SpInput.label`, React server entries, `uiRovingFocus` and further core surface) |
 | 1.8 | 2026-09-26 | Delta-013: `@silverpoint/tailwind` in §1 and §10.4 |
@@ -1404,4 +1909,13 @@ version.
 - **Art. 5 / Art. 6** (feature-003) — §7.3 names each chart's keyboard model, derived
   `ActiveItem` and single heightened element.
 - **Art. 8** (feature-003) — no dependency added; §12 holds the one-chart budget and the no-growth check.
+- **Art. 2** (feature-004) — every function of §2.1, §3.4 and `/timeline` is in the core; adapters
+  bind props, events and the platform calls (`showModal`, `showPopover`).
+- **Art. 3** (feature-004) — the markup contract of §7.4 is what the gate compares; the TimelineJS
+  DOM is not markup the library emits.
+- **Art. 4** (feature-004) — ids from `id`; placement and timers off the render path; a paused toast
+  reads no clock.
+- **Art. 5** (feature-004) — native `<dialog>`, `<details>`, `<table>`, `<textarea>`,
+  `<input type="number">`; APG for the rest.
+- **Art. 8** (feature-004) — no dependency; one optional peer on one subpath; budgets in §12.
 - **Requested exception:** none.

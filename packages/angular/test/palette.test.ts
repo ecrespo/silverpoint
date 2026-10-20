@@ -50,7 +50,7 @@ function parse(html: string): Document {
 }
 const colour = (element: Element | null, property: string) => (element as HTMLElement).style.getPropertyValue(property);
 const declarations = (style: string | null) => (style ?? '').split(';').map((d) => d.trim()).filter(Boolean);
-/** The app root's markup with every `--sp-` style removed: what a palette may not change (I-25). */
+/** The app root's markup with every `--sp-` style removed: what a palette may not change (I-33). */
 const unstyled = (markup: string) => parse(markup).querySelector('app-root')!.innerHTML.replace(/ style="--sp-[^"]*"/g, '');
 
 describe('Angular palettes (T-212)', () => {
@@ -86,7 +86,7 @@ describe('Angular palettes (T-212)', () => {
     expect([colour(outer, '--sp-ink'), colour(inner, '--sp-ink'), colour(inner, '--sp-text')]).toEqual(['#111111', '#303030', '#222222']);
   });
 
-  test('REQ-468 · I-25 · a palette changes only the root\'s style', async () => {
+  test('REQ-468 · I-33 · a palette changes only the root\'s style', async () => {
     const plain = await ssr('<sp-line-chart id="l" [width]="320" /><button spButton id="b">Go</button>');
     const toned = await ssr('<sp-line-chart id="l" [width]="320" [palette]="sanguine" /><button spButton id="b" [palette]="sanguine">Go</button>', [provideSilverpoint({ palette: PROVIDER })]);
     expect(unstyled(toned)).not.toBe(parse(toned).querySelector('app-root')!.innerHTML);

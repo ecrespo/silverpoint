@@ -12,7 +12,7 @@ function compare(a: SortKey, b: SortKey): number {
 }
 
 /**
- * A table's rows in order of `key` (REQ-474, I-26): stable, `null` and missing values last in input
+ * A table's rows in order of `key` (REQ-474, I-34): stable, `null` and missing values last in input
  * order, `desc` reversing the present rows only. No locale, so the order is the same on every
  * server. Pure: the input is never mutated.
  */

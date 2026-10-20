@@ -560,11 +560,31 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   substrate. grounds +1 test (RED on the missing strip, then on the missing plate); the nightly
   golden `timeline--page.png` regenerated in the pinned image, the same in the four apps.
 
-**[ ] T-225 · Changeset, fold, status, demo** — REQ-183
+**[x] T-225 · Changeset, fold, status, demo** — REQ-183
 - Changeset `minor` for the seven packages; fold the deltas into `specs/` ("amended in
   implementation" where it differs); traceability report; `CLAUDE.md` status; serve the Next.js
   example (`examples/nextjs`) for the user's review.
 - **Done:** CI steps green locally; ready for the `0.7.0` release commit on `develop`.
+- **Ledger (2026-10-20):** `.changeset/feature-004-close-out.md`, `minor` for the seven packages.
+  Folded into `specs/`: Constitution v1.9, PRD v1.13 (270 requirements, 250 MUST), API Spec v1.11
+  (25 codes), Technical Design v1.10 (DD-001..DD-043), Data Model v1.8, Implementation Plan v1.9
+  (Phase 8); what the implementation changed is folded as built ("amended in implementation"). In
+  `specs/` the tasks are cited as `#2NN`, as feature-003's were: `specs/tasks.md` defines only
+  T-001..T-029. The delta's invariants I-23..I-28 collided with feature-003's and are folded as
+  **I-31..I-36**; the 21 files citing them (tests, and comments in `core/src/ui` and the grounds'
+  stylesheets) are retagged. Traceability 250/250 MUST: REQ-471 (a UI component that clamps by
+  itself fails the adapter boundary, in all three adapters) and REQ-487 (keys shared by the items
+  of a Table, Breadcrumb, TimelineList, Select or Menu) gained their citations; mutants 2 run, 2 red.
+  The seven-packages line of API §13 corrected ("four"). Delta and README statuses: folded.
+  Local CI: checks job green (lint, ground PR, changeset, build, contrast, typecheck, 8,106 tests,
+  1,890 string comparisons, size-limit, traceability), gates 569; the browser job in the pinned
+  image 5,623 passed, 1 failed, which found two things: the Angular Select's keyboard test read
+  `aria-activedescendant` once after each key, racing change detection (now a retrying assertion,
+  as is the F8 focus check), and **a server-rendered `SpToaster` threw `ReferenceError: document is
+  not defined` on teardown and left `renderApplication` pending for good** — it unlistened F8 in
+  `onDestroy` though only the client listens. Fixed test-first (`ui-overlays.test.ts`, RED on the
+  error, GREEN with the removal registered inside `afterNextRender`); composed e2e 105/105 in the
+  pinned image, the Select test 20/20 repeated, no server error left.
 
 ## Dependency graph
 

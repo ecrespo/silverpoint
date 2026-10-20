@@ -246,7 +246,7 @@ describe('uiTableView (T-206)', () => {
     expect(texts(uiTableView({ columns, data: [], emptyText: 'Nothing yet' }, r()))).toContain('Nothing yet');
   });
 
-  test('REQ-325 · a repeated column key is skipped with SP019', () => {
+  test('REQ-325 · REQ-487 · a repeated column key is skipped with SP019', () => {
     const seen = capture();
     const view = uiTableView({ columns: [...columns, { key: 'id', title: 'Again' }], data }, r());
     expect(headers(view)).toHaveLength(3);
@@ -335,7 +335,7 @@ describe('uiBreadcrumbView (T-206)', () => {
     expect((list.children as UiElement[]).every((li) => classes(li).includes('sp-ui-crumb'))).toBe(true);
   });
 
-  test('REQ-477 · an item without href is plain text; a repeated key is skipped, SP019', () => {
+  test('REQ-477 · REQ-487 · an item without href is plain text; a repeated key is skipped, SP019', () => {
     const seen = capture();
     const view = uiBreadcrumbView({ items: [{ key: 'a', label: 'Home' }, { key: 'a', label: 'Twice' }, { label: 'Now' }], label: 'You are here' }, r());
     expect(view.attrs['aria-label']).toBe('You are here');
@@ -489,6 +489,13 @@ describe('uiTimelineListView (T-206)', () => {
     expect(texts(view.children[0]!)).toEqual(['09:00', 'Prepared']);
     expect(texts(view.children[1]!)).toEqual(['Drawn', 'Silverpoint on bone']);
     expect(byClass(view, 'sp-ui-timeline-time')).toHaveLength(1);
+  });
+
+  test('REQ-487 · items sharing a key keep the first, skip the later ones and warn SP019', () => {
+    const seen = capture();
+    const view = uiTimelineListView({ items: [{ key: 'a', title: 'Prepared' }, { key: 'a', title: 'Again' }, { title: 'Drawn' }] }, r());
+    expect((view.children as UiElement[]).map((li) => texts(li))).toEqual([['Prepared'], ['Drawn']]);
+    expect(seen.map((s) => s.code)).toEqual(['SP019']);
   });
 
   test('Data Model §2.27 · a second current is drawn done, SP017', () => {

@@ -10,7 +10,7 @@ import { uiFixtureParts } from './ui-matrix';
 /*
  * The palette fixtures (T-217, Data Model §5, DD-043): six presets × three targets (LineChart,
  * SpCard, SpTable) × two modes on silverpoint/cream, every one on every PR. A palette changes only
- * the root's `style` (I-25, REQ-468).
+ * the root's `style` (I-33, REQ-468).
  */
 
 const styleOf = (markup: string) => parseUi(markup).attrs.find(([name]) => name === 'style')?.[1];
@@ -34,7 +34,7 @@ describe('palette fixture matrix (T-217)', () => {
     expect(paletteUiFixture(paletteMatrix().find((f) => f.target === 'table')!).state).toBe('plain');
   });
 
-  test('REQ-468 · I-25 · a UI target differs from the plain fixture only in its root style, which is the preset\'s', () => {
+  test('REQ-468 · I-33 · a UI target differs from the plain fixture only in its root style, which is the preset\'s', () => {
     for (const fixture of paletteMatrix().filter((f) => f.target !== 'line-chart')) {
       const ui = paletteUiFixture(fixture);
       const { palette: _palette, ...plain } = ui;

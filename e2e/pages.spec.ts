@@ -79,7 +79,7 @@ test.describe('the palettes page (T-222)', () => {
       await expect(section.locator('.sp-ui.sp-table')).toHaveCount(1);
       styles.push((await section.locator('.sp-ui.sp-table').getAttribute('style')) ?? '');
     }
-    // Each preset writes its own custom properties on the root (I-25).
+    // Each preset writes its own custom properties on the root (I-33).
     expect(new Set(styles).size).toBe(6);
     expect(problems(messages)).toEqual([]);
   });

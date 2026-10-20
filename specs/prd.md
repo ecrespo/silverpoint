@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.12 |
+| **Version** | 1.13 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-10-10 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.8 |
+| **Last updated** | 2026-10-20 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.9 |
 
 ---
 
@@ -39,13 +39,23 @@ The charts' language also reaches the controls around them. A first family of **
 components** (§6.11) —buttons, inputs, tabs, switches, progress bars— is drawn with the same
 grounds and held to the same rules: hand inking only on ornament, exact hit areas, focus and value
 geometry, parity across the three adapters, server rendering and accessibility by construction. It
-is not a complete design system: overlays and data-heavy components stay out (§5.2).
+is not a complete design system: what stays out is named in §5.2.
 
 The catalog holds **60 charts**: 33 in the first catalog (§6.4.1) and 27 in the second (§6.4.2),
 which adds the families the first lacked —distribution, two-value comparison, ranking, uncertainty,
 intervals, part-to-whole grids, hierarchies, fields and networks— under the same rules. Every
 statistic and layout they derive is computed in the core, deterministically, with no new
 dependency (§6.12).
+
+A second family of **21 components** (§6.13) brings the interface components to 38: twelve composed
+components —table, pagination, breadcrumb, avatar, statistic, descriptions, a vertical timeline,
+collapse, empty and result states, textarea, number input— on the surface and glyph they are built
+from, and seven overlays —modal, drawer, popover, tooltip, select, dropdown menu, toast— on the
+platform's `<dialog>` and Popover API, with their keyboard and placement in the core and no headless
+library. **Palettes** re-colour a chart, a component or a whole section in the inks of a historical
+medium, six presets verified for contrast, and `SpTimeline` draws a Knight Lab TimelineJS timeline in
+the ground, behind an optional peer. They ship in `0.7.0`, under the same parity, pixel, contrast,
+accessibility and budget gates.
 
 ## 2. Context and Problem
 
@@ -139,6 +149,11 @@ with `recharts`.
 | Controls cost little | One component over the shared UI runtime; the runtime; `ui.css` | ≤ 3 KB; ≤ 8 KB; ≤ 24 KB min+gzip | Release 0.3.0 |
 | Cover the distribution, comparison, hierarchy and relational questions | The charts of §6.4.2 published, each with fixtures, parity and docs | 27 of 27 | Release 0.6.0 |
 | Keep the cost of a chart flat | The one-chart budget (45 KB min+gzip); the one-chart build of an existing chart against `0.3.0` | Unchanged; no growth (REQ-444) | Release 0.6.0 |
+| The Reflex 0.7 inventory in the three adapters | Components of §6.13 available in React, Vue and Angular | 21 of 21 catalog rows (+ `SpTimeline`) | Release 0.7.0 |
+| Colour without losing contrast | Presets passing every contrast pair of the gate | 6 of 6 | Release 0.7.0 |
+| Parity extends to composed components and overlays | Differences on their fixtures, three adapters, against canonical renders | 0 | Release 0.7.0 |
+| Accessible overlays | APG keyboard e2e per overlay pattern; axe on the composed page of the four apps | every pattern green; 0 A/AA issues | Release 0.7.0 |
+| No new runtime dependency | Packages' `dependencies` added by this feature | 0 (one optional peer, `@knight-lab/timelinejs`, on the timeline subpath only) | Release 0.7.0 |
 
 ### 4.2 User Objectives
 
@@ -174,6 +189,10 @@ with `recharts`.
 - [ ] Interface components in `@silverpoint/react`, `@silverpoint/vue` and `@silverpoint/angular`,
       with their geometry and keyboard behaviour resolved in `@silverpoint/core` and their frames
       and tones in `@silverpoint/grounds` (§6.11).
+- [ ] Palettes for every chart, UI component and dashboard, with six verified presets (§6.13.1).
+- [ ] Twelve composed components and the surface and glyph they are built from (§6.13.2).
+- [ ] Seven overlays on the platform's `<dialog>` and Popover API (§6.13.3).
+- [ ] `SpTimeline`: Knight Lab TimelineJS drawn in the ground, behind an optional peer (§6.13.4).
 
 ### 5.2 Out of Scope
 
@@ -186,16 +205,21 @@ with `recharts`.
 - Data layer for dashboards: fetching, shared data pools, filters, cross-filtering.
 - Nested dashboards, tabs and pages inside a dashboard.
 - Transition animations between datasets — the `0.x` line animates entry only, and in a way that can be disabled.
-- Overlay components in `0.3.0`: Select, Dropdown, Menu, Modal, Drawer, Popover, Tooltip,
-  Popconfirm, Notification, Message, DatePicker, TimePicker, Cascader, AutoComplete.
-- Data-heavy components: Table, Tree, TreeSelect, Transfer, List virtualisation, Upload, Form
+- Overlays not in the inventory of §6.13.3: Popconfirm, Notification centre, Message, DatePicker,
+  TimePicker, Cascader, AutoComplete, Command palette, multi-select.
+- Data-heavy components: Tree, TreeSelect, Transfer, List virtualisation, Upload, Form
   (validation and layout), Calendar, Carousel, ColorPicker, Tour.
+- Table features beyond sorting: editing, selection, column resize, virtualisation, tree rows,
+  server pagination built in (the consumer pages; `SpPagination` draws the control).
+- A palette per series. Palettes stay monochrome (two inks); tone is density (Art. 6).
+- Bundling TimelineJS. It stays the consumer's install (MPL-2.0, ~100 KB); silverpoint owns the
+  skin and the wrapper.
 - Layout primitives (Grid, Flex, Space, Layout, Splitter): CSS does this; the dashboard is the
   one layout silverpoint owns.
 - An icon set. Components take the consumer's icons; the few glyphs they draw themselves (tick,
   dot, close, status marks) are part of each component.
 - Interaction beyond the readout: brushing, zoom and pan, scrubbing, synchronised cursors, grouped
-  readouts, interactive legends, editable ranges, streaming windows. Proposed as feature-004.
+  readouts, interactive legends, editable ranges, streaming windows. Proposed for a later feature.
 - Data reducers (group-by, mean, sum) inside a chart: the consumer aggregates; charts that derive a
   **distribution** (§6.12) are the one exception, because the distribution is the mark.
 - Force simulation as a live, animated process: `NetworkChart` lays out once, deterministically.
@@ -210,14 +234,11 @@ with `recharts`.
   (`{ y: 'shared' }`), computed in the core; it needs a common domain prop on the cartesian
   charts first.
 - Exporting a whole dashboard to PDF or printable SVG.
-- Overlays, on one behaviour decision for the three adapters: either core-owned machines (as in
-  `0.3.0`) or a per-framework headless library (React Aria, Reka UI, Angular Aria) with parity
-  checked on the library-owned markup only.
-- Table on the dashboard's model: a data-only column layout resolved in the core.
 - Variants of the existing charts surfaced by the second catalog's survey —N series, stacked
   areas, labels and annotations, polar variants, derived overlays, a secondary axis— as deltas
   014..019 (`changes/feature-003-chart-catalog-expansion/research.md` §4).
 - Small multiples with shared scales, once the shared-scale model above exists.
+- A multi-select and a combobox with free text, on the listbox engine of the overlays (DD-039).
 
 ## 6. Functional Requirements
 
@@ -270,6 +291,10 @@ citing it (Constitution, Art. 9). Retired identifiers are not reused.
 | REQ-045 | unwanted | IF an unregistered ground is requested, THEN THE SYSTEM SHALL use `silverpoint`, warn in development and continue. | MUST |
 | REQ-046 | ubiquitous | The `silverpoint` ground SHALL offer at least four historical prepared substrates: cream, grey-green, pale blue and ochre. | MUST |
 | REQ-047 | optional | WHERE the consumer uses Tailwind, THE SYSTEM MAY offer an optional preset in a separate package that maps the `--sp-` variables to theme tokens, without the core depending on it. The preset is `@silverpoint/tailwind`. | COULD |
+
+**Palettes** (§6.13.1) re-colour a ground through the same `--sp-` properties, per element, dashboard
+or provider, without re-rendering (REQ-041, REQ-042) and without leaving the contrast the grounds
+guarantee (REQ-126).
 
 ### 6.4 Chart catalog
 
@@ -621,6 +646,12 @@ Requirements that bind the charts of §6.4.2 and any later chart that derives wh
 | REQ-444 | ubiquitous | Every new chart SHALL be importable by its own subpath, and the statistics and layout module SHALL tree-shake: the one-chart build of an existing chart SHALL not grow (REQ-107, REQ-164 extended). | MUST |
 | REQ-445 | ubiquitous | Geometry SHALL be computed within: 2 ms for 100 points (unchanged); 4 ms for a statistic over 1 000 observations; 8 ms for a 60 × 60 field; 16 ms for a 150-node network layout; on the reference hardware, as CI benchmarks. | MUST |
 
+*Amended in implementation (feature-004):* REQ-444's no-growth gate measures each existing
+one-chart build minified against a recorded baseline, within an allowance (0.25 KB through `0.6.0`).
+For `0.7.0` the baseline is `tools/bundle-budget/one-chart-0.6.0.json` (all 244 one-chart entries,
+measured on a v0.6.0 worktree) and the allowance 2 KB, which holds the palette on the chart path
+(REQ-519; user decision 2026-10-19); from `0.7.0` on it is 0.25 KB again.
+
 #### Grounds, demos, quality and docs
 
 | ID | Pattern | Criterion | Priority |
@@ -631,6 +662,193 @@ Requirements that bind the charts of §6.4.2 and any later chart that derives wh
 | REQ-449 | ubiquitous | The documentation site SHALL show every new chart in the gallery with its demo, a props reference generated from the types, and a statement of the method behind each derived value (REQ-099 extended). | MUST |
 
 **Count:** §6.4.2 and §6.12 hold 48 requirements (40 MUST, 6 SHOULD, 2 COULD). With the rest of §6 the PRD has 213 requirements (194 MUST).
+
+### 6.13 Palettes, composed components, overlays and the timeline
+
+`reflex-silverpoint-react` 0.7 grew, on top of silverpoint `0.6.0`, the pieces a product needs around
+its charts and controls, in Reflex only and outside the parity contract. This section makes them
+silverpoint's, in the three adapters, under one markup contract computed by `@silverpoint/core` and
+held to the gates of §6.11. The overlays use the platform —`<dialog>` and the Popover API— with their
+keyboard and placement in the core, so no adapter depends on a headless library (user decision
+2026-10-18). Released in `0.7.0`. Identifiers REQ-460..REQ-523 are new, with 469 and 504..509 left
+free; none is reused.
+
+#### 6.13.1 Palettes
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-460 | ubiquitous | THE SYSTEM SHALL define a palette as up to nine optional colours —`substrate`, `ink`, `inkSecondary`, `heighten`, `rule`, `grid`, `text`, `textMuted`, `focus`— each setting one `--sp-` custom property (Data Model §2.26); an unset field SHALL keep the ground's own value. | MUST |
+| REQ-461 | optional | WHERE a chart, a UI component, a composed component, an overlay, a dashboard or a `SpTimeline` sets `palette`, THE SYSTEM SHALL write the palette's declarations on that element's root as an inline `style` computed by `@silverpoint/core`, in the fixed order of REQ-460, so that it re-colours without re-rendering the drawing (REQ-041, REQ-042). | MUST |
+| REQ-462 | optional | WHERE a provider (`SilverpointProvider`, `provideSilverpoint`) or a dashboard sets `palette`, THE SYSTEM SHALL merge palettes field by field with the precedence element → dashboard → provider, a nested provider scoping a section. | MUST |
+| REQ-463 | ubiquitous | THE SYSTEM SHALL ship six presets —`silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`— as frozen data on `@silverpoint/core/palettes`, importable one by one so that an application ships only the presets it names. | MUST |
+| REQ-464 | ubiquitous | Every preset SHALL pass every contrast pair of the gate (Data Model §3.8 and §3.9) against its own substrate; CI SHALL verify it as REQ-127 does. | MUST |
+| REQ-465 | ubiquitous | THE SYSTEM SHALL expose `contrastRatio(a, b)` and `checkPalette(palette, substrate?)`, which measures every hex field of a palette against its thresholds and returns one finding per failing pair (empty when it passes). | MUST |
+| REQ-466 | unwanted | IF a palette given to any element has a hex field below its contrast threshold, THEN THE SYSTEM SHALL render it as given and warn `SP023` in development, once per palette. | MUST |
+| REQ-467 | unwanted | IF a palette has a field outside REQ-460, or a value that is not a CSS colour (by allowlist: a hex, a keyword, or a colour function over numbers, idents and custom properties; so no `;`, `{`, `}`, `<`, quotes, escapes, `url(` or `image-set(`), THEN THE SYSTEM SHALL drop that field and warn `SP024` in development. | MUST |
+| REQ-468 | ubiquitous | A palette SHALL NOT change any geometry, any element or any attribute other than the root's `style`; `precision` mode and REQ-123 SHALL apply over any palette. | MUST |
+
+*Amended in implementation:* (1) the palette API —`resolvePalette`,
+`paletteStyle`, `nestProvider`, `checkPalette`, `contrastRatio` and the presets— lives on
+`@silverpoint/core/palettes`, and the main entry keeps only the `Palette` and `PaletteFinding` types:
+on the main entry it pushed `@silverpoint/core` past its 45 kB budget (REQ-164); (2) `SP023` measures
+a palette against its own `substrate`, else cream, since the core does not know the ground's
+substrate colour when it resolves a palette; (3) `SP024` is a development warning, but the field is
+dropped in every build, and the allowlist of REQ-467 is applied again by `paletteStyle`; (4) nested
+providers inherit field by field, and a dashboard's root carries its own palette only; (5) a chart's
+palette is on the adapter's `.sp-root` frame, and the core's `toSVGString` writes it on the `<svg>`;
+(6) the consumer's own `style` is appended after the palette's, so the consumer wins.
+
+#### 6.13.2 Composed components
+
+| Group | Components |
+|---|---|
+| Building blocks | Surface, Glyph |
+| Data display | Table, Statistic, Descriptions, TimelineList, Avatar (+ AvatarGroup), Empty, Result |
+| Navigation | Pagination, Breadcrumb |
+| Disclosure | Collapse (+ CollapseItem) |
+| Data entry | Textarea, InputNumber |
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-470 | ubiquitous | THE SYSTEM SHALL provide the components of the table above in each adapter as `Sp<Name>`, one name in the three adapters, each importable by its own `ui/<kebab-case-name>` subpath (REQ-300 extended). | MUST |
+| REQ-471 | ubiquitous | Each component SHALL be a view tree computed by `@silverpoint/core/ui`; every computation —sort order, page window, number clamping and rounding, initials— SHALL be a pure core function, and the adapters SHALL only bind values, events and slots (REQ-302 extended). | MUST |
+| REQ-472 | ubiquitous | `SpSurface` SHALL render the root contract of the UI components (`.sp-ui`, ground, substrate, mode, size, frame variant) on any element the consumer names, with an optional frame of any kind and an optional tone; `SpGlyph` SHALL render any glyph of `UI_GLYPHS`, which gains `plus`, `chevronDown`, `chevronRight`, `chevronLeft`, `arrowUp`, `arrowDown`, `sortUp`, `sortDown`, `sort` and `ellipsis`. | MUST |
+| REQ-473 | ubiquitous | `SpTable` SHALL render a native `<table>` with `<caption>`, a header row of `<th scope="col">` and one row per datum, on a card frame; numbers SHALL use tabular figures and columns SHALL align `start`, `center` or `end`. | MUST |
+| REQ-474 | event | WHEN the consumer activates a sortable column header, THE SYSTEM SHALL emit the column key; WHERE `sortKey` and `sortOrder` are set, THE SYSTEM SHALL set `aria-sort` on that header and draw its sort glyph, and `uiSortRows` SHALL order rows stably with `null` and missing values last. | MUST |
+| REQ-475 | optional | WHERE a table sets `striped` or `hoverable`, THE SYSTEM SHALL tone the even rows or the row under the pointer with the ground's level-1 tone, and SHALL NOT use a gradient, a colour mix or opacity (Art. 6). | MUST |
+| REQ-476 | ubiquitous | `SpPagination` SHALL render a `<nav>` landmark holding previous, next, the first, the last and a window of pages around the current one computed by `uiPageWindow`; the current page SHALL carry `aria-current="page"` and be heightened (REQ-309). | MUST |
+| REQ-477 | ubiquitous | `SpBreadcrumb` SHALL render a `<nav>` landmark with an ordered list of links whose last item, or any item without `href`, is the current page (`aria-current="page"`). | MUST |
+| REQ-478 | ubiquitous | `SpAvatar` SHALL render an image with its `alt`, or the initials `uiInitials(name)` with `role="img"` and the name as accessible name; `SpAvatarGroup` SHALL be a `role="group"`. | MUST |
+| REQ-479 | ubiquitous | `SpStatistic` SHALL render a title, a value with tabular figures, optional prefix and suffix and an optional trend whose direction is carried by an exact arrow glyph and by the delta text, never by tone alone (REQ-310). | MUST |
+| REQ-480 | ubiquitous | `SpDescriptions` SHALL render label–value pairs as a `<dl>` in `columns` columns, one column under 520 px of container width. | MUST |
+| REQ-481 | ubiquitous | `SpTimelineList` SHALL render an ordered list of events with time, title and description; each status SHALL be carried by a mark shape —`done` toned, `current` heightened (at most one, `aria-current="step"`), `pending` empty with a dashed connector, `error` a cross glyph— and by the item's text. | MUST |
+| REQ-482 | ubiquitous | `SpCollapse` SHALL render each `SpCollapseItem` as a native `<details>`/`<summary>`; WHERE `accordion` is set, THE SYSTEM SHALL make the items exclusive with the native `name` attribute; a disabled item SHALL not toggle and SHALL carry `aria-disabled`. | MUST |
+| REQ-483 | ubiquitous | `SpEmpty` SHALL render a toned tray and a description; `SpResult` SHALL render a round frame with the status glyph (tick, info, warning, cross), a heading and a subtitle, with `role="status"` for `success` and `info` and `role="alert"` for `warning` and `error`. | MUST |
+| REQ-484 | ubiquitous | `SpTextarea` SHALL be a native `<textarea>` on the `SpInput` contract —frame, `message` tied by `aria-describedby`, `invalid` with `aria-invalid` and the warning glyph (REQ-334)— with `rows`, `maxLength` and an optional character counter. | MUST |
+| REQ-485 | ubiquitous | `SpInputNumber` SHALL be a native `<input type="number">` between exact − and + stepper buttons; `uiNumberValue` SHALL clamp the value to `min`/`max` and round it to `precision`, the steppers SHALL be disabled at their bound, and an emptied field SHALL report `null`. | MUST |
+| REQ-486 | unwanted | IF an `SpInputNumber` value or an `SpPagination` `current` falls outside its range, THEN THE SYSTEM SHALL correct it in the core, render the corrected value and warn `SP017` in development (REQ-324 extended). | MUST |
+| REQ-487 | unwanted | IF the columns of an `SpTable` or the items of an `SpBreadcrumb`, `SpTimelineList`, `SpSelect` or `SpDropdownMenu` share a key, THEN THE SYSTEM SHALL keep the first, skip the later ones and warn `SP019` (REQ-325 extended). | MUST |
+| REQ-488 | ubiquitous | `SpTextarea`, `SpInputNumber` and `SpSelect` SHALL support controlled and uncontrolled use in each framework's idiom and, in Angular, implement `ControlValueAccessor` (REQ-322, REQ-323 extended). | MUST |
+| REQ-489 | ubiquitous | The display components —Surface, Glyph, Table without sorting, Breadcrumb, Avatar, AvatarGroup, Statistic, Descriptions, TimelineList, Empty, Result— SHALL render in React Server Components from `@silverpoint/react/server/ui/<name>` (REQ-104 extended). | MUST |
+
+*Amended in implementation:* (1) REQ-489 no longer lists Collapse: the
+navigation and entry components —Pagination, Collapse, Textarea, InputNumber— are client components
+with no `server/ui/*` entry, as `0.3.0`'s Input is, because each needs a handler (a disabled
+`SpCollapseItem` cannot be held shut without one); (2) the table draws its rows as given: the consumer
+sorts them with `uiSortRows` and pages them with `SpPagination` (REQ-474, DD-040), and a cell holds its
+text on a plate of the substrate, so a toned row keeps its text's contrast; (3) the steppers of
+`SpInputNumber` are `tabindex="-1"`, the arrow keys on the input stepping as in APG's spinbutton, and
+it reports a typed value on commit (blur or Enter; `change` in Vue and Angular), clamped by
+`uiNumberValue`, `null` when emptied; (4) `SpSurface`'s element name must be a lowercase ident other
+than `script`, `style`, `iframe`, `object`, `embed`, `template` or `noscript`, and a table column's
+`width` a plain length, each else dropped with `SP017`; (5) optional keys (Breadcrumb, Descriptions,
+TimelineList) are deduplicated by REQ-487 only when given, and an accordion's group name is
+`${id}--accordion`, `SP017` without an `id` (REQ-329).
+
+#### 6.13.3 Overlays
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-490 | ubiquitous | THE SYSTEM SHALL provide `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast` and `SpToaster` in each adapter, each on its own `ui/<name>` subpath, with no runtime dependency (REQ-303 kept). | MUST |
+| REQ-491 | ubiquitous | `SpModal` and `SpDrawer` SHALL be a native `<dialog>` opened with `showModal()`: focus moves into it, is trapped while it is open and returns to the element that had it; the page behind is inert; Escape closes it unless the consumer prevents it. `SpDrawer` with `modal: false` SHALL open with `show()`. | MUST |
+| REQ-492 | ubiquitous | `SpPopover`, the list of `SpSelect` and the menu of `SpDropdownMenu` SHALL use the Popover API (`popover="auto"`): top layer, light dismiss by Escape and by a click outside, focus returned to the trigger; `SpTooltip` SHALL use `popover="manual"`. | MUST |
+| REQ-493 | ubiquitous | THE SYSTEM SHALL place every anchored overlay with `uiPlace`, a pure core function of the anchor box, the overlay size, the viewport, the preferred side and alignment, the offset and the collision padding, flipping to the opposite side and shifting along the side to stay in the viewport; placement SHALL run on open, scroll and resize only, never during a server render. | MUST |
+| REQ-494 | event | WHEN an `SpSelect` has focus, THE SYSTEM SHALL follow the APG select-only combobox pattern —Enter, Space, ArrowDown and ArrowUp open the list; arrows, Home, End and typeahead move the active option, skipping disabled ones; Enter selects; Escape closes without selecting— with every transition resolved by `uiListKey` and `uiTypeahead` in the core. | MUST |
+| REQ-495 | event | WHEN an `SpDropdownMenu` is open, THE SYSTEM SHALL follow the APG menu button pattern —arrows, Home, End and typeahead over enabled items; Enter and Space activate and close; Escape and Tab close— with the transitions of REQ-494's core functions. | MUST |
+| REQ-496 | event | WHEN the element an `SpTooltip` describes gets hover or keyboard focus, THE SYSTEM SHALL show the tooltip after `delay` ms, link it by `aria-describedby`, keep it while the pointer is over the tooltip itself, and hide it on blur, pointer leave or Escape (WCAG 1.4.13). | MUST |
+| REQ-497 | ubiquitous | `SpToaster` SHALL be a labelled region holding its toasts; an `SpToast` SHALL be announced politely (`role="status"`) for `info` and `success` and assertively (`role="alert"`) for `warning` and `error`, carry its kind by glyph and text, close after `duration` ms unless the pointer or focus is in it, and report the close through its open-change event. | MUST |
+| REQ-498 | ubiquitous | In every list overlay the active option or item SHALL be heightened, at most one per instance (REQ-309 extended to the active item of an open list); the chosen option of an `SpSelect` SHALL also carry the exact tick glyph and `aria-selected="true"`. | MUST |
+| REQ-499 | ubiquitous | The backdrop of a modal overlay SHALL be the tone of the ground's `ui.backdrop` level (2 by default) over a transparent background, and the opaque substrate under a `weight` ground or in `precision`; it SHALL NOT use opacity (Art. 6). | MUST |
+| REQ-500 | ubiquitous | Every overlay SHALL support controlled (`open` + open-change event) and uncontrolled use with a trigger slot; any element may be the trigger, and the overlay SHALL set `aria-haspopup`, `aria-expanded` and `aria-controls` on it as its APG pattern requires. | MUST |
+| REQ-501 | unwanted | IF an `SpModal`, `SpDrawer` or `SpPopover` has neither a `title` nor a `label`, THEN THE SYSTEM SHALL warn `SP018` in development (REQ-319 extended). | MUST |
+| REQ-502 | ubiquitous | An overlay rendered on the server SHALL emit its closed markup, and its open markup when `open` (or `defaultOpen`) is set, so that the tree gate compares it; the adapter SHALL call `showModal()` or `showPopover()` after hydration, never before. | MUST |
+| REQ-503 | event | WHEN the environment declares `prefers-reduced-motion: reduce`, overlays SHALL appear and disappear without transition (REQ-320 extended). | MUST |
+
+*Amended in implementation:* (1) REQ-499: the `ui.backdrop` level
+is that of the **hatched** backdrop; where the backdrop is not hatched —a `weight` ground,
+`precision`— it is the opaque substrate whatever the level, and forced colours paint `Canvas`;
+(2) REQ-491's trap is the native modal `<dialog>`'s: Tab cycles through the dialog and the browser's
+own chrome, never the inert page behind; (3) the overlays are client components only in React, as the
+entry components are; an overlay hangs from the element just before it (React, Vue) or from
+`spTrigger` (Angular), so no ref is merged into the consumer's trigger, and the platform calls of
+REQ-502 go through the core's `uiOverlaySync`, which leaves a popover in flow where the Popover API is
+absent; (4) placement (REQ-493) also re-runs when the trigger or the overlay changes size, so that an
+overlay placed before the web font replaced its fallback is placed again; (5) REQ-497: a paused toast
+restarts its whole `duration` once pointer and focus leave it, since the time left would need a clock
+on the render path (Art. 4), and F8 moves focus to the toaster, which takes `tabindex="-1"` only
+then, never in the server markup.
+
+#### 6.13.4 The Knight Lab timeline
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-510 | ubiquitous | THE SYSTEM SHALL provide `SpTimeline` on a `timeline` subpath of each adapter, rendering a Knight Lab TimelineJS timeline inside an `SpSurface`, with `@knight-lab/timelinejs` declared as an **optional** peer dependency of the adapter packages and imported only by that subpath. | MUST |
+| REQ-511 | ubiquitous | THE SYSTEM SHALL ship the timeline skin as an opt-in stylesheet `@silverpoint/grounds/timeline.css` that replaces TimelineJS's colours, type and rules with the ground's `--sp-` properties, so that substrates, palettes, `cyanotype` and `precision` apply. | MUST |
+| REQ-512 | optional | WHERE `inkedFrames` is true (default) and the mode is `ink`, THE SYSTEM SHALL lay the ground's own frame and tone masks on TimelineJS's markers, eras, menubar and story card, read from hidden probes by a core function; in `precision`, under a `weight` ground or with `inkedFrames: false`, every frame SHALL fall back to an exact rule. | MUST |
+| REQ-513 | ubiquitous | `SpTimeline` SHALL load and construct TimelineJS on the client only, after hydration; its server markup SHALL be the surface, the probes and an empty mount, and only that markup SHALL be under the tree gate (Art. 3 as amended). | MUST |
+| REQ-514 | ubiquitous | `SpTimeline` SHALL forward TimelineJS's events —`change`, `loaded`, `nav_next`, `nav_previous`, `zoom_in`, `zoom_out`, `back_to_start`— in each framework's idiom, and ignore the `font` and `theme` options, which the skin owns. | MUST |
+| REQ-515 | unwanted | IF `@knight-lab/timelinejs` cannot be loaded, THEN `SpTimeline` SHALL keep its surface, render its `fallback` slot (empty by default) and warn `SP025` in development, and SHALL NOT throw. | MUST |
+
+*Amended in implementation:* (1) REQ-515's "cannot be loaded" is a failure at run
+time: a chunk that does not arrive, a blocked request, a module that throws as it is evaluated, or a
+TimelineJS build error. The import is a literal, so that the consumer's bundler splits TimelineJS
+into a chunk of its own; a consumer who imports the `timeline` subpath without installing the peer
+therefore has a build that fails to resolve it, not a page that warns. A consumer who does not import
+that subpath needs nothing (REQ-510). The subpath imports TimelineJS's source module, since the
+package entry of 3.9.13 imports a Less stylesheet that no consumer bundler loads; (2) REQ-512: toned
+eras are not keyed to `ink` mode, and an untoned era is a rule of the ramp's weight, so that a ground
+with no ramp draws the stroke width; (3) TimelineJS 3.9.13 has no destroy method, so its `document`
+keydown and `window` resize listeners outlive the component.
+
+#### 6.13.5 Parity, budgets, integration and documentation
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-516 | event | WHEN a composed-component, overlay, palette or timeline-surface fixture is rendered by any adapter, THE SYSTEM SHALL produce a parsed markup tree identical to the fixture's canonical render (REQ-327 extended). | MUST |
+| REQ-517 | ubiquitous | CI SHALL run the three pixel gates of Art. 3 on every fixture of REQ-516, overlays rendered open. | MUST |
+| REQ-518 | unwanted | IF one component's subpath adds more than 3 KB min+gzip over the shared UI runtime, the overlay runtime (placement, list keys, the adapter's overlay base) adds more than 4 KB over it, `ui.css` exceeds 24 KB, `timeline.css` exceeds 6 KB, or the `SpTimeline` wrapper exceeds 3 KB without TimelineJS, THEN CI SHALL fail (REQ-330 extended). | MUST |
+| REQ-519 | unwanted | IF palette support makes a one-chart build grow by more than 2 KB minified against its `0.6.0` size (`one-chart-0.6.0.json`, the REQ-444 baseline re-measured by user decision 2026-10-18, OQ-C3; the allowance raised to 2 KB by user decision 2026-10-19), THEN CI SHALL fail as REQ-444 does. | MUST |
+| REQ-520 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include a composed page (the 21 catalog rows and their companions), a palettes page (the six presets over a chart, a UI component and a composed one) and a timeline page, verified end to end: no hydration mismatch, no axe A/AA issue, the APG pattern of every overlay, pixel gates green. | MUST |
+| REQ-521 | ubiquitous | The documentation site SHALL document every new component, the palettes and the timeline with a live example and a props reference generated from the types (REQ-332 extended). | MUST |
+| REQ-522 | ubiquitous | Every new element SHALL meet REQ-313 (contrast), REQ-316 (exact focus), REQ-317 (24 × 24 targets), REQ-320 (reduced motion) and REQ-329 (ids from `id`), and every new interactive element SHALL be skipped by its keyboard pattern when disabled (REQ-326). | MUST |
+| REQ-523 | optional | WHERE the document or an ancestor sets `dir="rtl"`, THE SYSTEM SHOULD mirror Pagination, Breadcrumb, the Drawer's `start`/`end` sides, the placement of REQ-493 and the steppers of InputNumber (REQ-321 extended). | SHOULD |
+
+*Amended in implementation:* (1) REQ-519: with the `SP023` check, the provider
+merge and Angular's `palette` input, the growth against `0.6.0` measured up to 1.7 KB (Angular), so
+the allowance is 2 KB (user decision 2026-10-19), held by REQ-444's gate over all 244 one-chart
+entries; (2) REQ-518's increments are written as absolute limits, as REQ-330's are (8 + 3 KB,
+8 + 4 + 3 KB); React and Vue keep the overlay runtime inside each overlay's bundle, so their 4 KB is
+held by the overlay rows, and Angular's overlay base is an entry of its own, `ui/overlay`; (3) the
+fixtures of REQ-516 are 360 nightly and 144 on every PR, plus 36 palette fixtures on every PR (396 /
+180); a palette fixture compares the trees with the `<svg>`'s `style` set aside, then the two styles
+as sorted declarations.
+
+*Amended in implementation:* the pages are `/composed`, `/palettes` and `/timeline` in every
+app, their content in the shared harness (`COMPOSED_PAGE`, `PALETTES_PAGE`, `TIMELINE_PAGE`). The
+composed page puts the 21 rows in the three panels of the UI page (silverpoint ink, silverpoint
+precision, cyanotype), every overlay closed behind its trigger; the palettes page draws each preset
+over a `LineChart`, an `SpCard` holding an `SpProgress`, and an `SpTable`. REQ-520's render and
+hydration are verified by `e2e/pages.spec.ts`; its axe and APG halves by `e2e/composed.spec.ts`.
+
+*Amended in implementation:* the overlays section of each composed panel holds its toasts in an
+`SpToaster` (labelled `Notifications · <panel>`, laid out in place by the page's CSS); on the page
+every item is uncontrolled as a consumer writes it (a pagination's `current` is its `defaultCurrent`,
+a toast's `open` its `defaultOpen`). The APG patterns, REQ-497's pause and F8, REQ-503, REQ-523,
+REQ-316/317 for the new controls and axe on the three pages are verified by `e2e/composed.spec.ts`;
+Firefox and WebKit run in the pinned Playwright image.
+
+*Amended in implementation:* REQ-521's sections are the site's galleries `/ui`, `/composed`
+and `/overlays` (one per catalog family, by group) and the pages `/palettes` and `/timeline`; every
+component's page stays at `/ui/<slug>`, and the nav marks its family. A docs overlay is drawn closed
+behind its trigger, and a docs toast sits in an `SpToaster` of `duration: Infinity`, so a reader is
+never timed (WCAG 2.2.1). The props tables come from the types: `Palette` and `SpTimelineProps` join
+`generated/props.json`. Each adapter README names the 38 UI components and shows the palettes and
+the timeline with its optional peer; since a preset is imported from `@silverpoint/core/palettes`,
+the READMEs ask the application to name `@silverpoint/core` among its own dependencies (a strict
+package manager does not hoist it).
+
+**Count:** §6.13 holds 57 requirements (56 MUST, 1 SHOULD). With the rest of §6 the PRD has 270
+requirements (250 MUST).
 
 ## 7. Non-Functional Requirements
 
@@ -659,6 +877,10 @@ reinterpreted and the original is stated.
 - **Path data weight, second catalog:** the 40 KB budget applies unchanged. The waffle (100 cells),
   the beeswarm (500 points) and the density bins are its stress cases; they fill through the shared
   tile, and a dense cloud's bins of one tone are drawn as one path.
+- **Composed components and overlays:** a composed component renders in < 1 ms for 100 table rows;
+  `uiSortRows` sorts 10,000 rows in < 10 ms; `uiPlace`, `uiListKey` and `uiTypeahead` < 0.05 ms per
+  call. Benchmarks beside the UI ones.
+- **Weight, `0.7.0`:** REQ-518 and REQ-519, measured by size-limit on every PR.
 
 ### Security
 
@@ -676,6 +898,9 @@ reinterpreted and the original is stated.
   `node16`.
 - The CSS mask technique of DD-022 is checked in the pinned Chromium of the pixel gate and, in
   the e2e job, in Firefox and WebKit on the UI page.
+- `<dialog>` with `showModal()`, the Popover API and exclusive `<details name>` are Baseline in the
+  pinned Chromium, Firefox and WebKit of the e2e job; the e2e job checks each.
+- TimelineJS: the optional peer `@knight-lab/timelinejs` `^3.9.13`.
 
 ### Data volume *(in place of "Scalability")*
 
@@ -689,6 +914,8 @@ reinterpreted and the original is stated.
   hierarchy nodes; 150 network nodes or 600 links; 60 × 60 grid cells for fields.
 - Fixtures: the chart matrix grows with the catalog, 60 charts and three state fixtures: 630 on
   every PR and 3 402 nightly (Data Model §5).
+- Fixtures, `0.7.0`: the composed components, overlays and timeline surface add 36 states, 360
+  nightly and 144 on every PR, and the palettes 36 fixtures on every PR (Data Model §5).
 
 ### Observability
 
@@ -795,6 +1022,17 @@ writing a grid around the cards in every app.
   - [ ] `precision` mode changes no encoding vertex (REQ-441, REQ-006).
   - [ ] A server-rendered beeswarm hydrates in Firefox without a mismatch (REQ-435).
 
+### Epic H — The Reflex 0.7 inventory
+
+- **H1.** As Persona 1, I set `palette={sanguine}` on my provider and every chart, control and
+  table of the section turns to red chalk, and CI tells me the palette still passes contrast.
+- **H2.** As Persona 2, I open the same `SpModal` in React, Vue and Angular; the markup is the same,
+  focus is trapped by the browser, and no headless library is in my bundle.
+- **H3.** As Persona 4, I open an `SpSelect` with the keyboard, type "ve" to reach "Verdigris", and
+  my screen reader hears a listbox with the selected option.
+- **H4.** As Persona 3, I tell a story with `SpTimeline` and its markers are drawn with the same hand
+  as the cards around it.
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -830,6 +1068,11 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | The fixture matrix nearly doubles CI time | High | Medium | The user chose the full matrix on every PR (OQ-C4): the PR matrix stays `md` × 2 modes for every chart; if the gate job grows too slow, shard it across runners —never reduce the matrix |
 | Owning tidy tree, squarify, marching squares and Delaunay costs more than importing them | High | Medium | DD-028: published algorithms with hand-computed test cases and property tests; exact predicates with `BigInt` fallback; wave 3 can ship without REQ-424 (COULD) |
 | Many-category charts (sunburst, waffle) fail REQ-124 under a 4-level ramp | Medium | High | REQ-440: identity by label, printed share, legend, position and order, toned with the existing `ringTone` rule; an identity test checks every toned chart for a channel beyond tone (REQ-124) |
+| Twenty-one components × three adapters plus a timeline: larger than Phase 6 | High | High | Phase 8 in three batches (A1 display, A2 entry and navigation, B overlays), each a review point; all ship together in `0.7.0` |
+| Popover API light dismiss and `<dialog>` focus differ across engines | Medium | Medium | The APG e2e runs in Chromium, Firefox and WebKit on every overlay; behaviour the platform does not give is written once in the core |
+| Palette support grows the one-chart bundle past REQ-444 | Medium | Medium | The presets and the palette API live on their own subpath; measured in step 8a before any adapter work. *Amended in implementation:* it did; the gate was re-baselined to `0.6.0` with a 2 KB allowance (REQ-519, user decisions 2026-10-18 and 2026-10-19) |
+| TimelineJS (MPL-2.0) changes its DOM between versions | Medium | Low | Optional peer pinned to `^3.9.13`; the skin is outside the tree gate; a pixel fixture over a pinned version catches drift |
+| Inline palette styles collide with a consumer's `style` | Low | Low | The core merges the consumer's `style` after the palette's, so the consumer wins |
 
 ## 12. Estimated Timeline
 
@@ -848,6 +1091,7 @@ commitments.
 | Phase 5, delta-012 | 1 week | The `cyanotype` ground (REQ-028), REQ-220 per adapter, Angular CLI SSR (REQ-222), in 0.2.0 |
 | Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
 | Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; the three waves released together as 0.6.0 (user decision 2026-10-10) |
+| Phase 8 — composed components | 3 batches | Palettes, 21 components × 3 adapters and `SpTimeline` (§6.13), their gates, example-app pages and docs; released in 0.7.0 |
 
 ---
 
@@ -855,6 +1099,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.13 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: §6.13 palettes, composed components, overlays and the timeline (REQ-460..REQ-523; 57 requirements: 56 MUST, 1 SHOULD; 213 → 270 in all, 250 MUST); §1, §4.1, §5.1–§5.3, §6.3, §7 additions, Epic H, §11 risks, §12 Phase 8; REQ-444's gate re-baselined to `0.6.0`; what the implementation changed folded as built ("amended in implementation"): REQ-489 without Collapse, REQ-499, REQ-519 at 2 KB |
 | 1.12 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: §6.4 split into §6.4.1 and §6.4.2 (27 charts, REQ-400..REQ-426), §6.12 derived geometry (REQ-430..REQ-450); 48 requirements, 165 → 213 in all; §1, §4.1, §5.1–§5.3, §7 additions, Epic G, §11 risks, §12 Phase 7 |
 | 1.11 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: §6.11 UI components, REQ-300..REQ-334 (35 requirements: 33 MUST, 2 SHOULD; 130 → 165 in all); §4.1 metrics, §5.1–§5.3 scope, §7 additions, Epic F, §11 risks; released in 0.3.0 |
 | 1.10 | 2026-09-26 | Ernesto Crespo | Delta-013: REQ-047 names `@silverpoint/tailwind`; REQ-160 lists it (optional) |
@@ -907,4 +1152,17 @@ commitments.
   and the no-hatch-alone rule to derived values, trees and many categories.
 - **Art. 6 / Art. 7** — REQ-442, REQ-447 and REQ-450: one heighten, tone by the ground's mechanism,
   the existing grammar. **Art. 8** — no new dependency (the core owns its algorithms); REQ-444.
+- **Art. 1** — composed components draw values (sort marks, steppers, counters, trend arrows) with
+  exact glyphs; frames and tones are ornament (REQ-472..REQ-485).
+- **Art. 2** — sorting, page windows, number clamping, placement, list keys and typeahead in the
+  core (REQ-471, REQ-493..REQ-495).
+- **Art. 3** (v1.9) — parity extended (REQ-516, REQ-517); the TimelineJS DOM is third-party markup,
+  outside the gate (REQ-513).
+- **Art. 4** — no timers or measurement on the render path; placement and toast timers run in the
+  interaction path (REQ-493, REQ-497, REQ-502).
+- **Art. 5** — native `<dialog>`, Popover API, APG patterns, exact focus, `precision` (REQ-491..REQ-498).
+- **Art. 6** (v1.9) — striping, backdrop and list highlight by the ramp and by heightening, never
+  opacity (REQ-475, REQ-498, REQ-499).
+- **Art. 7** — palettes are data; a preset needs no component code (REQ-460, REQ-463).
+- **Art. 8** — no new dependency; one optional peer on one subpath; budgets (REQ-510, REQ-518, REQ-519).
 - **Requested exception:** none.

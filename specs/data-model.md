@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.7 |
-| **Date** | 2026-10-10 |
+| **Version** | 1.8 |
+| **Date** | 2026-10-20 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.9 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.10 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.10 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -25,7 +25,8 @@
         ┌──────────────────┐
         │  Input contract  │   what the consumer passes in `data`
         │  (§2)            │   12 input shapes for the first 33 charts, §2.15..§2.24 for the
-        │                  │   second 27; §2.13 for the dashboard layout
+        │                  │   second 27; §2.13 for the dashboard layout; §2.14 and §2.27
+        │                  │   for the UI components; §2.26 for a palette
         └────────┬─────────┘
                  │  accessors
                  ▼
@@ -47,7 +48,8 @@ makes it possible to version the fixtures and compare outputs.
 
 Twelve input shapes cover the first catalog's 33 charts, a thirteenth contract (§2.13) describes the
 dashboard layout, and §2.15..§2.24 add the second catalog's shapes (§2.1, §2.2 and §2.7 serve it
-too). The field names are the **defaults**: all of them
+too). §2.14 and §2.27 are the value contracts of the UI components, and §2.26 the palette a
+consumer passes as `palette`. The field names are the **defaults**: all of them
 are redefined with the `*Key` accessors of API Spec §7.
 
 ### 2.1 `CategorySeries` — 14 cartesian charts
@@ -372,6 +374,102 @@ Not input: what a recipe of the second catalog hands the interaction engine (API
   node's links, Up back to it). A chart without it keeps the linear or grid model, so no other
   chart carries the code (REQ-444).
 
+### 2.26 `Palette` — a palette
+
+A palette (feature-004) re-inks a chart, a component, a dashboard or a provider's subtree without a
+ground of its own: every field is optional and sets one custom property on the root.
+
+| Field | Custom property | Threshold against the substrate |
+|---|---|---|
+| `substrate` | `--sp-substrate` | — (the background of every pair) |
+| `ink` | `--sp-ink` | 4.5 |
+| `inkSecondary` | `--sp-ink-secondary` | 4.5 |
+| `heighten` | `--sp-heighten` | exempt (always outlined, §3.3); see §3.9 for its own pairs |
+| `rule` | `--sp-rule` | 3 |
+| `grid` | `--sp-grid` | 3 |
+| `text` | `--sp-text` | 4.5 |
+| `textMuted` | `--sp-text-muted` | 4.5 |
+| `focus` | `--sp-ui-focus-color` | 3 |
+
+The order of this table is the order of every emitted declaration (REQ-461). A value is any CSS
+colour, by allowlist: a hex, a keyword, or a colour function (`rgb`…`oklch`, `color`, `color-mix`,
+`light-dark`, `var`) over numbers, idents and `--custom` names; anything else (quotes, escapes, `;`,
+`{`, `<`, `url(`, `image-set(`) is dropped (`SP024`, REQ-467). `paletteStyle` applies the same test.
+
+*Amended in implementation:* `SP023` measures a palette against its **own** `substrate`,
+else cream `#EDE7DA` — the core does not know the resolved ground's substrate colour when it
+resolves a palette. `SP024`'s warning is development-only; the dropping is not.
+
+**Layers** (REQ-462). `resolvePalette` merges provider → dashboard cell → element, field by field,
+the later layer winning; an `undefined` field is skipped silently (Vue and Angular hand absent
+ones), and a nested provider inherits its parent's palette. The declarations are written first in
+the root's `style`, the component's own after them. *Amended in implementation:* a
+chart's palette is on the adapter's `.sp-root` frame, and on the `<svg>` in the core's
+`toSVGString`.
+
+**The presets** (`@silverpoint/core/palettes`, deep-frozen, I-31):
+
+| Preset | `substrate` | `ink` | `inkSecondary` | `heighten` | `rule` = `grid` | `text` | `textMuted` |
+|---|---|---|---|---|---|---|---|
+| `silverpoint` | `#EDE7DA` | `#5A5E65` | `#685C4D` | `#FFFFFF` | `#737A82` | `#3F4348` | `#5A5E65` |
+| `sanguine` | `#F2E8DC` | `#8A3A24` | `#6A4A3A` | `#FFFFFF` | `#9A6450` | `#4A2216` | `#7A3E2C` |
+| `sepia` | `#F0E6D2` | `#6B4C2C` | `#5A5148` | `#FFFFFF` | `#8A6E52` | `#3B2A18` | `#6B4C2C` |
+| `ironGall` | `#EEEAE0` | `#3C4858` | `#6A4E36` | `#FFFFFF` | `#6C7584` | `#232B36` | `#4A5566` |
+| `verdigris` | `#E7EDE6` | `#2C6355` | `#65563F` | `#FFFFFF` | `#5C7B71` | `#1F3D36` | `#3E6A5E` |
+| `indigo` | `#E9EAF1` | `#3A4884` | `#675641` | `#FFFFFF` | `#68709A` | `#232C52` | `#4A5590` |
+
+Values are Reflex 0.7's, unchanged; their contrast is in feature-004's `research.md` §5 and is
+re-measured by the gate (REQ-464, §3.9). `focus` is unset in every preset (the ground's default is
+`ink`). *Amended in implementation (budget):* the presets and the palette functions live on
+the subpath `@silverpoint/core/palettes` (only the types stay on the main entry, which keeps the
+core's full bundle under 45 kB), and `PALETTE_NAMES` is written out so an unused preset
+tree-shakes (REQ-519).
+
+### 2.27 Value contracts of the composed components
+
+| Component | Value | Domain | Invalid value |
+|---|---|---|---|
+| Table `data` | rows (`Datum[]`) | any; a missing cell renders empty | — |
+| Table `columns[].key` | non-empty string | unique | duplicate → later skipped, `SP019` |
+| Table `sortKey` | a column key | a sortable column | unknown → no column sorted, silent |
+| Pagination `current` | integer | `1..count`, `count = max(1, ceil(total / pageSize))` | → clamped, `SP017` |
+| Pagination `total`, `pageSize` | integers | `total ≥ 0`, `pageSize ≥ 1` | → `0`, `10`, `SP017` |
+| InputNumber | `number \| null` | `[min, max]`, `precision` decimals | → clamped and rounded, `SP017`; `null` is valid (empty field) |
+| InputNumber `min`/`max`/`step` | finite, `min ≤ max`, `step > 0` | — | → unset bounds, step `1`, `SP017` |
+| Descriptions `columns` | integer | `1..6` | → clamped, `SP017` |
+| Textarea | `string` | `≤ maxLength` when set (the native attribute enforces it) | — |
+| Select | a key of `items` | existing, enabled, or `null` | unknown → `null`, silent (as RadioGroup, A-06) |
+| TimelineList `status` | `done \| current \| pending \| error` | at most one `current` | a second `current` renders as `done`, `SP017` |
+| Overlay `open` | `boolean` | — | non-boolean → `Boolean(v)` |
+| Toast `duration` | ms | `≥ 1000`, or `Infinity` (no auto close) | → `1000`, `SP017` |
+
+**Sort order** (`uiSortRows`): rows whose value is `null` or missing go last, in input order;
+numbers compare numerically and before strings; strings compare by code point after
+`toLowerCase()` (no locale, so the order is the same on every server); ties keep input order.
+`desc` reverses the present rows only.
+
+**Page window** (`uiPageWindow(count, current, siblings)`): `1`; `start-gap` when
+`current − siblings > 2`; the pages from `max(2, current − siblings)` to
+`min(count − 1, current + siblings)`; `end-gap` when that end is `< count − 1`; `count` when
+`count > 1`. Reflex 0.7's algorithm, unchanged.
+
+*Amended in implementation* (and after the commit security review of 2026-10-19):
+
+- The table draws its rows **as given**: the consumer sorts, with `uiSortRows`, so paging works
+  over the sorted rows (DD-040); `sortKey` only marks the sorted column.
+- A Table column's `width` is a plain length (`px`, `%`, `em`, `rem`, `ch`, `vw`); `SpSurface`'s
+  `as` and `name` are lowercase idents (`script`, `style`, `iframe`, `object`, `embed`,
+  `template`, `noscript` refused). Each is otherwise dropped with `SP017`.
+- `uiNumberValue` also returns `range`, the range as drawn, for the `min`/`max`/`step` attributes.
+- Optional keys (Breadcrumb, Descriptions, TimelineList) are deduplicated only when given.
+- An accordion Collapse is named `${id}--accordion` by `uiCollapseGroup`; without an `id`, `SP017`.
+- A link's `href` (SpButton, SpBreadcrumb) keeps only relative URLs and `http`, `https`, `mailto`,
+  `tel`, read as a browser reads it; any other scheme is dropped with `SP017` (`safeHref`).
+  `headingLevel` (SpCard, SpDescriptions, SpResult) is held to `2..6`, else `h3` with `SP017`: a
+  tag is never built from a value.
+- A paused toast restarts its whole `duration` once pointer and focus leave it: the time left would
+  need a clock on the render path (Art. 4).
+
 ## 3. The `silverpoint` ground
 
 ### 3.1 Prepared substrates
@@ -528,6 +626,10 @@ readonly ui?: Readonly<{
     /** The box fill of an Alert of kind `error` (C-3); the other kinds take no tone. */
     alertError: 1 | 2 | 3 | 4;
   }>;
+  /** Level of the hatched backdrop behind a modal overlay (feature-004); optional, default 2. */
+  backdrop?: 1 | 2 | 3 | 4;
+  /** Level of the table's striped and hovered rows (feature-004); optional, default 1. */
+  rowTone?: 1 | 2 | 3 | 4;
 }>;
 ```
 
@@ -539,6 +641,19 @@ readonly ui?: Readonly<{
 | `radius` | 2 (= `--sp-radius`) | 2 | 2 |
 | `focusWidth` | 2 | 2 | 2 |
 | `tone` | selected 3, primary 2, danger 4, disabled 1, alertError 1 | same (as weights) | same |
+| `backdrop` | not declared (2) | not declared (2) | 2 |
+| `rowTone` | not declared (1) | not declared (1) | 1 |
+
+*Amended after review (2026-10-19, user decision):* `backdrop` and `rowTone` are optional in
+`UiTokens`, and `silverpoint` and `cyanotype` take 2 and 1 as the **defaults** of
+`resolveUiTokens` (`UI_TOKEN_DEFAULTS`), without declaring them: a ground written before
+feature-004 needs no change (REQ-044, REQ-312). A ground declares `backdrop` or `rowTone` only to
+differ from 2 and 1; `resolveUiTokens` rounds them and holds them to `1..4`.
+
+*Amended in implementation:* `backdrop` is the level of the **hatched** backdrop (the
+level-2 default of REQ-499); where the backdrop is not hatched —a `weight` ground, `precision`— it is
+the opaque substrate, whatever the level. A table's cell holds its text on a `.sp-ui-plate`, so a
+toned row's text keeps the contrast `ui.row-tone-text` measures.
 
 **Contrast pairs added to the gate** (REQ-313), on every substrate unless stated; this list is
 normative and `tools/contrast-gate` holds it as `UI_CONTRAST_PAIRS`:
@@ -553,11 +668,43 @@ normative and `tools/contrast-gate` holds it as `UI_CONTRAST_PAIRS`:
 | `ui.heighten-outline` | `primary` | `heighten` | 3 (as §3.3) |
 | `ui.heighten-text` | `text` | `heighten` | 4.5 |
 | `ui.disabled-text` | `textMuted` | substrate | 3 (exempt by WCAG 1.4.3; kept legible) |
+| `ui.row-tone-text` | `text` over the `rowTone` tone (on the cell's plate) | substrate | 4.5 |
+| `ui.overlay-text` | `text` in an overlay | substrate | 4.5 |
+| `ui.option-active` | `text` on the heightened option | `heighten` | 4.5 |
+| `ui.option-outline` | `primary` (the active option's outline) | `heighten` | 3 |
+| `ui.crumb-separator` | `rule` | substrate | 3 |
 
-Amended in implementation: the token defaults are `UI_TOKEN_DEFAULTS` and a ground's section is completed by `resolveUiTokens` (`@silverpoint/core/ui`); `data-frame` is a slot 0..5 that `ui.css` folds onto the `frameVariants` a ground draws, and `data-tone` a level or a state that it maps to `ui.tone`, so the runtime needs no ground. The gate measured 11 pairs per ground, all passing.
+The last five are feature-004's (REQ-313, REQ-522), on every substrate of every ground.
+
+Amended in implementation: the token defaults are `UI_TOKEN_DEFAULTS` and a ground's section is completed by `resolveUiTokens` (`@silverpoint/core/ui`); `data-frame` is a slot 0..5 that `ui.css` folds onto the `frameVariants` a ground draws, and `data-tone` a level or a state that it maps to `ui.tone`, so the runtime needs no ground. The gate measured 11 pairs per ground, all passing; with feature-004's five, 16 per ground, all passing.
 
 Text over a tone is never measured against the hatch: it stands on a plate of the substrate, as a
 chart label stands on its halo (DD-022).
+
+### 3.9 Palette contrast pairs
+
+`checkPalette` and the contrast gate measure exactly these pairs (`PALETTE_PAIRS`,
+`@silverpoint/core/palettes`):
+
+| Pair | Foreground | Background | Threshold |
+|---|---|---|---|
+| `ink` | `ink` | `substrate` | 4.5 |
+| `ink-secondary` | `inkSecondary` | `substrate` | 4.5 |
+| `text` | `text` | `substrate` | 4.5 |
+| `text-muted` | `textMuted` | `substrate` | 4.5 |
+| `rule` | `rule` | `substrate` | 3 |
+| `grid` | `grid` | `substrate` | 3 |
+| `focus` | `focus` (else `ink`) | `substrate` | 3 |
+| `heighten-outline` | `ink` | `heighten` | 3 |
+| `heighten-text` | `text` | `heighten` | 4.5 |
+
+A pair is skipped when either colour is unset (and unresolvable) or not hex. A palette without
+`substrate` is measured against cream `#EDE7DA` (§2.26).
+
+Amended in implementation: `tools/contrast-gate` audits the six presets × `PALETTE_PAIRS`
+(`auditPalette`, `auditPalettes`, part of `auditBuiltins`) with the gate's own ratio, against each
+preset's substrate: 54 rows, all passing. A failing preset fails CI with `SP012 … (REQ-464)`, and
+the gate agrees with `checkPalette` on altered presets.
 
 ## 4. Demo datasets
 
@@ -631,6 +778,29 @@ All charts render their demo data (REQ-093), so no dashboard fixture carries con
 The UI page composes as the concept drawing does: its Card holds a KPI and a Sparkline chart (C-5).
 The Card fixtures hold no chart: text content only, so a component fixture tests the component and
 the chart keeps its own fixtures and gates.
+
+**Composed components, overlays, palettes and the timeline** (feature-004). `UI_DEMOS` gains one
+entry per new state (§5), plain data, deep-frozen. The composed page composes as the Reflex
+`/components` page does: a table of orders with sorting and pagination, a statistic row,
+descriptions of the selected order, a timeline list of its history, a collapse of FAQs, the empty
+and result states, and one trigger per overlay. The palettes page shows the six presets, each over a
+`LineChart`, an `SpCard` with an `SpProgress`, and an `SpTable`. The timeline page holds a frozen
+`TIMELINE_DEMO` (TimelineJS JSON: the life of a silverpoint drawing, eight events, two eras, no
+external media).
+
+*Amended in implementation:*
+
+- `UI_DEMOS` holds the 35 states of the 21 new catalog rows (80 states in all); the Timeline's
+  `surface` state is its own fixture set, not a catalog row (§5). Overlays are demoed `open`, with
+  `trigger` the text of their trigger button; `glyph--all` lists `UI_GLYPHS`; the sorted table's
+  rows are sorted by `uiSortRows`, as a consumer would (DD-040).
+- `TIMELINE_DEMO` is exported from `@silverpoint/core/ui-demos`, beside `UI_DEMOS`, not from
+  `/timeline`, which would ship demo data to applications (REQ-330). TimelineJS writes `unique_id`
+  into its data, so `timelineMount` builds it on a `structuredClone` of the frozen demo.
+- The pages are `/composed`, `/palettes` and `/timeline` in the four example apps, their content
+  in the shared harness (`COMPOSED_PAGE`, `PALETTES_PAGE`, `TIMELINE_PAGE`). The composed page's
+  overlays are closed behind their triggers with no active item, its items are uncontrolled, and
+  each panel has its own toaster.
 
 
 ## 5. The fixture matrix
@@ -726,7 +896,67 @@ markup does not depend on the container width; the pixel gates use all 90.
 
 **Nightly: 450 state fixtures + 60 size fixtures = 510.** **On every PR: 180** — the 45 states × 2
 modes × `silverpoint/cream` and `cyanotype/prussian`. Harness width 320 px, 640 px for Card and
-Alert. The totals are 3,402 chart + 90 dashboard + 510 component fixtures nightly.
+Alert. With feature-004's fixtures (below), the totals are 3,402 chart + 90 dashboard + 906
+component and palette fixtures nightly.
+
+**Composed, overlay and timeline fixtures** (feature-004). The same axes as feature-002's (five
+ground × substrate, two modes; `md`).
+
+| Component | States | # |
+|---|---|---|
+| Surface | frame-card, tone-2 | 2 |
+| Glyph | all (the 17 glyphs in a row) | 1 |
+| Table | plain, sorted-striped, empty | 3 |
+| Pagination | middle (both gaps), total (first page, `showTotal`) | 2 |
+| Breadcrumb | three | 1 |
+| Avatar | initials, square, group | 3 |
+| Statistic | plain, trend-down | 2 |
+| Descriptions | bordered, plain | 2 |
+| TimelineList | mixed (done, current, pending, error) | 1 |
+| Collapse | one-open, accordion-disabled | 2 |
+| Empty | plain | 1 |
+| Result | success, error | 2 |
+| Textarea | count, invalid | 2 |
+| InputNumber | value, at-min | 2 |
+| Modal | open | 1 |
+| Drawer | end-open | 1 |
+| Popover | open | 1 |
+| Tooltip | open | 1 |
+| Select | placeholder, open-selected | 2 |
+| DropdownMenu | open | 1 |
+| Toast | info, error-action | 2 |
+| Timeline | surface (server markup only) | 1 |
+
+**36 states**: **360 nightly**, **144 on every PR** (`silverpoint/cream` and
+`cyanotype/prussian`). **Palette fixtures:** six presets × three targets (`LineChart`, `SpCard`,
+`SpTable`) × two modes on `silverpoint/cream` = **36, nightly and PR**,
+`palette--<preset>--<target>--<mode>`. The timeline's pixel fixture (one, TimelineJS pinned) is
+nightly only.
+
+*Amended in implementation:*
+
+- The 35 catalog states are the component matrix's: **350** new UI fixtures (**140** on PR), so the
+  matrix holds **860** (**320** on PR) in `fixtures/ui`. The Timeline's 10 `surface` fixtures,
+  `timeline--surface--<ground>--<substrate>--<mode>` (4 on PR), are written beside the matrix
+  (`fixtures/timeline`, by `timeline-canonical`, `tools/visual-gate/timeline-fixtures.ts`; their
+  canonicals in `fixtures/ui`), as the palette fixtures are (`fixtures/palette`, by
+  `palette-canonical`), since `SpTimeline` has no `ui/` subpath; each adapter compares its server
+  markup with them, and `timeline-gate.ts` compares them over the published builds. With the
+  matrix's 350 and 140 they make the 360 and 144 above.
+- Component fixtures: **870 nightly, 324 on PR** (860 + 10, 320 + 4); with the 36 palette
+  fixtures, **906 nightly, 360 on PR**. Totals: 3,402 chart + 90 dashboard + 906 component and
+  palette fixtures nightly; 630 chart + 30 dashboard + 360 component and palette fixtures on PR.
+- A palette fixture is the card's `titled` state, the table's `plain` state and the committed `md`
+  `LineChart` cell, with the preset added; a UI fixture may name a `palette`, resolved through
+  `PALETTES` (an unknown name is an error). The palette gate compares each adapter's tree with the
+  canonical's, the `<svg>`'s `style` set aside (a chart's palette is on the adapter's `.sp-root`,
+  on the `<svg>` in `toSVGString`), then the two styles as sorted declarations (I-33).
+- Harness width 640 px for Card, Alert, Table, Descriptions, TimelineList, Collapse and Result;
+  320 px for the rest (DD-043). The composed demos (Glyph `all`, Avatar `group`, Collapse) are
+  serialised piece by piece; an open overlay is shot as the 800 × 600 viewport, once open, placed
+  and focused.
+- The timeline's nightly pixel fixture is `timeline/timeline--page.png`, one golden for the four
+  example apps.
 
 
 ## 6. Invariants
@@ -765,6 +995,16 @@ Verifiable, and each one with its test.
 | I-28 | No two points of a beeswarm overlap: centre distance ≥ `2 × radius − 0.01` | REQ-405 |
 | I-29 | Every category of a chart is reachable by keyboard and present in the tabular alternative, whether or not it has a direct label | REQ-440 |
 | I-30 | A chart with `rootId` renders identically on the server and the client; no adapter holds root state | REQ-439 |
+| I-31 | The six palette presets are deep-frozen and every one passes every pair of §3.9. | REQ-463, REQ-464 |
+| I-32 | No rule of `ui.css` or `timeline.css` sets `opacity`, `color-mix(… transparent)` or a gradient on a tone, a row, a backdrop or a highlight. | REQ-475, REQ-499 |
+| I-33 | A palette changes only the root's `style`: the tree of a fixture with a palette equals the tree without it except for that attribute (a chart's adapter `.sp-root`, or the `<svg>` of `toSVGString`). | REQ-468 |
+| I-34 | `uiSortRows` is stable and total: for any rows and key, the output is a permutation of the input with nulls last. | REQ-474 |
+| I-35 | `uiPlace` keeps the overlay inside the viewport minus `padding` whenever it fits, and its output has at most 2 decimals. | REQ-493 |
+| I-36 | At most one element per open list overlay is heightened, and it is the `aria-activedescendant` of the Select or the focused item of the Menu. | REQ-498 |
+
+Feature-004's delta numbered I-31..I-36 as I-23..I-28, which feature-003's fold had already taken;
+they are renumbered here, and the feature-004 tests that cite them by the delta's number (palette,
+`ui.css`, `timeline.css`, sort, placement, overlay) read as I-31..I-36.
 
 ---
 
@@ -778,6 +1018,7 @@ Verifiable, and each one with its test.
 | 1.5 | 2026-09-26 | Ernesto Crespo | Delta-012: §3.7 the `cyanotype` ground (one substrate, verified inks, inverted heightening, weight ramp); §5 matrix gains `cyanotype` (1,782 chart fixtures, 330 on PR; 90 dashboard fixtures); I-16 |
 | 1.6 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: component value contracts §2.14, the `ui` tokens and UI contrast pairs §3.8, UI demos in §4, 510 component fixtures in §5, invariants I-17..I-22 |
 | 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
+| 1.8 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: the `Palette` contract and its six presets §2.26; value contracts, sort order and page window of the composed components §2.27; `ui` tokens `backdrop` and `rowTone` (optional, defaults 2 and 1, declared by neither built-in ground) and five UI contrast pairs §3.8; palette contrast pairs §3.9; composed, palettes and timeline demos in §4; 36 states (860 UI matrix fixtures, 320 on PR; 10 timeline surface fixtures, 4 on PR) and 36 palette fixtures in §5 (906 nightly, 360 on PR); invariants I-31..I-36 (I-23..I-28 in the delta). What the implementation changed is folded as built ("amended in implementation") |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |
 
@@ -798,5 +1039,11 @@ Verifiable, and each one with its test.
 - **Art. 3 / Art. 4** (feature-003) — the demos are literals (§4); I-23 and I-27 make order and
   engine irrelevant; the state fixtures join the declared matrix.
 - **Art. 5** (feature-003) — I-29: identity and reachability do not depend on what fits on screen.
+- **Art. 4** (feature-004) — fixtures carry ids; sort (I-34) and placement (I-35) are pure;
+  presets frozen (I-31); a paused toast restarts its duration rather than read a clock.
+- **Art. 5** (feature-004) — the contrast pairs extend to overlays, rows and palettes (§3.8, §3.9).
+- **Art. 6** (feature-004) — I-32 forbids opacity and gradients as tone; the backdrop and the
+  toned rows are the ground's ramp.
+- **Art. 7** (feature-004) — `backdrop` and `rowTone` are ground tokens; presets are data.
 - **Exception requested:** none. The heightening is **not** an exception to Art. 5: it
   complies by outline, not by dispensation.

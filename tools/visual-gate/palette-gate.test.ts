@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { comparePaletteChart } from './palette-gate';
 
 /*
- * The chart side of the palette gate (T-218, I-25): an adapter writes the palette on its `.sp-root`
+ * The chart side of the palette gate (T-218, I-33): an adapter writes the palette on its `.sp-root`
  * frame and the core's `toSVGString` on the `<svg>`. The trees must agree once the `style` is moved,
  * and the declarations must be the same.
  */

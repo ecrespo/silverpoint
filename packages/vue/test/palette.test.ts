@@ -89,7 +89,7 @@ describe('Vue palettes (T-212)', () => {
     expect(colour(host.querySelector('#in'), '--sp-ink')).toBe('#404040');
   });
 
-  test('REQ-468 · I-25 · a palette changes only the root\'s style', async () => {
+  test('REQ-468 · I-33 · a palette changes only the root\'s style', async () => {
     const plain = await ssr(() => h('div', [h(SpLineChart, { id: 'l', width: 320 }), h(SpButton, { id: 'b' }, () => 'Go')]));
     const toned = await ssr(
       () => h('div', [h(SpLineChart, { id: 'l', width: 320, palette: sanguine }), h(SpButton, { id: 'b', palette: sanguine }, () => 'Go')]),

@@ -43,6 +43,21 @@ describe('Angular overlay markup (T-216)', () => {
     expect(compareUi(await ssrHost(fixtureHost(fixture)), canonicalUiMarkup(fixture))).toEqual({ equal: true });
   });
 
+  test('REQ-497 · the server renders and tears down a toaster without touching `document`, which it does not have', async () => {
+    expect(typeof document).toBe('undefined');
+    const errors: string[] = [];
+    const record = (error: unknown) => errors.push(String(error));
+    process.on('uncaughtException', record);
+    try {
+      // A teardown that throws leaves the render pending for good: give it a second, not the suite's timeout.
+      const html = await Promise.race([ssrHost(host('<sp-toaster label="Notifications"></sp-toaster>')), new Promise<string>((resolve) => setTimeout(() => resolve('pending'), 1_000))]);
+      expect(errors).toEqual([]);
+      expect(html).toMatch(/<section[^>]*aria-label="Notifications"/);
+    } finally {
+      process.off('uncaughtException', record);
+    }
+  });
+
   test('REQ-490 · every overlay has its entry point', () => {
     for (const { slug } of UI_COMPONENTS.filter((c) => c.batch === 'B')) expect(existsSync(join(__dirname, `../ui/${slug}/ng-package.json`)), slug).toBe(true);
   });

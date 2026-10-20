@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, approved 2026-10-18 by Ernesto Crespo (drafted the same day) |
+| **Status** | `APPROVED` — gate 2, approved 2026-10-18 by Ernesto Crespo (drafted the same day); **folded into `specs/api-spec.md` (v1.11) on 2026-10-20** (T-225) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.10 → v1.11: §1, §2, §3, §5.1, §6, §7.2, new §7.4, §8.1–8.3, §9, §10.1–10.4, §11, §12 |
 | **SemVer** | `minor` — new subpaths, components, an optional prop on every chart and component, a stylesheet, an optional peer, codes (§13). Ships as `0.7.0` |
 

@@ -1,6 +1,6 @@
 # Constitution — silverpoint
 
-> Version 1.8 · Ratified: 2026-09-12 · Last amended: 2026-10-09
+> Version 1.9 · Ratified: 2026-09-12 · Last amended: 2026-10-18
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
 > `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
 > documentation site.
@@ -13,7 +13,10 @@ one is the first, not the only one.
 
 **What it is not.** It is not a port of Monocharts, nor of TanStack Charts. The first chart
 catalog takes its functional inventory from Monocharts and the second from TanStack Charts'
-catalog, but the visual language, the geometry and the code are original work.
+catalog, but the visual language, the geometry and the code are original work. The palettes,
+composed components, overlays and timeline of `0.7.0` take their inventory from
+`reflex-silverpoint-react` 0.7, this project's own Reflex wrapper, where they were first drawn
+outside the parity contract; here they are rewritten on the core.
 
 ---
 
@@ -57,6 +60,11 @@ charts, and the markup of every interface component; attributes ordered, numbers
 against the canonical serialisation stored with the fixture, not against its siblings, so
 that adding a framework costs one comparison rather than one per pair. CI SHALL verify
 this with zero tolerance.
+
+Where a component hosts a third-party widget behind an optional peer dependency —the TimelineJS
+timeline of `SpTimeline`— the gate covers the markup the library emits around it (its surface,
+probes and mount) and not the widget's own DOM, which the library neither writes nor controls;
+such a component SHALL carry a pixel fixture over a pinned version of the widget.
 
 THE SYSTEM SHALL also pass three pixel comparisons, and CI SHALL block the release if
 any of them is not met:
@@ -110,7 +118,8 @@ the state of the art itself advises against it exactly when precision is needed.
 THE SYSTEM SHALL build tonal value through hatch density and angle, and SHALL NOT use
 flat fill with opacity as a tonal mechanism. White heightening SHALL be reserved for a
 single element per chart, and, in an interface component, for its current item only (the active
-tab, the current step, the selected segment, the thumb), at most one per component instance.
+tab, the current step, the selected segment, the thumb, the current page, the active option or item
+of an open list), at most one per component instance.
 
 *Rationale: it is the real mechanics of engraving and of silverpoint, and it is what
 separates silverpoint from any old monochrome fill.*
@@ -201,6 +210,7 @@ explicitly in its tonal mechanism token.
 | 2026-09-26 | — | Planned grounds (non-normative): `cyanotype` ships in `0.2.0`; statuses name releases, not "v1" | The line stays on `0.x`; the second ground is what proves Art. 7 (delta-012) | Ernesto Crespo |
 | 2026-09-28 | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
 | 2026-10-09 | — | Stack: the geometry engine row points to the TD allowlist instead of naming modules, and records the correctly-rounded-arithmetic rule for derived geometry; the second catalog's inventory source is named | The row was stale since `d3-chord`; feature-003 owns its statistics and layouts and needs the arithmetic rule | Ernesto Crespo |
+| 2026-10-18 | — , 3, 6 | The `0.7.0` inventory source (`reflex-silverpoint-react` 0.7) is named; Art. 3's gate covers the library's markup around a third-party widget behind an optional peer, not the widget's DOM, which carries a pinned pixel fixture instead; Art. 6 names the current page and the active option or item of an open list as a component's current item | feature-004 adds palettes, composed components, overlays and `SpTimeline` (TimelineJS builds its DOM at runtime, outside the parity contract); the highlighted option of a select or menu is the list's current item, and the chosen option (ticked) is not heightened | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

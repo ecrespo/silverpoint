@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3 with the Technical Design delta, approved 2026-10-18 by Ernesto Crespo (drafted the same day) |
+| **Status** | `APPROVED` — gate 3 with the Technical Design delta, approved 2026-10-18 by Ernesto Crespo (drafted the same day); **folded into `specs/data-model.md` (v1.8) on 2026-10-20** (T-225) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.7 → v1.8: new §2.26, §2.27, §3.8, new §3.9, §4, §5, §6 |
 
 ## §2.26 Palettes (new)

@@ -2,14 +2,14 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — drafted 2026-10-18; gates 0..4 approved together on 2026-10-18 by Ernesto Crespo; implementing Phase 8 |
+| **Status** | `APPROVED` — drafted 2026-10-18; gates 0..4 approved together on 2026-10-18 by Ernesto Crespo. Implemented (T-200..T-224) and folded into `specs/` 2026-10-20 (T-225); the `0.7.0` release awaits the user |
 | **Target release** | `0.7.0` (changeset `minor` from 0.6.0). The line stays on `0.x`; `1.0.0` stays parked |
 | **Source** | [`reflex-silverpoint-react` v0.7.0](https://github.com/ecrespo/reflex-silverpoint-react/releases/tag/v0.7.0) (commit `5868f97`) |
 | **Requirements** | REQ-460..REQ-523 (56 MUST, 1 SHOULD) |
 | **Design decisions** | DD-037..DD-043 |
 | **Diagnostics** | `SP023`, `SP024`, `SP025` |
 | **Tasks** | T-200..T-225 (Phase 8, steps 8a..8h) |
-| **Constitution** | Amendment v1.8 → v1.9 approved with gate 1 (2026-10-18); folded at T-225 ([`constitution-amendment.md`](constitution-amendment.md)) |
+| **Constitution** | Amendment v1.8 → v1.9 approved with gate 1 (2026-10-18); folded 2026-10-20 (T-225) ([`constitution-amendment.md`](constitution-amendment.md)) |
 | **Branch** | `feat/silverpoint-0.7` |
 
 The Reflex wrapper's `0.7.0` drew, outside silverpoint's parity contract, the pieces a product needs
