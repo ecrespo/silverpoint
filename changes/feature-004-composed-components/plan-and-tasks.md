@@ -585,6 +585,11 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   `onDestroy` though only the client listens. Fixed test-first (`ui-overlays.test.ts`, RED on the
   error, GREEN with the removal registered inside `afterNextRender`); composed e2e 105/105 in the
   pinned image, the Select test 20/20 repeated, no server error left.
+  PR #4's CI then failed one more of the same kind: the target-size test measured the Angular
+  menu's items right after the click, before the menu opened (0 of 4). Every click that opens an
+  overlay in `composed.spec.ts` is now followed by a wait for it to be visible (target size, and
+  the LTR/RTL placement's menus and drawer) before anything is measured; composed 105/105 and those
+  two tests 80/80 repeated, in the pinned image.
 
 ## Dependency graph
 

@@ -404,6 +404,7 @@ test.describe('the composed rows on the page (T-223)', () => {
     // A menu aligned to its start meets its trigger's left edge.
     const menuTrigger = panel.locator(at('dropdown-menu--open')).locator('.sp-ui-menu-trigger');
     await menuTrigger.click();
+    await expect(panel.locator(`${at('dropdown-menu--open')}--menu`)).toBeVisible();
     const [mt, mp] = [(await menuTrigger.boundingBox())!, (await panel.locator(`${at('dropdown-menu--open')}--menu`).boundingBox())!];
     expect(Math.abs(mp.x - mt.x)).toBeLessThanOrEqual(1);
     await page.keyboard.press('Escape');
@@ -416,11 +417,13 @@ test.describe('the composed rows on the page (T-223)', () => {
     expect(rtl).toEqual({ pages: true, crumbs: true, steppers: true });
     // The end drawer opens against the left edge.
     await panel.getByRole('button', { name: 'Filters', exact: true }).click();
+    await expect(panel.locator(`${at('drawer--end-open')}--dialog`)).toBeVisible();
     expect((await panel.locator(`${at('drawer--end-open')}--dialog`).boundingBox())!.x).toBeLessThanOrEqual(1);
     await page.keyboard.press('Escape');
     // A menu aligned to its start meets its trigger's right edge.
     const trigger = panel.locator(at('dropdown-menu--open')).locator('.sp-ui-menu-trigger');
     await trigger.click();
+    await expect(panel.locator(`${at('dropdown-menu--open')}--menu`)).toBeVisible();
     const [t, p] = [(await trigger.boundingBox())!, (await panel.locator(`${at('dropdown-menu--open')}--menu`).boundingBox())!];
     expect(Math.abs(p.x + p.width - (t.x + t.width))).toBeLessThanOrEqual(1);
   });
@@ -465,18 +468,23 @@ test.describe('the composed rows on the page (T-223)', () => {
       expect(small, selector).toEqual([]);
     }
     await panel.locator(at('select--placeholder')).getByRole('combobox').click();
+    await expect(panel.locator(at('select--placeholder')).locator('.sp-ui-select-content')).toBeVisible();
     for (const { selector, count, small } of await measure(['.sp-ui-option'])) {
       expect(count, selector).toBe(5);
       expect(small, selector).toEqual([]);
     }
     await page.keyboard.press('Escape');
+    await expect(panel.locator(at('select--placeholder')).locator('.sp-ui-select-content')).toBeHidden();
     await panel.locator(at('dropdown-menu--open')).locator('.sp-ui-menu-trigger').click();
+    await expect(panel.locator(`${at('dropdown-menu--open')}--menu`)).toBeVisible();
     for (const { selector, count, small } of await measure(['.sp-ui-menuitem'])) {
       expect(count, selector).toBe(4);
       expect(small, selector).toEqual([]);
     }
     await page.keyboard.press('Escape');
+    await expect(panel.locator(`${at('dropdown-menu--open')}--menu`)).toBeHidden();
     await panel.getByRole('button', { name: 'Edit order', exact: true }).click();
+    await expect(panel.locator('dialog[open]')).toBeVisible();
     for (const { selector, count, small } of await measure(['dialog[open] .sp-ui-icon-button'])) {
       expect(count, selector).toBe(1);
       expect(small, selector).toEqual([]);
