@@ -186,6 +186,14 @@ precision, cyanotype), every overlay closed behind its trigger; the palettes pag
 over a `LineChart`, an `SpCard` holding an `SpProgress`, and an `SpTable`. REQ-520's render and
 hydration are verified by `e2e/pages.spec.ts` (T-222); its axe and APG halves by T-223.
 
+*Amended in implementation (T-223):* the overlays section of each composed panel holds its toasts in an
+`SpToaster` (labelled `Notifications · <panel>`, laid out in place by the page's CSS); on the page
+every item is uncontrolled as a consumer writes it (a pagination's `current` is its `defaultCurrent`,
+a toast's `open` its `defaultOpen`). REQ-491's trap is the native modal `<dialog>`'s: Tab cycles
+through the dialog and the browser's own chrome, never the inert page behind. The APG patterns,
+REQ-497's pause and F8, REQ-503, REQ-523, REQ-316/317 for the new controls and axe on the three pages
+are verified by `e2e/composed.spec.ts`; Firefox and WebKit run in the pinned Playwright image.
+
 **Count:** 57 requirements (56 MUST, 1 SHOULD). The PRD goes from 213 to 270 requirements (250 MUST).
 
 ## 7. Non-functional additions (§7)

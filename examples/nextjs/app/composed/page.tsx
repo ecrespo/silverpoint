@@ -1,4 +1,5 @@
 import { COMPOSED_PAGE } from '@silverpoint/example-harness';
+import { SpToaster } from '@silverpoint/react/ui/toast';
 import { Hydrated } from '../hydrated';
 import { UiComponent } from '../ui-fixture';
 
@@ -17,11 +18,22 @@ export default function ComposedPage() {
                 <section key={section.title} className="sp-ui-page-section" aria-label={section.title}>
                   <h3>{section.title}</h3>
                   <div className="sp-ui-page-items">
-                    {section.items.map((item) => (
-                      <div key={item.id} className="sp-page-item" data-wide={item.width === 640 ? '' : undefined}>
-                        <UiComponent fixture={item} />
-                      </div>
-                    ))}
+                    {section.items
+                      .filter((item) => !section.toaster || item.component !== 'toast')
+                      .map((item) => (
+                        <div key={item.id} className="sp-page-item" data-wide={item.width === 640 ? '' : undefined}>
+                          <UiComponent fixture={item} />
+                        </div>
+                      ))}
+                    {section.toaster ? (
+                      <SpToaster {...section.toaster}>
+                        {section.items
+                          .filter((item) => item.component === 'toast')
+                          .map((item) => (
+                            <UiComponent key={item.id} fixture={item} />
+                          ))}
+                      </SpToaster>
+                    ) : null}
                   </div>
                 </section>
               ))}

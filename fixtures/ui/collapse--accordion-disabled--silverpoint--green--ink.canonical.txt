@@ -17,7 +17,7 @@
     <div class="sp-ui-collapse-body">
       "No. Every line stays, so the drawing is planned before it is drawn."
   <details class="sp-ui sp-collapse-item sp-ground-silverpoint" data-disabled="true" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="md" data-substrate="green" name="collapse--accordion-disabled--accordion">
-    <summary aria-disabled="true" class="sp-ui-collapse-summary">
+    <summary aria-disabled="true" class="sp-ui-collapse-summary" tabindex="-1">
       <span class="sp-ui-label">
         "Where does the tone come from?"
       <svg aria-hidden="true" data-glyph="chevronDown" part="sp-mark" viewBox="0 0 16 16">

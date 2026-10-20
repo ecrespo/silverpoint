@@ -351,9 +351,10 @@ describe('uiToastView, uiToasterView and uiToastDuration (T-207)', () => {
   ] as const)('REQ-497 · a %s toast is announced by %s, its kind carried by the %s glyph', (kind, role, mark) => {
     const view = uiToastView({ id: 'n', kind, title: 'Saved' }, r(), { open: true }, {});
     expect(view.tag).toBe('li');
+    expect(view.attrs.role).toBe('listitem');
     expect(view.attrs).toMatchObject({ id: 'n', class: 'sp-ui sp-toast sp-ground-silverpoint', 'data-kind': kind, 'data-state': 'open' });
-    expect(view.attrs.role).toBeUndefined();
-    expect(one(view, (e) => e.attrs.role !== undefined).attrs).toEqual({ class: 'sp-ui-toast-body', role });
+    // The announcement is the body's: the root is only the list item.
+    expect(one(view, (e) => e.attrs.role !== undefined && e.attrs.role !== 'listitem').attrs).toEqual({ class: 'sp-ui-toast-body', role });
     expect(glyphs(view)).toEqual([mark, 'cross']);
   });
 
@@ -373,7 +374,8 @@ describe('uiToastView, uiToasterView and uiToastDuration (T-207)', () => {
     const view = uiToasterView({}, r());
     expect(view.tag).toBe('section');
     expect(view.attrs).toMatchObject({ class: 'sp-ui sp-toaster sp-ground-silverpoint', 'aria-label': 'Notifications', 'data-position': 'bottom-end' });
-    expect(view.children).toEqual([{ tag: 'ol', attrs: { class: 'sp-ui-toaster-list' }, children: [{ slot: 'content' }] }]);
+    // Explicit list roles: Angular's `<sp-toast>` hosts sit between the list and its items (T-223).
+    expect(view.children).toEqual([{ tag: 'ol', attrs: { class: 'sp-ui-toaster-list', role: 'list' }, children: [{ slot: 'content' }] }]);
     expect(uiToasterView({ position: 'top-start', label: 'Avisos' }, r()).attrs).toMatchObject({ 'data-position': 'top-start', 'aria-label': 'Avisos' });
   });
 

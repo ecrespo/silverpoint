@@ -1,5 +1,5 @@
 import { uiDropdownMenuView, uiMenuItems, type MenuEntry, type SpDropdownMenuProps, type UiElement } from '@silverpoint/core/ui';
-import { computed, defineComponent, onMounted, ref, watch, type PropType } from 'vue';
+import { computed, defineComponent, nextTick, onMounted, ref, watch, type PropType } from 'vue';
 import { COMMON, useUi, withClass } from './base';
 import { useListKeys } from './list';
 import { OPEN, useOpen, useOverlay, useTrigger } from './overlay';
@@ -48,7 +48,9 @@ export const SpDropdownMenu = defineComponent({
       if (!open.current.value || key === null) return;
       for (const item of menu.value?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []) if (item.dataset.key === key) item.focus();
     };
-    watch([open.current, list.activeKey], focusActive, { flush: 'post' });
+    // After the flush that shows the menu: a hidden item takes no focus, and the overlay's own
+    // post-flush effect may run after this one.
+    watch([open.current, list.activeKey], () => void nextTick(focusActive), { flush: 'post' });
     // A menu mounted open focuses its item too.
     onMounted(focusActive);
 

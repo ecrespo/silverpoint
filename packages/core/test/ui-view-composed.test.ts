@@ -537,6 +537,13 @@ describe('uiCollapseView and uiCollapseItemView (T-206)', () => {
     expect(view.attrs['data-disabled']).toBe('true');
     expect((view.children[0] as UiElement).attrs['aria-disabled']).toBe('true');
   });
+
+  test('REQ-522 · REQ-326 · a disabled item\'s summary leaves the Tab order; an enabled one stays in it (T-223)', () => {
+    const disabled = uiCollapseItemView({ title: 'Q', disabled: true }, r(), { open: false }).children[0] as UiElement;
+    expect(disabled.attrs.tabindex).toBe('-1');
+    const enabled = uiCollapseItemView({ title: 'Q' }, r(), { open: false }).children[0] as UiElement;
+    expect(enabled.attrs).not.toHaveProperty('tabindex');
+  });
 });
 
 describe('uiEmptyView and uiResultView (T-206)', () => {

@@ -494,10 +494,34 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   outlive the component. Seen on the golden, left to T-224's review: era titles can overlap the
   axis labels, as TimelineJS lays them out.
 
-**[ ] T-223 · E2E and axe** — REQ-491..REQ-498, REQ-503, REQ-520, REQ-522, REQ-523
+**[x] T-223 · E2E and axe** — REQ-491..REQ-498, REQ-503, REQ-520, REQ-522, REQ-523
 - APG keyboard for Select and Menu; Modal and Drawer focus trap and return; Tooltip 1.4.13; Toast
   F8 and pause; exclusive Collapse; native form submit; reduced motion; RTL; target size; axe.
 - **Done:** e2e green in Chromium, Firefox, WebKit.
+- **Ledger (2026-10-19):** `e2e/composed.spec.ts`, 27 tests per app: Select (APG select-only
+  combobox: arrows, Home/End past the disabled option, typeahead, Escape, Space/Enter/ArrowUp,
+  selected tick, light dismiss), Menu (Space/Enter, arrows past the disabled item, Home/End,
+  typeahead, Escape/Enter/Tab), Modal and Drawer (`:modal`, focus kept off the page behind, Escape
+  and the close button return focus), the end drawer's edge, Popover (top layer, centred below,
+  Escape and a click outside), Tooltip (hover, focus, hoverable, Escape, leave, blur), the toaster
+  (kinds by role, pause by pointer and focus under Playwright's clock, F8 and no server `tabindex`),
+  the exclusive Collapse, Pagination, InputNumber, a native form, reduced motion, RTL, focus rings,
+  target sizes (open lists included), and axe on `/composed` (closed and with each of six overlays
+  open), `/palettes` and `/timeline` (TimelineJS's own DOM excluded, DD-042). Green in the four apps
+  in Chromium; the Firefox and WebKit tests (`composed`, `ui`, `hydration`) green in the pinned
+  Playwright image, as local Playwright has Chromium only. Defects the pass found, each fixed
+  test-first: (1) a disabled `SpCollapseItem` summary took Tab: `tabindex="-1"` (core; 10
+  canonicals); (2) `SpTooltip`'s Escape listened on its trigger only: now on the document (three
+  adapters); (3) Angular's toaster failed axe `list`/`listitem`, its `<sp-toast>` host between `<ol>`
+  and `<li>`: explicit `role="list"`/`role="listitem"` (core; 20 canonicals); (4) Vue's menu focused
+  its item before the post-flush effect showed it (Vue 3.5 triggers the later watcher first), so a
+  keyboard open lost focus: the focus waits a tick. And of the page: its toasts sat in no list and
+  stayed open (controlled), its pagination did not move: a toaster per panel, and every item
+  uncontrolled. Tests: e2e 27 × 4 apps, harness 1 (+2 changed), core 1 (+5 changed), tooltip 3,
+  Vue menu 1. Mutants: 16 run (harness 4, core 3, tooltips 3, Vue menu 1, e2e 5 — the toaster list
+  role against Angular, where it matters), 16 red. *Amended in implementation* (PRD REQ-520 and
+  REQ-491, API delta §4 and §6): the summary's `tabindex`, the explicit list roles, the document
+  Escape, the composed page's toasters and uncontrolled items, and the native dialog's trap.
 
 ### 8h — Documentation and release preparation
 

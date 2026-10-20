@@ -166,6 +166,18 @@ describe('Angular popovers (T-215, T-216)', () => {
     expect(shown($('[role="tooltip"]'))).toBe(true);
   });
 
+  test('REQ-496 · a Tooltip shown by hover hides on Escape anywhere, with focus elsewhere (WCAG 1.4.13, T-223)', async () => {
+    const app = await mount('<sp-tooltip text="Copy the id"><button type="button" spTrigger>Copy</button></sp-tooltip>');
+    vi.useFakeTimers();
+    const tooltip = $('[role="tooltip"]');
+    $('button[spTrigger]').dispatchEvent(new PointerEvent('pointerenter', { bubbles: false }));
+    await tick(app, 300);
+    expect(shown(tooltip)).toBe(true);
+    key(document.body, 'Escape');
+    await tick(app);
+    expect(shown(tooltip)).toBe(false);
+  });
+
   test('REQ-496 · a Tooltip shows after its delay on focus, keeps while the pointer is on it, and hides on Escape or blur', async () => {
     const app = await mount('<sp-tooltip id="t" text="Copy the id" [delay]="200"><button type="button" spTrigger>Copy</button></sp-tooltip>');
     vi.useFakeTimers();

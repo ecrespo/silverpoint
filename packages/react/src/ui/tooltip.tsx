@@ -45,7 +45,8 @@ export function SpTooltip({ trigger, open, defaultOpen, onOpenChange, dashboardC
       [target, 'pointerleave', leave],
       [target, 'focus', show],
       [target, 'blur', hide],
-      [target, 'keydown', escape],
+      // Escape dismisses it wherever focus is, without moving the pointer (WCAG 1.4.13).
+      [target.ownerDocument, 'keydown', escape],
       [tooltip, 'pointerenter', stay],
       [tooltip, 'pointerleave', leave],
     ];

@@ -247,6 +247,18 @@ describe('Vue popovers (T-215, T-216)', () => {
     expect(shown(tooltip)).toBe(false);
   });
 
+  test('REQ-496 · a Tooltip shown by hover hides on Escape anywhere, with focus elsewhere (WCAG 1.4.13, T-223)', async () => {
+    vi.useFakeTimers();
+    const host = mount(() => h(set.SpTooltip!, { text: 'Copy the id' }, { trigger: button('Copy') }));
+    const tooltip = host.querySelector('[role="tooltip"]')!;
+    host.querySelector('button')!.dispatchEvent(new PointerEvent('pointerenter', { bubbles: false }));
+    vi.advanceTimersByTime(300);
+    await nextTick();
+    expect(shown(tooltip)).toBe(true);
+    await key(document.body, 'Escape');
+    expect(shown(tooltip)).toBe(false);
+  });
+
   test('REQ-496 · a Tooltip hides on blur and on the pointer leaving both', async () => {
     vi.useFakeTimers();
     const host = mount(() => h(set.SpTooltip!, { text: 'Copy the id' }, { trigger: button('Copy') }));
@@ -364,6 +376,29 @@ describe('Vue Select and Menu (T-216)', () => {
     expect(selected).toHaveBeenCalledWith('delete');
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
     expect(document.activeElement).toBe(trigger);
+  });
+
+  test('REQ-495 · an item is focused only once its menu is shown: a hidden element takes no focus in a browser (T-223)', async () => {
+    const host = mount(() => h(set.SpDropdownMenu!, { id: 'd', label: 'Actions', items: entries }));
+    const trigger = host.querySelector<HTMLButtonElement>('.sp-ui-menu-trigger')!;
+    const menu = host.querySelector('[role="menu"]')!;
+    const focus = HTMLElement.prototype.focus;
+    const seen: boolean[] = [];
+    HTMLElement.prototype.focus = function (this: HTMLElement, options?: FocusOptions) {
+      if (this.getAttribute('role') === 'menuitem') seen.push(menu.matches(':popover-open'));
+      return focus.call(this, options);
+    };
+    try {
+      for (const name of [' ', 'Enter', 'ArrowDown']) {
+        await key(trigger, name);
+        await nextTick();
+        await key(document.activeElement!, 'Escape');
+      }
+    } finally {
+      HTMLElement.prototype.focus = focus;
+    }
+    expect(seen.length).toBeGreaterThanOrEqual(3);
+    expect(seen.every(Boolean)).toBe(true);
   });
 
   test('REQ-495 · REQ-498 · a menu mounted open focuses its first item, as one opened by a click', async () => {

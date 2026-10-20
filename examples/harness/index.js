@@ -281,6 +281,15 @@ export function uiFixtureParts(fixture) {
   if (page !== undefined) {
     if (props.id !== undefined) props.id = `${page}-${props.id}`;
     if (PAGE_CLOSED.has(fixture.component)) delete props.open;
+    // What stays open starts open, uncontrolled: a toast closes after its duration.
+    if (props.open !== undefined) {
+      props.defaultOpen = props.open;
+      delete props.open;
+    }
+    if (props.current !== undefined) {
+      props.defaultCurrent = props.current;
+      delete props.current;
+    }
     active = undefined;
   }
   return {
@@ -507,6 +516,10 @@ export const COMPOSED_PAGE = Object.freeze({
     ...panel,
     sections: COMPOSED_PAGE_SECTIONS.map(([title, items]) => ({
       title: /** @type {string} */ (title),
+      // The overlays' toasts sit in a toaster, a labelled region (REQ-497), the page lays out in place.
+      ...(title === 'Overlays'
+        ? { toaster: { id: `${panel.key}-toaster`, label: `Notifications · ${panel.title}`, ground: panel.ground, substrate: panel.substrate, mode: panel.mode } }
+        : {}),
       items: /** @type {[string, string][]} */ (items).map(([component, state]) => ({
         id: `${panel.key}-${component}--${state}`,
         component,

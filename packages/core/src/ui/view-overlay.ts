@@ -302,7 +302,8 @@ const TOAST_GLYPHS: Record<AlertKind, 'info' | 'tick' | 'warning' | 'cross'> = {
 export function uiToastView(props: SpToastProps, r: UiResolved, s: { readonly open: boolean }, slots: { readonly action?: boolean }): UiElement {
   const kind = props.kind ?? 'info';
   const urgent = kind === 'warning' || kind === 'error';
-  return el('li', root('toast', props, r, { id: props.id, 'data-kind': kind, 'data-state': state(s.open) }), [
+  // Explicit list roles: in Angular a component host sits between the toaster's list and its toasts.
+  return el('li', root('toast', props, r, { id: props.id, role: 'listitem', 'data-kind': kind, 'data-state': state(s.open) }), [
     frame('card'),
     el('div', { class: 'sp-ui-toast-body', role: urgent ? 'alert' : 'status' }, [
       glyph(TOAST_GLYPHS[kind]),
@@ -321,6 +322,6 @@ export function uiToasterView(props: SpToasterProps, r: UiResolved): UiElement {
   return el(
     'section',
     root('toaster', props, r, { id: props.id, 'aria-label': props.label ?? 'Notifications', 'data-position': props.position ?? 'bottom-end' }),
-    [el('ol', { class: 'sp-ui-toaster-list' }, [slot('content')])],
+    [el('ol', { class: 'sp-ui-toaster-list', role: 'list' }, [slot('content')])],
   );
 }

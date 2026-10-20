@@ -167,7 +167,16 @@ describe('the feature-004 pages (T-222)', () => {
           ids.push(parts.props.id as string);
         }
         if (['modal', 'drawer', 'popover', 'tooltip', 'select', 'dropdown-menu'].includes(item.component)) expect(parts.props, item.component).not.toHaveProperty('open');
-        if (item.component === 'toast') expect(parts.props.open).toBe(true);
+        // A toast is shown, uncontrolled: it closes after its duration (REQ-497, T-223).
+        if (item.component === 'toast') {
+          expect(parts.props).not.toHaveProperty('open');
+          expect(parts.props.defaultOpen).toBe(true);
+        }
+        // A page is uncontrolled: the pagination starts on its demo's page and moves on a click (T-223).
+        if (item.component === 'pagination') {
+          expect(parts.props).not.toHaveProperty('current');
+          expect(parts.props.defaultCurrent).toEqual(expect.any(Number));
+        }
         expect(parts).not.toHaveProperty('active');
       }
     }
@@ -176,6 +185,16 @@ describe('the feature-004 pages (T-222)', () => {
     const { UI_FIXTURES } = await import('../../examples/harness/index.js');
     const modal = UI_FIXTURES.find((f: { id: string }) => f.id === 'modal--open--silverpoint--cream--ink');
     expect(uiFixtureParts(modal).props).toMatchObject({ id: 'modal--open', open: true });
+  });
+
+  test('REQ-497 · REQ-520 · the overlays section holds its toasts in a toaster of the panel’s ground, laid out in place', async () => {
+    const { COMPOSED_PAGE } = await import('../../examples/harness/index.js');
+    for (const panel of COMPOSED_PAGE.panels) {
+      const overlays = panel.sections.at(-1);
+      expect(overlays.toaster).toEqual({ id: `${panel.key}-toaster`, label: `Notifications · ${panel.title}`, ground: panel.ground, substrate: panel.substrate, mode: panel.mode });
+      for (const section of panel.sections.slice(0, -1)) expect(section).not.toHaveProperty('toaster');
+      expect(overlays.items.filter((i: { component: string }) => i.component === 'toast')).toHaveLength(2);
+    }
   });
 
   test('REQ-520 · REQ-468 · the palettes page: the six presets, each over a LineChart, a Card holding a Progress, and a Table', async () => {

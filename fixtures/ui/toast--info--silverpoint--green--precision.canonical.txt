@@ -1,4 +1,4 @@
-<li class="sp-ui sp-toast sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-kind="info" data-mode="precision" data-size="md" data-state="open" data-substrate="green" id="toast--info">
+<li class="sp-ui sp-toast sp-ground-silverpoint" data-frame="2" data-ground="silverpoint" data-kind="info" data-mode="precision" data-size="md" data-state="open" data-substrate="green" id="toast--info" role="listitem">
   <span aria-hidden="true" data-kind="card" part="sp-frame">
   <div class="sp-ui-toast-body" role="status">
     <svg aria-hidden="true" data-glyph="info" part="sp-mark" viewBox="0 0 16 16">

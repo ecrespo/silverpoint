@@ -344,7 +344,8 @@ export function uiCollapseItemView(props: SpCollapseItemProps, r: UiResolved, st
     'details',
     root('collapse-item', props, r, { id: props.id, name: state.group, open: state.open, 'data-disabled': props.disabled ? 'true' : undefined }),
     [
-      el('summary', { class: 'sp-ui-collapse-summary', 'aria-disabled': props.disabled ? 'true' : undefined }, [
+      // A disabled item's summary leaves the Tab order: no `disabled` attribute exists for it (REQ-522).
+      el('summary', { class: 'sp-ui-collapse-summary', 'aria-disabled': props.disabled ? 'true' : undefined, tabindex: props.disabled ? '-1' : undefined }, [
         el('span', { class: 'sp-ui-label' }, [text(props.title)]),
         glyph('chevronDown'),
       ], 'summary'),

@@ -4,6 +4,7 @@ import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpP
 import UiFixture from './UiFixture.vue';
 import UiComponent from './UiComponent.vue';
 import { SpTable } from '@silverpoint/vue/ui/table';
+import { SpToaster } from '@silverpoint/vue/ui/toast';
 import { SpTimeline } from '@silverpoint/vue/timeline';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
@@ -95,9 +96,16 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
           <section v-for="section in panel.sections" :key="section.title" class="sp-ui-page-section" :aria-label="section.title">
             <h3>{{ section.title }}</h3>
             <div class="sp-ui-page-items">
-              <div v-for="item in section.items" :key="item.id" class="sp-page-item" :data-wide="item.width === 640 ? '' : undefined">
-                <UiComponent :fixture="item" />
-              </div>
+              <template v-for="item in section.items" :key="item.id">
+                <div v-if="!section.toaster || item.component !== 'toast'" class="sp-page-item" :data-wide="item.width === 640 ? '' : undefined">
+                  <UiComponent :fixture="item" />
+                </div>
+              </template>
+              <SpToaster v-if="section.toaster" v-bind="section.toaster">
+                <template v-for="item in section.items" :key="item.id">
+                  <UiComponent v-if="item.component === 'toast'" :fixture="item" />
+                </template>
+              </SpToaster>
             </div>
           </section>
         </div>

@@ -49,7 +49,8 @@ export const SpTooltip = defineComponent({
         [target, 'pointerleave', leave],
         [target, 'focus', show],
         [target, 'blur', hide],
-        [target, 'keydown', escape],
+        // Escape dismisses it wherever focus is, without moving the pointer (WCAG 1.4.13).
+        [target.ownerDocument, 'keydown', escape],
         [shown, 'pointerenter', stay],
         [shown, 'pointerleave', leave],
       ];

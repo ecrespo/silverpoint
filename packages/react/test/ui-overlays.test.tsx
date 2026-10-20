@@ -251,6 +251,19 @@ describe('React popovers (T-215, T-216)', () => {
     expect(shown(tooltip)).toBe(false);
   });
 
+  test('REQ-496 · a Tooltip shown by hover hides on Escape anywhere, with focus elsewhere (WCAG 1.4.13, T-223)', () => {
+    vi.useFakeTimers();
+    const { host } = mount(<SpTooltip text="Copy the id" trigger={<button type="button">Copy</button>} />);
+    const tooltip = host.querySelector('[role="tooltip"]')!;
+    act(() => {
+      host.querySelector('button')!.dispatchEvent(new PointerEvent('pointerenter', { bubbles: false }));
+      vi.advanceTimersByTime(300);
+    });
+    expect(shown(tooltip)).toBe(true);
+    key(document.body, 'Escape');
+    expect(shown(tooltip)).toBe(false);
+  });
+
   test('REQ-496 · a Tooltip hides on blur and on the pointer leaving both', () => {
     vi.useFakeTimers();
     const { host } = mount(<SpTooltip text="Copy the id" trigger={<button type="button">Copy</button>} />);

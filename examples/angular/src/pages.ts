@@ -3,13 +3,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { COMPOSED_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
 import { SpTimeline, SpTimelineFallback } from '@silverpoint/angular/timeline';
-import { SpCard, SpProgress, SpTable } from '@silverpoint/angular/ui';
+import { SpCard, SpProgress, SpTable, SpToaster } from '@silverpoint/angular/ui';
 import { UiComposedView } from './ui-composed';
 
 /** The composed page (T-222): the 21 new rows, every state, in the UI page's three panels. */
 @Component({
   selector: 'app-composed-page',
-  imports: [UiComposedView],
+  imports: [SpToaster, UiComposedView],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { style: 'display: contents' },
   template: `
@@ -25,9 +25,20 @@ import { UiComposedView } from './ui-composed';
                 <h3>{{ section.title }}</h3>
                 <div class="sp-ui-page-items">
                   @for (item of section.items; track item.id) {
-                    <div class="sp-page-item" [attr.data-wide]="item.width === 640 ? '' : null">
-                      <app-ui-composed [fixture]="item" />
-                    </div>
+                    @if (!section.toaster || item.component !== 'toast') {
+                      <div class="sp-page-item" [attr.data-wide]="item.width === 640 ? '' : null">
+                        <app-ui-composed [fixture]="item" />
+                      </div>
+                    }
+                  }
+                  @if (section.toaster; as toaster) {
+                    <sp-toaster [id]="toaster.id" [label]="toaster.label" [ground]="toaster.ground" [substrate]="toaster.substrate" [mode]="toaster.mode">
+                      @for (item of section.items; track item.id) {
+                        @if (item.component === 'toast') {
+                          <app-ui-composed [fixture]="item" />
+                        }
+                      }
+                    </sp-toaster>
                   }
                 </div>
               </section>

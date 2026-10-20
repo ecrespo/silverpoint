@@ -1,7 +1,7 @@
 import type { CommonChartProps, LineChartProps } from '@silverpoint/core';
 import type { Palette } from '@silverpoint/core';
 import type { SpTimelineProps } from '@silverpoint/core/timeline';
-import type { SpCardProps, SpProgressProps, SpTableProps } from '@silverpoint/core/ui';
+import type { SpCardProps, SpProgressProps, SpTableProps, SpToasterProps } from '@silverpoint/core/ui';
 
 export interface HarnessFixture {
   readonly id: string;
@@ -125,7 +125,12 @@ export interface HarnessComposedPanel {
   readonly ground: string;
   readonly substrate: string;
   readonly mode: 'ink' | 'precision';
-  readonly sections: readonly { readonly title: string; readonly items: readonly HarnessComposedItem[] }[];
+  readonly sections: readonly {
+    readonly title: string;
+    readonly items: readonly HarnessComposedItem[];
+    /** The overlays section's toaster: its toasts are drawn inside it. */
+    readonly toaster?: SpToasterProps & { readonly id: string; readonly label: string };
+  }[];
 }
 export declare const COMPOSED_PAGE: { readonly title: string; readonly panels: readonly HarnessComposedPanel[] };
 export interface HarnessPalettePreset {

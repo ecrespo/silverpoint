@@ -324,6 +324,12 @@ every id is `${id}--${part}`; overlays emit `data-state="open|closed"`, never th
 (the browser sets it on `showModal()`); placement is written on the overlay as `--sp-ui-x`,
 `--sp-ui-y` and `data-side` after open, never in the server markup (REQ-502).
 
+*Amended in implementation (T-223):* a disabled `SpCollapseItem`'s `<summary>` carries
+`tabindex="-1"` beside `aria-disabled="true"`, since `<summary>` has no `disabled` attribute and Tab
+must skip it (REQ-522). The toaster's list is `<ol class="sp-ui-toaster-list" role="list">` and a
+toast is `<li role="listitem">`: in Angular the `<sp-toast>` host sits between them, and only explicit
+roles let a list keep its items across it (axe `list` / `listitem`).
+
 ## 5. API by adapter (§8) — additions
 
 - **React (§8.1):** function components; `forwardRef` to the native element (`<textarea>`, the
@@ -361,6 +367,8 @@ dialog's `cancel` event. Toasts pause their timer on `pointerenter` and `focusin
 the toaster region. *Amended in implementation (T-216):* a paused toast counts its whole duration again once the
 pointer and focus have left it (no clock is read, Art. 4); F8 makes the region focusable
 (`tabindex="-1"`) as it moves focus there.
+*Amended in implementation (T-223):* a tooltip listens for Escape on its document, not on its
+trigger, so a tooltip shown by hover is dismissed without moving the pointer or focus (WCAG 1.4.13).
 
 ## 7. DOM and CSS contract (§10) — additions
 

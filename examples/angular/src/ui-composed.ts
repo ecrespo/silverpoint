@@ -109,7 +109,7 @@ export const COMPOSED_UI: ReadonlySet<string> = new Set([
         <sp-table [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [caption]="p.caption" [columns]="p.columns" [data]="p.data" [rowKey]="p.rowKey" [sortKey]="p.sortKey" [sortOrder]="p.sortOrder" [striped]="p.striped" [emptyText]="p.emptyText" />
       }
       @case ('pagination') {
-        <sp-pagination [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [total]="p.total" [pageSize]="p.pageSize" [current]="p.current" [showTotal]="p.showTotal" />
+        <sp-pagination [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [total]="p.total" [pageSize]="p.pageSize" [current]="p.current" [defaultCurrent]="p.defaultCurrent" [showTotal]="p.showTotal" />
       }
       @case ('breadcrumb') {
         <sp-breadcrumb [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [items]="p.items" />
@@ -190,7 +190,7 @@ export const COMPOSED_UI: ReadonlySet<string> = new Set([
         <sp-dropdown-menu [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [label]="p.label" [items]="p.items" [open]="p.open" />
       }
       @case ('toast') {
-        <sp-toast [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [open]="p.open" [kind]="p.kind" [title]="p.title" [description]="p.description">
+        <sp-toast [id]="p.id" [ground]="p.ground" [substrate]="p.substrate" [mode]="p.mode" [size]="p.size" [open]="p.open" [defaultOpen]="p.defaultOpen" [kind]="p.kind" [title]="p.title" [description]="p.description">
           @if (s.action; as action) {
             <ng-template spAction>{{ action }}</ng-template>
           }

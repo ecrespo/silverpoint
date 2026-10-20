@@ -169,3 +169,10 @@ h1 {
   background: var(--sp-substrate);
   color: var(--sp-text);
 }
+
+/* The composed page's toasters lay their toasts out in place, in the panel, not fixed to the viewport. */
+.sp-composed-page .sp-toaster {
+  position: static;
+  flex: 1 1 100%;
+  pointer-events: auto;
+}
