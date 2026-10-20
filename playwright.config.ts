@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 /**
- * The integration bench (T-023) and the pixel gate (T-022). One pinned browser, device scale 1,
+ * The integration bench (T-022) and the pixel gate (T-023). One pinned browser, device scale 1,
  * fixed viewport, reduced motion — the declared conditions of determinism of Art. 3.
  */
 export const APPS = {

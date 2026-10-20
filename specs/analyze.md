@@ -99,7 +99,7 @@ passes had missed:
 | Defect | Where |
 |---|---|
 | The A-03 disposition row still named `T-017` as the readout task after renumbering made it the Vue adapter | §3, A-03 |
-| Five tasks depended on the React and Angular adapters without naming T-017: T-018, T-020, T-023, T-026, T-028 | `tasks` |
+| Five tasks depended on the React and Angular adapters without naming T-017: T-018, T-020, T-022, T-026, T-028 | `tasks` |
 | The Constitution's `Scope` line listed the monorepo packages and omitted `@silverpoint/vue` | `constitution` |
 | The traceability matrix collapsed distinct mappings into shared rows, so four requirements T-017 delivers (REQ-095, REQ-100, REQ-102, REQ-107) were not mapped to it, and three rows claimed tasks that do not name them | `tasks` |
 
@@ -118,11 +118,12 @@ non-zero on any error.
 This also closes **B-01**: the check accepts both `**Version**` and the API Spec's
 `**API version**` spelling, so no document is silently skipped.
 
-Two findings are reported as warnings and left standing on purpose. T-022 depends on T-023,
-which is defined later — true, and harmless, since the numbering follows subject matter
-rather than execution order. T-027 cites `PRD NFR §7` instead of a requirement, because it
-is a measurement task that produces a number the spec is waiting on, not a deliverable that
-satisfies a requirement.
+Two findings were reported as warnings and first left standing on purpose: T-022 depending on
+T-023, defined later, and T-027 citing `PRD NFR §7` instead of a requirement. Both were resolved
+on 2026-10-20 (user decision): the example apps and the pixel gate swapped numbers, so the apps
+are T-022 and the pixel gate T-023 (commits and Phase 0 ledger entries before that date use the
+old numbers); and T-027 cites REQ-029, whose 40 KB budget its measurement became
+(`tools/path-weight`). spec-check now reports no findings.
 
 **The wider point.** Every defect in the table above was introduced by a correct decision
 applied by hand, and every one was invisible to careful reading. The specs are a graph;

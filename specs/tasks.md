@@ -177,25 +177,25 @@ generated as each preceding phase closes.
 - **Depends on**: T-008
 - **Done**: 8 line-chart fixtures load and validate against the schema, each with its canonical render committed.
 
-**[ ] T-022 · Pixel gate**
-- **What**: Playwright on a digest-pinned image, `deviceScaleFactor: 1`, animations disabled, `document.fonts.ready`; the three Art. 3 thresholds.
-- **REQ**: REQ-181
-- **Files**: `tools/visual-gate/pixel-gate.ts`
-- **Depends on**: T-021, T-023
-- **Done**: golden images generated; moving a vertex by 2 px fails; two consecutive runs do not differ.
-
-**[ ] T-023 · Example apps with a shared harness**
+**[ ] T-022 · Example apps with a shared harness**
 - **What**: `vite-react`, `vite-vue`, `nextjs` and `angular`, all four on **the same stylesheet** and the same fixed-size container. They are the integration bench, not demos.
 - **REQ**: REQ-103
 - **Files**: `examples/*`
 - **Depends on**: T-015, T-016, T-017
 - **Done**: all four boot and show the line chart; Next.js and the Vue SSR entry both hydrate with no mismatch.
 
+**[ ] T-023 · Pixel gate**
+- **What**: Playwright on a digest-pinned image, `deviceScaleFactor: 1`, animations disabled, `document.fonts.ready`; the three Art. 3 thresholds.
+- **REQ**: REQ-181
+- **Files**: `tools/visual-gate/pixel-gate.ts`
+- **Depends on**: T-021, T-022
+- **Done**: golden images generated; moving a vertex by 2 px fails; two consecutive runs do not differ.
+
 **[ ] T-024 · Bundler resolution check**
 - **What**: assert that every subpath resolves under `vite dev` and under `vite build`, that neither needs an `optimizeDeps` entry, and that `import '@silverpoint/grounds/styles.css'` survives tree-shaking in a production build.
 - **REQ**: REQ-033, REQ-034
 - **Files**: `tools/resolution-check/`, `examples/vite-react`
-- **Depends on**: T-001, T-023
+- **Depends on**: T-001, T-022
 - **Done**: both modes green; removing `"*.css"` from `sideEffects` makes the check fail; adding an `optimizeDeps.include` entry to the example is not required for any import.
 
 ### Phase close-out
@@ -214,7 +214,7 @@ generated as each preceding phase closes.
 
 **[ ] T-027 · Path-weight measurement** ⟵ *the missing number*
 - **What**: deliberately dense hatched card; measure `d` bytes with `tile` and with `per-shape`.
-- **REQ**: PRD NFR §7
+- **REQ**: REQ-029 (PRD NFR §7, path data weight)
 - **Depends on**: T-014
 - **Done**: the 40 KB figure is **confirmed or corrected with data**, and the PRD is amended if needed.
 
@@ -244,6 +244,7 @@ generated as each preceding phase closes.
 | REQ-010 | T-005, T-006 |
 | REQ-020, REQ-021, REQ-026 | T-007 |
 | REQ-022, REQ-023, REQ-024, REQ-025, REQ-029, REQ-030, REQ-031 | T-014 |
+| REQ-029 | T-027 |
 | REQ-032 | T-006, T-012 |
 | REQ-033 | T-024 |
 | REQ-034 | T-001, T-024 |
@@ -254,7 +255,7 @@ generated as each preceding phase closes.
 | REQ-100, REQ-107 | T-015, T-017 |
 | REQ-101, REQ-105 | T-016 |
 | REQ-102 | T-016, T-017 |
-| REQ-103 | T-020, T-023 |
+| REQ-103 | T-020, T-022 |
 | REQ-104 | T-015 |
 | REQ-108 | T-017 |
 | REQ-109 | T-020 |
@@ -265,7 +266,7 @@ generated as each preceding phase closes.
 | REQ-160, REQ-161, REQ-163 | T-001 |
 | REQ-164 | T-028 |
 | REQ-180 | T-019, T-020 |
-| REQ-181 | T-022 |
+| REQ-181 | T-023 |
 | REQ-182 | T-021 |
 | REQ-183, REQ-184 | T-029 |
 

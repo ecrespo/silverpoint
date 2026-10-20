@@ -6,6 +6,11 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 
 ## Tasks
 
+> **Renumbered 2026-10-20** (user decision, spec-check's forward-dependency warning): the example
+> apps are now **T-022** and the pixel gate **T-023**. This ledger uses the new numbers; the commits
+> of 2026-09-24 use the old ones — `d2317b6`, `679f082`, `8661860`, `1d80843` say T-023 for the
+> example apps, and `5fb9204` says T-022 for the pixel gate.
+
 | Task | State | Date | Evidence |
 |---|---|---|---|
 | T-001 | done | 2026-09-24 | `pnpm -r build` green; `check-deps` passes on the real manifests |
@@ -15,11 +20,11 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-005 – T-009 | done | 2026-09-24 | pre-existing; `packages/core/test/*` verified against every Done criterion (Node without DOM, `SP004` on `[5,5]`, production build free of warn codes, `NullInker` identity and `SP006`, line-chart snapshot and `chrome: 'bare'`, pure hit-testing) |
 | T-010 | done | 2026-09-24 | `packages/grounds/test/ground.test.ts` |
 | T-011 | done | 2026-09-24 | `tools/contrast-gate` reproduces Data Model §3.2; lightening `ink` 5 % fails; runs as its own CI step |
-| T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-023) |
-| T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-023) |
+| T-012 | done (browser half pending) | 2026-09-24 | `packages/fonts/test` — three cuts, `tnum` verified with fontkit, NOTICE; *blocking the font request → SP013* is verified in the example-app e2e (T-022) |
+| T-013 | done (browser half pending) | 2026-09-24 | `packages/grounds/test/styles.test.ts`; *overriding `--sp-ink` recolours without re-render* is verified in the e2e (T-022) |
 | T-019 | done | 2026-09-24 | `tools/svg-normalizer/normalize.test.ts` — attribute order, self-closing and entities compare equal; a differing id fails |
 | T-015 | done (interaction in T-018) | 2026-09-24 | `packages/react/test` — server and client SSR equal to the canonical render in both modes and four substrates; server variant hook-free, rejects `onActiveChange` and requires `width`/`height` at the type level; built entries: client carries `'use client'`, server does not |
-| T-016 | done (interaction in T-018; example-app consumption in T-023) | 2026-09-24 | `packages/angular/test` — the ng-packagr APF bundle, linked at runtime, server-renders through `renderApplication` identically to the canonical render in both modes and four substrates; standalone, OnPush, 28 signal inputs named as `LineChartProps`; client measurement, forced precision and public methods verified, with mutations confirming the client tests bite; `dist/package.json` exports `.` and `./line-chart` |
+| T-016 | done (interaction in T-018; example-app consumption in T-022) | 2026-09-24 | `packages/angular/test` — the ng-packagr APF bundle, linked at runtime, server-renders through `renderApplication` identically to the canonical render in both modes and four substrates; standalone, OnPush, 28 signal inputs named as `LineChartProps`; client measurement, forced precision and public methods verified, with mutations confirming the client tests bite; `dist/package.json` exports `.` and `./line-chart` |
 | T-017 | done (interaction in T-018) | 2026-09-24 | `packages/vue/test` — `@vue/server-renderer` output equal to the canonical render in both modes and four substrates; SSR → hydration with no mismatch (REQ-109); props equal to `LineChartProps` name for name; `@active-change` typed to `ActiveItem \| null`, verified with `vue-tsc` |
 | T-018 | done | 2026-09-24 | core `reduceInteraction` (`packages/core/test/reducer.test.ts`) plus the same seven readout tests in each adapter (`packages/{react,vue,angular}/test/interaction.test.*`): hover and keyboard give the same readout, leave and blur emit `null` with no residue, Enter selects, a custom renderer replaces the built-in one, a polite live region announces |
 | T-021 | done | 2026-09-24 | `tools/visual-gate/fixtures.test.ts` — the Data Model §5 schema validated (ids must spell their own matrix cell); 8 line-chart fixtures with committed canonical renders, checked current on every run |
@@ -27,9 +32,9 @@ phase closes. Every task is built test-first (RED → GREEN); test names cite th
 | T-025 | done | 2026-09-24 | `packages/grounds/test/equivalence.test.ts` — parameterised by chart, 5 variants × 5 seeds × 4 substrates; a mutation that inks encoding strokes fails every variant |
 | T-027 | done — **40 KB confirmed** | 2026-09-24 | `tools/path-weight` tests and `reports/path-weight.md`. Tile fill: line chart 2.0–2.1 KiB inked at every size; a dense card of 6 or 12 cross-hatched bars over a tone-3 area weighs 1.5–1.7 KiB, ~0.6 KiB per tonal level whatever the shape count. Per-shape: 21.0 KiB (6 bars) and 34.7 KiB (12 bars) at `md`, 14–20× the tile. DD-007's 76 KB / 913 KB figures were taken at gap 4.5 and 3 decimals; gap 7 and 2-decimal rounding brought per-shape down, but it still approaches the budget with 12 bars, where SP011 warns. No PRD amendment needed |
 | T-028 | done | 2026-09-24 | `.size-limit.json` and `tools/bundle-budget/budget.real.test.ts`, min+gzip over the built packages: React client + core + LineChart **26.3 KiB** of 45 KB (rough.js and d3 included), React server 23.9, Vue 27.5, Angular 29.5, core 16.1 of 20, grounds 23.9 of 30, stylesheet 1.8 of 4, fonts 72.7 of 76 (raw woff2). A 1 kB limit makes size-limit exit non-zero |
-| T-023 | done | 2026-09-24 | `e2e/apps.spec.ts` over `vite-react`, `vite-vue` (SSR prerender + `createSSRApp` hydration), `nextjs` (client chart hydrated + server chart as RSC) and `angular` (Angular CLI 21 consuming the APF build): **18 passed, 2 skipped** (the hydration case on the two client-rendered apps). All four share `examples/harness` — one stylesheet, one fixed container. Next.js and Vue: server HTML and hydrated DOM both equal the canonical render; a tampered server page is caught. Also closes the browser halves of T-012 (blocked typeface: chart still renders) and T-013 (a consumer `.sp-root { --sp-ink }` recolours the same DOM node) |
+| T-022 | done | 2026-09-24 | `e2e/apps.spec.ts` over `vite-react`, `vite-vue` (SSR prerender + `createSSRApp` hydration), `nextjs` (client chart hydrated + server chart as RSC) and `angular` (Angular CLI 21 consuming the APF build): **18 passed, 2 skipped** (the hydration case on the two client-rendered apps). All four share `examples/harness` — one stylesheet, one fixed container. Next.js and Vue: server HTML and hydrated DOM both equal the canonical render; a tampered server page is caught. Also closes the browser halves of T-012 (blocked typeface: chart still renders) and T-013 (a consumer `.sp-root { --sp-ink }` recolours the same DOM node) |
 | T-024 | done | 2026-09-24 | `tools/resolution-check`: the vite-react app — barrel, `line-chart`, `server/line-chart`, grounds, fonts — builds with `vite build` shipping the ground variables, part rules and `@font-face`; serves under `vite dev` in the pinned browser with both charts rendered and no errors; its own config declares no `optimizeDeps` and no aliases; the dev build reports SP013 when the typeface is blocked. Removing `"*.css"` from grounds' `sideEffects` drops the stylesheet in a webpack-style tree-shaking bundle, and the check fails |
-| T-022 | done | 2026-09-24 | `e2e/pixel.spec.ts`, goldens in `e2e/__golden__/` (8: 2 modes × 4 substrates) generated inside `mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30…` by `tools/visual-gate/pixel-docker.sh`. Every adapter (4 apps) passes the three Art. 3 comparisons against the framework-free canonical page (`canonical.html`) and the golden: **40/40** in the pinned container, and also on the host. Moving the heightened vertex by 2 px fails the gate; two consecutive screenshots are pixel-identical. CI runs the bench in the same pinned image |
+| T-023 | done | 2026-09-24 | `e2e/pixel.spec.ts`, goldens in `e2e/__golden__/` (8: 2 modes × 4 substrates) generated inside `mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30…` by `tools/visual-gate/pixel-docker.sh`. Every adapter (4 apps) passes the three Art. 3 comparisons against the framework-free canonical page (`canonical.html`) and the golden: **40/40** in the pinned container, and also on the host. Moving the heightened vertex by 2 px fails the gate; two consecutive screenshots are pixel-identical. CI runs the bench in the same pinned image |
 | T-026 | done | 2026-09-24 | `e2e/a11y.spec.ts` over the four apps, **36/36**: axe-core (WCAG 2.1 A + AA) reports no issue on the home and fixture pages; the SVG is `role="img"` named per API Spec §10.3; the table is reachable; Tab + arrows traverse and announce; `prefers-contrast: more` and `forced-colors: active` switch to precision; `prefers-reduced-motion` drops the entry animation; with hatching disabled the series stay distinct by line and dash (REQ-124) |
 | T-029 | done | 2026-09-24 | `tools/traceability` (tests + `reports/traceability.md`): REQ ids cited in test names reconciled with the PRD's MUST set and the Deferred table. The first real run flagged **REQ-105 and REQ-107 as blocking** — no test cited them — and tests were added (`packages/angular/test/apf.test.ts`, `tools/resolution-check/subpaths.real.test.ts`). Now **68/99 MUST covered, 31 deferred to phases 1-3, 0 blocking** |
 | T-014 | done | 2026-09-24 | `packages/grounds/test/rough-inker.test.ts`, `render.test.ts`; plus the SVG view contract (`packages/core/test/view.test.ts`) and the `renderChart` pipeline adapters share |
@@ -118,15 +123,15 @@ failing first where code changed.
   same 45 KB is declared for the Vue and Angular entries, and measured budgets with headroom for
   the rest (core 20, grounds 30, stylesheet 4, fonts 76). *Cost if wrong:* a budget to retune;
   each is one line in `.size-limit.json`.
-- **T-023 · Ruling:** SP013 is a development warning stripped from production builds (API Spec
+- **T-022 · Ruling:** SP013 is a development warning stripped from production builds (API Spec
   §11), so the production example apps can only show that the chart survives a blocked typeface;
   the emission itself is verified in each adapter's unit tests and against the Vite dev server
   (T-024). *Cost if wrong:* none; it is what the spec says.
-- **T-023 · Ruling:** Vue and React do not check attributes when hydrating a production build, so
+- **T-022 · Ruling:** Vue and React do not check attributes when hydrating a production build, so
   a console-only hydration check would pass a mismatched page. The bench compares the server HTML
   and the hydrated DOM with the canonical render instead, and the Vue app also enables
   `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__`. Verified by tampering with the server page.
-- **T-023 · Ruling:** the ground's CSS variables are declared once per chart and at zero
+- **T-022 · Ruling:** the ground's CSS variables are declared once per chart and at zero
   specificity (`:where(…:not(.sp-root .sp-chart))`), so a consumer re-themes with an ordinary
   `.sp-root { --sp-ink: … }`. Found by the bench: the `<svg>` redeclared them below the root.
 - **T-024 · Ruling:** Vite 8 marks every CSS module side-effectful, and esbuild 0.28 keeps
@@ -138,12 +143,12 @@ failing first where code changed.
 - **T-024 · Ruling:** the example apps now import `@silverpoint/fonts/fonts.css` and
   `@silverpoint/grounds/styles.css` from JavaScript, as API Spec §1 documents, and the shared
   harness sheet carries only the fixed container. A CSS `@import` would have masked REQ-034.
-- **T-022 · Ruling:** the golden image is the screenshot of the *canonical* page — the core's SVG
+- **T-023 · Ruling:** the golden image is the screenshot of the *canonical* page — the core's SVG
   string in the shared harness, no framework — one per fixture and shared by every adapter, so an
   adapter is never its own reference. Pixel comparison uses pixelmatch with Playwright's
   threshold semantics, because the Art. 3 "same commit" comparison is between two live
   screenshots, which `toHaveScreenshot` cannot express.
-- **T-022 · Process note:** the first container run let pnpm 12 reinstall `node_modules` against a
+- **T-023 · Process note:** the first container run let pnpm 12 reinstall `node_modules` against a
   store inside the mount; the host install was restored and the script now sets
   `pnpm_config_verify_deps_before_run=false`.
 - **Ruling · root `package.json` is read-only** in this checkout (like `specs/`), so no root
