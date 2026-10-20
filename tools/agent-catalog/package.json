@@ -1,0 +1,16 @@
+{
+  "name": "@silverpoint/agent-catalog",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The agent catalog (feature-005, DD-045): generated from the published types, the catalogs, the demos and one metadata file.",
+  "scripts": {
+    "generate": "tsx --conditions=@silverpoint/source generate.ts",
+    "check": "tsx --conditions=@silverpoint/source check.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*"
+  }
+}

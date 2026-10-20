@@ -1,12 +1,13 @@
 /**
- * The props reference of the documentation site, read from the published types with the
- * TypeScript compiler: names, types, optionality and JSDoc, never retyped by hand (T-097).
+ * The props reference of the documentation site and of the agent catalog (DD-045), read from the
+ * published types with the TypeScript compiler: names, types, optionality and JSDoc, never retyped
+ * by hand (T-097, T-226).
  */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
-import { UI_COMPONENTS } from '../../../packages/core/src/ui/catalog';
-import { CATALOG } from '../../../tools/visual-gate/catalog';
+import { UI_COMPONENTS } from '../../packages/core/src/ui/catalog';
+import { CATALOG } from '../visual-gate/catalog';
 
 export interface PropDoc {
   readonly name: string;
@@ -33,11 +34,11 @@ export interface PropsReference {
   readonly timeline: readonly PropDoc[];
 }
 
-const PROPS = fileURLToPath(new URL('../../../packages/core/src/types/props.ts', import.meta.url));
-const UI_TYPES = fileURLToPath(new URL('../../../packages/core/src/ui/types.ts', import.meta.url));
-const DASHBOARD = fileURLToPath(new URL('../../../packages/core/src/dashboard/types.ts', import.meta.url));
-const PALETTE = fileURLToPath(new URL('../../../packages/core/src/palette/palette.ts', import.meta.url));
-const TIMELINE = fileURLToPath(new URL('../../../packages/core/src/timeline/types.ts', import.meta.url));
+const PROPS = fileURLToPath(new URL('../../packages/core/src/types/props.ts', import.meta.url));
+const UI_TYPES = fileURLToPath(new URL('../../packages/core/src/ui/types.ts', import.meta.url));
+const DASHBOARD = fileURLToPath(new URL('../../packages/core/src/dashboard/types.ts', import.meta.url));
+const PALETTE = fileURLToPath(new URL('../../packages/core/src/palette/palette.ts', import.meta.url));
+const TIMELINE = fileURLToPath(new URL('../../packages/core/src/timeline/types.ts', import.meta.url));
 
 /** Every interface and object type alias of a source file, by name, with its property signatures documented. */
 export function interfacesIn(source: string): Map<string, PropDoc[]> {
@@ -75,13 +76,25 @@ export function interfacesIn(source: string): Map<string, PropDoc[]> {
     }
     return seen;
   };
+  /** Local interfaces each interface extends; the shared `Common*` bases are listed on their own. */
+  const bases = new Map<string, string[]>();
   file.forEachChild((node) => {
-    if (ts.isInterfaceDeclaration(node)) found.set(node.name.text, node.members.filter(ts.isPropertySignature).map(docOf));
-    else if (ts.isTypeAliasDeclaration(node)) {
+    if (ts.isInterfaceDeclaration(node)) {
+      found.set(node.name.text, node.members.filter(ts.isPropertySignature).map(docOf));
+      const extended = (node.heritageClauses ?? []).flatMap((clause) => clause.types.map((type) => type.expression.getText(file)));
+      bases.set(node.name.text, extended.filter((name) => !name.startsWith('Common')));
+    } else if (ts.isTypeAliasDeclaration(node)) {
       const members = [...membersOf(node.type).values()];
       if (members.length > 0) found.set(node.name.text, members);
     }
   });
+  /** An interface's members after those it inherits from a local base, its own redeclarations winning. */
+  const flattened = (name: string): PropDoc[] => {
+    const own = found.get(name) ?? [];
+    const inherited = (bases.get(name) ?? []).filter((base) => found.has(base)).flatMap(flattened);
+    return [...inherited.filter((prop) => !own.some((o) => o.name === prop.name)), ...own];
+  };
+  for (const name of bases.keys()) found.set(name, flattened(name));
   return found;
 }
 

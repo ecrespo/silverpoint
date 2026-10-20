@@ -1,0 +1,3877 @@
+{
+  "schema": 1,
+  "package": "reflex-silverpoint-react",
+  "version": "0.7.1",
+  "wraps": "0.7.0",
+  "derived": "tools/agent-catalog/reflex/derive.py from reflex-silverpoint-react dbd7e76",
+  "common": {
+    "chart": [
+      {
+        "name": "data",
+        "js": "data",
+        "type": "readonly Datum[]"
+      },
+      {
+        "name": "ground",
+        "js": "ground",
+        "type": "GroundRef"
+      },
+      {
+        "name": "substrate",
+        "js": "substrate",
+        "type": "SubstrateName"
+      },
+      {
+        "name": "mode",
+        "js": "mode",
+        "type": "InkMode"
+      },
+      {
+        "name": "seed",
+        "js": "seed",
+        "type": "Seed"
+      },
+      {
+        "name": "id",
+        "js": "id",
+        "type": "string"
+      },
+      {
+        "name": "height",
+        "js": "height",
+        "type": "number"
+      },
+      {
+        "name": "width",
+        "js": "width",
+        "type": "number"
+      },
+      {
+        "name": "chrome",
+        "js": "chrome",
+        "type": "'card' | 'bare'"
+      },
+      {
+        "name": "hatch_fill",
+        "js": "hatchFill",
+        "type": "'tile' | 'per-shape'"
+      },
+      {
+        "name": "title",
+        "js": "title",
+        "type": "string"
+      },
+      {
+        "name": "badge",
+        "js": "badge",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "js": "value",
+        "type": "string | number"
+      },
+      {
+        "name": "unit",
+        "js": "unit",
+        "type": "string"
+      },
+      {
+        "name": "footer_left",
+        "js": "footerLeft",
+        "type": "string"
+      },
+      {
+        "name": "footer_right",
+        "js": "footerRight",
+        "type": "string"
+      },
+      {
+        "name": "label",
+        "js": "label",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "js": "description",
+        "type": "string"
+      },
+      {
+        "name": "data_table",
+        "js": "dataTable",
+        "type": "'visible' | 'hidden' | 'none'"
+      },
+      {
+        "name": "locale",
+        "js": "locale",
+        "type": "string"
+      },
+      {
+        "name": "number_format",
+        "js": "numberFormat",
+        "type": "Intl.NumberFormatOptions"
+      },
+      {
+        "name": "class_name",
+        "js": "className",
+        "type": "string"
+      }
+    ],
+    "ui": [
+      {
+        "name": "ground",
+        "js": "ground",
+        "type": "GroundName | str | dict[str, Any]"
+      },
+      {
+        "name": "substrate",
+        "js": "substrate",
+        "type": "Substrate"
+      },
+      {
+        "name": "mode",
+        "js": "mode",
+        "type": "InkMode"
+      },
+      {
+        "name": "seed",
+        "js": "seed",
+        "type": "int | str"
+      },
+      {
+        "name": "size",
+        "js": "size",
+        "type": "UiSize"
+      },
+      {
+        "name": "palette",
+        "js": "palette",
+        "type": "dict[str, str]"
+      }
+    ]
+  },
+  "charts": [
+    {
+      "slug": "line-chart",
+      "builder": "line_chart",
+      "cls": "LineChart",
+      "family": "Lines",
+      "summary": "Spline with an optional dotted baseline series.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "secondary_key",
+          "js": "secondaryKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "curve",
+          "js": "curve",
+          "type": "LineCurve"
+        },
+        {
+          "name": "series",
+          "js": "series",
+          "type": "'all' | 'primary'"
+        },
+        {
+          "name": "connect_nulls",
+          "js": "connectNulls",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "step-chart",
+      "builder": "step_chart",
+      "cls": "StepChart",
+      "family": "Lines",
+      "summary": "A series drawn as steps.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "step",
+          "js": "step",
+          "type": "'after' | 'before' | 'middle'"
+        }
+      ]
+    },
+    {
+      "slug": "sparkline-rows",
+      "builder": "sparkline_rows",
+      "cls": "SparklineRows",
+      "family": "Lines",
+      "summary": "One row per series — name, sparkline, readout.",
+      "props": [
+        {
+          "name": "rows",
+          "js": "rows",
+          "type": "number"
+        },
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "readout_key",
+          "js": "readoutKey",
+          "type": "Accessor<string | number | null | undefined>"
+        },
+        {
+          "name": "series_key",
+          "js": "seriesKey",
+          "type": "Accessor<readonly unknown[] | null | undefined>"
+        },
+        {
+          "name": "point_key",
+          "js": "pointKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "kpi-card",
+      "builder": "kpi_card",
+      "cls": "KpiCard",
+      "family": "Lines",
+      "summary": "A metric, its delta, and an area sparkline of the series.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "metric",
+          "js": "metric",
+          "type": "string"
+        },
+        {
+          "name": "delta",
+          "js": "delta",
+          "type": "number"
+        },
+        {
+          "name": "delta_tone",
+          "js": "deltaTone",
+          "type": "'up' | 'down' | 'flat'"
+        }
+      ]
+    },
+    {
+      "slug": "bar-chart",
+      "builder": "bar_chart",
+      "cls": "BarChart",
+      "family": "Bars",
+      "summary": "Pill bars, as columns or rows, with an optional second series.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "secondary_key",
+          "js": "secondaryKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "'columns' | 'rows'"
+        }
+      ]
+    },
+    {
+      "slug": "stacked-bar-chart",
+      "builder": "stacked_bar_chart",
+      "cls": "StackedBarChart",
+      "family": "Bars",
+      "summary": "One stacked segment per key.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "keys",
+          "js": "keys",
+          "type": "readonly string[]"
+        },
+        {
+          "name": "names",
+          "js": "names",
+          "type": "readonly string[]"
+        }
+      ]
+    },
+    {
+      "slug": "composed-chart",
+      "builder": "composed_chart",
+      "cls": "ComposedChart",
+      "family": "Bars",
+      "summary": "Columns and a spline on one value scale.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "bar_key",
+          "js": "barKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "line_key",
+          "js": "lineKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "show_line",
+          "js": "showLine",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "waterfall-chart",
+      "builder": "waterfall_chart",
+      "cls": "WaterfallChart",
+      "family": "Bars",
+      "summary": "Totals from zero and floating deltas from the running total.",
+      "props": [
+        {
+          "name": "step_key",
+          "js": "stepKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "base_key",
+          "js": "baseKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "delta_key",
+          "js": "deltaKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "funnel-chart",
+      "builder": "funnel_chart",
+      "cls": "FunnelChart",
+      "family": "Bars",
+      "summary": "Horizontal, centred stages.",
+      "props": [
+        {
+          "name": "stage_key",
+          "js": "stageKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "bullet-chart",
+      "builder": "bullet_chart",
+      "cls": "BulletChart",
+      "family": "Bars",
+      "summary": "One bar per target, with a marker at the target. Values in 0-100.",
+      "props": [
+        {
+          "name": "title_key",
+          "js": "titleKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "actual_key",
+          "js": "actualKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "target_key",
+          "js": "targetKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "pyramid-chart",
+      "builder": "pyramid_chart",
+      "cls": "PyramidChart",
+      "family": "Bars",
+      "summary": "Stacked tiers whose width encodes the value (0-100).",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "width_key",
+          "js": "widthKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "tone_key",
+          "js": "toneKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "candlestick-chart",
+      "builder": "candlestick_chart",
+      "cls": "CandlestickChart",
+      "family": "Bars",
+      "summary": "OHLC bodies and wicks.",
+      "props": [
+        {
+          "name": "time_key",
+          "js": "timeKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "open_key",
+          "js": "openKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "high_key",
+          "js": "highKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "low_key",
+          "js": "lowKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "close_key",
+          "js": "closeKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "bounds",
+          "js": "bounds",
+          "type": "readonly [number, number]"
+        }
+      ]
+    },
+    {
+      "slug": "area-chart",
+      "builder": "area_chart",
+      "cls": "AreaChart",
+      "family": "Areas",
+      "summary": "A curved, toned area under its line.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "curve",
+          "js": "curve",
+          "type": "LineCurve"
+        }
+      ]
+    },
+    {
+      "slug": "range-band-chart",
+      "builder": "range_band_chart",
+      "cls": "RangeBandChart",
+      "family": "Areas",
+      "summary": "The band between a low and a high series.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "low_key",
+          "js": "lowKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "high_key",
+          "js": "highKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "stream-chart",
+      "builder": "stream_chart",
+      "cls": "StreamChart",
+      "family": "Areas",
+      "summary": "Two waves, overlaid or stacked.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "keys",
+          "js": "keys",
+          "type": "readonly string[]"
+        },
+        {
+          "name": "stacked",
+          "js": "stacked",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "scatter-chart",
+      "builder": "scatter_chart",
+      "cls": "ScatterChart",
+      "family": "Points & grids",
+      "summary": "Points on two linear scales, optionally sized.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "size_key",
+          "js": "sizeKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "size_range",
+          "js": "sizeRange",
+          "type": "readonly [number, number]"
+        }
+      ]
+    },
+    {
+      "slug": "bubble-chart",
+      "builder": "bubble_chart",
+      "cls": "BubbleChart",
+      "family": "Points & grids",
+      "summary": "Circles whose area encodes `sizeKey`.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "size_key",
+          "js": "sizeKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "size_range",
+          "js": "sizeRange",
+          "type": "readonly [number, number]"
+        }
+      ]
+    },
+    {
+      "slug": "heatmap-chart",
+      "builder": "heatmap_chart",
+      "cls": "HeatmapChart",
+      "family": "Points & grids",
+      "summary": "Labelled rows of values, normalised against `scaleMax`.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "values_key",
+          "js": "valuesKey",
+          "type": "Accessor<readonly (number | null)[] | null | undefined>"
+        },
+        {
+          "name": "scale_max",
+          "js": "scaleMax",
+          "type": "number"
+        },
+        {
+          "name": "column_labels",
+          "js": "columnLabels",
+          "type": "readonly string[]"
+        }
+      ]
+    },
+    {
+      "slug": "treemap-chart",
+      "builder": "treemap_chart",
+      "cls": "TreemapChart",
+      "family": "Points & grids",
+      "summary": "Tiles of `cols × rows` cells placed in a `columns × rows` grid.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "share_key",
+          "js": "shareKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "columns",
+          "js": "columns",
+          "type": "number"
+        },
+        {
+          "name": "rows",
+          "js": "rows",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "activity-grid",
+      "builder": "activity_grid",
+      "cls": "ActivityGrid",
+      "family": "Points & grids",
+      "summary": "One cell per day, a column per week.",
+      "props": [
+        {
+          "name": "date_key",
+          "js": "dateKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "count_key",
+          "js": "countKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "level_key",
+          "js": "levelKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "weeks",
+          "js": "weeks",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "sankey-chart",
+      "builder": "sankey_chart",
+      "cls": "SankeyChart",
+      "family": "Flows",
+      "summary": "Flow bands between layered nodes.",
+      "props": [
+        {
+          "name": "source_key",
+          "js": "sourceKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "target_key",
+          "js": "targetKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "chord-ring",
+      "builder": "chord_ring",
+      "cls": "ChordRing",
+      "family": "Flows",
+      "summary": "Directed flows between categories around a circle.",
+      "props": [
+        {
+          "name": "source_key",
+          "js": "sourceKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "target_key",
+          "js": "targetKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "max_categories",
+          "js": "maxCategories",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "donut-chart",
+      "builder": "donut_chart",
+      "cls": "DonutChart",
+      "family": "Radial",
+      "summary": "Sectors ∝ value around a central readout.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "center_value",
+          "js": "centerValue",
+          "type": "string | number"
+        },
+        {
+          "name": "center_label",
+          "js": "centerLabel",
+          "type": "string"
+        },
+        {
+          "name": "legend",
+          "js": "legend",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "radar-chart",
+      "builder": "radar_chart",
+      "cls": "RadarChart",
+      "family": "Radial",
+      "summary": "One spoke per subject, a closed polygon of values.",
+      "props": [
+        {
+          "name": "subject_key",
+          "js": "subjectKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "domain",
+          "js": "domain",
+          "type": "readonly [number, number]"
+        }
+      ]
+    },
+    {
+      "slug": "polar-bar-chart",
+      "builder": "polar_bar_chart",
+      "cls": "PolarBarChart",
+      "family": "Radial",
+      "summary": "360° bars out from a hole, length ∝ value.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "radial-arc-group",
+      "builder": "radial_arc_group",
+      "cls": "RadialArcGroup",
+      "family": "Radial",
+      "summary": "Concentric 180° tracks, sweep ∝ value / the largest.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "radial-rings",
+      "builder": "radial_rings",
+      "cls": "RadialRings",
+      "family": "Radial",
+      "summary": "Concentric progress rings, sweep ∝ value in 0-100.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "gauge-arc",
+      "builder": "gauge_arc",
+      "cls": "GaugeArc",
+      "family": "Radial",
+      "summary": "A 240° arc swept to a percent.",
+      "props": [
+        {
+          "name": "percent",
+          "js": "percent",
+          "type": "number"
+        },
+        {
+          "name": "caption",
+          "js": "caption",
+          "type": "string"
+        },
+        {
+          "name": "readout",
+          "js": "readout",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "slug": "meter-chart",
+      "builder": "meter_chart",
+      "cls": "MeterChart",
+      "family": "Radial",
+      "summary": "A semicircular meter with a needle at a percent.",
+      "props": [
+        {
+          "name": "percent",
+          "js": "percent",
+          "type": "number"
+        },
+        {
+          "name": "caption",
+          "js": "caption",
+          "type": "string"
+        },
+        {
+          "name": "readout",
+          "js": "readout",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "slug": "coxcomb-chart",
+      "builder": "coxcomb_chart",
+      "cls": "CoxcombChart",
+      "family": "Radial",
+      "summary": "Equal angles, sector **area** ∝ value.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "start_angle",
+          "js": "startAngle",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "wind-rose",
+      "builder": "wind_rose",
+      "cls": "WindRose",
+      "family": "Radial",
+      "summary": "Observations of (bearing, speed) binned by compass sector and speed.",
+      "props": [
+        {
+          "name": "bearing_key",
+          "js": "bearingKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "sectors",
+          "js": "sectors",
+          "type": "number"
+        },
+        {
+          "name": "bins",
+          "js": "bins",
+          "type": "readonly number[]"
+        }
+      ]
+    },
+    {
+      "slug": "volvelle-chart",
+      "builder": "volvelle_chart",
+      "cls": "VolvelleChart",
+      "family": "Radial",
+      "summary": "Concentric categorical rings read against one index.",
+      "props": [
+        {
+          "name": "rings",
+          "js": "rings",
+          "type": "number"
+        },
+        {
+          "name": "index_ring",
+          "js": "indexRing",
+          "type": "number"
+        },
+        {
+          "name": "index_value",
+          "js": "indexValue",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "slug": "orbit-chart",
+      "builder": "orbit_chart",
+      "cls": "OrbitChart",
+      "family": "Radial",
+      "summary": "Nested elliptical orbits with markers along them.",
+      "props": [
+        {
+          "name": "orbits",
+          "js": "orbits",
+          "type": "number"
+        },
+        {
+          "name": "marker_key",
+          "js": "markerKey",
+          "type": "Accessor<readonly unknown[] | null | undefined>"
+        },
+        {
+          "name": "period_key",
+          "js": "periodKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "histogram-chart",
+      "builder": "histogram_chart",
+      "cls": "HistogramChart",
+      "family": "Distributions & comparisons",
+      "summary": "Raw observations binned in the core.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "bins",
+          "js": "bins",
+          "type": "number | readonly number[]"
+        },
+        {
+          "name": "cumulative",
+          "js": "cumulative",
+          "type": "boolean"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        }
+      ]
+    },
+    {
+      "slug": "ecdf-chart",
+      "builder": "ecdf_chart",
+      "cls": "EcdfChart",
+      "family": "Distributions & comparisons",
+      "summary": "The empirical cumulative distribution as a step function.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "group_key",
+          "js": "groupKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "markers",
+          "js": "markers",
+          "type": "readonly number[]"
+        }
+      ]
+    },
+    {
+      "slug": "box-plot-chart",
+      "builder": "box_plot_chart",
+      "cls": "BoxPlotChart",
+      "family": "Distributions & comparisons",
+      "summary": "Quartiles, median, Tukey whiskers and outliers per group.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "group_key",
+          "js": "groupKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "whisker",
+          "js": "whisker",
+          "type": "number"
+        },
+        {
+          "name": "outliers",
+          "js": "outliers",
+          "type": "boolean"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        }
+      ]
+    },
+    {
+      "slug": "violin-chart",
+      "builder": "violin_chart",
+      "cls": "ViolinChart",
+      "family": "Distributions & comparisons",
+      "summary": "A mirrored kernel density per group.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "group_key",
+          "js": "groupKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "bandwidth",
+          "js": "bandwidth",
+          "type": "number"
+        },
+        {
+          "name": "quartiles",
+          "js": "quartiles",
+          "type": "boolean"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        }
+      ]
+    },
+    {
+      "slug": "ridgeline-chart",
+      "builder": "ridgeline_chart",
+      "cls": "RidgelineChart",
+      "family": "Distributions & comparisons",
+      "summary": "A kernel density per group on overlapping baselines.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "group_key",
+          "js": "groupKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "bandwidth",
+          "js": "bandwidth",
+          "type": "number"
+        },
+        {
+          "name": "overlap",
+          "js": "overlap",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "beeswarm-chart",
+      "builder": "beeswarm_chart",
+      "cls": "BeeswarmChart",
+      "family": "Distributions & comparisons",
+      "summary": "One point per observation, packed without overlap.",
+      "props": [
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "group_key",
+          "js": "groupKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "radius",
+          "js": "radius",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "lollipop-chart",
+      "builder": "lollipop_chart",
+      "cls": "LollipopChart",
+      "family": "Distributions & comparisons",
+      "summary": "A stem from the baseline and a head at the value.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        },
+        {
+          "name": "sort",
+          "js": "sort",
+          "type": "'none' | 'ascending' | 'descending'"
+        }
+      ]
+    },
+    {
+      "slug": "dumbbell-chart",
+      "builder": "dumbbell_chart",
+      "cls": "DumbbellChart",
+      "family": "Distributions & comparisons",
+      "summary": "Two values per category joined by a segment.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "start_key",
+          "js": "startKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "end_key",
+          "js": "endKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "names",
+          "js": "names",
+          "type": "readonly [string, string]"
+        },
+        {
+          "name": "end_marker",
+          "js": "endMarker",
+          "type": "'dot' | 'arrow'"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        }
+      ]
+    },
+    {
+      "slug": "slope-chart",
+      "builder": "slope_chart",
+      "cls": "SlopeChart",
+      "family": "Distributions & comparisons",
+      "summary": "Two period axes, one segment per category.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "start_key",
+          "js": "startKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "end_key",
+          "js": "endKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "names",
+          "js": "names",
+          "type": "readonly [string, string]"
+        }
+      ]
+    },
+    {
+      "slug": "bump-chart",
+      "builder": "bump_chart",
+      "cls": "BumpChart",
+      "family": "Distributions & comparisons",
+      "summary": "The rank of each series at each x.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "series_key",
+          "js": "seriesKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "order",
+          "js": "order",
+          "type": "'descending' | 'ascending'"
+        },
+        {
+          "name": "series",
+          "js": "series",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "error-bar-chart",
+      "builder": "error_bar_chart",
+      "cls": "ErrorBarChart",
+      "family": "Distributions & comparisons",
+      "summary": "A point estimate with its interval per category.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "estimate_key",
+          "js": "estimateKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "low_key",
+          "js": "lowKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "high_key",
+          "js": "highKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "reference",
+          "js": "reference",
+          "type": "number"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "ChartOrientation"
+        }
+      ]
+    },
+    {
+      "slug": "interval-chart",
+      "builder": "interval_chart",
+      "cls": "IntervalChart",
+      "family": "Distributions & comparisons",
+      "summary": "Floating bars from start to end on lanes.",
+      "props": [
+        {
+          "name": "lane_key",
+          "js": "laneKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "start_key",
+          "js": "startKey",
+          "type": "Accessor<number | string | null | undefined>"
+        },
+        {
+          "name": "end_key",
+          "js": "endKey",
+          "type": "Accessor<number | string | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "axis",
+          "js": "axis",
+          "type": "'number' | 'date'"
+        }
+      ]
+    },
+    {
+      "slug": "diverging-bar-chart",
+      "builder": "diverging_bar_chart",
+      "cls": "DivergingBarChart",
+      "family": "Distributions & comparisons",
+      "summary": "Ordered levels stacked on both sides of a neutral centre.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "levels",
+          "js": "levels",
+          "type": "readonly string[]"
+        },
+        {
+          "name": "neutral",
+          "js": "neutral",
+          "type": "number | null"
+        },
+        {
+          "name": "percent",
+          "js": "percent",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "connected-scatter-chart",
+      "builder": "connected_scatter_chart",
+      "cls": "ConnectedScatterChart",
+      "family": "Distributions & comparisons",
+      "summary": "An ordered path through x-y points.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "arrows",
+          "js": "arrows",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "waffle-chart",
+      "builder": "waffle_chart",
+      "cls": "WaffleChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "A unit grid filled in reading order by category.",
+      "props": [
+        {
+          "name": "name_key",
+          "js": "nameKey",
+          "type": "Accessor<string | number>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "cells",
+          "js": "cells",
+          "type": "number"
+        },
+        {
+          "name": "columns",
+          "js": "columns",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "marimekko-chart",
+      "builder": "marimekko_chart",
+      "cls": "MarimekkoChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "Column width by total, segment height by share.",
+      "props": [
+        {
+          "name": "column_key",
+          "js": "columnKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "segment_key",
+          "js": "segmentKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        }
+      ]
+    },
+    {
+      "slug": "squarified-treemap",
+      "builder": "squarified_treemap",
+      "cls": "SquarifiedTreemap",
+      "family": "Hierarchies & dimensions",
+      "summary": "Nested rectangles, area by value, drillable through `rootId` and `onRootChange`.",
+      "props": [
+        {
+          "name": "id_key",
+          "js": "idKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "parent_key",
+          "js": "parentKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "depth",
+          "js": "depth",
+          "type": "number"
+        },
+        {
+          "name": "root_id",
+          "js": "rootId",
+          "type": "string | null"
+        }
+      ]
+    },
+    {
+      "slug": "sunburst-chart",
+      "builder": "sunburst_chart",
+      "cls": "SunburstChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "A hierarchy as rings of arcs, drillable through `rootId` and `onRootChange`.",
+      "props": [
+        {
+          "name": "id_key",
+          "js": "idKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "parent_key",
+          "js": "parentKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "depth",
+          "js": "depth",
+          "type": "number"
+        },
+        {
+          "name": "root_id",
+          "js": "rootId",
+          "type": "string | null"
+        }
+      ]
+    },
+    {
+      "slug": "tree-chart",
+      "builder": "tree_chart",
+      "cls": "TreeChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "A tidy node-link tree.",
+      "props": [
+        {
+          "name": "id_key",
+          "js": "idKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "parent_key",
+          "js": "parentKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "'horizontal' | 'vertical'"
+        }
+      ]
+    },
+    {
+      "slug": "parallel-coordinates-chart",
+      "builder": "parallel_coordinates_chart",
+      "cls": "ParallelCoordinatesChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "One polyline per row across parallel axes.",
+      "props": [
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "dimensions",
+          "js": "dimensions",
+          "type": "readonly string[]"
+        },
+        {
+          "name": "domains",
+          "js": "domains",
+          "type": "Readonly<Record<string, readonly [number, number]>>"
+        }
+      ]
+    },
+    {
+      "slug": "polar-line-chart",
+      "builder": "polar_line_chart",
+      "cls": "PolarLineChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "A line over angle and radius.",
+      "props": [
+        {
+          "name": "angle_key",
+          "js": "angleKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "period",
+          "js": "period",
+          "type": "number"
+        },
+        {
+          "name": "start_angle",
+          "js": "startAngle",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "polar-scatter-chart",
+      "builder": "polar_scatter_chart",
+      "cls": "PolarScatterChart",
+      "family": "Hierarchies & dimensions",
+      "summary": "Points over angle and radius.",
+      "props": [
+        {
+          "name": "angle_key",
+          "js": "angleKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "radius_key",
+          "js": "radiusKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "size_key",
+          "js": "sizeKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "period",
+          "js": "period",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "density-bin-chart",
+      "builder": "density_bin_chart",
+      "cls": "DensityBinChart",
+      "family": "Fields & networks",
+      "summary": "X-y points counted in two-dimensional bins.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "bin_shape",
+          "js": "binShape",
+          "type": "'hexagon' | 'rect'"
+        },
+        {
+          "name": "bin_size",
+          "js": "binSize",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "contour-chart",
+      "builder": "contour_chart",
+      "cls": "ContourChart",
+      "family": "Fields & networks",
+      "summary": "Iso-lines and filled bands of a density or a grid.",
+      "props": [
+        {
+          "name": "source",
+          "js": "source",
+          "type": "'points' | 'grid'"
+        },
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "levels",
+          "js": "levels",
+          "type": "number | readonly number[]"
+        },
+        {
+          "name": "filled",
+          "js": "filled",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "slug": "delaunay-chart",
+      "builder": "delaunay_chart",
+      "cls": "DelaunayChart",
+      "family": "Fields & networks",
+      "summary": "The triangulation of x-y points, or its Voronoi cells.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "label_key",
+          "js": "labelKey",
+          "type": "Accessor<string | null | undefined>"
+        },
+        {
+          "name": "mesh",
+          "js": "mesh",
+          "type": "'delaunay' | 'voronoi'"
+        }
+      ]
+    },
+    {
+      "slug": "vector-field-chart",
+      "builder": "vector_field_chart",
+      "cls": "VectorFieldChart",
+      "family": "Fields & networks",
+      "summary": "An arrow per grid point.",
+      "props": [
+        {
+          "name": "x_key",
+          "js": "xKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "y_key",
+          "js": "yKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "u_key",
+          "js": "uKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "v_key",
+          "js": "vKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "scale",
+          "js": "scale",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "slug": "network-chart",
+      "builder": "network_chart",
+      "cls": "NetworkChart",
+      "family": "Fields & networks",
+      "summary": "A node-link graph.",
+      "props": [
+        {
+          "name": "source_key",
+          "js": "sourceKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "target_key",
+          "js": "targetKey",
+          "type": "Accessor<string>"
+        },
+        {
+          "name": "value_key",
+          "js": "valueKey",
+          "type": "Accessor<number | null | undefined>"
+        },
+        {
+          "name": "nodes",
+          "js": "nodes",
+          "type": "readonly NetworkNode[]"
+        },
+        {
+          "name": "iterations",
+          "js": "iterations",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "slug": "dashboard",
+      "builder": "dashboard",
+      "cls": "Dashboard",
+      "props": [
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "description",
+          "js": "description",
+          "type": "str"
+        },
+        {
+          "name": "layout",
+          "js": "layout",
+          "type": "dict[str, Any]"
+        },
+        {
+          "name": "heading_level",
+          "js": "headingLevel",
+          "type": "HeadingLevel"
+        },
+        {
+          "name": "ssr_width",
+          "js": "ssrWidth",
+          "type": "int | float"
+        },
+        {
+          "name": "link",
+          "js": "link",
+          "type": "dict[str, str]"
+        },
+        {
+          "name": "ground",
+          "js": "ground",
+          "type": "GroundName | str | dict[str, Any]"
+        },
+        {
+          "name": "substrate",
+          "js": "substrate",
+          "type": "Substrate"
+        },
+        {
+          "name": "mode",
+          "js": "mode",
+          "type": "InkMode"
+        },
+        {
+          "name": "locale",
+          "js": "locale",
+          "type": "str"
+        },
+        {
+          "name": "palette",
+          "js": "palette",
+          "type": "dict[str, str]"
+        },
+        {
+          "name": "on_link_change",
+          "js": "onLinkChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "alert",
+      "builder": "sp_alert",
+      "cls": "SpAlert",
+      "props": [
+        {
+          "name": "kind",
+          "js": "kind",
+          "type": "AlertKind"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str"
+        },
+        {
+          "name": "closable",
+          "js": "closable",
+          "type": "bool"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str"
+        },
+        {
+          "name": "on_close",
+          "js": "onClose",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "avatar",
+      "builder": "sp_avatar",
+      "cls": "SpAvatar",
+      "props": [
+        {
+          "name": "src",
+          "js": "src",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "initials",
+          "js": "initials",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "alt",
+          "js": "alt",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "shape",
+          "js": "shape",
+          "type": "Literal[\"circle\", \"square\"] | None"
+        },
+        {
+          "name": "pixel_size",
+          "js": "pixelSize",
+          "type": "int | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "avatar-group",
+      "builder": "sp_avatar_group",
+      "cls": "SpAvatarGroup",
+      "props": [
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "badge",
+      "builder": "sp_badge",
+      "cls": "SpBadge",
+      "props": [
+        {
+          "name": "count",
+          "js": "count",
+          "type": "int"
+        },
+        {
+          "name": "max",
+          "js": "max",
+          "type": "int"
+        },
+        {
+          "name": "dot",
+          "js": "dot",
+          "type": "bool"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "breadcrumb",
+      "builder": "sp_breadcrumb",
+      "cls": "SpBreadcrumb",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "Sequence[dict[str, Any]] | rx.Var"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        }
+      ],
+      "positional": [
+        "items"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "button",
+      "builder": "sp_button",
+      "cls": "SpButton",
+      "props": [
+        {
+          "name": "variant",
+          "js": "variant",
+          "type": "UiVariant"
+        },
+        {
+          "name": "type",
+          "js": "type",
+          "type": "Literal[\"button\", \"submit\", \"reset\"]"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "block",
+          "js": "block",
+          "type": "bool"
+        },
+        {
+          "name": "href",
+          "js": "href",
+          "type": "str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "card",
+      "builder": "sp_card",
+      "cls": "SpCard",
+      "props": [
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str"
+        },
+        {
+          "name": "heading_level",
+          "js": "headingLevel",
+          "type": "Literal[2, 3, 4, 5, 6]"
+        },
+        {
+          "name": "extra",
+          "js": "extra",
+          "type": "rx.Component | str"
+        },
+        {
+          "name": "footer",
+          "js": "footer",
+          "type": "rx.Component | str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "checkbox",
+      "builder": "sp_checkbox",
+      "cls": "SpCheckbox",
+      "props": [
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "indeterminate",
+          "js": "indeterminate",
+          "type": "bool"
+        },
+        {
+          "name": "checked",
+          "js": "checked",
+          "type": "bool"
+        },
+        {
+          "name": "default_checked",
+          "js": "defaultChecked",
+          "type": "bool"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "collapse",
+      "builder": "sp_collapse",
+      "cls": "SpCollapse",
+      "props": [
+        {
+          "name": "accordion",
+          "js": "accordion",
+          "type": "bool | None"
+        },
+        {
+          "name": "bordered",
+          "js": "bordered",
+          "type": "bool | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "collapse-item",
+      "builder": "sp_collapse_item",
+      "cls": "SpCollapseItem",
+      "props": [
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str | rx.Var"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_toggle",
+          "js": "onToggle",
+          "type": "Any"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool"
+        }
+      ],
+      "positional": [
+        "title"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "descriptions",
+      "builder": "sp_descriptions",
+      "cls": "SpDescriptions",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "Sequence[dict[str, Any]] | rx.Var"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "columns",
+          "js": "columns",
+          "type": "int | None"
+        },
+        {
+          "name": "bordered",
+          "js": "bordered",
+          "type": "bool | None"
+        },
+        {
+          "name": "heading_level",
+          "js": "headingLevel",
+          "type": "int | None"
+        }
+      ],
+      "positional": [
+        "items"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "divider",
+      "builder": "sp_divider",
+      "cls": "SpDivider",
+      "props": [
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "UiOrientation"
+        },
+        {
+          "name": "text",
+          "js": "text",
+          "type": "str"
+        },
+        {
+          "name": "align",
+          "js": "align",
+          "type": "Literal[\"start\", \"center\", \"end\"]"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "drawer",
+      "builder": "sp_drawer",
+      "cls": "SpDrawer",
+      "props": [
+        {
+          "name": "trigger",
+          "js": "trigger",
+          "type": "Any"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "Any"
+        },
+        {
+          "name": "description",
+          "js": "description",
+          "type": "Any"
+        },
+        {
+          "name": "footer",
+          "js": "footer",
+          "type": "Any"
+        },
+        {
+          "name": "side",
+          "js": "side",
+          "type": "str | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "closable",
+          "js": "closable",
+          "type": "bool | None"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str | None"
+        },
+        {
+          "name": "size",
+          "js": "size",
+          "type": "int | str | None"
+        },
+        {
+          "name": "modal",
+          "js": "modal",
+          "type": "bool | None"
+        },
+        {
+          "name": "extent",
+          "js": "extent",
+          "type": "int | str | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        },
+        {
+          "name": "dismissible",
+          "js": "dismissible",
+          "type": "bool | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "dropdown-menu",
+      "builder": "sp_dropdown_menu",
+      "cls": "SpDropdownMenu",
+      "props": [
+        {
+          "name": "trigger",
+          "js": "trigger",
+          "type": "Any"
+        },
+        {
+          "name": "items",
+          "js": "items",
+          "type": "Sequence[dict[str, Any]] | rx.Var"
+        },
+        {
+          "name": "on_select",
+          "js": "onSelect",
+          "type": "Any"
+        },
+        {
+          "name": "side",
+          "js": "side",
+          "type": "str | None"
+        },
+        {
+          "name": "align",
+          "js": "align",
+          "type": "Align | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | rx.Var | None"
+        }
+      ],
+      "positional": [
+        "trigger",
+        "items"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "empty",
+      "builder": "sp_empty",
+      "cls": "SpEmpty",
+      "props": [
+        {
+          "name": "description",
+          "js": "description",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "extra",
+          "js": "extra",
+          "type": "rx.Component"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "glyph",
+      "builder": "sp_glyph",
+      "cls": "SpGlyph",
+      "props": [
+        {
+          "name": "glyph",
+          "js": "glyph",
+          "type": "Glyph"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "input",
+      "builder": "sp_input",
+      "cls": "SpInput",
+      "props": [
+        {
+          "name": "type",
+          "js": "type",
+          "type": "Literal[\"text\", \"search\", \"email\", \"url\", \"tel\", \"password\", \"number\"]"
+        },
+        {
+          "name": "placeholder",
+          "js": "placeholder",
+          "type": "str"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "read_only",
+          "js": "readOnly",
+          "type": "bool"
+        },
+        {
+          "name": "invalid",
+          "js": "invalid",
+          "type": "bool"
+        },
+        {
+          "name": "message",
+          "js": "message",
+          "type": "str"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str"
+        },
+        {
+          "name": "prefix",
+          "js": "prefix",
+          "type": "rx.Component"
+        },
+        {
+          "name": "suffix",
+          "js": "suffix",
+          "type": "rx.Component"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "input-number",
+      "builder": "sp_input_number",
+      "cls": "SpInputNumber",
+      "props": [
+        {
+          "name": "value",
+          "js": "value",
+          "type": "int | float | None"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "int | float"
+        },
+        {
+          "name": "min",
+          "js": "min",
+          "type": "int | float"
+        },
+        {
+          "name": "max",
+          "js": "max",
+          "type": "int | float"
+        },
+        {
+          "name": "step",
+          "js": "step",
+          "type": "int | float"
+        },
+        {
+          "name": "precision",
+          "js": "precision",
+          "type": "int"
+        },
+        {
+          "name": "placeholder",
+          "js": "placeholder",
+          "type": "str"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "message",
+          "js": "message",
+          "type": "str"
+        },
+        {
+          "name": "invalid",
+          "js": "invalid",
+          "type": "bool"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "read_only",
+          "js": "readOnly",
+          "type": "bool"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "decrement_label",
+          "js": "decrementLabel",
+          "type": "str"
+        },
+        {
+          "name": "increment_label",
+          "js": "incrementLabel",
+          "type": "str"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "modal",
+      "builder": "sp_modal",
+      "cls": "SpModal",
+      "props": [
+        {
+          "name": "trigger",
+          "js": "trigger",
+          "type": "Any"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "Any"
+        },
+        {
+          "name": "description",
+          "js": "description",
+          "type": "Any"
+        },
+        {
+          "name": "footer",
+          "js": "footer",
+          "type": "Any"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "closable",
+          "js": "closable",
+          "type": "bool | None"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str | None"
+        },
+        {
+          "name": "width",
+          "js": "width",
+          "type": "int | str | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        },
+        {
+          "name": "dismissible",
+          "js": "dismissible",
+          "type": "bool | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "pagination",
+      "builder": "sp_pagination",
+      "cls": "SpPagination",
+      "props": [
+        {
+          "name": "total",
+          "js": "total",
+          "type": "int"
+        },
+        {
+          "name": "page_size",
+          "js": "pageSize",
+          "type": "int"
+        },
+        {
+          "name": "current",
+          "js": "current",
+          "type": "int"
+        },
+        {
+          "name": "default_current",
+          "js": "defaultCurrent",
+          "type": "int"
+        },
+        {
+          "name": "siblings",
+          "js": "siblings",
+          "type": "int"
+        },
+        {
+          "name": "show_total",
+          "js": "showTotal",
+          "type": "bool"
+        },
+        {
+          "name": "total_template",
+          "js": "totalTemplate",
+          "type": "str"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "previous_label",
+          "js": "previousLabel",
+          "type": "str"
+        },
+        {
+          "name": "next_label",
+          "js": "nextLabel",
+          "type": "str"
+        },
+        {
+          "name": "page_label",
+          "js": "pageLabel",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "popover",
+      "builder": "sp_popover",
+      "cls": "SpPopover",
+      "props": [
+        {
+          "name": "trigger",
+          "js": "trigger",
+          "type": "Any"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "Any"
+        },
+        {
+          "name": "side",
+          "js": "side",
+          "type": "str | None"
+        },
+        {
+          "name": "align",
+          "js": "align",
+          "type": "Align | None"
+        },
+        {
+          "name": "side_offset",
+          "js": "sideOffset",
+          "type": "int | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "closable",
+          "js": "closable",
+          "type": "bool | None"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str | None"
+        },
+        {
+          "name": "width",
+          "js": "width",
+          "type": "int | str | None"
+        },
+        {
+          "name": "offset",
+          "js": "offset",
+          "type": "int | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "progress",
+      "builder": "sp_progress",
+      "cls": "SpProgress",
+      "props": [
+        {
+          "name": "value",
+          "js": "value",
+          "type": "int | float"
+        },
+        {
+          "name": "shape",
+          "js": "shape",
+          "type": "Literal[\"line\", \"circle\"]"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "show_value",
+          "js": "showValue",
+          "type": "bool"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "radio-group",
+      "builder": "sp_radio_group",
+      "cls": "SpRadioGroup",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "list[dict[str, Any]]"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "UiOrientation"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str | None"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str | None"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "rate",
+      "builder": "sp_rate",
+      "cls": "SpRate",
+      "props": [
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "count",
+          "js": "count",
+          "type": "int"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "read_only",
+          "js": "readOnly",
+          "type": "bool"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "int"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "int"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "result",
+      "builder": "sp_result",
+      "cls": "SpResult",
+      "props": [
+        {
+          "name": "status",
+          "js": "status",
+          "type": "ResultStatus | None"
+        },
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str | rx.Var"
+        },
+        {
+          "name": "subtitle",
+          "js": "subtitle",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "heading_level",
+          "js": "headingLevel",
+          "type": "int | None"
+        },
+        {
+          "name": "extra",
+          "js": "extra",
+          "type": "rx.Component"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "segmented",
+      "builder": "sp_segmented",
+      "cls": "SpSegmented",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "list[dict[str, Any]]"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "block",
+          "js": "block",
+          "type": "bool"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "select",
+      "builder": "sp_select",
+      "cls": "SpSelect",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "Sequence[Any] | rx.Var"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str | None"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "Any"
+        },
+        {
+          "name": "placeholder",
+          "js": "placeholder",
+          "type": "str | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str | None"
+        },
+        {
+          "name": "required",
+          "js": "required",
+          "type": "bool | None"
+        },
+        {
+          "name": "width",
+          "js": "width",
+          "type": "int | str | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        }
+      ],
+      "positional": [
+        "items"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "skeleton",
+      "builder": "sp_skeleton",
+      "cls": "SpSkeleton",
+      "props": [
+        {
+          "name": "lines",
+          "js": "lines",
+          "type": "int"
+        },
+        {
+          "name": "avatar",
+          "js": "avatar",
+          "type": "bool"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "slider",
+      "builder": "sp_slider",
+      "cls": "SpSlider",
+      "props": [
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "min",
+          "js": "min",
+          "type": "int | float"
+        },
+        {
+          "name": "max",
+          "js": "max",
+          "type": "int | float"
+        },
+        {
+          "name": "step",
+          "js": "step",
+          "type": "int | float"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "marks",
+          "js": "marks",
+          "type": "list[int | float]"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "int | float"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "int | float"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "statistic",
+      "builder": "sp_statistic",
+      "cls": "SpStatistic",
+      "props": [
+        {
+          "name": "title",
+          "js": "title",
+          "type": "str | rx.Var"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "Any"
+        },
+        {
+          "name": "prefix",
+          "js": "prefix",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "suffix",
+          "js": "suffix",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "trend",
+          "js": "trend",
+          "type": "Literal[\"up\", \"down\"] | rx.Var | None"
+        },
+        {
+          "name": "delta",
+          "js": "delta",
+          "type": "str | rx.Var | None"
+        }
+      ],
+      "positional": [
+        "title",
+        "value"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "steps",
+      "builder": "sp_steps",
+      "cls": "SpSteps",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "list[dict[str, Any]]"
+        },
+        {
+          "name": "current",
+          "js": "current",
+          "type": "int"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "UiOrientation"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "surface",
+      "builder": "sp_surface",
+      "cls": "SpSurface",
+      "props": [
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "frame",
+          "js": "frame",
+          "type": "FrameKind"
+        },
+        {
+          "name": "tone",
+          "js": "tone",
+          "type": "ToneLevel"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "switch",
+      "builder": "sp_switch",
+      "cls": "SpSwitch",
+      "props": [
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "checked",
+          "js": "checked",
+          "type": "bool"
+        },
+        {
+          "name": "default_checked",
+          "js": "defaultChecked",
+          "type": "bool"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "tab-panel",
+      "builder": "sp_tab_panel",
+      "cls": "SpTabPanel",
+      "props": [
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "table",
+      "builder": "sp_table",
+      "cls": "SpTable",
+      "props": [
+        {
+          "name": "columns",
+          "js": "columns",
+          "type": "Sequence[dict[str, Any] | str]"
+        },
+        {
+          "name": "data",
+          "js": "data",
+          "type": "list[dict[str, Any]] | rx.Var"
+        },
+        {
+          "name": "caption",
+          "js": "caption",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "sort_key",
+          "js": "sortKey",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "sort_order",
+          "js": "sortOrder",
+          "type": "Literal[\"asc\", \"desc\"] | rx.Var | None"
+        },
+        {
+          "name": "on_sort",
+          "js": "onSort",
+          "type": "Any"
+        },
+        {
+          "name": "striped",
+          "js": "striped",
+          "type": "bool | None"
+        },
+        {
+          "name": "hoverable",
+          "js": "hoverable",
+          "type": "bool | None"
+        },
+        {
+          "name": "bordered",
+          "js": "bordered",
+          "type": "bool | None"
+        },
+        {
+          "name": "empty_text",
+          "js": "emptyText",
+          "type": "str | None"
+        },
+        {
+          "name": "row_key",
+          "js": "rowKey",
+          "type": "str | None"
+        }
+      ],
+      "positional": [
+        "columns",
+        "data"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "tabs",
+      "builder": "sp_tabs",
+      "cls": "SpTabs",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "list[dict[str, Any]]"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str"
+        },
+        {
+          "name": "orientation",
+          "js": "orientation",
+          "type": "UiOrientation"
+        },
+        {
+          "name": "activation",
+          "js": "activation",
+          "type": "Literal[\"automatic\", \"manual\"]"
+        },
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "tag",
+      "builder": "sp_tag",
+      "cls": "SpTag",
+      "props": [
+        {
+          "name": "tone",
+          "js": "tone",
+          "type": "UiToneLevel"
+        },
+        {
+          "name": "closable",
+          "js": "closable",
+          "type": "bool"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str"
+        },
+        {
+          "name": "on_close",
+          "js": "onClose",
+          "type": "event"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "textarea",
+      "builder": "sp_textarea",
+      "cls": "SpTextarea",
+      "props": [
+        {
+          "name": "value",
+          "js": "value",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "default_value",
+          "js": "defaultValue",
+          "type": "str | None"
+        },
+        {
+          "name": "placeholder",
+          "js": "placeholder",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "rows",
+          "js": "rows",
+          "type": "int | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "message",
+          "js": "message",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "invalid",
+          "js": "invalid",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "disabled",
+          "js": "disabled",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "read_only",
+          "js": "readOnly",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "max_length",
+          "js": "maxLength",
+          "type": "int | None"
+        },
+        {
+          "name": "show_count",
+          "js": "showCount",
+          "type": "bool | None"
+        },
+        {
+          "name": "name",
+          "js": "name",
+          "type": "str | None"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "Any"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "timeline",
+      "builder": "sp_timeline",
+      "cls": "SpTimeline",
+      "props": [
+        {
+          "name": "data",
+          "js": "data",
+          "type": "Any"
+        },
+        {
+          "name": "options",
+          "js": "options",
+          "type": "Any"
+        },
+        {
+          "name": "height",
+          "js": "height",
+          "type": "int | str | None"
+        },
+        {
+          "name": "inked_frames",
+          "js": "inkedFrames",
+          "type": "bool | None"
+        },
+        {
+          "name": "card",
+          "js": "card",
+          "type": "bool | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "fallback",
+          "js": "fallback",
+          "type": "rx.Component | None"
+        },
+        {
+          "name": "on_change",
+          "js": "onChange",
+          "type": "Any"
+        },
+        {
+          "name": "on_loaded",
+          "js": "onLoaded",
+          "type": "Any"
+        },
+        {
+          "name": "on_nav_next",
+          "js": "onNavNext",
+          "type": "Any"
+        },
+        {
+          "name": "on_nav_previous",
+          "js": "onNavPrevious",
+          "type": "Any"
+        },
+        {
+          "name": "on_zoom_in",
+          "js": "onZoomIn",
+          "type": "Any"
+        },
+        {
+          "name": "on_zoom_out",
+          "js": "onZoomOut",
+          "type": "Any"
+        },
+        {
+          "name": "on_back_to_start",
+          "js": "onBackToStart",
+          "type": "Any"
+        }
+      ],
+      "positional": [
+        "data",
+        "options"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "timeline-list",
+      "builder": "sp_timeline_list",
+      "cls": "SpTimelineList",
+      "props": [
+        {
+          "name": "items",
+          "js": "items",
+          "type": "Sequence[dict[str, Any]] | rx.Var"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        }
+      ],
+      "positional": [
+        "items"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "toast",
+      "builder": "sp_toast",
+      "cls": "SpToast",
+      "props": [
+        {
+          "name": "title",
+          "js": "title",
+          "type": "Any"
+        },
+        {
+          "name": "description",
+          "js": "description",
+          "type": "Any"
+        },
+        {
+          "name": "kind",
+          "js": "kind",
+          "type": "ToastKind | None"
+        },
+        {
+          "name": "action",
+          "js": "action",
+          "type": "rx.Component | None"
+        },
+        {
+          "name": "action_alt",
+          "js": "actionAlt",
+          "type": "str | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "duration",
+          "js": "duration",
+          "type": "int | None"
+        },
+        {
+          "name": "close_label",
+          "js": "closeLabel",
+          "type": "str | None"
+        }
+      ],
+      "positional": [
+        "title",
+        "description"
+      ],
+      "deprecated": {}
+    },
+    {
+      "slug": "toaster",
+      "builder": "sp_toaster",
+      "cls": "SpToaster",
+      "props": [
+        {
+          "name": "position",
+          "js": "position",
+          "type": "str | None"
+        },
+        {
+          "name": "duration",
+          "js": "duration",
+          "type": "int | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | None"
+        }
+      ],
+      "positional": [],
+      "deprecated": {}
+    },
+    {
+      "slug": "tooltip",
+      "builder": "sp_tooltip",
+      "cls": "SpTooltip",
+      "props": [
+        {
+          "name": "trigger",
+          "js": "trigger",
+          "type": "Any"
+        },
+        {
+          "name": "content",
+          "js": "content",
+          "type": "str | rx.Var"
+        },
+        {
+          "name": "side",
+          "js": "side",
+          "type": "str | None"
+        },
+        {
+          "name": "align",
+          "js": "align",
+          "type": "Align | None"
+        },
+        {
+          "name": "side_offset",
+          "js": "sideOffset",
+          "type": "int | None"
+        },
+        {
+          "name": "delay",
+          "js": "delay",
+          "type": "int | None"
+        },
+        {
+          "name": "open",
+          "js": "open",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "default_open",
+          "js": "defaultOpen",
+          "type": "bool | None"
+        },
+        {
+          "name": "on_open_change",
+          "js": "onOpenChange",
+          "type": "Any"
+        },
+        {
+          "name": "offset",
+          "js": "offset",
+          "type": "int | None"
+        },
+        {
+          "name": "text",
+          "js": "text",
+          "type": "str"
+        }
+      ],
+      "positional": [
+        "trigger",
+        "content"
+      ],
+      "deprecated": {}
+    }
+  ],
+  "helpers": [
+    "chart_by_name",
+    "chart_by_slug",
+    "chart_ref",
+    "check_palette",
+    "contrast_ratio",
+    "dashboard_cell",
+    "dashboard_cell_layout",
+    "dashboard_layout",
+    "dashboard_link",
+    "download_svg",
+    "get_geometry",
+    "get_svg",
+    "network_node",
+    "palette_css",
+    "palette_prop",
+    "silverpoint_palette",
+    "silverpoint_provider",
+    "sort_rows",
+    "step_item",
+    "timeline_available",
+    "tooltip_template",
+    "ui_component_by_slug",
+    "ui_demo",
+    "ui_item"
+  ]
+}

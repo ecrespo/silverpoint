@@ -3,7 +3,7 @@
  *   pnpm --filter @silverpoint/docs generate
  */
 import { writeFileSync } from 'node:fs';
-import { propsReference } from './props';
+import { propsReference } from '../../../tools/agent-catalog/props';
 
 const out = (name: string) => new URL(`../generated/${name}`, import.meta.url);
 writeFileSync(out('props.json'), `${JSON.stringify(propsReference(), null, 2)}\n`);

@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { CATALOG } from '../../../tools/visual-gate/catalog';
 import { UI_COMPONENTS } from '../../../packages/core/src/ui/catalog';
-import { propsReference } from '../scripts/props';
+import { propsReference } from '../../../tools/agent-catalog/props';
 
 /**
  * The site's props reference is read from the published types (`packages/core/src/types/props.ts`),
@@ -20,6 +20,14 @@ describe('props reference', () => {
     const donut = reference.charts.find((c) => c.chart === 'DonutChart')!;
     expect(donut.own.map((p) => p.name)).toEqual(['nameKey', 'valueKey', 'centerValue', 'centerLabel', 'legend']);
     expect(donut.own.find((p) => p.name === 'legend')).toEqual({ name: 'legend', type: 'boolean', optional: true, doc: 'Names every sector with its share beside the ring; `true` by default.' });
+  });
+
+  test('REQ-416 · REQ-417 · REQ-418 · REQ-530 · a chart lists the props it inherits from a shared base, never the common ones', () => {
+    for (const chart of ['SquarifiedTreemap', 'SunburstChart', 'TreeChart']) {
+      const names = reference.charts.find((c) => c.chart === chart)!.own.map((p) => p.name);
+      expect(names, chart).toEqual(expect.arrayContaining(['idKey', 'parentKey', 'labelKey', 'valueKey']));
+      expect(names.filter((name) => reference.common.some((p) => p.name === name)), chart).toEqual([]);
+    }
   });
 
   describe('what the demo ignores (delta-011)', () => {
