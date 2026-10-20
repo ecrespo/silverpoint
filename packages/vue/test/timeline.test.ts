@@ -97,7 +97,7 @@ describe('SpTimeline (Vue)', () => {
     const host = mount(() => h(SpTimeline, { data: TIMELINE_DEMO, options: { font: 'x', theme: 'y', start_at_slide: 1 }, onChange, onNavNext, onLoaded }));
     await settle();
     expect(imported).toBe(1);
-    expect(built).toEqual([{ element: host.querySelector('.sp-kl-mount'), options: { start_at_slide: 1 } }]);
+    expect(built).toEqual([{ element: host.querySelector('.sp-kl-mount')?.firstElementChild, options: { start_at_slide: 1 } }]);
     handlers.get('change')?.({ unique_id: 'leonardo' });
     handlers.get('nav_next')?.({ unique_id: 'x' });
     handlers.get('loaded')?.({ scale: 'human' });

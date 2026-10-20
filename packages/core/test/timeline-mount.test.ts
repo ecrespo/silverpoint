@@ -69,13 +69,58 @@ describe('the timeline client half (T-221, REQ-512..REQ-515)', () => {
     expect(host.getAttribute('data-kl-inked')).toBe('false');
     await settle();
     expect(load).toHaveBeenCalledTimes(1);
-    expect(fake.built).toEqual([{ element: mount, data: TIMELINE_DEMO, options: { start_at_end: true } }]);
+    // A container of its own inside the mount: TimelineJS rewrites its container's whole `className`.
+    expect(fake.built).toEqual([{ element: mount.firstElementChild, data: TIMELINE_DEMO, options: { start_at_end: true } }]);
+    expect(mount.childElementCount).toBe(1);
+    (fake.built[0]!.element as HTMLElement).className = 'tl-timeline';
+    expect(host.querySelector('.sp-kl-mount')).toBe(mount);
     expect([...fake.handlers.keys()]).toEqual(TIMELINE_EVENTS.map(([name]) => name));
     fake.fire('change', { unique_id: 'leonardo' });
     fake.fire('loaded', { scale: 'human' });
     fake.fire('nav_next', { unique_id: 'x' });
     fake.fire('back_to_start', { unique_id: 'title' });
     expect(emit.mock.calls).toEqual([['change', 'leonardo'], ['loaded', { scale: 'human' }], ['navNext'], ['backToStart']]);
+  });
+
+  test('REQ-513 · TimelineJS gets a copy of the data, which it writes (each slide’s `unique_id`); the consumer’s frozen data stays untouched', async () => {
+    const { host } = surface();
+    const seen: unknown[] = [];
+    class Writing {
+      constructor(_element: unknown, data: { events: { unique_id?: string }[] }) {
+        for (const [i, event] of data.events.entries()) event.unique_id = `e${i}`;
+        seen.push(data);
+      }
+      on() {}
+    }
+    timelineMount(host, { load: () => Promise.resolve({ Timeline: Writing } as unknown as TimelineJsModule), data: TIMELINE_DEMO, emit: vi.fn(), failed: vi.fn() });
+    await settle();
+    expect(Object.isFrozen(TIMELINE_DEMO.events[0])).toBe(true);
+    expect(seen).toHaveLength(1);
+    expect(seen[0]).not.toBe(TIMELINE_DEMO);
+    expect((seen[0] as { events: { unique_id: string }[] }).events[1]!.unique_id).toBe('e1');
+    expect(TIMELINE_DEMO.events[1]).not.toHaveProperty('unique_id', 'e1');
+  });
+
+  test('REQ-515 · a TimelineJS that throws as it is built warns SP025, leaves the mount empty for the fallback, and throws nothing', async () => {
+    const warnings: string[] = [];
+    const restore = __setDiagnosticSink((code) => warnings.push(code));
+    try {
+      const { host, mount } = surface();
+      class Broken {
+        constructor(element: HTMLElement) {
+          element.append(document.createElement('div'));
+          throw new Error('bad data');
+        }
+      }
+      const failed = vi.fn();
+      timelineMount(host, { load: () => Promise.resolve({ Timeline: Broken } as unknown as TimelineJsModule), data: TIMELINE_DEMO, emit: vi.fn(), failed });
+      await settle();
+      expect(failed).toHaveBeenCalledTimes(1);
+      expect(warnings).toEqual(['SP025']);
+      expect(mount.childElementCount).toBe(0);
+    } finally {
+      restore();
+    }
   });
 
   test('REQ-515 · a load that fails warns SP025, calls `failed` and throws nothing', async () => {

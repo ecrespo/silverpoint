@@ -463,12 +463,36 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8g — Example apps
 
-**[ ] T-222 · Composed, palettes and timeline pages in the four apps** — REQ-520
+**[x] T-222 · Composed, palettes and timeline pages in the four apps** — REQ-520
 - `vite-react`, `vite-vue`, `nextjs`, `angular`; `@knight-lab/timelinejs` as an exact dev dependency
   of each example app.
 - From T-221: the 10 timeline surface fixtures join the apps' tree gate, and the one nightly pixel
   fixture over pinned TimelineJS is written.
 - **Done:** pages render; no hydration mismatch.
+- **Ledger (2026-10-19):** `/composed`, `/palettes` and `/timeline` in `vite-react`, `vite-vue`
+  (prerendered to `dist/<page>.html` and hydrated), `nextjs` (App Router, server components where the
+  row has a server entry) and `angular` (`@angular/ssr`), their content in the shared harness:
+  `COMPOSED_PAGE` (the UI page's three panels, eight sections of the 21 rows, each item a fixture
+  with `page` set: ids under the panel's key, the six overlay kinds of `PAGE_CLOSED` closed behind
+  their triggers, no active item), `PALETTES_PAGE` (the six presets over a `LineChart`, an `SpCard`
+  holding an `SpProgress`, and an `SpTable`) and `TIMELINE_PAGE` (`TIMELINE_DEMO`, with a fallback).
+  Each app's fixture view now exports the bare component (`UiComponent`; Vue's `UiComponent.vue`,
+  `UiFixture.vue` a wrapper) that the composed page reuses. `@knight-lab/timelinejs` `3.9.13` is an
+  exact dev dependency of each app; it lands in a lazy chunk of its own (229 kB, 68 kB gzip). Drawing
+  the real TimelineJS found two faults the mocks could not: it writes `unique_id` into its data
+  (frozen `TIMELINE_DEMO` threw, and the timeline stayed on "Loading") and rewrites its container's
+  `className` (the mount lost `sp-kl-mount`). `timelineMount` now builds it in a `<div>` of its own
+  inside the mount, on a `structuredClone` of the data, and treats a throw while building as a failed
+  load. From T-221: `timeline-gate.ts` compares the 10 surface fixtures over the published builds
+  (gates project, 30 comparisons), and `e2e/pixel.spec.ts` has the nightly fixture
+  `timeline/timeline--page.png`, one golden for the four apps, written in the pinned image. Tests:
+  harness 4, core 2 (+1 changed), adapter client tests 3 changed, gate 1, `e2e/pages.spec.ts` 5 per
+  app (vite-react 3, the server-rendered checks skipped), pixel 1. Mutants: 12 run (harness 4, mount
+  5, gate 3), 12 red. *Amended in implementation* (PRD REQ-520, API delta §2, TD DD-042): the routes
+  and the page content; the mount's own container, the data copy and build errors as `SP025`;
+  TimelineJS 3.9.13 has no destroy method, so its `document` keydown and `window` resize listeners
+  outlive the component. Seen on the golden, left to T-224's review: era titles can overlap the
+  axis labels, as TimelineJS lays them out.
 
 **[ ] T-223 · E2E and axe** — REQ-491..REQ-498, REQ-503, REQ-520, REQ-522, REQ-523
 - APG keyboard for Select and Menu; Modal and Drawer focus trap and return; Tooltip 1.4.13; Toast

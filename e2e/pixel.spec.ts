@@ -212,3 +212,22 @@ test.describe('UI mode invariance', () => {
     });
   }
 });
+
+test.describe('timeline pixel gate', () => {
+  /**
+   * T-222 (REQ-513): the `/timeline` page's TimelineJS, built in the mount and inked by the ground,
+   * against one golden for every app. TimelineJS is a pinned third party (`3.9.13`), so the shot is
+   * nightly only: a PR never waits on its drawing.
+   */
+  test('REQ-513 · the /timeline page draws TimelineJS in the ground’s hand, the same in every app', async ({ page }) => {
+    test.skip(!FULL, 'nightly: TimelineJS is a pinned third party');
+    await page.goto('/timeline');
+    const timeline = page.locator('section.sp-timeline');
+    await timeline.locator('.sp-kl-mount .tl-storyslider').waitFor();
+    await expect(timeline).toHaveAttribute('data-kl-inked', 'true');
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+    });
+    expect(await timeline.screenshot({ animations: 'disabled' })).toMatchSnapshot(['timeline', 'timeline--page.png'], { threshold: 0.15, maxDiffPixelRatio: 0.005 });
+  });
+});

@@ -179,6 +179,13 @@ page that warns. A consumer who does not import that subpath needs nothing (REQ-
 | REQ-522 | ubiquitous | Every new element SHALL meet REQ-313 (contrast), REQ-316 (exact focus), REQ-317 (24 × 24 targets), REQ-320 (reduced motion) and REQ-329 (ids from `id`), and every new interactive element SHALL be skipped by its keyboard pattern when disabled (REQ-326). | MUST |
 | REQ-523 | optional | WHERE the document or an ancestor sets `dir="rtl"`, THE SYSTEM SHOULD mirror Pagination, Breadcrumb, the Drawer's `start`/`end` sides, the placement of REQ-493 and the steppers of InputNumber (REQ-321 extended). | SHOULD |
 
+*Amended in implementation (T-222):* the pages are `/composed`, `/palettes` and `/timeline` in every
+app, their content in the shared harness (`COMPOSED_PAGE`, `PALETTES_PAGE`, `TIMELINE_PAGE`). The
+composed page puts the 21 rows in the three panels of the UI page (silverpoint ink, silverpoint
+precision, cyanotype), every overlay closed behind its trigger; the palettes page draws each preset
+over a `LineChart`, an `SpCard` holding an `SpProgress`, and an `SpTable`. REQ-520's render and
+hydration are verified by `e2e/pages.spec.ts` (T-222); its axe and APG halves by T-223.
+
 **Count:** 57 requirements (56 MUST, 1 SHOULD). The PRD goes from 213 to 270 requirements (250 MUST).
 
 ## 7. Non-functional additions (§7)

@@ -19,6 +19,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@knight-lab/timelinejs": "3.9.13",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",

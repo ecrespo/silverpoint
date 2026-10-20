@@ -14,7 +14,8 @@
     "ui-gate": "tsx ui-gate.ts",
     "palette-canonical": "tsx --conditions=@silverpoint/source palette-fixtures.ts",
     "timeline-canonical": "tsx --conditions=@silverpoint/source timeline-fixtures.ts",
-    "palette-gate": "tsx palette-gate.ts"
+    "palette-gate": "tsx palette-gate.ts",
+    "timeline-gate": "tsx timeline-gate.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",

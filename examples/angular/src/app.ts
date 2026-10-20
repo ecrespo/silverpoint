@@ -64,19 +64,26 @@ import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, f
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiGate, UiPage } from './ui-gate';
+import { ComposedPage, PalettesPage, TimelinePage } from './pages';
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart, WaffleChart: SpWaffleChart, MarimekkoChart: SpMarimekkoChart, SquarifiedTreemap: SpSquarifiedTreemap, SunburstChart: SpSunburstChart, TreeChart: SpTreeChart, ParallelCoordinatesChart: SpParallelCoordinatesChart, PolarLineChart: SpPolarLineChart, PolarScatterChart: SpPolarScatterChart, DensityBinChart: SpDensityBinChart, ContourChart: SpContourChart, DelaunayChart: SpDelaunayChart, VectorFieldChart: SpVectorFieldChart, NetworkChart: SpNetworkChart };
 
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate, UiPage],
+  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate, UiPage, ComposedPage, PalettesPage, TimelinePage],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (ui) {
       <main><app-ui-gate [fixture]="ui" /></main>
     } @else if (uiPage) {
       <main><app-ui-page /></main>
+    } @else if (page === '/composed') {
+      <main><app-composed-page /></main>
+    } @else if (page === '/palettes') {
+      <main><app-palettes-page /></main>
+    } @else if (page === '/timeline') {
+      <main><app-timeline-page /></main>
     } @else if (dashboard) {
       <main>
         @if (!dashboardGate) {
@@ -134,6 +141,8 @@ export class App {
   protected readonly ui = uiFixtureById(new URLSearchParams(this.url.search).get('ui'));
   /** The UI reference page (T-157). */
   protected readonly uiPage = this.url.pathname.replace(/\/$/, '') === '/ui';
+  /** The feature-004 pages (T-222): `/composed`, `/palettes`, `/timeline`. */
+  protected readonly page = this.url.pathname.replace(/\/$/, '');
   private readonly dashboardFixture = dashboardFixtureById(new URLSearchParams(this.url.search).get('dashboard'));
   /** The pixel gate's dashboard fixture, or the `/dashboard` page's reference dashboard (REQ-221). */
   protected readonly dashboard = this.dashboardFixture

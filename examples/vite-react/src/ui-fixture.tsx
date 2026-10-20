@@ -86,7 +86,7 @@ export const UI = {
 type CollapseDemoItem = Record<string, unknown> & { readonly key: string; readonly content?: string; readonly open?: boolean };
 
 /** The component, composed as a consumer writes its demo: Glyph `all`, Avatar `group` and Collapse hold several. */
-function UiComponent({ fixture }: { fixture: HarnessUiFixture }) {
+export function UiComponent({ fixture }: { fixture: HarnessUiFixture }) {
   const { props, value, slots, trigger } = uiFixtureParts(fixture);
   const { glyphs, avatars, items, ...rest } = props as typeof props & { glyphs?: readonly string[]; avatars?: readonly Record<string, unknown>[]; items?: unknown };
   const common = { ground: props.ground, substrate: props.substrate, mode: props.mode, size: props.size };

@@ -138,3 +138,69 @@ describe('the UI reference page (T-157)', () => {
     expect(items.find((i) => i.component === 'tabs')!.tabPanels).toHaveLength(4);
   });
 });
+
+describe('the feature-004 pages (T-222)', () => {
+  test('REQ-520 · the composed page: the UI page’s three panels, each holding every state of the 21 new rows', async () => {
+    const { COMPOSED_PAGE, UI_PAGE } = await import('../../examples/harness/index.js');
+    const { UI_COMPONENTS } = await import('@silverpoint/core/ui');
+    const rows = UI_COMPONENTS.filter((c) => c.family !== 'ui');
+    expect(rows).toHaveLength(21);
+    expect(COMPOSED_PAGE.panels.map((p: { key: string }) => p.key)).toEqual(UI_PAGE.panels.map((p: { key: string }) => p.key));
+    for (const panel of COMPOSED_PAGE.panels) {
+      const items = panel.sections.flatMap((s: { items: unknown[] }) => s.items) as { component: string; state: string; ground: string; substrate: string; mode: string; page: string }[];
+      expect(items.map((i) => `${i.component}--${i.state}`).sort()).toEqual(rows.flatMap((r) => r.states.map((s) => `${r.slug}--${s}`)).sort());
+      for (const item of items) expect(item).toMatchObject({ ground: panel.ground, substrate: panel.substrate, mode: panel.mode, page: panel.key, size: 'md' });
+    }
+    // Reflex's order: the orders first, the overlays last.
+    expect(COMPOSED_PAGE.panels[0].sections[0].items[0]).toMatchObject({ component: 'table' });
+    expect(COMPOSED_PAGE.panels[0].sections.at(-1).items.every((i: { component: string }) => rows.find((r) => r.slug === i.component)?.family === 'overlay')).toBe(true);
+  });
+
+  test('REQ-329 · REQ-520 · on the page, an id is prefixed by its panel, and a dialog or popover starts closed behind its trigger; a toast stays shown', async () => {
+    const { COMPOSED_PAGE, uiFixtureParts } = await import('../../examples/harness/index.js');
+    const ids: string[] = [];
+    for (const panel of COMPOSED_PAGE.panels) {
+      for (const item of panel.sections.flatMap((s: { items: unknown[] }) => s.items) as { component: string; state: string }[]) {
+        const parts = uiFixtureParts(item);
+        if (parts.props.id !== undefined) {
+          expect(parts.props.id).toBe(`${panel.key}-${item.component}--${item.state}`);
+          ids.push(parts.props.id as string);
+        }
+        if (['modal', 'drawer', 'popover', 'tooltip', 'select', 'dropdown-menu'].includes(item.component)) expect(parts.props, item.component).not.toHaveProperty('open');
+        if (item.component === 'toast') expect(parts.props.open).toBe(true);
+        expect(parts).not.toHaveProperty('active');
+      }
+    }
+    expect(new Set(ids).size).toBe(ids.length);
+    // A fixture keeps its demo's id and state.
+    const { UI_FIXTURES } = await import('../../examples/harness/index.js');
+    const modal = UI_FIXTURES.find((f: { id: string }) => f.id === 'modal--open--silverpoint--cream--ink');
+    expect(uiFixtureParts(modal).props).toMatchObject({ id: 'modal--open', open: true });
+  });
+
+  test('REQ-520 · REQ-468 · the palettes page: the six presets, each over a LineChart, a Card holding a Progress, and a Table', async () => {
+    const { PALETTES_PAGE } = await import('../../examples/harness/index.js');
+    const { PALETTE_NAMES, PALETTES } = await import('@silverpoint/core/palettes');
+    expect(PALETTES_PAGE.presets.map((p: { key: string }) => p.key)).toEqual([...PALETTE_NAMES]);
+    const ids: string[] = [];
+    for (const preset of PALETTES_PAGE.presets) {
+      expect(preset.palette).toBe(PALETTES[preset.key]);
+      for (const part of ['chart', 'card', 'progress', 'table'] as const) {
+        expect(preset[part], `${preset.key} ${part}`).toMatchObject({ palette: PALETTES[preset.key], ground: 'silverpoint', substrate: 'cream', mode: 'ink' });
+        expect(preset[part].id).toBe(`palette-${preset.key}-${part}`);
+        ids.push(preset[part].id);
+      }
+      expect(preset.table).toMatchObject({ columns: expect.any(Array), data: expect.any(Array), caption: expect.any(String) });
+      expect(typeof preset.card.title).toBe('string');
+      expect(typeof preset.progress.value).toBe('number');
+    }
+    expect(new Set(ids).size).toBe(24);
+  });
+
+  test('REQ-520 · the timeline page holds TIMELINE_DEMO on silverpoint/cream in ink, with a fallback text', async () => {
+    const { TIMELINE_PAGE } = await import('../../examples/harness/index.js');
+    const { TIMELINE_DEMO } = await import('@silverpoint/core/ui-demos');
+    expect(TIMELINE_PAGE.timeline).toEqual({ id: 'timeline', data: TIMELINE_DEMO, ground: 'silverpoint', substrate: 'cream', mode: 'ink' });
+    expect(TIMELINE_PAGE.fallback.length).toBeGreaterThan(0);
+  });
+});

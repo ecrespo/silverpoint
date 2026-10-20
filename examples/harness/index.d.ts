@@ -1,4 +1,7 @@
 import type { CommonChartProps, LineChartProps } from '@silverpoint/core';
+import type { Palette } from '@silverpoint/core';
+import type { SpTimelineProps } from '@silverpoint/core/timeline';
+import type { SpCardProps, SpProgressProps, SpTableProps } from '@silverpoint/core/ui';
 
 export interface HarnessFixture {
   readonly id: string;
@@ -110,3 +113,35 @@ export interface HarnessUiPagePanel {
   readonly sections: readonly { readonly title: string; readonly items: readonly HarnessUiPageItem[] }[];
 }
 export declare const UI_PAGE: { readonly title: string; readonly panels: readonly HarnessUiPagePanel[] };
+/** An item of the composed page (T-222): a UI fixture's state, drawn on a page panel. */
+export interface HarnessComposedItem extends HarnessUiFixture {
+  /** The panel's key: the item's id is prefixed with it, and its overlay starts closed behind its trigger. */
+  readonly page: string;
+}
+export interface HarnessComposedPanel {
+  readonly key: string;
+  readonly title: string;
+  readonly note: string;
+  readonly ground: string;
+  readonly substrate: string;
+  readonly mode: 'ink' | 'precision';
+  readonly sections: readonly { readonly title: string; readonly items: readonly HarnessComposedItem[] }[];
+}
+export declare const COMPOSED_PAGE: { readonly title: string; readonly panels: readonly HarnessComposedPanel[] };
+export interface HarnessPalettePreset {
+  readonly key: string;
+  readonly title: string;
+  readonly palette: Palette;
+  readonly chart: LineChartProps;
+  /** The Card's props; it holds the Progress. */
+  readonly card: SpCardProps;
+  readonly progress: SpProgressProps;
+  readonly table: SpTableProps;
+}
+export declare const PALETTES_PAGE: { readonly title: string; readonly presets: readonly HarnessPalettePreset[] };
+export declare const TIMELINE_PAGE: {
+  readonly title: string;
+  readonly timeline: SpTimelineProps;
+  /** What the mount shows when TimelineJS cannot be loaded. */
+  readonly fallback: string;
+};

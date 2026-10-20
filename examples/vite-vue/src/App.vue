@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { DEMO_PROPS, fixtureProps, GALLERY, sizeOf, UI_PAGE, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
+import { COMPOSED_PAGE, DEMO_PROPS, fixtureProps, GALLERY, PALETTES_PAGE, sizeOf, TIMELINE_PAGE, UI_PAGE, type HarnessDashboard, type HarnessFixture, type HarnessUiFixture } from '@silverpoint/example-harness';
 import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/vue/ui';
 import UiFixture from './UiFixture.vue';
+import UiComponent from './UiComponent.vue';
+import { SpTable } from '@silverpoint/vue/ui/table';
+import { SpTimeline } from '@silverpoint/vue/timeline';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/vue/dashboard';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
 import { SpBulletChart } from '@silverpoint/vue/bullet-chart';
@@ -65,7 +68,7 @@ import { SpVectorFieldChart } from '@silverpoint/vue/vector-field-chart';
 import { SpNetworkChart } from '@silverpoint/vue/network-chart';
 
 /** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
-const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture; uiPage?: boolean }>();
+const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture; uiPage?: boolean; page?: 'composed' | 'palettes' | 'timeline' }>();
 
 /** Every UI component a fixture can name, by its slug. */
 const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as const;
@@ -75,7 +78,63 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
 </script>
 
 <template>
-  <main v-if="props.uiPage">
+  <main v-if="props.page === 'composed'">
+    <h1>{{ COMPOSED_PAGE.title }} · Vite + Vue</h1>
+    <div class="sp-ui-page sp-composed-page">
+      <form
+        v-for="panel in COMPOSED_PAGE.panels"
+        :key="panel.key"
+        :class="`sp-ui-page-panel sp-ground-${panel.ground}`"
+        :data-substrate="panel.substrate"
+        :data-panel="panel.key"
+        :aria-labelledby="`${panel.key}-title`"
+      >
+        <h2 :id="`${panel.key}-title`">{{ panel.title }}</h2>
+        <p class="sp-ui-page-note">{{ panel.note }}</p>
+        <div class="sp-ui-page-sections">
+          <section v-for="section in panel.sections" :key="section.title" class="sp-ui-page-section" :aria-label="section.title">
+            <h3>{{ section.title }}</h3>
+            <div class="sp-ui-page-items">
+              <div v-for="item in section.items" :key="item.id" class="sp-page-item" :data-wide="item.width === 640 ? '' : undefined">
+                <UiComponent :fixture="item" />
+              </div>
+            </div>
+          </section>
+        </div>
+      </form>
+    </div>
+  </main>
+  <main v-else-if="props.page === 'palettes'">
+    <h1>{{ PALETTES_PAGE.title }} · Vite + Vue</h1>
+    <div class="sp-palettes-page">
+      <section
+        v-for="preset in PALETTES_PAGE.presets"
+        :key="preset.key"
+        class="sp-palette-preset sp-ground-silverpoint"
+        data-substrate="cream"
+        :data-preset="preset.key"
+        :aria-labelledby="`${preset.key}-title`"
+      >
+        <h2 :id="`${preset.key}-title`">{{ preset.title }}</h2>
+        <SpLineChart v-bind="preset.chart" />
+        <SpCard v-bind="preset.card">
+          <SpProgress v-bind="preset.progress" />
+        </SpCard>
+        <SpTable v-bind="preset.table" />
+      </section>
+    </div>
+  </main>
+  <main v-else-if="props.page === 'timeline'">
+    <h1>{{ TIMELINE_PAGE.title }} · Vite + Vue</h1>
+    <div class="sp-timeline-page sp-ground-silverpoint" data-substrate="cream">
+      <SpTimeline v-bind="TIMELINE_PAGE.timeline">
+        <template #fallback>
+          <p>{{ TIMELINE_PAGE.fallback }}</p>
+        </template>
+      </SpTimeline>
+    </div>
+  </main>
+  <main v-else-if="props.uiPage">
     <h1>{{ UI_PAGE.title }} · Vite + Vue</h1>
     <div class="sp-ui-page">
       <form

@@ -2,9 +2,14 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
+import '@knight-lab/timelinejs/dist/css/timeline.css';
+import '@silverpoint/grounds/timeline.css';
 import { dashboardFixtureById, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, uiFixtureById, wantsGallery } from '@silverpoint/example-harness';
 import { createApp, createSSRApp } from 'vue';
 import App from './App.vue';
+
+/** The feature-004 pages (T-222). */
+const PAGES = new Set(['/composed', '/palettes', '/timeline']);
 
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 /** A fixture page prerendered by prerender.mjs, `/ssr/<fixture id>`, to hydrate (T-179). */
@@ -25,6 +30,10 @@ if (prerendered) {
 } else if (location.pathname.replace(/\/$/, '') === '/dashboard' && new URLSearchParams(location.search).has('linked')) {
   // The linked dashboard (REQ-216) is client-rendered: linked state lives on the client only.
   createApp(App, { dashboard: LINKED_DASHBOARD }).mount('#app');
+} else if (PAGES.has(location.pathname.replace(/\/$/, ''))) {
+  // The feature-004 pages were server-rendered into composed.html, palettes.html and timeline.html: hydrate them (T-222).
+  createSSRApp(App, { page: location.pathname.replace(/\/$/, '').slice(1) as 'composed' | 'palettes' | 'timeline' }).mount('#app');
+  document.documentElement.dataset.hydrated = 'true';
 } else if (location.pathname.replace(/\/$/, '') === '/ui') {
   // The UI reference page was server-rendered into ui.html: hydrate it (T-157).
   createSSRApp(App, { uiPage: true }).mount('#app');

@@ -197,6 +197,14 @@ emits and Angular's outputs, under the names above; the fallback is React's `fal
 the slot in the mount once a load has failed, never on the server. TimelineJS is built again when
 `data`, `options` or `inkedFrames` change.
 
+*Amended in implementation (T-222):* TimelineJS is built in a `<div>` of its own inside the mount,
+since it rewrites its container's `className` (`tl-timeline`), and on a copy of `data`
+(`structuredClone`), since it writes each slide's `unique_id` into the data it is given: the
+consumer's object is never touched, and a frozen one (`TIMELINE_DEMO`) no longer stops the build. An
+error thrown while TimelineJS is built is a failed load (REQ-515): its container is removed, `SP025`
+is warned and the fallback is shown. TimelineJS 3.9.13 has no destroy method: the cleanup removes its
+DOM, but its listeners on `document` (keydown) and `window` (resize) stay until the page goes.
+
 ### Core internal surface (§2) — additions on `@silverpoint/core/ui`
 
 ```ts

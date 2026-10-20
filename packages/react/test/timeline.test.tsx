@@ -101,7 +101,7 @@ describe('SpTimeline (React)', () => {
       <SpTimeline data={TIMELINE_DEMO} options={{ font: 'x', theme: 'y', start_at_slide: 1 }} onChange={onChange} onNavNext={onNavNext} onLoaded={onLoaded} />,
     );
     expect(imported).toBe(1);
-    expect(built).toEqual([{ element: host.querySelector('.sp-kl-mount'), options: { start_at_slide: 1 } }]);
+    expect(built).toEqual([{ element: host.querySelector('.sp-kl-mount')?.firstElementChild, options: { start_at_slide: 1 } }]);
     act(() => {
       handlers.get('change')?.({ unique_id: 'leonardo' });
       handlers.get('nav_next')?.({ unique_id: 'x' });

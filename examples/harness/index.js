@@ -198,7 +198,8 @@ import {
   uiTabsView,
   uiTagView,
 } from '@silverpoint/core/ui';
-import { UI_DEMOS } from '@silverpoint/core/ui-demos';
+import { TIMELINE_DEMO, UI_DEMOS } from '@silverpoint/core/ui-demos';
+import { PALETTE_NAMES, PALETTES } from '@silverpoint/core/palettes';
 
 /** The batches whose adapters exist: 0.3.0's B1..B3 and feature-004's A1, A2 and B (T-218). */
 const UI_GATED_BATCHES = ['B1', 'B2', 'B3', 'A1', 'A2', 'B'];
@@ -274,6 +275,13 @@ export function uiFixtureParts(fixture) {
     else if (key === 'trigger') trigger = /** @type {string} */ (v);
     else if (key === 'active') active = /** @type {string} */ (v);
     else props[key] = v;
+  }
+  // On a page (T-222): ids under the panel's key; a dialog or popover closed behind its trigger, uncontrolled.
+  const page = /** @type {{ page?: string }} */ (fixture).page;
+  if (page !== undefined) {
+    if (props.id !== undefined) props.id = `${page}-${props.id}`;
+    if (PAGE_CLOSED.has(fixture.component)) delete props.open;
+    active = undefined;
   }
   return {
     props: { ...props, ground: fixture.ground, substrate: fixture.substrate, mode: fixture.mode, size: fixture.size },
@@ -466,4 +474,82 @@ export const UI_PAGE = Object.freeze({
       items: /** @type {[string, string][]} */ (items).map(([component, state]) => uiPageItem(panel, component, state)),
     })),
   })),
+});
+
+/*
+ * ── The feature-004 pages (T-222) ────────────────────────────────────────────────────────────
+ * `/composed`, `/palettes` and `/timeline` in every app (REQ-520, Data Model §4). Plain data; each
+ * app writes it in its framework's idiom.
+ */
+
+/** The composed page's sections, in the order of Reflex's `/components` page: the orders first, the overlays last. */
+const COMPOSED_PAGE_SECTIONS = [
+  ['Orders', [['table', 'sorted-striped'], ['pagination', 'middle'], ['table', 'plain'], ['pagination', 'total']]],
+  ['This week', [['statistic', 'plain'], ['statistic', 'trend-down']]],
+  ['Order 1042', [['descriptions', 'bordered'], ['timeline-list', 'mixed'], ['descriptions', 'plain']]],
+  ['Questions', [['collapse', 'one-open'], ['collapse', 'accordion-disabled']]],
+  ['Nothing yet', [['table', 'empty'], ['empty', 'plain'], ['result', 'success'], ['result', 'error']]],
+  ['A note and a quantity', [['textarea', 'count'], ['textarea', 'invalid'], ['input-number', 'value'], ['input-number', 'at-min'], ['select', 'placeholder'], ['select', 'open-selected']]],
+  ['Building blocks', [['surface', 'frame-card'], ['surface', 'tone-2'], ['glyph', 'all'], ['breadcrumb', 'three'], ['avatar', 'initials'], ['avatar', 'square'], ['avatar', 'group']]],
+  ['Overlays', [['modal', 'open'], ['drawer', 'end-open'], ['popover', 'open'], ['tooltip', 'open'], ['dropdown-menu', 'open'], ['toast', 'info'], ['toast', 'error-action']]],
+];
+
+/** The overlays a page draws closed, behind their trigger; a toast is a live region, shown in place. */
+const PAGE_CLOSED = new Set(['modal', 'drawer', 'popover', 'tooltip', 'select', 'dropdown-menu']);
+
+/** The wide components, laid out at 640 px as their fixtures are (DD-043). */
+const PAGE_WIDE = new Set(['table', 'descriptions', 'timeline-list', 'collapse', 'result']);
+
+/** The composed page: the 21 new rows, every state, in the three panels of the UI page. */
+export const COMPOSED_PAGE = Object.freeze({
+  title: 'silverpoint · composed components',
+  panels: UI_PAGE_PANELS.map((panel) => ({
+    ...panel,
+    sections: COMPOSED_PAGE_SECTIONS.map(([title, items]) => ({
+      title: /** @type {string} */ (title),
+      items: /** @type {[string, string][]} */ (items).map(([component, state]) => ({
+        id: `${panel.key}-${component}--${state}`,
+        component,
+        state,
+        req: /** @type {const} */ ('REQ-327'),
+        ground: panel.ground,
+        substrate: panel.substrate,
+        mode: panel.mode,
+        size: /** @type {const} */ ('md'),
+        width: PAGE_WIDE.has(component) ? 640 : 320,
+        scope: /** @type {const} */ ('nightly'),
+        canonical: '',
+        page: panel.key,
+      })),
+    })),
+  })),
+});
+
+/** How the palettes page names each preset. */
+const PRESET_TITLES = { silverpoint: 'Silverpoint', sanguine: 'Sanguine', sepia: 'Sepia', ironGall: 'Iron gall', verdigris: 'Verdigris', indigo: 'Indigo' };
+
+/** The palettes page: each of the six presets over a LineChart, a Card holding a Progress, and a Table. */
+export const PALETTES_PAGE = Object.freeze({
+  title: 'silverpoint · palettes',
+  presets: PALETTE_NAMES.map((key) => {
+    const own = { palette: PALETTES[key], ground: 'silverpoint', substrate: 'cream', mode: 'ink' };
+    const { id: _table, ...table } = /** @type {Record<string, unknown>} */ (UI_DEMOS.table?.plain ?? {});
+    const { id: _progress, ...progress } = /** @type {Record<string, unknown>} */ (UI_DEMOS.progress?.line ?? {});
+    return {
+      key,
+      title: /** @type {Record<string, string>} */ (PRESET_TITLES)[key] ?? key,
+      palette: PALETTES[key],
+      chart: { ...DEMO_PROPS, id: `palette-${key}-chart`, ...own },
+      card: { id: `palette-${key}-card`, title: 'Delivered this week', headingLevel: 3, ...own },
+      progress: { ...progress, id: `palette-${key}-progress`, ...own },
+      table: { ...table, id: `palette-${key}-table`, ...own },
+    };
+  }),
+});
+
+/** The timeline page: `TIMELINE_DEMO` on silverpoint/cream, in ink. */
+export const TIMELINE_PAGE = Object.freeze({
+  title: 'silverpoint · timeline',
+  timeline: { id: 'timeline', data: TIMELINE_DEMO, ground: 'silverpoint', substrate: 'cream', mode: 'ink' },
+  fallback: 'The timeline could not be loaded: install @knight-lab/timelinejs.',
 });

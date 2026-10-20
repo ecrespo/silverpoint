@@ -84,7 +84,7 @@ describe('<sp-timeline> in the browser (Angular)', () => {
       { onChange, onNavNext, onLoaded },
     );
     expect(imported).toBe(1);
-    expect(built).toEqual([{ element: document.querySelector('.sp-kl-mount'), options: { start_at_slide: 1 } }]);
+    expect(built).toEqual([{ element: document.querySelector('.sp-kl-mount')?.firstElementChild, options: { start_at_slide: 1 } }]);
     handlers.get('change')?.({ unique_id: 'leonardo' });
     handlers.get('nav_next')?.({ unique_id: 'x' });
     handlers.get('loaded')?.({ scale: 'human' });

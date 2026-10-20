@@ -187,6 +187,14 @@ No step on the render path measures the DOM, reads the clock or runs an inker.
   The dependency check (TD §5.3, `check-deps`) allows `@knight-lab/timelinejs` to the three
   adapters only as a peer marked optional in `peerDependenciesMeta`; as a dependency, a required
   peer or in any other package it still fails (REQ-162).
+- *Amended in implementation (T-222):* the mount is the framework's and TimelineJS gets a `<div>` of
+  its own inside it (it rewrites its container's `className`) and a `structuredClone` of the data (it
+  writes `unique_id` into each slide); an error thrown while it is built counts as a failed load. The
+  four example apps install TimelineJS `3.9.13` exactly and draw it on `/timeline`. The 10 surface
+  fixtures are compared over the published builds by `timeline-gate.ts` (gates project, 30
+  comparisons), and the page's TimelineJS is one nightly pixel fixture, `timeline/timeline--page.png`,
+  one golden for the four apps. TimelineJS has no destroy method: its `document` and `window`
+  listeners outlive the component.
 - **Rejected:** bundling TimelineJS (~100 KB, MPL-2.0, its own CSS) or re-implementing it (a
   narrative timeline engine is a product of its own).
 

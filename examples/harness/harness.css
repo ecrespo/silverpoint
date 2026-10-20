@@ -123,3 +123,49 @@ h1 {
 .sp-ui-page-items > [data-shape='line'] {
   flex: 1 1 100%;
 }
+
+/* The feature-004 pages (T-222): /composed, /palettes, /timeline. */
+.sp-composed-page .sp-ui-page-sections {
+  grid-template-columns: 1fr;
+}
+
+.sp-page-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  max-inline-size: 100%;
+}
+
+.sp-page-item[data-wide] {
+  flex: 1 1 100%;
+  max-inline-size: 640px;
+}
+
+.sp-palettes-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 24px;
+}
+
+.sp-palette-preset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px 28px;
+  background: var(--sp-substrate);
+  color: var(--sp-text);
+  box-shadow: inset 0 0 0 1px var(--sp-rule);
+}
+
+.sp-palette-preset > h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.sp-timeline-page {
+  padding: 20px 24px 28px;
+  background: var(--sp-substrate);
+  color: var(--sp-text);
+}
