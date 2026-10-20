@@ -98,6 +98,20 @@ describe('timeline.css (T-211)', () => {
     expect(weights).toEqual(['1', '2', '3', '4', '1', '2']);
   });
 
+  test('REQ-511 · eras keep a strip of their own below the tick labels: neither the title nor the tone crosses them', () => {
+    // TimelineJS lays a 40px era over its 39px axis, so an era's title lands on the major ticks'
+    // row. With an era, the axis grows by the strip (TimelineJS reads its height back, so markers
+    // give the room up) and the era is laid only in that strip.
+    const axis = body((s) => s === `${ROOT} .tl-timenav:has(.tl-timeera) :is(.tl-timeaxis-background, .tl-timeaxis)`);
+    expect(axis).toMatch(/height: 57px/);
+    expect(body((s) => s === `${ROOT} .tl-timeera`)).toMatch(/height: 18px/);
+    expect(body((s) => s === `${ROOT} .tl-timeera .tl-timeera-content`)).toMatch(/padding-block: 0/);
+    const title = body((s) => s === `${ROOT} .tl-timeera .tl-timeera-content-container .tl-timeera-content .tl-timeera-text h2.tl-headline`);
+    expect(title).toMatch(/line-height: 18px/);
+    // The title is read on a plate of the substrate, never across the era's hatching.
+    expect(title).toMatch(/background: var\(--sp-substrate\)/);
+  });
+
   test('REQ-513 · the probes are measurable but never seen, heard or hit; the mount fills the surface', () => {
     const probe = body((s) => s === `${ROOT} .sp-kl-probe`);
     expect(probe).toMatch(/visibility: hidden/);

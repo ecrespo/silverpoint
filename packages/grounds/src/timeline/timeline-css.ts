@@ -138,6 +138,12 @@ const markers = [
  * weight for its level; a ground with no ramp draws it at the stroke width.
  */
 const eras = [
+  // TimelineJS lays a 40px era over its 39px axis, the title on the major ticks' row. With an era,
+  // the axis grows by an 18px strip below its labels (TimelineJS reads the height back, so markers
+  // give the room up) and the era is laid only in that strip.
+  rule(`${ROOT} .tl-timenav:has(.tl-timeera) :is(.tl-timeaxis-background, .tl-timeaxis)`, ['height: 57px']),
+  rule(ERA, ['height: 18px']),
+  rule(`${ERA} .tl-timeera-content`, ['padding-block: 0']),
   rule(`${ERA} .tl-timeera-background`, [
     'background: none',
     'border-block-start: 0 solid var(--sp-ink-secondary)',
@@ -145,7 +151,7 @@ const eras = [
   ]),
   ...ERA_LEVELS.map(([colour, level]) => rule(`${ERA}${colour}`, [`--sp-kl-era-weight: var(--sp-weight-${level})`])),
   rule(`${ERA} .tl-timeera-content-container`, ['border-color: var(--sp-rule)']),
-  rule(ERA_HEADLINE, ['color: var(--sp-text)', DISPLAY, 'text-transform: none', 'background: none']),
+  rule(ERA_HEADLINE, ['color: var(--sp-text)', DISPLAY, 'text-transform: none', 'line-height: 18px', 'background: var(--sp-substrate)', 'padding-inline: 3px']),
 ];
 
 const menubar = [

@@ -553,6 +553,13 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
   `@silverpoint/core` dependency the READMEs ask for. The era titles of TimelineJS overlapping the
   axis labels (T-222) remain as TimelineJS lays them out; reported at review.
 
+  *Fixed after T-224* (user decision 2026-10-19, REQ-511): TimelineJS lays its 40px era over its
+  39px axis, the title on the major ticks' row and the hatching across every label. With an era,
+  `timeline.css` grows the axis to 57px (TimelineJS reads the height back, so markers give the
+  room up) and lays the era in the 18px strip below the labels, its title on a plate of the
+  substrate. grounds +1 test (RED on the missing strip, then on the missing plate); the nightly
+  golden `timeline--page.png` regenerated in the pinned image, the same in the four apps.
+
 **[ ] T-225 · Changeset, fold, status, demo** — REQ-183
 - Changeset `minor` for the seven packages; fold the deltas into `specs/` ("amended in
   implementation" where it differs); traceability report; `CLAUDE.md` status; serve the Next.js
