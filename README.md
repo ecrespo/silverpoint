@@ -21,9 +21,10 @@ inking switched off entirely.
 | [`@silverpoint/react`](packages/react/README.md) | React 18.2+ and 19 components, with server entry points for RSC |
 | [`@silverpoint/vue`](packages/vue/README.md) | Vue 3.5 components, with server rendering |
 | [`@silverpoint/angular`](packages/angular/README.md) | Angular 21 and 22 standalone components |
-| [`@silverpoint/grounds`](packages/grounds/README.md) | The grounds and the stylesheet every app imports once |
+| [`@silverpoint/grounds`](packages/grounds/README.md) | The grounds, the stylesheet every app imports once, and the UI and timeline stylesheets |
 | [`@silverpoint/fonts`](packages/fonts/README.md) | Optional self-hosted EB Garamond |
-| [`@silverpoint/core`](packages/core/README.md) | The framework-free engine the adapters share |
+| [`@silverpoint/core`](packages/core/README.md) | The framework-free engine the adapters share, and the palettes |
+| [`@silverpoint/tailwind`](packages/tailwind/README.md) | An optional Tailwind preset naming the same variables |
 
 Each adapter's README has its installation steps, quickstart and examples.
 
@@ -61,8 +62,8 @@ export default function App() {
 ```
 
 Then `npm run dev`. Vue and Angular take the same three steps; the documentation site
-(`pnpm --filter @silverpoint/docs dev`) gives them, with the gallery of all 33 charts, the ground
-playground and every chart's props. A bundler is required (Vite, Next.js or the Angular CLI).
+(`pnpm --filter @silverpoint/docs dev`) gives them, with the gallery of all 60 charts, the ground
+playground, the 38 UI components, the palettes, the timeline and every component's props. A bundler is required (Vite, Next.js or the Angular CLI).
 
 Charts compose into a **dashboard**, a responsive grid of cards laid out by the core from plain
 data, identical in the three adapters and server-renderable:
@@ -75,6 +76,33 @@ import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
   <DashboardCell cell="trend"><LineChart title="Hits per hour" data={data} xKey="hour" valueKey="hits" /></DashboardCell>
 </Dashboard>
 ```
+
+Beside the charts, **38 UI components** — forms, navigation, tables, lists, disclosure and overlays —
+are drawn in the same engraving language, on `@silverpoint/react/ui` (and the Vue and Angular
+equivalents), with `@silverpoint/grounds/ui.css`:
+
+```tsx
+import { SpButton } from '@silverpoint/react/ui/button';
+import { SpModal } from '@silverpoint/react/ui/modal';
+
+<SpModal title="Edit order" trigger={<button type="button">Edit order</button>}>
+  <SpButton>Save</SpButton>
+</SpModal>
+```
+
+Six **palettes** recolour the ground, each computed for WCAG contrast, from
+`@silverpoint/core/palettes`:
+
+```tsx
+import { sanguine } from '@silverpoint/core/palettes';
+import { SilverpointProvider } from '@silverpoint/react';
+
+<SilverpointProvider palette={sanguine}>{/* charts and components */}</SilverpointProvider>
+```
+
+And `SpTimeline` draws a TimelineJS story in the ground's hand, from each adapter's `timeline`
+entry, with [`@knight-lab/timelinejs`](https://www.npmjs.com/package/@knight-lab/timelinejs) as an
+optional peer (`npm install @knight-lab/timelinejs`). Each adapter's README shows all three.
 
 Using Tailwind? The optional [`@silverpoint/tailwind`](packages/tailwind/README.md) preset names the
 same variables as utilities (`bg-sp-substrate`, `text-sp-ink`, `font-sp-display`); silverpoint itself

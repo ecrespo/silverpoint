@@ -525,10 +525,33 @@ that launch Chromium run alone. Every gate iterates `UI_COMPONENTS`. Every chang
 
 ### 8h — Documentation and release preparation
 
-**[ ] T-224 · Docs site and READMEs** — REQ-521
+**[x] T-224 · Docs site and READMEs** — REQ-521
 - A section per family (Palettes, Composed, Overlays, Timeline), live examples, props generated
   from the types; package READMEs; root README.
 - **Done:** docs build; links checked.
+- **Ledger (2026-10-19):** the docs site's nav gains Composed, Overlays, Palettes and Timeline. The
+  UI pages (`docs/site/src/pages/ui.tsx`) serve the three catalog families: a gallery per family by
+  group (`/ui`, `/composed`, `/overlays`) and the 38 component pages at `/ui/<slug>`, each state
+  live and its JSX generated from the same demo data (Glyph `all`, Avatar `group` and Collapse
+  composed as a consumer writes them; overlays closed behind a trigger; toasts in an untimed
+  `SpToaster`). New pages: `/palettes` (the six presets through `SilverpointProvider` over a
+  `LineChart`, an `SpCard` holding an `SpProgress` and an `SpTable`, then the `Palette` fields) and
+  `/timeline` (install, usage, `SpTimeline` on `TIMELINE_DEMO`, its props); `docs/site` depends on
+  `@knight-lab/timelinejs` 3.9.13. `scripts/props.ts` reads `Palette` and `SpTimelineProps` into
+  `generated/props.json` (the timeline's `data` gained its JSDoc). READMEs: each adapter's gains
+  `## The 38 UI components`, `## Palettes` and `## Timeline`, every sample typechecked in its example
+  app; grounds names `ui.css` and `timeline.css`; core its `ui`, `palettes` and `timeline` entries;
+  the root README counts 60 charts (it said 33) and introduces the UI layer, the palettes and the
+  timeline. `readmes.test.ts` now walks Angular's nested secondary entry points (`ui/button`), checks
+  the UI names, the new sections and the root README, and resolves every relative link and anchor in
+  the eight READMEs; their external links answered by hand (npm pages through the registry). Tests:
+  docs e2e +39 (the families' galleries, 21 component pages, an overlay opened from its trigger,
+  the untimed toast, palettes, timeline; reflow and axe on six more routes, TimelineJS's DOM
+  excluded), docs props 2, README 25. Mutants: 21 run (docs pages 13, props 1, READMEs 7), 19 red,
+  2 equivalent (the grounds and core READMEs name the entry again in their code sample).
+  *Amended in implementation* (PRD REQ-521): the routes, the untimed docs toasts, and the
+  `@silverpoint/core` dependency the READMEs ask for. The era titles of TimelineJS overlapping the
+  axis labels (T-222) remain as TimelineJS lays them out; reported at review.
 
 **[ ] T-225 · Changeset, fold, status, demo** — REQ-183
 - Changeset `minor` for the seven packages; fold the deltas into `specs/` ("amended in

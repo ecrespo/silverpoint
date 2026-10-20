@@ -242,6 +242,125 @@ Each chart's own props (`xKey`, `valueKey`, `nameKey`…) are typed and document
 `*Props` type. The [repository](https://github.com/ecrespo/silverpoint) holds the API
 specification and the documentation site with the gallery.
 
+## The 38 UI components
+
+Forms, navigation, data display and overlays, drawn in the same engraving language as the charts:
+an exact frame, tone by hatching, and the keyboard and screen-reader semantics of the native element.
+Import the UI stylesheet once, next to the ground's, and each component from
+`@silverpoint/react/ui/<kebab-case-name>` (or the barrel `@silverpoint/react/ui`):
+
+```tsx
+import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
+import { SpButton } from '@silverpoint/react/ui/button';
+import { SpInput } from '@silverpoint/react/ui/input';
+import { SpModal } from '@silverpoint/react/ui/modal';
+import { SpTable } from '@silverpoint/react/ui/table';
+
+const orders = [
+  { id: '1042', customer: 'Ada Lovelace', status: 'Shipped' },
+  { id: '1043', customer: 'Grace Hopper', status: 'Packed' },
+];
+
+export function Orders() {
+  return (
+    <>
+      <SpInput label="Customer" defaultValue="Ada" />
+      <SpTable
+        caption="Orders"
+        rowKey="id"
+        columns={[{ key: 'id', title: 'Order' }, { key: 'customer', title: 'Customer' }, { key: 'status', title: 'Status' }]}
+        data={orders}
+      />
+      <SpModal title="Edit order" trigger={<button type="button">Edit order</button>}>
+        Changes reach the workshop before the order is packed.
+        <SpButton>Save</SpButton>
+      </SpModal>
+    </>
+  );
+}
+```
+
+A value binds as React does it: `value` with `onChange`, or `defaultValue` (`defaultChecked`) for an
+uncontrolled one. Overlays take `open` with `onOpenChange`, or `defaultOpen`.
+
+The form and display components (since `0.3.0`):
+
+`SpButton`, `SpInput`, `SpCheckbox`, `SpRadioGroup`, `SpSwitch`, `SpSlider`, `SpRate`,
+`SpSegmented`, `SpTabs`, `SpSteps`, `SpCard`, `SpTag`, `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert`,
+`SpSkeleton`.
+
+Composed components (since `0.7.0`):
+
+`SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpStatistic`,
+`SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`.
+
+Overlays (since `0.7.0`), each opened by a trigger you write; toasts sit in an `SpToaster`:
+
+`SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`.
+
+`SpTabs` holds `SpTabPanel`s, `SpCollapse` holds `SpCollapseItem`s and `SpAvatarGroup` holds `SpAvatar`s.
+Every component takes `ground`, `substrate`, `mode`, `size`, `palette`, `id` and `className`.
+
+## Palettes
+
+A palette recolours the ground: substrate, inks, rules, text and focus ring. Six presets ship on
+`@silverpoint/core/palettes` (`silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`),
+each computed for WCAG contrast; `checkPalette` checks one of yours the same way.
+
+Your adapter already depends on `@silverpoint/core`; name it in your own dependencies to import
+the presets (a strict package manager such as pnpm requires it):
+
+```sh
+npm install @silverpoint/core
+```
+
+```tsx
+import { sanguine } from '@silverpoint/core/palettes';
+import { SilverpointProvider } from '@silverpoint/react';
+import { LineChart } from '@silverpoint/react/line-chart';
+import { SpCard } from '@silverpoint/react/ui/card';
+
+export function Report() {
+  return (
+    <SilverpointProvider palette={sanguine}>
+      <LineChart title="Hits per hour" />
+      <SpCard title="Delivered this week">Every chart and component below draws in sanguine.</SpCard>
+      <LineChart title="One field changed" palette={{ ink: '#232C52' }} />
+    </SilverpointProvider>
+  );
+}
+```
+
+A nested provider or a `palette` prop overrides the outer palette field by field.
+
+## Timeline
+
+`SpTimeline` draws a [TimelineJS](https://timeline.knightlab.com/) story in the ground's hand. TimelineJS is an
+optional peer dependency: install it only if you use the timeline, and import its stylesheet before
+the ground's.
+
+```sh
+npm install @knight-lab/timelinejs
+```
+
+```tsx
+import '@knight-lab/timelinejs/dist/css/timeline.css';
+import '@silverpoint/grounds/timeline.css';
+import { SpTimeline } from '@silverpoint/react/timeline';
+
+const story = {
+  title: { text: { headline: 'Silverpoint', text: '<p>A line that cannot be erased.</p>' } },
+  events: [{ start_date: { year: 1400 }, text: { headline: "Cennini's handbook" } }],
+};
+
+export function History() {
+  return <SpTimeline data={story} height="560px" fallback={<p>The timeline could not be loaded.</p>} />;
+}
+```
+
+The server renders the surface and an empty mount; TimelineJS builds in the browser.
+
 ## Related packages
 
 [`@silverpoint/vue`](https://www.npmjs.com/package/@silverpoint/vue) ·

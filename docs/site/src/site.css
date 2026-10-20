@@ -274,3 +274,18 @@ footer {
   padding: 0.5rem 0;
   min-width: 0;
 }
+
+/* A toaster on a docs page lays its toasts out in place, not fixed to the viewport. */
+.ui-sample .sp-toaster {
+  position: static;
+  pointer-events: auto;
+}
+
+.timeline-sample {
+  padding: 16px 0;
+}
+
+/* The palettes page: each preset holds a table, laid out at its own width. */
+.gallery-wide {
+  grid-template-columns: repeat(auto-fill, minmax(min(560px, 100%), 1fr));
+}

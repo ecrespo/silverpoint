@@ -84,6 +84,19 @@ describe('props reference', () => {
     });
   });
 
+  describe('the palettes and the timeline (REQ-521)', () => {
+    test('REQ-521 · REQ-460 · the palette reference is read from the `Palette` type: its nine fields, each documented', () => {
+      expect(reference.palette.map((p) => p.name)).toEqual(['substrate', 'ink', 'inkSecondary', 'heighten', 'rule', 'grid', 'text', 'textMuted', 'focus']);
+      expect(reference.palette.every((p) => p.optional && p.doc.length > 0)).toBe(true);
+    });
+
+    test('REQ-521 · REQ-510 · the timeline reference is read from `SpTimelineProps`: `data` required, every prop documented', () => {
+      expect(reference.timeline.map((p) => p.name)).toEqual(['data', 'options', 'height', 'inkedFrames', 'card', 'label']);
+      expect(reference.timeline.find((p) => p.name === 'data')).toMatchObject({ type: 'TimelineData', optional: false });
+      expect(reference.timeline.filter((p) => !p.doc).map((p) => p.name)).toEqual([]);
+    });
+  });
+
   test('PRD §5.1 · the committed reference is current', () => {
     expect(JSON.parse(readFileSync(new URL('../generated/props.json', import.meta.url), 'utf8'))).toEqual(reference);
   });

@@ -43,6 +43,7 @@ export interface TimelineData {
 }
 
 export interface SpTimelineProps extends CommonUiProps {
+  /** TimelineJS's JSON: a `title` slide, the `events`, optional `eras` and `scale`. */
   data: TimelineData;
   /** TimelineJS options; `font` and `theme` are ignored, the skin sets both. */
   options?: Readonly<Record<string, unknown>>;

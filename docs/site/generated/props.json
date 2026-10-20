@@ -3384,5 +3384,99 @@
         ]
       }
     ]
-  }
+  },
+  "palette": [
+    {
+      "name": "substrate",
+      "type": "string",
+      "optional": true,
+      "doc": "The prepared ground the drawing sits on."
+    },
+    {
+      "name": "ink",
+      "type": "string",
+      "optional": true,
+      "doc": "The main series and the frames of UI components."
+    },
+    {
+      "name": "inkSecondary",
+      "type": "string",
+      "optional": true,
+      "doc": "The second series and the hatch of tones."
+    },
+    {
+      "name": "heighten",
+      "type": "string",
+      "optional": true,
+      "doc": "White heightening on the live value (always outlined with `ink`)."
+    },
+    {
+      "name": "rule",
+      "type": "string",
+      "optional": true,
+      "doc": "Rules and baselines."
+    },
+    {
+      "name": "grid",
+      "type": "string",
+      "optional": true,
+      "doc": "Grid lines."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "optional": true,
+      "doc": "Large figures and primary labels."
+    },
+    {
+      "name": "textMuted",
+      "type": "string",
+      "optional": true,
+      "doc": "Axis labels and secondary text."
+    },
+    {
+      "name": "focus",
+      "type": "string",
+      "optional": true,
+      "doc": "Focus ring of UI components; `ink` by default."
+    }
+  ],
+  "timeline": [
+    {
+      "name": "data",
+      "type": "TimelineData",
+      "optional": false,
+      "doc": "TimelineJS's JSON: a `title` slide, the `events`, optional `eras` and `scale`."
+    },
+    {
+      "name": "options",
+      "type": "Readonly<Record<string, unknown>>",
+      "optional": true,
+      "doc": "TimelineJS options; `font` and `theme` are ignored, the skin sets both."
+    },
+    {
+      "name": "height",
+      "type": "string",
+      "optional": true,
+      "doc": "A plain CSS length. Default `'600px'`."
+    },
+    {
+      "name": "inkedFrames",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Lays the ground's frames and tones on TimelineJS's pieces (REQ-512). Default `true`."
+    },
+    {
+      "name": "card",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Frames the whole timeline as a card. Default `true`."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "optional": true,
+      "doc": "The region's accessible name; the title's headline when omitted."
+    }
+  ]
 }

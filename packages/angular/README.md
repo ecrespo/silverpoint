@@ -279,6 +279,137 @@ or frame emits the parent's, `null` for the top). The component keeps no root of
 The [repository](https://github.com/ecrespo/silverpoint) holds the API specification and the
 documentation site with the gallery and every chart's inputs.
 
+## The 38 UI components
+
+Forms, navigation, data display and overlays, drawn in the same engraving language as the charts:
+an exact frame, tone by hatching, and the keyboard and screen-reader semantics of the native element.
+Import the UI stylesheet once in `src/styles.css`, after the ground's:
+
+```css
+@import '@silverpoint/grounds/styles.css';
+@import '@silverpoint/grounds/ui.css';
+```
+
+Each component is standalone, on `@silverpoint/angular/ui/<kebab-case-name>` (or the barrel
+`@silverpoint/angular/ui`):
+
+```ts
+import { Component, signal } from '@angular/core';
+import { SpButton } from '@silverpoint/angular/ui/button';
+import { SpInput } from '@silverpoint/angular/ui/input';
+import { SpModal } from '@silverpoint/angular/ui/modal';
+import { SpTrigger } from '@silverpoint/angular/ui';
+import { SpTable } from '@silverpoint/angular/ui/table';
+
+@Component({
+  selector: 'app-orders',
+  imports: [SpButton, SpInput, SpModal, SpTable, SpTrigger],
+  template: `
+    <sp-input [(value)]="customer" label="Customer" />
+    <sp-table caption="Orders" rowKey="id" [columns]="columns" [data]="orders" />
+    <sp-modal title="Edit order">
+      <button type="button" spTrigger>Edit order</button>
+      Changes reach the workshop before the order is packed.
+      <sp-button>Save</sp-button>
+    </sp-modal>
+  `,
+})
+export class Orders {
+  protected readonly customer = signal('Ada');
+  protected readonly columns = [{ key: 'id', title: 'Order' }, { key: 'customer', title: 'Customer' }, { key: 'status', title: 'Status' }];
+  protected readonly orders = [
+    { id: '1042', customer: 'Ada Lovelace', status: 'Shipped' },
+    { id: '1043', customer: 'Grace Hopper', status: 'Packed' },
+  ];
+}
+```
+
+A value binds with `[(value)]` or any forms directive (`ngModel`, `formControlName`); an overlay's
+open state with `[(open)]`.
+
+The form and display components (since `0.3.0`):
+
+`SpButton`, `SpInput`, `SpCheckbox`, `SpRadioGroup`, `SpSwitch`, `SpSlider`, `SpRate`,
+`SpSegmented`, `SpTabs`, `SpSteps`, `SpCard`, `SpTag`, `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert`,
+`SpSkeleton`.
+
+Composed components (since `0.7.0`):
+
+`SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpStatistic`,
+`SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`.
+
+Overlays (since `0.7.0`), each opened by a trigger you write; toasts sit in an `SpToaster`:
+
+`SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`.
+
+`SpTabs` holds `SpTabPanel`s, `SpCollapse` holds `SpCollapseItem`s and `SpAvatarGroup` holds `SpAvatar`s.
+Every component takes `ground`, `substrate`, `mode`, `size`, `palette` and `id`.
+
+## Palettes
+
+A palette recolours the ground: substrate, inks, rules, text and focus ring. Six presets ship on
+`@silverpoint/core/palettes` (`silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`),
+each computed for WCAG contrast; `checkPalette` checks one of yours the same way.
+
+Your adapter already depends on `@silverpoint/core`; name it in your own dependencies to import
+the presets (a strict package manager such as pnpm requires it):
+
+```sh
+npm install @silverpoint/core
+```
+
+```ts
+// src/app/app.config.ts
+import { type ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
+import { sanguine } from '@silverpoint/core/palettes';
+import { provideSilverpoint } from '@silverpoint/angular';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideZonelessChangeDetection(), provideSilverpoint({ palette: sanguine })],
+};
+```
+
+`provideSilverpoint` in a component's `providers` scopes a section of the app; a `[palette]` input
+overrides the outer palette field by field.
+
+## Timeline
+
+`SpTimeline` draws a [TimelineJS](https://timeline.knightlab.com/) story in the ground's hand. TimelineJS is an
+optional peer dependency: install it only if you use the timeline, and import its stylesheet before
+the ground's.
+
+```sh
+npm install @knight-lab/timelinejs
+```
+
+```css
+@import '@knight-lab/timelinejs/dist/css/timeline.css';
+@import '@silverpoint/grounds/timeline.css';
+```
+
+```ts
+import { Component } from '@angular/core';
+import { SpTimeline, SpTimelineFallback } from '@silverpoint/angular/timeline';
+
+@Component({
+  selector: 'app-history',
+  imports: [SpTimeline, SpTimelineFallback],
+  template: `
+    <sp-timeline [data]="story" height="560px">
+      <ng-template spFallback><p>The timeline could not be loaded.</p></ng-template>
+    </sp-timeline>
+  `,
+})
+export class History {
+  protected readonly story = {
+    title: { text: { headline: 'Silverpoint', text: '<p>A line that cannot be erased.</p>' } },
+    events: [{ start_date: { year: 1400 }, text: { headline: "Cennini's handbook" } }],
+  };
+}
+```
+
+The server renders the surface and an empty mount; TimelineJS builds in the browser.
+
 ## Related packages
 
 [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react) ·

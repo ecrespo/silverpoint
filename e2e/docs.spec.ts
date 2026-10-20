@@ -3,12 +3,19 @@ import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { QUICKSTARTS } from '../docs/site/src/quickstart';
 import { compareSvg } from '../tools/svg-normalizer/normalize';
-import { UI_COMPONENTS as UI_CATALOG } from '../packages/core/src/ui/catalog';
+import { UI_COMPONENTS } from '../packages/core/src/ui/catalog';
 import { UI_DEMOS } from '../packages/core/src/ui/demo';
+import { PALETTE_NAMES } from '../packages/core/src/palettes';
 import { CATALOG } from '../tools/visual-gate/catalog';
 
-/** The 0.3.0 family; feature-004's rows join with their docs sections (T-224). */
-const UI_COMPONENTS = UI_CATALOG.filter((c) => c.family === 'ui');
+/** The three families of the UI layer, each with its own gallery and its groups in order (REQ-332, REQ-521). */
+const FAMILIES = [
+  { family: 'ui', route: '/ui', title: 'UI components', groups: ['Actions', 'Data entry', 'Navigation', 'Data display', 'Feedback'] },
+  { family: 'composed', route: '/composed', title: 'Composed components', groups: ['Data entry', 'Navigation', 'Data display', 'Building blocks', 'Disclosure'] },
+  { family: 'overlay', route: '/overlays', title: 'Overlays', groups: ['Overlays'] },
+] as const;
+/** An overlay hangs closed behind its trigger; a toast is shown in place. */
+const CLOSED = new Set(['modal', 'drawer', 'popover', 'tooltip', 'select', 'dropdown-menu']);
 
 /**
  * The documentation site (PRD §5.1, Implementation Plan Phase 4): gallery, ground playground,
@@ -17,6 +24,8 @@ const UI_COMPONENTS = UI_CATALOG.filter((c) => c.family === 'ui');
 const props = JSON.parse(readFileSync(new URL('../docs/site/generated/props.json', import.meta.url), 'utf8')) as {
   charts: { chart: string; own: { name: string; doc: string }[] }[];
   ui: { common: { name: string }[]; components: { slug: string; name: string; own: { name: string; doc: string }[] }[] };
+  palette: { name: string; doc: string }[];
+  timeline: { name: string; doc: string }[];
 };
 
 const errorsOf = (page: Page) => {
@@ -27,6 +36,9 @@ const errorsOf = (page: Page) => {
   });
   return errors;
 };
+
+/** Every kind of page the site has: the reflow and axe checks run on each. */
+const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline'];
 
 test.describe('documentation site', () => {
   test('PRD §4.2 · the home page gives the quickstart for React, Vue and Angular', async ({ page }) => {
@@ -96,7 +108,7 @@ test.describe('documentation site', () => {
 
   test('PRD §5.1 · a chart page draws the chart and lists its own props from the types', async ({ page }) => {
     await page.goto('/#/chart/donut-chart');
-    await expect(page.locator('h2')).toHaveText('DonutChart');
+    await expect(page.locator('main > h2')).toHaveText('DonutChart');
     await expect(page.locator('main .sp-root[data-status="ready"]')).toHaveCount(1);
     const own = props.charts.find((c) => c.chart === 'DonutChart')!.own;
     const rows = page.locator('table.props tbody tr');
@@ -106,7 +118,7 @@ test.describe('documentation site', () => {
 
   test('REQ-449 · a second-catalog chart page states how each derived value is computed', async ({ page }) => {
     await page.goto('/#/chart/histogram-chart');
-    await expect(page.locator('h2')).toHaveText('HistogramChart');
+    await expect(page.locator('main > h2')).toHaveText('HistogramChart');
     await expect(page.locator('main .sp-root[data-status="ready"]')).toHaveCount(1);
     await expect(page.getByRole('heading', { name: 'How it is computed' })).toBeVisible();
     await expect(page.locator('dl.method dt')).toHaveText(['bins', 'count']);
@@ -124,32 +136,46 @@ test.describe('documentation site', () => {
     await expect(page.getByText(/row end/)).toBeVisible();
   });
 
-  test('REQ-332 · the UI gallery lists the 17 components by group, each linking to its page', async ({ page }) => {
-    const errors = errorsOf(page);
-    await page.goto('/#/ui');
-    await expect(page.locator('h2')).toHaveText('UI components');
-    for (const { name, slug, states } of UI_COMPONENTS) {
-      const item = page.locator(`li[data-component="${slug}"]`);
-      await expect(item, name).toHaveCount(1);
-      await expect(item.locator(`a[href="#/ui/${slug}"]`)).toContainText(name);
-      await expect(item.locator('.sp-ui').first()).toBeVisible();
-      expect(states.length).toBeGreaterThan(0);
-    }
-    await expect(page.getByRole('heading', { level: 3 })).toHaveText(['Actions', 'Data entry', 'Navigation', 'Data display', 'Feedback']);
-    expect(errors).toEqual([]);
-  });
+  for (const { family, route, title, groups } of FAMILIES) {
+    const rows = UI_COMPONENTS.filter((c) => c.family === family);
+    test(`REQ-332 · REQ-521 · the ${title} gallery lists its ${rows.length} components by group, each linking to its page`, async ({ page }) => {
+      const errors = errorsOf(page);
+      await page.goto(`/#${route}`);
+      await expect(page.locator('main > h2')).toHaveText(title);
+      await expect(page.locator('main li[data-component]')).toHaveCount(rows.length);
+      for (const { name, slug, states } of rows) {
+        const item = page.locator(`li[data-component="${slug}"]`);
+        await expect(item, name).toHaveCount(1);
+        await expect(item.locator(`a[href="#/ui/${slug}"]`)).toContainText(name);
+        // An overlay is drawn closed: its trigger shows, the overlay itself is in the page.
+        if (CLOSED.has(slug)) await expect(item.locator(`.sp-ui.sp-${slug}`).first()).toBeAttached();
+        else await expect(item.locator(`.sp-ui.sp-${slug}`).first()).toBeVisible();
+        expect(states.length).toBeGreaterThan(0);
+      }
+      // The site's group headings, not the components' own.
+      await expect(page.locator('main > section > h3')).toHaveText([...groups]);
+      await expect(page.locator(`nav a[href="#${route}"]`)).toHaveAttribute('aria-current', 'page');
+      expect(errors).toEqual([]);
+    });
+  }
 
   for (const { slug, name, states } of UI_COMPONENTS) {
     test(`REQ-332 · ${name}: a live example per state and a props reference read from the types`, async ({ page }) => {
       const errors = errorsOf(page);
       await page.goto(`/#/ui/${slug}`);
-      await expect(page.locator('h2')).toHaveText(name);
-      await expect(page.locator('main [data-state]')).toHaveCount(states.length);
+      await expect(page.locator('main > h2')).toHaveText(name);
+      await expect(page.locator('main > section[data-state]')).toHaveCount(states.length);
       for (const state of states) {
-        const example = page.locator(`main [data-state="${state}"]`);
-        await expect(example.locator(`.sp-ui.sp-${slug}`).first(), state).toBeVisible();
+        const example = page.locator(`main > section[data-state="${state}"]`);
+        if (CLOSED.has(slug)) {
+          await expect(example.locator(`.sp-ui.sp-${slug}`).first(), state).toBeAttached();
+          await expect(example.getByRole(slug === 'select' ? 'combobox' : 'button').first(), state).toBeVisible();
+        } else await expect(example.locator(`.sp-ui.sp-${slug}`).first(), state).toBeVisible();
         expect(Object.keys(UI_DEMOS[slug]!)).toContain(state);
         await expect(example.locator('pre')).toContainText(`<Sp${name}`);
+        // What a demo opens starts open, uncontrolled: a Collapse's items (REQ-521).
+        const items = (UI_DEMOS[slug]![state] as { items?: { open?: boolean }[] }).items;
+        if (slug === 'collapse') await expect(example.locator('details[open]')).toHaveCount(items!.filter((i) => i.open).length);
       }
       const own = props.ui.components.find((c) => c.slug === slug)!.own;
       const rows = page.locator('table.props tbody tr');
@@ -160,9 +186,71 @@ test.describe('documentation site', () => {
     });
   }
 
+  test('REQ-521 · an overlay page opens its dialog from the trigger, and the nav marks its family', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/ui/modal');
+    await expect(page.locator('dialog.sp-modal[open]')).toHaveCount(0);
+    await page.getByRole('button', { name: 'Edit order' }).click();
+    await expect(page.locator('dialog.sp-modal[open]')).toHaveCount(1);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('dialog.sp-modal[open]')).toHaveCount(0);
+    await expect(page.locator('nav a[href="#/overlays"]')).toHaveAttribute('aria-current', 'page');
+    await page.goto('/#/ui/table');
+    await expect(page.locator('nav a[href="#/composed"]')).toHaveAttribute('aria-current', 'page');
+    expect(errors).toEqual([]);
+  });
+
+  test('REQ-521 · WCAG 2.2.1 · a docs toast stays until it is dismissed: a reader is not timed', async ({ page }) => {
+    await page.clock.install();
+    await page.goto('/#/ui/toast');
+    const toast = page.locator('main .sp-toast').first();
+    await expect(toast).toBeVisible();
+    await page.clock.fastForward(60_000);
+    await expect(toast).toBeVisible();
+    await toast.getByRole('button', { name: 'Dismiss' }).click();
+    await expect(toast).toBeHidden();
+  });
+
+  test('REQ-521 · the palettes page draws each preset over a chart, a Card holding a Progress and a Table, with the Palette reference', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/palettes');
+    await expect(page.locator('main > h2')).toHaveText('Palettes');
+    await expect(page.locator('main [data-preset]')).toHaveCount(PALETTE_NAMES.length);
+    const styles: string[] = [];
+    for (const key of PALETTE_NAMES) {
+      const section = page.locator(`main [data-preset="${key}"]`);
+      await expect(section.locator('svg.sp-chart')).toHaveCount(1);
+      await expect(section.locator('.sp-card .sp-progress')).toHaveCount(1);
+      await expect(section.locator('.sp-ui.sp-table')).toHaveCount(1);
+      await expect(section.locator('pre')).toContainText(key);
+      styles.push((await section.locator('.sp-ui.sp-table').getAttribute('style')) ?? '');
+    }
+    expect(new Set(styles).size).toBe(PALETTE_NAMES.length);
+    await expect(page.locator('main pre').first()).toContainText("from '@silverpoint/core/palettes'");
+    const rows = page.locator('table.props tbody tr');
+    await expect(rows).toHaveCount(props.palette.length);
+    for (const field of props.palette) await expect(rows.filter({ has: page.locator('th', { hasText: new RegExp(`^${field.name}\\??$`) }) })).toContainText(field.doc);
+    expect(errors).toEqual([]);
+  });
+
+  test('REQ-521 · the timeline page builds TimelineJS in the ground\'s hand, says how to install it and lists its props', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/timeline');
+    await expect(page.locator('main > h2')).toHaveText('Timeline');
+    const timeline = page.locator('main section.sp-timeline');
+    await expect(timeline.locator('.sp-kl-mount .tl-storyslider')).toHaveCount(1);
+    await expect(timeline).toHaveAttribute('data-kl-inked', 'true');
+    await expect(page.locator('main pre', { hasText: /^npm install @knight-lab\/timelinejs$/ })).toHaveCount(1);
+    await expect(page.locator('main pre', { hasText: "from '@silverpoint/react/timeline'" })).toHaveCount(1);
+    const rows = page.locator('table.props tbody tr');
+    await expect(rows).toHaveCount(props.timeline.length);
+    for (const prop of props.timeline) await expect(rows.filter({ has: page.locator('th', { hasText: new RegExp(`^${prop.name}\\??$`) }) })).toContainText(prop.doc);
+    expect(errors).toEqual([]);
+  });
+
   test('REQ-332 · an unknown component page says so', async ({ page }) => {
     await page.goto('/#/ui/nothing');
-    await expect(page.locator('h2')).toHaveText('No such component');
+    await expect(page.locator('main > h2')).toHaveText('No such component');
   });
 
   test('REQ-100 · the parity page shows one fixture rendered identically by React, Vue and Angular', async ({ page }) => {
@@ -189,25 +277,27 @@ test.describe('documentation site', () => {
     }
   });
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
+  for (const route of ROUTES) {
     test(`WCAG 1.4.10 · ${route} reflows at 320 CSS px without horizontal scrolling`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(route);
-      await page.locator('.sp-root, .sp-ui').first().waitFor();
+      await page.locator('.sp-root, .sp-ui').first().waitFor({ state: 'attached' });
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
     });
   }
 
-  for (const route of ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs']) {
+  for (const route of ROUTES) {
     test(`REQ-120 · WCAG 2.1 AA · axe finds no A or AA issue on ${route}`, async ({ page }) => {
       await page.goto(route);
       await expect(page.locator('main')).toBeVisible();
-      await page.locator('.sp-root, .sp-ui').first().waitFor();
+      await page.locator('.sp-root, .sp-ui').first().waitFor({ state: 'attached' });
       // A UI frame is an ink line drawn as a masked background; axe reads it as a solid backdrop under the
       // text. Frames and tone tiles carry no text: hidden for the reading (see a11y-audit.md), and their
       // contrast is held by the palette's UI pairs.
       await page.addStyleTag({ content: ".sp-ui [part='sp-frame'], .sp-ui [part='sp-tone'] { display: none !important; }" });
-      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+      // TimelineJS's own DOM is the library's, outside the ground's contract (REQ-513); its surface is audited.
+      if (route === '/#/timeline') await page.locator('.sp-kl-mount .tl-storyslider').waitFor();
+      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).exclude('.sp-kl-mount').analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
     });
   }

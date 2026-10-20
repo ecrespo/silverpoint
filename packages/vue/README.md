@@ -246,6 +246,126 @@ Each chart's own props are typed in its `*Props` type, exported from `@silverpoi
 [repository](https://github.com/ecrespo/silverpoint) holds the API specification and the
 documentation site with the gallery.
 
+## The 38 UI components
+
+Forms, navigation, data display and overlays, drawn in the same engraving language as the charts:
+an exact frame, tone by hatching, and the keyboard and screen-reader semantics of the native element.
+Import the UI stylesheet once, next to the ground's, and each component from
+`@silverpoint/vue/ui/<kebab-case-name>` (or the barrel `@silverpoint/vue/ui`):
+
+```vue
+<script setup lang="ts">
+import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
+import { ref } from 'vue';
+import { SpButton } from '@silverpoint/vue/ui/button';
+import { SpInput } from '@silverpoint/vue/ui/input';
+import { SpModal } from '@silverpoint/vue/ui/modal';
+import { SpTable } from '@silverpoint/vue/ui/table';
+
+const customer = ref('Ada');
+const columns = [{ key: 'id', title: 'Order' }, { key: 'customer', title: 'Customer' }, { key: 'status', title: 'Status' }];
+const orders = [
+  { id: '1042', customer: 'Ada Lovelace', status: 'Shipped' },
+  { id: '1043', customer: 'Grace Hopper', status: 'Packed' },
+];
+</script>
+
+<template>
+  <SpInput v-model="customer" label="Customer" />
+  <SpTable caption="Orders" row-key="id" :columns="columns" :data="orders" />
+  <SpModal title="Edit order">
+    <template #trigger><button type="button">Edit order</button></template>
+    Changes reach the workshop before the order is packed.
+    <SpButton>Save</SpButton>
+  </SpModal>
+</template>
+```
+
+A value binds with `v-model`; an overlay's open state with `v-model:open`.
+
+The form and display components (since `0.3.0`):
+
+`SpButton`, `SpInput`, `SpCheckbox`, `SpRadioGroup`, `SpSwitch`, `SpSlider`, `SpRate`,
+`SpSegmented`, `SpTabs`, `SpSteps`, `SpCard`, `SpTag`, `SpBadge`, `SpDivider`, `SpProgress`, `SpAlert`,
+`SpSkeleton`.
+
+Composed components (since `0.7.0`):
+
+`SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`, `SpBreadcrumb`, `SpAvatar`, `SpStatistic`,
+`SpDescriptions`, `SpTimelineList`, `SpCollapse`, `SpEmpty`, `SpResult`, `SpTextarea`, `SpInputNumber`.
+
+Overlays (since `0.7.0`), each opened by a trigger you write; toasts sit in an `SpToaster`:
+
+`SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`, `SpToast`.
+
+`SpTabs` holds `SpTabPanel`s, `SpCollapse` holds `SpCollapseItem`s and `SpAvatarGroup` holds `SpAvatar`s.
+Every component takes `ground`, `substrate`, `mode`, `size`, `palette`, `id` and `class`.
+
+## Palettes
+
+A palette recolours the ground: substrate, inks, rules, text and focus ring. Six presets ship on
+`@silverpoint/core/palettes` (`silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`),
+each computed for WCAG contrast; `checkPalette` checks one of yours the same way.
+
+Your adapter already depends on `@silverpoint/core`; name it in your own dependencies to import
+the presets (a strict package manager such as pnpm requires it):
+
+```sh
+npm install @silverpoint/core
+```
+
+```vue
+<script setup lang="ts">
+import { sanguine } from '@silverpoint/core/palettes';
+import { SilverpointProvider } from '@silverpoint/vue';
+import { SpLineChart } from '@silverpoint/vue/line-chart';
+import { SpCard } from '@silverpoint/vue/ui/card';
+</script>
+
+<template>
+  <SilverpointProvider :palette="sanguine">
+    <SpLineChart title="Hits per hour" />
+    <SpCard title="Delivered this week">Every chart and component below draws in sanguine.</SpCard>
+    <SpLineChart title="One field changed" :palette="{ ink: '#232C52' }" />
+  </SilverpointProvider>
+</template>
+```
+
+`provideSilverpoint({ palette })` sets one for the whole app. A nested provider or a `palette` prop
+overrides the outer palette field by field.
+
+## Timeline
+
+`SpTimeline` draws a [TimelineJS](https://timeline.knightlab.com/) story in the ground's hand. TimelineJS is an
+optional peer dependency: install it only if you use the timeline, and import its stylesheet before
+the ground's.
+
+```sh
+npm install @knight-lab/timelinejs
+```
+
+```vue
+<script setup lang="ts">
+import '@knight-lab/timelinejs/dist/css/timeline.css';
+import '@silverpoint/grounds/timeline.css';
+import { SpTimeline } from '@silverpoint/vue/timeline';
+
+const story = {
+  title: { text: { headline: 'Silverpoint', text: '<p>A line that cannot be erased.</p>' } },
+  events: [{ start_date: { year: 1400 }, text: { headline: "Cennini's handbook" } }],
+};
+</script>
+
+<template>
+  <SpTimeline :data="story" height="560px">
+    <template #fallback><p>The timeline could not be loaded.</p></template>
+  </SpTimeline>
+</template>
+```
+
+The server renders the surface and an empty mount; TimelineJS builds in the browser.
+
 ## Related packages
 
 [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react) ·

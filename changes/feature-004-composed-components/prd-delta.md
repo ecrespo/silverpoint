@@ -194,6 +194,16 @@ through the dialog and the browser's own chrome, never the inert page behind. Th
 REQ-497's pause and F8, REQ-503, REQ-523, REQ-316/317 for the new controls and axe on the three pages
 are verified by `e2e/composed.spec.ts`; Firefox and WebKit run in the pinned Playwright image.
 
+*Amended in implementation (T-224):* REQ-521's sections are the site's galleries `/ui`, `/composed`
+and `/overlays` (one per catalog family, by group) and the pages `/palettes` and `/timeline`; every
+component's page stays at `/ui/<slug>`, and the nav marks its family. A docs overlay is drawn closed
+behind its trigger, and a docs toast sits in an `SpToaster` of `duration: Infinity`, so a reader is
+never timed (WCAG 2.2.1). The props tables come from the types: `Palette` and `SpTimelineProps` join
+`generated/props.json`. Each adapter README names the 38 UI components and shows the palettes and
+the timeline with its optional peer; since a preset is imported from `@silverpoint/core/palettes`,
+the READMEs ask the application to name `@silverpoint/core` among its own dependencies (a strict
+package manager does not hoist it). Verified by `e2e/docs.spec.ts` and `tools/release/readmes.test.ts`.
+
 **Count:** 57 requirements (56 MUST, 1 SHOULD). The PRD goes from 213 to 270 requirements (250 MUST).
 
 ## 7. Non-functional additions (§7)

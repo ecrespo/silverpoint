@@ -30,6 +30,20 @@ The recipes of the second catalog — the histogram, the box plot, the sunburst,
 rest of the 27 charts added in `0.6.0` — are on their own entry, `@silverpoint/core/catalog`, so the main entry
 stays small; their props types are in the main entry with every other chart's.
 
+Three more entries hold what only some applications need:
+
+| Entry | Holds |
+|---|---|
+| `@silverpoint/core/ui` | The views of the 38 UI components, their catalog and their types |
+| `@silverpoint/core/palettes` | The six palette presets, `checkPalette` and `contrastRatio` |
+| `@silverpoint/core/timeline` | What `SpTimeline` shares across adapters: its surface, its inking of TimelineJS, the types of TimelineJS's JSON |
+
+```ts
+import { checkPalette, sanguine } from '@silverpoint/core/palettes';
+
+export const findings = checkPalette({ ...sanguine, ink: '#5A1F14' });
+```
+
 The geometry of the data is exact: the ground's hand-drawn inking only touches strokes that
 carry no data, and it is deterministic for a given seed.
 

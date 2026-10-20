@@ -35,6 +35,20 @@ In Angular, put it in `src/styles.css`:
 
 The packages declare `sideEffects: false` except for `.css`, so no bundler drops this import.
 
+Two more stylesheets ship beside it, each imported once and only if you use what it styles:
+
+| Stylesheet | Styles |
+|---|---|
+| `@silverpoint/grounds/ui.css` | The 38 UI components: frames, tones, focus ring, overlays |
+| `@silverpoint/grounds/timeline.css` | `SpTimeline`; import it after TimelineJS's own stylesheet |
+
+```ts
+import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
+import '@knight-lab/timelinejs/dist/css/timeline.css';
+import '@silverpoint/grounds/timeline.css';
+```
+
 ## Re-theming with CSS
 
 Every stroke carries a `part` attribute bound to a public custom property. Overriding a property
@@ -53,6 +67,10 @@ Public properties: `--sp-substrate`, `--sp-ink`, `--sp-ink-secondary`, `--sp-hei
 `--sp-stroke-width`, `--sp-hatch-gap`, `--sp-radius`, and under `cyanotype` the line weights of
 its four tonal levels, `--sp-weight-1` to `--sp-weight-4` (times `--sp-stroke-width`). The palette
 is computed for WCAG contrast, so check the contrast again if you change an ink.
+
+To recolour from code instead, pass a palette: the six presets on `@silverpoint/core/palettes`
+(`sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo` and the ground's own `silverpoint`) set these
+same properties, and `checkPalette` checks the contrast of one of yours.
 
 See [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react),
 [`@silverpoint/vue`](https://www.npmjs.com/package/@silverpoint/vue) and

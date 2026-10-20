@@ -27,11 +27,17 @@ export interface PropsReference {
     readonly common: readonly PropDoc[];
     readonly components: readonly { readonly slug: string; readonly name: string; readonly group: string; readonly own: readonly PropDoc[] }[];
   };
+  /** The fields of a `Palette` (REQ-460). */
+  readonly palette: readonly PropDoc[];
+  /** `SpTimeline`'s own props (REQ-510); it takes the common UI props too. */
+  readonly timeline: readonly PropDoc[];
 }
 
 const PROPS = fileURLToPath(new URL('../../../packages/core/src/types/props.ts', import.meta.url));
 const UI_TYPES = fileURLToPath(new URL('../../../packages/core/src/ui/types.ts', import.meta.url));
 const DASHBOARD = fileURLToPath(new URL('../../../packages/core/src/dashboard/types.ts', import.meta.url));
+const PALETTE = fileURLToPath(new URL('../../../packages/core/src/palette/palette.ts', import.meta.url));
+const TIMELINE = fileURLToPath(new URL('../../../packages/core/src/timeline/types.ts', import.meta.url));
 
 /** Every interface and object type alias of a source file, by name, with its property signatures documented. */
 export function interfacesIn(source: string): Map<string, PropDoc[]> {
@@ -106,5 +112,7 @@ export function propsReference(): PropsReference {
       common: fromUi('CommonUiProps'),
       components: UI_COMPONENTS.map(({ slug, component, group }) => ({ slug, name: component, group, own: fromUi(`${component}Props`) })),
     },
+    palette: interfacesIn(readFileSync(PALETTE, 'utf8')).get('Palette') ?? [],
+    timeline: interfacesIn(readFileSync(TIMELINE, 'utf8')).get('SpTimelineProps') ?? [],
   };
 }

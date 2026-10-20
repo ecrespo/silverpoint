@@ -10,7 +10,9 @@ import { DashboardPage } from './pages/dashboard';
 import { Gallery } from './pages/gallery';
 import { Home } from './pages/home';
 import { Playground } from './pages/playground';
-import { UiGallery, UiPage } from './pages/ui';
+import { PalettesPage } from './pages/palettes';
+import { TimelinePage } from './pages/timeline';
+import { familyRouteOf, UiGallery, UiPage } from './pages/ui';
 
 /** The route is the hash, so the built site is plain static files on any host. */
 function useRoute(): string {
@@ -30,6 +32,10 @@ const NAV = [
   ['/adapters', 'Three adapters'],
   ['/dashboard', 'Dashboard'],
   ['/ui', 'UI components'],
+  ['/composed', 'Composed'],
+  ['/overlays', 'Overlays'],
+  ['/palettes', 'Palettes'],
+  ['/timeline', 'Timeline'],
 ] as const;
 
 function Page({ route }: { route: string }) {
@@ -37,7 +43,11 @@ function Page({ route }: { route: string }) {
   if (route === '/playground') return <Playground />;
   if (route === '/adapters') return <Adapters />;
   if (route === '/dashboard') return <DashboardPage />;
-  if (route === '/ui') return <UiGallery />;
+  if (route === '/ui') return <UiGallery family="ui" />;
+  if (route === '/composed') return <UiGallery family="composed" />;
+  if (route === '/overlays') return <UiGallery family="overlay" />;
+  if (route === '/palettes') return <PalettesPage />;
+  if (route === '/timeline') return <TimelinePage />;
   if (route.startsWith('/ui/')) return <UiPage slug={route.slice('/ui/'.length)} />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;
   return <Home />;
@@ -45,6 +55,8 @@ function Page({ route }: { route: string }) {
 
 function Site() {
   const route = useRoute();
+  // A component page belongs to its family's gallery.
+  const section = route.startsWith('/ui/') ? familyRouteOf(route.slice('/ui/'.length)) : route;
   useEffect(() => {
     // A new page moves focus to its content, as a page load would (WCAG 2.4.3).
     document.getElementById('content')?.focus();
@@ -62,7 +74,7 @@ function Site() {
           <ul>
             {NAV.map(([path, label]) => (
               <li key={path}>
-                <a href={`#${path}`} aria-current={route === path || (path === '/ui' && route.startsWith('/ui/')) ? 'page' : undefined}>
+                <a href={`#${path}`} aria-current={section === path ? 'page' : undefined}>
                   {label}
                 </a>
               </li>
