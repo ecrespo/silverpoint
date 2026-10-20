@@ -30,13 +30,13 @@ with the published types:
 
 | Gate | Artifact | Decides | Approved |
 |---|---|---|---|
-| 0 | [`research.md`](research.md) | What exists to build on; hosting; the two repositories; risks | 2026-10-20 |
-| 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, personas, REQ-530..569 | 2026-10-20 |
-| 2 | [`api-delta.md`](api-delta.md) | The contract: catalog schema, MCP tools and resources, skill layout, `llms.txt` | 2026-10-20 |
-| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-044..050; the agent catalog and the Reflex catalog shapes | 2026-10-20 |
-| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 9 steps and tasks, across the three repositories | 2026-10-20 |
+| 0 | [`research.md`](research.md) | What exists to build on; hosting; the two repositories; risks | ✅ 2026-10-20 |
+| 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, personas, REQ-530..569 | ✅ 2026-10-20 |
+| 2 | [`api-delta.md`](api-delta.md) | The contract: catalog schema, MCP tools and resources, skill layout, `llms.txt` | ✅ 2026-10-20 |
+| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-044..050; the agent catalog and the Reflex catalog shapes | ✅ 2026-10-20 |
+| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 9 steps and tasks, across the three repositories | ✅ 2026-10-20 |
 | — | [`analyze.md`](analyze.md) | Coverage, findings, open questions for the user | — |
-| — | [`constitution-amendment.md`](constitution-amendment.md) | Scope line; Art. 2 for the server | 2026-10-20, with gate 1 |
+| — | [`constitution-amendment.md`](constitution-amendment.md) | Scope line; Art. 2 for the server | ✅ 2026-10-20, with gate 1 |
 
 ## Decisions the user took (2026-10-20)
 
