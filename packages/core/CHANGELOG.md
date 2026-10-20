@@ -1,5 +1,90 @@
 # @silverpoint/core
 
+## 0.7.0
+
+### Minor Changes
+
+- 8ff16f9: **Palettes, composed components, overlays and the timeline, close-out (feature-004, step 8h):
+  `0.7.0`.** The 21 new components —twelve composed, seven overlays on the platform's `<dialog>`
+  and Popover API, the toast and its toaster— the palettes and the optional Knight Lab timeline
+  are verified end to end on the composed, palettes and timeline pages of the four example apps and
+  documented on the site. Grounds: `timeline.css` gives TimelineJS's eras a strip of their own below
+  the axis labels —with an era, the axis grows to 57px and the era is laid in its lowest 18px, its
+  title on a plate of the substrate— so an era's title no longer falls on the major ticks' row and
+  its hatching no longer crosses the labels. Angular: a server-rendered `SpToaster` no longer reaches for
+  `document` when it is torn down —it unlistens F8 only where it listened, on the client— so a server
+  render that holds a toaster resolves instead of hanging on a `ReferenceError`. The seven packages
+  move together to `0.7.0`; the rendered output of every existing chart is unchanged.
+- 62258b7: Fixes found by the end-to-end pass over the composed page (T-223). A disabled `SpCollapseItem`'s
+  summary now carries `tabindex="-1"`, so Tab skips it as it skips every disabled control (REQ-522);
+  this changes the normalised markup of a disabled item. `SpTooltip` hides on Escape wherever focus is,
+  not only on its trigger, so a tooltip shown by hover can be dismissed without moving the pointer
+  (WCAG 1.4.13, REQ-496).
+- 449ce95: `uiOverlaySync(element, kind, open)` on `@silverpoint/core/ui` (T-215): opens or closes a native
+  overlay as its state says —`showModal()`, `show()` or `close()` for a `<dialog>`, `showPopover()` or
+  `hidePopover()` for a popover— only when the element is in the other state, so no second `close` or
+  `toggle` event fires. Without the Popover API a popover stays in the page's flow.
+- d4d569d: Palettes, the composed components' and overlays' core, and the timeline's (feature-004,
+  T-200..T-208). On the new subpath `@silverpoint/core/palettes`: `resolvePalette`, `paletteStyle`, `PALETTE_PROPERTIES`,
+  `contrastRatio`, `checkPalette`, `PALETTE_PAIRS` and six verified presets (`silverpoint`,
+  `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`); the `Palette` type on the main entry.
+  A palette value is accepted only if it is a CSS colour (an allowlist). On `@silverpoint/core/ui`:
+  `uiSortRows`, `uiPageWindow`, `uiPagination`, `uiNumberValue` (now also reporting the range as
+  drawn), `uiNumberStep`, `uiInitials`, `uiListKey`, `uiTypeahead`, `uiPlace`, `uiAnchor`; ten new
+  glyphs in `UI_GLYPHS`; and the view trees of `SpSurface`, `SpGlyph`, `SpTable`, `SpPagination`,
+  `SpBreadcrumb`, `SpAvatar`, `SpAvatarGroup`, `SpStatistic`, `SpDescriptions`, `SpTimelineList`,
+  `SpCollapse`, `SpCollapseItem`, `SpEmpty`, `SpResult`, `SpTextarea` and `SpInputNumber`, and of
+  the overlays `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`, `SpDropdownMenu`,
+  `SpToast` and `SpToaster` (native `<dialog>` and Popover API), with `uiTriggerView`,
+  `uiTriggerAria`, `uiSelectItems`, `uiMenuItems` and `uiToastDuration`. On the new
+  subpath `@silverpoint/core/timeline`: `timelineView`, `timelineInk`, `TIMELINE_FRAMES`,
+  `TIMELINE_TONES` and the `SpTimelineProps` / `TimelineData` types. `UI_COMPONENTS` gains 21 rows
+  with a `family` field (`ui`, `composed`, `overlay`), three groups and batches `A1`, `A2`, `B`;
+  `UI_DEMOS` gains their 35 states, and `@silverpoint/core/ui-demos` exports `TIMELINE_DEMO`. New
+  diagnostics `SP023`, `SP024` and `SP025`.
+  
+  A link's `href` (`SpButton`, `SpBreadcrumb`) now keeps only relative URLs and the `http`, `https`,
+  `mailto` and `tel` schemes, and a `headingLevel` outside 2..6 draws `h3`; both warn `SP017`.
+  
+  `UiTokens` gains the optional `backdrop` and `rowTone` levels; `resolveUiTokens` holds them to 1..4
+  and gives a ground that declares none `2` and `1` (T-209).
+  A table cell's text stands on a `.sp-ui-plate`, so a toned row keeps its contrast.
+  
+  `palette` on `CommonChartProps`, `CommonUiProps`, `DashboardProps` and `ProviderConfig` (T-212):
+  `resolveUi` resolves it provider → dashboard cell → prop and every UI root writes it first in its
+  `style`; `dashboardView` takes the section's declarations and hands the palette to its cells, where
+  `inCell` merges it under the chart's own; `svgString` writes it on the `<svg>`. `nestProvider` on
+  `@silverpoint/core/palettes`: a nested provider's set fields win and the palettes merge field by field.
+- 61e98a2: `SpTimeline` on `@silverpoint/react/timeline`, `@silverpoint/vue/timeline` and
+  `@silverpoint/angular/timeline` (T-221): a Knight Lab TimelineJS timeline inside the ground's surface,
+  with `@knight-lab/timelinejs` `^3.9.13` an optional peer. The server renders the surface, its probes
+  and an empty mount; the client imports TimelineJS after render, builds it there without the `font`
+  and `theme` options, and forwards its seven events (`change`, `loaded`, `navNext`, `navPrevious`,
+  `zoomIn`, `zoomOut`, `backToStart`) as each framework's props, emits or outputs. If TimelineJS cannot
+  be loaded, the mount shows the `fallback` (React's prop, Vue's slot, Angular's
+  `<ng-template spFallback>`), `SP025` is warned in development, and nothing throws. Import the subpath
+  only with the peer installed. The core's `@silverpoint/core/timeline` gains `timelineMount`,
+  `timelineOptions` and `TIMELINE_EVENTS`, which the three adapters share, and `UiSlot` gains
+  `fallback`.
+
+### Patch Changes
+
+- 3625f7e: Documentation for the 0.7.0 additions (T-224). Each adapter's README lists the 38 UI components and
+  shows the palettes and the timeline, with TimelineJS as an optional peer; the grounds README names
+  `ui.css` and `timeline.css`, and the core README its `ui`, `palettes` and `timeline` entries.
+  `SpTimelineProps.data` gains its documentation comment.
+- dec07a4: Fixes found by the pixel gate of the new components (T-219): `uiAnchor` re-places an overlay when
+  its trigger or the overlay changes size, as when a web font replaces its fallback; the AvatarGroup's
+  overlap and the dividers between CollapseItems also hold through the `display: contents` wrappers an
+  Angular host keeps around each child; a Vue `SpDropdownMenu` mounted open focuses its active item, as
+  React's and Angular's do.
+- 194c0b4: `timelineMount` (`@silverpoint/core/timeline`, T-222) builds TimelineJS in a `<div>` of its own inside
+  the mount, so TimelineJS's `className` rewrite leaves the mount's `sp-kl-mount` class alone, and hands
+  it a copy of `data` (`structuredClone`): TimelineJS writes each slide's `unique_id` into its data,
+  which threw on a frozen object such as `TIMELINE_DEMO` and left the timeline loading forever. An
+  error thrown while TimelineJS is built is now handled as a failed load: its container is removed,
+  `SP025` is warned and the fallback is shown.
+
 ## 0.6.0
 
 ### Minor Changes

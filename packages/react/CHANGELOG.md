@@ -1,5 +1,86 @@
 # @silverpoint/react
 
+## 0.7.0
+
+### Minor Changes
+
+- de97c3e: The first composed components (T-213): `SpSurface`, `SpGlyph`, `SpTable`, `SpBreadcrumb`,
+  `SpAvatar`, `SpAvatarGroup`, `SpStatistic`, `SpDescriptions`, `SpTimelineList`, `SpEmpty` and
+  `SpResult`, each on its own `ui/<name>` subpath and on the `ui` barrel. React also has
+  `server/ui/<name>` for Server Components. A sortable table header reports its column's key (React
+  `onSort`, Vue `@sort`, Angular `(sort)`); the consumer sorts the rows with `uiSortRows`. Empty and
+  Result take actions in `extra` (React prop, Vue slot, Angular `<ng-template spExtra>`). In Angular,
+  the surface is the attribute component `[spSurface]` on the consumer's own element.
+- 3e1ba8c: `SpPagination`, `SpCollapse`, `SpCollapseItem`, `SpTextarea` and `SpInputNumber` (T-214), each on
+  its own `ui/<name>` subpath and on the `ui` barrel. Pagination binds `current` (React
+  `current`/`defaultCurrent`/`onChange`, Vue `v-model:current`, Angular `[(current)]`). A collapse item
+  is a native `<details>`: it binds `open` and reports `toggle`, and an `accordion` makes its items
+  exclusive through the native `name`. Textarea and InputNumber bind `value` and, in Angular, are
+  ControlValueAccessors. An InputNumber reports a typed value when it is committed (blur or Enter),
+  clamped and rounded; its steppers report the next value at once.
+- 449ce95: The overlays (T-215, T-216): `SpModal`, `SpDrawer`, `SpPopover`, `SpTooltip`, `SpSelect`,
+  `SpDropdownMenu`, `SpToast` and `SpToaster`, each on its own `ui/<name>` subpath and on the `ui`
+  barrel. Modal and Drawer are a native `<dialog>`; Popover, Tooltip, the Select list and the Menu use
+  the Popover API, placed against their trigger. Each binds `open` (React `open`/`defaultOpen`/
+  `onOpenChange`, Vue `v-model:open`, Angular `[(open)]`). The trigger is the consumer's element: a
+  `trigger` prop in React, a `trigger` slot in Vue, an element marked `spTrigger` in Angular. It gets
+  the ARIA of the overlay's pattern, on the server too. The server markup carries the open state as
+  `data-state` and the client opens the overlay once rendered. Select binds `value` and is a
+  ControlValueAccessor in Angular. The Select and Menu keyboards follow the APG patterns, with
+  typeahead. A toast closes after its duration —its own, its toaster's, or 5000 ms— and starts its
+  count again once the pointer and focus leave it. F8 moves focus to the toaster.
+- ba4ec0c: `palette` on every chart, UI component and dashboard, and on the provider (T-212): the root's
+  `style` holds the palette's declarations, merged element → dashboard → provider field by field, and
+  `toSVGString()` carries it. A provider inside another scopes a section: its own fields win and the
+  rest are inherited. React's `SilverpointProvider` nests; Vue adds a `SilverpointProvider` component
+  for sections (it renders no element); Angular's `provideSilverpoint` now returns a `Provider`, so it
+  also works in a component's `providers`. A dashboard's root carries its own palette.
+- 8ff16f9: **Palettes, composed components, overlays and the timeline, close-out (feature-004, step 8h):
+  `0.7.0`.** The 21 new components —twelve composed, seven overlays on the platform's `<dialog>`
+  and Popover API, the toast and its toaster— the palettes and the optional Knight Lab timeline
+  are verified end to end on the composed, palettes and timeline pages of the four example apps and
+  documented on the site. Grounds: `timeline.css` gives TimelineJS's eras a strip of their own below
+  the axis labels —with an era, the axis grows to 57px and the era is laid in its lowest 18px, its
+  title on a plate of the substrate— so an era's title no longer falls on the major ticks' row and
+  its hatching no longer crosses the labels. Angular: a server-rendered `SpToaster` no longer reaches for
+  `document` when it is torn down —it unlistens F8 only where it listened, on the client— so a server
+  render that holds a toaster resolves instead of hanging on a `ReferenceError`. The seven packages
+  move together to `0.7.0`; the rendered output of every existing chart is unchanged.
+- 61e98a2: `SpTimeline` on `@silverpoint/react/timeline`, `@silverpoint/vue/timeline` and
+  `@silverpoint/angular/timeline` (T-221): a Knight Lab TimelineJS timeline inside the ground's surface,
+  with `@knight-lab/timelinejs` `^3.9.13` an optional peer. The server renders the surface, its probes
+  and an empty mount; the client imports TimelineJS after render, builds it there without the `font`
+  and `theme` options, and forwards its seven events (`change`, `loaded`, `navNext`, `navPrevious`,
+  `zoomIn`, `zoomOut`, `backToStart`) as each framework's props, emits or outputs. If TimelineJS cannot
+  be loaded, the mount shows the `fallback` (React's prop, Vue's slot, Angular's
+  `<ng-template spFallback>`), `SP025` is warned in development, and nothing throws. Import the subpath
+  only with the peer installed. The core's `@silverpoint/core/timeline` gains `timelineMount`,
+  `timelineOptions` and `TIMELINE_EVENTS`, which the three adapters share, and `UiSlot` gains
+  `fallback`.
+
+### Patch Changes
+
+- 3625f7e: Documentation for the 0.7.0 additions (T-224). Each adapter's README lists the 38 UI components and
+  shows the palettes and the timeline, with TimelineJS as an optional peer; the grounds README names
+  `ui.css` and `timeline.css`, and the core README its `ui`, `palettes` and `timeline` entries.
+  `SpTimelineProps.data` gains its documentation comment.
+- 62258b7: Fixes found by the end-to-end pass over the composed page (T-223). A disabled `SpCollapseItem`'s
+  summary now carries `tabindex="-1"`, so Tab skips it as it skips every disabled control (REQ-522);
+  this changes the normalised markup of a disabled item. `SpTooltip` hides on Escape wherever focus is,
+  not only on its trigger, so a tooltip shown by hover can be dismissed without moving the pointer
+  (WCAG 1.4.13, REQ-496).
+- Updated dependencies [8ff16f9]
+- Updated dependencies [3625f7e]
+- Updated dependencies [62258b7]
+- Updated dependencies [6c0fd2c]
+- Updated dependencies [449ce95]
+- Updated dependencies [d4d569d]
+- Updated dependencies [dec07a4]
+- Updated dependencies [194c0b4]
+- Updated dependencies [61e98a2]
+  - @silverpoint/core@0.7.0
+  - @silverpoint/grounds@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes
