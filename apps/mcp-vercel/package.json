@@ -1,0 +1,13 @@
+{
+  "name": "@silverpoint/mcp-vercel",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The hosted silverpoint MCP server (DD-050, REQ-558): a Vercel function that calls @silverpoint/mcp/http, reached at the site's /mcp through its rewrite.",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/mcp": "workspace:*"
+  }
+}

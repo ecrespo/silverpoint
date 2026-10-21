@@ -1,0 +1,24 @@
+name: mcp-smoke
+
+# REQ-568: once Vercel reports a successful deployment of the MCP project (apps/mcp-vercel), a
+# real MCP client initialises against it and calls every tool once. The site's own deployments
+# report here too; only the MCP project's environments are smoke-tested.
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment, 'mcp')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @silverpoint/mcp-smoke smoke "${{ github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}/mcp"

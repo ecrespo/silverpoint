@@ -1,0 +1,15 @@
+{
+  "name": "@silverpoint/mcp-smoke",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The MCP smoke test (REQ-568): a real MCP client against the built HTTP handler in CI, or against the deployed URL.",
+  "scripts": {
+    "smoke": "tsx smoke.ts",
+    "serve": "tsx serve.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@silverpoint/mcp": "workspace:*"
+  }
+}

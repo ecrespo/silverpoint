@@ -1,13 +1,13 @@
 import { defineConfig } from 'tsup';
 
 // ESM only: the SDK it serves through is ESM. `bin` is the stdio server `npx` runs; its shebang
-// comes from `src/bin.ts`. Splitting keeps the catalog in one chunk both entries share.
+// comes from `src/bin.ts`. Splitting keeps the catalog in one chunk the entries share.
 export default defineConfig({
-  entry: { index: 'src/index.ts', bin: 'src/bin.ts' },
+  entry: { index: 'src/index.ts', http: 'src/http.ts', bin: 'src/bin.ts' },
   format: ['esm'],
   target: 'node20',
   platform: 'node',
-  dts: { entry: { index: 'src/index.ts' } },
+  dts: { entry: { index: 'src/index.ts', http: 'src/http.ts' } },
   splitting: true,
   clean: true,
   treeshake: true,

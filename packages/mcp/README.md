@@ -57,6 +57,20 @@ import { createServer, AGENT_CATALOG } from '@silverpoint/mcp';
 `createServer()` returns an `McpServer` from the MCP TypeScript SDK, ready to connect to any
 transport.
 
+Over HTTP, `@silverpoint/mcp/http` serves stateless Streamable HTTP on Web `Request` and `Response`,
+so any serverless runtime can call it:
+
+```ts
+import { handler } from '@silverpoint/mcp/http';
+
+export const POST = handler;
+export const OPTIONS = handler;
+```
+
+Each request gets a server of its own and leaves nothing behind. Only POST carries messages (GET and
+DELETE answer 405, since there are no sessions), CORS is open, a body over 256 KB is refused with
+413 before it is parsed, and nothing is logged.
+
 ## License
 
 MIT

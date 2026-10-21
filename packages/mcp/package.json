@@ -18,6 +18,12 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./http": {
+      "@silverpoint/source": "./src/http.ts",
+      "types": "./dist/http.d.ts",
+      "import": "./dist/http.js",
+      "default": "./dist/http.js"
+    },
     "./agent-catalog.json": "./agent-catalog.json",
     "./package.json": "./package.json"
   },

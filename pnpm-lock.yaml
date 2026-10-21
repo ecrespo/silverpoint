@@ -221,6 +221,12 @@ importers:
         specifier: ^10.4.1
         version: 10.4.1(eslint@10.11.0(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)
 
+  apps/mcp-vercel:
+    dependencies:
+      '@silverpoint/mcp':
+        specifier: workspace:*
+        version: link:../../packages/mcp
+
   docs/site:
     dependencies:
       '@knight-lab/timelinejs':
@@ -663,6 +669,15 @@ importers:
       '@silverpoint/core':
         specifier: workspace:*
         version: link:../../packages/core
+
+  tools/mcp-smoke:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: 1.32.1
+        version: 1.32.1(supports-color@8.1.1)(zod@4.6.7)
+      '@silverpoint/mcp':
+        specifier: workspace:*
+        version: link:../../packages/mcp
 
   tools/path-weight:
     dependencies:

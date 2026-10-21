@@ -72,8 +72,8 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9e — Hosting and the site
 
-- [ ] **T-241** `http.ts` stateless Streamable HTTP; body, row and string limits before any work; no body logging; optional rate limit. *REQ-538, REQ-560..REQ-562*
-- [ ] **T-242** `apps/mcp-vercel` + deployment; MCP smoke test in CI against the built handler and post-deploy against the URL. *REQ-558, REQ-568*
+- [x] **T-241** `http.ts` stateless Streamable HTTP; body, row and string limits before any work; no body logging; optional rate limit. *REQ-538, REQ-560..REQ-562*
+- [ ] **T-242** `apps/mcp-vercel` + deployment; MCP smoke test in CI against the built handler and post-deploy against the URL. *REQ-558, REQ-568* — wired and smoke-tested locally; the Vercel project and its first deployment wait for the user
 - [ ] **T-243** (silverpoint_web) `vercel.json` rewrite `/mcp`, catch-all exclusion, `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` generated at export from the catalog. *REQ-537, REQ-558, REQ-564*
 - [ ] **T-244** (silverpoint_web) `/docs/ai` page: URL, client configs, skills, `npx`; no `rx.State`. *REQ-565*
 
@@ -224,4 +224,35 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 - `check_palette` returns the substrate it measured against beside the findings.
 - The Vue and Angular example apps depend on `@silverpoint/core` (9c), and `tools/agent-catalog`
   on `@silverpoint/fonts` (the face it encodes).
+
+### 9e — hosting (2026-10-20, branch `feat/silverpoint-0.8`)
+
+- T-241 — `@silverpoint/mcp/http` (`src/http.ts`): `handler(request)` on Web `Request`/`Response`,
+  stateless Streamable HTTP (no session id, JSON responses), a server and a transport per request,
+  closed in `finally` (REQ-562). POST only: GET and DELETE answer 405 with `allow`, OPTIONS the CORS
+  preflight (any origin: the endpoint is public, read-only, without credentials). The 256 KB body
+  limit holds before the body is parsed (REQ-560): 413 from `content-length`, or while streaming a
+  body without one, never buffered whole; a body that is not JSON is a -32700 parse error. The row
+  and string limits are the tools' own (9d). Nothing is logged. `test/http.test.ts`, mutation-checked
+  (ten mutants, all killed; the server's `close` needed a test of its own). The built chunk reads
+  `NODE_ENV` at run time, as 9d required.
+- T-242 — `apps/mcp-vercel` (private; `apps/*` added to the workspace): `api/mcp.ts` hands POST, GET,
+  DELETE and OPTIONS to `handler`; `vercel.json` builds `@silverpoint/mcp` and its workspace
+  dependencies, rewrites `/mcp` to the function and sends `/` to the site's `/docs/ai`.
+  `tools/mcp-smoke` (REQ-568): `smoke(url)` drives the SDK's own Streamable HTTP client —
+  initialise, list tools, resources, templates and prompts, call every tool once with a valid
+  input, read `silverpoint://catalog` — and fails on a tool error, a tool it has no call for, or an
+  answer for another version. `smoke.real.test.ts` (gates, after the build) serves the Vercel
+  function over the built `dist/` behind a Node HTTP server, dispatching by method as the platform
+  does. `pnpm --filter @silverpoint/mcp-smoke smoke <url>` runs it against a deployment, and
+  `.github/workflows/mcp-smoke.yml` does so on every successful `deployment_status` of an
+  environment named for the MCP project.
+
+*Amended in implementation*:
+
+- **REQ-561 (rate limit, SHOULD) is not implemented**, per OQ-E6: no shared store is configured, so
+  DD-050 skips it; the payload limits stand alone until traffic warrants a store.
+- **Not deployed.** Creating the Vercel project (root `apps/mcp-vercel`, files outside the root
+  included, Node 22) and its first deployment are the user's; the post-deploy smoke test runs from
+  then on. T-243 and T-244 belong to `silverpoint_web`.
 
