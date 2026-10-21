@@ -11,14 +11,24 @@ permissions:
 
 jobs:
   smoke:
-    if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment, 'mcp')
+    # Only Vercel's own deployments; the URL reaches the shell through env, checked, never interpolated.
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.creator.login == 'vercel[bot]' &&
+      contains(github.event.deployment_status.environment, 'mcp')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @silverpoint/mcp-smoke smoke "${{ github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}/mcp"
+      - env:
+          DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}
+        run: |
+          [[ "$DEPLOYMENT_URL" =~ ^https://[a-z0-9.-]+\.vercel\.app/?$ ]] || { echo "not a Vercel deployment URL: $DEPLOYMENT_URL"; exit 1; }
+          pnpm --filter @silverpoint/mcp-smoke smoke "${DEPLOYMENT_URL%/}/mcp"
