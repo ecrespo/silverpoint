@@ -40,6 +40,8 @@ export interface Bound {
   /** `[(value)]`, `[(open)]`. */
   readonly angular: string;
   readonly initial: unknown;
+  /** The component reports `null` as well as values of the initial's type. */
+  readonly nullable?: boolean;
 }
 
 export interface Plan {
@@ -64,6 +66,8 @@ export interface Plan {
 const MODES = ['ink', 'precision'] as const;
 /** Draws its own trigger button; the example apps give it none (REQ-547). */
 const OWN_TRIGGER = new Set(['dropdown-menu']);
+/** Reports `null` when emptied, whatever its initial value (API Spec §3.5: InputNumber's `number | null`). */
+const NULLABLE = new Set(['input-number']);
 
 function target(input: GenerateInput): { chart: string } | { component: string } {
   const { chart, component } = input.target ?? {};
@@ -173,7 +177,7 @@ function componentPlan(catalog: Catalog, component: ComponentEntry, framework: F
   const binding = component.binding;
   if (binding?.value) {
     const [prop, handler] = reactBinding(binding.value.react);
-    bound.push({ state: 'value', prop, handler, vue: binding.value.vue, angular: binding.value.angular, initial: values.value ?? values[prop] ?? null });
+    bound.push({ state: 'value', prop, handler, vue: binding.value.vue, angular: binding.value.angular, initial: values.value ?? values[prop] ?? null, nullable: NULLABLE.has(component.slug) });
   }
   const hasTrigger = reactSlots.includes('trigger');
   const trigger = hasTrigger && !OWN_TRIGGER.has(component.slug) && typeof values.trigger === 'string' ? values.trigger : undefined;
@@ -190,7 +194,8 @@ function componentPlan(catalog: Catalog, component: ComponentEntry, framework: F
 
   const attrs: Attr[] = [];
   const slots: { name: string; text: string }[] = [];
-  const skipped = new Set(['content', 'trigger', 'value', 'open', ...bound.map((b) => b.prop)]);
+  // `value` and `open` are state only where the component binds them; Statistic's `value` is a prop.
+  const skipped = new Set(['content', 'trigger', ...(binding?.value ? ['value'] : []), ...(binding?.open ? ['open'] : []), ...bound.map((b) => b.prop)]);
   for (const [key, value] of Object.entries(values)) {
     if (skipped.has(key) || value === null || value === undefined) continue;
     const prop = all.find((p) => p.name === key || p.reflex === key);

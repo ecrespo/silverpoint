@@ -98,6 +98,13 @@ describe('the components (REQ-532)', () => {
     expect(catalog.components.filter((c) => 'id' in c.demo)).toEqual([]);
   });
 
+  test('REQ-541 · every demo sets every required prop: a gallery state’s list gives its first value', () => {
+    for (const c of catalog.components) {
+      for (const prop of c.props.filter((p) => !p.optional)) expect(c.demo, `${c.slug}.${prop.name}`).toHaveProperty(prop.name);
+    }
+    expect(component('glyph').demo).toEqual({ glyph: 'tick' });
+  });
+
   test('REQ-532 · names and imports per framework, the Angular names read from the selectors', () => {
     expect(component('select').names).toEqual({ react: 'SpSelect', vue: 'SpSelect', angular: 'sp-select', reflex: 'sp_select' });
     expect(component('select').imports.angular).toBe('@silverpoint/angular/ui/select');

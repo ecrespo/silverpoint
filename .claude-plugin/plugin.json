@@ -1,0 +1,29 @@
+{
+  "name": "silverpoint",
+  "version": "0.7.0",
+  "description": "Build charts, dashboards and UI with silverpoint in React, Vue and Angular: the silverpoint skill and the hosted silverpoint MCP server.",
+  "author": {
+    "name": "Ernesto Crespo"
+  },
+  "homepage": "https://silverpointweb.vercel.app",
+  "repository": "https://github.com/ecrespo/silverpoint",
+  "license": "MIT",
+  "keywords": [
+    "charts",
+    "dataviz",
+    "react",
+    "vue",
+    "angular",
+    "svg",
+    "mcp"
+  ],
+  "skills": [
+    "./skills/silverpoint"
+  ],
+  "mcpServers": {
+    "silverpoint": {
+      "type": "http",
+      "url": "https://silverpointweb.vercel.app/mcp"
+    }
+  }
+}

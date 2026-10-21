@@ -45,8 +45,11 @@ the closest valid names.
 
 ## Resources and prompts
 
-`silverpoint://catalog`, `silverpoint://diagnostics`, `silverpoint://charts/{slug}` and
-`silverpoint://components/{slug}`; the prompts `choose-chart` and `build-dashboard`.
+`silverpoint://catalog`, `silverpoint://diagnostics`, `silverpoint://charts/{slug}`,
+`silverpoint://components/{slug}` and `silverpoint://guides/{topic}`, the `silverpoint` skill's
+guides as Markdown (`choosing-charts`, `grounds-and-palettes`, `dashboard`, `ui-components`,
+`overlays`, `timeline`, `react`, `vue`, `angular`, `reflex`). The prompts are `choose-chart` and
+`build-dashboard`.
 
 ## In your own server
 

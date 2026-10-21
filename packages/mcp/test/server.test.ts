@@ -7,7 +7,12 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { afterAll, beforeAll, describe, expect, test } from 'vitest';
 import core from '../../core/package.json' with { type: 'json' };
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { GUIDE_FILES } from '../../../tools/agent-catalog/skill';
 import { AGENT_CATALOG, createServer } from '../src';
+
+const SKILL = join(import.meta.dirname, '../../../skills/silverpoint');
 
 const client = new Client({ name: 'contract-test', version: '0.0.0' });
 
@@ -136,6 +141,25 @@ describe('resources (REQ-546)', () => {
     expect(resources.filter((r) => r.uri.startsWith('silverpoint://components/'))).toHaveLength(AGENT_CATALOG.components.length);
     const sankey = await client.readResource({ uri: 'silverpoint://charts/sankey-chart' });
     expect(JSON.parse((sankey.contents[0] as { text: string }).text).slug).toBe('sankey-chart');
+  });
+
+  test('REQ-546 · the skill’s guides as Markdown, one per topic of API delta §4, the skill’s own files', async () => {
+    const { resourceTemplates } = await client.listResourceTemplates();
+    expect(resourceTemplates.map((t) => t.uriTemplate)).toContain('silverpoint://guides/{topic}');
+    const { resources } = await client.listResources();
+    const topics = resources.filter((r) => r.uri.startsWith('silverpoint://guides/')).map((r) => r.uri.slice('silverpoint://guides/'.length));
+    expect(topics.sort()).toEqual(Object.keys(GUIDE_FILES).sort());
+    for (const [topic, path] of Object.entries(GUIDE_FILES)) {
+      const guide = (await client.readResource({ uri: `silverpoint://guides/${topic}` })).contents[0] as { mimeType: string; text: string };
+      expect(guide.mimeType, topic).toBe('text/markdown');
+      expect(guide.text, topic).toBe(readFileSync(join(SKILL, path), 'utf8'));
+    }
+  });
+
+  test('REQ-549 · an unknown guide, chart or component is an error naming the closest', async () => {
+    await expect(client.readResource({ uri: 'silverpoint://guides/dashbord' })).rejects.toThrow(/closest: dashboard/);
+    await expect(client.readResource({ uri: 'silverpoint://charts/sankie' })).rejects.toThrow(/closest: sankey-chart/);
+    await expect(client.readResource({ uri: 'silverpoint://components/modl' })).rejects.toThrow(/closest: modal/);
   });
 });
 

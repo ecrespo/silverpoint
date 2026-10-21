@@ -7496,25 +7496,7 @@
         "all"
       ],
       "demo": {
-        "glyphs": [
-          "tick",
-          "dash",
-          "cross",
-          "warning",
-          "dot",
-          "lozenge",
-          "info",
-          "plus",
-          "chevronDown",
-          "chevronRight",
-          "chevronLeft",
-          "arrowUp",
-          "arrowDown",
-          "sortUp",
-          "sortDown",
-          "sort",
-          "ellipsis"
-        ]
+        "glyph": "tick"
       }
     },
     {

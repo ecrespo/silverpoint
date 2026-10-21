@@ -1,0 +1,68 @@
+# Pitfalls
+
+The mistakes an assistant makes most often with silverpoint, and what to write instead.
+
+## Data
+
+- **Accessors name fields.** `valueKey="hits"` reads `row.hits`. When an accessor names a field the
+  rows lack, the chart reads no value from it and warns `SP002`. An empty `data` warns `SP001` and
+  draws the ground's empty state. Read the field
+  names from the rows. Do not reuse the names in the examples.
+- **Omitting `data` draws the demo,** and the accessor props are then ignored. A chart that shows
+  plausible numbers is not proof that your data reached it.
+- **The rows are plain objects.** Do not pass class instances or Maps. Dates are ISO strings
+  (`'2026-03-15'`) where a chart's field type is `date`.
+- **Type the rows with `type`, not `interface`.** `data` takes `readonly Datum[]`, a record of
+  strings to values. A `type Row = { … }` is assignable to it, and an `interface Row` is not,
+  because an interface has no implicit index signature.
+- **Hierarchy charts take flat rows** with `id` and `parent` (`null` for the root), not nested
+  children. A duplicate id, a missing parent or a cycle warns `SP020`.
+
+## Size and rendering
+
+- **A chart takes its container's width.** In a zero-width container (a hidden tab, an unsized
+  flex child) it waits, with `SP003`. Give it a width, or pass `width`.
+- **`height` is the drawing area** (160 by default), without the card's title and footer.
+- **Keep `id` stable across renders.** Never derive it from `Math.random()` or `Date.now()`: the
+  hand-inked line is seeded from it, and a server-rendered chart would draw different lines when it
+  hydrates.
+- **React server entries** (`@silverpoint/react/server/...`) need `id`, `width` and `height`, and
+  take no handlers.
+
+## Appearance
+
+- **Tone is not colour.** In the `silverpoint` ground, categories differ by hatch density, and in
+  `cyanotype` by line weight. Do not try to colour series one by one. Choose a palette, and let the
+  ground carry the categories.
+- **`palette` takes an object** (`import { sanguine } from '@silverpoint/core/palettes'`), never the
+  string `'sanguine'`. Python is the exception: Reflex takes the name.
+- **`cyanotype` has one substrate,** `prussian`. Leave `substrate` out with that ground.
+- **`mode="precision"` cannot win over the user.** `prefers-contrast: more` and
+  `forced-colors: active` force it, and no prop overrides them.
+- **`hatchFill="per-shape"` is heavy.** It multiplies the path weight by 10 to 40. Leave the
+  default `tile`, except for a single hero chart.
+
+## Components
+
+- **Overlay triggers are native buttons.** In React, `trigger={<button type="button">…</button>}`.
+  Passing `SpButton` loses the trigger's ARIA in this version. In Angular, write
+  `<button type="button" spTrigger>`.
+- **Import `@silverpoint/grounds/ui.css`** for components. Without it they render unstyled.
+- **`SpTable` does not sort for you.** Sort the rows on `onSort`, then pass them back.
+- **Value events fire on user input only.** Setting `value` from code does not call `onChange`.
+- **Vue binds with `v-model`, `v-model:open` and `v-model:current`.** Angular uses `[(value)]` and
+  `[(open)]`, or a forms directive.
+
+## Composition
+
+- **A dashboard needs `id` and `title` (or `label`).** Each `DashboardCell` `cell` matches a
+  `layout.cells[].id`, and in React the chart is the cell's direct child.
+- **The timeline needs its peer installed** (`@knight-lab/timelinejs`) and TimelineJS's stylesheet
+  imported before `@silverpoint/grounds/timeline.css`.
+
+## Framework names
+
+- React charts carry no prefix (`LineChart`). Everything else is `Sp…` (`SpModal`, `SpLineChart` in
+  Vue, `<sp-line-chart>` in Angular). Reflex builders are snake_case (`line_chart`, `sp_modal`).
+- Angular inputs are written as bindings, strings included (`[title]="'Revenue'"`), so
+  `strictTemplates` checks them.

@@ -113,6 +113,27 @@ async function main(): Promise<void> {
   if (!existsSync(ASSETS_FILE) || readFileSync(ASSETS_FILE, 'utf8') !== assetsSource()) {
     errors.unshift('DD-047 · packages/mcp/src/assets.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
+  const { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } = await import('./skill');
+  for (const [file, manifest] of [
+    [PLUGIN_FILE, pluginManifest],
+    [MARKETPLACE_FILE, marketplaceManifest],
+  ] as const) {
+    const source = readFileSync(file, 'utf8');
+    if (manifest(source, catalog.version) !== source) errors.unshift(`REQ-555 · ${file.slice(ROOT.length)} is not at ${catalog.version}: run \`pnpm --filter @silverpoint/agent-catalog generate\``);
+  }
+  const skill = skillFiles(catalog);
+  for (const [path, content] of skill) {
+    const file = join(SKILL_DIR, path);
+    if (!existsSync(file) || readFileSync(file, 'utf8') !== content) errors.unshift(`DD-050 · skills/silverpoint/${path} is not current: run \`pnpm --filter @silverpoint/agent-catalog generate\``);
+  }
+  const references = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? references(join(dir, e.name)) : [join(dir, e.name).slice(SKILL_DIR.length + 1)]));
+  for (const path of existsSync(join(SKILL_DIR, 'references')) ? references(join(SKILL_DIR, 'references')) : []) {
+    if (!skill.has(path)) errors.unshift(`DD-050 · skills/silverpoint/${path} is not generated any more: run \`pnpm --filter @silverpoint/agent-catalog generate\``);
+  }
+  if (!existsSync(GUIDES_FILE) || readFileSync(GUIDES_FILE, 'utf8') !== guidesSource(skill)) {
+    errors.unshift('API delta §4 · packages/mcp/src/guides.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
   if (catalog.reflex.stale) console.warn(`reflex-silverpoint-react ${catalog.reflex.version} wraps ${catalog.reflex.wraps}; every Reflex entry is marked stale (REQ-556)`);
   for (const error of errors) console.error(error);
   if (errors.length > 0) process.exit(1);

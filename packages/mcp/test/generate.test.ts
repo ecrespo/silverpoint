@@ -91,6 +91,31 @@ describe('generate_code (REQ-541)', () => {
   });
 });
 
+describe('generate_code: every component compiles as generated (REQ-541, REQ-557)', () => {
+  test.each([
+    ['react', 'value={1284}'],
+    ['vue', ':value="1284"'],
+    ['angular', '[value]="1284"'],
+    ['reflex', 'value=1284'],
+  ])('REQ-541 · %s: a plain `value` prop is written when the component binds no value (Statistic)', (framework, written) => {
+    expect(generate({ target: { component: 'statistic' }, framework }).code).toContain(written);
+  });
+
+  test('REQ-541 · a value the component reports as null when emptied is held as nullable state (InputNumber)', () => {
+    expect(generate({ target: { component: 'input-number' }, framework: 'react' }).code).toContain('useState<number | null>(3)');
+    expect(generate({ target: { component: 'input-number' }, framework: 'vue' }).code).toContain('ref<number | null>(3)');
+    expect(generate({ target: { component: 'input-number' }, framework: 'angular' }).code).toContain('signal<number | null>(3)');
+    expect(generate({ target: { component: 'input-number' }, framework: 'reflex' }).code).toContain('value: int | None = 3');
+  });
+
+  test('REQ-541 · an Angular attribute component sits on a div when its selector names no element (SpSurface)', () => {
+    const code = generate({ target: { component: 'surface' }, framework: 'angular' }).code;
+    expect(code).toMatch(/<div\n\s+spSurface\n/);
+    expect(code).not.toContain('<>');
+    expect(generate({ target: { component: 'button' }, framework: 'angular' }).code).toMatch(/<button\n\s+spButton\n/);
+  });
+});
+
 describe('REQ-547 · no pattern the example apps do not run', () => {
   test.each(['react', 'vue', 'angular', 'reflex'])('REQ-547 · %s overlays take a native button as their trigger, never SpButton', (framework) => {
     for (const slug of ['modal', 'drawer', 'popover', 'tooltip']) {

@@ -1,0 +1,61 @@
+# React
+
+```sh
+npm install @silverpoint/react @silverpoint/grounds @silverpoint/fonts
+```
+
+React 18 and 19 are supported. Import the stylesheets once, in the entry file or the root layout:
+
+```tsx
+import '@silverpoint/fonts/fonts.css';
+import '@silverpoint/grounds/styles.css';
+import '@silverpoint/grounds/ui.css';
+
+export {};
+```
+
+## Names and imports
+
+Charts carry no prefix (`LineChart`) and components carry `Sp` (`SpModal`). Each one is imported
+from its own subpath: `@silverpoint/react/line-chart`, `@silverpoint/react/ui/modal`. The barrel
+`@silverpoint/react` holds the charts and `SilverpointProvider`, but a subpath keeps the bundle
+small.
+
+## Server Components and Next.js
+
+- `@silverpoint/react/<chart>` is a client entry (`"use client"`), with pointer and keyboard
+  interaction. It renders on the server too and hydrates with no mismatch.
+- `@silverpoint/react/server/<chart>` renders pure SVG with no client JavaScript. On its own it needs
+  `id`, `width` and `height` (`SP002`, `SP003` without them). Inside a `Dashboard`, the cell gives
+  them. It takes no event handlers.
+- `@silverpoint/react/server/dashboard` is the server dashboard. It takes no `link`.
+- Display components have server entries as well (`@silverpoint/react/server/ui/card`…). The
+  overlays and every component with state are client-only.
+
+## Events and the handle
+
+`onActiveChange(item | null)`, `onSelect(item)` and, on the sunburst and the squarified treemap,
+`onRootChange(id | null)`. A `ref` gives `getGeometry()` and `toSVGString()`, which serialises the
+chart with its palette.
+
+## Example
+
+<!-- generated:react-example -->
+
+A custom readout replaces the built-in tooltip:
+
+```tsx
+import { LineChart } from '@silverpoint/react/line-chart';
+
+export function Hits({ rows }: { rows: readonly { hour: string; hits: number }[] }) {
+  return (
+    <LineChart
+      title="Hits per hour"
+      data={rows}
+      xKey="hour"
+      valueKey="hits"
+      tooltip={(active) => <span>{String(active.datum.hour)}: {active.value} hits</span>}
+    />
+  );
+}
+```

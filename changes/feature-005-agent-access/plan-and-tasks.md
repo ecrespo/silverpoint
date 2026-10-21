@@ -79,10 +79,10 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9f — Skills
 
-- [ ] **T-245** `skills/silverpoint`: templates (SKILL.md ≤ 500 lines, pitfalls, framework guides) + generated references; version stamp; "prefer the MCP" rule. *REQ-552, REQ-554, REQ-563*
+- [x] **T-245** `skills/silverpoint`: templates (SKILL.md ≤ 500 lines, pitfalls, framework guides) + generated references; version stamp; "prefer the MCP" rule. *REQ-552, REQ-554, REQ-563*
 - [ ] **T-246** (reflex-silverpoint-react) `skills/reflex-silverpoint` from `reflex-catalog.json` with `scripts/make_skill.py`; state/event guide from the demo app. *REQ-553, REQ-554*
-- [ ] **T-247** Example extraction and type-check in both repositories' CI. *REQ-557*
-- [ ] **T-248** `.claude-plugin/marketplace.json` in both repositories (skill + `.mcp.json` → hosted URL); install tested in Claude Code. *REQ-555*
+- [ ] **T-247** Example extraction and type-check in both repositories' CI. *REQ-557* — done here; the Reflex repository's half waits with T-246
+- [ ] **T-248** `.claude-plugin/marketplace.json` in both repositories (skill + `.mcp.json` → hosted URL); install tested in Claude Code. *REQ-555* — done here; the Reflex repository's half waits with T-246
 
 ### 9g — Documentation and release
 
@@ -256,3 +256,47 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
   included, Node 22) and its first deployment are the user's; the post-deploy smoke test runs from
   then on. T-243 and T-244 belong to `silverpoint_web`.
 
+### 9f — skills (2026-10-20, branch `feat/silverpoint-0.8`)
+
+- T-245 — `skills/silverpoint/`: hand-written templates (`templates/SKILL.md`, `react.md`, `vue.md`,
+  `angular.md`, `pitfalls.md`, and the prose of every other reference) with the catalog's tables
+  written into `<!-- generated:<block> -->` markers by `tools/agent-catalog/skill.ts`, which
+  `generate` writes and `check` diffs (DD-050). `SKILL.md` (122 lines): the frontmatter of API delta
+  §6 verbatim, the version stamp, the "prefer the MCP tools" rule, the workflow, the rules that
+  matter most, and an index of the 60 charts and 38 components. References: `choosing-charts.md`
+  (shapes, the chart table, the recommender's table, the common props), one file per chart family
+  (summary, names and imports, data fields, demo rows, props table, an example per framework from
+  `generate_code`), `components.md`, `overlays.md`, `grounds-and-palettes.md`, `dashboard.md`,
+  `timeline.md`, `react.md`, `vue.md`, `angular.md`, `reflex.md`, `pitfalls.md`, `diagnostics.md`;
+  each carries its version (REQ-554). The server serves ten of them as `silverpoint://guides/{topic}`
+  from `packages/mcp/src/guides.generated.ts`, generated beside the skill, so it reads no file at run
+  time; a resource's unknown name now carries the closest names in its error message (REQ-549).
+- T-247 (this repository) — `extractExamples`: every fence of the skill is `tsx` (React), `vue`,
+  `ts react|vue|angular`, `python` (Reflex), or prose (`sh`, `css`, `json`, `text`); any other is
+  refused. `typecheck-golden` now compiles the skill's examples beside the goldens in the example
+  apps: 115 React, 111 Vue and 111 Angular files, 12 Reflex. It found four `generate_code` defects the
+  goldens did not cover, fixed test-first: Statistic's plain `value` prop was dropped as a binding;
+  InputNumber's state was `number`, its `onChange` `number | null`; Angular's `[spSurface]` was
+  written on an empty tag; Glyph's demo, a gallery state, set no `glyph`.
+- T-248 (this repository) — `.claude-plugin/marketplace.json` (one plugin, `silverpoint`, source
+  `./`) and `.claude-plugin/plugin.json` (the skill, and the hosted server as `mcpServers`); `generate`
+  keeps both versions on the catalog's and `check` refuses a stale one. `claude plugin validate`
+  passes for both; installed in Claude Code 2.1.305 against a throwaway `CLAUDE_CONFIG_DIR`: one
+  skill, one MCP server, about 60 tokens always on.
+
+*Amended in implementation*:
+
+- The plugin declares its server inline in `plugin.json` (`mcpServers`), not in a root `.mcp.json`:
+  the plugin's root is the repository's, and a root `.mcp.json` would also connect every Claude Code
+  session opened in this repository to the hosted server.
+- `claude plugin validate --strict` warns that the repository's `CLAUDE.md` sits at the plugin root
+  and is not loaded as plugin context, which is intended. The plugin directory's own checks
+  (an icon, `privacyPolicyUrl`) matter only for a submission there.
+- References beyond API delta §6: `diagnostics.md` (the 25 codes) and `reflex.md` (the builders and
+  two examples, pointing to the `reflex-silverpoint` skill), which the `reflex` guide topic serves.
+  Long references open with a contents line.
+- The release commit must run `pnpm --filter @silverpoint/agent-catalog generate` after
+  `version-packages`: the catalog, the skill and the plugin manifests take the new version, and
+  `check` fails until they do.
+- T-246 and the Reflex halves of T-247 and T-248 belong to `reflex-silverpoint-react`, which is
+  not in scope here.

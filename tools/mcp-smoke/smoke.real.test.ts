@@ -24,7 +24,7 @@ describe('MCP smoke test over HTTP (REQ-568)', () => {
     expect(report.problems).toEqual([]);
     expect([...report.tools].sort()).toEqual(Object.keys(CALLS).sort());
     expect(report.resources).toBeGreaterThan(90);
-    expect(report.templates).toBe(2);
+    expect(report.templates).toBe(3);
     expect([...report.prompts].sort()).toEqual(['build-dashboard', 'choose-chart']);
   });
 

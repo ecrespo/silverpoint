@@ -101,10 +101,22 @@ function angularSelector(entry: string, component: string): string {
   return selector.split(',')[0]!.trim();
 }
 
-/** A component's demo state as plain data, without the fixture's `id`. */
-function demoOf(slug: string, state: string): Record<string, unknown> {
+/**
+ * A component's demo state as plain data, without the fixture's `id`. A gallery state lists the
+ * values of a required prop under its plural (`glyphs` for `glyph`); a working example takes the
+ * first, so every required prop is set (REQ-541).
+ */
+function demoOf(slug: string, state: string, own: readonly PropEntry[]): Record<string, unknown> {
   const { id: _id, ...props } = UI_DEMOS[slug]?.[state] ?? { id: '' };
-  return JSON.parse(JSON.stringify(props)) as Record<string, unknown>;
+  const demo = JSON.parse(JSON.stringify(props)) as Record<string, unknown>;
+  for (const prop of own.filter((p) => !p.optional && !(p.name in demo))) {
+    const gallery = demo[`${prop.name}s`];
+    if (Array.isArray(gallery) && gallery.length > 0) {
+      demo[prop.name] = gallery[0];
+      delete demo[`${prop.name}s`];
+    }
+  }
+  return demo;
 }
 
 const REFLEX_PACKAGE = 'reflex_silverpoint_react';
@@ -147,6 +159,7 @@ export async function baseCatalog(): Promise<AgentCatalog> {
     const surface = surfaces.get(row.slug)!;
     const summary = COMPONENT_SUMMARY[row.slug];
     if (!summary) throw new Error(`tools/agent-catalog/components.meta.ts has no ${row.slug}`);
+    const own = reference.ui.components.find((c) => c.slug === row.slug)!.own.map((p) => entry(p));
     return {
       slug: row.slug,
       names: { react: row.component, vue: row.component, angular: surface.selector, reflex: '' },
@@ -154,12 +167,12 @@ export async function baseCatalog(): Promise<AgentCatalog> {
       family: row.family,
       group: row.group,
       summary,
-      props: reference.ui.components.find((c) => c.slug === row.slug)!.own.map((p) => entry(p)),
+      props: own,
       ...(surface.binding ? { binding: surface.binding } : {}),
       events: surface.events,
       slots: surface.slots,
       states: [...row.states],
-      demo: demoOf(row.slug, row.states[0]!),
+      demo: demoOf(row.slug, row.states[0]!, own),
     };
   });
 

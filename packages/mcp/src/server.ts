@@ -9,7 +9,8 @@ import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { AGENT_CATALOG, Catalog, DATA_SHAPES, INTENTS } from './catalog';
 import { generateCode } from './codegen';
-import { ToolError } from './errors';
+import { ToolError, unknownName } from './errors';
+import { GUIDES } from './guides.generated';
 import { getChart, getComponent, listCharts, listComponents } from './tools/entries';
 import { recommendChart } from './tools/recommend';
 import { SEARCH_LIMIT, searchCatalog } from './tools/search';
@@ -239,6 +240,15 @@ export function createServer(options: ServerOptions = {}): McpServer {
   );
 
   const json = (uri: string, value: unknown) => ({ contents: [{ uri, mimeType: 'application/json', text: JSON.stringify(value, null, 2) }] });
+  /** A resource error is a protocol error with a message only: the closest names go into it (REQ-549). */
+  const named = <T>(read: () => T): T => {
+    try {
+      return read();
+    } catch (error) {
+      if (error instanceof ToolError && error.suggestions.length > 0) throw new Error(`${error.message} The closest: ${error.suggestions.join(', ')}.`);
+      throw error;
+    }
+  };
 
   server.registerResource('catalog', 'silverpoint://catalog', { title: 'Agent catalog', description: `The whole agent catalog of silverpoint ${version}.`, mimeType: 'application/json' }, (uri) =>
     json(uri.href, catalog.data),
@@ -252,7 +262,7 @@ export function createServer(options: ServerOptions = {}): McpServer {
       list: () => ({ resources: catalog.data.charts.map((c) => ({ uri: `silverpoint://charts/${c.slug}`, name: c.slug, title: c.names.react, description: c.summary, mimeType: 'application/json' })) }),
     }),
     { title: 'Chart', description: 'One chart’s catalog entry.', mimeType: 'application/json' },
-    (uri, { slug }) => json(uri.href, catalog.chart(String(slug))),
+    (uri, { slug }) => json(uri.href, named(() => catalog.chart(String(slug)))),
   );
   server.registerResource(
     'component',
@@ -260,7 +270,21 @@ export function createServer(options: ServerOptions = {}): McpServer {
       list: () => ({ resources: catalog.data.components.map((c) => ({ uri: `silverpoint://components/${c.slug}`, name: c.slug, title: c.names.react, description: c.summary, mimeType: 'application/json' })) }),
     }),
     { title: 'Component', description: 'One component’s catalog entry.', mimeType: 'application/json' },
-    (uri, { slug }) => json(uri.href, catalog.component(String(slug))),
+    (uri, { slug }) => json(uri.href, named(() => catalog.component(String(slug)))),
+  );
+
+  server.registerResource(
+    'guide',
+    new ResourceTemplate('silverpoint://guides/{topic}', {
+      list: () => ({
+        resources: Object.keys(GUIDES).map((topic) => ({ uri: `silverpoint://guides/${topic}`, name: topic, title: GUIDES[topic]!.match(/^# (.+)$/m)?.[1] ?? topic, mimeType: 'text/markdown' })),
+      }),
+    }),
+    { title: 'Guide', description: `A guide of the silverpoint skill for ${version}, as Markdown.`, mimeType: 'text/markdown' },
+    (uri, { topic }) => {
+      const text = named(() => GUIDES[String(topic)] ?? (() => { throw unknownName('guide', String(topic), Object.keys(GUIDES)); })());
+      return { contents: [{ uri: uri.href, mimeType: 'text/markdown', text }] };
+    },
   );
 
   server.registerPrompt(

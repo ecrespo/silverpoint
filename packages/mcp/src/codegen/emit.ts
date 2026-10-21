@@ -3,7 +3,7 @@
  * and a Reflex page function. Each writes only the names, paths and props the plan holds.
  */
 import { attribute, js, pascal, py, pyType, snake, text, tsType } from './literals';
-import type { Plan } from './plan';
+import type { Bound, Plan } from './plan';
 
 export interface Emitted {
   readonly imports: string[];
@@ -22,6 +22,9 @@ function element(tag: string, attrs: readonly string[], children: readonly strin
 }
 
 const capital = (name: string) => name.charAt(0).toUpperCase() + name.slice(1);
+/** A bound state's type: its initial value's, and `null` when the component reports it. */
+const stateType = (b: Bound) => `${tsType(b.initial)}${b.nullable ? ' | null' : ''}`;
+const statePyType = (b: Bound) => `${pyType(b.initial)}${b.nullable ? ' | None' : ''}`;
 
 function react(plan: Plan): Emitted {
   const name = plan.names.react;
@@ -48,7 +51,7 @@ function react(plan: Plan): Emitted {
   lines.push(`import { ${name} } from '${plan.import}';`);
   imports.push(plan.import);
   const signature = plan.kind === 'chart' ? `{ rows }: { rows: ${ROWS_TYPE} }` : '';
-  const state = plan.bound.map((b) => `  const [${b.state}, set${capital(b.state)}] = useState<${tsType(b.initial)}>(${js(b.initial)});`);
+  const state = plan.bound.map((b) => `  const [${b.state}, set${capital(b.state)}] = useState<${stateType(b)}>(${js(b.initial)});`);
   const body = [`export function ${view}(${signature}) {`, ...state, '  return (', element(name, attrs, children, '    '), '  );', '}'];
   return { imports, code: `${lines.join('\n')}\n\n${body.join('\n')}\n` };
 }
@@ -79,7 +82,7 @@ function vue(plan: Plan): Emitted {
   imports.push(plan.import);
   const setup = [
     ...(plan.kind === 'chart' ? [`defineProps<{ rows: ${ROWS_TYPE} }>();`] : []),
-    ...plan.bound.map((b) => (b.initial === null || b.initial === undefined ? `const ${b.state} = ref<string>();` : `const ${b.state} = ref<${tsType(b.initial)}>(${js(b.initial)});`)),
+    ...plan.bound.map((b) => (b.initial === null || b.initial === undefined ? `const ${b.state} = ref<string>();` : `const ${b.state} = ref<${stateType(b)}>(${js(b.initial)});`)),
   ];
   const script = ['<script setup lang="ts">', ...lines, ...(setup.length > 0 ? ['', ...setup] : []), '</script>'];
   const template = ['<template>', element(name, attrs, children, '  '), '</template>'];
@@ -103,7 +106,8 @@ function angular(plan: Plan): Emitted {
   if (plan.content !== undefined) children.push(text(plan.content));
   const tag = plan.names.angular;
   const markup = tag.includes('[')
-    ? element(tag.replace(/\[(\w+)\]$/, ''), [tag.match(/\[(\w+)\]$/)![1]!, ...attrs], children, '    ')
+    ? // `[spSurface]` names no element: it sits on a div, the consumer's own element in practice.
+      element(tag.replace(/\[(\w+)\]$/, '') || 'div', [tag.match(/\[(\w+)\]$/)![1]!, ...attrs], children, '    ')
     : element(tag, attrs, children, '    ');
 
   const symbols = ['ChangeDetectionStrategy', 'Component', ...(plan.kind === 'chart' ? ['input'] : []), ...(plan.bound.length > 0 ? ['signal'] : [])];
@@ -118,7 +122,7 @@ function angular(plan: Plan): Emitted {
   imports.push(plan.import);
   const members = [
     ...(plan.kind === 'chart' ? [`  readonly rows = input.required<${ROWS_TYPE}>();`] : []),
-    ...plan.bound.map((b) => `  protected readonly ${b.state} = signal<${tsType(b.initial)}>(${js(b.initial)});`),
+    ...plan.bound.map((b) => `  protected readonly ${b.state} = signal<${stateType(b)}>(${js(b.initial)});`),
     ...(plan.palette ? [`  protected readonly ${plan.palette} = ${plan.palette};`] : []),
   ];
   const body = [
@@ -152,11 +156,11 @@ function reflex(plan: Plan): Emitted {
     plan.kind === 'chart'
       ? ['    rows: list[dict] = []']
       : plan.bound.flatMap((b) => {
-          const type = pyType(b.initial);
+          const type = statePyType(b);
           const initial = b.initial === null || b.initial === undefined ? '""' : py(b.initial);
           return [`    ${b.state}: ${type} = ${initial}`];
         });
-  const handlers = plan.bound.flatMap((b) => ['', '    @rx.event', `    def set_${b.state}(self, ${b.state}: ${pyType(b.initial)}):`, `        self.${b.state} = ${b.state}`]);
+  const handlers = plan.bound.flatMap((b) => ['', '    @rx.event', `    def set_${b.state}(self, ${b.state}: ${statePyType(b)}):`, `        self.${b.state} = ${b.state}`]);
   const state = fields.length > 0 ? ['class State(rx.State):', ...fields, ...handlers, '', ''] : [];
   const call = args.length === 0 ? `${builder}()` : `${builder}(\n${args.map((a) => `        ${a},`).join('\n')}\n    )`;
   const code = ['import reflex as rx', `from reflex_silverpoint_react import ${builder}`, '', '', ...state, `def ${snake(plan.slug.replace(/-/g, '_'))}_view() -> rx.Component:`, `    return ${call}`];
