@@ -355,7 +355,8 @@ test.describe('the composed rows on the page (T-223)', () => {
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
-    expect(await entries()).toEqual([
+    // Polled: Angular writes the select's hidden value on its next change-detection pass.
+    await expect.poll(entries).toEqual([
       ['notes', 'Leave it at the door.'],
       ['notes', 'Ring twice'],
       ['quantity', '4'],
