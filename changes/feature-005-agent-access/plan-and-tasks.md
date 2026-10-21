@@ -73,7 +73,7 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 ### 9e — Hosting and the site
 
 - [x] **T-241** `http.ts` stateless Streamable HTTP; body, row and string limits before any work; no body logging; optional rate limit. *REQ-538, REQ-560..REQ-562*
-- [ ] **T-242** `apps/mcp-vercel` + deployment; MCP smoke test in CI against the built handler and post-deploy against the URL. *REQ-558, REQ-568* — wired and smoke-tested locally; the Vercel project and its first deployment wait for the user
+- [x] **T-242** `apps/mcp-vercel` + deployment; MCP smoke test in CI against the built handler and post-deploy against the URL. *REQ-558, REQ-568* — Vercel project `silverpoint-mcp` (root `apps/mcp-vercel`), preview of `feat/silverpoint-0.8` smoke-tested 2026-10-20; production follows `0.8.0` on `main`
 - [ ] **T-243** (silverpoint_web) `vercel.json` rewrite `/mcp`, catch-all exclusion, `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` generated at export from the catalog. *REQ-537, REQ-558, REQ-564*
 - [ ] **T-244** (silverpoint_web) `/docs/ai` page: URL, client configs, skills, `npx`; no `rx.State`. *REQ-565*
 
@@ -329,3 +329,14 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 *Caveat to decide later:* once the Reflex pin is the wrapper's own export, the strict check makes
 every version-bumping release wait for a wrapper release that wraps it; allowing one release of lag
 is a delta of its own.
+
+**T-242, deployed (2026-10-20).** The user created the Vercel project `silverpoint-mcp`: root
+`apps/mcp-vercel`, files outside the root included, Node 22, production branch `main`. Two project
+settings had to change: "Skip deployments when there are no changes to the root directory" is off
+(an empty commit was skipped as "Not affected"), and Deployment Protection is off (a protected preview
+answers 302 to Vercel's login, which no MCP client passes). The branch preview
+`silverpoint-mcp-git-feat-silverpoint-08-ecrespos-projects.vercel.app` passes the smoke test
+(`silverpoint 0.7.0: 11 tools, 110 resources, 3 templates`, both prompts); GET `/mcp` answers 405 and
+`/` redirects to the site's `/docs/ai`. `mcp-smoke.yml` is not registered yet: a `deployment_status`
+workflow runs from the default branch, so it starts with `0.8.0` on `main`. Check then that Vercel
+creates GitHub deployments for the project (none were listed for the preview).
