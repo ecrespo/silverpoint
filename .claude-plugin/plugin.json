@@ -1,6 +1,6 @@
 {
   "name": "silverpoint",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Build charts, dashboards and UI with silverpoint in React, Vue and Angular: the silverpoint skill and the hosted silverpoint MCP server.",
   "author": {
     "name": "Ernesto Crespo"

@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "reflex": {
     "version": "0.7.1",
     "wraps": "0.7.0",
-    "stale": false
+    "stale": true
   },
   "frameworks": [
     "react",
@@ -398,7 +398,8 @@
           "hits": 11,
           "baseline": 15
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "bullet-chart",
@@ -487,7 +488,8 @@
           "actual": 86,
           "target": 75
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "pyramid-chart",
@@ -571,7 +573,8 @@
           "label": "Specialists",
           "width": 70
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "heatmap-chart",
@@ -678,7 +681,8 @@
             47
           ]
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "treemap-chart",
@@ -768,7 +772,8 @@
           "cols": 2,
           "rows": 2
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "sankey-chart",
@@ -856,7 +861,8 @@
           "target": "Visit",
           "value": 15
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "activity-grid",
@@ -952,7 +958,8 @@
           "count": 4,
           "level": 2
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "step-chart",
@@ -1031,7 +1038,8 @@
           "x": "Mar",
           "value": 18
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "sparkline-rows",
@@ -1166,7 +1174,8 @@
             84
           ]
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "kpi-card",
@@ -1242,7 +1251,8 @@
         {
           "value": 121
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "bar-chart",
@@ -1341,7 +1351,8 @@
           "value": 51,
           "previous": 49
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "stacked-bar-chart",
@@ -1429,7 +1440,8 @@
           "pro": 26,
           "team": 11
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "composed-chart",
@@ -1530,7 +1542,8 @@
           "revenue": 39,
           "margin": 17
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "waterfall-chart",
@@ -1615,7 +1628,8 @@
           "step": "Services",
           "delta": 22
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "funnel-chart",
@@ -1686,7 +1700,8 @@
           "stage": "Cart",
           "value": 2900
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "candlestick-chart",
@@ -1815,7 +1830,8 @@
           "low": 97,
           "close": 99
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "area-chart",
@@ -1894,7 +1910,8 @@
           "x": "Wed",
           "value": 41
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "range-band-chart",
@@ -1982,7 +1999,8 @@
           "low": 14,
           "high": 24
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "stream-chart",
@@ -2068,7 +2086,8 @@
           "organic": 35,
           "paid": 16
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "scatter-chart",
@@ -2161,7 +2180,8 @@
           "y": 54,
           "size": 3
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "bubble-chart",
@@ -2254,7 +2274,8 @@
           "y": 12,
           "size": 65
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "donut-chart",
@@ -2346,7 +2367,8 @@
           "name": "Savings",
           "value": 15
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "radar-chart",
@@ -2423,7 +2445,8 @@
           "subject": "Comfort",
           "value": 7
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "polar-bar-chart",
@@ -2494,7 +2517,8 @@
           "name": "Mar",
           "value": 41
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "radial-arc-group",
@@ -2563,7 +2587,8 @@
           "name": "Online",
           "value": 47
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "radial-rings",
@@ -2631,7 +2656,8 @@
           "name": "Stand",
           "value": 100
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "gauge-arc",
@@ -2679,7 +2705,8 @@
           "optional": true,
           "doc": "Printed in place of the percent."
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "meter-chart",
@@ -2727,7 +2754,8 @@
           "optional": true,
           "doc": "Printed in place of the percent."
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "coxcomb-chart",
@@ -2806,7 +2834,8 @@
           "name": "Wed",
           "value": 31
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "wind-rose",
@@ -2892,7 +2921,8 @@
           "bearing": 180,
           "speed": 9
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "volvelle-chart",
@@ -2974,7 +3004,8 @@
             "Eridanus"
           ]
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "chord-ring",
@@ -3070,7 +3101,8 @@
           "target": "Shop",
           "value": 16
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "orbit-chart",
@@ -3198,7 +3230,8 @@
             }
           ]
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "histogram-chart",
@@ -3281,7 +3314,8 @@
           "device": "phone",
           "minutes": 3
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "ecdf-chart",
@@ -3365,7 +3399,8 @@
           "device": "phone",
           "minutes": 3
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "box-plot-chart",
@@ -3461,7 +3496,8 @@
           "service": "Search",
           "ms": 158
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "violin-chart",
@@ -3556,7 +3592,8 @@
           "service": "Search",
           "ms": 158
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "ridgeline-chart",
@@ -3645,7 +3682,8 @@
           "service": "Search",
           "ms": 158
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "beeswarm-chart",
@@ -3742,7 +3780,8 @@
           "device": "phone",
           "minutes": 3
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "lollipop-chart",
@@ -3831,7 +3870,8 @@
           "branch": "Old Mill",
           "loans": 6096
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "dumbbell-chart",
@@ -3951,7 +3991,8 @@
           "y2024": 33,
           "y2025": 47
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "slope-chart",
@@ -4056,7 +4097,8 @@
           "y2024": 33,
           "y2025": 47
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "bump-chart",
@@ -4164,7 +4206,8 @@
           "team": "Lynx",
           "points": 52
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "error-bar-chart",
@@ -4290,7 +4333,8 @@
           "low": 0.35,
           "high": 2.79
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "interval-chart",
@@ -4408,7 +4452,8 @@
           "from": "2026-03-09",
           "to": "2026-03-31"
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "diverging-bar-chart",
@@ -4515,7 +4560,8 @@
           "Agree": 31,
           "Strongly agree": 41
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "connected-scatter-chart",
@@ -4615,7 +4661,8 @@
           "fare": 1.72,
           "riders": 42.7
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "waffle-chart",
@@ -4706,7 +4753,8 @@
           "use": "Appliances",
           "kwh": 158
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "marimekko-chart",
@@ -4799,7 +4847,8 @@
           "channel": "Wholesale",
           "sales": 37
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "squarified-treemap",
@@ -4921,7 +4970,8 @@
           "name": "Roads"
         }
       ],
-      "drillable": true
+      "drillable": true,
+      "stale": "0.7.0"
     },
     {
       "slug": "sunburst-chart",
@@ -5043,7 +5093,8 @@
           "name": "Roads"
         }
       ],
-      "drillable": true
+      "drillable": true,
+      "stale": "0.7.0"
     },
     {
       "slug": "tree-chart",
@@ -5155,7 +5206,8 @@
           "parent": "works",
           "name": "Roads"
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "parallel-coordinates-chart",
@@ -5253,7 +5305,8 @@
           "range": 62,
           "rating": 2.9
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "polar-line-chart",
@@ -5344,7 +5397,8 @@
           "month": 2,
           "rain": 54
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "polar-scatter-chart",
@@ -5440,7 +5494,8 @@
           "bearing": 229.3,
           "distance": 19.6
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "density-bin-chart",
@@ -5530,7 +5585,8 @@
           "x": 39.92,
           "y": 61.68
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "contour-chart",
@@ -5641,7 +5697,8 @@
           "x": 39.92,
           "y": 61.68
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "delaunay-chart",
@@ -5740,7 +5797,8 @@
           "x": 90.6,
           "y": 39.1
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "vector-field-chart",
@@ -5857,7 +5915,8 @@
           "u": 1.097,
           "v": -1.266
         }
-      ]
+      ],
+      "stale": "0.7.0"
     },
     {
       "slug": "network-chart",
@@ -5965,7 +6024,8 @@
           "target": "p07",
           "weight": 5
         }
-      ]
+      ],
+      "stale": "0.7.0"
     }
   ],
   "components": [
@@ -6060,7 +6120,8 @@
       ],
       "demo": {
         "content": "Default"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "input",
@@ -6180,7 +6241,8 @@
         "type": "search",
         "name": "q",
         "value": ""
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "checkbox",
@@ -6260,7 +6322,8 @@
         "label": "Legend",
         "name": "legend",
         "value": false
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "radio-group",
@@ -6350,7 +6413,8 @@
         ],
         "value": "silverpoint",
         "orientation": "horizontal"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "switch",
@@ -6422,7 +6486,8 @@
         "label": "Linked hover",
         "name": "linked",
         "value": false
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "slider",
@@ -6531,7 +6596,8 @@
           75,
           100
         ]
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "rate",
@@ -6618,7 +6684,8 @@
         "name": "quality",
         "value": 3,
         "count": 5
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "segmented",
@@ -6714,7 +6781,8 @@
           }
         ],
         "value": "day"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "tabs",
@@ -6817,7 +6885,8 @@
           }
         ],
         "value": "overview"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "steps",
@@ -6902,7 +6971,8 @@
           }
         ],
         "current": 2
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "card",
@@ -6966,7 +7036,8 @@
       ],
       "demo": {
         "content": "Hits per hour rose through the afternoon and eased at night."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "tag",
@@ -7038,7 +7109,8 @@
       "demo": {
         "content": "draft",
         "tone": 1
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "badge",
@@ -7112,7 +7184,8 @@
       "demo": {
         "content": "Inbox",
         "count": 12
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "divider",
@@ -7170,7 +7243,8 @@
         "plain",
         "text"
       ],
-      "demo": {}
+      "demo": {},
+      "stale": "0.7.0"
     },
     {
       "slug": "progress",
@@ -7239,7 +7313,8 @@
       "demo": {
         "label": "Upload",
         "value": 40
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "alert",
@@ -7322,7 +7397,8 @@
         "kind": "info",
         "title": "New ground available",
         "content": "cyanotype ships in 0.2.0."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "skeleton",
@@ -7382,7 +7458,8 @@
       ],
       "demo": {
         "lines": 3
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "surface",
@@ -7454,7 +7531,8 @@
       "demo": {
         "frame": "card",
         "content": "A surface takes the ground: its substrate, its ink and a hand-drawn frame."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "glyph",
@@ -7497,7 +7575,8 @@
       ],
       "demo": {
         "glyph": "tick"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "table",
@@ -7670,7 +7749,8 @@
           }
         ],
         "rowKey": "order"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "pagination",
@@ -7796,7 +7876,8 @@
         "total": 200,
         "pageSize": 10,
         "current": 10
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "breadcrumb",
@@ -7862,7 +7943,8 @@
             "label": "Order 1042"
           }
         ]
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "avatar",
@@ -7943,7 +8025,8 @@
       ],
       "demo": {
         "name": "Ada Lovelace"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "statistic",
@@ -8023,7 +8106,8 @@
       "demo": {
         "title": "Orders",
         "value": 1284
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "descriptions",
@@ -8121,7 +8205,8 @@
           }
         ],
         "columns": 2
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "timeline-list",
@@ -8197,7 +8282,8 @@
             "status": "pending"
           }
         ]
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "collapse",
@@ -8273,7 +8359,8 @@
             "content": "From hatching, level by level, never from transparency."
           }
         ]
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "empty",
@@ -8323,7 +8410,8 @@
       ],
       "demo": {
         "description": "No orders yet"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "result",
@@ -8398,7 +8486,8 @@
         "status": "success",
         "title": "Order placed",
         "subtitle": "Order 1042 is on its way to the workshop."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "textarea",
@@ -8522,7 +8611,8 @@
         "value": "Leave it at the door.",
         "maxLength": 120,
         "showCount": true
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "input-number",
@@ -8666,7 +8756,8 @@
         "value": 3,
         "min": 1,
         "max": 10
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "modal",
@@ -8780,7 +8871,8 @@
         "title": "Edit order",
         "description": "Order 1042, placed on 14 October.",
         "content": "Changes reach the workshop before the order is packed."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "drawer",
@@ -8865,7 +8957,8 @@
         "trigger": "Filters",
         "title": "Filters",
         "content": "Narrow the orders by status, customer or amount."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "popover",
@@ -8984,7 +9077,8 @@
         "trigger": "Details",
         "title": "Order 1042",
         "content": "Two prints, one framed; shipped on 16 October."
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "tooltip",
@@ -9076,7 +9170,8 @@
         "open": true,
         "trigger": "Copy id",
         "text": "Copy the order id"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "select",
@@ -9204,7 +9299,8 @@
           }
         ],
         "value": null
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "dropdown-menu",
@@ -9324,7 +9420,8 @@
         ],
         "open": true,
         "active": "edit"
-      }
+      },
+      "stale": "0.7.0"
     },
     {
       "slug": "toast",
@@ -9416,7 +9513,8 @@
         "title": "Order saved",
         "description": "Order 1042 was updated.",
         "open": true
-      }
+      },
+      "stale": "0.7.0"
     }
   ],
   "dashboard": {

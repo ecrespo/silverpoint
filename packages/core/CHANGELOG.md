@@ -1,5 +1,14 @@
 # @silverpoint/core
 
+## 0.8.0
+
+No changes to the core in this release. **Agent access (feature-005):** the new package
+`@silverpoint/mcp` is a Model Context Protocol server that describes silverpoint to agents — the
+library's catalog, a chart recommender, code generation for React, Vue, Angular and Reflex, prop
+validation and canonical SVG renders — over stdio or a stateless Streamable HTTP endpoint. It
+reads the agent catalog generated from the published types, which also feeds the `silverpoint` skill
+and the Claude plugin. See `packages/mcp/CHANGELOG.md`.
+
 ## 0.7.0
 
 ### Minor Changes

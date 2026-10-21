@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/mcp",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "An MCP server for silverpoint: the agent catalog as tools and resources, a chart recommender, code generation, prop validation and the canonical render.",
   "license": "MIT",
   "type": "module",
