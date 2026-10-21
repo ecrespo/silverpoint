@@ -37,6 +37,7 @@ with the published types:
 | 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 9 steps and tasks, across the three repositories | ✅ 2026-10-20 |
 | — | [`analyze.md`](analyze.md) | Coverage, findings, open questions for the user | — |
 | — | [`constitution-amendment.md`](constitution-amendment.md) | Scope line; Art. 2 for the server | ✅ 2026-10-20, with gate 1 |
+| — | [`sibling-prompts.md`](sibling-prompts.md) | The prompts for the tasks in `reflex-silverpoint-react` and `silverpoint_web` | — |
 
 ## Decisions the user took (2026-10-20)
 

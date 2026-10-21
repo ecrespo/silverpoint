@@ -2,7 +2,8 @@ name: mcp-smoke
 
 # REQ-568: once Vercel reports a successful deployment of the MCP project (apps/mcp-vercel), a
 # real MCP client initialises against it and calls every tool once. The site's own deployments
-# report here too; only the MCP project's environments are smoke-tested.
+# report here too; only the MCP project's production is smoke-tested (its previews sit behind Vercel's
+# Deployment Protection, which no MCP client passes).
 on:
   deployment_status:
 
@@ -15,6 +16,7 @@ jobs:
     if: >-
       github.event.deployment_status.state == 'success' &&
       github.event.deployment_status.creator.login == 'vercel[bot]' &&
+      startsWith(github.event.deployment_status.environment, 'Production') &&
       contains(github.event.deployment_status.environment, 'mcp')
     runs-on: ubuntu-latest
     steps:
