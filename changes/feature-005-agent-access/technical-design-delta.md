@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, drafted and approved 2026-10-20 |
+| **Status** | `APPROVED` — gate 3, drafted and approved 2026-10-20; **folded into `specs/technical-design.md` (v1.11) on 2026-10-20** (T-251) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.10 → v1.11: §1 (package map), §5.3 (allowlist: none for the core), new DD-044..DD-050 |
 
 ## Package map — addition

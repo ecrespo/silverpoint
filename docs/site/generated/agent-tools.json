@@ -1,0 +1,57 @@
+[
+  {
+    "name": "get_version",
+    "title": "Version",
+    "description": "The silverpoint version this server describes, the Reflex wrapper it is joined with, and the MCP protocol version."
+  },
+  {
+    "name": "list_charts",
+    "title": "List charts",
+    "description": "Every chart, optionally filtered by family, intent (trend, compare, rank, part-to-whole, distribution, correlation, flow, hierarchy, change, uncertainty, progress, schedule, kpi, network) or data shape (series, categories, parts, matrix, hierarchy, links, points, distribution, intervals, events, single, field)."
+  },
+  {
+    "name": "get_chart",
+    "title": "Get chart",
+    "description": "One chart’s catalog entry: data shape, fields, props with defaults, names and imports. With `framework`, only that framework’s name, import and prop spelling."
+  },
+  {
+    "name": "list_components",
+    "title": "List components",
+    "description": "Every UI component, optionally filtered by family (ui, composed, overlay) or group."
+  },
+  {
+    "name": "get_component",
+    "title": "Get component",
+    "description": "One component’s catalog entry: props, binding, events, slots and states. With `framework`, in that framework’s terms."
+  },
+  {
+    "name": "recommend_chart",
+    "title": "Recommend a chart",
+    "description": "Up to five charts for a data shape and an intent, ranked by a reviewed table, with the reasons. Deterministic: no model involved."
+  },
+  {
+    "name": "generate_code",
+    "title": "Generate code",
+    "description": "The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names."
+  },
+  {
+    "name": "search_catalog",
+    "title": "Search the catalog",
+    "description": "A token search over chart and component names, summaries, prop docs and diagnostic codes, best first; at most 20 hits."
+  },
+  {
+    "name": "validate_props",
+    "title": "Validate props",
+    "description": "Builds the chart with the core and returns every diagnostic it raises (code, severity, requirement, message, remedy) and the props it does not declare."
+  },
+  {
+    "name": "render_chart",
+    "title": "Render a chart",
+    "description": "The canonical render of one chart as a standalone SVG, the ground’s stylesheet inlined: what every adapter draws for the same props, data, size and id. Without `data`, the demo dataset."
+  },
+  {
+    "name": "check_palette",
+    "title": "Check a palette",
+    "description": "The contrast findings of the core’s checkPalette for a preset or a palette of fields, over a substrate given as a hex or by name."
+  }
+]

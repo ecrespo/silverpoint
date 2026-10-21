@@ -8,7 +8,7 @@ import { UI_COMPONENTS } from '../../packages/core/src/ui/catalog';
 import type { AgentCatalog, ReflexCatalog } from '../../packages/mcp/src/types';
 import { CATALOG } from '../visual-gate/catalog';
 import { buildAgentCatalog, CATALOG_FILE, joinReflex, serialise } from './catalog';
-import { checkCatalog } from './check';
+import { checkCatalog, isInterim } from './check';
 import { CHART_META, FAMILIES } from './charts.meta';
 import { propsReference } from './props';
 
@@ -190,10 +190,22 @@ describe('versions (REQ-534, REQ-556)', () => {
     expect(joined.components.every((c) => c.stale === '0.0.1')).toBe(true);
   });
 
-  test('REQ-556 · a release build fails on a stale Reflex catalog; an ordinary build only reports it', () => {
+  test('REQ-556 · a release build fails on a stale export of the Reflex package; an ordinary build only reports it', () => {
     const stale: AgentCatalog = { ...catalog, reflex: { ...catalog.reflex, wraps: '0.0.1', stale: true } };
-    expect(checkCatalog(stale, { release: false }).errors.filter((e) => e.includes('REQ-556'))).toEqual([]);
-    expect(checkCatalog(stale, { release: true }).errors.join('\n')).toMatch(/REQ-556/);
+    expect(checkCatalog(stale, { release: false, interim: false }).errors.filter((e) => e.includes('REQ-556'))).toEqual([]);
+    expect(checkCatalog(stale, { release: true, interim: false }).errors.join('\n')).toMatch(/REQ-556/);
+  });
+
+  test('REQ-556 · the interim pin (derived here, not exported by the Reflex package) only warns, release or not', () => {
+    const stale: AgentCatalog = { ...catalog, reflex: { ...catalog.reflex, wraps: '0.0.1', stale: true } };
+    const result = checkCatalog(stale, { release: true, interim: true });
+    expect(result.errors.filter((e) => e.includes('REQ-556'))).toEqual([]);
+    expect(result.warnings.join('\n')).toMatch(/REQ-556 · .*interim/);
+  });
+
+  test('REQ-556 · the pin is interim exactly when the Reflex catalog says how it was derived', () => {
+    expect(isInterim({ derived: 'tools/agent-catalog/reflex/derive.py' })).toBe(true);
+    expect(isInterim({})).toBe(false);
   });
 
   test('REQ-553 · Reflex names and snake_case props are joined by slug', () => {
@@ -219,7 +231,7 @@ describe('the recommender table (REQ-540, DD-046)', () => {
 
   test('REQ-540 · I-42 · a rule naming a chart that does not exist fails the check', () => {
     const wrong: AgentCatalog = { ...catalog, recommend: [{ shape: 'series', intent: 'trend', charts: [{ slug: 'pie-chart', score: 1, reason: 'x' }] }] };
-    expect(checkCatalog(wrong, { release: false }).errors.join('\n')).toMatch(/I-42 · .*pie-chart/);
+    expect(checkCatalog(wrong, { release: false, interim: false }).errors.join('\n')).toMatch(/I-42 · .*pie-chart/);
   });
 
   test('REQ-540 · every chart is reachable: named by a rule, or matching its own shape and intent', () => {
@@ -238,19 +250,19 @@ describe('drift (REQ-535, REQ-536)', () => {
   });
 
   test('REQ-536 · I-37 · the catalog and the adapters’ exports name the same charts and components', () => {
-    expect(checkCatalog(catalog, { release: false }).errors).toEqual([]);
+    expect(checkCatalog(catalog, { release: false, interim: false }).errors).toEqual([]);
   });
 
   test('REQ-536 · a chart the adapters export but the catalog lacks, or a chart without an intent, fails the check', () => {
     const missing: AgentCatalog = { ...catalog, charts: catalog.charts.slice(1) };
-    expect(checkCatalog(missing, { release: false }).errors.join('\n')).toMatch(/line-chart/);
+    expect(checkCatalog(missing, { release: false, interim: false }).errors.join('\n')).toMatch(/line-chart/);
     const vague: AgentCatalog = { ...catalog, charts: catalog.charts.map((c, i) => (i === 0 ? { ...c, intents: [] } : c)) };
-    expect(checkCatalog(vague, { release: false }).errors.join('\n')).toMatch(/line-chart.*intent/);
+    expect(checkCatalog(vague, { release: false, interim: false }).errors.join('\n')).toMatch(/line-chart.*intent/);
   });
 
   test('REQ-536 · a chart the catalog names but no adapter exports fails the check', () => {
     const imaginary: AgentCatalog = { ...catalog, charts: [...catalog.charts, { ...catalog.charts[0]!, slug: 'imaginary-chart' }] };
-    expect(checkCatalog(imaginary, { release: false }).errors.join('\n')).toMatch(/imaginary-chart, which @silverpoint\/react does not export/);
+    expect(checkCatalog(imaginary, { release: false, interim: false }).errors.join('\n')).toMatch(/imaginary-chart, which @silverpoint\/react does not export/);
   });
 
   test('REQ-541 · I-41 · a data field naming a prop its chart lacks fails the check', () => {
@@ -258,7 +270,7 @@ describe('drift (REQ-535, REQ-536)', () => {
       ...catalog,
       charts: catalog.charts.map((c, i) => (i === 0 ? { ...c, data: { ...c.data, fields: [{ role: 'x', prop: 'notAProp', type: 'string' as const, required: true }] } } : c)),
     };
-    expect(checkCatalog(wrong, { release: false }).errors.join('\n')).toMatch(/I-41 · line-chart.*notAProp/);
+    expect(checkCatalog(wrong, { release: false, interim: false }).errors.join('\n')).toMatch(/I-41 · line-chart.*notAProp/);
   });
 
   test('REQ-536 · every metadata row is a catalog chart', () => {

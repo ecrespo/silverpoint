@@ -6,7 +6,7 @@ import { afterEach, describe, expect, test } from 'vitest';
 import { packProblems, planPublish, publishablePackages } from './publish.mjs';
 
 /**
- * TD §9, REQ-160: `release.yml` publishes from CI, on a push to main, whatever version of the seven
+ * TD §9, REQ-160: `release.yml` publishes from CI, on a push to main, whatever version of the eight
  * packages is not on npm yet. Re-running it publishes nothing twice, and a package is published
  * only after the packages it depends on.
  */
@@ -50,6 +50,13 @@ describe('publish (TD §9)', () => {
     const plan: Pkg[] = planPublish(packages, (name: string, version: string) => onNpm.has(`${name}@${version}`));
     expect(plan.map((p) => p.name)).toEqual(['@silverpoint/react']);
     expect(planPublish(packages, () => true)).toEqual([]);
+  });
+
+  test('REQ-556 · release.yml runs the agent catalog’s release check before it publishes', () => {
+    const workflow = readFileSync(join(ROOT, '.github/workflows/release.yml'), 'utf8');
+    const check = workflow.indexOf('pnpm --filter @silverpoint/agent-catalog check --release');
+    expect(check).toBeGreaterThan(0);
+    expect(check).toBeLessThan(workflow.indexOf('node tools/release/publish.mjs'));
   });
 
   test('REQ-160 · Art. 3 · release.yml publishes on a push to main, after every CI gate, with OIDC and no token', () => {

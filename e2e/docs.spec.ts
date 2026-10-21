@@ -38,7 +38,10 @@ const errorsOf = (page: Page) => {
 };
 
 /** Every kind of page the site has: the reflow and axe checks run on each. */
-const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline'];
+/** What a route draws once it is ready: a chart or a component, or, on a page that draws none, its last section. */
+const readyOf = (route: string) => (route === '/#/ai' ? '#agent-tools' : '.sp-root, .sp-ui');
+
+const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline', '/#/ai'];
 
 test.describe('documentation site', () => {
   test('PRD §4.2 · the home page gives the quickstart for React, Vue and Angular', async ({ page }) => {
@@ -281,7 +284,7 @@ test.describe('documentation site', () => {
     test(`WCAG 1.4.10 · ${route} reflows at 320 CSS px without horizontal scrolling`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(route);
-      await page.locator('.sp-root, .sp-ui').first().waitFor({ state: 'attached' });
+      await page.locator(readyOf(route)).first().waitFor({ state: 'attached' });
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
     });
   }
@@ -290,7 +293,7 @@ test.describe('documentation site', () => {
     test(`REQ-120 · WCAG 2.1 AA · axe finds no A or AA issue on ${route}`, async ({ page }) => {
       await page.goto(route);
       await expect(page.locator('main')).toBeVisible();
-      await page.locator('.sp-root, .sp-ui').first().waitFor({ state: 'attached' });
+      await page.locator(readyOf(route)).first().waitFor({ state: 'attached' });
       // A UI frame is an ink line drawn as a masked background; axe reads it as a solid backdrop under the
       // text. Frames and tone tiles carry no text: hidden for the reading (see a11y-audit.md), and their
       // contrast is held by the palette's UI pairs.

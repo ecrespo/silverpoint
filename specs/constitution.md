@@ -1,9 +1,9 @@
 # Constitution — silverpoint
 
-> Version 1.9 · Ratified: 2026-09-12 · Last amended: 2026-10-18
+> Version 1.10 · Ratified: 2026-09-12 · Last amended: 2026-10-20
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
-> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, example apps and
-> documentation site.
+> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, `@silverpoint/mcp`, the
+> `silverpoint` skill, example apps and documentation site.
 
 **What silverpoint is.** A library of charts —and of the interface components around them— for React, Vue and
 Angular, whose visual language is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
@@ -48,8 +48,13 @@ adapter translates the core's output into nodes and nothing more. CI SHALL fail 
 adapter package imports `d3-*` or `roughjs` directly, or if it declares maths of its
 own.
 
+`@silverpoint/mcp` SHALL compute no geometry and no colour of its own: it SHALL render and
+validate only by calling `@silverpoint/core` and `@silverpoint/grounds`, as an adapter does, and
+its catalog SHALL be generated from the published types, never retyped.
+
 *Rationale: two implementations of the same drawing always diverge; it is the failure
-that sinks multi-framework libraries.*
+that sinks multi-framework libraries. An agent shown a picture or a verdict the library would not
+produce is worse off than one shown nothing.*
 
 ### Art. 3 — Visual parity across frameworks
 
@@ -211,6 +216,7 @@ explicitly in its tonal mechanism token.
 | 2026-09-28 | — , 1, 3, 5, 6 | Interface components enter the scope; exact interaction and value geometry; parity, accessibility and heightening stated for components | feature-002 adds interface components drawn with the grounds; the charts' principles must bind them explicitly | Ernesto Crespo |
 | 2026-10-09 | — | Stack: the geometry engine row points to the TD allowlist instead of naming modules, and records the correctly-rounded-arithmetic rule for derived geometry; the second catalog's inventory source is named | The row was stale since `d3-chord`; feature-003 owns its statistics and layouts and needs the arithmetic rule | Ernesto Crespo |
 | 2026-10-18 | — , 3, 6 | The `0.7.0` inventory source (`reflex-silverpoint-react` 0.7) is named; Art. 3's gate covers the library's markup around a third-party widget behind an optional peer, not the widget's DOM, which carries a pinned pixel fixture instead; Art. 6 names the current page and the active option or item of an open list as a component's current item | feature-004 adds palettes, composed components, overlays and `SpTimeline` (TimelineJS builds its DOM at runtime, outside the parity contract); the highlighted option of a select or menu is the list's current item, and the chosen option (ticked) is not heightened | Ernesto Crespo |
+| 2026-10-20 | — , 2 | `@silverpoint/mcp` and the `silverpoint` skill enter the scope; Art. 2 binds the server: it renders and validates only through the core and the grounds, and its catalog is generated from the published types | feature-005 describes the library to agents; they belong to it, version with it, and must never show what the library would not draw | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

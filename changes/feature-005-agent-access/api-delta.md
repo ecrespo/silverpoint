@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, drafted and approved 2026-10-20 |
+| **Status** | `APPROVED` — gate 2, drafted and approved 2026-10-20; **folded into `specs/api-spec.md` (v1.12) on 2026-10-20** (T-251) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.11 → v1.12: §1 (a new package), new §14 (agent access) |
 | **SemVer** | `minor` — a new package in the `fixed` group (OQ-E1); no change to any existing package's API |
 

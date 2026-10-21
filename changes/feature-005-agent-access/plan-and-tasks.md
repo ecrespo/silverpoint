@@ -7,7 +7,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 4, drafted and approved 2026-10-20 |
+| **Status** | `APPROVED` — gate 4, drafted and approved 2026-10-20; **folded into `specs/implementation-plan.md` (v1.10) on 2026-10-20** (T-251) |
 | **Branch** | `feat/silverpoint-0.8` (off `develop`); sibling branches in `reflex-silverpoint-react` and `silverpoint_web` |
 | **Prerequisite** | `reflex-silverpoint-react` 0.7.1 released (wraps `@silverpoint/react` 0.7.0; research §3) |
 
@@ -86,9 +86,9 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9g — Documentation and release
 
-- [ ] **T-249** `@silverpoint/mcp` README and the docs-site agent page, tool lists generated from the server. *REQ-569*
-- [ ] **T-250** Changeset `minor` (`0.8.0`); `CLAUDE.md` status here, in reflex-silverpoint-react and silverpoint_web.
-- [ ] **T-251** Fold the deltas into `specs/` (PRD v1.14, API v1.12, TD v1.11, DM v1.9, constitution v1.10); traceability report.
+- [x] **T-249** `@silverpoint/mcp` README and the docs-site agent page, tool lists generated from the server. *REQ-569*
+- [ ] **T-250** Changeset `minor` (`0.8.0`); `CLAUDE.md` status here, in reflex-silverpoint-react and silverpoint_web. — done here; the sibling repositories' `CLAUDE.md` wait with their tasks
+- [x] **T-251** Fold the deltas into `specs/` (PRD v1.14, API v1.12, TD v1.11, DM v1.9, constitution v1.10); traceability report.
 
 ## Ledger
 
@@ -300,3 +300,32 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
   `check` fails until they do.
 - T-246 and the Reflex halves of T-247 and T-248 belong to `reflex-silverpoint-react`, which is
   not in scope here.
+
+### 9g — documentation, fold (2026-10-20, branch `feat/silverpoint-0.8`)
+
+- T-249 — `tools/agent-catalog/agent-tools.ts` reads the tools from a running server over an
+  in-memory transport (`toolList`); `generate` writes them as a table between the `tools` markers of
+  `packages/mcp/README.md` and as `docs/site/generated/agent-tools.json`, and `check` diffs both
+  (REQ-569). The README gains the hosted server, the plugin's install lines and the local `npx`.
+  The docs site's "Use with AI" page (`/#/ai`, `docs/site/src/pages/agent.tsx`): the MCP URL,
+  configurations for Claude Code, Claude's connectors, Cursor and VS Code, the plugin, the local
+  server and the tool table; in the e2e routes (axe). Tests mutation-checked.
+- REQ-556, option (b) (user decision 2026-10-20): `check --release` fails on a stale Reflex catalog
+  only when the pin is the wrapper's own export; the derived pin (`derived` set) warns. The release
+  job (`release.yml`) runs `pnpm --filter @silverpoint/agent-catalog check --release` after the build
+  and before `publish.mjs`; `tools/release/publish.test.ts` holds the order.
+- T-250 — The `minor` changeset (`dark-lions-dance.md`) moves the fixed group to `0.8.0`.
+  `CLAUDE.md`'s status here; the release steps add the catalog's `generate` after
+  `version-packages`. `@silverpoint/mcp@0.7.0` was published by hand once so npm knows the name, and
+  its trusted publisher is set.
+- T-251 — Folded into `specs/`: constitution v1.10, PRD v1.14 (§6.14, 310 requirements, 287 MUST),
+  API Spec v1.12 (§14), Technical Design v1.11 (DD-044..DD-050), Data Model v1.9 (§2.28..§2.31,
+  I-37..I-42), Implementation Plan v1.10 (Phase 9). The fold made five MUSTs ordinary requirements
+  that no test title cited: REQ-537, REQ-551, REQ-563 and REQ-566 got
+  `packages/mcp/test/boundary.test.ts` (eight mutants, all killed); REQ-564 (`/llms.txt`) is the
+  official site's, deferred in `specs/tasks.md` to `silverpoint_web` (#243). Traceability 286 of 287
+  MUST cited, one deferred, 0 blocking.
+
+*Caveat to decide later:* once the Reflex pin is the wrapper's own export, the strict check makes
+every version-bumping release wait for a wrapper release that wraps it; allowing one release of lag
+is a delta of its own.

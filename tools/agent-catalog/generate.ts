@@ -7,6 +7,7 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { ASSETS_FILE, assetsSource } from './assets';
+import { DOCS_TOOLS_FILE, README_FILE, toolList, toolsJson, withTools } from './agent-tools';
 import { buildAgentCatalog, CATALOG_FILE, serialise } from './catalog';
 import { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } from './skill';
 
@@ -29,3 +30,7 @@ console.log('wrote packages/mcp/src/guides.generated.ts');
 writeFileSync(PLUGIN_FILE, pluginManifest(readFileSync(PLUGIN_FILE, 'utf8'), catalog.version));
 writeFileSync(MARKETPLACE_FILE, marketplaceManifest(readFileSync(MARKETPLACE_FILE, 'utf8'), catalog.version));
 console.log(`wrote .claude-plugin (${catalog.version})`);
+const tools = await toolList();
+writeFileSync(README_FILE, withTools(readFileSync(README_FILE, 'utf8'), tools));
+writeFileSync(DOCS_TOOLS_FILE, toolsJson(tools));
+console.log(`wrote the tool list (${tools.length} tools) into packages/mcp/README.md and docs/site/generated/agent-tools.json`);

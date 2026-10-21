@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.9 |
+| **Version** | 1.10 |
 | **Date** | 2026-10-20 |
-| **PRD** | [`prd.md`](prd.md) v1.13 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.10 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.8 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
+| **PRD** | [`prd.md`](prd.md) v1.14 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.11 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.9 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.12 |
 
 ---
 
@@ -578,6 +578,83 @@ Every task cites at least one requirement; no orphan task.
 #204 ─┴─► #205
 ```
 
+### Phase 9 — Agent access
+
+**Effort:** one minor, three repositories. **Goal:** an agent connected to
+`https://silverpointweb.vercel.app/mcp`, or with the `silverpoint` or `reflex-silverpoint` skill
+installed, picks a fitting chart, writes code that compiles in React, Vue, Angular or Reflex,
+validates it with the core and sees the canonical render — all from one catalog generated from the
+types (PRD §6.14, REQ-530..REQ-569; API Spec §14; DD-044..DD-050; Data Model §2.28..§2.31).
+
+**Tasks:** #226..#251, continuing the global sequence; defined in the feature's ledger
+(`changes/feature-005-agent-access/plan-and-tasks.md`), as for Phases 5..8. #230, #243, #244, #246
+and the Reflex halves of #247 and #248 belong to `reflex-silverpoint-react` and `silverpoint_web`.
+
+| Step | Content | Tasks | Repository | Depends on | Exit |
+|---|---|---|---|---|---|
+| 9a | Agent catalog: the props pipeline moved, chart metadata, generator, checks | #226..#229 | silverpoint | Approval | Catalog generated; I-37..I-42 tested |
+| 9b | Reflex catalog export, its CI check, the pin here | #230, #231 | reflex-silverpoint-react → silverpoint | 9a | `reflex-catalog.json` round-trips; REQ-556 tested |
+| 9c | `@silverpoint/mcp`: catalog tools, recommender, codegen, resources, stdio | #232..#236 | silverpoint | 9a | Contract tests; codegen golden files type-check |
+| 9d | `validate_props`, `render_chart`, `check_palette`, latency | #237..#240 | silverpoint | 9c | Parity over the PR matrix (REQ-567); budgets REQ-559 |
+| 9e | HTTP handler, `apps/mcp-vercel`, smoke test; the official site's rewrite, `llms` files and AI page | #241..#244 | silverpoint, silverpoint_web | 9d | Smoke test local and deployed (REQ-568) |
+| 9f | Skills, their generators and examples check, plugin manifests | #245..#248 | silverpoint, reflex-silverpoint-react | 9a, 9b, 9c | Examples type-check (REQ-557); install tested in Claude Code |
+| 9g | README, docs-site page, changeset, fold of the deltas, `CLAUDE.md` | #249..#251 | all three | 9e, 9f | Ready for the `0.8.0` release commit |
+
+**Status (2026-10-20).** In this repository steps 9a, 9c..9g are implemented on
+`feat/silverpoint-0.8`: the agent catalog (60 charts, 38 components, 245 KB) generated and diffed in
+CI; `@silverpoint/mcp` with eleven tools, five resources and two prompts over stdio and stateless
+HTTP, `render_chart` identical to the canonical render over the PR matrix, cold start 0.31 s and
+`render_chart` p95 13 ms; `apps/mcp-vercel` and the MCP smoke test; the `silverpoint` skill, its
+examples compiled in the example apps (115 React, 111 Vue, 111 Angular, 12 Reflex) and its Claude
+plugin; the README and the docs site's "Use with AI" page with tool tables read from the server; and
+this fold. `@silverpoint/mcp@0.7.0` was published by hand once so npm knows the name, and has its
+trusted publisher. The Reflex pin is derived from the wrapper's sources until #230 lands (REQ-556,
+option b). REQ-544 (PNG) is deferred and REQ-561 (rate limit) not implemented, both SHOULD. The
+Vercel deployment, #230, #243, #244, #246 and the Reflex halves of #247 and #248 are outside this
+repository.
+
+**Requirement → task map**
+
+| Requirement | Tasks |
+|---|---|
+| REQ-530, REQ-531, REQ-532, REQ-533, REQ-534 | #226, #227, #228 |
+| REQ-535, REQ-536 | #227, #229 |
+| REQ-537 | #228, #243 |
+| REQ-538 | #232, #241 |
+| REQ-539, REQ-549, REQ-566 | #233 |
+| REQ-540 | #234 |
+| REQ-541, REQ-547 | #235 |
+| REQ-542 | #237 |
+| REQ-543, REQ-560 | #238, #241 |
+| REQ-544 (SHOULD) | #240 — deferred |
+| REQ-545, REQ-559 | #240 |
+| REQ-546, REQ-548 (SHOULD) | #236 |
+| REQ-550 | #232 |
+| REQ-551, REQ-562, REQ-563 | #241, #245 |
+| REQ-552, REQ-554 | #245, #246 |
+| REQ-553 | #230, #246 |
+| REQ-555 | #248 |
+| REQ-556 | #231 |
+| REQ-557 | #235, #247 |
+| REQ-558, REQ-568 | #242, #243 |
+| REQ-561 (SHOULD) | #241 — not implemented |
+| REQ-564 | #243 |
+| REQ-565 | #244, #249 |
+| REQ-567 | #239 |
+| REQ-569 | #249 |
+
+Every task cites at least one requirement; no orphan task.
+
+**Done criteria**
+- Every MUST of REQ-530..REQ-569 cited by a test; traceability 0 blocking.
+- `agent-catalog.json` regenerated in CI with no diff; `render_chart` parity green over the PR matrix.
+- MCP smoke test green against the built handler and against the deployed URL.
+- Both skills generated, their examples type-checked, both plugin manifests installable.
+- The official site serves `/mcp`, `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` and its AI
+  page, and stays static.
+- Released as `0.8.0` (changeset `minor`) from CI; the release commit runs the catalog's `generate`
+  after `version-packages`; deltas folded; `CLAUDE.md` status in the three repositories.
+
 ## 4. Dependency Map
 
 ```
@@ -600,6 +677,9 @@ Phase 0 ── vertical slice, gates operational
                                                        │
                                                        ▼
                                           Phase 8 ── palettes, composed components, overlays, timeline
+                                                       │
+                                                       ▼
+                                          Phase 9 ── agent access (catalog, MCP server, skills)
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -622,6 +702,8 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | Owned tidy tree, squarify, marching squares and Delaunay are subtle | High | Medium | Hand-computed cases and property tests; exact predicates with a `BigInt` fallback (DD-028) |
 | Overlays need a positioning or focus library per framework | Medium | High | The platform's `<dialog>` and Popover API; keyboard and placement in the core (DD-038), so the three adapters share them |
 | A third-party widget (TimelineJS) cannot meet Art. 3's markup gate | High | Medium | Optional peer on its own subpath; the gate covers the library's surface, the widget gets a pinned pixel fixture (Art. 3, v1.9; DD-042) |
+| Agents are shown what the library does not have | High | High | One catalog generated from the types and diffed in CI; skill examples and generated code type-checked (DD-045, DD-050) |
+| The Reflex wrapper lags the library by a version at every release | High | Medium | `stale` entries; the strict release check applies to the wrapper's own export, the derived pin only warns (REQ-556) |
 | The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
@@ -650,6 +732,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.10 | 2026-10-20 | Ernesto Crespo | Phase 9 added: agent access (steps 9a..9g, #226..#251), feature-005, target `0.8.0`; recorded as built in this repository, the sibling repositories' tasks open |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Phase 8 added: palettes, composed components, overlays and the timeline (steps 8a..8h, #200..#225), feature-004, target `0.7.0`; recorded as built |
 | 1.8 | 2026-10-10 | Ernesto Crespo | Phase 7 added: the second catalog, 27 charts in three waves (steps 7a..7e, #164..#199), feature-003 |
 | 1.7 | 2026-09-29 | Ernesto Crespo | Phase 6 added: the 17 UI components (steps 6a..6f, #135..#163), released in `0.3.0` (feature-002) |

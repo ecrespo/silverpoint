@@ -5,6 +5,7 @@ import './site.css';
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Adapters } from './pages/adapters';
+import { AgentPage } from './pages/agent';
 import { ChartPage } from './pages/chart';
 import { DashboardPage } from './pages/dashboard';
 import { Gallery } from './pages/gallery';
@@ -36,6 +37,7 @@ const NAV = [
   ['/overlays', 'Overlays'],
   ['/palettes', 'Palettes'],
   ['/timeline', 'Timeline'],
+  ['/ai', 'Use with AI'],
 ] as const;
 
 function Page({ route }: { route: string }) {
@@ -48,6 +50,7 @@ function Page({ route }: { route: string }) {
   if (route === '/overlays') return <UiGallery family="overlay" />;
   if (route === '/palettes') return <PalettesPage />;
   if (route === '/timeline') return <TimelinePage />;
+  if (route === '/ai') return <AgentPage />;
   if (route.startsWith('/ui/')) return <UiPage slug={route.slice('/ui/'.length)} />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;
   return <Home />;

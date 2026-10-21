@@ -2,13 +2,13 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — drafted 2026-10-20 after the user approved, the same day, an MCP server and a skill on the silverpoint side, and a skill for `reflex-silverpoint-react` as well. Gates 0..4 and the constitution amendment approved together on 2026-10-20 by Ernesto Crespo, with the recommendations of OQ-E1..E6 |
+| **Status** | `APPROVED` — drafted 2026-10-20 after the user approved, the same day, an MCP server and a skill on the silverpoint side, and a skill for `reflex-silverpoint-react` as well. Gates 0..4 and the constitution amendment approved together on 2026-10-20 by Ernesto Crespo, with the recommendations of OQ-E1..E6. **Folded into `specs/` on 2026-10-20** (T-251); the sibling repositories' tasks remain |
 | **Target release** | `0.8.0` (changeset `minor` from 0.7.0) for the agent catalog and the MCP package; the skills follow the library version. The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-530..REQ-569 (§6.14) |
 | **Design decisions** | DD-044..DD-050 |
 | **Diagnostics** | none new in the library; the server reports the existing `SP` codes |
 | **Tasks** | T-226..T-251 (Phase 9, steps 9a..9g) |
-| **Constitution** | Amendment v1.9 → v1.10 proposed ([`constitution-amendment.md`](constitution-amendment.md)): scope and Art. 2 |
+| **Constitution** | Amendment v1.9 → v1.10 ([`constitution-amendment.md`](constitution-amendment.md)): scope and Art. 2; folded 2026-10-20 |
 | **Branch** | `spec/feature-005-agent-access` (specs); implementation on `feat/silverpoint-0.8` |
 | **Sibling repositories** | `reflex-silverpoint-react` (its skill and its catalog export), `silverpoint_web` (`/llms.txt`, `/mcp`, the "Use with AI" page) |
 

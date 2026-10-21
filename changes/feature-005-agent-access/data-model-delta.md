@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, drafted and approved 2026-10-20 |
+| **Status** | `APPROVED` — gate 3, drafted and approved 2026-10-20; **folded into `specs/data-model.md` (v1.9) on 2026-10-20** (T-251) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.8 → v1.9: new §2.28..§2.31, invariants I-37..I-42 |
 
 ## §2.28 `AgentCatalog`

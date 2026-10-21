@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.8 |
+| **Version** | 1.9 |
 | **Date** | 2026-10-20 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.10 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.11 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.12 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -469,6 +469,109 @@ numbers compare numerically and before strings; strings compare by code point af
   tag is never built from a value.
 - A paused toast restarts its whole `duration` once pointer and focus leave it: the time left would
   need a clock on the render path (Art. 4).
+
+### 2.28 `AgentCatalog`
+
+```ts
+interface AgentCatalog {
+  readonly schema: 1;
+  readonly version: string;                         // library version (REQ-534)
+  readonly reflex: { readonly version: string; readonly wraps: string; readonly stale: boolean };
+  readonly frameworks: readonly Framework[];        // ['react', 'vue', 'angular', 'reflex']
+  readonly common: { readonly chart: readonly PropEntry[]; readonly ui: readonly PropEntry[] };
+  readonly charts: readonly ChartEntry[];           // 60, catalog order
+  readonly components: readonly ComponentEntry[];   // 38, UI_COMPONENTS order
+  readonly dashboard: { readonly props: readonly PropEntry[]; readonly layout: readonly PropEntry[]; readonly cell: readonly PropEntry[]; readonly names: Names; readonly imports: Imports };
+  readonly grounds: readonly { readonly name: string; readonly substrates: readonly string[]; readonly summary: string }[];
+  readonly palettes: { readonly fields: readonly PropEntry[]; readonly presets: Readonly<Record<string, Palette>> };
+  readonly timeline: { readonly props: readonly PropEntry[]; readonly names: Names; readonly imports: Imports; readonly peer: string };
+  readonly diagnostics: readonly { readonly code: string; readonly severity: 'warn' | 'error'; readonly req: string; readonly what: string; readonly todo: string }[];
+  readonly stylesheets: { readonly always: readonly string[]; readonly ui: readonly string[]; readonly timeline: readonly string[] };
+}
+type Framework = 'react' | 'vue' | 'angular' | 'reflex';
+type Names = Readonly<Record<Framework, string>>;
+type Imports = Readonly<Record<Framework, string>>;
+interface PropEntry {
+  readonly name: string;            // camelCase, as the types
+  readonly reflex?: string;         // snake_case, from the Reflex catalog; absent when Reflex lacks it
+  readonly type: string;
+  readonly optional: boolean;
+  readonly default?: string;        // from API Spec §5.1 / JSDoc "Default `…`."
+  readonly doc: string;
+}
+interface ChartEntry {
+  readonly slug: string; readonly names: Names; readonly imports: Imports;
+  readonly family: Family; readonly summary: string;
+  readonly data: DataSpec; readonly intents: readonly Intent[];
+  readonly props: readonly PropEntry[];   // own props only; common ones in `common.chart`
+  readonly demo: string;                  // demo export name
+  readonly drillable?: boolean;           // rootId + onRootChange
+}
+interface ComponentEntry {
+  readonly slug: string; readonly names: Names; readonly imports: Imports;
+  readonly family: 'ui' | 'composed' | 'overlay'; readonly group: string; readonly summary: string;
+  readonly props: readonly PropEntry[];
+  readonly binding?: { readonly value?: Readonly<Record<Framework, string>>; readonly open?: Readonly<Record<Framework, string>> };
+  readonly events: readonly string[]; readonly slots: readonly string[];
+}
+```
+
+### 2.29 Chart metadata (`tools/agent-catalog/charts.meta.ts`)
+
+The only hand-written data of the catalog: per chart `family` (the nine the site and the Reflex
+wrapper show, slugged as the site's anchors: `lines`, `bars`, `areas`, `points-grids`, `flows`,
+`radial`, `distributions-comparisons`, `hierarchies-dimensions`, `fields-networks`; fixed at #227,
+and `AgentCatalog.families` carries slug and title), a one-line `summary`, `data: DataSpec` and
+`intents`. The components' one-line summaries live beside it, in `components.meta.ts`: the core's
+component types carry none.
+
+```ts
+interface DataSpec {
+  readonly shape: DataShape;                  // API Spec §14.3
+  readonly fields: readonly { readonly role: string; readonly prop: string; readonly type: 'string' | 'number' | 'date'; readonly required: boolean }[];
+}
+```
+
+`fields[].prop` names the accessor prop (`xKey`, `valueKey`, `sourceKey`…) the role maps to; this is
+what `generate_code` uses to turn the user's field names into accessors.
+
+### 2.30 Reflex catalog (`reflex-catalog.json`, exported by `reflex-silverpoint-react`)
+
+```ts
+interface ReflexCatalog {
+  readonly schema: 1;
+  readonly package: 'reflex-silverpoint-react';
+  readonly version: string;                    // the wheel's version
+  readonly wraps: string;                      // SILVERPOINT_VERSION
+  readonly charts: readonly { readonly slug: string; readonly builder: string; readonly cls: string; readonly family: string; readonly props: readonly { readonly name: string; readonly js: string; readonly type: string }[] }[];
+  readonly components: readonly { readonly slug: string; readonly builder: string; readonly cls: string; readonly props: readonly { readonly name: string; readonly js: string; readonly type: string }[]; readonly positional: readonly string[]; readonly deprecated: Readonly<Record<string, string>> }[];
+  readonly helpers: readonly string[];         // sort_rows, check_palette, silverpoint_palette, download_svg…
+}
+```
+
+### 2.31 Recommender rules (`tools/agent-catalog/recommend.rules.ts`)
+
+```ts
+interface Rule {
+  readonly shape: DataShape; readonly intent: Intent;
+  readonly charts: readonly { readonly slug: string; readonly score: number; readonly reason: string }[];
+  readonly adjust?: readonly { readonly when: 'rows>' | 'rows<' | 'values>'; readonly n: number; readonly slug: string; readonly delta: number; readonly reason: string }[];
+}
+```
+
+*Amended in implementation* (feature-005, #227..#236, folded as built):
+
+- `DataField.type` adds `array` (a sparkline's points, a heatmap row's values, an orbit's markers).
+- `ChartEntry.demo` is optional (`GaugeArc` and `MeterChart` draw from props alone) and names a
+  constant of the core's sources, not a public export; `demoKeys` and `demoSample` (the demo's first
+  three rows) show the data by example.
+- `ComponentEntry.events` and `slots` are per framework (`react`, `vue`, `angular`): a Vue `emits`
+  and an Angular `output` are not React handler names. `binding` is set only when all three adapters
+  bind it; `states` is carried from `UI_COMPONENTS`; `demo` holds the first `UI_DEMOS` state's props.
+- A stale Reflex catalog marks each chart and component entry `stale: <wrapped version>` (REQ-556).
+- `ReflexCatalog` gains the optional `derived` (the interim pin, read from the wrapper's sources)
+  and `common` (the shared props' Python names).
+- `AgentCatalog.recommend` carries the rule table of §2.31, which `recommend_chart` reads.
 
 ## 3. The `silverpoint` ground
 
@@ -1001,6 +1104,12 @@ Verifiable, and each one with its test.
 | I-34 | `uiSortRows` is stable and total: for any rows and key, the output is a permutation of the input with nulls last. | REQ-474 |
 | I-35 | `uiPlace` keeps the overlay inside the viewport minus `padding` whenever it fits, and its output has at most 2 decimals. | REQ-493 |
 | I-36 | At most one element per open list overlay is heightened, and it is the `aria-activedescendant` of the Select or the focused item of the Menu. | REQ-498 |
+| I-37 | Every chart and component exported by any adapter has exactly one catalog entry, and vice versa. | REQ-536 |
+| I-38 | Every `PropEntry` of a chart or component equals the props reference's entry for it (name, type, optional, doc); only `default` and `reflex` are added. | REQ-530 |
+| I-39 | `catalog.version` equals the version of `@silverpoint/mcp` and of the core it ships with. | REQ-550 |
+| I-40 | `reflex.stale` is `reflex.wraps !== version`; a release build requires `false` when the pin is the wrapper's own export; with a derived pin (`derived` set) a stale catalog warns (amended in implementation, user decision 2026-10-20). | REQ-556 |
+| I-41 | Every `DataSpec.fields[].prop` is a prop of that chart. | REQ-541 |
+| I-42 | Every slug a rule names exists in `charts`. | REQ-540 |
 
 Feature-004's delta numbered I-31..I-36 as I-23..I-28, which feature-003's fold had already taken;
 they are renumbered here, and the feature-004 tests that cite them by the delta's number (palette,
@@ -1018,6 +1127,7 @@ they are renumbered here, and the feature-004 tests that cite them by the delta'
 | 1.5 | 2026-09-26 | Ernesto Crespo | Delta-012: §3.7 the `cyanotype` ground (one substrate, verified inks, inverted heightening, weight ramp); §5 matrix gains `cyanotype` (1,782 chart fixtures, 330 on PR; 90 dashboard fixtures); I-16 |
 | 1.6 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: component value contracts §2.14, the `ui` tokens and UI contrast pairs §3.8, UI demos in §4, 510 component fixtures in §5, invariants I-17..I-22 |
 | 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
+| 1.9 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: the agent catalog §2.28, chart metadata §2.29 (the nine families as built), the Reflex catalog §2.30, the recommender rules §2.31, invariants I-37..I-42. What the implementation changed is folded as built ("amended in implementation") |
 | 1.8 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: the `Palette` contract and its six presets §2.26; value contracts, sort order and page window of the composed components §2.27; `ui` tokens `backdrop` and `rowTone` (optional, defaults 2 and 1, declared by neither built-in ground) and five UI contrast pairs §3.8; palette contrast pairs §3.9; composed, palettes and timeline demos in §4; 36 states (860 UI matrix fixtures, 320 on PR; 10 timeline surface fixtures, 4 on PR) and 36 palette fixtures in §5 (906 nightly, 360 on PR); invariants I-31..I-36 (I-23..I-28 in the delta). What the implementation changed is folded as built ("amended in implementation") |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |

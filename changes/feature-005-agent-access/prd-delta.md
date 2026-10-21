@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 1, drafted and approved 2026-10-20 |
+| **Status** | `APPROVED` — gate 1, drafted and approved 2026-10-20; **folded into `specs/prd.md` (v1.14) on 2026-10-20** (T-251) |
 | **Amends** | [PRD](../../specs/prd.md) v1.13 → v1.14: §1, §3 (Persona 5), §4.1, §5.1, §5.2, §5.3, new §6.14, §7, §9 (Epic I), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.9, with the v1.10 amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |

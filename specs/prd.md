@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.13 |
+| **Version** | 1.14 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
 | **Last updated** | 2026-10-20 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.9 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.10 |
 
 ---
 
@@ -129,6 +129,14 @@ with `recharts`.
 - **Frequency of use:** Daily.
 - **Technical level:** Variable.
 
+### Persona 5: Agent-assisted developer
+- **Description:** Works in Claude Code, Cursor, VS Code or Claude, with an assistant writing much
+  of the code.
+- **Main need:** For the assistant to write silverpoint code that compiles and draws the right
+  chart the first time, in their framework, Python/Reflex included.
+- **Frequency of use:** Daily during development.
+- **Technical level:** Variable; the assistant carries the API.
+
 ## 4. Objectives and Success Metrics
 
 ### 4.1 Project objectives
@@ -154,6 +162,9 @@ with `recharts`.
 | Parity extends to composed components and overlays | Differences on their fixtures, three adapters, against canonical renders | 0 | Release 0.7.0 |
 | Accessible overlays | APG keyboard e2e per overlay pattern; axe on the composed page of the four apps | every pattern green; 0 A/AA issues | Release 0.7.0 |
 | No new runtime dependency | Packages' `dependencies` added by this feature | 0 (one optional peer, `@knight-lab/timelinejs`, on the timeline subpath only) | Release 0.7.0 |
+| Agents know the library | Charts and components in the agent catalog, generated from the types, with a committed copy CI regenerates without a diff | 60 of 60 and 38 of 38 | Release 0.8.0 |
+| What an agent writes compiles | The skill's examples and `generate_code`'s golden files type-checked in the example apps | 100% | Release 0.8.0 |
+| What an agent is shown is what the library draws | `render_chart` over the PR chart matrix against the canonical renders | 0 differences | Release 0.8.0 |
 
 ### 4.2 User Objectives
 
@@ -193,6 +204,10 @@ with `recharts`.
 - [ ] Twelve composed components and the surface and glyph they are built from (§6.13.2).
 - [ ] Seven overlays on the platform's `<dialog>` and Popover API (§6.13.3).
 - [ ] `SpTimeline`: Knight Lab TimelineJS drawn in the ground, behind an optional peer (§6.13.4).
+- [ ] The agent catalog, generated from the types, the catalogs, the demos and one metadata file (§6.14.1).
+- [ ] `@silverpoint/mcp`: an MCP server over stdio and Streamable HTTP (§6.14.2).
+- [ ] The `silverpoint` and `reflex-silverpoint` skills and their Claude plugin manifests (§6.14.3).
+- [ ] Hosting at the official site's `/mcp`, and `/llms.txt` (§6.14.4).
 
 ### 5.2 Out of Scope
 
@@ -223,6 +238,11 @@ with `recharts`.
 - Data reducers (group-by, mean, sum) inside a chart: the consumer aggregates; charts that derive a
   **distribution** (§6.12) are the one exception, because the distribution is the mark.
 - Force simulation as a live, animated process: `NetworkChart` lays out once, deterministically.
+- An LLM inside the MCP server. Every tool is deterministic (Art. 4); the agent is the client's.
+- Writing to the user's files or project, running user code, fetching URLs: the server is read-only.
+- Authentication, accounts, quotas per user: the server is public and stateless.
+- Skills or servers for frameworks the constitution does not support (Svelte, Solid…).
+- A hosted playground UI. The site's playground is a separate concern.
 
 ### 5.3 Future Considerations
 
@@ -239,6 +259,10 @@ with `recharts`.
   014..019 (`changes/feature-003-chart-catalog-expansion/research.md` §4).
 - Small multiples with shared scales, once the shared-scale model above exists.
 - A multi-select and a combobox with free text, on the listbox engine of the overlays (DD-039).
+- Render a whole dashboard (`render_dashboard`) once the dashboard has a headless pipeline as charts do.
+- MCP Apps / interactive UI resources, when the clients converge.
+- A Vue/Angular-specific skill split if the shared skill grows past its size budget.
+- A PNG render (REQ-544), once the ground's paint can be flattened into presentation attributes.
 
 ## 6. Functional Requirements
 
@@ -850,6 +874,95 @@ package manager does not hoist it).
 **Count:** §6.13 holds 57 requirements (56 MUST, 1 SHOULD). With the rest of §6 the PRD has 270
 requirements (250 MUST).
 
+### 6.14 Agent access
+
+silverpoint is newer than every language model's training data, so agents wrote it badly or not at
+all. This section gives agents the facts, generated from the published types so they cannot drift.
+The agent catalog is the single source; the server and the skills are views of it. A tool or a
+skill never states a prop, a default or a name the catalog does not hold.
+
+#### 6.14.1 The agent catalog
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-530 | ubiquitous | THE SYSTEM SHALL generate one agent catalog (`agent-catalog.json`, Data Model §2.28) from the published types (the props pipeline of REQ-332), the chart catalog, `UI_COMPONENTS`, the demos and one metadata file; no prop, type or default SHALL be typed by hand. | MUST |
+| REQ-531 | ubiquitous | The catalog SHALL describe each of the 60 charts with its names and import paths in React, Vue, Angular and Reflex, its family, a one-line summary, the data shape it reads, the intents it serves, its own props (name, type, optional, default, doc) and a reference to its demo dataset. | MUST |
+| REQ-532 | ubiquitous | The catalog SHALL describe each of the 38 UI components with its names and import paths per framework, its family and group, its props, its value and open bindings per framework, its events and its slots. | MUST |
+| REQ-533 | ubiquitous | The catalog SHALL describe the props every chart and every component shares, the dashboard and its layout, the grounds and substrates, the six palette presets and the palette fields, the timeline and its optional peer, and the 25 diagnostic codes with their requirement, condition and remedy. | MUST |
+| REQ-534 | ubiquitous | The catalog SHALL carry the library version it describes and, for Reflex, the `reflex-silverpoint-react` version and the silverpoint version that release wraps. | MUST |
+| REQ-535 | event | WHEN a public type, a catalog row, a demo or the metadata file changes, CI SHALL regenerate the catalog and fail if the committed one differs. | MUST |
+| REQ-536 | unwanted | IF a chart or component exported by an adapter is missing from the catalog, or the catalog names one no adapter exports, or a chart lacks family, summary, data shape or an intent, THEN CI SHALL fail. | MUST |
+| REQ-537 | ubiquitous | The catalog SHALL ship inside `@silverpoint/mcp` and be published by the official site at `/agent-catalog.json`. | MUST |
+
+#### 6.14.2 The MCP server
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-538 | ubiquitous | `@silverpoint/mcp` SHALL expose an MCP server over stdio (an executable, `silverpoint-mcp`) and over stateless Streamable HTTP (a request handler), with the same tools and resources on both. | MUST |
+| REQ-539 | ubiquitous | The server SHALL provide the tools of API Spec §14.3 —`get_version`, `list_charts`, `get_chart`, `list_components`, `get_component`, `recommend_chart`, `generate_code`, `validate_props`, `render_chart`, `check_palette`, `search_catalog`— each with a JSON Schema input and a structured output. | MUST |
+| REQ-540 | event | WHEN `recommend_chart` receives a data shape and an intent, THE SYSTEM SHALL return at most five charts ranked by the rules of Data Model §2.31, each with its reasons, identically for identical input (Art. 4). | MUST |
+| REQ-541 | event | WHEN `generate_code` receives a chart or component, a framework (`react`, `vue`, `angular`, `reflex`) and optional field names and props, THE SYSTEM SHALL return the imports, the stylesheet imports and the code, using only names, paths and props the catalog holds, with the user's field names as accessors. | MUST |
+| REQ-542 | event | WHEN `validate_props` receives a chart and props, THE SYSTEM SHALL build the chart with the core and return every diagnostic raised (code, severity, requirement, message, remedy) and every prop the chart does not declare. | MUST |
+| REQ-543 | event | WHEN `render_chart` receives a chart, props, a size and an id, THE SYSTEM SHALL return a standalone SVG whose parsed tree, with the inlined stylesheet set aside, is identical to the canonical render of the same chart, props, size and id (Art. 3). | MUST |
+| REQ-544 | optional | WHERE the client asks for `format: "png"`, THE SYSTEM SHOULD return the render rasterised as an MCP image, for clients that cannot display SVG. | SHOULD |
+| REQ-545 | event | WHEN `check_palette` receives a palette, THE SYSTEM SHALL return the findings of the core's `checkPalette` for it (REQ-465). | MUST |
+| REQ-546 | ubiquitous | The server SHALL provide the resources of API Spec §14.4: the whole catalog, one per chart and per component, the guides of the `silverpoint` skill, and the diagnostic codes. | MUST |
+| REQ-547 | unwanted | IF a code pattern is not run by an example app (REQ-520) —today, an `SpButton` as an overlay's `trigger` (delta-014)— THEN `generate_code` and the skills SHALL NOT emit it. | MUST |
+| REQ-548 | optional | WHERE the client supports prompts, THE SYSTEM SHOULD offer `choose-chart` and `build-dashboard` prompts that sequence the tools. | SHOULD |
+| REQ-549 | unwanted | IF a tool receives an unknown chart, component, framework, ground, substrate or palette, THEN it SHALL return a tool error naming the closest valid names, never an exception or an empty result. | MUST |
+| REQ-550 | ubiquitous | Every tool result SHALL carry the library version it was computed with, which SHALL be the version of the catalog the server ships. | MUST |
+| REQ-551 | unwanted | IF a request would make the server write a file, open a network connection, read the environment beyond its configuration or evaluate code from the request, THEN the server SHALL refuse it: the server has no such capability. | MUST |
+
+#### 6.14.3 The skills
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-552 | ubiquitous | This repository SHALL provide the `silverpoint` skill (`skills/silverpoint/`), written in English: a `SKILL.md` and references for choosing a chart, the charts by family, the components, grounds and palettes, the dashboard, the timeline, and React, Vue and Angular usage, its props tables generated from the catalog. | MUST |
+| REQ-553 | ubiquitous | `reflex-silverpoint-react` SHALL provide the `reflex-silverpoint` skill, written in English, generated from its own catalog export (DD-049): builders, state-driven props and events, the provider and palettes, composed components and overlays, the timeline, and the demo app's patterns. | MUST |
+| REQ-554 | ubiquitous | Each skill SHALL name the version it describes, SHALL tell the agent to prefer the MCP tools when they are connected, and SHALL keep its `SKILL.md` under 500 lines with the rest in references loaded on demand. | MUST |
+| REQ-555 | ubiquitous | Each repository SHALL publish a Claude plugin manifest that installs its skill and the hosted MCP server. | MUST |
+| REQ-556 | unwanted | IF the Reflex catalog wraps a silverpoint version other than the one the agent catalog describes, THEN the catalog build SHALL mark every Reflex entry `stale` with the version it wraps, and a release build SHALL fail. | MUST |
+| REQ-557 | ubiquitous | CI SHALL extract every code example of both skills and the code of `generate_code`'s golden tests, and type-check them (React, Vue and Angular with the example apps' compilers; Reflex by importing and rendering the components). | MUST |
+
+#### 6.14.4 Hosting and the official site
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-558 | ubiquitous | The HTTP server SHALL run as a serverless function and be reachable at the official site's `/mcp`; the site SHALL stay a static, frontend-only export. | MUST |
+| REQ-559 | ubiquitous | A cold start SHALL answer within 1.5 s and `render_chart` of a demo dataset within 300 ms at p95. | MUST |
+| REQ-560 | unwanted | IF a request body exceeds 256 KB, a dataset 5,000 rows, a string 1,000 characters, or a render the path budget (`PATH_BYTE_BUDGET`), THEN the server SHALL reject it with a tool error before computing. | MUST |
+| REQ-561 | optional | WHERE the deployment provides a shared store, THE SYSTEM SHOULD limit each client address to 60 tool calls per minute. | SHOULD |
+| REQ-562 | ubiquitous | The server SHALL keep no state between requests and SHALL NOT log request bodies; it MAY count calls per tool. | MUST |
+| REQ-563 | ubiquitous | Tool descriptions and results SHALL be data from this repository's catalog only, and SHALL NOT carry instructions to the agent beyond the tools' own documentation. | MUST |
+| REQ-564 | ubiquitous | The official site SHALL publish `/llms.txt` and `/llms-full.txt`, generated from the agent catalog at export. | MUST |
+| REQ-565 | ubiquitous | The official site SHALL have a "Use with AI" page: the MCP URL, configuration for the common clients, how to install each skill, and the local `npx @silverpoint/mcp` alternative. | MUST |
+
+#### 6.14.5 Quality
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-566 | ubiquitous | Every tool SHALL have contract tests: its input schema, its errors (REQ-549) and golden outputs. | MUST |
+| REQ-567 | ubiquitous | CI SHALL run `render_chart` over every chart fixture of the PR matrix and compare each result to its canonical render as REQ-543 states. | MUST |
+| REQ-568 | ubiquitous | CI SHALL start the built HTTP handler and run an MCP client smoke test: initialise, list tools and resources, call every tool once. | MUST |
+| REQ-569 | ubiquitous | `@silverpoint/mcp` SHALL have a README and the documentation site a page for agent access, generated where they list tools from the server's own definitions. | MUST |
+
+*Amended in implementation:* (1) **REQ-544 (PNG, SHOULD) is deferred** (user decision 2026-10-20):
+the WASM rasteriser resolves no `var(--sp-*)` and reads no WOFF2, so a faithful PNG needs the
+ground's paint flattened into presentation attributes first; `render_chart` takes no `format`.
+(2) **REQ-556** applies in its strict form only when the Reflex pin is the wrapper's own export; the
+interim pin, derived from the wrapper's sources (`derived` set), makes a stale release build warn
+instead of fail (user decision 2026-10-20, option b). (3) **REQ-561 (rate limit, SHOULD) is not
+implemented**: no shared store is configured, so the payload limits of REQ-560 stand alone.
+(4) REQ-555: the plugin declares its server inline in `plugin.json`, not in a root `.mcp.json`,
+which would connect every session opened in the repository. (5) REQ-559 measured 0.31 s cold start
+and 13 ms `render_chart` p95 over the 60 demos. (6) REQ-569: the README's tool table and the site's
+`docs/site/generated/agent-tools.json` are read from a running server and diffed by the catalog check;
+the site's page is `/#/ai`, "Use with AI". (7) The release commit runs the catalog's `generate`
+after `version-packages`, and the release job runs its `check --release` before publishing.
+
+**Count:** §6.14 holds 40 requirements (37 MUST, 3 SHOULD). With the rest of §6 the PRD has 310
+requirements (287 MUST).
+
 ## 7. Non-Functional Requirements
 
 The template assumes a service; silverpoint is a client library, so two headings are
@@ -881,12 +994,14 @@ reinterpreted and the original is stated.
   `uiSortRows` sorts 10,000 rows in < 10 ms; `uiPlace`, `uiListKey` and `uiTypeahead` < 0.05 ms per
   call. Benchmarks beside the UI ones.
 - **Weight, `0.7.0`:** REQ-518 and REQ-519, measured by size-limit on every PR.
+- **The MCP server, `0.8.0`:** REQ-559. The catalog is loaded once per instance (≤ 1 MB).
 
 ### Security
 
 - The surface is a supply chain, not a server: allowlisted dependencies, `pnpm audit` in CI,
   publication with Trusted Publishing and no tokens in the repository.
 - THE SYSTEM SHALL NOT interpolate user content as markup; all text enters as a text node.
+- The MCP endpoint: REQ-551, REQ-560..563. No secrets in the package; the deployment needs none.
 
 ### Compatibility *(in place of "Availability")*
 
@@ -901,6 +1016,8 @@ reinterpreted and the original is stated.
 - `<dialog>` with `showModal()`, the Popover API and exclusive `<details name>` are Baseline in the
   pinned Chromium, Firefox and WebKit of the e2e job; the e2e job checks each.
 - TimelineJS: the optional peer `@knight-lab/timelinejs` `^3.9.13`.
+- MCP: the protocol version pinned in the Technical Design (DD-044); clients tested: Claude Code,
+  Claude (connector), MCP Inspector.
 
 ### Data volume *(in place of "Scalability")*
 
@@ -1033,6 +1150,16 @@ writing a grid around the cards in every app.
 - **H4.** As Persona 3, I tell a story with `SpTimeline` and its markers are drawn with the same hand
   as the cards around it.
 
+### Epic I — Agent access
+
+| Story | Requirements |
+|---|---|
+| I-1 As Persona 5, my assistant knows every chart and component, in my framework | REQ-530..537, REQ-552, REQ-553 |
+| I-2 As Persona 1, I ask which chart fits and see it drawn before coding | REQ-540, REQ-543, REQ-544 |
+| I-3 As Persona 5, generated code compiles and validates | REQ-541, REQ-542, REQ-547, REQ-557 |
+| I-4 As a Reflex user, the assistant writes idiomatic `reflex-silverpoint-react` | REQ-553, REQ-556 |
+| I-5 As maintainer, nothing drifts and the endpoint is safe | REQ-535, REQ-536, REQ-551, REQ-560..563, REQ-566..568 |
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -1073,6 +1200,9 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | Palette support grows the one-chart bundle past REQ-444 | Medium | Medium | The presets and the palette API live on their own subpath; measured in step 8a before any adapter work. *Amended in implementation:* it did; the gate was re-baselined to `0.6.0` with a 2 KB allowance (REQ-519, user decisions 2026-10-18 and 2026-10-19) |
 | TimelineJS (MPL-2.0) changes its DOM between versions | Medium | Low | Optional peer pinned to `^3.9.13`; the skin is outside the tree gate; a pixel fixture over a pinned version catches drift |
 | Inline palette styles collide with a consumer's `style` | Low | Low | The core merges the consumer's `style` after the palette's, so the consumer wins |
+| Agents are shown props or names the library does not have | High | High | Everything an agent reads is generated from the types and diffed in CI (REQ-535); examples and generated code are type-checked (REQ-557) |
+| A public endpoint is abused | Medium | Medium | Read-only, stateless, payload limits before any work (REQ-560), no request logging; a rate limit once a shared store exists (REQ-561) |
+| The Reflex wrapper lags the library | High | Medium | Its catalog carries the version it wraps; entries are marked `stale`, and a release fails on a stale export (REQ-556) |
 
 ## 12. Estimated Timeline
 
@@ -1092,6 +1222,7 @@ commitments.
 | Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
 | Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; the three waves released together as 0.6.0 (user decision 2026-10-10) |
 | Phase 8 — composed components | 3 batches | Palettes, 21 components × 3 adapters and `SpTimeline` (§6.13), their gates, example-app pages and docs; released in 0.7.0 |
+| Phase 9 — agent access | 7 steps | The agent catalog, `@silverpoint/mcp`, the skills and plugin manifests, the hosted endpoint (§6.14); three repositories; target 0.8.0 |
 
 ---
 
@@ -1099,6 +1230,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.14 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: §6.14 agent access (REQ-530..REQ-569; 40 requirements: 37 MUST, 3 SHOULD; 270 → 310 in all, 287 MUST); Persona 5, §4.1, §5.1–§5.3, §7 additions, Epic I, §11 risks, §12 Phase 9; what the implementation changed folded as built ("amended in implementation"): REQ-544 deferred, REQ-556 strict only for the wrapper's own export, REQ-561 not implemented |
 | 1.13 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: §6.13 palettes, composed components, overlays and the timeline (REQ-460..REQ-523; 57 requirements: 56 MUST, 1 SHOULD; 213 → 270 in all, 250 MUST); §1, §4.1, §5.1–§5.3, §6.3, §7 additions, Epic H, §11 risks, §12 Phase 8; REQ-444's gate re-baselined to `0.6.0`; what the implementation changed folded as built ("amended in implementation"): REQ-489 without Collapse, REQ-499, REQ-519 at 2 KB |
 | 1.12 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: §6.4 split into §6.4.1 and §6.4.2 (27 charts, REQ-400..REQ-426), §6.12 derived geometry (REQ-430..REQ-450); 48 requirements, 165 → 213 in all; §1, §4.1, §5.1–§5.3, §7 additions, Epic G, §11 risks, §12 Phase 7 |
 | 1.11 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: §6.11 UI components, REQ-300..REQ-334 (35 requirements: 33 MUST, 2 SHOULD; 130 → 165 in all); §4.1 metrics, §5.1–§5.3 scope, §7 additions, Epic F, §11 risks; released in 0.3.0 |

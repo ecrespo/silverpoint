@@ -39,10 +39,20 @@ function angularEntries(): { charts: Set<string>; ui: Set<string> } {
 
 export interface CheckResult {
   readonly errors: string[];
+  readonly warnings: string[];
 }
 
-export function checkCatalog(catalog: AgentCatalog, { release }: { readonly release: boolean }): CheckResult {
+/** The pin is interim (T-231) while it is derived here rather than exported by the Reflex package (DD-049). */
+export const isInterim = (reflex: { readonly derived?: string }): boolean => reflex.derived !== undefined;
+
+/**
+ * `release` refuses a stale Reflex catalog (REQ-556), but only once the pin is the Reflex package's
+ * own export (`interim: false`): the interim pin, derived here, can only warn (user decision
+ * 2026-10-21, the strict check starts with the wrapper's next version).
+ */
+export function checkCatalog(catalog: AgentCatalog, { release, interim }: { readonly release: boolean; readonly interim: boolean }): CheckResult {
   const errors: string[] = [];
+  const warnings: string[] = [];
   const charts = new Set(catalog.charts.map((c) => c.slug));
   const components = new Set(catalog.components.map((c) => c.slug));
 
@@ -89,7 +99,9 @@ export function checkCatalog(catalog: AgentCatalog, { release }: { readonly rele
   // I-40, REQ-556: a stale Reflex catalog is reported; a release refuses it.
   if (catalog.reflex.stale !== (catalog.reflex.wraps !== catalog.version)) errors.push('I-40 · reflex.stale does not match reflex.wraps');
   if (release && catalog.reflex.stale) {
-    errors.push(`REQ-556 · reflex-silverpoint-react ${catalog.reflex.version} wraps silverpoint ${catalog.reflex.wraps}, not ${catalog.version}: pin a Reflex catalog that wraps it`);
+    const message = `REQ-556 · reflex-silverpoint-react ${catalog.reflex.version} wraps silverpoint ${catalog.reflex.wraps}, not ${catalog.version}`;
+    if (interim) warnings.push(`${message}; the pin is interim, so the release goes ahead with every Reflex entry marked stale`);
+    else errors.push(`${message}: pin a Reflex catalog that wraps it`);
   }
 
   // The stylesheets resolve to files the packages export.
@@ -99,13 +111,15 @@ export function checkCatalog(catalog: AgentCatalog, { release }: { readonly rele
       errors.push(`REQ-533 · ${sheet} is not exported by @silverpoint/${match[1]}`);
     }
   }
-  return { errors };
+  return { errors, warnings };
 }
 
 async function main(): Promise<void> {
-  const { buildAgentCatalog, CATALOG_FILE, serialise } = await import('./catalog');
+  const { buildAgentCatalog, CATALOG_FILE, REFLEX_FILE, serialise } = await import('./catalog');
   const catalog = await buildAgentCatalog();
-  const errors = checkCatalog(catalog, { release: process.argv.includes('--release') }).errors;
+  const pin = JSON.parse(readFileSync(REFLEX_FILE, 'utf8')) as { derived?: string };
+  const { errors, warnings } = checkCatalog(catalog, { release: process.argv.includes('--release'), interim: isInterim(pin) });
+  for (const warning of warnings) console.warn(warning);
   if (!existsSync(CATALOG_FILE) || readFileSync(CATALOG_FILE, 'utf8') !== serialise(catalog)) {
     errors.unshift('REQ-535 · packages/mcp/agent-catalog.json is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
@@ -133,6 +147,13 @@ async function main(): Promise<void> {
   }
   if (!existsSync(GUIDES_FILE) || readFileSync(GUIDES_FILE, 'utf8') !== guidesSource(skill)) {
     errors.unshift('API delta §4 · packages/mcp/src/guides.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
+  const { DOCS_TOOLS_FILE, README_FILE, toolList, toolsJson, withTools } = await import('./agent-tools');
+  const tools = await toolList();
+  const readme = readFileSync(README_FILE, 'utf8');
+  if (withTools(readme, tools) !== readme) errors.unshift('REQ-569 · packages/mcp/README.md does not list the server’s tools: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  if (!existsSync(DOCS_TOOLS_FILE) || readFileSync(DOCS_TOOLS_FILE, 'utf8') !== toolsJson(tools)) {
+    errors.unshift('REQ-569 · docs/site/generated/agent-tools.json is not the server’s tool list: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
   if (catalog.reflex.stale) console.warn(`reflex-silverpoint-react ${catalog.reflex.version} wraps ${catalog.reflex.wraps}; every Reflex entry is marked stale (REQ-556)`);
   for (const error of errors) console.error(error);

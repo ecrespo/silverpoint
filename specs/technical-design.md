@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.10 |
+| **Version** | 1.11 |
 | **Date** | 2026-10-20 |
-| **Related PRD** | [`prd.md`](prd.md) v1.13 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.11 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.9 |
+| **Related PRD** | [`prd.md`](prd.md) v1.14 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.12 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.10 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
 > Here "Security" is read as supply chain (§6), "Observability" as development diagnostics
@@ -123,6 +123,10 @@ except the measured dimensions of the container.
 | `timeline/timeline-css.ts` | grounds | `dist/timeline.css`, generated like `ui.css` (no literal colour, I-19) |
 | `ui/*`, `timeline` | react, vue, angular | Bind values, events, slots and the platform calls; nothing else. Amended in implementation (#215): Angular's overlay base, `SpTrigger` and `uiListKeys` are their own entry, `@silverpoint/angular/ui/overlay` |
 | `tools/contrast-gate` | tools | `PALETTE_PAIRS` × the six presets join the gate (REQ-464) |
+| `packages/mcp` | `@modelcontextprotocol/sdk`, `zod` | `@silverpoint/mcp`: `createServer` (tools, resources, prompts), `./http` `handler`, the stdio bin; renders and validates only through the core and the grounds (Art. 2, DD-044, DD-047, DD-048) |
+| `tools/agent-catalog` | in-house, build only | The agent catalog, the props reference, the skill's references, the plugin manifests, the server's generated assets and the README's tool table; `generate` writes, `check` diffs (DD-045, DD-050) |
+| `apps/mcp-vercel` | Vercel function | The deployment wrapper: `api/mcp.ts` hands each method to `handler` (DD-050) |
+| `tools/mcp-smoke`, `tools/mcp-latency` | tools | The MCP client smoke test, local and post-deploy (REQ-568); the latency budget (REQ-559) |
 | `tools/svg-normalizer` | in-house | Canonical form for the string gate |
 | `tools/visual-gate` | Playwright | Art. 3 pixel gates |
 | `tools/lint-rules` | in-house ESLint | Forbids `Math.random`, `Date.now` and cross imports |
@@ -1210,6 +1214,119 @@ stay in the main entry. React's drillable charts use `createDrillableChart`.
   written before it. `uiAnchor` re-places on a size change of the trigger or the overlay too. A
   `ui.css` rule relating two component roots matches through two `display: contents` wrappers.
 
+### DD-044: `@silverpoint/mcp` is a package of its own, in the fixed group
+
+The server needs the core and the grounds at exactly the library's version, or `render_chart` and
+`validate_props` describe another library. A package in the Changesets `fixed` group gets that by
+construction (`workspace:*`, one version), is published by the same CI with provenance, and runs
+locally as `npx @silverpoint/mcp`. It is not an adapter (it contributes no component layer, so the
+"React, Angular and Vue only" decision holds); the constitution's scope line names it (amendment).
+Rejected: a private app only (no stdio for users, no version guarantee on the catalog); a separate
+repository (version drift is the very problem).
+
+### DD-045: One agent catalog, generated, committed, diffed
+
+`tools/agent-catalog/generate.ts` composes: the props reference (the TypeScript-compiler pipeline
+of `docs/site/scripts/props.ts`, moved to `tools/agent-catalog/props.ts` and imported back by the
+docs site, so there is one), `CATALOG` (subpaths, recipes), `UI_COMPONENTS` (families, groups,
+states), the demo names, `diagnose.ts`'s tables, the palettes, the API Spec naming rule (React
+`PascalCase`, Vue `Sp`+`PascalCase`, Angular `sp-`+kebab), `charts.meta.ts` and the pinned Reflex
+catalog. Output is sorted and stable (Art. 4). `check.ts` implements REQ-535/536/556; CI runs
+`generate` and fails on a diff, as `props.json` is handled today. The site and the skills read the
+same file.
+
+### DD-046: The recommender is a table, not a model
+
+`recommend.rules.ts` maps `(shape, intent)` to candidate charts with a base score, and adjusts by
+field counts and row volume (e.g. `categories` with > 12 rows demotes radial charts; `series` with
+> 1 value field promotes multi-series charts). Ties break by catalog order. Reasons are the rule's
+own sentences. Deterministic, testable with golden tables, reviewable in a PR.
+
+### DD-047: `render_chart` is the canonical pipeline plus a stylesheet
+
+`renderChart(RECIPES[chart], props, { id, width })` then `toSVGString` — the same calls as
+`tools/visual-gate/fixtures.ts` `coreSvgFor`, so REQ-543 holds by construction and REQ-567 proves it.
+To render coloured outside a page, the root `<svg>` gets a `<style>` holding the ground's rules
+from `@silverpoint/grounds/styles.css` (read at build time, 12 KB, minified) scoped to the root, and
+the palette's declarations stay where the core writes them. The parity comparison sets the
+`<style>` aside. Fonts: `font-family` falls back to `Georgia, serif`; `embedFonts: true` inlines a
+WOFF2 subset of EB Garamond regular (OQ-E3). PNG (REQ-544) rasterises the standalone SVG with a WASM
+SVG renderer, loaded only when asked (OQ-E4).
+
+### DD-048: Validation through the core's sink
+
+`validate_props` builds the chart inside a scope that swaps the core's warning sink for a collector
+(`__setDiagnosticSink`, restored in `finally`) and catches `SilverpointError` for error codes. The
+internal function is used, not promoted: `@silverpoint/mcp` is in the fixed group, so it always
+ships with the core it was tested against; a public sink would cost the core budget for every user
+(OQ-E5). Unknown props are the props given minus the catalog's declared names.
+- *Amended in implementation* (#237): the core strips its warnings where `NODE_ENV` is `production`,
+  as a deployment sets it, and the published build reads it at call time; the collector runs the
+  build as `development` and restores the variable, and the handler's bundle must not inline
+  `process.env.NODE_ENV`. Thirteen codes are reachable from a chart's props, each with a test.
+
+### DD-049: The Reflex side: an exported catalog, pinned here
+
+`reflex-silverpoint-react` gains `scripts/export_catalog.py`, writing `reflex-catalog.json` (Data
+Model §2.30) from `CHARTS`, `UI_COMPONENTS`, the builders' signatures and `SILVERPOINT_VERSION`,
+attached to each GitHub release and checked in CI there (it must round-trip its own tests). This
+repository pins one export under `tools/agent-catalog/reflex/` with `pnpm agent-catalog:pull-reflex
+<version>`; the generator joins it by slug and applies REQ-556. The Reflex skill is generated in its
+own repository from the same export, so both skills and the MCP agree on Python names.
+- *Amended in implementation* (#229, #231): until the wrapper exports its catalog, the pin is derived
+  from its sources by `tools/agent-catalog/reflex/derive.py` (Python `ast`, never importing them) and
+  says so in `derived`. The root `package.json` is read-only, so the pull is a script of
+  `@silverpoint/agent-catalog`. REQ-556's release failure applies to the wrapper's own export; a
+  derived pin that is stale makes `check --release` warn (user decision 2026-10-20, option b), and
+  the release job runs that check before publishing.
+
+### DD-050: Skills are templates plus generated references; hosting is a rewrite
+
+Hand-written prose (judgement, idioms, pitfalls) lives in `skills/*/templates`; generated tables are
+written into `references/` by `tools/agent-catalog/skill.ts` (and `scripts/make_skill.py` in the
+Reflex repository) in the release commit. CI extracts fenced code blocks and type-checks them
+(REQ-557): React/Vue/Angular inside the example apps' compilers, Reflex by import and `.render()`.
+
+Hosting: `apps/mcp-vercel` is a Vercel project whose function calls `handler`; `silverpoint_web`'s
+`vercel.json` rewrites `/mcp` to it and its catch-all becomes `/((?!mcp|agent-catalog\.json|llms).*)`.
+Stateless HTTP needs no session store; REQ-561's rate limit uses the platform's store if one is
+configured and is skipped otherwise.
+- *Amended in implementation* (#241, #242, #245, #248, #249): no store is configured, so the rate
+  limit is skipped. `handler` builds a server and a transport per request and closes both in
+  `finally`; JSON responses, no session id. `apps/mcp-vercel/vercel.json` builds `@silverpoint/mcp`
+  and its workspace dependencies and rewrites `/mcp` to the function. The post-deploy smoke test
+  (`.github/workflows/mcp-smoke.yml`) takes the deployment URL through the environment, validated
+  against the `*.vercel.app` form, and only from Vercel's own `deployment_status`. The skill's
+  templates live in `skills/silverpoint/templates/` and its generated blocks between
+  `<!-- generated:<block> -->` markers; the fence info string names the compiler (`tsx`, `vue`,
+  `ts react|vue|angular`, `python`), and any other non-prose fence is refused. `generate` also writes
+  the server's guides module, the plugin manifests' versions, the README's tool table and the docs
+  site's `agent-tools.json`, each read from the running server where it lists tools (REQ-569); the
+  release commit runs `generate` after `version-packages`. The plugin declares its server inline in
+  `plugin.json`.
+
+The package map of feature-005:
+
+```
+packages/mcp/                @silverpoint/mcp (fixed group)
+  src/catalog.ts             loads agent-catalog.json (bundled), indexes by slug and name
+  src/tools/*.ts             one module per tool; pure functions (input, catalog) → output
+  src/render.ts              renderChart + toSVGString (@silverpoint/grounds) + inlined stylesheet
+  src/diagnostics.ts         the capturing sink around a build (DD-048)
+  src/codegen/{react,vue,angular,reflex}.ts
+  src/server.ts              createServer(): registers tools, resources, prompts
+  src/http.ts                handler(Request) → Response, stateless Streamable HTTP
+  src/bin.ts                 stdio
+  agent-catalog.json         generated (DD-045), committed
+tools/agent-catalog/         private: the generator, the metadata file, the Reflex catalog pin
+  charts.meta.ts             family, summary, data shape, field roles, intents per chart (Data Model §2.29)
+  recommend.rules.ts         the recommender table (Data Model §2.31)
+  reflex/reflex-catalog.json the pinned export of reflex-silverpoint-react (DD-049)
+  generate.ts, check.ts
+skills/silverpoint/          the skill (DD-050)
+apps/mcp-vercel/             private: the deployment wrapper (api/mcp.ts → handler), vercel.json
+```
+
 ## 5. Patterns and Conventions
 
 ### 5.1 Monorepo structure
@@ -1328,6 +1445,7 @@ Closes REQ-162. Any addition requires an amendment to this document.
 | `@silverpoint/vue` | `@silverpoint/core`, `@silverpoint/grounds`; `peer`: `vue` |
 | `@silverpoint/angular` | `@silverpoint/core`, `@silverpoint/grounds`, `tslib` (the compiler helpers `ng-packagr` emits imports of); `peer`: `@angular/core`, `@angular/common` |
 | `@silverpoint/fonts` | none — only woff2 and CSS |
+| `@silverpoint/mcp` | `@silverpoint/core`, `@silverpoint/grounds`, `@modelcontextprotocol/sdk` (1.32.1, exact), `zod`; no peer (feature-005, DD-044) |
 
 Forbidden in all of them: `d3-selection` and any d3 module that touches the DOM. `d3-array`
 enters as a transitive of `d3-scale` but **is not imported directly**: `extent`, `max` and
@@ -1582,6 +1700,7 @@ OQ-C numbers the feature's ledger cites):
 | 1.8 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: UI components (§3.2, §3.3), DD-021..DD-027, structure (§5.1), tests (§8), decisions OQ-U1..OQ-U6 (§10) |
 | 1.9 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: the second catalog's modules (§3.2, §5.1), DD-028..DD-036 with their implementation amendments, allowlist rule (§5.3), `SP020`–`SP022` (§7), tests (§8), decisions OQ-C1..OQ-C5 (§10) |
 | 1.10 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: palettes, composed components, overlays and the timeline — modules (§3.2), data flow (§3.3), DD-037..DD-043 with their implementation amendments (43 design decisions), structure (§5.1), TimelineJS as an optional peer (§5.3), `SP023`–`SP025` (§7), tests (§8), decisions OQ-C1..OQ-C4 of feature-004 and OQ-U6 closed (§10) |
+| 1.11 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: agent access — modules (§3.2), DD-044..DD-050 with their implementation amendments (50 design decisions; no PNG, the derived Reflex pin, no rate limit), `@silverpoint/mcp` in the allowlist (§5.3), the package map |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check

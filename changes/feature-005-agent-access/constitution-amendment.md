@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — proposed and approved 2026-10-20 with gate 1; folded into `specs/constitution.md` at T-251 |
+| **Status** | `APPROVED` — proposed and approved 2026-10-20 with gate 1; **folded into `specs/constitution.md` (v1.10) on 2026-10-20** (T-251) |
 | **Articles** | Scope line; Art. 2 (addition) |
 
 ## 1. Scope line
