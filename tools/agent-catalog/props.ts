@@ -32,6 +32,8 @@ export interface PropsReference {
   readonly palette: readonly PropDoc[];
   /** `SpTimeline`'s own props (REQ-510); it takes the common UI props too. */
   readonly timeline: readonly PropDoc[];
+  /** `SpDeck`'s props, its handlers aside (feature-006, REQ-627). */
+  readonly deck: readonly PropDoc[];
 }
 
 const PROPS = fileURLToPath(new URL('../../packages/core/src/types/props.ts', import.meta.url));
@@ -39,6 +41,7 @@ const UI_TYPES = fileURLToPath(new URL('../../packages/core/src/ui/types.ts', im
 const DASHBOARD = fileURLToPath(new URL('../../packages/core/src/dashboard/types.ts', import.meta.url));
 const PALETTE = fileURLToPath(new URL('../../packages/core/src/palette/palette.ts', import.meta.url));
 const TIMELINE = fileURLToPath(new URL('../../packages/core/src/timeline/types.ts', import.meta.url));
+const DECK = fileURLToPath(new URL('../../packages/react/src/deck/index.tsx', import.meta.url));
 
 /** Every interface and object type alias of a source file, by name, with its property signatures documented. */
 export function interfacesIn(source: string, fileName = 'props.ts'): Map<string, PropDoc[]> {
@@ -127,5 +130,7 @@ export function propsReference(): PropsReference {
     },
     palette: interfacesIn(readFileSync(PALETTE, 'utf8')).get('Palette') ?? [],
     timeline: interfacesIn(readFileSync(TIMELINE, 'utf8')).get('SpTimelineProps') ?? [],
+    // The React adapter declares `SpDeckProps` (feature-006); its handlers are the events, documented apart.
+    deck: (interfacesIn(readFileSync(DECK, 'utf8'), 'deck.tsx').get('SpDeckProps') ?? []).filter((p) => !/^on[A-Z]/.test(p.name)),
   };
 }

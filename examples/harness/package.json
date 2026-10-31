@@ -17,6 +17,7 @@
   "dependencies": {
     "@silverpoint/core": "workspace:*",
     "@silverpoint/fonts": "workspace:*",
-    "@silverpoint/grounds": "workspace:*"
+    "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/marp": "workspace:*"
   }
 }

@@ -8,6 +8,7 @@ import { Adapters } from './pages/adapters';
 import { AgentPage } from './pages/agent';
 import { ChartPage } from './pages/chart';
 import { DashboardPage } from './pages/dashboard';
+import { DeckPage } from './pages/deck';
 import { Gallery } from './pages/gallery';
 import { Home } from './pages/home';
 import { Playground } from './pages/playground';
@@ -37,6 +38,7 @@ const NAV = [
   ['/overlays', 'Overlays'],
   ['/palettes', 'Palettes'],
   ['/timeline', 'Timeline'],
+  ['/deck', 'Decks'],
   ['/ai', 'Use with AI'],
 ] as const;
 
@@ -50,6 +52,7 @@ function Page({ route }: { route: string }) {
   if (route === '/overlays') return <UiGallery family="overlay" />;
   if (route === '/palettes') return <PalettesPage />;
   if (route === '/timeline') return <TimelinePage />;
+  if (route === '/deck') return <DeckPage />;
   if (route === '/ai') return <AgentPage />;
   if (route.startsWith('/ui/')) return <UiPage slug={route.slice('/ui/'.length)} />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;

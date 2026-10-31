@@ -241,6 +241,9 @@ importers:
       '@silverpoint/grounds':
         specifier: workspace:*
         version: link:../../packages/grounds
+      '@silverpoint/marp':
+        specifier: workspace:*
+        version: link:../../packages/marp
       '@silverpoint/react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -348,6 +351,9 @@ importers:
       '@silverpoint/grounds':
         specifier: workspace:*
         version: link:../../packages/grounds
+      '@silverpoint/marp':
+        specifier: workspace:*
+        version: link:../../packages/marp
 
   examples/nextjs:
     dependencies:

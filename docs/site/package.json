@@ -16,6 +16,7 @@
     "@silverpoint/core": "workspace:*",
     "@silverpoint/fonts": "workspace:*",
     "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/marp": "workspace:*",
     "@silverpoint/react": "workspace:*",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

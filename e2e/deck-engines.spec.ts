@@ -20,6 +20,9 @@ async function open(page: Page, url = '/deck'): Promise<string[]> {
   return messages;
 }
 
+/** The slides of `DECK_DEMO`, which the `/deck` page draws (REQ-626). */
+const TOTAL = 6;
+
 const deck = (page: Page) => page.locator('.sp-deck');
 const status = (page: Page) => page.locator('.sp-deck-status');
 const chart = (page: Page) => page.locator('[data-sp-slot="s1-c1"][data-sp-hydrated] .sp-root');
@@ -113,7 +116,7 @@ test.describe('deck in three engines', () => {
     const next = page.getByRole('button', { name: 'Next slide' });
     await next.click();
     await expect(deck(page)).toHaveAttribute('data-sp-page', '2');
-    await expect(status(page)).toHaveText('Slide 2 of 3');
+    await expect(status(page)).toHaveText(`Slide 2 of ${TOTAL}`);
     const first = page.locator('[data-sp-slide="2"] [data-marpit-fragment="1"]');
     await expect(first).toHaveAttribute('data-sp-pending', '');
     await next.click();
@@ -136,7 +139,7 @@ test.describe('deck in three engines', () => {
     await page.keyboard.press('ArrowLeft');
     await expect(fragments.and(page.locator('[data-sp-pending]'))).toHaveCount(2);
     await page.keyboard.press('End');
-    await expect(deck(page)).toHaveAttribute('data-sp-page', '3');
+    await expect(deck(page)).toHaveAttribute('data-sp-page', String(TOTAL));
     await page.keyboard.press('Home');
     await expect(deck(page)).toHaveAttribute('data-sp-page', '1');
   });
@@ -159,7 +162,7 @@ test.describe('deck in three engines', () => {
     const messages = await open(page);
     await deck(page).focus();
     await page.keyboard.press('End');
-    await expect(deck(page)).toHaveAttribute('data-sp-page', '3');
+    await expect(deck(page)).toHaveAttribute('data-sp-page', String(TOTAL));
     await page.getByRole('button', { name: 'Change the deck' }).click();
     await expect(status(page)).toHaveText('Slide 2 of 2');
     await expect(deck(page)).toHaveAttribute('data-sp-page', '2');
@@ -175,7 +178,7 @@ test.describe('deck in three engines', () => {
     const messages = await open(page);
     await deck(page).focus();
     await page.keyboard.press('End');
-    await expect(page).toHaveURL(/#3$/);
+    await expect(page).toHaveURL(new RegExp(`#${TOTAL}$`));
     await page.getByRole('button', { name: 'Remove the deck' }).click();
     await expect(deck(page)).toHaveCount(0);
     await expect(page.locator('svg.sp-chart')).toHaveCount(0);
@@ -195,11 +198,7 @@ test.describe('deck in three engines', () => {
         return [Math.round(r.width), Math.round(r.height)];
       }),
     );
-    expect(slides).toEqual([
-      [1280, 720],
-      [1280, 720],
-      [1280, 720],
-    ]);
+    expect(slides).toEqual(Array.from({ length: TOTAL }, () => [1280, 720]));
     const hidden = await page.locator('[data-sp-slide="2"] [data-marpit-fragment]').evaluateAll((all) => all.filter((el) => getComputedStyle(el).visibility === 'hidden' || getComputedStyle(el).opacity === '0').length);
     expect(hidden).toBe(0);
     await expect(page.locator('.sp-deck-controls')).toBeHidden();

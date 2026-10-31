@@ -9,6 +9,8 @@ import { APPS, type AppName } from '../playwright.config';
  */
 const HYDRATION_ERROR = /hydrat|mismatch|did not match|NG05\d\d/i;
 const appOf = (name: string) => APPS[name as AppName];
+/** The slides of `DECK_DEMO`, which the `/deck` page draws (REQ-626). */
+const TOTAL = 6;
 
 async function open(page: Page): Promise<string[]> {
   const messages: string[] = [];
@@ -36,7 +38,7 @@ test.describe('deck page', () => {
     expect(html).toMatch(/data-sp-slot="s1-c1"[\s\S]*?<svg[^>]*class="sp-chart/);
     expect(html).toContain('aria-label="Next slide"');
     expect(html).not.toContain('aria-label="Full screen"');
-    expect(html).toContain('Slide 1 of 3');
+    expect(html).toContain(`Slide 1 of ${TOTAL}`);
   });
 
   test('REQ-612 · REQ-593 · it hydrates with no mismatch, then the keys move it and the chart hydrates', async ({ page }, info) => {
@@ -47,7 +49,7 @@ test.describe('deck page', () => {
     await deck.focus();
     await page.keyboard.press('ArrowRight');
     await expect(deck).toHaveAttribute('data-sp-page', '2');
-    await expect(page.locator('.sp-deck-status')).toHaveText('Slide 2 of 3');
+    await expect(page.locator('.sp-deck-status')).toHaveText(`Slide 2 of ${TOTAL}`);
     // The first list item is a fragment: shown by the next step, not before.
     const first = page.locator('[data-sp-slide="2"] [data-marpit-fragment="1"]');
     await expect(first).toHaveAttribute('data-sp-pending', '');

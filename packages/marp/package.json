@@ -29,6 +29,12 @@
       "import": "./dist/cli.js",
       "default": "./dist/cli.js"
     },
+    "./demo": {
+      "@silverpoint/source": "./src/demo.ts",
+      "types": "./dist/demo.d.ts",
+      "import": "./dist/demo.js",
+      "default": "./dist/demo.js"
+    },
     "./theme.css": "./theme.css",
     "./deck.css": "./dist/deck.css",
     "./package.json": "./package.json"

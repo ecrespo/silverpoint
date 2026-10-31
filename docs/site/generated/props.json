@@ -3532,5 +3532,109 @@
       "optional": true,
       "doc": "The region's accessible name; the title's headline when omitted."
     }
+  ],
+  "deck": [
+    {
+      "name": "markdown",
+      "type": "string",
+      "optional": false,
+      "doc": "The Marp Markdown: front matter, `---` between slides, `silverpoint` fences for charts."
+    },
+    {
+      "name": "page",
+      "type": "number",
+      "optional": true,
+      "doc": "Controlled current page (1-based); pair it with `onPageChange`."
+    },
+    {
+      "name": "defaultPage",
+      "type": "number",
+      "optional": true,
+      "doc": "Uncontrolled initial page (1-based). Default `1`."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "doc": "The deck's id, which scopes its CSS and names its charts; the adapter's hydration-safe id by default."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "optional": true,
+      "doc": "Accessible name of the deck region; the first heading of slide 1 by default."
+    },
+    {
+      "name": "theme",
+      "type": "string",
+      "optional": true,
+      "doc": "The Marpit theme. Default `'silverpoint'`."
+    },
+    {
+      "name": "ground",
+      "type": "string",
+      "optional": true,
+      "doc": "The deck's ground, which a `ground` directive overrides per slide. Default `'silverpoint'`."
+    },
+    {
+      "name": "substrate",
+      "type": "string",
+      "optional": true,
+      "doc": "The deck's substrate; the ground's first by default."
+    },
+    {
+      "name": "mode",
+      "type": "DeckMode",
+      "optional": true,
+      "doc": "`ink` or `precision`, which a `mode` directive overrides per slide. Default `'ink'`."
+    },
+    {
+      "name": "palette",
+      "type": "string",
+      "optional": true,
+      "doc": "A palette preset's name, for the fence charts (REQ-609)."
+    },
+    {
+      "name": "size",
+      "type": "DeckSize",
+      "optional": true,
+      "doc": "The slide size. Default `'16:9'`."
+    },
+    {
+      "name": "showNotes",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Show the current slide's notes (Marpit comments). Default `false`."
+    },
+    {
+      "name": "showControls",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Show the controls: previous, next, overview, notes, full screen. Default `true`."
+    },
+    {
+      "name": "keyboard",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Handle the keys while focus is in the deck (API delta §7.3). Default `true`."
+    },
+    {
+      "name": "swipe",
+      "type": "boolean",
+      "optional": true,
+      "doc": "A horizontal swipe moves the deck. Default `true`."
+    },
+    {
+      "name": "hash",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Read and write a `#<n>` deep link (REQ-602). Default `false`."
+    },
+    {
+      "name": "interactive",
+      "type": "boolean",
+      "optional": true,
+      "doc": "Hydrate the fence charts (REQ-594). Default `true`."
+    }
   ]
 }

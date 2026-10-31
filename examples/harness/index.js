@@ -3,6 +3,7 @@
  * Kept in plain JavaScript so Vite, Next.js and the Angular CLI consume it without a transform.
  */
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
+import { DECK_DEMO } from '@silverpoint/marp/demo';
 import { ALL_FIXTURES } from './fixtures.generated.js';
 import { DECK_FIXTURES } from './deck-fixtures.generated.js';
 
@@ -568,27 +569,8 @@ export const DECK_PAGE = Object.freeze({
   deck: Object.freeze({
     id: 'demo-deck',
     label: 'silverpoint deck',
-    markdown: [
-      '# The quarter in silverpoint',
-      '',
-      '<!-- Open with the share of each channel. -->',
-      '',
-      '```silverpoint',
-      '{"chart":"donut-chart","props":{"title":"Share by channel"}}',
-      '```',
-      '',
-      '---',
-      '',
-      '## Three things to remember',
-      '',
-      '* Direct traffic grew',
-      '* Referrals held',
-      '* Search fell back',
-      '',
-      '---',
-      '',
-      '# Thank you',
-    ].join('\n'),
+    // The deck presenting silverpoint (REQ-626); its first two slides are the e2e bench's.
+    markdown: DECK_DEMO,
     hash: true,
   }),
   alternate: ['# A shorter deck', '', '---', '', '## Its last slide'].join('\n'),

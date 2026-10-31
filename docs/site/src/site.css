@@ -285,6 +285,12 @@ footer {
   padding: 16px 0;
 }
 
+/* The deck page: the demo deck at the column's width, its slides scaled to it. */
+.deck-sample {
+  max-width: 960px;
+  padding: 16px 0;
+}
+
 /* The palettes page: each preset holds a table, laid out at its own width. */
 .gallery-wide {
   grid-template-columns: repeat(auto-fill, minmax(min(560px, 100%), 1fr));
