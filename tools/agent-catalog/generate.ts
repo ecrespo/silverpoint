@@ -10,6 +10,7 @@ import { ASSETS_FILE, assetsSource } from './assets';
 import { DOCS_TOOLS_FILE, README_FILE, toolList, toolsJson, withTools } from './agent-tools';
 import { buildAgentCatalog, CATALOG_FILE, serialise } from './catalog';
 import { FENCE_FILE, fenceSource } from './fence';
+import { LOADER_FILES, loaderSource } from './loaders';
 import { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } from './skill';
 
 const catalog = await buildAgentCatalog();
@@ -20,6 +21,11 @@ console.log('wrote packages/mcp/src/assets.generated.ts');
 mkdirSync(dirname(FENCE_FILE), { recursive: true });
 writeFileSync(FENCE_FILE, fenceSource(catalog));
 console.log('wrote packages/marp/src/fence/charts.generated.ts');
+for (const [adapter, file] of Object.entries(LOADER_FILES) as [keyof typeof LOADER_FILES, string][]) {
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, loaderSource(catalog, adapter));
+}
+console.log('wrote deck/chart-loaders.ts for react, vue and angular');
 
 const skill = skillFiles(catalog);
 // The generated files only: a reference the catalog no longer has must go, the templates stay.

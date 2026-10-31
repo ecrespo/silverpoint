@@ -131,6 +131,12 @@ async function main(): Promise<void> {
   if (!existsSync(FENCE_FILE) || readFileSync(FENCE_FILE, 'utf8') !== fenceSource(catalog)) {
     errors.unshift('REQ-591 · packages/marp/src/fence/charts.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
+  const { LOADER_FILES, loaderSource } = await import('./loaders');
+  for (const [adapter, file] of Object.entries(LOADER_FILES) as [keyof typeof LOADER_FILES, string][]) {
+    if (!existsSync(file) || readFileSync(file, 'utf8') !== loaderSource(catalog, adapter)) {
+      errors.unshift(`REQ-593 · ${file.slice(file.indexOf('packages/'))} is not current: run \`pnpm --filter @silverpoint/agent-catalog generate\``);
+    }
+  }
   const { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } = await import('./skill');
   for (const [file, manifest] of [
     [PLUGIN_FILE, pluginManifest],
