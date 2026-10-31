@@ -57,8 +57,7 @@ describe('deck.css (T-271)', () => {
 
   test('REQ-604 · the overview is a grid of focusable thumbnails, the current one heightened with its ink outline (Art. 6, REQ-031)', () => {
     expect(rule('.sp-deck-overview')).toMatch(/display: grid;[^]*grid-template-columns: repeat\(var\(--sp-deck-overview-columns, 4\), minmax\(0, 1fr\)\);/);
-    expect(rule('.sp-deck:not([data-sp-overview="true"]) > .sp-deck-overview')).toMatch(/display: none;/);
-    expect(rule('.sp-deck[data-sp-overview="true"] > .sp-deck-viewport')).toMatch(/display: none;/);
+    expect(rule('.sp-deck-viewport[data-sp-scaled] .sp-deck-overview .sp-deck-slide > svg')).toMatch(/width: 100%;[^]*transform: none;/);
     const current = rule('.sp-deck-thumb[aria-current="true"]');
     expect(current).toMatch(/var\(--sp-heighten\)/);
     expect(current).toMatch(/0 0 0 1px var\(--sp-ink\)[^;]*var\(--sp-heighten\)[^;]*var\(--sp-ink\)/);
@@ -83,7 +82,8 @@ describe('deck.css (T-271)', () => {
     expect(rule('.sp-deck-slide', print)).toMatch(/display: block !important;[^]*width: 1280px;[^]*height: 720px;[^]*break-after: page;[^]*page: sp-deck-16x9;/);
     expect(rule('.sp-deck-slide:has(> svg[viewBox="0 0 960 720"])', print)).toMatch(/width: 960px;[^]*page: sp-deck-4x3;/);
     expect(rule('.sp-deck-slide > svg', print)).toMatch(/width: 1280px !important;[^]*transform: none !important;/);
-    for (const part of ['.sp-deck-controls', '.sp-deck-notes', '.sp-deck-overview', '.sp-deck-status']) expect(rule(part, print)).toMatch(/display: none !important;/);
+    for (const part of ['.sp-deck-controls', '.sp-deck-notes', '.sp-deck-status']) expect(rule(part, print)).toMatch(/display: none !important;/);
+    expect(rule('.sp-deck-overview', print)).toMatch(/display: block !important;/);
     expect(body).toMatch(/@page sp-deck-16x9 \{\s*size: 1280px 720px;\s*margin: 0;\s*\}/);
     expect(body).toMatch(/@page sp-deck-4x3 \{\s*size: 960px 720px;\s*margin: 0;\s*\}/);
   });

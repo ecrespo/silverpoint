@@ -138,16 +138,8 @@
 
 /* ── Overview (REQ-604) ───────────────────────────────────────────────────────────── */
 
-.sp-deck:not([data-sp-overview="true"]) > .sp-deck-overview {
-  display: none;
-}
-
-.sp-deck[data-sp-overview="true"] > .sp-deck-viewport {
-  display: none;
-}
-
+/* The overview is Marpit's container laid out as a grid: the slide boxes are the thumbnails. */
 .sp-deck-overview {
-  grid-area: viewport;
   display: grid;
   grid-template-columns: repeat(var(--sp-deck-overview-columns, 4), minmax(0, 1fr));
   gap: var(--sp-deck-gap);
@@ -177,6 +169,13 @@
   box-shadow: 0 0 0 1px var(--sp-ink), 0 0 0 4px var(--sp-heighten), 0 0 0 5px var(--sp-ink);
 }
 
+/* A thumbnail scales by its viewBox: the deck's scale is the viewport's, not the cell's. */
+.sp-deck-viewport[data-sp-scaled] .sp-deck-overview .sp-deck-slide > svg {
+  width: 100%;
+  height: auto;
+  transform: none;
+}
+
 .sp-deck-overview [data-sp-pending] {
   visibility: visible;
   opacity: 1;
@@ -201,9 +200,15 @@
 
   .sp-deck-controls,
   .sp-deck-notes,
-  .sp-deck-overview,
   .sp-deck-status {
     display: none !important;
+  }
+
+  /* Printed open, the overview is the slides again, one per page. */
+  .sp-deck-overview {
+    display: block !important;
+    max-height: none;
+    overflow: visible;
   }
 
   .sp-deck-viewport {
