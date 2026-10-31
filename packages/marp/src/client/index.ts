@@ -5,3 +5,5 @@ export { bindDeck, fullscreenAvailable, SWIPE_DISTANCE, SWIPE_RATIO } from './bi
 export type { BindOptions } from './bind';
 export { applyFragments, applyScaling, findChartSlots } from './dom';
 export type { FoundSlot } from './dom';
+export { attachDeck } from './attach';
+export type { DeckHydration } from './attach';
