@@ -3,3 +3,5 @@ export { createDeckController } from '../controller';
 export type { DeckController, DeckControllerOptions, DeckAction, DeckEvents, DeckState } from '../controller';
 export { bindDeck, fullscreenAvailable, SWIPE_DISTANCE, SWIPE_RATIO } from './bind';
 export type { BindOptions } from './bind';
+export { applyFragments, applyScaling, findChartSlots } from './dom';
+export type { FoundSlot } from './dom';

@@ -82,6 +82,8 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
 
   for (let i = 0; i < state.tokens.length; i++) {
     const token = state.tokens[i]!;
+    // Every slide starts at step 0, so every fragment starts hidden; the client moves it (DD-057).
+    if (token.attrGet('data-marpit-fragment') !== null) token.attrSet('data-sp-pending', '');
     if (token.type === 'marpit_inline_svg_open') flush();
     else if (token.type === 'marpit_inline_svg_close') flush();
     else if (LAYERS.has(token.type)) layers.push(token);
