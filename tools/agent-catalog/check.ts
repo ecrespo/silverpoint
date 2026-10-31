@@ -127,6 +127,10 @@ async function main(): Promise<void> {
   if (!existsSync(ASSETS_FILE) || readFileSync(ASSETS_FILE, 'utf8') !== assetsSource()) {
     errors.unshift('DD-047 · packages/mcp/src/assets.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
+  const { FENCE_FILE, fenceSource } = await import('./fence');
+  if (!existsSync(FENCE_FILE) || readFileSync(FENCE_FILE, 'utf8') !== fenceSource(catalog)) {
+    errors.unshift('REQ-591 · packages/marp/src/fence/charts.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
   const { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } = await import('./skill');
   for (const [file, manifest] of [
     [PLUGIN_FILE, pluginManifest],

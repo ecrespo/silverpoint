@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import { ASSETS_FILE, assetsSource } from './assets';
 import { DOCS_TOOLS_FILE, README_FILE, toolList, toolsJson, withTools } from './agent-tools';
 import { buildAgentCatalog, CATALOG_FILE, serialise } from './catalog';
+import { FENCE_FILE, fenceSource } from './fence';
 import { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } from './skill';
 
 const catalog = await buildAgentCatalog();
@@ -16,6 +17,9 @@ writeFileSync(CATALOG_FILE, serialise(catalog));
 console.log(`wrote packages/mcp/agent-catalog.json (${catalog.version}: ${catalog.charts.length} charts, ${catalog.components.length} components)`);
 writeFileSync(ASSETS_FILE, assetsSource());
 console.log('wrote packages/mcp/src/assets.generated.ts');
+mkdirSync(dirname(FENCE_FILE), { recursive: true });
+writeFileSync(FENCE_FILE, fenceSource(catalog));
+console.log('wrote packages/marp/src/fence/charts.generated.ts');
 
 const skill = skillFiles(catalog);
 // The generated files only: a reference the catalog no longer has must go, the templates stay.

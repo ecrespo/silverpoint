@@ -54,7 +54,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 - [x] **T-255** Hostile-input corpus (raw HTML, `javascript:`/`vbscript:`/`data:` links and images, `on*` attributes in Markdown attributes, HTML in directives and comments); I-45. *REQ-575*
 - [x] **T-256** Slide annotations (core rule): `role`, `aria-roledescription`, `aria-label`, `heading`, notes, fragments count. *REQ-573, REQ-614*
 - [x] **T-257** Directives `ground`/`substrate`/`mode` (local, spot, inheritance, ground change resets substrate), `SP027`; `DECK_DIRECTIVES`; I-48. *REQ-584..REQ-586*
-- [ ] **T-258** `parseChartFence` + slug table from core and `/catalog` (60 slugs, kebab of recipe names, agrees with the agent catalog); every `FenceError` kind. *REQ-589, REQ-591*
+- [x] **T-258** `parseChartFence` + slug table from core and `/catalog` (60 slugs, kebab of recipe names, agrees with the agent catalog); every `FenceError` kind. *REQ-589, REQ-591*
 - [ ] **T-259** Move the canonical chart-DOM writer from `tools/visual-gate/dashboard-canonical.ts` into `@silverpoint/grounds` as `toChartRootString` (with the `.sp-root` palette style; the dashboard and palette gates prove adapter equality; Analyze A-03). Fence render through `grounds.renderChart` with the slide's ground/substrate/mode/palette; slot markup, `data-sp-spec`; error figure; `SP026`; ids (I-46, I-47); parity of the slot SVG with `render_chart`'s for the same input. *REQ-585, REQ-589..REQ-591*
 - [ ] **T-260** `slideBackdrop` in `@silverpoint/grounds` (`plain`, `hatched`, `plate`; seeded; `precision` exact); wired as `--sp-deck-backdrop`; I-52. *REQ-587*
 - [ ] **T-261** Limits (512 KB, 300 slides, 60 fences) and `SP029`. *REQ-576*

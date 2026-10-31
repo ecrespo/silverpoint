@@ -25,6 +25,9 @@ interface ChartFenceSpec {
 JSON Schema (generated from the type for the agent catalog, DD-060): `additionalProperties: false`
 at the top level; `props` forbids `ground`, `substrate`, `mode`, `palette` and `id` (they are
 top-level fields). This is `render_chart`'s input without `format` and `embedFonts`.
+*Amended in implementation (T-258):* `props` also forbids `data`, `width` and `height`, as
+`render_chart` does. The declared props come from `packages/marp/src/fence/charts.generated.ts`,
+written by `tools/agent-catalog` and diffed by its `check`, because the recipes carry no prop metadata.
 
 ```ts
 type FenceError =

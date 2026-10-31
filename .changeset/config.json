@@ -11,7 +11,8 @@
       "@silverpoint/vue",
       "@silverpoint/fonts",
       "@silverpoint/tailwind",
-      "@silverpoint/mcp"
+      "@silverpoint/mcp",
+      "@silverpoint/marp"
     ]
   ],
   "access": "public",
