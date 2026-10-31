@@ -26,10 +26,11 @@ export const DEFAULT_HEIGHT = 360;
 
 const escape = (value: string): string => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-/** The chart root for a parsed spec, or the error the chart raised (kind `diagnostic`). */
-export function renderFenceChart(spec: ChartFenceSpec, context: FenceContext): { readonly html: string } | { readonly error: FenceError } {
-  const recipe = recipeOfSlug(spec.chart);
-  if (!recipe) return { error: { kind: 'chart', chart: spec.chart, suggestions: [] } };
+/**
+ * The props a fence's chart is drawn with —`id` and `width` included— the same for the static render
+ * and for each adapter's hydration (Art. 3, DD-053).
+ */
+export function fenceChartProps(spec: ChartFenceSpec, context: FenceContext): Readonly<Record<string, unknown>> & { readonly id: string; readonly width: number } {
   const ground = spec.ground ?? context.ground;
   // A fence on another ground takes that ground's first substrate unless it names one, as a
   // slide does (REQ-585); an unknown ground is left to the pipeline's own diagnostic.
@@ -38,7 +39,7 @@ export function renderFenceChart(spec: ChartFenceSpec, context: FenceContext): {
   const named = spec.palette ?? context.palette;
   // A preset name is the core's preset (REQ-461); the pipeline takes the palette's fields.
   const palette = typeof named === 'string' ? (Object.hasOwn(PALETTES, named) ? PALETTES[named] : undefined) : named;
-  const props = {
+  return {
     ...spec.props,
     ...(spec.data === undefined ? {} : { data: spec.data }),
     ground,
@@ -46,9 +47,18 @@ export function renderFenceChart(spec: ChartFenceSpec, context: FenceContext): {
     mode: spec.mode ?? context.mode,
     ...(palette === undefined ? {} : { palette }),
     height: spec.height ?? DEFAULT_HEIGHT,
+    id: context.chartId,
+    width: spec.width ?? context.width,
   };
+}
+
+/** The chart root for a parsed spec, or the error the chart raised (kind `diagnostic`). */
+export function renderFenceChart(spec: ChartFenceSpec, context: FenceContext): { readonly html: string } | { readonly error: FenceError } {
+  const recipe = recipeOfSlug(spec.chart);
+  if (!recipe) return { error: { kind: 'chart', chart: spec.chart, suggestions: [] } };
+  const { id, width, ...props } = fenceChartProps(spec, context);
   try {
-    const rendered = renderChart(recipe, props as never, { id: context.chartId, width: spec.width ?? context.width });
+    const rendered = renderChart(recipe, props as never, { id, width });
     return { html: toChartRootString(rendered) };
   } catch (e) {
     const code = e instanceof SilverpointError ? e.code : 'render';

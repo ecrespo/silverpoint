@@ -8,7 +8,8 @@ import { createMarpitEngine, SLIDE_BOX } from './marpit';
 
 const SIZES = { '16:9': { width: 1280, height: 720 }, '4:3': { width: 960, height: 720 } } as const;
 /** The slide's content box, 80 px inside each side edge: a fence's default width (Analyze A-07). */
-const CONTENT_INSET = 80;
+/** The slide padding either side of a fence chart: its default width is the slide width less twice this. */
+export const CONTENT_INSET = 80;
 
 /** `[a-z0-9-]`, no leading/trailing or doubled dashes (REQ-571). Throws when nothing is left. */
 export function sanitiseDeckId(id: string): string {

@@ -9,3 +9,5 @@ export { THEME_CLASSES, THEME_NAME, type ThemeClass } from './theme/silverpoint.
 export type * from './types';
 export { deckView, OVERVIEW_COLUMNS } from './view';
 export type { DeckSlideView, DeckView, DeckViewOptions, DeckViewState, ViewAttrs } from './view';
+export { hydrationPlan } from './hydration';
+export type { HydrationEntry } from './hydration';
