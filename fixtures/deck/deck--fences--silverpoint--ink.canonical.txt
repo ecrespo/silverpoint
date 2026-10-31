@@ -1,0 +1,456 @@
+<div #style="div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { width: 1280px; height: 720px; box-sizing: border-box; overflow: hidden; position: relative; scroll-snap-align: center center; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section::after { bottom: 0; content: attr(data-marpit-pagination); padding: inherit; pointer-events: none; position: absolute; right: 0; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section:not([data-marpit-pagination])::after { display: none; }/* Normalization */div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section :where(h1) { font-size: 2em; margin-block: 0.67em; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section section:where(h1) { --marpit-root-font-size: 2em; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section video::-webkit-media-controls { will-change: transform; }@page { size: 1280px 720px; margin: 0; }@media print {html, body { background-color: #fff; margin: 0; page-break-inside: avoid; break-inside: avoid-page; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { page-break-before: always; break-before: page; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section * { -webkit-print-color-adjust: exact !important; animation-delay: 0s !important; animation-duration: 0s !important; color-adjust: exact !important; print-color-adjust: exact !important; transition: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg[data-marpit-svg] { display: block; height: 100vh; width: 100vw; } } /* @theme silverpoint */ div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { width: 1280px; height: 720px; box-sizing: border-box; position: relative; overflow: hidden; font-family: var(--sp-font-display); font-size: 30px; line-height: 1.3; padding: 64px 80px; color: var(--sp-text); background-color: var(--sp-substrate); background-image: var(--sp-deck-backdrop, none); background-size: 100% 100%; background-repeat: no-repeat; font-kerning: normal; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { --marpit-root-font-size: 30px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h1, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h2, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h3, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h4, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h5, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h6 { color: var(--sp-text); font-weight: 500; line-height: 1.1; margin: 0 0 24px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h1 { font-size: 64px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h2 { font-size: 48px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h3 { font-size: 36px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h4, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h5, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h6 { font-size: 30px; text-transform: uppercase; letter-spacing: 0.08em; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section p { margin: 0 0 20px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ul, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ol { margin: 0 0 20px; padding-left: 40px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ul { list-style: disc; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ol { font-variant-numeric: tabular-nums; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section li::marker { color: var(--sp-ink); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section a { color: var(--sp-ink); text-decoration-thickness: 1px; text-underline-offset: 4px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section strong { font-weight: 500; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section em { font-style: italic; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section blockquote { margin: 0 0 20px; padding: 0 0 0 24px; border-left: 2px solid var(--sp-rule); color: var(--sp-text-muted); font-style: italic; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section table { border-collapse: collapse; margin: 0 0 20px; font-variant-numeric: tabular-nums; border-top: 1px solid var(--sp-rule); border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section th { font-size: 22px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 8px 16px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section td { padding: 8px 16px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section code { font-family: var(--sp-font-display); font-variant-numeric: tabular-nums; color: var(--sp-ink-secondary); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section pre { font-family: var(--sp-font-display); font-size: 24px; line-height: 1.35; font-variant-numeric: tabular-nums; border: 1px solid var(--sp-rule); outline: 1px solid var(--sp-rule); outline-offset: 4px; margin: 4px 4px 24px; padding: 20px 28px; white-space: pre-wrap; tab-size: 2; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section :not(pre) > code { border: 1px solid var(--sp-rule); border-radius: 2px; padding: 0 6px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section pre code { color: var(--sp-text); font-size: inherit; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section img { max-width: 100%; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section footer { position: absolute; left: 80px; right: 80px; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sp-text-muted); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section:has(> header) { padding-top: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section header { top: 24px; padding-bottom: 6px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section footer { bottom: 24px; padding-top: 6px; border-top: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination] footer { right: 200px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination]::after { content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total); padding: 0; position: absolute; right: 80px; bottom: 24px; font-size: 22px; font-variant-numeric: tabular-nums; color: var(--sp-text-muted); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination]::after { --marpit-root-font-size: 22px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart { margin: 0 0 20px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart--error { border: 1px solid var(--sp-rule); padding: 16px 24px; font-size: 22px; font-style: italic; color: var(--sp-text); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section section.sp-deck-chart--error { --marpit-root-font-size: 22px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart--error figcaption { margin: 0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.lead { display: flex; flex-direction: column; justify-content: center; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.lead h1 { font-size: 88px; padding-bottom: 24px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate { padding: 80px 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate footer { left: 104px; right: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate header { top: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate:has(> header) { padding-top: 120px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate footer { bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate[data-marpit-pagination] footer { right: 224px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate[data-marpit-pagination]::after { right: 104px; bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched { padding: 80px 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched footer { left: 104px; right: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched header { top: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched:has(> header) { padding-top: 120px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched footer { bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched[data-marpit-pagination] footer { right: 224px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched[data-marpit-pagination]::after { right: 104px; bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"cream\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #EDE7DA; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"cream\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #EDE7DA; --sp-heighten: #EDE7DA; --sp-rule: #EDE7DA; --sp-grid: #EDE7DA; --sp-text: #FFFFFF; --sp-text-muted: #EDE7DA; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"green\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #D8DCD0; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"green\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #D8DCD0; --sp-heighten: #D8DCD0; --sp-rule: #D8DCD0; --sp-grid: #D8DCD0; --sp-text: #FFFFFF; --sp-text-muted: #D8DCD0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"blue\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #D2D8DF; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"blue\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #D2D8DF; --sp-heighten: #D2D8DF; --sp-rule: #D2D8DF; --sp-grid: #D2D8DF; --sp-text: #FFFFFF; --sp-text-muted: #D2D8DF; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"ochre\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #E7DABC; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"ochre\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #E7DABC; --sp-heighten: #E7DABC; --sp-rule: #E7DABC; --sp-grid: #E7DABC; --sp-text: #FFFFFF; --sp-text-muted: #E7DABC; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"cyanotype\"][data-sp-substrate=\"prussian\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #1B3F6B; --sp-ink: #E2EAF2; --sp-ink-secondary: #DCCBA8; --sp-heighten: #0C2240; --sp-rule: #8AA8C7; --sp-grid: #8AA8C7; --sp-text: #F4F6F8; --sp-text-muted: #B8CBDE; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"cyanotype\"][data-sp-substrate=\"prussian\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #E2EAF2; --sp-ink: #0C2240; --sp-ink-secondary: #1B3F6B; --sp-heighten: #1B3F6B; --sp-rule: #1B3F6B; --sp-grid: #1B3F6B; --sp-text: #0C2240; --sp-text-muted: #1B3F6B; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] { columns: initial !important; display: block !important; padding: 0 !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"]::before, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"]::after, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"]::before, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"]::after { display: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] { all: initial; display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=\"vertical\"] { flex-direction: column; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"][data-marpit-advanced-background-split] > div[data-marpit-advanced-background-container] { width: var(--marpit-advanced-background-split, 50%); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"][data-marpit-advanced-background-split=\"right\"] > div[data-marpit-advanced-background-container] { margin-left: calc(100% - var(--marpit-advanced-background-split, 50%)); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] > figure { all: initial; background-position: center; background-repeat: no-repeat; background-size: cover; flex: auto; margin: 0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] > figure > figcaption { position: absolute; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; white-space: nowrap; width: 1px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"], div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"pseudo\"] { background: transparent !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"pseudo\"], div.sp-deck-fx-fences > div.sp-deck-slide > svg[data-marpit-svg] > foreignObject[data-marpit-advanced-background=\"pseudo\"] { pointer-events: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background-split] { width: 100%; height: 100%; }" aria-label="Three charts" aria-roledescription="slide deck" class="sp-deck sp-ground-silverpoint" data-mode="ink" data-sp-overview="false" data-sp-page="1" data-sp-step="0" data-substrate="cream" part="sp-deck" role="region" tabindex="0">
+  <div class="sp-deck-viewport" part="sp-deck-viewport">
+    <div class="sp-deck-fx-fences">
+      <div class="sp-deck-slide" data-sp-current="" data-sp-slide="1">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 1 of 3" aria-roledescription="slide" data-sp-ground="silverpoint" data-sp-mode="ink" data-sp-substrate="cream" role="group">
+              <h1>
+                "Three charts"
+              <figure class="sp-deck-chart" data-sp-slot="s1-c1" data-sp-spec="{\"chart\":\"bar-chart\",\"props\":{\"title\":\"Visits\"},\"width\":560,\"height\":280}" part="sp-deck-chart">
+                <div aria-label="Visits" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s1-c1-title fx-fences-s1-c1-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="340" role="img" viewBox="0 0 560 340" width="560" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s1-c1-title">
+                      "Visits"
+                    <desc id="fx-fences-s1-c1-desc">
+                      "Visits. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+                    <defs>
+                      <pattern height="50" id="fx-fences-s1-c1-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+                        <path d="M0 5 C13.58 4.41, 25.98 5.3, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 15 C13.07 15.58, 24.94 14.76, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 25 C12.55 25.23, 25.7 24.49, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 35 C12.04 34.6, 26.45 35.75, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 45 C13.33 44.24, 25.41 45.48, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+                      <pattern height="45" id="fx-fences-s1-c1-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+                        <path d="M0 3.75 C16.61 3.88, 31.67 4.37, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 11.25 C16.1 10.77, 32.43 11.35, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 18.75 C15.58 17.9, 31.38 18.57, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 26.25 C15.07 26.59, 32.14 25.54, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 33.75 C16.35 33.72, 31.09 34.57, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 41.25 C15.84 40.85, 31.85 41.79, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                    <path d="M0.5 0.5 C202.56 1.11, 404.29 0.9, 559.5 0.5 M0.5 0.5 C196.61 0.86, 392.79 1.02, 559.5 0.5 M559.5 0.5 C559.53 117.13, 559.54 234.52, 559.5 339.5 M559.5 0.5 C559.9 111.23, 560.12 221.69, 559.5 339.5 M559.5 339.5 C392.85 339.09, 226.68 339.01, 0.5 339.5 M559.5 339.5 C358.43 339.92, 157.65 339.84, 0.5 339.5 M0.5 339.5 C-0.13 267.69, -0.05 194.59, 0.5 0.5 M0.5 339.5 C0.71 216.1, 0.53 92, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M22,48H34V55H22Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-2)" part="sp-ink">
+                    <path d="M22 48 C26.48 47.6, 30.95 47.49, 34 48 M22 48 C26.31 47.8, 30.8 48.03, 34 48 M34 48 C34.18 50.56, 34.04 53.45, 34 55 M34 48 C34.08 50.41, 34.11 52.81, 34 55 M34 55 C31.05 54.98, 28.15 54.84, 22 55 M34 55 C29.61 55.22, 25.1 54.77, 22 55 M22 55 C22.12 53.5, 21.83 52.13, 22 48 M22 55 C22.06 53.13, 22.07 51.37, 22 48" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M76,48H88V55H76Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-1)" part="sp-ink-secondary">
+                    <path d="M76 48 C80.17 48.09, 84.83 48.18, 88 48 M76 48 C80.55 48.23, 84.82 47.91, 88 48 M88 48 C88.18 49.98, 87.9 51.6, 88 55 M88 48 C87.85 50.41, 88.1 52.93, 88 55 M88 55 C83.68 55.06, 78.75 54.91, 76 55 M88 55 C83.25 54.96, 78.4 55.27, 76 55 M76 55 C75.7 53.25, 75.72 51.81, 76 48 M76 55 C76.13 52.56, 75.93 50.1, 76 48" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+                    <path d="M22 246 C208.37 246.26, 395.39 245.74, 538 246 M22 246 C214.73 246.61, 407.67 246.39, 538 246" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 188 C209.03 188.41, 395.6 188.75, 538 188 M22 188 C218.75 188.21, 415.77 188.35, 538 188" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 130 C208.98 130.18, 395.81 129.93, 538 130 M22 130 C222.77 129.82, 423.51 129.94, 538 130" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 72 C208.92 72.34, 396.03 72.22, 538 72 M22 72 C226.8 71.42, 431.25 71.54, 538 72" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 304 C209.58 304.1, 396.24 304.12, 538 304 M22 304 C127.26 304.14, 232.58 304.25, 538 304" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M54.9,198A15.8,15.8,0,0,1,70.7,182.2H70.7A15.8,15.8,0,0,1,86.5,198V288.2A15.8,15.8,0,0,1,70.7,304H70.7A15.8,15.8,0,0,1,54.9,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-2)" part="sp-ink">
+                    <path d="M54.9,198A15.8,15.8,0,0,1,70.7,182.2H70.7A15.8,15.8,0,0,1,86.5,198V288.2A15.8,15.8,0,0,1,70.7,304H70.7A15.8,15.8,0,0,1,54.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M183.9,151.6A15.8,15.8,0,0,1,199.7,135.8H199.7A15.8,15.8,0,0,1,215.5,151.6V288.2A15.8,15.8,0,0,1,199.7,304H199.7A15.8,15.8,0,0,1,183.9,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-2)" part="sp-ink">
+                    <path d="M183.9,151.6A15.8,15.8,0,0,1,199.7,135.8H199.7A15.8,15.8,0,0,1,215.5,151.6V288.2A15.8,15.8,0,0,1,199.7,304H199.7A15.8,15.8,0,0,1,183.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M312.9,171.9A15.8,15.8,0,0,1,328.7,156.1H328.7A15.8,15.8,0,0,1,344.5,171.9V288.2A15.8,15.8,0,0,1,328.7,304H328.7A15.8,15.8,0,0,1,312.9,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-2)" part="sp-ink">
+                    <path d="M312.9,171.9A15.8,15.8,0,0,1,328.7,156.1H328.7A15.8,15.8,0,0,1,344.5,171.9V288.2A15.8,15.8,0,0,1,328.7,304H328.7A15.8,15.8,0,0,1,312.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M441.9,108.1A15.8,15.8,0,0,1,457.7,92.3H457.7A15.8,15.8,0,0,1,473.5,108.1V288.2A15.8,15.8,0,0,1,457.7,304H457.7A15.8,15.8,0,0,1,441.9,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-2)" part="sp-ink">
+                    <path d="M441.9,108.1A15.8,15.8,0,0,1,457.7,92.3H457.7A15.8,15.8,0,0,1,473.5,108.1V288.2A15.8,15.8,0,0,1,457.7,304H457.7A15.8,15.8,0,0,1,441.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M86.5,218.3A15.8,15.8,0,0,1,102.3,202.5H102.3A15.8,15.8,0,0,1,118.11,218.3V288.2A15.8,15.8,0,0,1,102.3,304H102.3A15.8,15.8,0,0,1,86.5,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-1)" part="sp-ink-secondary">
+                    <path d="M86.5,218.3A15.8,15.8,0,0,1,102.3,202.5H102.3A15.8,15.8,0,0,1,118.11,218.3V288.2A15.8,15.8,0,0,1,102.3,304H102.3A15.8,15.8,0,0,1,86.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M215.5,192.2A15.8,15.8,0,0,1,231.3,176.4H231.3A15.8,15.8,0,0,1,247.11,192.2V288.2A15.8,15.8,0,0,1,231.3,304H231.3A15.8,15.8,0,0,1,215.5,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-1)" part="sp-ink-secondary">
+                    <path d="M215.5,192.2A15.8,15.8,0,0,1,231.3,176.4H231.3A15.8,15.8,0,0,1,247.11,192.2V288.2A15.8,15.8,0,0,1,231.3,304H231.3A15.8,15.8,0,0,1,215.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M344.5,177.7A15.8,15.8,0,0,1,360.3,161.9H360.3A15.8,15.8,0,0,1,376.11,177.7V288.2A15.8,15.8,0,0,1,360.3,304H360.3A15.8,15.8,0,0,1,344.5,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-1)" part="sp-ink-secondary">
+                    <path d="M344.5,177.7A15.8,15.8,0,0,1,360.3,161.9H360.3A15.8,15.8,0,0,1,376.11,177.7V288.2A15.8,15.8,0,0,1,360.3,304H360.3A15.8,15.8,0,0,1,344.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M473.5,145.8A15.8,15.8,0,0,1,489.3,130H489.3A15.8,15.8,0,0,1,505.11,145.8V288.2A15.8,15.8,0,0,1,489.3,304H489.3A15.8,15.8,0,0,1,473.5,288.2Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s1-c1-tone-1)" part="sp-ink-secondary">
+                    <path d="M473.5,145.8A15.8,15.8,0,0,1,489.3,130H489.3A15.8,15.8,0,0,1,505.11,145.8V288.2A15.8,15.8,0,0,1,489.3,304H489.3A15.8,15.8,0,0,1,473.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Visits"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+                      "value"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+                      "previous"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="243">
+                      "20"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="185">
+                      "40"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="127">
+                      "60"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+                      "80"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.5" y="319">
+                      "Q1"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="215.5" y="319">
+                      "Q2"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="344.5" y="319">
+                      "Q3"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="473.5" y="319">
+                      "Q4"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s1-c1-table">
+                      <caption>
+                        "Visits"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "x"
+                          <th scope="col">
+                            "value"
+                          <th scope="col">
+                            "previous"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "Q1"
+                          <td>
+                            "42"
+                          <td>
+                            "35"
+                        <tr>
+                          <th scope="row">
+                            "Q2"
+                          <td>
+                            "58"
+                          <td>
+                            "44"
+                        <tr>
+                          <th scope="row">
+                            "Q3"
+                          <td>
+                            "51"
+                          <td>
+                            "49"
+                        <tr>
+                          <th scope="row">
+                            "Q4"
+                          <td>
+                            "73"
+                          <td>
+                            "60"
+      <div class="sp-deck-slide" data-sp-slide="2" hidden="" inert="">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 2 of 3" aria-roledescription="slide" data-sp-ground="silverpoint" data-sp-mode="ink" data-sp-substrate="cream" role="group">
+              <h2>
+                "A donut and a line"
+              <figure class="sp-deck-chart" data-sp-slot="s2-c1" data-sp-spec="{\"chart\":\"donut-chart\",\"props\":{\"title\":\"Share\"},\"width\":480,\"height\":280}" part="sp-deck-chart">
+                <div aria-label="Share" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s2-c1-title fx-fences-s2-c1-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="340" role="img" viewBox="0 0 480 340" width="480" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s2-c1-title">
+                      "Share"
+                    <desc id="fx-fences-s2-c1-desc">
+                      "Share. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
+                    <defs>
+                      <pattern height="50" id="fx-fences-s2-c1-tone-1" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="50">
+                        <path d="M0 5 C18.77 5.24, 35.66 5.86, 50 5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 15 C18.26 14.88, 36.42 15.59, 50 15" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 25 C17.75 24.25, 37.17 25.05, 50 25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 35 C19.03 35.7, 36.13 34.79, 50 35" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 45 C18.52 45.07, 36.89 44.25, 50 45" data-paint="stroke" data-role="hatch" part="sp-ink">
+                      <pattern height="45" id="fx-fences-s2-c1-tone-2" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="45">
+                        <path d="M0 3.75 C12.26 2.92, 24.07 3.14, 45 3.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 11.25 C11.75 11.85, 23.03 12.16, 45 11.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 18.75 C11.24 18.74, 23.78 19.14, 45 18.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 26.25 C12.52 25.87, 22.74 26.36, 45 26.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 33.75 C12.01 34.56, 23.5 33.34, 45 33.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 41.25 C11.49 41.69, 24.25 40.56, 45 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                      <pattern height="49.5" id="fx-fences-s2-c1-tone-3" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+                        <path d="M0 2.75 C18.17 2.65, 35.52 2.48, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 8.25 C17.66 7.79, 34.48 7.71, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 13.75 C17.15 14.46, 35.23 14.47, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 19.25 C18.43 19.6, 35.99 19.7, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 24.75 C17.92 24.48, 34.95 24.66, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 30.25 C17.4 29.62, 35.7 29.89, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 35.75 C16.89 36.56, 34.66 35.12, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 41.25 C18.18 41.43, 35.42 41.88, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 46.75 C17.66 46.57, 34.37 47.11, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                      <pattern height="49.5" id="fx-fences-s2-c1-tone-4" patternTransform="rotate(-41)" patternUnits="userSpaceOnUse" width="49.5">
+                        <path d="M0 2.75 C13.02 3.38, 24.83 2.81, 49.5 2.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 8.25 C12.5 8.52, 25.59 8.04, 49.5 8.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 13.75 C11.99 13.39, 24.55 13, 49.5 13.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 19.25 C13.27 18.53, 25.3 20.03, 49.5 19.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 24.75 C12.76 25.2, 24.26 24.99, 49.5 24.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 30.25 C12.25 30.34, 25.02 30.22, 49.5 30.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 35.75 C11.73 35.48, 23.97 35.45, 49.5 35.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 41.25 C13.02 40.36, 24.73 40.42, 49.5 41.25" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M0 46.75 C12.5 47.3, 25.49 47.45, 49.5 46.75" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M2.75 0 C2.39 12.46, 2.42 25.13, 2.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M8.25 0 C9.2 12, 8.69 24.75, 8.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M13.75 0 C14.21 11.53, 13.17 24.38, 13.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M19.25 0 C18.95 12.86, 19.18 24, 19.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M24.75 0 C23.96 12.4, 25.46 25.43, 24.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M30.25 0 C30.77 11.93, 29.94 25.05, 30.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M35.75 0 C35.78 13.27, 36.22 24.67, 35.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M41.25 0 C40.78 12.8, 40.7 24.3, 41.25 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                        <path d="M46.75 0 C47.59 12.33, 46.98 25.72, 46.75 49.5" data-paint="stroke" data-role="hatch" part="sp-ink">
+                    <path d="M0.5 0.5 C129.43 0.36, 257.7 0.8, 479.5 0.5 M0.5 0.5 C142.31 0.79, 284.24 0.77, 479.5 0.5 M479.5 0.5 C480.5 129.16, 480.5 257.36, 479.5 339.5 M479.5 0.5 C479.02 133.69, 479.03 267.09, 479.5 339.5 M479.5 339.5 C329.66 339.22, 178.91 339.89, 0.5 339.5 M479.5 339.5 C317.6 339.38, 155.68 339.33, 0.5 339.5 M0.5 339.5 C0.12 213.21, 0.19 88.14, 0.5 0.5 M0.5 339.5 C0.71 213.23, 1.03 86.84, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M156,50A134,134,0,0,1,247.73,281.68L212.87,244.56A83.08,83.08,0,0,0,156,100.92Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-1)" part="sp-ink">
+                    <path d="M156,50A134,134,0,0,1,247.73,281.68L212.87,244.56A83.08,83.08,0,0,0,156,100.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M247.73,281.68A134,134,0,0,1,77.24,292.41L107.17,251.21A83.08,83.08,0,0,0,212.87,244.56Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-2)" part="sp-ink">
+                    <path d="M247.73,281.68A134,134,0,0,1,77.24,292.41L107.17,251.21A83.08,83.08,0,0,0,212.87,244.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M77.24,292.41A134,134,0,0,1,22,184L72.92,184A83.08,83.08,0,0,0,107.17,251.21Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-3)" part="sp-ink">
+                    <path d="M77.24,292.41A134,134,0,0,1,22,184L72.92,184A83.08,83.08,0,0,0,107.17,251.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M22,184A134,134,0,0,1,70.59,80.75L103.04,119.99A83.08,83.08,0,0,0,72.92,184Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-4)" part="sp-ink">
+                    <path d="M22,184A134,134,0,0,1,70.59,80.75L103.04,119.99A83.08,83.08,0,0,0,72.92,184Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M70.59,80.75A134,134,0,0,1,156,50L156,100.92A83.08,83.08,0,0,0,103.04,119.99Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-3)" part="sp-ink">
+                    <path d="M70.59,80.75A134,134,0,0,1,156,50L156,100.92A83.08,83.08,0,0,0,103.04,119.99Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M310,152H319V159H310Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-1)" part="sp-ink">
+                    <path d="M310 152 C312.11 152.21, 314.93 151.97, 319 152 M310 152 C312.88 152.15, 316.23 152.09, 319 152 M319 152 C318.76 153.73, 319.16 156.09, 319 159 M319 152 C319.13 154.26, 318.9 156.13, 319 159 M319 159 C315.96 159.05, 313.04 158.85, 310 159 M319 159 C316.62 159.18, 314.65 158.88, 310 159 M310 159 C309.95 156.54, 309.95 153.23, 310 152 M310 159 C310.01 156.57, 309.85 154.12, 310 152" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,166H319V173H310Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-2)" part="sp-ink">
+                    <path d="M310 166 C312.7 165.72, 314.84 165.63, 319 166 M310 166 C313.06 166.07, 316.24 166, 319 166 M319 166 C318.76 167.92, 319.02 170.41, 319 173 M319 166 C318.9 168.25, 318.89 170.56, 319 173 M319 173 C316.73 173.16, 314.09 172.94, 310 173 M319 173 C316.76 172.99, 314.12 172.85, 310 173 M310 173 C310.16 170.3, 309.84 167.54, 310 166 M310 173 C310.08 171.09, 310.02 169.33, 310 166" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,180H319V187H310Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-3)" part="sp-ink">
+                    <path d="M310 180 C312.47 180.09, 314.75 180.15, 319 180 M310 180 C313.24 179.99, 316.25 179.91, 319 180 M319 180 C318.81 182.74, 318.91 185.36, 319 187 M319 180 C318.97 182.25, 318.88 184.68, 319 187 M319 187 C317.5 187.22, 315.14 186.99, 310 187 M319 187 C316.49 187.2, 313.99 187.22, 310 187 M310 187 C309.75 185.45, 309.73 184.03, 310 180 M310 187 C310.15 184.53, 309.88 182.06, 310 180" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,194H319V201H310Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-4)" part="sp-ink">
+                    <path d="M310 194 C312.24 193.6, 314.66 193.81, 319 194 M310 194 C313.42 193.95, 316.67 193.87, 319 194 M319 194 C318.81 195.53, 318.77 196.88, 319 201 M319 194 C319.09 196.56, 318.9 199.12, 319 201 M319 201 C315.66 201.28, 312.58 201.04, 310 201 M319 201 C316.22 200.96, 313.46 201.14, 310 201 M310 201 C310 199.84, 310.29 198.34, 310 194 M310 201 C309.91 199.37, 310.06 197.59, 310 194" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,208H319V215H310Z" data-paint="tile" data-role="hatch" fill="url(#fx-fences-s2-c1-tone-3)" part="sp-ink">
+                    <path d="M310 208 C312.82 207.96, 314.57 208.33, 319 208 M310 208 C313.2 207.87, 316.68 208.18, 319 208 M319 208 C318.85 209.72, 319.3 211.83, 319 215 M319 208 C318.86 210.56, 318.89 213.24, 319 215 M319 215 C316.43 215.34, 313.63 215.09, 310 215 M319 215 C315.96 215.17, 313.34 215.11, 310 215 M310 215 C310.21 213.59, 310.18 212.02, 310 208 M310 215 C309.98 212.49, 309.92 210, 310 208" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Share"
+                    <text data-kind="value" part="sp-text" text-anchor="middle" x="156" y="190">
+                      "100"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="159">
+                      "Rent"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="159">
+                      "38%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="173">
+                      "Food"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="173">
+                      "22%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="187">
+                      "Savings"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="187">
+                      "15%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="201">
+                      "Transport"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="201">
+                      "14%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="215">
+                      "Leisure"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="215">
+                      "11%"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s2-c1-table">
+                      <caption>
+                        "Share"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "name"
+                          <th scope="col">
+                            "value"
+                          <th scope="col">
+                            "share"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "Rent"
+                          <td>
+                            "38"
+                          <td>
+                            "38%"
+                        <tr>
+                          <th scope="row">
+                            "Food"
+                          <td>
+                            "22"
+                          <td>
+                            "22%"
+                        <tr>
+                          <th scope="row">
+                            "Savings"
+                          <td>
+                            "15"
+                          <td>
+                            "15%"
+                        <tr>
+                          <th scope="row">
+                            "Transport"
+                          <td>
+                            "14"
+                          <td>
+                            "14%"
+                        <tr>
+                          <th scope="row">
+                            "Leisure"
+                          <td>
+                            "11"
+                          <td>
+                            "11%"
+              <figure class="sp-deck-chart" data-sp-slot="s2-c2" data-sp-spec="{\"chart\":\"line-chart\",\"props\":{\"title\":\"Trend\"},\"width\":480,\"height\":240}" part="sp-deck-chart">
+                <div aria-label="Trend" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s2-c2-title fx-fences-s2-c2-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="300" role="img" viewBox="0 0 480 300" width="480" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s2-c2-title">
+                      "Trend"
+                    <desc id="fx-fences-s2-c2-desc">
+                      "Trend. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
+                    <path d="M0.5 0.5 C188.84 0.73, 377.02 0.4, 479.5 0.5 M0.5 0.5 C120.58 0.45, 240.79 0.57, 479.5 0.5 M479.5 0.5 C479.1 115.25, 479.26 229.68, 479.5 299.5 M479.5 0.5 C479.88 96.84, 479.83 193.61, 479.5 299.5 M479.5 299.5 C347.91 299.74, 216.89 299, 0.5 299.5 M479.5 299.5 C300.17 299.42, 121.2 299.48, 0.5 299.5 M0.5 299.5 C-0.13 222.57, 0.47 144.19, 0.5 0.5 M0.5 299.5 C-0.01 201.07, 0.07 103.35, 0.5 0.5" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M22 221.2 C193.34 221.25, 364.89 221.04, 458 221.2 M22 221.2 C134.71 220.7, 247.64 220.83, 458 221.2" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 178.4 C193.2 178.54, 365.04 178.5, 458 178.4 M22 178.4 C138.15 179.12, 254.13 178.78, 458 178.4" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 135.6 C193.98 135.54, 365.18 135.68, 458 135.6 M22 135.6 C141.6 135.88, 260.62 135.99, 458 135.6" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 92.8 C193.85 92.83, 365.33 93.14, 458 92.8 M22 92.8 C144.58 92.64, 267.57 92.74, 458 92.8" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 50 C193.71 49.84, 365.47 49.4, 458 50 M22 50 C148.02 49.4, 274.06 49.5, 458 50" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22 264 C194.49 263.93, 366.53 264.57, 458 264 M22 264 C151.47 264.16, 280.55 264.25, 458 264" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M40.17,216.92C52.28,219.95,64.39,222.98,76.5,225.48C88.61,227.98,100.72,231.9,112.83,231.9C124.94,231.9,137.06,230.47,149.17,227.62C161.28,224.77,173.39,210.86,185.5,199.8C197.61,188.74,209.72,171.98,221.83,161.28C233.94,150.58,246.06,138.45,258.17,135.6C270.28,132.75,282.39,132.75,294.5,131.32C306.61,129.89,318.72,129.89,330.83,127.04C342.94,124.19,355.06,114.2,367.17,114.2C379.28,114.2,391.39,135.6,403.5,146.3C415.61,157,427.72,167.7,439.83,178.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M40.17,225.48C52.28,228.51,64.39,231.54,76.5,234.04C88.61,236.54,100.72,240.46,112.83,240.46C124.94,240.46,137.06,236.89,149.17,229.76C161.28,222.63,173.39,206.22,185.5,191.24C197.61,176.26,209.72,153.08,221.83,139.88C233.94,126.68,246.06,112.06,258.17,112.06C270.28,112.06,282.39,122.76,294.5,122.76C306.61,122.76,318.72,113.49,330.83,105.64C342.94,97.79,355.06,75.68,367.17,75.68C379.28,75.68,391.39,114.56,403.5,131.32C415.61,148.08,427.72,162.17,439.83,176.26" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M436.33,176.26A3.5,3.5,0,1,0,443.33,176.26A3.5,3.5,0,1,0,436.33,176.26Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+                    <path d="M436.33,176.26A3.5,3.5,0,1,0,443.33,176.26A3.5,3.5,0,1,0,436.33,176.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Trend"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="218.2">
+                      "20"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="175.4">
+                      "40"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="132.6">
+                      "60"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="89.8">
+                      "80"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+                      "100"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="40.17" y="279">
+                      "00"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="112.83" y="279">
+                      "04"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="185.5" y="279">
+                      "08"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="258.17" y="279">
+                      "12"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="330.83" y="279">
+                      "16"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="403.5" y="279">
+                      "20"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s2-c2-table">
+                      <caption>
+                        "Trend"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "hour"
+                          <th scope="col">
+                            "hits"
+                          <th scope="col">
+                            "baseline"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "00"
+                          <td>
+                            "18"
+                          <td>
+                            "22"
+                        <tr>
+                          <th scope="row">
+                            "02"
+                          <td>
+                            "14"
+                          <td>
+                            "18"
+                        <tr>
+                          <th scope="row">
+                            "04"
+                          <td>
+                            "11"
+                          <td>
+                            "15"
+                        <tr>
+                          <th scope="row">
+                            "06"
+                          <td>
+                            "16"
+                          <td>
+                            "17"
+                        <tr>
+                          <th scope="row">
+                            "08"
+                          <td>
+                            "34"
+                          <td>
+                            "30"
+                        <tr>
+                          <th scope="row">
+                            "10"
+                          <td>
+                            "58"
+                          <td>
+                            "48"
+                        <tr>
+                          <th scope="row">
+                            "12"
+                          <td>
+                            "71"
+                          <td>
+                            "60"
+                        <tr>
+                          <th scope="row">
+                            "14"
+                          <td>
+                            "66"
+                          <td>
+                            "62"
+                        <tr>
+                          <th scope="row">
+                            "16"
+                          <td>
+                            "74"
+                          <td>
+                            "64"
+                        <tr>
+                          <th scope="row">
+                            "18"
+                          <td>
+                            "88"
+                          <td>
+                            "70"
+                        <tr>
+                          <th scope="row">
+                            "20"
+                          <td>
+                            "62"
+                          <td>
+                            "55"
+                        <tr>
+                          <th scope="row">
+                            "22"
+                          <td>
+                            "41"
+                          <td>
+                            "40"
+      <div class="sp-deck-slide" data-sp-slide="3" hidden="" inert="">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 3 of 3" aria-roledescription="slide" data-sp-ground="silverpoint" data-sp-mode="ink" data-sp-substrate="cream" role="group">
+              <h2>
+                "Each error a fence can raise"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c1" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: The fence is not JSON: Expected property name or '}' in JSON at position 2 (line 1 column 3)"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c2" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: `format` is not a field of the fence; use `chart`, `data`, `props`, `width`, `height`, `id`, `ground`, `substrate`, `mode`, `palette`."
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c3" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: unknown chart \"barchart\". Did you mean \"bar-chart\"?"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c4" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: bar-chart does not declare \"xKy\". Did you mean \"xKey\"?"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c5" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: width 2000 is outside 160..1280."
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c6" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: [SP009] CandlestickChart: a scale bound cannot be derived from the data and was not supplied (`bounds`). None of the 1 rows is a valid candle: open, high, low and close must be finite numbers with low ≤ min(open, close) ≤ max(open, close) ≤ high. Pass the named property explicitly. (REQ-097)"
+  <div aria-label="Deck controls" class="sp-deck-controls" part="sp-deck-controls" role="toolbar">
+    <button aria-label="Previous slide" class="sp-ui sp-button sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="sm" data-sp-action="prev" data-substrate="cream" data-variant="default" disabled="" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span aria-hidden="true" data-kind="control" data-tone="disabled" part="sp-tone">
+      <span class="sp-ui-label sp-ui-plate">
+        "‹"
+    <span class="sp-deck-counter" part="sp-deck-counter">
+      "1 / 3"
+    <button aria-label="Next slide" class="sp-ui sp-button sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="sm" data-sp-action="next" data-substrate="cream" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "›"
+    <button aria-label="Overview" aria-pressed="false" class="sp-ui sp-button sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="sm" data-sp-action="overview" data-substrate="cream" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "Overview"
+    <button aria-label="Speaker notes" aria-pressed="false" class="sp-ui sp-button sp-ground-silverpoint" data-frame="0" data-ground="silverpoint" data-mode="ink" data-size="sm" data-sp-action="notes" data-substrate="cream" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "Notes"
+  <p aria-live="polite" class="sp-deck-status">
+    "Slide 1 of 3"

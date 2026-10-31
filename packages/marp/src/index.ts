@@ -9,6 +9,7 @@ export { THEME_CLASSES, THEME_NAME, type ThemeClass } from './theme/silverpoint.
 export type * from './types';
 export { deckView, OVERVIEW_COLUMNS } from './view';
 export type { DeckSlideView, DeckView, DeckViewOptions, DeckViewState, ViewAttrs } from './view';
+export { deckMarkup } from './markup';
 export { hydrationPlan } from './hydration';
 export type { HydrationEntry } from './hydration';
 // The controller is pure (DD-057): an adapter renders its state on the server too.

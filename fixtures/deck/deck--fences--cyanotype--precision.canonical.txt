@@ -1,0 +1,379 @@
+<div #style="div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { width: 1280px; height: 720px; box-sizing: border-box; overflow: hidden; position: relative; scroll-snap-align: center center; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section::after { bottom: 0; content: attr(data-marpit-pagination); padding: inherit; pointer-events: none; position: absolute; right: 0; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section:not([data-marpit-pagination])::after { display: none; }/* Normalization */div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section :where(h1) { font-size: 2em; margin-block: 0.67em; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section section:where(h1) { --marpit-root-font-size: 2em; }div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section video::-webkit-media-controls { will-change: transform; }@page { size: 1280px 720px; margin: 0; }@media print {html, body { background-color: #fff; margin: 0; page-break-inside: avoid; break-inside: avoid-page; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { page-break-before: always; break-before: page; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section * { -webkit-print-color-adjust: exact !important; animation-delay: 0s !important; animation-duration: 0s !important; color-adjust: exact !important; print-color-adjust: exact !important; transition: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg[data-marpit-svg] { display: block; height: 100vh; width: 100vw; } } /* @theme silverpoint */ div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { width: 1280px; height: 720px; box-sizing: border-box; position: relative; overflow: hidden; font-family: var(--sp-font-display); font-size: 30px; line-height: 1.3; padding: 64px 80px; color: var(--sp-text); background-color: var(--sp-substrate); background-image: var(--sp-deck-backdrop, none); background-size: 100% 100%; background-repeat: no-repeat; font-kerning: normal; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section { --marpit-root-font-size: 30px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h1, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h2, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h3, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h4, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h5, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h6 { color: var(--sp-text); font-weight: 500; line-height: 1.1; margin: 0 0 24px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h1 { font-size: 64px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h2 { font-size: 48px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h3 { font-size: 36px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h4, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h5, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section h6 { font-size: 30px; text-transform: uppercase; letter-spacing: 0.08em; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section p { margin: 0 0 20px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ul, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ol { margin: 0 0 20px; padding-left: 40px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ul { list-style: disc; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section ol { font-variant-numeric: tabular-nums; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section li::marker { color: var(--sp-ink); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section a { color: var(--sp-ink); text-decoration-thickness: 1px; text-underline-offset: 4px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section strong { font-weight: 500; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section em { font-style: italic; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section blockquote { margin: 0 0 20px; padding: 0 0 0 24px; border-left: 2px solid var(--sp-rule); color: var(--sp-text-muted); font-style: italic; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section table { border-collapse: collapse; margin: 0 0 20px; font-variant-numeric: tabular-nums; border-top: 1px solid var(--sp-rule); border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section th { font-size: 22px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 8px 16px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section td { padding: 8px 16px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section code { font-family: var(--sp-font-display); font-variant-numeric: tabular-nums; color: var(--sp-ink-secondary); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section pre { font-family: var(--sp-font-display); font-size: 24px; line-height: 1.35; font-variant-numeric: tabular-nums; border: 1px solid var(--sp-rule); outline: 1px solid var(--sp-rule); outline-offset: 4px; margin: 4px 4px 24px; padding: 20px 28px; white-space: pre-wrap; tab-size: 2; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section :not(pre) > code { border: 1px solid var(--sp-rule); border-radius: 2px; padding: 0 6px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section pre code { color: var(--sp-text); font-size: inherit; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section img { max-width: 100%; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section footer { position: absolute; left: 80px; right: 80px; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sp-text-muted); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section:has(> header) { padding-top: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section header { top: 24px; padding-bottom: 6px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section footer { bottom: 24px; padding-top: 6px; border-top: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination] footer { right: 200px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination]::after { content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total); padding: 0; position: absolute; right: 80px; bottom: 24px; font-size: 22px; font-variant-numeric: tabular-nums; color: var(--sp-text-muted); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-pagination]::after { --marpit-root-font-size: 22px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart { margin: 0 0 20px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart--error { border: 1px solid var(--sp-rule); padding: 16px 24px; font-size: 22px; font-style: italic; color: var(--sp-text); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section section.sp-deck-chart--error { --marpit-root-font-size: 22px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section .sp-deck-chart--error figcaption { margin: 0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.lead { display: flex; flex-direction: column; justify-content: center; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.lead h1 { font-size: 88px; padding-bottom: 24px; border-bottom: 1px solid var(--sp-rule); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate { padding: 80px 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate footer { left: 104px; right: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate header { top: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate:has(> header) { padding-top: 120px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate footer { bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate[data-marpit-pagination] footer { right: 224px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.plate[data-marpit-pagination]::after { right: 104px; bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched { padding: 80px 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched header, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched footer { left: 104px; right: 104px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched header { top: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched:has(> header) { padding-top: 120px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched footer { bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched[data-marpit-pagination] footer { right: 224px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.hatched[data-marpit-pagination]::after { right: 104px; bottom: 44px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"cream\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #EDE7DA; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"cream\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #EDE7DA; --sp-heighten: #EDE7DA; --sp-rule: #EDE7DA; --sp-grid: #EDE7DA; --sp-text: #FFFFFF; --sp-text-muted: #EDE7DA; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"green\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #D8DCD0; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"green\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #D8DCD0; --sp-heighten: #D8DCD0; --sp-rule: #D8DCD0; --sp-grid: #D8DCD0; --sp-text: #FFFFFF; --sp-text-muted: #D8DCD0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"blue\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #D2D8DF; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"blue\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #D2D8DF; --sp-heighten: #D2D8DF; --sp-rule: #D2D8DF; --sp-grid: #D2D8DF; --sp-text: #FFFFFF; --sp-text-muted: #D2D8DF; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"ochre\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #E7DABC; --sp-ink: #5A5E65; --sp-ink-secondary: #685C4D; --sp-heighten: #FFFFFF; --sp-rule: #737A82; --sp-grid: #737A82; --sp-text: #3F4348; --sp-text-muted: #5A5E65; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"silverpoint\"][data-sp-substrate=\"ochre\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #5A5E65; --sp-ink: #FFFFFF; --sp-ink-secondary: #E7DABC; --sp-heighten: #E7DABC; --sp-rule: #E7DABC; --sp-grid: #E7DABC; --sp-text: #FFFFFF; --sp-text-muted: #E7DABC; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-sp-ground=\"cyanotype\"][data-sp-substrate=\"prussian\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #1B3F6B; --sp-ink: #E2EAF2; --sp-ink-secondary: #DCCBA8; --sp-heighten: #0C2240; --sp-rule: #8AA8C7; --sp-grid: #8AA8C7; --sp-text: #F4F6F8; --sp-text-muted: #B8CBDE; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section.invert[data-sp-ground=\"cyanotype\"][data-sp-substrate=\"prussian\"] { --sp-font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif; --sp-substrate: #E2EAF2; --sp-ink: #0C2240; --sp-ink-secondary: #1B3F6B; --sp-heighten: #1B3F6B; --sp-rule: #1B3F6B; --sp-grid: #1B3F6B; --sp-text: #0C2240; --sp-text-muted: #1B3F6B; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] { columns: initial !important; display: block !important; padding: 0 !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"]::before, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"]::after, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"]::before, div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"]::after { display: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] { all: initial; display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=\"vertical\"] { flex-direction: column; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"][data-marpit-advanced-background-split] > div[data-marpit-advanced-background-container] { width: var(--marpit-advanced-background-split, 50%); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"][data-marpit-advanced-background-split=\"right\"] > div[data-marpit-advanced-background-container] { margin-left: calc(100% - var(--marpit-advanced-background-split, 50%)); } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] > figure { all: initial; background-position: center; background-repeat: no-repeat; background-size: cover; flex: auto; margin: 0; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"background\"] > div[data-marpit-advanced-background-container] > figure > figcaption { position: absolute; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; white-space: nowrap; width: 1px; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"content\"], div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"pseudo\"] { background: transparent !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background=\"pseudo\"], div.sp-deck-fx-fences > div.sp-deck-slide > svg[data-marpit-svg] > foreignObject[data-marpit-advanced-background=\"pseudo\"] { pointer-events: none !important; } div.sp-deck-fx-fences > div.sp-deck-slide > svg > foreignObject > section[data-marpit-advanced-background-split] { width: 100%; height: 100%; }" aria-label="Three charts" aria-roledescription="slide deck" class="sp-deck sp-ground-cyanotype" data-mode="precision" data-sp-overview="false" data-sp-page="1" data-sp-step="0" data-substrate="prussian" part="sp-deck" role="region" tabindex="0">
+  <div class="sp-deck-viewport" part="sp-deck-viewport">
+    <div class="sp-deck-fx-fences">
+      <div class="sp-deck-slide" data-sp-current="" data-sp-slide="1">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 1 of 3" aria-roledescription="slide" data-sp-ground="cyanotype" data-sp-mode="precision" data-sp-substrate="prussian" role="group">
+              <h1>
+                "Three charts"
+              <figure class="sp-deck-chart" data-sp-slot="s1-c1" data-sp-spec="{\"chart\":\"bar-chart\",\"props\":{\"title\":\"Visits\"},\"width\":560,\"height\":280}" part="sp-deck-chart">
+                <div aria-label="Visits" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s1-c1-title fx-fences-s1-c1-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="340" role="img" viewBox="0 0 560 340" width="560" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s1-c1-title">
+                      "Visits"
+                    <desc id="fx-fences-s1-c1-desc">
+                      "Visits. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
+                    <path d="M0.5,0.5H559.5V339.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M22,48H34V55H22Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M76,48H88V55H76Z" data-dash="dotted" data-paint="stroke" data-role="ornament" part="sp-ink-secondary">
+                    <path d="M22,246H538" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,188H538" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,130H538" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,72H538" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,304H538" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M54.9,198A15.8,15.8,0,0,1,70.7,182.2H70.7A15.8,15.8,0,0,1,86.5,198V288.2A15.8,15.8,0,0,1,70.7,304H70.7A15.8,15.8,0,0,1,54.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M183.9,151.6A15.8,15.8,0,0,1,199.7,135.8H199.7A15.8,15.8,0,0,1,215.5,151.6V288.2A15.8,15.8,0,0,1,199.7,304H199.7A15.8,15.8,0,0,1,183.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M312.9,171.9A15.8,15.8,0,0,1,328.7,156.1H328.7A15.8,15.8,0,0,1,344.5,171.9V288.2A15.8,15.8,0,0,1,328.7,304H328.7A15.8,15.8,0,0,1,312.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M441.9,108.1A15.8,15.8,0,0,1,457.7,92.3H457.7A15.8,15.8,0,0,1,473.5,108.1V288.2A15.8,15.8,0,0,1,457.7,304H457.7A15.8,15.8,0,0,1,441.9,288.2Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M86.5,218.3A15.8,15.8,0,0,1,102.3,202.5H102.3A15.8,15.8,0,0,1,118.11,218.3V288.2A15.8,15.8,0,0,1,102.3,304H102.3A15.8,15.8,0,0,1,86.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M215.5,192.2A15.8,15.8,0,0,1,231.3,176.4H231.3A15.8,15.8,0,0,1,247.11,192.2V288.2A15.8,15.8,0,0,1,231.3,304H231.3A15.8,15.8,0,0,1,215.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M344.5,177.7A15.8,15.8,0,0,1,360.3,161.9H360.3A15.8,15.8,0,0,1,376.11,177.7V288.2A15.8,15.8,0,0,1,360.3,304H360.3A15.8,15.8,0,0,1,344.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M473.5,145.8A15.8,15.8,0,0,1,489.3,130H489.3A15.8,15.8,0,0,1,505.11,145.8V288.2A15.8,15.8,0,0,1,489.3,304H489.3A15.8,15.8,0,0,1,473.5,288.2Z" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Visits"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="38" y="55">
+                      "value"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="92" y="55">
+                      "previous"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="243">
+                      "20"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="185">
+                      "40"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="127">
+                      "60"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="69">
+                      "80"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="86.5" y="319">
+                      "Q1"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="215.5" y="319">
+                      "Q2"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="344.5" y="319">
+                      "Q3"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="473.5" y="319">
+                      "Q4"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s1-c1-table">
+                      <caption>
+                        "Visits"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "x"
+                          <th scope="col">
+                            "value"
+                          <th scope="col">
+                            "previous"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "Q1"
+                          <td>
+                            "42"
+                          <td>
+                            "35"
+                        <tr>
+                          <th scope="row">
+                            "Q2"
+                          <td>
+                            "58"
+                          <td>
+                            "44"
+                        <tr>
+                          <th scope="row">
+                            "Q3"
+                          <td>
+                            "51"
+                          <td>
+                            "49"
+                        <tr>
+                          <th scope="row">
+                            "Q4"
+                          <td>
+                            "73"
+                          <td>
+                            "60"
+      <div class="sp-deck-slide" data-sp-slide="2" hidden="" inert="">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 2 of 3" aria-roledescription="slide" data-sp-ground="cyanotype" data-sp-mode="precision" data-sp-substrate="prussian" role="group">
+              <h2>
+                "A donut and a line"
+              <figure class="sp-deck-chart" data-sp-slot="s2-c1" data-sp-spec="{\"chart\":\"donut-chart\",\"props\":{\"title\":\"Share\"},\"width\":480,\"height\":280}" part="sp-deck-chart">
+                <div aria-label="Share" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s2-c1-title fx-fences-s2-c1-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="340" role="img" viewBox="0 0 480 340" width="480" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s2-c1-title">
+                      "Share"
+                    <desc id="fx-fences-s2-c1-desc">
+                      "Share. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
+                    <path d="M0.5,0.5H479.5V339.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M156,50A134,134,0,0,1,247.73,281.68L212.87,244.56A83.08,83.08,0,0,0,156,100.92Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M247.73,281.68A134,134,0,0,1,77.24,292.41L107.17,251.21A83.08,83.08,0,0,0,212.87,244.56Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M77.24,292.41A134,134,0,0,1,22,184L72.92,184A83.08,83.08,0,0,0,107.17,251.21Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M22,184A134,134,0,0,1,70.59,80.75L103.04,119.99A83.08,83.08,0,0,0,72.92,184Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M70.59,80.75A134,134,0,0,1,156,50L156,100.92A83.08,83.08,0,0,0,103.04,119.99Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M310,152H319V159H310Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,166H319V173H310Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,180H319V187H310Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,194H319V201H310Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <path d="M310,208H319V215H310Z" data-paint="stroke" data-role="ornament" part="sp-ink">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Share"
+                    <text data-kind="value" part="sp-text" text-anchor="middle" x="156" y="190">
+                      "100"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="159">
+                      "Rent"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="159">
+                      "38%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="173">
+                      "Food"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="173">
+                      "22%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="187">
+                      "Savings"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="187">
+                      "15%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="201">
+                      "Transport"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="201">
+                      "14%"
+                    <text data-kind="tick" part="sp-text" text-anchor="start" x="324" y="215">
+                      "Leisure"
+                    <text data-kind="tick" part="sp-axis" text-anchor="end" x="464" y="215">
+                      "11%"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s2-c1-table">
+                      <caption>
+                        "Share"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "name"
+                          <th scope="col">
+                            "value"
+                          <th scope="col">
+                            "share"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "Rent"
+                          <td>
+                            "38"
+                          <td>
+                            "38%"
+                        <tr>
+                          <th scope="row">
+                            "Food"
+                          <td>
+                            "22"
+                          <td>
+                            "22%"
+                        <tr>
+                          <th scope="row">
+                            "Savings"
+                          <td>
+                            "15"
+                          <td>
+                            "15%"
+                        <tr>
+                          <th scope="row">
+                            "Transport"
+                          <td>
+                            "14"
+                          <td>
+                            "14%"
+                        <tr>
+                          <th scope="row">
+                            "Leisure"
+                          <td>
+                            "11"
+                          <td>
+                            "11%"
+              <figure class="sp-deck-chart" data-sp-slot="s2-c2" data-sp-spec="{\"chart\":\"line-chart\",\"props\":{\"title\":\"Trend\"},\"width\":480,\"height\":240}" part="sp-deck-chart">
+                <div aria-label="Trend" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
+                  <svg aria-labelledby="fx-fences-s2-c2-title fx-fences-s2-c2-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="300" role="img" viewBox="0 0 480 300" width="480" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fx-fences-s2-c2-title">
+                      "Trend"
+                    <desc id="fx-fences-s2-c2-desc">
+                      "Trend. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
+                    <path d="M0.5,0.5H479.5V299.5H0.5Z" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M22,221.2H458" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,178.4H458" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,135.6H458" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,92.8H458" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,50H458" data-paint="stroke" data-role="ornament" part="sp-grid">
+                    <path d="M22,264H458" data-paint="stroke" data-role="ornament" part="sp-rule">
+                    <path d="M40.17,216.92C52.28,219.95,64.39,222.98,76.5,225.48C88.61,227.98,100.72,231.9,112.83,231.9C124.94,231.9,137.06,230.47,149.17,227.62C161.28,224.77,173.39,210.86,185.5,199.8C197.61,188.74,209.72,171.98,221.83,161.28C233.94,150.58,246.06,138.45,258.17,135.6C270.28,132.75,282.39,132.75,294.5,131.32C306.61,129.89,318.72,129.89,330.83,127.04C342.94,124.19,355.06,114.2,367.17,114.2C379.28,114.2,391.39,135.6,403.5,146.3C415.61,157,427.72,167.7,439.83,178.4" data-dash="dotted" data-paint="stroke" data-role="encoding" part="sp-ink-secondary">
+                    <path d="M40.17,225.48C52.28,228.51,64.39,231.54,76.5,234.04C88.61,236.54,100.72,240.46,112.83,240.46C124.94,240.46,137.06,236.89,149.17,229.76C161.28,222.63,173.39,206.22,185.5,191.24C197.61,176.26,209.72,153.08,221.83,139.88C233.94,126.68,246.06,112.06,258.17,112.06C270.28,112.06,282.39,122.76,294.5,122.76C306.61,122.76,318.72,113.49,330.83,105.64C342.94,97.79,355.06,75.68,367.17,75.68C379.28,75.68,391.39,114.56,403.5,131.32C415.61,148.08,427.72,162.17,439.83,176.26" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <path d="M436.33,176.26A3.5,3.5,0,1,0,443.33,176.26A3.5,3.5,0,1,0,436.33,176.26Z" data-paint="fill" data-role="encoding" part="sp-heighten">
+                    <path d="M436.33,176.26A3.5,3.5,0,1,0,443.33,176.26A3.5,3.5,0,1,0,436.33,176.26Z" data-paint="stroke" data-role="encoding" part="sp-ink">
+                    <text data-kind="title" part="sp-text" text-anchor="start" x="16" y="27">
+                      "Trend"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="218.2">
+                      "20"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="175.4">
+                      "40"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="132.6">
+                      "60"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="89.8">
+                      "80"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="22" y="47">
+                      "100"
+                    <text data-kind="tick" part="sp-axis" text-anchor="start" x="40.17" y="279">
+                      "00"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="112.83" y="279">
+                      "04"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="185.5" y="279">
+                      "08"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="258.17" y="279">
+                      "12"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="330.83" y="279">
+                      "16"
+                    <text data-kind="tick" part="sp-axis" text-anchor="middle" x="403.5" y="279">
+                      "20"
+                  <div aria-live="polite" class="sp-live">
+                  <div class="sp-table-box" data-visibility="hidden">
+                    <table class="sp-table" data-visibility="hidden" id="fx-fences-s2-c2-table">
+                      <caption>
+                        "Trend"
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            "hour"
+                          <th scope="col">
+                            "hits"
+                          <th scope="col">
+                            "baseline"
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            "00"
+                          <td>
+                            "18"
+                          <td>
+                            "22"
+                        <tr>
+                          <th scope="row">
+                            "02"
+                          <td>
+                            "14"
+                          <td>
+                            "18"
+                        <tr>
+                          <th scope="row">
+                            "04"
+                          <td>
+                            "11"
+                          <td>
+                            "15"
+                        <tr>
+                          <th scope="row">
+                            "06"
+                          <td>
+                            "16"
+                          <td>
+                            "17"
+                        <tr>
+                          <th scope="row">
+                            "08"
+                          <td>
+                            "34"
+                          <td>
+                            "30"
+                        <tr>
+                          <th scope="row">
+                            "10"
+                          <td>
+                            "58"
+                          <td>
+                            "48"
+                        <tr>
+                          <th scope="row">
+                            "12"
+                          <td>
+                            "71"
+                          <td>
+                            "60"
+                        <tr>
+                          <th scope="row">
+                            "14"
+                          <td>
+                            "66"
+                          <td>
+                            "62"
+                        <tr>
+                          <th scope="row">
+                            "16"
+                          <td>
+                            "74"
+                          <td>
+                            "64"
+                        <tr>
+                          <th scope="row">
+                            "18"
+                          <td>
+                            "88"
+                          <td>
+                            "70"
+                        <tr>
+                          <th scope="row">
+                            "20"
+                          <td>
+                            "62"
+                          <td>
+                            "55"
+                        <tr>
+                          <th scope="row">
+                            "22"
+                          <td>
+                            "41"
+                          <td>
+                            "40"
+      <div class="sp-deck-slide" data-sp-slide="3" hidden="" inert="">
+        <svg data-marpit-svg="" viewBox="0 0 1280 720">
+          <foreignObject height="720" width="1280">
+            <section aria-label="Slide 3 of 3" aria-roledescription="slide" data-sp-ground="cyanotype" data-sp-mode="precision" data-sp-substrate="prussian" role="group">
+              <h2>
+                "Each error a fence can raise"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c1" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: The fence is not JSON: Expected property name or '}' in JSON at position 2 (line 1 column 3)"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c2" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: `format` is not a field of the fence; use `chart`, `data`, `props`, `width`, `height`, `id`, `ground`, `substrate`, `mode`, `palette`."
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c3" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: unknown chart \"barchart\". Did you mean \"bar-chart\"?"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c4" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: bar-chart does not declare \"xKy\". Did you mean \"xKey\"?"
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c5" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: width 2000 is outside 160..1280."
+              <figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s3-c6" part="sp-deck-chart-error" role="note">
+                <figcaption>
+                  "Chart fence on slide 3: [SP009] CandlestickChart: a scale bound cannot be derived from the data and was not supplied (`bounds`). None of the 1 rows is a valid candle: open, high, low and close must be finite numbers with low ≤ min(open, close) ≤ max(open, close) ≤ high. Pass the named property explicitly. (REQ-097)"
+  <div aria-label="Deck controls" class="sp-deck-controls" part="sp-deck-controls" role="toolbar">
+    <button aria-label="Previous slide" class="sp-ui sp-button sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="precision" data-size="sm" data-sp-action="prev" data-substrate="prussian" data-variant="default" disabled="" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span aria-hidden="true" data-kind="control" data-tone="disabled" part="sp-tone">
+      <span class="sp-ui-label sp-ui-plate">
+        "‹"
+    <span class="sp-deck-counter" part="sp-deck-counter">
+      "1 / 3"
+    <button aria-label="Next slide" class="sp-ui sp-button sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="precision" data-size="sm" data-sp-action="next" data-substrate="prussian" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "›"
+    <button aria-label="Overview" aria-pressed="false" class="sp-ui sp-button sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="precision" data-size="sm" data-sp-action="overview" data-substrate="prussian" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "Overview"
+    <button aria-label="Speaker notes" aria-pressed="false" class="sp-ui sp-button sp-ground-cyanotype" data-frame="0" data-ground="cyanotype" data-mode="precision" data-size="sm" data-sp-action="notes" data-substrate="prussian" data-variant="default" type="button">
+      <span aria-hidden="true" data-kind="control" part="sp-frame">
+      <span class="sp-ui-label">
+        "Notes"
+  <p aria-live="polite" class="sp-deck-status">
+    "Slide 1 of 3"

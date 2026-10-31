@@ -275,3 +275,41 @@ export function compareUi(actual: string, expected: string): { equal: true } | {
   const found = difference(parseUi(actual), parseUi(expected), root);
   return found === undefined ? { equal: true } : { equal: false, difference: found };
 }
+
+function findDeck(node: ParsedNode): ParsedElement | undefined {
+  if (isElement(node) && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-deck')) return node;
+  for (const child of 'childNodes' in node ? node.childNodes : []) {
+    const found = findDeck(child);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+/**
+ * Parses markup and returns the normalised tree of its deck root (`.sp-deck`), with the dashboard's
+ * rules (DD-017). The root's scoped `<style>` is not a child here but a `#style` attribute holding its
+ * text: React and Vue write it first, Angular last (hydration walks template nodes in order, T-277),
+ * and its place in the root draws nothing. Its text is compared as written, unescaped.
+ */
+export function parseDeck(markup: string): NormalElement {
+  const root = findDeck(parseFragment(markup));
+  if (!root) throw new Error('No element with class "sp-deck" in the markup.');
+  const tree = toTree(root, new Map(), { dashboard: true });
+  const styles = tree.children.filter((c): c is NormalElement => 'tag' in c && c.tag === 'style');
+  const css = styles.map((s) => s.children.map((c) => ('text' in c ? c.text : '')).join('')).join('\n');
+  const attrs = [...tree.attrs, ...(styles.length > 0 ? [['#style', css] as const] : [])].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+  return { tag: tree.tag, attrs, children: tree.children.filter((c) => !styles.includes(c as NormalElement)) };
+}
+
+/** The normalised deck as text, one node per line: what a deck fixture's canonical file holds. */
+export function normalizeDeck(markup: string): string {
+  const out: string[] = [];
+  lines(parseDeck(markup), 0, out);
+  return out.join('\n');
+}
+
+/** Compares two deck renders as normalised trees, reporting the first difference (REQ-623). */
+export function compareDeck(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
+  const found = difference(parseDeck(actual), parseDeck(expected), 'div');
+  return found === undefined ? { equal: true } : { equal: false, difference: found };
+}

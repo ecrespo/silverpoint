@@ -74,6 +74,13 @@ ordinal, chartId, spec }`.
 (`render(markdown, env) → { html[], css, comments[][] }` plus a markdown-it plugin hook). Only the
 Marpit implementation exists in `0.9.0`; the interface is not exported.
 
+*Amended in implementation (T-273..T-278):* the pure entry also exports what the three adapters
+share, so none computes markup of its own (Art. 2): `deckView(render, state, options) → DeckView`
+(the root, viewport, container, slide boxes, notes, controls and status, as attributes and core UI
+trees), `hydrationPlan(render, palette?)` (each slot's chart and props, from the function the static
+render uses), `createDeckController` (also on `/client`), and `deckMarkup(view) → string`, the deck's
+static HTML: the canonical render of the tree gate (REQ-623), and what `render_deck` returns (§11).
+
 ## 3. The theme (`silverpoint`)
 
 | Item | Contract |

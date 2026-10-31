@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { compareDashboard, compareSvg, normalizeDashboard, normalizeSvg } from './normalize';
+import { compareDashboard, compareDeck, compareSvg, normalizeDashboard, normalizeDeck, normalizeSvg } from './normalize';
 
 const svg = (inner: string, attrs = 'viewBox="0 0 10 10" class="sp-chart"') => `<svg ${attrs}>${inner}</svg>`;
 
@@ -139,5 +139,34 @@ describe('dashboard tree comparison (DD-017, T-116)', () => {
     const angular = wrapper().replace(/<div class="sp-root"/, '<sp-line-chart><sp-chart-frame><div class="sp-root"').replace(/<\/div><\/article>/, '</div></sp-chart-frame></sp-line-chart></article>');
     expect(angular).toContain('<sp-line-chart>');
     expect(compareDashboard(angular, wrapper())).toEqual({ equal: true });
+  });
+});
+
+describe('deck tree comparison (DD-017, T-278)', () => {
+  const css = 'div.sp-deck-d > div.sp-deck-slide{display:block}';
+  const deck = (opts: { style?: 'first' | 'last'; css?: string; slide?: string; host?: boolean } = {}) => {
+    const style = `<style>${opts.css ?? css}</style>`;
+    const body = `<div class="sp-deck-viewport"><div class="sp-deck-d"><div class="sp-deck-slide" data-sp-slide="1" data-sp-current="">${opts.slide ?? '<section id="1"><h1>A</h1></section>'}</div></div></div><p class="sp-deck-status">Slide 1 of 1</p>`;
+    const root = `<div class="sp-deck sp-ground-silverpoint" role="region">${opts.style === 'last' ? body + style : style + body}</div>`;
+    return opts.host ? `<sp-deck>${root}</sp-deck>` : root;
+  };
+
+  test('REQ-623 · the deck is compared from its root, slides included', () => {
+    expect(compareDeck(deck(), deck())).toEqual({ equal: true });
+    expect(normalizeDeck(deck())).toMatch(/^<div /);
+    expect(compareDeck(deck({ slide: '<section id="1"><h1>B</h1></section>' }), deck()).equal).toBe(false);
+  });
+
+  test('REQ-623 · the scoped style is compared by its text, wherever the adapter writes it in the root', () => {
+    expect(compareDeck(deck({ style: 'last' }), deck())).toEqual({ equal: true });
+    const changed = compareDeck(deck({ css: 'div.sp-deck-d > div.sp-deck-slide{display:none}' }), deck());
+    expect(changed.equal).toBe(false);
+    expect(changed.difference).toMatch(/style/);
+    // Escaped, the CSS is different CSS: the T-277 bug is a difference.
+    expect(compareDeck(deck({ css: css.replace('>', '&gt;') }), deck()).equal).toBe(false);
+  });
+
+  test('DD-017 · the Angular host around the deck is outside the comparison', () => {
+    expect(compareDeck(deck({ host: true }), deck())).toEqual({ equal: true });
   });
 });

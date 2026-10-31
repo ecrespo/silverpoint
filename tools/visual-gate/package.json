@@ -15,12 +15,15 @@
     "palette-canonical": "tsx --conditions=@silverpoint/source palette-fixtures.ts",
     "timeline-canonical": "tsx --conditions=@silverpoint/source timeline-fixtures.ts",
     "palette-gate": "tsx palette-gate.ts",
-    "timeline-gate": "tsx timeline-gate.ts"
+    "timeline-gate": "tsx timeline-gate.ts",
+    "deck-canonical": "tsx --conditions=@silverpoint/source deck-fixtures.ts",
+    "deck-gate": "tsx deck-gate.ts"
   },
   "dependencies": {
     "@silverpoint/angular": "workspace:*",
     "@silverpoint/core": "workspace:*",
     "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/marp": "workspace:*",
     "@silverpoint/react": "workspace:*",
     "@silverpoint/vue": "workspace:*"
   },
