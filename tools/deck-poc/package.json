@@ -1,0 +1,27 @@
+{
+  "name": "@silverpoint/deck-poc",
+  "version": "0.0.0",
+  "private": true,
+  "description": "feature-006 Phase 10a PoC (REQ-617, REQ-618): framework charts inside Marpit slides, inline SVG + polyfill vs transform scaling, in Chromium, Firefox and WebKit.",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "vite build && playwright test"
+  },
+  "dependencies": {
+    "@marp-team/marpit": "3.2.3",
+    "@marp-team/marpit-svg-polyfill": "2.1.0",
+    "@silverpoint/fonts": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/react": "workspace:*",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
+  }
+}

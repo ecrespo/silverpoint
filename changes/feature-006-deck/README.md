@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `IN PROGRESS` — gates 0..2 and the constitution amendment approved 2026-10-31 by Ernesto Crespo; Technical Design and PoC next |
+| **Status** | `IN PROGRESS` — gates 0..2 and the constitution amendment approved 2026-10-31 by Ernesto Crespo; PoC done and Technical Design drafted 2026-10-31, awaiting review |
 | **Target release** | `0.9.0` (changeset `minor` from 0.8.x; user decision 2026-10-31). The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-570..REQ-628 (§6.15) |
 | **Design decisions** | DD-051.. (gate 3; DD-051 records the PoC outcome, DD-052 the engine seam) |
@@ -19,8 +19,8 @@
 | 0 | [`research.md`](research.md) | What exists to build on; Marpit measured; conflicts; risks | ✅ 2026-10-31 |
 | 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, personas, REQ-570..628 | ✅ 2026-10-31 |
 | 2 | [`api-delta.md`](api-delta.md) | The contract: `@silverpoint/marp`, `SpDeck` ×3, directives, fence, controller, markup, MCP tools | ✅ 2026-10-31 |
-| PoC | `poc.md` (Phase 10a) | Inline SVG + polyfill vs `transform` scaling in Chromium, Firefox, WebKit | — |
-| 3 | `technical-design-delta.md` + `data-model-delta.md` | The how: DD-051..; the shapes | — |
+| PoC | [`poc.md`](poc.md) (Phase 10a) | Scaling method in Chromium, Firefox, WebKit: **`svg-transform`** (DD-051) | done, review pending |
+| 3 | [`technical-design-delta.md`](technical-design-delta.md) + `data-model-delta.md` | The how: DD-051..060; the shapes | TD drafted |
 | 4 | `plan-and-tasks.md` | Phase 10 steps and tasks | — |
 | — | `analyze.md` | Coverage, findings, open questions | — |
 | — | [`constitution-amendment.md`](constitution-amendment.md) | Scope line; Art. 2 for `@silverpoint/marp` | ✅ 2026-10-31 |
