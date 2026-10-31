@@ -79,7 +79,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 
 - [x] **T-272** `tools/agent-catalog` generates `deck/chart-loaders.ts` for the three adapters; `check` diffs them. *REQ-593*
 - [x] **T-273** React `SpDeck` (`"use client"`): render from `DeckRender`, controller via `useSyncExternalStore`, `createPortal` hydration, markdown change and unmount cleanup counters, provider defaults. *REQ-593, REQ-608..REQ-611*
-- [ ] **T-274** Vue `SpDeck`: `shallowRef` state, `v-model:page`, `render(h())` hydration with `appContext`, cleanup. *REQ-593, REQ-608, REQ-610, REQ-611*
+- [x] **T-274** Vue `SpDeck`: `shallowRef` state, `v-model:page`, `render(h())` hydration with `appContext`, cleanup. *REQ-593, REQ-608, REQ-610, REQ-611*
 - [ ] **T-275** Angular `sp-deck` (secondary entry point `deck`): signal inputs, `[(page)]`, `createComponent({ hostElement })` hydration, `afterNextRender`, `DestroyRef` cleanup. *REQ-593, REQ-608, REQ-610, REQ-611*
 - [ ] **T-276** Controls and overview markup in the three adapters (native buttons, labels, `aria-pressed`, counter, live region, `SP018`). *REQ-604, REQ-613, REQ-614*
 - [ ] **T-277** SSR: Next.js, `@vue/server-renderer`, Angular SSR render the deck; hydration without mismatch; the client half only after mount. *REQ-612*

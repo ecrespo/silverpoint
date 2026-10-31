@@ -147,17 +147,20 @@ describe('SpDeck — client (REQ-593, REQ-598, REQ-606, REQ-610, REQ-611)', () =
   });
 
   test('REQ-611 · unmount leaves nothing on document or window', async () => {
-    let live = 0;
+    // The listeners added while the deck lives; one removed is gone. Others predate the test.
+    const live = new Set<unknown>();
     for (const target of [document, window] as EventTarget[]) {
       const add = target.addEventListener.bind(target);
       const remove = target.removeEventListener.bind(target);
-      vi.spyOn(target, 'addEventListener').mockImplementation((...a: Parameters<EventTarget['addEventListener']>) => (live++, add(...a)));
-      vi.spyOn(target, 'removeEventListener').mockImplementation((...a: Parameters<EventTarget['removeEventListener']>) => (live--, remove(...a)));
+      vi.spyOn(target, 'addEventListener').mockImplementation((...a: Parameters<EventTarget['addEventListener']>) => (live.add(a[1]), add(...a)));
+      vi.spyOn(target, 'removeEventListener').mockImplementation((...a: Parameters<EventTarget['removeEventListener']>) => (live.delete(a[1]), remove(...a)));
     }
     await mount(<SpDeck markdown={MD} id="c7" hash />);
+    await hydrated('s1-c1');
+    expect(live.size).toBeGreaterThan(0);
     act(() => root!.unmount());
     root = undefined;
-    expect(live).toBe(0);
+    expect(live.size).toBe(0);
   });
 });
 

@@ -621,7 +621,13 @@
       "import": "./dist/timeline.js",
       "default": "./dist/timeline.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./deck": {
+      "@silverpoint/source": "./src/deck/index.ts",
+      "types": "./dist/deck.d.ts",
+      "import": "./dist/deck.js",
+      "default": "./dist/deck.js"
+    }
   },
   "files": [
     "dist"
@@ -645,10 +651,14 @@
   },
   "peerDependencies": {
     "vue": "^3.5.0",
-    "@knight-lab/timelinejs": "^3.9.13"
+    "@knight-lab/timelinejs": "^3.9.13",
+    "@silverpoint/marp": "workspace:*"
   },
   "peerDependenciesMeta": {
     "@knight-lab/timelinejs": {
+      "optional": true
+    },
+    "@silverpoint/marp": {
       "optional": true
     }
   },
@@ -660,6 +670,7 @@
     "tsup": "^8.5.1",
     "unplugin-vue": "^8.0.0",
     "vue": "^3.5.43",
-    "vue-tsc": "^3.3.11"
+    "vue-tsc": "^3.3.11",
+    "@silverpoint/marp": "workspace:*"
   }
 }

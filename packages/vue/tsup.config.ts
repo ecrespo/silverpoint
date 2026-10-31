@@ -109,6 +109,8 @@ export default defineConfig({
     'ui/toast': 'src/ui/toast.ts',
     // TimelineJS, loaded on the client only (feature-004, REQ-510).
     timeline: 'src/timeline.ts',
+    // The deck (feature-006, REQ-608); Marpit stays behind the optional peer.
+    deck: 'src/deck/index.ts',
   },
   format: ['esm'],
   target: 'es2022',
@@ -116,6 +118,6 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ['vue', '@silverpoint/core', '@silverpoint/grounds', '@knight-lab/timelinejs'],
+  external: ['vue', '@silverpoint/core', '@silverpoint/grounds', '@knight-lab/timelinejs', '@silverpoint/marp', '@silverpoint/marp/client'],
   esbuildPlugins: [Vue()],
 });
