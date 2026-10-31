@@ -44,3 +44,26 @@ describe('hydrationPlan', () => {
     expect(hydrationPlan(render).at(0)!.props.palette).toBeUndefined();
   });
 });
+
+describe('hydrationPlan — what reaches a framework chart (REQ-591, REQ-572)', () => {
+  // A fence's props are the author's; the adapters spread them onto a component, where a Vue root
+  // would take `innerHTML` as a DOM property and React would honour `dangerouslySetInnerHTML`.
+  const hostile = ['innerHTML', 'outerHTML', 'textContent', 'dangerouslySetInnerHTML', 'onClick', 'onMouseover', 'ref', 'key', 'style', 'is'];
+
+  test.each(hostile)('REQ-591 · a fence carrying `%s` renders an error figure and is never hydrated', (name) => {
+    const render = createDeckEngine({ id: 'x1' }).render(fence({ chart: 'donut-chart', props: { [name]: '<img src=x onerror=alert(1)>' } }));
+    expect(hydrationPlan(render)).toEqual([]);
+    expect(render.slides[0]!.html).not.toContain('<img');
+    // The error figure names the prop, as text.
+    expect(render.slides[0]!.html).toMatch(new RegExp(`does not declare (&quot;|")${name}(&quot;|")`));
+  });
+
+  test('REQ-591 · every prop a hydrated chart gets is declared: the chart’s own, the common ones, or set by the deck', async () => {
+    const { CHART_PROPS, COMMON_PROPS } = await import('../src/fence/charts.generated');
+    const render = createDeckEngine({ id: 'x2' }).render(md);
+    for (const entry of hydrationPlan(render)) {
+      const allowed = new Set([...(CHART_PROPS[entry.chart] ?? []), ...COMMON_PROPS]);
+      expect(Object.keys(entry.props).filter((k) => !allowed.has(k)), entry.chart).toEqual([]);
+    }
+  });
+});
