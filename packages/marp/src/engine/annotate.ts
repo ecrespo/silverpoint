@@ -3,6 +3,8 @@
  * directives and writes them, with the slide's accessible role and name, on the content
  * `<section>`; it reads the slide's first heading. Tokens, never string post-processing.
  */
+import { resolveSeed } from '@silverpoint/core';
+import { slideBackdrop } from '@silverpoint/grounds';
 import type { DeckDiagnostic } from '../types';
 import { resolveSlide, type Resolved } from './directives';
 
@@ -20,6 +22,8 @@ export interface AnnotateEnv {
   readonly defaults: Resolved;
   readonly slides: Array<Resolved & { heading?: string }>;
   readonly diagnostics: DeckDiagnostic[];
+  /** The deck id and slide size the backdrops are seeded and drawn with (REQ-587). */
+  readonly deck?: { readonly id: string; readonly width: number; readonly height: number };
 }
 
 export function isContentSection(token: { readonly type: string; attrGet(name: string): string | number | null }): boolean {
@@ -30,6 +34,23 @@ export function isContentSection(token: { readonly type: string; attrGet(name: s
 
 function text(inline: Token | undefined): string {
   return (inline?.children ?? []).filter((t) => t.type === 'text' || t.type === 'code_inline').map((t) => t.content).join('').trim();
+}
+
+/** `plate` or `hatched` slides carry the grounds' inked backdrop as `--sp-deck-backdrop` (DD-055). */
+function backdrop(token: Token, raw: Readonly<Record<string, unknown>>, resolved: Resolved, n: number, sp: AnnotateEnv): void {
+  if (!sp.deck) return;
+  const classes = String(raw['class'] ?? '').split(/\s+/);
+  const kind = classes.includes('hatched') ? 'hatched' : classes.includes('plate') ? 'plate' : undefined;
+  if (!kind) return;
+  const { dataUri } = slideBackdrop(resolved.ground, resolved.substrate, {
+    kind,
+    seed: resolveSeed(undefined, `${sp.deck.id}-s${n}`),
+    mode: resolved.mode,
+    width: sp.deck.width,
+    height: sp.deck.height,
+  });
+  const style = String(token.attrGet('style') ?? '').replace(/;?\s*$/, '');
+  token.attrSet('style', `${style === '' ? '' : `${style};`}--sp-deck-backdrop:url("${dataUri}")`);
 }
 
 export function annotate(state: { tokens: readonly Token[]; env: { sp?: AnnotateEnv } }): void {
@@ -52,6 +73,7 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
       token.attrSet('data-sp-ground', resolved.ground);
       token.attrSet('data-sp-substrate', resolved.substrate);
       token.attrSet('data-sp-mode', resolved.mode);
+      backdrop(token, raw, resolved, n, sp);
       current = { ...resolved };
       sp.slides[n - 1] = current;
       // What the next slide inherits if it brings an unknown value (REQ-586).

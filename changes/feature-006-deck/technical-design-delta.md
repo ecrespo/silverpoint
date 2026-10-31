@@ -134,6 +134,13 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   under inline SVG are separate layers (REQ-588).
 - **Rationale:** Art. 2 (amended): inked strokes come from grounds. Art. 4: seeded. Art. 6: tile per
   tonal level, as charts fill.
+- *Amended in implementation (T-260):* a data URI reads no page stylesheet, so the SVG carries the
+  ground's tokens as presentation attributes (`substrates`, `ink.*`) and the stylesheet's
+  `--sp-stroke-width` as `BACKDROP_STROKE_WIDTH`, which a test holds equal to `styles.css` for every
+  ground. A palette therefore does not recolour the backdrop. The band is one shape with its inner
+  edge wound the other way; under a `weight` ground it is drawn as weight (REQ-028), and in
+  `precision` as its exact outline. The engine writes `--sp-deck-backdrop:url("…")` after the
+  section's directive styles; the theme paints it (T-262).
 
 ### DD-056: The theme is generated from ground tokens
 

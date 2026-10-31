@@ -5,3 +5,4 @@ export { RoughInker } from './ink/rough-inker';
 export { WeightInker } from './ink/weight-inker';
 export { renderChart, toSVGString, type RenderedChart, type RenderEnvironment } from './render';
 export { toChartRootString } from './chart-root';
+export { slideBackdrop, type SlideBackdrop, type SlideBackdropOptions } from './backdrop';

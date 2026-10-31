@@ -27,7 +27,7 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
 
   return {
     render(markdown: string): DeckRender {
-      const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[] };
+      const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[], deck: { id, ...SIZES[size] } };
       const spFence: FenceEnv = { deckId: id, contentWidth: SIZES[size].width - 2 * CONTENT_INSET, slots: [] as ChartSlot[], ...(options.palette === undefined ? {} : { palette: options.palette }) };
       const out = markdownEngine.render(markdown, { sp, spFence });
       const slides: SlideRender[] = out.html.map((html, i) => {
