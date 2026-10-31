@@ -146,6 +146,14 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   `prefers-contrast: more` or `forced-colors: active` (REQ-615), on the slide's own layers only
   (Marpit keeps its content and pseudo layers transparent). The engine marks every
   `data-marpit-fragment` with `data-sp-pending`: every slide starts at step 0 (DD-057).
+- *Amended in implementation (T-273..T-275):* a slide box's content is the engine's markup, which
+  the adapters inject: React with `dangerouslySetInnerHTML` (one reviewed exception to the TD §6 lint
+  rule, disabled on that line with this decision cited), Vue with the `innerHTML` prop, Angular
+  through `Renderer2.setProperty` (its `[innerHTML]` sanitiser would strip the SVG). That is safe
+  because Markdown HTML is off and cannot be turned on (REQ-572, REQ-575): no user markup reaches it.
+  User text (labels, notes, status) still enters as text nodes. In Angular, `pageChange` carries
+  `{ page, total }` as in React and Vue (REQ-606), so it is not an `xChange` pair for `[(page)]`;
+  two-way binding reads `[page]="page" (pageChange)="page = $event.page"` (API delta §6).
 
 ### DD-056: The theme is generated from ground tokens
 

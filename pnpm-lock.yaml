@@ -493,6 +493,9 @@ importers:
       '@knight-lab/timelinejs':
         specifier: 3.9.13
         version: 3.9.13
+      '@silverpoint/marp':
+        specifier: workspace:*
+        version: link:../marp
       happy-dom:
         specifier: ^20.14.5
         version: 20.14.5

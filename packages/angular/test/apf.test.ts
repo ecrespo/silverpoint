@@ -33,8 +33,9 @@ describe('Angular Package Format', () => {
     const published = manifest();
     // @angular/forms: the UI components' ControlValueAccessor (REQ-323).
     // @knight-lab/timelinejs: the `timeline` entry's optional peer (REQ-510).
-    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms', '@knight-lab/timelinejs']);
-    expect(published.peerDependenciesMeta).toEqual({ '@knight-lab/timelinejs': { optional: true } });
+    // @silverpoint/marp: the `deck` entry's optional peer (REQ-616).
+    expect(Object.keys(published.peerDependencies).sort()).toEqual(['@angular/common', '@angular/core', '@angular/forms', '@knight-lab/timelinejs', '@silverpoint/marp']);
+    expect(published.peerDependenciesMeta).toEqual({ '@knight-lab/timelinejs': { optional: true }, '@silverpoint/marp': { optional: true } });
     expect(published.dependencies).not.toHaveProperty('@angular/core');
     expect(published.sideEffects).toBe(false);
   });

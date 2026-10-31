@@ -55,8 +55,8 @@ describe('SpDeck — server render (REQ-612, REQ-614)', () => {
   test('REQ-608 · provider defaults reach the slides; the deck’s own props win', async () => {
     const under = (deckProps: Record<string, unknown>) =>
       renderToString(createSSRApp({ render: () => h(SilverpointProvider, { ground: 'cyanotype' }, () => h(SpDeck, { markdown: '# A', ...deckProps })) }));
-    expect(await under({ id: 'd2' })).toContain('data-sp-ground="cyanotype"');
-    expect(await under({ id: 'd3', ground: 'silverpoint' })).toContain('data-sp-ground="silverpoint"');
+    expect(await under({ id: 'd2' })).toMatch(/class="sp-deck sp-ground-cyanotype"[\s\S]*<section[^>]*\sdata-sp-ground="cyanotype"/);
+    expect(await under({ id: 'd3', ground: 'silverpoint' })).toMatch(/class="sp-deck sp-ground-silverpoint"[\s\S]*<section[^>]*\sdata-sp-ground="silverpoint"/);
   });
 });
 

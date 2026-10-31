@@ -188,6 +188,7 @@ export function SpDeck({
         <div {...props(view.container)}>
           {view.slides.map((slide) => (
             // The engine's own output: Markdown HTML is off and not configurable (REQ-572, REQ-575).
+            // eslint-disable-next-line no-restricted-syntax -- DD-055 (T-275 amendment): the slide box holds the engine's markup, never user markup.
             <div key={slide.key} {...props(slide.attrs)} dangerouslySetInnerHTML={{ __html: slide.html }} />
           ))}
         </div>

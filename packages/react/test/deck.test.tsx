@@ -61,8 +61,8 @@ describe('SpDeck — server render (REQ-612, REQ-614)', () => {
         <SpDeck markdown="# A" id="d2" />
       </SilverpointProvider>,
     );
-    expect(html).toContain('data-sp-ground="cyanotype"');
-    expect(renderToString(<SilverpointProvider ground="cyanotype"><SpDeck markdown="# A" id="d3" ground="silverpoint" /></SilverpointProvider>)).toContain('data-sp-ground="silverpoint"');
+    expect(html).toMatch(/class="sp-deck sp-ground-cyanotype"[\s\S]*<section[^>]*\sdata-sp-ground="cyanotype"/);
+    expect(renderToString(<SilverpointProvider ground="cyanotype"><SpDeck markdown="# A" id="d3" ground="silverpoint" /></SilverpointProvider>)).toMatch(/class="sp-deck sp-ground-silverpoint"[\s\S]*<section[^>]*\sdata-sp-ground="silverpoint"/);
   });
 });
 

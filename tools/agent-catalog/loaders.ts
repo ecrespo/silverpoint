@@ -19,7 +19,7 @@ export const LOADER_FILES: Readonly<Record<LoaderAdapter, string>> = {
 };
 
 const HEADER: Readonly<Record<LoaderAdapter, string[]>> = {
-  react: ["import type { ComponentType } from 'react';", '', '// eslint-disable-next-line @typescript-eslint/no-explicit-any', 'export type ChartLoader = () => Promise<ComponentType<any>>;'],
+  react: ["import type { ComponentType } from 'react';", '', '// Each chart takes its own props: the loader only promises a component.', 'export type ChartLoader = () => Promise<ComponentType<any>>;'],
   vue: ["import type { Component } from 'vue';", '', 'export type ChartLoader = () => Promise<Component>;'],
   angular: ["import type { Type } from '@angular/core';", '', 'export type ChartLoader = () => Promise<Type<unknown>>;'],
 };
