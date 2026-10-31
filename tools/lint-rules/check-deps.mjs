@@ -20,7 +20,10 @@ const ALLOWLIST = {
   // A preset of names: not even Tailwind as a peer (DD-020, Art. 8).
   '@silverpoint/tailwind': [],
   // The MCP server describes the library to agents: no framework, ever (Art. 8, REQ-538).
-  '@silverpoint/mcp': ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod'],
+  // It renders decks through the deck package too (DD-060).
+  '@silverpoint/mcp': ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod', '@silverpoint/marp'],
+  // The deck package: Marpit and nothing else; the SVG polyfill was dropped by the PoC (DD-051).
+  '@silverpoint/marp': ['@silverpoint/core', '@silverpoint/grounds', '@marp-team/marpit'],
 };
 
 /** Frameworks each adapter must declare as peers, and nobody may declare as dependencies. */
@@ -31,15 +34,18 @@ const PEERS = {
 };
 const FRAMEWORKS = Object.values(PEERS).flat();
 
-/** Peers an adapter may declare only as optional: one subpath's own library (REQ-510, DD-042). */
+/**
+ * Peers an adapter may declare only as optional: one subpath's own library — TimelineJS for
+ * `timeline` (REQ-510, DD-042), the deck package for `deck` (REQ-616, DD-052).
+ */
 const OPTIONAL_PEERS = {
-  '@silverpoint/react': ['@knight-lab/timelinejs'],
-  '@silverpoint/vue': ['@knight-lab/timelinejs'],
-  '@silverpoint/angular': ['@knight-lab/timelinejs'],
+  '@silverpoint/react': ['@knight-lab/timelinejs', '@silverpoint/marp'],
+  '@silverpoint/vue': ['@knight-lab/timelinejs', '@silverpoint/marp'],
+  '@silverpoint/angular': ['@knight-lab/timelinejs', '@silverpoint/marp'],
 };
 
 /** Packages that ship a stylesheet and must keep it as a side effect (REQ-034). */
-const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts', '@silverpoint/tailwind'];
+const STYLESHEETS = ['@silverpoint/grounds', '@silverpoint/fonts', '@silverpoint/tailwind', '@silverpoint/marp'];
 
 function checkConditionOrder(name, exports, problems) {
   if (typeof exports !== 'object' || exports === null) return;

@@ -44,6 +44,10 @@ function valid(): Manifest[] {
     library('@silverpoint/mcp', {
       dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*', '@modelcontextprotocol/sdk': '1.32.1', zod: '^4' },
     }),
+    library('@silverpoint/marp', {
+      sideEffects: ['*.css'],
+      dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*', '@marp-team/marpit': '^3.2.3' },
+    }),
     {
       name: '@silverpoint/tailwind',
       sideEffects: ['*.css'],
@@ -57,7 +61,7 @@ function replace(manifests: Manifest[], name: string, change: (m: Manifest) => M
 }
 
 describe('check-deps', () => {
-  test('REQ-160 · REQ-538 · the eight packages of the allowlist pass', () => {
+  test('REQ-160 · REQ-538 · REQ-570 · the nine packages of the allowlist pass', () => {
     expect(checkManifests(valid())).toEqual([]);
   });
 
@@ -96,6 +100,32 @@ describe('check-deps', () => {
     const asOptionalDependency = replace(valid(), '@silverpoint/angular', (m) => ({ ...m, optionalDependencies: { '@knight-lab/timelinejs': '^3.9.13' } }));
     expect(checkManifests(asOptionalDependency)).toEqual(['REQ-162 · @silverpoint/angular declares @knight-lab/timelinejs, which is outside its allowlist (@silverpoint/core, @silverpoint/grounds, tslib).']);
     expect(checkManifests(withPeer('@silverpoint/core', optional))).toEqual(['REQ-162 · @silverpoint/core declares @knight-lab/timelinejs, which is outside its allowlist (d3-scale, d3-shape, d3-chord).']);
+  });
+
+  test('REQ-570 · DD-051 · the deck package takes Marpit, never the SVG polyfill nor a framework', () => {
+    const add = (deps: Manifest) => replace(valid(), '@silverpoint/marp', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), ...deps } }));
+    expect(checkManifests(add({ '@marp-team/marpit-svg-polyfill': '^2.1.0' }))).toEqual([
+      'REQ-162 · @silverpoint/marp depends on @marp-team/marpit-svg-polyfill, which is outside its allowlist (@silverpoint/core, @silverpoint/grounds, @marp-team/marpit).',
+    ]);
+    expect(checkManifests(add({ react: '^19' })).join('\n')).toMatch(/REQ-161.*@silverpoint\/marp.*react/);
+  });
+
+  test('REQ-616 · the deck package is an adapter’s optional peer only, and Marpit stays out of the adapters', () => {
+    const optional = { peerDependencies: { '@silverpoint/marp': 'workspace:*' }, peerDependenciesMeta: { '@silverpoint/marp': { optional: true } } };
+    const withPeer = (name: string, extra: Partial<Manifest>) => replace(valid(), name, (m) => ({ ...m, ...extra, peerDependencies: { ...(m.peerDependencies as object), ...(extra.peerDependencies as object) } }));
+    for (const adapter of ['@silverpoint/react', '@silverpoint/vue', '@silverpoint/angular']) expect(checkManifests(withPeer(adapter, optional)), adapter).toEqual([]);
+    expect(checkManifests(withPeer('@silverpoint/vue', { peerDependencies: { '@silverpoint/marp': 'workspace:*' } }))).toEqual([
+      'REQ-510 · @silverpoint/vue must mark @silverpoint/marp optional in peerDependenciesMeta.',
+    ]);
+    const asDependency = replace(valid(), '@silverpoint/react', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/marp': 'workspace:*' } }));
+    expect(checkManifests(asDependency)).toEqual(['REQ-162 · @silverpoint/react depends on @silverpoint/marp, which is outside its allowlist (@silverpoint/core, @silverpoint/grounds).']);
+    const marpit = replace(valid(), '@silverpoint/react', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@marp-team/marpit': '^3.2.3' } }));
+    expect(checkManifests(marpit).join('\n')).toMatch(/REQ-162.*@silverpoint\/react.*@marp-team\/marpit/);
+  });
+
+  test('REQ-620 · DD-060 · the MCP server may depend on the deck package', () => {
+    const manifests = replace(valid(), '@silverpoint/mcp', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/marp': 'workspace:*' } }));
+    expect(checkManifests(manifests)).toEqual([]);
   });
 
   test('REQ-161 · Vue missing from peerDependencies fails', () => {

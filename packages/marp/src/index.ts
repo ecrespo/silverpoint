@@ -1,0 +1,6 @@
+/**
+ * `@silverpoint/marp` — Marp/Marpit Markdown decks in the silverpoint style (PRD §6.15).
+ * This entry is pure: no DOM, no globals (REQ-570, REQ-574).
+ */
+export { createDeckEngine, sanitiseDeckId } from './engine';
+export type * from './types';

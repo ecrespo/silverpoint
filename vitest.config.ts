@@ -122,6 +122,11 @@ export default defineConfig({
         test: { name: 'mcp', root: 'packages/mcp', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {
+        resolve: source,
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: { name: 'marp', root: 'packages/marp', environment: 'node', include: ['test/**/*.test.ts'] },
+      },
+      {
         test: { name: 'tailwind', root: 'packages/tailwind', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {

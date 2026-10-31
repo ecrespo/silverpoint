@@ -1,0 +1,52 @@
+{
+  "name": "@silverpoint/marp",
+  "version": "0.8.0",
+  "description": "Marp/Marpit Markdown slide decks in the silverpoint style: the engine, the theme, the chart fence and the deck controller, framework-free.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "@silverpoint/source": "./src/client/index.ts",
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/marp"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@marp-team/marpit": "^3.2.3",
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  }
+}
