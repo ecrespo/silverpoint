@@ -23,10 +23,12 @@
       "import": "./dist/client.js",
       "default": "./dist/client.js"
     },
+    "./theme.css": "./theme.css",
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "theme.css"
   ],
   "repository": {
     "type": "git",

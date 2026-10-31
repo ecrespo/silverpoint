@@ -1,0 +1,17 @@
+{
+  "name": "@silverpoint/deck-theme",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Writes and checks @silverpoint/marp/theme.css from the ground objects (feature-006, DD-056, T-264).",
+  "scripts": {
+    "generate": "tsx --conditions=@silverpoint/source generate.ts",
+    "check": "tsx --conditions=@silverpoint/source check.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*",
+    "@silverpoint/marp": "workspace:*"
+  }
+}
