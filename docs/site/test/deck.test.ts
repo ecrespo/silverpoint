@@ -32,7 +32,9 @@ describe('the deck page (REQ-626, REQ-627)', () => {
   });
 
   test('REQ-627 · usage in React, Vue and Angular, with the peer and the stylesheets', () => {
-    for (const text of ['@silverpoint/react/deck', '@silverpoint/vue/deck', '@silverpoint/angular/deck', 'npm install @silverpoint/marp', '@silverpoint/marp/deck.css', 'v-model:page', '[(page)]']) expect(html, text).toContain(text);
+    for (const text of ['@silverpoint/react/deck', '@silverpoint/vue/deck', '@silverpoint/angular/deck', 'npm install @silverpoint/marp', '@silverpoint/marp/deck.css', 'v-model:page', '(pageChange)=&quot;page.set($event.page)&quot;']) expect(html, text).toContain(text);
+    // Angular's pageChange carries { page, total } (DD-055): two-way `[(page)]` would assign the object.
+    expect(html).not.toContain('[(page)]');
   });
 
   test('REQ-627 · the authoring guide: slides, notes, fragments, the directives, the classes, the fence and its errors', () => {

@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.9 |
-| **Date** | 2026-10-20 |
+| **Version** | 1.10 |
+| **Date** | 2026-10-31 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.11 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.12 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.12 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.13 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -573,6 +573,172 @@ interface Rule {
   and `common` (the shared props' Python names).
 - `AgentCatalog.recommend` carries the rule table of §2.31, which `recommend_chart` reads.
 
+### 2.32 `ChartFenceSpec` — the body of a `silverpoint` fence
+
+```ts
+interface ChartFenceSpec {
+  readonly chart: string;                                  // a catalog slug: 'bar-chart', 'sankey-chart', …
+  readonly data?: unknown;                                 // what the chart reads; absent → its demo dataset
+  readonly props?: Readonly<Record<string, unknown>>;      // the chart's own props + common view props
+  readonly width?: number;                                 // 160..1280, canvas px; default: slide content width
+  readonly height?: number;                                // 90..720; default 360
+  readonly id?: string;                                    // default `${deckId}-s${slide}-c${ordinal}`
+  readonly ground?: string;
+  readonly substrate?: string;
+  readonly mode?: 'ink' | 'precision';
+  readonly palette?: string | Palette;
+}
+```
+
+JSON Schema (generated from the type for the agent catalog, DD-060): `additionalProperties: false`
+at the top level; `props` forbids `ground`, `substrate`, `mode`, `palette` and `id` (they are
+top-level fields). This is `render_chart`'s input without `format` and `embedFonts`.
+*Amended in implementation (#258):* `props` also forbids `data`, `width` and `height`, as
+`render_chart` does. The declared props come from `packages/marp/src/fence/charts.generated.ts`,
+written by `tools/agent-catalog` and diffed by its `check`, because the recipes carry no prop metadata.
+
+```ts
+type FenceError =
+  | { readonly kind: 'json'; readonly message: string }                     // JSON.parse message
+  | { readonly kind: 'shape'; readonly message: string }                    // not an object, unknown top-level key
+  | { readonly kind: 'chart'; readonly chart: string; readonly suggestions: readonly string[] }
+  | { readonly kind: 'prop'; readonly props: readonly string[] }            // undeclared props
+  | { readonly kind: 'size'; readonly width?: number; readonly height?: number }
+  | { readonly kind: 'diagnostic'; readonly code: string; readonly message: string };  // an `error` diagnostic of the chart
+```
+
+### 2.33 `DeckRender` — the engine's output
+
+```ts
+interface DeckRender {
+  readonly id: string;                       // sanitised deck id
+  readonly total: number;                    // slides
+  readonly size: { readonly width: number; readonly height: number };   // 1280×720 or 960×720
+  readonly css: string;                      // Marpit's scoped CSS: theme + directives + backdrops
+  readonly slides: readonly SlideRender[];
+  readonly slots: readonly ChartSlot[];      // document order
+  readonly diagnostics: readonly DeckDiagnostic[];
+}
+interface SlideRender {
+  readonly index: number;                    // 1-based
+  readonly html: string;                     // the slide box: <div class="sp-deck-slide"><svg …>…</svg></div>
+  readonly notes: readonly string[];         // Marpit comments, in order, trimmed
+  readonly fragments: number;                // data-marpit-fragments, 0 when none
+  readonly ground: string; readonly substrate: string; readonly mode: 'ink' | 'precision';
+  readonly classes: readonly string[];       // the `class` directive's tokens
+  readonly heading?: string;                 // first heading's text, for labels and the overview
+}
+interface ChartSlot {
+  readonly slotId: string;                   // `s${slide}-c${ordinal}`
+  readonly slide: number; readonly ordinal: number;
+  readonly chartId: string;
+  readonly spec?: ChartFenceSpec;            // absent when the fence failed
+  readonly error?: FenceError;
+}
+interface DeckDiagnostic {
+  readonly code: 'SP018' | 'SP026' | 'SP027' | 'SP028' | 'SP029' | string;
+  readonly severity: 'warn' | 'error';
+  readonly message: string;
+  readonly slide?: number;
+  readonly slot?: string;
+}
+```
+
+### 2.34 Directive values
+
+```ts
+interface SlideDirectives {
+  readonly ground: string;          // a registered ground (resolveGround succeeds)
+  readonly substrate: string;       // a key of that ground's substrates
+  readonly mode: 'ink' | 'precision';
+}
+const DECK_DIRECTIVES: readonly {
+  readonly name: 'ground' | 'substrate' | 'mode';
+  readonly values: readonly string[] | 'per-ground';   // substrate depends on the ground
+  readonly default: string;
+  readonly attribute: 'data-sp-ground' | 'data-sp-substrate' | 'data-sp-mode';
+}[];
+const THEME_CLASSES: readonly ('lead' | 'invert' | 'plate' | 'hatched')[];
+```
+
+Resolution per slide: spot (`_x`) › inherited local (`x`, from this or an earlier slide or the front
+matter) › deck option › default. A `ground` change without a `substrate` resets the substrate to the
+new ground's first unless the inherited substrate belongs to the new ground.
+
+### 2.35 `DeckState` and events — the controller
+
+```ts
+interface DeckState {
+  readonly page: number;              // 1..total
+  readonly step: number;              // 0..steps[page-1]
+  readonly total: number;
+  readonly steps: readonly number[];  // fragments per slide, length total
+  readonly overview: boolean;
+  readonly notes: boolean;
+  readonly fullscreen: boolean;
+  readonly controlled: boolean;
+}
+interface DeckEvents {
+  pageChange: { readonly page: number; readonly total: number };
+  fragmentChange: { readonly page: number; readonly step: number; readonly steps: number };
+  ready: { readonly total: number };
+  state: DeckState;                   // internal: the adapters' subscription
+}
+type DeckAction =
+  | { type: 'next' } | { type: 'prev' } | { type: 'first' } | { type: 'last' }
+  | { type: 'goTo'; page: number; step?: number | 'all' }
+  | { type: 'setTotal'; total: number; steps: readonly number[] }
+  | { type: 'setControlledPage'; page: number }
+  | { type: 'toggle'; what: 'overview' | 'notes' | 'fullscreen'; force?: boolean };
+```
+
+In controlled mode, a page-moving action emits `pageChange` with the requested page and leaves
+`state.page` unchanged until `setControlledPage`; the step it would have set is kept pending and
+applied when the parent confirms that page (so `prev` into a slide still lands fully revealed).
+
+### 2.36 Backdrop
+
+```ts
+interface SlideBackdropOptions {
+  readonly kind: 'plain' | 'hatched' | 'plate';
+  readonly seed: number;                     // resolveSeed(`${deckId}-s${n}`)
+  readonly mode: 'ink' | 'precision';
+  readonly width: number; readonly height: number;
+}
+interface SlideBackdrop { readonly svg: string; readonly dataUri: string }  // dataUri: `data:image/svg+xml,` + encodeURIComponent(svg)
+```
+
+`hatched` band: 32 px wide inside the slide's edge, filled with the ground's tonal level 1 tile.
+`plate`: two rules, 24 px and 30 px inside the edge. `plain` returns the substrate fill only, and the
+engine omits it (the theme paints the substrate colour); it exists for `render_deck`.
+
+### 2.37 Agent catalog — `deck` section (extends §2.28)
+
+```ts
+interface AgentCatalog {
+  // … §2.28 …
+  readonly deck: {
+    readonly names: Names;                   // reflex: '' until reflex-silverpoint-marp exists
+    readonly imports: Imports;
+    readonly peer: '@silverpoint/marp';
+    readonly props: readonly PropEntry[];
+    readonly events: readonly { readonly name: string; readonly payload: string; readonly bindings: { readonly react: string; readonly vue: string; readonly angular: string }; readonly doc: string }[];
+    readonly directives: typeof DECK_DIRECTIVES;
+    readonly classes: typeof THEME_CLASSES;
+    readonly fence: { readonly schema: object; readonly example: string };
+    readonly diagnostics: readonly string[];
+    readonly stylesheets: readonly string[];
+  };
+}
+```
+
+*Amended in implementation (#282):* each event also carries `bindings: { react, vue, angular }`
+(`onPageChange`, `@page-change`, `(pageChange)`), checked against the adapters' sources;
+`imports.reflex` is `''` like `names.reflex`. `props` are `SpDeckProps` without its callbacks (the
+React interface carries the defaults as JSDoc); `diagnostics` are the `SPnnn` literals of
+`@silverpoint/marp`'s sources; the schema's ranges, enums and id pattern come from the fence parser
+(`FENCE_KEYS`, `FENCE_OWN`, `FENCE_ID`, `WIDTH`, `HEIGHT`). Generated by `tools/agent-catalog/deck.ts`.
+
 ## 3. The `silverpoint` ground
 
 ### 3.1 Prepared substrates
@@ -1062,6 +1228,26 @@ nightly only.
   example apps.
 
 
+### Deck fixtures (feature-006)
+
+Six Marp decks under `fixtures/deck/` (`tools/visual-gate/deck-fixtures.ts`):
+
+| Fixture | Content |
+|---|---|
+| `basic.deck.md` | Title (`lead`), headings, lists, a table, a blockquote, inline and block code, header/footer, pagination |
+| `fragments.deck.md` | Fragmented lists at depth 1 and 2; a slide with none |
+| `directives.deck.md` | Front-matter `ground`; a `_substrate` spot; `mode: precision` inherited; an unknown value (`SP027`) |
+| `fences.deck.md` | Three fences (bar, donut, line) and one invalid per `FenceError.kind` |
+| `backgrounds.deck.md` | `bg left:40%`, two `bg` images, `bg contain`, a filter |
+| `classes.deck.md` | `invert`, `plate`, `hatched` on each built-in ground |
+
+Each × `silverpoint`/`cyanotype` × `ink`/`precision` where the fixture does not fix them: **24** deck
+renders, all on every PR, their canonicals `deck--<fixture>--<ground>--<mode>.canonical.txt` beside
+the decks, compared as trees by `tools/visual-gate/deck-gate.ts`. Images in fixtures are local SVG
+files under `fixtures/deck/assets/`. *Amended in implementation (#279):* the pixel gate shoots every
+slide of the 24 renders, **92** goldens in `e2e/__golden__/deck/`, the assets served by the `vite-react`
+example app from `/deck-assets/`.
+
 ## 6. Invariants
 
 Verifiable, and each one with its test.
@@ -1110,6 +1296,16 @@ Verifiable, and each one with its test.
 | I-40 | `reflex.stale` is `reflex.wraps !== version`; a release build requires `false` when the pin is the wrapper's own export; with a derived pin (`derived` set) a stale catalog warns (amended in implementation, user decision 2026-10-20). | REQ-556 |
 | I-41 | Every `DataSpec.fields[].prop` is a prop of that chart. | REQ-541 |
 | I-42 | Every slug a rule names exists in `charts`. | REQ-540 |
+| I-43 | `DeckRender.slides.length === total` and `slides[i].index === i + 1`. | REQ-573 |
+| I-44 | `render(md, opts)` twice gives deep-equal results; no field depends on time or randomness. | REQ-574 |
+| I-45 | No `slides[i].html` contains `<script`, an `on*=` attribute, or a `javascript:`/`vbscript:` URL. | REQ-575 |
+| I-46 | Every `ChartSlot` has exactly one of `spec`, `error`; `slotId`s are unique; every slot appears once in its slide's HTML as `data-sp-slot`. | REQ-589, REQ-591 |
+| I-47 | A slot's `chartId` is `spec.id` when given, else `${id}-s${slide}-c${ordinal}`; chart ids are unique in a deck. | REQ-590 |
+| I-48 | Every slide's `ground` is registered and its `substrate` belongs to it; `mode ∈ {ink, precision}`. | REQ-584, REQ-586 |
+| I-49 | `1 ≤ state.page ≤ total` and `0 ≤ state.step ≤ steps[page-1]` after every action. | REQ-596, REQ-599 |
+| I-50 | `next` then `prev` from any state with `step < steps[page-1]` or `page < total` returns the same `(page, step)`. | REQ-596 |
+| I-51 | Every event payload is plain JSON (`JSON.parse(JSON.stringify(p))` deep-equals `p`). | REQ-606, REQ-609 |
+| I-52 | The backdrop for the same ground, substrate, kind, seed, mode and size is byte-identical. | REQ-587 |
 
 Feature-004's delta numbered I-31..I-36 as I-23..I-28, which feature-003's fold had already taken;
 they are renumbered here, and the feature-004 tests that cite them by the delta's number (palette,
@@ -1128,6 +1324,7 @@ they are renumbered here, and the feature-004 tests that cite them by the delta'
 | 1.6 | 2026-09-29 | Ernesto Crespo | Feature-002 folded: component value contracts §2.14, the `ui` tokens and UI contrast pairs §3.8, UI demos in §4, 510 component fixtures in §5, invariants I-17..I-22 |
 | 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: the agent catalog §2.28, chart metadata §2.29 (the nine families as built), the Reflex catalog §2.30, the recommender rules §2.31, invariants I-37..I-42. What the implementation changed is folded as built ("amended in implementation") |
+| 1.10 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: the fence spec and its errors §2.32, `DeckRender` §2.33, directive values §2.34, the controller's state, events and actions §2.35, the slide backdrop §2.36, the agent catalog's `deck` section §2.37; deck fixtures in §5 (24 renders, 92 pixel goldens); invariants I-43..I-52. What the implementation changed is folded as built ("amended in implementation") |
 | 1.8 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: the `Palette` contract and its six presets §2.26; value contracts, sort order and page window of the composed components §2.27; `ui` tokens `backdrop` and `rowTone` (optional, defaults 2 and 1, declared by neither built-in ground) and five UI contrast pairs §3.8; palette contrast pairs §3.9; composed, palettes and timeline demos in §4; 36 states (860 UI matrix fixtures, 320 on PR; 10 timeline surface fixtures, 4 on PR) and 36 palette fixtures in §5 (906 nightly, 360 on PR); invariants I-31..I-36 (I-23..I-28 in the delta). What the implementation changed is folded as built ("amended in implementation") |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |

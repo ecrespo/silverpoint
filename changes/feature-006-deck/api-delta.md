@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, drafted and approved 2026-10-31 |
+| **Status** | `FOLDED` — gate 2, drafted and approved 2026-10-31; folded into [`specs/api-spec.md`](../../specs/api-spec.md) v1.13 on 2026-10-31 (§1, §1.4, §2, §3.6, §7.5, §9, §10, §11, §12, §13, §14) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.12 → v1.13: §1 (a new package, `deck` subpaths), new §1.4, new §3.6, §7 (new §7.5), §9, §10, §11 (`SP026`–`SP029`), §12, §14 (two tools, a catalog section) |
 | **SemVer** | `minor` — a new package in the `fixed` group and new subpaths; no change to any existing export, prop or normalised output |
 | **Requirements** | REQ-570..REQ-628 ([`prd-delta.md`](prd-delta.md) §6.15) |
@@ -185,8 +185,9 @@ never evaluated. An info string other than `silverpoint` (` ```js `) is a normal
 | `fragmentChange` | `{ page: number, step: number, steps: number }` | `onFragmentChange` | `@fragment-change` | `(fragmentChange)` |
 | `ready` | `{ total: number }` | `onReady` | `@ready` | `(ready)` |
 
-Vue's `page` also works with `v-model:page`; Angular's `page` is a signal input, and `pageChange` makes
-`[(page)]` two-way binding work. `SpDeck` takes the provider's ground, substrate, mode and palette
+Vue's `page` also works with `v-model:page`; Angular's `page` is a signal input bound with `[page]` and
+`(pageChange)`. *Amended in implementation (DD-055, T-273..T-275):* Angular's `pageChange` emits
+`{ page, total }`, so `[(page)]` two-way binding does not work. `SpDeck` takes the provider's ground, substrate, mode and palette
 when its own props are absent, like charts do.
 
 ```tsx
@@ -200,7 +201,7 @@ import { SpDeck } from '@silverpoint/react/deck';
 ```
 ```html
 <!-- Angular -->
-<sp-deck [markdown]="md" [(page)]="page" [showNotes]="true" />
+<sp-deck [markdown]="md" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />
 ```
 
 ## 7. The controller (`@silverpoint/marp/client`, REQ-595..607)

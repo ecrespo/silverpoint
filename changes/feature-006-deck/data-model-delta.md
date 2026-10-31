@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3 (second half), drafted and approved 2026-10-31 |
+| **Status** | `FOLDED` — gate 3 (second half), drafted and approved 2026-10-31; folded into `specs/data-model.md` v1.10 on 2026-10-31 (T-289) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.9 → v1.10: new §2.32..§2.37, §5 (deck fixtures), invariants I-43..I-52 |
 
 ## §2.32 `ChartFenceSpec` — the body of a `silverpoint` fence

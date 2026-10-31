@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.10 |
-| **Date** | 2026-10-20 |
-| **PRD** | [`prd.md`](prd.md) v1.14 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.11 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.9 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.12 |
+| **Version** | 1.11 |
+| **Date** | 2026-10-31 |
+| **PRD** | [`prd.md`](prd.md) v1.15 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.12 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.10 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.13 |
 
 ---
 
@@ -655,6 +655,92 @@ Every task cites at least one requirement; no orphan task.
 - Released as `0.8.0` (changeset `minor`) from CI; the release commit runs the catalog's `generate`
   after `version-packages`; deltas folded; `CLAUDE.md` status in the three repositories.
 
+### Phase 10 — Slide decks
+
+**Effort:** one minor, a new package and three adapters, a blocking PoC. **Goal:** a Marp Markdown
+string given to `SpDeck` in React, Vue or Angular renders as a silverpoint deck —theme, grounds,
+live charts, fragments, notes, keyboard, overview, print— identically in the three adapters and in
+Chromium, Firefox and WebKit; the same theme works in Marp CLI; agents can validate and render decks
+(PRD §6.15, REQ-570..REQ-628; API Spec §1.4, §7.5, §14; DD-051..DD-060; Data Model §2.32..§2.37).
+
+**Tasks:** #252..#289, continuing the global sequence; defined in the feature's ledger
+(`changes/feature-006-deck/plan-and-tasks.md`), as for Phases 5..9.
+
+| Step | Content | Tasks | Depends on | Exit |
+|---|---|---|---|---|
+| 10a | PoC: scaling in three engines | #252 | Gate 2 | `svg-transform` (DD-051) |
+| 10b | `@silverpoint/marp` engine: package, Marpit wrapper, annotations, directives, fence, limits; `slideBackdrop` and `toChartRootString` in grounds | #253..#261 | Gate 3 | Unit tests for I-43..I-48, I-52 |
+| 10c | Theme: source, generator, `theme.css`, contrast pairs, Marp CLI check, `cli` engine | #262..#266 | 10b | Contrast gate green; `marp --theme` renders |
+| 10d | Controller and client: reducer, emitter, `bindDeck`, `applyScaling`, `findChartSlots`, `deck.css` | #267..#271 | 10b | Table-driven transitions (I-49..I-51) |
+| 10e | Adapters: `SpDeck` ×3, generated chart loaders, hydration, SSR | #272..#277 | 10c, 10d | Component tests; SSR without mismatch |
+| 10f | Gates: deck fixtures, `deck-gate`, pixel fixtures, `browser-deck` e2e, bundle checks | #278..#281 | 10e | CI green |
+| 10g | Agent access: catalog `deck`, `validate_deck`, `render_deck`, `generate_code { deck }`, skill reference | #282..#285 | 10b, 10e | `check` clean; contract tests |
+| 10h | Demo, `/deck` pages, docs, README, changeset, fold of the deltas, `CLAUDE.md` | #286..#289 | 10f, 10g | Ready for the `0.9.0` release commit |
+
+**Status (2026-10-31).** Steps 10a..10h are implemented on `feat/silverpoint-0.9`:
+`@silverpoint/marp` (engine, `client`, `cli`, `demo`, `deck.css`, `theme.css`) in the `fixed` group;
+`SpDeck` on the `deck` subpath of the three adapters, server-rendered and hydrated in the four example
+apps; 24 deck fixtures compared as trees and 92 slide goldens in the pixel gate; the `browser-deck`
+job green in Chromium, Firefox and WebKit; the one-chart builds carry no deck module and the deck
+budgets hold (DD-059); the agent catalog's `deck` section, `validate_deck` and `render_deck` (thirteen
+tools), `generate_code { deck }`, the skill's `references/deck.md` and the `silverpoint://guides/deck`
+guide; `DECK_DEMO` drawn on `/deck` in the four apps and the docs site; the package README. npm holds
+no `@silverpoint/marp` yet: a placeholder is published by hand and its trusted publisher set before
+the release (`changes/feature-006-deck/first-publish.md`). The Reflex deck (`reflex-silverpoint-marp`)
+is outside this repository.
+
+**Requirement → task map**
+
+| Requirement | Tasks |
+|---|---|
+| REQ-570 | #253, #288 |
+| REQ-571, REQ-572, REQ-573, REQ-574 | #254, #256 |
+| REQ-575 | #255 |
+| REQ-576 (SHOULD) | #261 |
+| REQ-577, REQ-578, REQ-580 | #262, #264 |
+| REQ-579 | #263 |
+| REQ-581 | #265 |
+| REQ-582 | #264, #266, #287 |
+| REQ-583 (SHOULD) | #266 |
+| REQ-584, REQ-585, REQ-586 | #257, #259 |
+| REQ-587 | #260 |
+| REQ-588 | #252, #279 |
+| REQ-589, REQ-590, REQ-591 | #258, #259 |
+| REQ-592 | #270 |
+| REQ-593 | #272..#275 |
+| REQ-594 (SHOULD) | #273..#275 |
+| REQ-595, REQ-596, REQ-598, REQ-599 | #267 |
+| REQ-597 | #270, #271 |
+| REQ-600, REQ-601, REQ-602, REQ-603 | #269 |
+| REQ-604, REQ-605, REQ-607 | #271, #276 |
+| REQ-606 | #268 |
+| REQ-608, REQ-609, REQ-610, REQ-611 | #273..#275 |
+| REQ-612 | #277 |
+| REQ-613, REQ-614 | #256, #276 |
+| REQ-615 | #271 |
+| REQ-616 | #253, #281 |
+| REQ-617, REQ-618 | #252, #270, #280 |
+| REQ-619 | #282 |
+| REQ-620 | #283 |
+| REQ-621 | #284 |
+| REQ-622 | #285 |
+| REQ-623 | #278 |
+| REQ-624 | #279 |
+| REQ-625 | #280 |
+| REQ-626 | #286 |
+| REQ-627 | #287 |
+| REQ-628 | #281 |
+
+Every task cites at least one requirement; no orphan task.
+
+**Done criteria**
+- Every MUST of REQ-570..REQ-628 cited by a test; traceability 0 blocking.
+- Deck fixtures green in the tree gate and the pixel gate; the `browser-deck` job green in three engines.
+- REQ-444's one-chart builds unchanged, with no `@marp-team` module; `deck` budgets met.
+- `agent-catalog` `check` clean; `validate_deck`/`render_deck` contract tests green.
+- `/deck` page in the four example apps and the docs site; README of `@silverpoint/marp`.
+- Released as `0.9.0` (changeset `minor`) from CI; deltas folded; `CLAUDE.md` status.
+
 ## 4. Dependency Map
 
 ```
@@ -680,6 +766,9 @@ Phase 0 ── vertical slice, gates operational
                                                        │
                                                        ▼
                                           Phase 9 ── agent access (catalog, MCP server, skills)
+                                                       │
+                                                       ▼
+                                          Phase 10 ── slide decks (`@silverpoint/marp`, `SpDeck` ×3)
 ```
 
 Phases 1, 2 and 3 are **independent of one another** once Phase 0 closes: they share the
@@ -704,6 +793,8 @@ the repository stays coherent — a partial catalog, but complete in what it exp
 | A third-party widget (TimelineJS) cannot meet Art. 3's markup gate | High | Medium | Optional peer on its own subpath; the gate covers the library's surface, the widget gets a pinned pixel fixture (Art. 3, v1.9; DD-042) |
 | Agents are shown what the library does not have | High | High | One catalog generated from the types and diffed in CI; skill examples and generated code type-checked (DD-045, DD-050) |
 | The Reflex wrapper lags the library by a version at every release | High | Medium | `stale` entries; the strict release check applies to the wrapper's own export, the derived pin only warns (REQ-556) |
+| CSS-set `<svg>` dimensions behave differently in WebKit from the PoC's attributes | Medium | High | The three-engine `browser-deck` job measured it first (#280); the slide's drawing is held to its box in every engine |
+| `@silverpoint/marp`'s size (Marpit and every recipe) | Medium | Medium | Measured and budgeted (DD-059); never on a chart-only path, charts loaded on demand by slug |
 | The third adapter makes each catalog phase heavier than estimated | Medium | Medium | The adapters are thin by Art. 2 — a chart component is a translation, not logic. Phase 0 measures the real per-chart cost of the Vue adapter before the catalog phases commit to it |
 
 ## 6. Tracking
@@ -732,6 +823,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.11 | 2026-10-31 | Ernesto Crespo | Phase 10 added: slide decks (steps 10a..10h, #252..#289), feature-006, target `0.9.0`; recorded as built |
 | 1.10 | 2026-10-20 | Ernesto Crespo | Phase 9 added: agent access (steps 9a..9g, #226..#251), feature-005, target `0.8.0`; recorded as built in this repository, the sibling repositories' tasks open |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Phase 8 added: palettes, composed components, overlays and the timeline (steps 8a..8h, #200..#225), feature-004, target `0.7.0`; recorded as built |
 | 1.8 | 2026-10-10 | Ernesto Crespo | Phase 7 added: the second catalog, 27 charts in three waves (steps 7a..7e, #164..#199), feature-003 |

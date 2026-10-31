@@ -19,7 +19,8 @@ describe('README (REQ-627)', () => {
   });
 
   test('REQ-627 · install, usage in React, Vue and Angular, and SSR', () => {
-    for (const text of ['npm install', '@silverpoint/react/deck', '@silverpoint/vue/deck', '@silverpoint/angular/deck', 'createDeckEngine', 'Next.js', "'use client'", '@vue/server-renderer', '@angular/ssr']) expect(readme, text).toContain(text);
+    for (const text of ['npm install', '@silverpoint/react/deck', '@silverpoint/vue/deck', '@silverpoint/angular/deck', 'createDeckEngine', 'Next.js', "'use client'", '@vue/server-renderer', '@angular/ssr', '(pageChange)="page.set($event.page)"']) expect(readme, text).toContain(text);
+    expect(readme).not.toContain('[(page)]');
   });
 
   test('REQ-627 · the authoring guide: directives, classes, the fence and its diagnostics', () => {

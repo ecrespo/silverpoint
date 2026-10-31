@@ -2,12 +2,12 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `IN PROGRESS` — gates 0..2 and the constitution amendment approved 2026-10-31 by Ernesto Crespo; every gate approved 2026-10-31 by Ernesto Crespo; implementation (Phase 10) on `feat/silverpoint-0.9` |
+| **Status** | `IMPLEMENTED` — every gate approved 2026-10-31 by Ernesto Crespo; Phase 10 (T-252..T-289) implemented on `feat/silverpoint-0.9` and **folded into `specs/` 2026-10-31** (T-289); release `0.9.0` pending the first publish of `@silverpoint/marp` ([`first-publish.md`](first-publish.md)) |
 | **Target release** | `0.9.0` (changeset `minor` from 0.8.x; user decision 2026-10-31). The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-570..REQ-628 (§6.15) |
-| **Design decisions** | DD-051.. (gate 3; DD-051 records the PoC outcome, DD-052 the engine seam) |
+| **Design decisions** | DD-051..DD-060 (DD-051 records the PoC outcome, DD-052 the engine seam) |
 | **Diagnostics** | `SP026`–`SP029` |
-| **Tasks** | T-252.. (Phase 10; step 10a is the PoC) |
+| **Tasks** | T-252..T-289 (Phase 10, steps 10a..10h; 10a is the PoC) |
 | **Constitution** | Amendment v1.10 → v1.11 ([`constitution-amendment.md`](constitution-amendment.md)): scope and Art. 2 |
 | **Branch** | `spec/feature-006-deck` (specs); implementation on `feat/silverpoint-0.9` |
 | **Sibling repository** | `reflex-silverpoint-marp` (later; wraps the React `SpDeck`) |

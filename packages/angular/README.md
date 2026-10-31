@@ -429,7 +429,7 @@ import { SpDeckComponent } from '@silverpoint/angular/deck';
 @Component({
   selector: 'app-talk',
   imports: [SpDeckComponent],
-  template: `<sp-deck [markdown]="talk" [(page)]="page" [showNotes]="true" />`,
+  template: `<sp-deck [markdown]="talk" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />`,
 })
 export class Talk {
   protected readonly talk = '# Quarterly review\n\n---\n\n## Next steps';

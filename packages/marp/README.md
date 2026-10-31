@@ -62,7 +62,7 @@ const page = ref(1);
 </template>
 ```
 
-Angular, from `@silverpoint/angular/deck` (`page` is a signal input, so `[(page)]` binds both ways):
+Angular, from `@silverpoint/angular/deck` (`pageChange` carries `{ page, total }`, so bind `[page]` and set it from the event):
 
 ```ts
 import { Component, signal } from '@angular/core';
@@ -71,7 +71,7 @@ import { SpDeckComponent } from '@silverpoint/angular/deck';
 @Component({
   selector: 'app-talk',
   imports: [SpDeckComponent],
-  template: `<sp-deck [markdown]="markdown" [(page)]="page" [showNotes]="true" />`,
+  template: `<sp-deck [markdown]="markdown" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />`,
 })
 export class Talk {
   protected readonly markdown = TALK;

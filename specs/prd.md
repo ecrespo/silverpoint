@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.14 |
+| **Version** | 1.15 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-10-20 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.10 |
+| **Last updated** | 2026-10-31 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 ---
 
@@ -56,6 +56,15 @@ library. **Palettes** re-colour a chart, a component or a whole section in the i
 medium, six presets verified for contrast, and `SpTimeline` draws a Knight Lab TimelineJS timeline in
 the ground, behind an optional peer. They ship in `0.7.0`, under the same parity, pixel, contrast,
 accessibility and budget gates.
+
+Since `0.8.0` agents learn the library from a catalog generated from its types, through an MCP server
+and a skill (§6.14). **Slide decks** (§6.15) carry the language into presentations: a framework-free
+package, `@silverpoint/marp`, renders Marp/Marpit Markdown in a `silverpoint` theme whose directives
+move a slide to another ground, substrate or mode, and whose `silverpoint` fence draws any of the 60
+charts inside a slide —static SVG on the server, hydrated in the browser—, with a deck controller
+(pages, fragments, notes, deep links, keys, swipe, overview, full screen, print). `SpDeck` binds it in
+the three adapters; the theme also works in Marp CLI and the Marp VS Code extension. Decks ship in
+`0.9.0`.
 
 ## 2. Context and Problem
 
@@ -137,6 +146,19 @@ with `recharts`.
 - **Frequency of use:** Daily during development.
 - **Technical level:** Variable; the assistant carries the API.
 
+### Persona 6: Technical presenter
+- **Description:** A developer, analyst or researcher who writes talks in Markdown, often with an
+  agent, and presents data.
+- **Main need:** For the deck to look like the product, the charts in it to be real charts, and the
+  same file to work in Marp CLI.
+- **Frequency of use:** Weekly to monthly, around talks and reports.
+- **Technical level:** Medium to high; writes Markdown, not slide-tool layouts.
+
+Personas 1, 4 and 5 are served by decks too: Persona 1 embeds a deck in an app (an onboarding tour,
+a report) driven by props and events; Persona 4 follows it by keyboard and screen reader, every chart
+keeping its tabular alternative and precision mode; Persona 5's agent writes valid fences and
+directives the first time and can render the deck to check it.
+
 ## 4. Objectives and Success Metrics
 
 ### 4.1 Project objectives
@@ -208,6 +230,12 @@ with `recharts`.
 - [ ] `@silverpoint/mcp`: an MCP server over stdio and Streamable HTTP (§6.14.2).
 - [ ] The `silverpoint` and `reflex-silverpoint` skills and their Claude plugin manifests (§6.14.3).
 - [ ] Hosting at the official site's `/mcp`, and `/llms.txt` (§6.14.4).
+- [ ] `@silverpoint/marp`: the engine, the theme, the directives, the chart fence, generated
+      backdrops and the deck controller (§6.15.1..§6.15.5).
+- [ ] `SpDeck` on `@silverpoint/react/deck`, `@silverpoint/vue/deck` and `@silverpoint/angular/deck` (§6.15.6).
+- [ ] The theme as a standalone file for Marp CLI and the Marp VS Code extension (REQ-582).
+- [ ] Scaling decided by a cross-browser PoC (§6.15.7).
+- [ ] The deck in the agent catalog, the MCP server and the skill (§6.15.8).
 
 ### 5.2 Out of Scope
 
@@ -243,6 +271,14 @@ with `recharts`.
 - Authentication, accounts, quotas per user: the server is public and stateless.
 - Skills or servers for frameworks the constitution does not support (Svelte, Solid…).
 - A hosted playground UI. The site's playground is a separate concern.
+- Marp Core (math, emoji, syntax highlighting, `auto-scaling`). The deck engine is Marpit; DD-052
+  leaves a seam for another engine, not an implementation.
+- Raw HTML in deck Markdown, in any form, and therefore any HTML sanitiser.
+- A presenter window, speaker timer, remote control or audience sync. Notes are shown in the deck.
+- Export of a deck to PPTX, PDF or images by the library. Print-to-PDF is the browser's (REQ-605).
+- Slide transitions and animations beyond fragment reveal.
+- A WYSIWYG deck editor.
+- The Reflex deck wrapper itself (`reflex-silverpoint-marp`, another repository).
 
 ### 5.3 Future Considerations
 
@@ -263,6 +299,11 @@ with `recharts`.
 - MCP Apps / interactive UI resources, when the clients converge.
 - A Vue/Angular-specific skill split if the shared skill grows past its size budget.
 - A PNG render (REQ-544), once the ground's paint can be flattened into presentation attributes.
+- A pre-rendered `deck` prop (the JSON of `DeckRender`) so a server-rendered app ships no Marpit to
+  the client.
+- A Marp Core engine behind the deck's engine seam.
+- A presenter view in a second window, synchronised through `BroadcastChannel`.
+- Grounds `burin`, `woodcut`, `wash`, `plotter` in the deck theme as they ship.
 
 ## 6. Functional Requirements
 
@@ -899,14 +940,14 @@ skill never states a prop, a default or a name the catalog does not hold.
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
 | REQ-538 | ubiquitous | `@silverpoint/mcp` SHALL expose an MCP server over stdio (an executable, `silverpoint-mcp`) and over stateless Streamable HTTP (a request handler), with the same tools and resources on both. | MUST |
-| REQ-539 | ubiquitous | The server SHALL provide the tools of API Spec §14.3 —`get_version`, `list_charts`, `get_chart`, `list_components`, `get_component`, `recommend_chart`, `generate_code`, `validate_props`, `render_chart`, `check_palette`, `search_catalog`— each with a JSON Schema input and a structured output. | MUST |
+| REQ-539 | ubiquitous | The server SHALL provide the tools of API Spec §14.3 —`get_version`, `list_charts`, `get_chart`, `list_components`, `get_component`, `recommend_chart`, `generate_code`, `validate_props`, `render_chart`, `check_palette`, `search_catalog`, and since `0.9.0` `validate_deck` and `render_deck` (REQ-620)— each with a JSON Schema input and a structured output. | MUST |
 | REQ-540 | event | WHEN `recommend_chart` receives a data shape and an intent, THE SYSTEM SHALL return at most five charts ranked by the rules of Data Model §2.31, each with its reasons, identically for identical input (Art. 4). | MUST |
-| REQ-541 | event | WHEN `generate_code` receives a chart or component, a framework (`react`, `vue`, `angular`, `reflex`) and optional field names and props, THE SYSTEM SHALL return the imports, the stylesheet imports and the code, using only names, paths and props the catalog holds, with the user's field names as accessors. | MUST |
+| REQ-541 | event | WHEN `generate_code` receives a chart, a component or (since `0.9.0`) a deck (REQ-621), a framework (`react`, `vue`, `angular`, `reflex`) and optional field names and props, THE SYSTEM SHALL return the imports, the stylesheet imports and the code, using only names, paths and props the catalog holds, with the user's field names as accessors. | MUST |
 | REQ-542 | event | WHEN `validate_props` receives a chart and props, THE SYSTEM SHALL build the chart with the core and return every diagnostic raised (code, severity, requirement, message, remedy) and every prop the chart does not declare. | MUST |
 | REQ-543 | event | WHEN `render_chart` receives a chart, props, a size and an id, THE SYSTEM SHALL return a standalone SVG whose parsed tree, with the inlined stylesheet set aside, is identical to the canonical render of the same chart, props, size and id (Art. 3). | MUST |
 | REQ-544 | optional | WHERE the client asks for `format: "png"`, THE SYSTEM SHOULD return the render rasterised as an MCP image, for clients that cannot display SVG. | SHOULD |
 | REQ-545 | event | WHEN `check_palette` receives a palette, THE SYSTEM SHALL return the findings of the core's `checkPalette` for it (REQ-465). | MUST |
-| REQ-546 | ubiquitous | The server SHALL provide the resources of API Spec §14.4: the whole catalog, one per chart and per component, the guides of the `silverpoint` skill, and the diagnostic codes. | MUST |
+| REQ-546 | ubiquitous | The server SHALL provide the resources of API Spec §14.4: the whole catalog, one per chart and per component, the guides of the `silverpoint` skill, and the diagnostic codes; since `0.9.0` also the catalog's deck section with the fence schema (`silverpoint://deck`) and the skill's deck guide. | MUST |
 | REQ-547 | unwanted | IF a code pattern is not run by an example app (REQ-520) —today, an `SpButton` as an overlay's `trigger` (delta-014)— THEN `generate_code` and the skills SHALL NOT emit it. | MUST |
 | REQ-548 | optional | WHERE the client supports prompts, THE SYSTEM SHOULD offer `choose-chart` and `build-dashboard` prompts that sequence the tools. | SHOULD |
 | REQ-549 | unwanted | IF a tool receives an unknown chart, component, framework, ground, substrate or palette, THEN it SHALL return a tool error naming the closest valid names, never an exception or an empty result. | MUST |
@@ -960,8 +1001,143 @@ and 13 ms `render_chart` p95 over the 60 demos. (6) REQ-569: the README's tool t
 the site's page is `/#/ai`, "Use with AI". (7) The release commit runs the catalog's `generate`
 after `version-packages`, and the release job runs its `check --release` before publishing.
 
-**Count:** §6.14 holds 40 requirements (37 MUST, 3 SHOULD). With the rest of §6 the PRD has 310
-requirements (287 MUST).
+**Count:** §6.14 holds 40 requirements (37 MUST, 3 SHOULD). With the rest of §6 the PRD had 310
+requirements (287 MUST) in `0.8.0`. *Amended by feature-006 (`0.9.0`):* REQ-539 gains `validate_deck`
+and `render_deck` (13 tools), REQ-541 the `{ deck }` target, REQ-546 the deck resource and guide.
+
+### 6.15 Slide decks
+
+`@silverpoint/marp` does the work; the adapters bind it. Requirements stated of "the deck" hold in
+the three adapters identically.
+
+Terms: a **deck** is a Marp Markdown document rendered as slides by `SpDeck`; a **fence** is a fenced
+code block, and the `silverpoint` fence draws a chart; a **fragment** is a list item Marpit marks to
+be revealed one step at a time; a **backdrop** is a slide's generated substrate and inked decoration
+(`hatched`, `plate`); to **hydrate** a slot is to replace a fence's static SVG with the framework's
+live chart component.
+
+#### 6.15.1 The package and the engine
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-570 | ubiquitous | THE SYSTEM SHALL provide `@silverpoint/marp`, free of DOM in its main entry and of framework in all entries, depending on `@marp-team/marpit` 3.x, `@marp-team/marpit-svg-polyfill`, `@silverpoint/core` and `@silverpoint/grounds`, in the `fixed` release group. | MUST |
+| REQ-571 | ubiquitous | Each deck SHALL have its own Marpit instance whose container is `div.sp-deck-<id>`, so that Marpit's CSS scoping isolates decks in one document without iframe or Shadow DOM; `<id>` SHALL be the `id` prop or a hydration-safe id derived as the adapters derive chart ids, never a random value (Art. 4). | MUST |
+| REQ-572 | ubiquitous | The engine SHALL run with `anchor: false`, with Markdown HTML disabled and not configurable, and with the inline-SVG setting the TD records from the PoC (REQ-614). | MUST |
+| REQ-573 | event | WHEN `render(markdown)` is called, THE SYSTEM SHALL return a `DeckRender` (Data Model): per slide its HTML, its notes, its fragment count and its resolved directives; the deck's CSS; the slide count; the chart slots; and the diagnostics raised. | MUST |
+| REQ-574 | ubiquitous | `render` SHALL touch no DOM and no global, and SHALL return an identical `DeckRender` for identical Markdown, options and id, on the server and in the browser (Art. 4). | MUST |
+| REQ-575 | unwanted | IF the Markdown contains raw HTML, a `javascript:`, `vbscript:` or non-image `data:` URL, or an inline event handler, THEN none SHALL reach the output: HTML is rendered as text and the URL is dropped. | MUST |
+| REQ-576 | unwanted | IF the Markdown exceeds 512 KB, 300 slides or 60 chart fences, THEN THE SYSTEM SHOULD render up to the limit and raise `SP029` naming the limit. | SHOULD |
+
+#### 6.15.2 The theme
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-577 | ubiquitous | THE SYSTEM SHALL provide a Marpit theme named `silverpoint` (`/* @theme silverpoint */`), 1280×720 by default, whose colours, inks and rules come from the ground's tokens through `--sp-*` custom properties (Art. 7), set in EB Garamond, styling headings, paragraphs, lists, tables, blockquotes, inline and block code, images, `header`, `footer` and pagination (`section::after` from `data-marpit-pagination` and `data-marpit-pagination-total`). | MUST |
+| REQ-578 | ubiquitous | Code SHALL be set in EB Garamond with tabular figures on a framed plate; the theme SHALL declare no monospace family (DD-010). | MUST |
+| REQ-579 | ubiquitous | The theme SHALL provide the classes `lead`, `invert`, `plate` and `hatched` for Marpit's `class` directive, documented with an example each. | MUST |
+| REQ-580 | ubiquitous | The theme SHALL size everything in px of the slide canvas and SHALL NOT use `rem`, `vw`, `vh` or container units, so that a slide renders the same whatever the host page's root font size. | MUST |
+| REQ-581 | ubiquitous | Every text and rule colour of the theme, on every substrate of every built-in ground and under every class, SHALL pass the contrast gate (`tools/contrast-gate`): the colours are computed, not chosen (REQ-126). | MUST |
+| REQ-582 | ubiquitous | THE SYSTEM SHALL ship the theme as a standalone file, `@silverpoint/marp/theme.css`, loadable by Marp CLI (`--theme`) and by the Marp VS Code extension (`markdown.marp.themes`), carrying both built-in grounds; the documentation SHALL state what degrades there: no generated backdrops, fences shown as code, no controller. | MUST |
+| REQ-583 | optional | WHERE Marp CLI is run with `--engine @silverpoint/marp/cli`, THE SYSTEM SHOULD render the directives, the generated backdrops and the chart fences as static SVG. | SHOULD |
+
+#### 6.15.3 Directives and backdrops
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-584 | ubiquitous | THE SYSTEM SHALL add the local directives `ground` (a registered ground name), `substrate` (one of that ground's substrates) and `mode` (`ink` \| `precision`), each with Marpit's inheritance and its `_` spot form, written to the slide's `<section>` as `data-sp-ground`, `data-sp-substrate` and `data-sp-mode`. Defaults: the `ground`, `substrate` and `mode` options of the deck, else `silverpoint`, the ground's first substrate and `ink`. | MUST |
+| REQ-585 | ubiquitous | A chart fence SHALL take the slide's resolved `ground`, `substrate` and `mode` unless its spec names its own. | MUST |
+| REQ-586 | unwanted | IF a directive's value is unknown, or a substrate does not belong to the slide's ground, THEN THE SYSTEM SHALL raise `SP027` with the closest valid names and keep the inherited value. | MUST |
+| REQ-587 | ubiquitous | Each slide SHALL be painted with its ground's substrate; under the `hatched` and `plate` classes the slide SHALL also carry an inked backdrop (a hatched border, a plate mark) rendered by `@silverpoint/grounds` as an SVG data URI, seeded from the deck id and slide index (Art. 2, Art. 4); in `precision` mode the backdrop SHALL be drawn with exact strokes. | MUST |
+| REQ-588 | ubiquitous | Marpit's image syntax —`bg`, split backgrounds (`bg left`, `bg right:40%`), sizing and filters— SHALL keep working; the generated backdrop SHALL sit under the author's backgrounds. | MUST |
+
+#### 6.15.4 The chart fence
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-589 | event | WHEN a slide holds a fenced block with the info string `silverpoint` whose body is a JSON object `{ chart, props?, data?, width?, height?, id?, ground?, substrate?, mode?, palette? }` —the input of the MCP `render_chart` tool— THE SYSTEM SHALL render, in its place, a `<figure>` slot holding the chart's canonical SVG rendered by `@silverpoint/grounds`, and SHALL record the slot and its parsed spec in the `DeckRender`. | MUST |
+| REQ-590 | ubiquitous | A fence chart's id SHALL be `<deckId>-s<slide>-c<n>` (slide and fence ordinals, 1-based) unless the spec names one, so its seed is stable (Art. 4). | MUST |
+| REQ-591 | unwanted | IF a fence's body is not valid JSON, names an unknown chart, carries a prop the chart does not declare, raises an `error` diagnostic, or asks for a size outside 160..1280 × 90..720, THEN THE SYSTEM SHALL render a visible, styled error figure in the slot naming the problem and the closest valid names, raise `SP026`, and render every other slide and fence unaffected; it SHALL NOT throw. | MUST |
+| REQ-592 | ubiquitous | `findChartSlots(root)` (client entry) SHALL return, for a rendered deck element, every slot element with its slot id and parsed spec, in document order. | MUST |
+| REQ-593 | event | WHEN a deck mounts in the browser, each adapter SHALL hydrate every slot by mounting its own chart component for the slot's spec with its native mechanism (React `createPortal`, Vue `render`, Angular `createComponent` with `hostElement`), whose markup SHALL equal the static SVG's parsed tree (Art. 3), loading each chart's module on demand by slug. | MUST |
+| REQ-594 | optional | WHERE `interactive` is `false`, the deck SHALL NOT hydrate its charts and SHALL keep the static SVG. | SHOULD |
+
+#### 6.15.5 The controller
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-595 | ubiquitous | `@silverpoint/marp` SHALL provide a framework-free deck controller: a pure state machine over `DeckState` (Data Model) with the operations `next`, `prev`, `goTo`, `first`, `last`, `toggleOverview`, `toggleNotes`, `toggleFullscreen`, `setTotal`, and an event emitter; DOM bindings live in a separate client entry. | MUST |
+| REQ-596 | event | WHEN `next` is called on a slide with unrevealed fragments, THE SYSTEM SHALL reveal the next fragment; otherwise it SHALL go to the next slide with no fragment revealed. WHEN `prev` is called with fragments revealed, it SHALL hide the last; otherwise it SHALL go to the previous slide with all its fragments revealed. | MUST |
+| REQ-597 | ubiquitous | A fragment not yet revealed SHALL keep its layout box, be invisible, and be hidden from assistive technology; in print and in the overview every fragment SHALL be shown. | MUST |
+| REQ-598 | ubiquitous | The deck SHALL work uncontrolled (`defaultPage`, default 1) and controlled (`page` with `pageChange`); pages are 1-based. | MUST |
+| REQ-599 | unwanted | IF `page` or `defaultPage` is outside `1..total`, or a re-render leaves the current page beyond the new total, THEN THE SYSTEM SHALL clamp it and raise `SP028`. | MUST |
+| REQ-600 | event | WHEN `keyboard` is on (default) and focus is inside the deck but not in an editable control, THE SYSTEM SHALL handle the keys of API delta §7.3; it SHALL NOT listen on the document. | MUST |
+| REQ-601 | event | WHEN a horizontal swipe longer than 48 px and steeper than 2:1 ends on the deck, THE SYSTEM SHALL call `next` (leftwards) or `prev` (rightwards). | MUST |
+| REQ-602 | optional | WHERE `hash` is on, THE SYSTEM SHALL read a hash of the form `#<n>` on mount and write it with `history.replaceState` on page change, and SHALL ignore and never overwrite any other hash. | MUST |
+| REQ-603 | event | WHEN fullscreen is toggled, THE SYSTEM SHALL use the Fullscreen API on the deck element; IF the API is unavailable, THEN the fullscreen control SHALL not be rendered. | MUST |
+| REQ-604 | event | WHEN the overview is open, THE SYSTEM SHALL show every slide as a thumbnail in a grid, focusable and selectable by keyboard and pointer, with the current slide heightened (Art. 6); selecting one or pressing `Escape` closes it. | MUST |
+| REQ-605 | event | WHEN the page is printed, THE SYSTEM SHALL lay out every slide on its own page at the slide size with every fragment shown and the controls, notes and overview hidden. | MUST |
+| REQ-606 | ubiquitous | The deck SHALL emit `pageChange { page, total }`, `fragmentChange { page, step, steps }` and `ready { total }` (after each render with a new slide count), each one plain JSON-serialisable object, with the same names and payloads in the three adapters. | MUST |
+| REQ-607 | optional | WHERE `showNotes` is on, the deck SHALL show the current slide's notes (Marpit's HTML comments) in a panel beside or below the slides. | MUST |
+
+#### 6.15.6 The adapters
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-608 | ubiquitous | THE SYSTEM SHALL provide `SpDeck` on `@silverpoint/react/deck` and `@silverpoint/vue/deck`, and `sp-deck` (`SpDeckComponent`) on the `@silverpoint/angular/deck` secondary entry point, with the props and events of API delta §6, identical in name and meaning. | MUST |
+| REQ-609 | ubiquitous | The React `SpDeck`'s props SHALL be strings, numbers and booleans only, and its events SHALL carry one plain object, so that a Python wrapper can drive it. | MUST |
+| REQ-610 | event | WHEN `markdown` changes, the deck SHALL re-render, destroy every chart it hydrated and every listener it bound for the old slides, hydrate the new slots, and keep the current page (clamped, REQ-599). | MUST |
+| REQ-611 | event | WHEN a deck unmounts, it SHALL destroy its hydrated charts, listeners, observers and the polyfill's observer, leaving nothing attached to `document` or `window`. | MUST |
+| REQ-612 | ubiquitous | The deck SHALL render on the server —the slides with their static charts, the current page shown, the controls— with no DOM access, and SHALL hydrate in Next.js, Vue (`@vue/server-renderer`) and Angular SSR with no hydration mismatch; the polyfill, the controller's bindings and chart hydration SHALL run on the client only. | MUST |
+| REQ-613 | ubiquitous | The deck controls (previous, next, counter `n / N`, fullscreen, overview, notes) SHALL be native buttons drawn with the UI layer (`@silverpoint/grounds/ui.css`), each with an accessible name and an exact focus indicator (Art. 5). | MUST |
+| REQ-614 | ubiquitous | The deck SHALL expose a region with `aria-roledescription="slide deck"` and an accessible name (`label`, else the first slide's first heading, else `SP018`); each slide a group with `aria-roledescription="slide"` and the name "Slide n of N"; the slides other than the current one `inert` and hidden; and a polite live region announcing page changes. | MUST |
+| REQ-615 | event | WHEN `prefers-contrast: more` or `forced-colors: active` holds, the deck SHALL apply `precision` to its backdrops and charts (Art. 5); WHEN `prefers-reduced-motion: reduce` holds, it SHALL reveal and change slides without transition. | MUST |
+| REQ-616 | ubiquitous | `@silverpoint/marp` SHALL be an optional peer of the three adapters, imported only by their `deck` entry; a build that imports charts and no `deck` SHALL contain no module of `@silverpoint/marp` or Marpit, and SHALL keep REQ-444's no-growth budget. | MUST |
+
+#### 6.15.7 Scaling
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-617 | ubiquitous | A slide SHALL scale to the width of its container, keeping its aspect ratio and its 1280×720 layout exactly, in Chromium, Firefox and WebKit, with the method the PoC selects and the TD records (inline SVG with the polyfill, or `transform: scale()` from a `ResizeObserver`). | MUST |
+| REQ-618 | ubiquitous | A hydrated chart inside a scaled slide SHALL receive pointer, focus and keyboard input at the right place, in the three engines. | MUST |
+
+#### 6.15.8 Agent access
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-619 | ubiquitous | The agent catalog (REQ-530) SHALL gain a `deck` section, generated: the props and events of `SpDeck` per framework, the directives and their values, the theme's classes, the fence's schema and the deck's diagnostic codes. | MUST |
+| REQ-620 | event | WHEN `validate_deck` receives Markdown, THE SYSTEM SHALL return the diagnostics `render` raises, per slide and per fence. WHEN `render_deck` receives Markdown and options, it SHALL return a standalone HTML document of the deck (static charts, theme and ground styles inlined), or one slide's HTML, deterministically, within REQ-560's limits. | MUST |
+| REQ-621 | event | WHEN `generate_code` receives `{ deck }` and `react`, `vue` or `angular`, THE SYSTEM SHALL return the imports, stylesheets and code of an `SpDeck`; for `reflex` it SHALL return a tool error until `reflex-silverpoint-marp` exports a catalog. | MUST |
+| REQ-622 | ubiquitous | The `silverpoint` skill SHALL gain a deck reference (authoring, directives, fence, adapters, Marp CLI), its examples type-checked as REQ-557 states. | MUST |
+
+#### 6.15.9 Quality and delivery
+
+| ID | Pattern | Criterion | Priority |
+|---|---|---|---|
+| REQ-623 | ubiquitous | Deck fixtures (`fixtures/deck/*.deck.md`) SHALL be compared, for each adapter's server render, against the canonical render of `@silverpoint/marp` as parsed trees under DD-017's rules, with zero tolerance (Art. 3). | MUST |
+| REQ-624 | ubiquitous | Each deck fixture's slides SHALL have pixel fixtures at 1280×720 in the pinned Chromium, per built-in ground and mode, under Art. 3's thresholds. | MUST |
+| REQ-625 | ubiquitous | CI SHALL run the deck's e2e (scaling, hydration, keyboard, fragments, re-render, unmount) in Chromium, Firefox and WebKit, in the example apps. | MUST |
+| REQ-626 | ubiquitous | `@silverpoint/marp/demo` SHALL export `DECK_DEMO`, a deck presenting silverpoint itself, with charts, fragments, split backgrounds, notes, a `precision` slide and a `cyanotype` slide; the four example apps and the docs site SHALL draw it on a `/deck` page. | MUST |
+| REQ-627 | ubiquitous | The documentation SHALL cover usage per framework, the authoring guide (supported Markdown, directives, the fence), the theme with Marp CLI and VS Code and its degradation, and SSR per framework; `@silverpoint/marp` SHALL have a README. | MUST |
+| REQ-628 | ubiquitous | `@silverpoint/marp`'s own code and each adapter's `deck` entry SHALL respect a gzip budget declared in the TD and measured in CI, Marpit's modules reported apart. | MUST |
+
+*Amended in implementation:* (1) **REQ-570, REQ-611, REQ-612, REQ-617:** the PoC chose
+`svg-transform` scaling (DD-051): inline SVG fixed at 1280×720, one `transform: scale()` per slide box
+from one `ResizeObserver`; `@marp-team/marpit-svg-polyfill` failed in WebKit and is not a dependency,
+so the observer the deck destroys on unmount is its own `ResizeObserver`. (2) **REQ-575:** author CSS
+(`<style>`, `<style scoped>`, the `style` directive) is kept for Marp compatibility and sanitised: no
+`<` survives (no `</style` can close the adapters' element), `@import` is removed, and a
+`backgroundImage` directive whose URL is not http(s), relative or a raster `data:` image is dropped.
+(3) **REQ-606, REQ-608:** Angular's `pageChange` carries `{ page, total }` as in React and Vue, so it
+is not an `xChange` pair: two-way binding reads `[page]="page" (pageChange)="page = $event.page"`.
+(4) **REQ-615:** an `ink` slide's backdrop carries its exact twin, shown under `prefers-contrast: more`
+or `forced-colors: active`. (5) **REQ-625:** the three-engine e2e runs in its own CI job
+(`browser-deck`, `SP_DECK_ENGINES=1`, one Playwright project per app and engine). (6) **REQ-626:**
+`DECK_DEMO` is six slides with three fence charts; its first two slides are the e2e bench of the
+`/deck` page; the docs site's page is `/#/deck`. (7) **REQ-628:** the budgets are DD-059's, in
+`.size-limit.json`.
+
+**Count:** §6.15 holds 59 requirements (56 MUST, 3 SHOULD). With the rest of §6 the PRD has 369
+requirements (343 MUST).
 
 ## 7. Non-Functional Requirements
 
@@ -995,6 +1171,10 @@ reinterpreted and the original is stated.
   call. Benchmarks beside the UI ones.
 - **Weight, `0.7.0`:** REQ-518 and REQ-519, measured by size-limit on every PR.
 - **The MCP server, `0.8.0`:** REQ-559. The catalog is loaded once per instance (≤ 1 MB).
+- **Decks, `0.9.0`:** rendering `DECK_DEMO` SHALL take under 150 ms on the bench machine in Node; a
+  page change SHALL commit within one frame. *Amended in implementation:* `DECK_DEMO` is six slides
+  and three charts, not the ≈ 20 slides and 6 charts first estimated.
+- **Bundle, decks:** REQ-616, REQ-628.
 
 ### Security
 
@@ -1002,6 +1182,7 @@ reinterpreted and the original is stated.
   publication with Trusted Publishing and no tokens in the repository.
 - THE SYSTEM SHALL NOT interpolate user content as markup; all text enters as a text node.
 - The MCP endpoint: REQ-551, REQ-560..563. No secrets in the package; the deployment needs none.
+- Decks: REQ-575; no raw HTML; fence JSON is parsed, never evaluated.
 
 ### Compatibility *(in place of "Availability")*
 
@@ -1018,6 +1199,8 @@ reinterpreted and the original is stated.
 - TimelineJS: the optional peer `@knight-lab/timelinejs` `^3.9.13`.
 - MCP: the protocol version pinned in the Technical Design (DD-044); clients tested: Claude Code,
   Claude (connector), MCP Inspector.
+- Decks: Marpit 3.x; the engines of REQ-617 (Chromium, Firefox, WebKit); Marp CLI 4.x for REQ-582
+  and REQ-583.
 
 ### Data volume *(in place of "Scalability")*
 
@@ -1160,6 +1343,18 @@ writing a grid around the cards in every app.
 | I-4 As a Reflex user, the assistant writes idiomatic `reflex-silverpoint-react` | REQ-553, REQ-556 |
 | I-5 As maintainer, nothing drifts and the endpoint is safe | REQ-535, REQ-536, REQ-551, REQ-560..563, REQ-566..568 |
 
+### Epic J — Slide decks
+
+| Story | Requirements |
+|---|---|
+| J-1 As Persona 6, I write a Marp deck and it looks like silverpoint, in my app and in Marp CLI | REQ-570..588 |
+| J-2 As Persona 6, a fence draws a real chart in my slide; a typo shows an error, not a blank | REQ-589..594 |
+| J-3 As Persona 1, I embed a deck and drive it with props and events | REQ-595..607, REQ-608..612 |
+| J-4 As Persona 4, I present and follow a deck by keyboard and screen reader | REQ-597, REQ-600, REQ-613..615, REQ-618 |
+| J-5 As a Reflex user, a wrapper can drive the React deck from Python | REQ-606, REQ-609 |
+| J-6 As Persona 5, my agent writes and checks decks | REQ-619..622 |
+| J-7 As maintainer, nothing leaks, drifts or grows the chart bundle | REQ-610, REQ-611, REQ-616, REQ-623..628 |
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -1203,6 +1398,9 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | Agents are shown props or names the library does not have | High | High | Everything an agent reads is generated from the types and diffed in CI (REQ-535); examples and generated code are type-checked (REQ-557) |
 | A public endpoint is abused | Medium | Medium | Read-only, stateless, payload limits before any work (REQ-560), no request logging; a rate limit once a shared store exists (REQ-561) |
 | The Reflex wrapper lags the library | High | Medium | Its catalog carries the version it wraps; entries are marked `stale`, and a release fails on a stale export (REQ-556) |
+| A slide does not scale identically in Chromium, Firefox and WebKit | High | High | A blocking PoC before any adapter work decided the method (DD-051, `svg-transform`); the three-engine e2e guards it (REQ-617, REQ-618, REQ-625) |
+| Marpit grows the bundle of apps that only draw charts | Medium | High | Optional peer imported only by the `deck` entries; a one-chart build is checked to hold no deck module (REQ-616); budgets per entry (REQ-628) |
+| Markdown from an untrusted author injects markup or styles | Medium | High | HTML off and not configurable; URLs filtered; author CSS sanitised (REQ-575); a hostile corpus in the tests |
 
 ## 12. Estimated Timeline
 
@@ -1222,7 +1420,8 @@ commitments.
 | Phase 6 — UI components | 3 batches | 17 components × 3 adapters (§6.11), their gates and example-app pages, released in 0.3.0 |
 | Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; the three waves released together as 0.6.0 (user decision 2026-10-10) |
 | Phase 8 — composed components | 3 batches | Palettes, 21 components × 3 adapters and `SpTimeline` (§6.13), their gates, example-app pages and docs; released in 0.7.0 |
-| Phase 9 — agent access | 7 steps | The agent catalog, `@silverpoint/mcp`, the skills and plugin manifests, the hosted endpoint (§6.14); three repositories; target 0.8.0 |
+| Phase 9 — agent access | 7 steps | The agent catalog, `@silverpoint/mcp`, the skills and plugin manifests, the hosted endpoint (§6.14); three repositories; released in 0.8.0 |
+| Phase 10 — slide decks | 8 steps | The scaling PoC, `@silverpoint/marp`, its theme and controller, `SpDeck` × 3, the deck gates, the agent tools and skill, the demo and docs (§6.15); target 0.9.0 |
 
 ---
 
@@ -1230,6 +1429,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.15 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: §6.15 slide decks (REQ-570..REQ-628; 59 requirements: 56 MUST, 3 SHOULD; 310 → 369 in all, 343 MUST); §1, Persona 6, §5.1–§5.3, §6.14 amended (REQ-539, REQ-541, REQ-546), §7 additions, Epic J, §11 risks, §12 Phase 10; the delta's glossary folded as §6.15's terms; what the implementation changed folded as built ("amended in implementation"): no SVG polyfill (DD-051), author CSS sanitised, Angular's `pageChange` payload, the six-slide `DECK_DEMO` |
 | 1.14 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: §6.14 agent access (REQ-530..REQ-569; 40 requirements: 37 MUST, 3 SHOULD; 270 → 310 in all, 287 MUST); Persona 5, §4.1, §5.1–§5.3, §7 additions, Epic I, §11 risks, §12 Phase 9; what the implementation changed folded as built ("amended in implementation"): REQ-544 deferred, REQ-556 strict only for the wrapper's own export, REQ-561 not implemented |
 | 1.13 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: §6.13 palettes, composed components, overlays and the timeline (REQ-460..REQ-523; 57 requirements: 56 MUST, 1 SHOULD; 213 → 270 in all, 250 MUST); §1, §4.1, §5.1–§5.3, §6.3, §7 additions, Epic H, §11 risks, §12 Phase 8; REQ-444's gate re-baselined to `0.6.0`; what the implementation changed folded as built ("amended in implementation"): REQ-489 without Collapse, REQ-499, REQ-519 at 2 KB |
 | 1.12 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: §6.4 split into §6.4.1 and §6.4.2 (27 charts, REQ-400..REQ-426), §6.12 derived geometry (REQ-430..REQ-450); 48 requirements, 165 → 213 in all; §1, §4.1, §5.1–§5.3, §7 additions, Epic G, §11 risks, §12 Phase 7 |

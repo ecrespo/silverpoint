@@ -7,7 +7,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 4, drafted and approved 2026-10-31 |
+| **Status** | `FOLDED` — gate 4, drafted and approved 2026-10-31; folded into `specs/implementation-plan.md` v1.11 on 2026-10-31 (T-289) |
 | **Branch** | `feat/silverpoint-0.9` (off `develop`, after the spec branch merges into it) |
 | **Prerequisite** | Gates 0..3 approved; the PoC done (step 10a) |
 
@@ -103,7 +103,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 - [x] **T-286** `DECK_DEMO` on `@silverpoint/marp/demo` (charts, fragments, split background, notes, a `precision` slide, a `cyanotype` slide); `/deck` page in the four apps and the docs site. *REQ-626*
 - [x] **T-287** Docs: usage ×3, authoring guide, theme with Marp CLI and VS Code + degradation, SSR per framework; `@silverpoint/marp` README. *REQ-627*
 - [x] **T-288** Changeset (`minor`), `@silverpoint/marp` in the `fixed` group and the release tooling's package list; first-publish note. *REQ-570*
-- [ ] **T-289** Fold the deltas into `specs/` (constitution v1.11, PRD v1.15, API v1.13, TD v1.12, Data Model v1.10, plan v1.11), `reports/traceability.md`, `CLAUDE.md` status. *Art. 9*
+- [x] **T-289** Fold the deltas into `specs/` (constitution v1.11, PRD v1.15, API v1.13, TD v1.12, Data Model v1.10, plan v1.11), `reports/traceability.md`, `CLAUDE.md` status. *Art. 9*
 
 ## Risks carried
 

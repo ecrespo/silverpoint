@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3 (first half), drafted 2026-10-31 after the PoC and approved with it the same day |
+| **Status** | `FOLDED` into [`specs/technical-design.md`](../../specs/technical-design.md) v1.12 on 2026-10-31 — gate 3 (first half), drafted 2026-10-31 after the PoC and approved with it the same day |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.11 → v1.12: §3.2 modules, §3.3 data flow, DD-051..DD-060, §5.1 structure, §5.3 allowlist, §7 diagnostics, §8 testing, §9 publication |
 | **Requirements** | REQ-570..REQ-628 |
 | **PoC** | [`poc.md`](poc.md) — decides DD-051 |

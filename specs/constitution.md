@@ -1,9 +1,9 @@
 # Constitution — silverpoint
 
-> Version 1.10 · Ratified: 2026-09-12 · Last amended: 2026-10-20
+> Version 1.11 · Ratified: 2026-09-12 · Last amended: 2026-10-31
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
-> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, `@silverpoint/mcp`, the
-> `silverpoint` skill, example apps and documentation site.
+> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, `@silverpoint/marp`,
+> `@silverpoint/mcp`, the `silverpoint` skill, example apps and documentation site.
 
 **What silverpoint is.** A library of charts —and of the interface components around them— for React, Vue and
 Angular, whose visual language is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
@@ -49,12 +49,18 @@ adapter package imports `d3-*` or `roughjs` directly, or if it declares maths of
 own.
 
 `@silverpoint/mcp` SHALL compute no geometry and no colour of its own: it SHALL render and
-validate only by calling `@silverpoint/core` and `@silverpoint/grounds`, as an adapter does, and
-its catalog SHALL be generated from the published types, never retyped.
+validate only by calling `@silverpoint/core`, `@silverpoint/grounds` and, for decks,
+`@silverpoint/marp`, as an adapter does, and its catalog SHALL be generated from the published
+types, never retyped.
+
+`@silverpoint/marp` SHALL compute no geometry and no colour of its own: the charts of a slide and
+its inked backdrop SHALL be rendered by `@silverpoint/core` and `@silverpoint/grounds`, and the
+deck package SHALL only parse Markdown, place their output and keep the deck's state.
 
 *Rationale: two implementations of the same drawing always diverge; it is the failure
 that sinks multi-framework libraries. An agent shown a picture or a verdict the library would not
-produce is worse off than one shown nothing.*
+produce is worse off than one shown nothing. A chart in a slide must be the same chart as anywhere
+else; if the deck package drew it, there would be two engines again.*
 
 ### Art. 3 — Visual parity across frameworks
 
@@ -217,6 +223,7 @@ explicitly in its tonal mechanism token.
 | 2026-10-09 | — | Stack: the geometry engine row points to the TD allowlist instead of naming modules, and records the correctly-rounded-arithmetic rule for derived geometry; the second catalog's inventory source is named | The row was stale since `d3-chord`; feature-003 owns its statistics and layouts and needs the arithmetic rule | Ernesto Crespo |
 | 2026-10-18 | — , 3, 6 | The `0.7.0` inventory source (`reflex-silverpoint-react` 0.7) is named; Art. 3's gate covers the library's markup around a third-party widget behind an optional peer, not the widget's DOM, which carries a pinned pixel fixture instead; Art. 6 names the current page and the active option or item of an open list as a component's current item | feature-004 adds palettes, composed components, overlays and `SpTimeline` (TimelineJS builds its DOM at runtime, outside the parity contract); the highlighted option of a select or menu is the list's current item, and the chosen option (ticked) is not heightened | Ernesto Crespo |
 | 2026-10-20 | — , 2 | `@silverpoint/mcp` and the `silverpoint` skill enter the scope; Art. 2 binds the server: it renders and validates only through the core and the grounds, and its catalog is generated from the published types | feature-005 describes the library to agents; they belong to it, version with it, and must never show what the library would not draw | Ernesto Crespo |
+| 2026-10-31 | — , 2 | `@silverpoint/marp` enters the scope; Art. 2 binds the deck package: a slide's charts and inked backdrop are rendered by the core and the grounds, the deck package only parses Markdown, places their output and keeps the deck's state; the MCP server renders decks through it | feature-006 renders the library's charts and grounds inside Marp slides and versions with it in the `fixed` group | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

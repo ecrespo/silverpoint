@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 1, drafted and approved 2026-10-31 |
+| **Status** | `FOLDED` — gate 1, drafted and approved 2026-10-31; folded into [`specs/prd.md`](../../specs/prd.md) v1.15 on 2026-10-31 |
 | **Amends** | [PRD](../../specs/prd.md) v1.14 → v1.15: §1, §3 (Persona 6), §5.1, §5.2, §5.3, new §6.15, §6.14 (agent access gains the deck), §7, §9 (Epic J), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.10, with the v1.11 amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |

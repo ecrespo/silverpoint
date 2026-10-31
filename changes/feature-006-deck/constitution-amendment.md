@@ -1,8 +1,8 @@
-# Constitution amendment — v1.10 → v1.11 (proposed)
+# Constitution amendment — v1.10 → v1.11
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — proposed and approved 2026-10-31 with gate 1; to be folded into `specs/constitution.md` with the feature |
+| **Status** | `FOLDED` — approved 2026-10-31 with gate 1; folded into `specs/constitution.md` v1.11 on 2026-10-31 (T-289) |
 | **Articles** | Scope line; Art. 2 (two additions) |
 
 ## 1. Scope line

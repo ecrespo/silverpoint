@@ -35,7 +35,7 @@ import { SpDeckComponent } from '@silverpoint/angular/deck';
 @Component({
   selector: 'app-talk',
   imports: [SpDeckComponent],
-  template: \`<sp-deck [markdown]="markdown" [(page)]="page" [showNotes]="true" />\`,
+  template: \`<sp-deck [markdown]="markdown" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />\`,
 })
 export class Talk {
   protected readonly markdown = TALK;
@@ -115,7 +115,7 @@ export function DeckPage() {
       </pre>
       <h4>Angular</h4>
       <p>
-        <code>page</code> is a signal input and <code>pageChange</code> its output, so <code>[(page)]</code> binds both ways. List
+        <code>pageChange</code> carries <code>{'{ page, total }'}</code>, so bind the page with <code>[page]</code> and set it from the event. List
         the stylesheets in the <code>styles</code> array of <code>angular.json</code>.
       </p>
       <pre>

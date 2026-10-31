@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.12 |
-| **Date** | 2026-10-20 |
-| **Related PRD** | [`prd.md`](prd.md) v1.14 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.10 |
+| **API version** | v1.13 |
+| **Date** | 2026-10-31 |
+| **Related PRD** | [`prd.md`](prd.md) v1.15 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 | **Surface** | npm packages; one public, read-only MCP endpoint (§14) |
 
 ---
@@ -38,12 +38,13 @@ that the Analyze gate does not read it as an omission:
 |---|---|---|
 | `@silverpoint/core` | Geometry, scales, interaction, the `Inker` interface, types; the second catalog's recipes under `/catalog` (§7.3); the UI components' framework-neutral surface under `/ui` and `/ui-demos` (§1.2, §1.3); the palette API under `/palettes` and the timeline's under `/timeline` (§1.3) | `d3-scale`, `d3-shape` and the ribbon generator (§8.4) |
 | `@silverpoint/grounds` | Declarative style tokens, the `styles.css` sheet, the opt-in `ui.css` sheet (§1.2) and the opt-in `timeline.css` sheet (§1.3) | `@silverpoint/core` |
-| `@silverpoint/react` | React components: charts, the dashboard, the UI components (§1.2, §1.3) and `SpTimeline` | `peer`: `react`, `react-dom`; optional `peer`: `@knight-lab/timelinejs` (§1.3) |
-| `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common`, `@angular/forms` (UI components, REQ-323); optional `peer`: `@knight-lab/timelinejs` (§1.3) |
-| `@silverpoint/vue` | Vue 3 components authored with `<script setup>`: charts, the dashboard, the UI components and `SpTimeline` | `peer`: `vue`; optional `peer`: `@knight-lab/timelinejs` (§1.3) |
+| `@silverpoint/react` | React components: charts, the dashboard, the UI components (§1.2, §1.3), `SpTimeline` and `SpDeck` (§1.4) | `peer`: `react`, `react-dom`; optional `peer`: `@knight-lab/timelinejs` (§1.3), `@silverpoint/marp` (§1.4) |
+| `@silverpoint/angular` | Standalone components, in Angular Package Format | `peer`: `@angular/core`, `@angular/common`, `@angular/forms` (UI components, REQ-323); optional `peer`: `@knight-lab/timelinejs` (§1.3), `@silverpoint/marp` (§1.4) |
+| `@silverpoint/vue` | Vue 3 components authored with `<script setup>`: charts, the dashboard, the UI components, `SpTimeline` and `SpDeck` | `peer`: `vue`; optional `peer`: `@knight-lab/timelinejs` (§1.3), `@silverpoint/marp` (§1.4) |
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
 | `@silverpoint/tailwind` | **Optional.** A Tailwind preset naming the public `--sp-` variables as theme tokens (§10.4, REQ-047) | none, not even a peer |
-| `@silverpoint/mcp` | **Optional, for agents.** The agent catalog and an MCP server over stdio (`silverpoint-mcp`) and stateless Streamable HTTP (`./http`) (§14) | `@silverpoint/core`, `@silverpoint/grounds`, `@modelcontextprotocol/sdk`, `zod`; no framework, no peer |
+| `@silverpoint/mcp` | **Optional, for agents.** The agent catalog and an MCP server over stdio (`silverpoint-mcp`) and stateless Streamable HTTP (`./http`) (§14) | `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/marp`, `@modelcontextprotocol/sdk`, `zod`; no framework, no peer |
+| `@silverpoint/marp` | **Optional.** Marp/Marpit Markdown slide decks in the silverpoint style: the engine, the `silverpoint` theme, the directives, the chart fence and the deck controller, framework-free (§1.4, §3.6) | `@silverpoint/core`, `@silverpoint/grounds`, `@marp-team/marpit` `^3.2.3`; no framework, no peer |
 
 Every chart is importable by subpath, so that an app using one does not drag in all 60
 (REQ-107, REQ-444):
@@ -181,15 +182,55 @@ import { SpModal } from '@silverpoint/react/ui/modal';
 </SilverpointProvider>
 ```
 
+### 1.4 Slide decks (feature-006)
+
+| Package | Entry | Exports | Environment |
+|---|---|---|---|
+| `@silverpoint/marp` | `.` | `createDeckEngine(options)`, `sanitiseDeckId`, `DECK_DIRECTIVES`, `DECK_LIMITS`, `THEME_CLASSES`, `THEME_NAME`, `deckView`, `OVERVIEW_COLUMNS`, `deckMarkup`, `hydrationPlan`, `createDeckController`, types (§3.6) | Pure: Node, browser, workers. No DOM |
+| `@silverpoint/marp` | `./client` | `createDeckController`, `bindDeck(root, controller, options)`, `attachDeck(root, controller, options, hydration?)`, `findChartSlots(root)`, `applyScaling(viewport)`, `applyFragments(root, page, step)`, `fullscreenAvailable`, `SWIPE_DISTANCE`, `SWIPE_RATIO` | Browser only |
+| `@silverpoint/marp` | `./theme.css` | the `silverpoint` Marpit theme with both built-in grounds, standalone, for Marp CLI's `--theme` and VS Code's `markdown.marp.themes` (REQ-582) | CSS |
+| `@silverpoint/marp` | `./deck.css` | the deck chrome: viewport, controls, notes, overview, fragments, print | CSS |
+| `@silverpoint/marp` | `./cli` | the default export, a Marpit subclass for Marp CLI's `--engine @silverpoint/marp/cli`: directives, backdrops and fences as static SVG (REQ-583, SHOULD) | Node |
+| `@silverpoint/marp` | `./demo` | `DECK_DEMO`, a Markdown string: six slides presenting silverpoint, with charts, fragments, notes, a split background, a `precision` slide and a `cyanotype` slide (REQ-626) | Pure |
+| `@silverpoint/react` | `./deck` | `SpDeck` (`"use client"`) | |
+| `@silverpoint/vue` | `./deck` | `SpDeck` | |
+| `@silverpoint/angular` | `deck` (secondary entry point) | `SpDeckComponent` (`sp-deck`); notes come from the Markdown only, so there is no template slot | |
+| `@silverpoint/grounds` | `.` (additions) | `slideBackdrop(ground, substrate, options)` → `{ svg, dataUri }` (REQ-587), `listGrounds()`, `toChartRootString(root)` | Pure |
+
+**Dependencies.** `@silverpoint/marp` depends on `@silverpoint/core`, `@silverpoint/grounds`
+(`workspace:*`) and `@marp-team/marpit` `^3.2.3`. The three adapters declare `@silverpoint/marp` as an
+**optional peer** (`peerDependenciesMeta.optional`) at the same version, and as a dev dependency for
+their tests; only their `deck` entry imports it (REQ-616). `@silverpoint/mcp` depends on
+`@silverpoint/marp` (REQ-620). `check-deps` allows Marpit in `@silverpoint/marp` only, and
+`@silverpoint/marp` in the adapters only as an optional peer.
+*Amended in implementation (DD-051):* `@marp-team/marpit-svg-polyfill` is not a dependency: the PoC
+chose `svg-transform` scaling, which needs no polyfill.
+
+**Consumer stylesheets** for a deck, in this order: `@silverpoint/fonts/fonts.css`,
+`@silverpoint/grounds/styles.css`, `@silverpoint/grounds/ui.css`, `@silverpoint/marp/deck.css`. The
+theme's CSS comes inside the `DeckRender`, scoped by Marpit to the deck's id, so it is not imported
+separately.
+
+```tsx
+import { SpDeck } from '@silverpoint/react/deck';
+<SpDeck markdown={md} hash showNotes onPageChange={({ page }) => setPage(page)} />
+```
+```vue
+<SpDeck :markdown="md" v-model:page="page" show-notes />
+```
+```html
+<sp-deck [markdown]="md" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />
+```
+
 ## 2. Public versus internal surface
 
 **Public** —subject to SemVer—: component names and selectors, props and inputs, the
 types exported in §3, the ground token schema (§6), the CSS custom properties of §10, the
-error codes of §11 and the subpath names; for the UI components (§7.2, §7.4), the `Sp<Name>` names and selectors, their props, the markup contract and `part` names, and `@silverpoint/grounds/ui.css`; the palette API of `@silverpoint/core/palettes` and its six presets (§3.4); `SpTimeline`'s props and events and `@silverpoint/grounds/timeline.css` (§7.4).
+error codes of §11 and the subpath names; for the UI components (§7.2, §7.4), the `Sp<Name>` names and selectors, their props, the markup contract and `part` names, and `@silverpoint/grounds/ui.css`; the palette API of `@silverpoint/core/palettes` and its six presets (§3.4); `SpTimeline`'s props and events and `@silverpoint/grounds/timeline.css` (§7.4); for decks (§1.4), `@silverpoint/marp`'s entries, `SpDeck`'s props and events (§7.5), the markup contract and `part` names (§7.5, §10.1), the directives, classes and fence schema (§3.6), `DECK_DEMO` and `SP026`–`SP029`.
 
 **Internal** —may change in a minor version—: the shape of the `Geometry` objects the core
 returns, the implementation of each `Inker`, the structure of the SVG DOM except for the
-`part` attributes documented in §10, and any symbol exported under the `__` prefix. The whole of `@silverpoint/core/ui` (§2.1) is internal: adapters consume it, applications do not. So are the functions of `@silverpoint/core/timeline` (`timelineView`, `timelineInk`, `timelineMount`, `timelineOptions`), which the adapters share, and Angular's `@silverpoint/angular/ui/overlay` base. The DOM TimelineJS builds inside `SpTimeline` is not markup the library emits (Art. 3).
+`part` attributes documented in §10, and any symbol exported under the `__` prefix. The whole of `@silverpoint/core/ui` (§2.1) is internal: adapters consume it, applications do not. So are the functions of `@silverpoint/core/timeline` (`timelineView`, `timelineInk`, `timelineMount`, `timelineOptions`), which the adapters share, and Angular's `@silverpoint/angular/ui/overlay` base. `@silverpoint/marp/client`'s functions and the pure entry's `deckView`, `hydrationPlan` and `deckMarkup` are shared by the adapters, as `@silverpoint/core/timeline`'s are: applications may use them for a framework-free deck, but they fall under the `0.x` warning like the rest; the engine seam (`MarkdownDeckEngine`, DD-052) is not exported. The DOM TimelineJS builds inside `SpTimeline` is not markup the library emits (Art. 3).
 
 THE SYSTEM marks internals with `@internal` in TSDoc and excludes them from the public
 `.d.ts`.
@@ -699,6 +740,115 @@ consumer's object is never touched, and a frozen one (`TIMELINE_DEMO`) does not 
 error thrown while TimelineJS is built is a failed load (REQ-515): its container is removed, `SP025`
 is warned and the fallback is shown. TimelineJS 3.9.13 has no destroy method: the cleanup removes its
 DOM, but its listeners on `document` (keydown) and `window` (resize) stay until the page goes.
+
+### 3.6 Decks (feature-006)
+
+**The engine** (`@silverpoint/marp`, REQ-571..576). Shapes field by field in Data Model §2.32..§2.37.
+
+```ts
+interface DeckEngineOptions {
+  id: string;                         // the deck id (REQ-571); required: adapters pass theirs; sanitised to [a-z0-9-]
+  ground?: string;                    // default 'silverpoint'
+  substrate?: string;                 // default: the ground's first substrate
+  mode?: DeckMode;                    // 'ink' | 'precision'; default 'ink'
+  theme?: string;                     // Marpit theme name; default 'silverpoint'
+  size?: DeckSize;                    // '16:9' (1280×720, default) | '4:3' (960×720)
+  locale?: string;                    // passed to fence charts, as the provider's
+  palette?: string | Palette;         // default palette for fence charts
+}
+
+interface DeckEngine {
+  render(markdown: string): DeckRender;  // pure, deterministic (REQ-573, REQ-574)
+}
+
+function createDeckEngine(options: DeckEngineOptions): DeckEngine;
+```
+
+`DeckRender`: `{ id, total, size: { width, height }, css, slides: SlideRender[], slots: ChartSlot[],
+diagnostics: DeckDiagnostic[] }`; `SlideRender`: `{ index (1-based), html, notes: string[],
+fragments, ground, substrate, mode, classes: string[], heading? }`; `ChartSlot`: `{ slotId, slide,
+ordinal, chartId, spec?, error? }`. A slide's `html` is its box,
+`<div class="sp-deck-slide"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject …><section …>`.
+
+**Engine seam (DD-052).** `createDeckEngine` builds on an internal `MarkdownDeckEngine` interface
+(`render(markdown, env) → { html[], css, comments[][] }` plus a markdown-it plugin hook). Only the
+Marpit implementation exists in `0.9.0`; the interface is not exported.
+*Amended in implementation (#273..#278):* the pure entry also exports what the three adapters
+share, so none computes markup of its own (Art. 2): `deckView(render, state, options) → DeckView`
+(the root, viewport, container, slide boxes, notes, controls and status, as attributes and core UI
+trees), `hydrationPlan(render, palette?)` (each slot's chart and props, from the function the static
+render uses), `createDeckController` (also on `/client`), and `deckMarkup(view) → string`, the deck's
+static HTML: the canonical render of the tree gate (REQ-623), and what `render_deck` returns (§14.3).
+The fence parser is internal: `ChartSlot.spec` and `error` carry its result.
+
+**The theme** (`silverpoint`, REQ-577..583).
+
+| Item | Contract |
+|---|---|
+| Name | `/* @theme silverpoint */`; `/* @size 16:9 1280px 720px */`, `/* @size 4:3 960px 720px */` |
+| Type | EB Garamond 400/500/400 italic; `font-variant-numeric: tabular-nums` in tables and code; no monospace |
+| Scale | h1 64px, h2 48px, h3 36px, body 30px, small 22px; line-height 1.3; slide padding 64px 80px; px of the canvas only (REQ-580) |
+| Colour | Only `--sp-*` properties, the grounds' own names, set per `section[data-sp-ground][data-sp-substrate]` |
+| Pagination | `section::after { content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total) }`, bottom right |
+| `header` / `footer` | small caps by `text-transform: uppercase` + tracking (DD-010), top / bottom rule |
+
+| Class (REQ-579) | Effect |
+|---|---|
+| `lead` | Title slide: content centred vertically, h1 at 88px, a single rule under it |
+| `invert` | Text in `--sp-ink-heighten` on a substrate darkened to the ground's `ink.primary`; contrast computed per ground |
+| `plate` | An inked plate mark (a double rule inset 24px) as backdrop; content inside the plate |
+| `hatched` | An inked hatched border band (tonal level 1) as backdrop |
+
+**Directives** (REQ-584..586).
+
+| Directive | Values | Default | Spot form | Written as |
+|---|---|---|---|---|
+| `ground` | a registered ground: `silverpoint`, `cyanotype` | `options.ground` | `_ground` | `data-sp-ground` |
+| `substrate` | one of the ground's substrates (`cream`, `green`, `blue`, `ochre`; `prussian`) | `options.substrate`, else the ground's first | `_substrate` | `data-sp-substrate` |
+| `mode` | `ink` \| `precision` | `options.mode` | `_mode` | `data-sp-mode` |
+
+They are Marpit **local** directives: set in front matter they apply to every slide; in a slide's
+comment they apply to it and the slides after; with `_` to that slide only. Marpit's own directives
+(`theme`, `class`, `paginate`, `header`, `footer`, `backgroundColor`, `backgroundImage`, `color`,
+`size`, `headingDivider`, `lang`) keep their meaning, and so do its images (`bg`, split backgrounds,
+sizing, filters). `DECK_DIRECTIVES` exports this table as data (the agent catalog reads it; the
+substrate's values are `'per-ground'`). Raw HTML is rendered as text and unsafe URLs are dropped
+(REQ-575); a raster `data:` image is kept.
+
+**The chart fence** (REQ-589..591).
+
+````markdown
+```silverpoint
+{ "chart": "bar-chart",
+  "data": [{ "label": "Florence", "value": 42 }, { "label": "Siena", "value": 27 }],
+  "props": { "xKey": "label", "yKey": "value", "title": "Workshops by city" },
+  "height": 420 }
+```
+````
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| `chart` | catalog slug (`bar-chart`, `sankey-chart`…) | required | The agent catalog's slugs; unknown → `SP026` with the closest slugs |
+| `data` | array or object, as the chart reads | the chart's demo dataset | Same as `render_chart` |
+| `props` | object | `{}` | The chart's own props (§7) and the common ones except the fence's own fields (`data`, `width`, `height`, `id`, `ground`, `substrate`, `mode`, `palette`) |
+| `width` | 160..1280 | the slide's content width (1120 at 16:9) | px of the slide canvas |
+| `height` | 90..720 | 360 | |
+| `id` | string | `<deckId>-s<slide>-c<n>` | Seed source (REQ-590) |
+| `ground`, `substrate`, `mode` | as the directives | the slide's | |
+| `palette` | preset name or `Palette` | the deck's | |
+
+The body must be one JSON object (no comments, no trailing commas): it is parsed with `JSON.parse`,
+never evaluated. An info string other than `silverpoint` (` ```js `) is a normal code block.
+*Amended in implementation (#258):* `props` also refuses `data`, `width` and `height`, as `render_chart`'s does.
+
+```html
+<figure class="sp-deck-chart" data-sp-slot="s2-c1" part="sp-deck-chart">
+  <div class="sp-root sp-chart …">…<svg …>…</svg>…</div>   <!-- the chart's canonical root -->
+</figure>
+<figure class="sp-deck-chart sp-deck-chart--error" data-sp-slot="s2-c1" role="note" part="sp-deck-chart-error">
+  <figcaption>Chart fence on slide 2: unknown chart "barchart". Did you mean "bar-chart"?</figcaption>
+</figure>
+```
 
 ## 4. Naming conventions
 
@@ -1364,6 +1514,120 @@ must skip it (REQ-522). The toaster's list is `<ol class="sp-ui-toaster-list" ro
 toast is `<li role="listitem">`: in Angular the `<sp-toast>` host sits between them, and only explicit
 roles let a list keep its items across it (axe `list` / `listitem`).
 
+### 7.5 `SpDeck` (feature-006)
+
+`SpDeck` renders a Marp deck (§3.6) with its controller. Props and inputs (REQ-606, REQ-608, REQ-609):
+
+| Prop / input | Type | Default | Notes |
+|---|---|---|---|
+| `markdown` | `string` | required | The Marp Markdown |
+| `page` | `number` | — | Controlled current page (1-based); pair with `pageChange` |
+| `defaultPage` | `number` | `1` | Uncontrolled initial page |
+| `id` | `string` | the adapter's hydration-safe id | Deck id (REQ-571) |
+| `label` | `string` | first heading of slide 1 | Accessible name of the deck region |
+| `theme` | `string` | `'silverpoint'` | Marpit theme name |
+| `ground` | `string` | `'silverpoint'` | Deck default, overridden by directives |
+| `substrate` | `string` | the ground's first | |
+| `mode` | `'ink' \| 'precision'` | `'ink'` | |
+| `palette` | `string` | — | Preset name for fence charts (REQ-609; `Palette` objects through the provider) |
+| `size` | `'16:9' \| '4:3'` | `'16:9'` | |
+| `showNotes` | `boolean` | `false` | |
+| `showControls` | `boolean` | `true` | |
+| `keyboard` | `boolean` | `true` | Keys while focus is in the deck |
+| `swipe` | `boolean` | `true` | |
+| `hash` | `boolean` | `false` | `#<n>` deep link; another hash is left alone (REQ-602) |
+| `interactive` | `boolean` | `true` | Hydrate fence charts (REQ-594) |
+
+Its events are in §9. Vue's `page` also works with `v-model:page`. Angular's `page` is a signal input
+bound with `[page]` and `(pageChange)`. *Amended in implementation (DD-055, #273..#275):* Angular's
+`pageChange` emits `{ page, total }`, as the other adapters' events do, so `[(page)]` two-way binding
+does not work: write `[page]="page()" (pageChange)="page.set($event.page)"`. `SpDeck` takes the provider's ground, substrate, mode and
+palette when its own props are absent, like charts do.
+
+**The controller** (`createDeckController`, REQ-595..607).
+
+```ts
+function createDeckController(options: {
+  total: number; steps: readonly number[];          // fragments per slide, from DeckRender
+  page?: number; defaultPage?: number;              // controlled / uncontrolled
+}): DeckController;
+
+interface DeckController {
+  readonly state: DeckState;                        // { page, step, total, steps, overview, notes, fullscreen }
+  next(): void; prev(): void; first(): void; last(): void;
+  goTo(page: number, step?: number | 'all'): void;
+  toggleOverview(force?: boolean): void; toggleNotes(force?: boolean): void; toggleFullscreen(force?: boolean): void;
+  setTotal(total: number, steps: readonly number[]): void;   // after a re-render (clamps, SP028)
+  setControlledPage(page: number): void;                     // controlled mode: the parent's value
+  on<E extends keyof DeckEvents>(event: E, fn: (payload: DeckEvents[E]) => void): () => void;
+  destroy(): void;
+}
+```
+
+The controller is pure (DD-057), so the adapters render its state on the server. In controlled mode,
+`next`/`prev`/`goTo` emit `pageChange` and wait for the parent's `setControlledPage`; fragment steps
+stay internal. `DeckEvents` also carries the internal `state` event the adapters subscribe to.
+
+| From | Operation | To |
+|---|---|---|
+| page p, step s < steps[p] | `next` | p, s+1 → `fragmentChange` |
+| page p < total, step = steps[p] | `next` | p+1, 0 → `pageChange`, `fragmentChange` |
+| page total, step = steps[total] | `next` | unchanged |
+| page p, step s > 0 | `prev` | p, s−1 → `fragmentChange` |
+| page p > 1, step 0 | `prev` | p−1, steps[p−1] → `pageChange`, `fragmentChange` |
+| any | `goTo(q)` | clamp(q), 0 (or `steps[q]` with `'all'`) |
+| any | `setTotal(t, steps)` | clamp(p), min(s, steps[p]); `ready` |
+
+| Keys (REQ-600) | Action |
+|---|---|
+| `ArrowRight`, `ArrowDown`, `PageDown`, `Space`, `Enter` (not on a button) | `next` |
+| `ArrowLeft`, `ArrowUp`, `PageUp`, `Shift+Space` | `prev` |
+| `Home` / `End` | `first` / `last` |
+| `o` | toggle overview; in the overview, arrows move, `Enter` selects, `Escape` closes |
+| `f` | toggle fullscreen (when available) |
+| `n` | toggle notes |
+
+Ignored when the event target is an `input`, `textarea`, `select` or `[contenteditable]`, when a
+modifier other than `Shift` is held, or inside a hydrated chart that handles the key itself (the
+chart's keyboard model wins while it has focus).
+
+**Markup contract** (REQ-612..614), as built:
+
+```html
+<div class="sp-deck sp-ground-silverpoint" part="sp-deck" role="region" aria-roledescription="slide deck"
+     aria-label="…" tabindex="0" data-sp-page="1" data-sp-step="0" data-sp-overview="false">
+  <div class="sp-deck-viewport" part="sp-deck-viewport">
+    <div class="sp-deck-<id>">                                     <!-- Marpit container: the CSS scope -->
+      <div class="sp-deck-slide" data-sp-slide="1" data-sp-current>
+        <svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+          <section … data-sp-ground="silverpoint" data-sp-substrate="cream" data-sp-mode="ink">…</section>
+        </foreignObject></svg>
+      </div>
+      <div class="sp-deck-slide" data-sp-slide="2" hidden inert>…</div>   <!-- the other slides -->
+    </div>
+  </div>
+  <aside class="sp-deck-notes" part="sp-deck-notes" aria-label="Speaker notes">…</aside>   <!-- showNotes -->
+  <div class="sp-deck-controls" part="sp-deck-controls" role="toolbar" aria-label="Deck controls">
+    <button type="button" data-sp-action="prev" aria-label="Previous slide">‹</button>
+    <span class="sp-deck-counter" part="sp-deck-counter">1 / 12</span>
+    <button type="button" data-sp-action="next" aria-label="Next slide">›</button>
+    <button type="button" data-sp-action="overview" aria-label="Overview" aria-pressed="false">Overview</button>
+    <button type="button" data-sp-action="notes" aria-label="Speaker notes" aria-pressed="false">Notes</button>
+    <!-- Full screen: only where the browser offers it, so never in the server markup -->
+  </div>
+  <p class="sp-deck-status" aria-live="polite">Slide 1 of 12</p>                         <!-- visually hidden -->
+</div>
+```
+
+The controls are the core's UI buttons. In the overview, the container gains `sp-deck-overview`
+(`part="sp-deck-overview"`, `data-sp-columns`) and every slide box is a thumbnail
+(`role="button"`, `aria-label="Go to slide n of N"`, `aria-current` on the current one).
+*Amended in implementation (#268, #273):* fragments are revealed by an attribute, not by a rule on
+the step: the engine marks every `data-marpit-fragment` item `data-sp-pending=""`, and the client
+removes it for each `k ≤ data-sp-step` of the current slide; `deck.css` hides a pending item with
+`visibility: hidden` (its box kept, out of the accessibility tree). Print and the overview show
+every fragment. The server renders the initial page and step, so the first paint is final.
+
 ## 8. API by adapter
 
 ### 8.1 React
@@ -1581,6 +1845,9 @@ item (REQ-326). Composite keyboard transitions come from `uiRovingKey` (REQ-315)
 | `onToggle(open)` | `@toggle` | `(toggle)` | `boolean` | A `CollapseItem` is toggled; its `open` binds as a value (React `open`/`defaultOpen`, Vue `v-model:open`, Angular `[(open)]`) |
 | `onSelect(key)` | `@select` | `(select)` | `string` | A `DropdownMenu` item is chosen |
 | `onChange`, `onLoaded`, `onNavNext`, `onNavPrevious`, `onZoomIn`, `onZoomOut`, `onBackToStart` | the same names as emits | the same names as outputs | TimelineJS's payload (`change`: the slide's `unique_id`) | `SpTimeline` forwards TimelineJS's events (`TIMELINE_EVENTS`) |
+| `onPageChange` | `@page-change` (and `v-model:page`) | `(pageChange)` | `{ page: number, total: number }` | `SpDeck`'s current page changed, by the reader or by a re-render that clamped it (§7.5) |
+| `onFragmentChange` | `@fragment-change` | `(fragmentChange)` | `{ page: number, step: number, steps: number }` | A fragment of the current slide was revealed or hidden |
+| `onReady` | `@ready` | `(ready)` | `{ total: number }` | The deck rendered with a new slide count |
 
 Value and open events fire on user input only, never on a prop change, never when disabled
 (REQ-326). Overlay keyboard: `uiListKey` / `uiTypeahead` (REQ-494, REQ-495), the typeahead buffer
@@ -1591,6 +1858,10 @@ again once the pointer and focus have left it (no clock is read, Art. 4); F8 mak
 focusable (`tabindex="-1"`) as it moves focus there, never in the server markup.
 *Amended in implementation:* a tooltip listens for Escape on its document, not on its
 trigger, so a tooltip shown by hover is dismissed without moving the pointer or focus (WCAG 1.4.13).
+
+`SpDeck`'s keys are §7.5's, bound only while focus is in the deck; a swipe wider than `SWIPE_DISTANCE`
+and mostly horizontal (`SWIPE_RATIO`) moves it. Unmounted, it leaves no listener and no hash write
+(REQ-610).
 
 ## 10. DOM and CSS contract
 
@@ -1617,6 +1888,10 @@ The dashboard composition (§7.1) adds, on HTML elements: `dashboard` (the `sect
 section: a container query styles descendants, never the container), `dashboard-cell` (each
 `article`), and
 `linked` on a chart item under a linked mark (client only, REQ-219).
+
+The deck (§7.5) adds, on HTML elements: `sp-deck`, `sp-deck-viewport`, `sp-deck-notes`,
+`sp-deck-controls`, `sp-deck-counter`, `sp-deck-chart`, `sp-deck-chart-error` and `sp-deck-overview`.
+A fence chart inside a slide keeps every chart `part`.
 
 Besides `part`, a `path` carries `data-role`, `data-paint`, and when set `data-dash` and
 `data-weight`. `data-weight="1".."4"` is the tonal weight of a `weight` ground (REQ-028); the
@@ -1691,6 +1966,10 @@ The components of §7.4 add:
 A palette (§3.4) sets the same `--sp-` properties as an inline declaration on the root it is given
 to (`paletteStyle`), so it wins over the ground's sheet and over `ui.css`'s `:where()` default of
 `--sp-ui-focus-color`; no new property is added for it.
+
+`@silverpoint/marp/deck.css` adds `--sp-deck-gap` (space between viewport, notes and controls),
+`--sp-deck-notes-width` and `--sp-deck-controls-height`. The theme reads only the grounds' `--sp-`
+properties.
 
 **There is no monospace variable.** The system uses a single family: monospace is an
 invention of the typewriter and has no place in a Renaissance ground. What motivated its
@@ -1794,6 +2073,18 @@ the items of a Breadcrumb, TimelineList, Select or DropdownMenu. *Amended in imp
 That is 25 codes (22 before feature-004).
 `SP008` (volume) carries the second catalog's ceilings too (REQ-443, §12).
 
+Decks (feature-006) add four codes:
+
+| Code | Severity | REQ | Condition |
+|---|---|---|---|
+| `SP026` | warn | REQ-591 | A chart fence is invalid: bad JSON, unknown chart, undeclared prop, an `error` diagnostic of the chart, or a size out of range. The slot shows the error figure |
+| `SP027` | warn | REQ-586 | A `ground`, `substrate` or `mode` directive has an unknown value, or a substrate not in the slide's ground; the inherited value holds |
+| `SP028` | warn | REQ-599 | `page` or `defaultPage` is outside `1..total`, or a re-render shrank the deck under the current page; clamped |
+| `SP029` | warn | REQ-576 | The Markdown exceeds a limit (512 KB, 300 slides, 60 fences); rendered up to it |
+
+`SP018` (REQ-319) widens to a deck with no `label` and no heading on slide 1. A deck diagnostic
+carries its slide and, for a fence, its slot. That is 29 codes.
+
 Every diagnostic includes the chart name, the property involved and the `REQ-NNN` that
 motivates it.
 
@@ -1838,6 +2129,13 @@ motivates it.
 | Table rows | 1,000 (advisory) | No diagnostic; documented: page with `SpPagination` |
 | Select and menu items | 50 (advisory) | No diagnostic |
 | MCP request body, rows in `data`, any string | 256 KB, 5,000, 1,000 characters | `limit_exceeded` (§14.8, REQ-560) |
+| Deck Markdown | 512 KB, 300 slides, 60 fences | `SP029`; rendered up to the limit (REQ-576) |
+| Fence chart size | 160..1280 × 90..720 px of the canvas | `SP026` and the error figure |
+| `@silverpoint/marp`, own code (Marpit, core and grounds left out) | 11 kB gzip | CI fails (REQ-628) |
+| `@silverpoint/marp`, the engine with Marpit | 140 kB gzip | CI fails (REQ-628) |
+| `@silverpoint/marp/client` | 4 kB gzip | CI fails (REQ-628) |
+| `SpDeck` per adapter, static graph, framework and `@silverpoint/marp` left out | React 5 kB, Vue 48 kB, Angular 54 kB gzip | CI fails (REQ-628) |
+| A chart-only build | No deck module (`sp-deck`, `data-marpit`, Marpit's `linkify`) | CI fails (REQ-616, REQ-444) |
 
 *Amended in implementation:* the increments are size-limit rows with absolute limits, as
 REQ-330's are: 64 rows, the 21 new subpaths × 3 adapters and Angular's `ui/overlay` entry. A
@@ -1850,6 +2148,10 @@ with TimelineJS left out (`ignore`), on `@silverpoint/<adapter>/timeline`.
 no-growth check is re-baselined from `one-chart-0.3.0.json` to `tools/bundle-budget/one-chart-0.6.0.json`
 (244 entries, measured on a `0.6.0` worktree) with a 2 KB allowance, which holds the palette on the
 chart path (the delta proposed 1 KB); the REQ-444 row above states it.
+*Amended in implementation (DD-059, #281):* the deck budgets are declared from the build, in gzip:
+measured 9.6 kB own code, 135.6 kB with Marpit, 3.4 kB client, and `SpDeck` 3.3 / 46.4 / 52.2 kB for
+React / Vue / Angular. An `SpDeck` row measures the entry's static graph (`entry: ["index"]`), so the
+chart chunks the fence loads on demand are counted with no deck.
 
 ## 13. Versioning and deprecation
 
@@ -1857,13 +2159,13 @@ SemVer over the public surface of §2.
 
 - **Major**: removing or renaming a prop, a component, an `SPNNN` code, a `--sp-` variable
   or a `part`; changing a default value observably.
-- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, palette presets, new codes, and an optional peer imported by one subpath only (feature-004 is `minor`, shipped as `0.7.0`).
+- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, palette presets, new codes, and an optional peer imported by one subpath only (feature-004 is `minor`, shipped as `0.7.0`; feature-006, a new package in the `fixed` group and `deck` subpaths, is `minor`, `0.9.0`).
 - **Patch**: fixes that do not alter the normalised SVG output. A change that does alter
   it **is not a patch**, even if it is a visual improvement: it breaks the golden images of
   consumers using the same gate.
 
 Deprecation: a prop marked `@deprecated` warns for at least two minor versions before
-being removed in the next major. The eight packages (the seven of §1 and `@silverpoint/mcp`) are always published with the same
+being removed in the next major. The nine packages of §1 (`@silverpoint/mcp` and `@silverpoint/marp` included) are always published with the same
 version.
 
 ## 14. Agent access (feature-005)
@@ -1883,7 +2185,8 @@ one network surface: public, read-only and stateless.
 
 `@silverpoint/mcp` depends on `@silverpoint/core` and `@silverpoint/grounds` (`workspace:*`, so always
 the same version) and on the MCP TypeScript SDK; it has no peer dependencies and no framework. It is
-never imported by the adapters, and no adapter imports it.
+never imported by the adapters, and no adapter imports it. Since feature-006 it also depends on
+`@silverpoint/marp`, whose engine `validate_deck` and `render_deck` call.
 
 ### 14.2 The agent catalog (summary; shape in Data Model §2.28)
 
@@ -1909,9 +2212,20 @@ never imported by the adapters, and no adapter imports it.
   "components": [ /* slug, family (ui|composed|overlay), group, names, imports, props, binding, events, slots */ ],
   "dashboard": { … }, "grounds": [ … ], "palettes": { "fields": [ … ], "presets": { … } },
   "timeline": { … }, "diagnostics": [ { "code": "SP011", "severity": "warn", "req": "REQ-097", "what": "…", "todo": "…" } ],
-  "stylesheets": { "always": ["@silverpoint/fonts/fonts.css", "@silverpoint/grounds/styles.css"], "ui": ["@silverpoint/grounds/ui.css"], "timeline": [ … ] }
+  "stylesheets": { "always": ["@silverpoint/fonts/fonts.css", "@silverpoint/grounds/styles.css"], "ui": ["@silverpoint/grounds/ui.css"], "timeline": [ … ] },
+  "deck": { "names": { … }, "imports": { … }, "peer": "@silverpoint/marp", "props": [ … ], "events": [ … ], "directives": [ … ],
+            "classes": ["lead", "invert", "plate", "hatched"], "fence": { "schema": { … }, "example": "```silverpoint …```" },
+            "diagnostics": ["SP018", "SP026", "SP027", "SP028", "SP029"], "stylesheets": [ … ] }
 }
 ```
+
+The `deck` section (feature-006, REQ-619) is read from the sources as the rest: `SpDeck`'s props from
+the React `SpDeckProps` (its handlers aside), its events from `DeckEvents`, the directives from
+`DECK_DIRECTIVES`, the classes from the theme, the fence's JSON Schema from `ChartFenceSpec`, the
+diagnostics from the `SPnnn` the package raises. Reflex's name and import are `''` until
+`reflex-silverpoint-marp` exports a catalog.
+*Amended in implementation (#282):* each event also carries `bindings: { react, vue, angular }`
+(`onPageChange`, `@page-change`, `(pageChange)`), checked against the adapters' sources.
 
 ### 14.3 Tools (REQ-539)
 
@@ -1928,11 +2242,13 @@ suggestions? }`; codes: `unknown_name`, `invalid_input`, `limit_exceeded`, `rend
 | `list_components` | `{ family?: 'ui' \| 'composed' \| 'overlay', group? }` | `{ components: [{ slug, family, group, summary }] }` |
 | `get_component` | `{ slug, framework? }` | the component's catalog entry, as `get_chart` |
 | `recommend_chart` | `{ shape: DataShape, fields?: FieldDesc[], intent: Intent, rows?: number }` | `{ recommendations: [{ slug, score, reasons: string[] }] }`, ≤ 5, deterministic (REQ-540) |
-| `generate_code` | `{ target: { chart } \| { component }, framework, fields?: Record<role, string>, props?: object, ground?, substrate?, mode?, palette? }` | `{ imports: string[], stylesheets: string[], code: string, notes: string[] }` (REQ-541, REQ-547) |
+| `generate_code` | `{ target: { chart } \| { component } \| { deck: { markdown? } }, framework, fields?: Record<role, string>, props?: object, ground?, substrate?, mode?, palette? }` | `{ imports: string[], stylesheets: string[], code: string, notes: string[] }` (REQ-541, REQ-547) |
 | `validate_props` | `{ chart, props, width?, height? }` | `{ valid: boolean, diagnostics: [{ code, severity, req, message, todo }], unknownProps: string[] }` (REQ-542) |
 | `render_chart` | `{ chart, props?, data?, width? (320..1600, 480), height?, id?, ground?, substrate?, mode?, palette?, embedFonts?: boolean }` | `{ svg: string, width, height, diagnostics[] }` (REQ-543) |
 | `check_palette` | `{ palette: Palette \| presetName, substrate? }` | `{ findings: PaletteFinding[] }` (REQ-545) |
 | `search_catalog` | `{ query: string, limit? (≤ 20) }` | `{ hits: [{ kind: 'chart' \| 'component' \| 'prop' \| 'diagnostic' \| 'guide', slug, title, snippet }] }` — token match over names, summaries, docs; no embeddings |
+| `validate_deck` | `{ markdown: string }` | `{ valid, total, diagnostics: [{ code, severity, req, message, todo, slide?, slot? }] }` (REQ-620) |
+| `render_deck` | `{ markdown, slide?: number, ground?, substrate?, mode?, palette?, size?: '16:9' \| '4:3', embedFonts?: boolean }` | `{ html: string, total, diagnostics[] }` — a standalone HTML document (REQ-620) |
 
 `DataShape` ∈ `series` (x → one or more values), `categories` (label → value), `parts` (label →
 share of a whole), `matrix` (row × column → value), `hierarchy` (parent/child or nested), `links`
@@ -1949,6 +2265,21 @@ import from its subpath; the element with the accessor props mapped from `fields
 `notes`. Overlays get a native `<button type="button">` (Angular `spTrigger`, Reflex `trigger="…"`) as `trigger` while delta-014 is
 open (REQ-547).
 
+Thirteen tools in all since feature-006. `validate_deck` and `render_deck` (REQ-620) run the deck
+engine of §3.6 under the deck id `deck`; their diagnostics are sorted by slide. `render_deck`'s
+document is `<!doctype html>` with the grounds', the deck's and the theme's CSS inlined (EB Garamond
+as a data URI with `embedFonts`): every slide, or with `slide` that one alone, shown at once, with
+the slide boxes' `hidden`, `inert` and current marks removed, every fragment shown (as in print,
+REQ-597), static charts and no controls; the same input gives the same document (Art. 4). A
+`slide` outside `1..total` is `invalid_input`; `size` is checked like an enum (`unknown_name`).
+`generate_code` with `target: { deck }` (REQ-621) writes an `SpDeck` usage per framework from the
+catalog's deck section: the four stylesheets, the import, the Markdown embedded verbatim as a
+template literal (a starter deck holding the catalog's fence example when `markdown` is absent), and
+the page held in the host's state (React `onPageChange`, Vue `v-model:page`, Angular `[page]` with
+`(pageChange)`); `props` holds `SpDeck`'s own props, checked against the catalog, and may not carry
+`markdown`, `page`, `defaultPage` or the appearance inputs (`invalid_input`). `framework: 'reflex'` is
+an `unknown_name` error naming `reflex-silverpoint-marp` as pending. Exactly one target is given.
+
 ### 14.4 Resources (REQ-546)
 
 | URI | Content |
@@ -1956,8 +2287,9 @@ open (REQ-547).
 | `silverpoint://catalog` | `agent-catalog.json` (`application/json`) |
 | `silverpoint://charts/{slug}` | one chart entry (template resource, listable) |
 | `silverpoint://components/{slug}` | one component entry |
-| `silverpoint://diagnostics` | the 25 codes |
-| `silverpoint://guides/{topic}` | the `silverpoint` skill's references as Markdown: `choosing-charts`, `grounds-and-palettes`, `dashboard`, `ui-components`, `overlays`, `timeline`, `react`, `vue`, `angular`, `reflex` |
+| `silverpoint://diagnostics` | the 29 codes |
+| `silverpoint://deck` | the catalog's `deck` section (feature-006) |
+| `silverpoint://guides/{topic}` | the `silverpoint` skill's references as Markdown: `choosing-charts`, `grounds-and-palettes`, `dashboard`, `ui-components`, `overlays`, `timeline`, `deck`, `react`, `vue`, `angular`, `reflex` |
 
 ### 14.5 Prompts (REQ-548, SHOULD)
 
@@ -1976,6 +2308,7 @@ skills/silverpoint/                      (this repository; generated + hand-writ
     charts/<family>.md                   per chart: summary, data shape, props table, example per framework (generated)
     components.md, overlays.md           (generated tables + hand-written usage)
     grounds-and-palettes.md, dashboard.md, timeline.md
+    deck.md                              authoring, directives, classes, the fence, SpDeck, Marp CLI (generated + hand-written, REQ-622)
     react.md, vue.md, angular.md         imports, stylesheets, SSR, binding idioms (hand-written)
     pitfalls.md                          (hand-written: delta-014, accessors are field names, tone is density…)
 .claude-plugin/marketplace.json          one plugin, "silverpoint", source ./
@@ -2015,7 +2348,7 @@ Skill descriptions (frontmatter), verbatim:
 |---|---|---|
 | Request body | 256 KB | `limit_exceeded` |
 | Rows in `data` | 5,000 | `limit_exceeded` |
-| Any string | 1,000 characters | `limit_exceeded` |
+| Any string | 1,000 characters (a deck's `markdown` excepted: it is held to the body's 256 KB and to REQ-576) | `limit_exceeded` |
 | Render path data | `PATH_BYTE_BUDGET` (40,000 bytes) | `limit_exceeded` (the core's own budget) |
 | `render_chart` width × height | 320..1600 × 120..1200 px | `invalid_input` |
 | `search_catalog` limit | 20 | clamped |
@@ -2049,6 +2382,9 @@ Skill descriptions (frontmatter), verbatim:
   with AI", its tool table read from the server (REQ-569). `/mcp`, `/agent-catalog.json` and the
   `llms` files belong to the official site, `silverpoint_web`.
 - The calls-per-address limit (SHOULD) is not implemented: no shared store is configured (REQ-561).
+- *Feature-006, amended in implementation (#283, #285):* a `~~~markdown` block of the skill is a
+  deck: the examples check leaves it out of the compiled examples, and the MCP tests validate each one
+  with `validate_deck`. `references/diagnostics.md` lists the 29 codes.
 
 ---
 
@@ -2056,6 +2392,7 @@ Skill descriptions (frontmatter), verbatim:
 
 | Version | Date | Changes |
 |---|---|---|
+| 1.13 | 2026-10-31 | Feature-006: slide decks — §1 adds `@silverpoint/marp` and the adapters' optional peer; new §1.4 (`.`, `./client`, `./theme.css`, `./deck.css`, `./cli`, `./demo` with `DECK_DEMO`, the `deck` subpaths, `slideBackdrop`, `listGrounds` and `toChartRootString` on the grounds); §2 surface; new §3.6 (the engine, the theme and its classes, the directives, the chart fence); new §7.5 (`SpDeck`, the controller, the keyboard, the markup contract); §9 deck events; §10 parts and properties; `SP026`–`SP029` and `SP018` widened (25 → 29 codes); §12 deck limits and budgets; §13 nine packages; §14 the catalog's `deck` section, `validate_deck`, `render_deck`, `generate_code { deck }` (13 tools), `silverpoint://deck` and the `deck` guide; folds the amendments made in implementation (no polyfill, the shared view functions, `data-sp-pending` fragments, the budgets of DD-059, event bindings) in the ledger of `changes/feature-006-deck/` |
 | 1.12 | 2026-10-20 | Feature-005: agent access — §1 adds `@silverpoint/mcp`; new §14 (the package and its entry points, the agent catalog, eleven tools, resources, prompts, the skill and plugin layout, the official site's paths, the endpoint's limits); §12 the MCP limits; §13 eight packages; folds the amendments made in implementation (no PNG, inline plugin server, the `/#/ai` page) in the ledger of `changes/feature-005-agent-access/` |
 | 1.0 | 2026-09-13 | Initial version |
 | 1.2 | 2026-09-13 | Palette replaced with the one verified against the contrast thresholds (Data Model §3.2) |
@@ -2105,4 +2442,10 @@ Skill descriptions (frontmatter), verbatim:
 - **Art. 5** (feature-004) — native `<dialog>`, `<details>`, `<table>`, `<textarea>`,
   `<input type="number">`; APG for the rest.
 - **Art. 8** (feature-004) — no dependency; one optional peer on one subpath; budgets in §12.
+- **Art. 2** (feature-006, constitution v1.11) — the deck's markup, view and hydration plan are
+  `@silverpoint/marp`'s; backdrops come from the grounds; adapters only mount and bind.
+- **Art. 3** (feature-006) — `deckMarkup` is the canonical render the tree gate compares each adapter with.
+- **Art. 4** (feature-006) — fence chart ids and backdrops seeded from the deck id and slide index; `render` is pure.
+- **Art. 5** (feature-006) — a region with a live status, toolbar buttons, inert hidden slides, APG-style keys.
+- **Art. 8** (feature-006) — Marpit in `@silverpoint/marp` only; the adapters' optional peer on the `deck` subpath; budgets in §12.
 - **Requested exception:** none.
