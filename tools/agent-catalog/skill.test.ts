@@ -62,7 +62,7 @@ describe('SKILL.md (REQ-552, REQ-554)', () => {
 
 describe('references (REQ-552)', () => {
   test('REQ-552 · one file per topic API delta §6 names, and one per chart family', () => {
-    const topics = ['choosing-charts', 'components', 'overlays', 'grounds-and-palettes', 'dashboard', 'timeline', 'react', 'vue', 'angular', 'pitfalls'];
+    const topics = ['choosing-charts', 'components', 'overlays', 'grounds-and-palettes', 'dashboard', 'timeline', 'deck', 'react', 'vue', 'angular', 'pitfalls'];
     for (const topic of topics) expect(files.has(`references/${topic}.md`), topic).toBe(true);
     for (const family of catalog.families) expect(files.has(`references/charts/${family.slug}.md`), family.slug).toBe(true);
   });
@@ -108,6 +108,21 @@ describe('references (REQ-552)', () => {
     expect(file('references/timeline.md')).toContain(catalog.timeline.peer);
   });
 
+  test('REQ-622 · the deck: SpDeck’s names, props and events, the directives, the classes, the fence, the diagnostics, Marp CLI and an example per framework', () => {
+    const deck = catalog.deck;
+    const text = file('references/deck.md');
+    for (const name of [...Object.values(deck.imports).filter(Boolean), deck.peer, ...deck.stylesheets]) expect(text, name).toContain(name);
+    for (const prop of deck.props) expect(text, prop.name).toContain(`| \`${prop.name}\` |`);
+    for (const event of deck.events) for (const binding of Object.values(event.bindings)) expect(text, binding).toContain(`\`${binding}\``);
+    for (const directive of deck.directives) expect(text, directive.name).toContain(`| \`${directive.name}\` |`);
+    for (const name of deck.classes) expect(text, name).toContain(`| \`${name}\` |`);
+    for (const key of Object.keys((deck.fence.schema as { properties: object }).properties)) expect(text, key).toContain(`| \`${key}\` |`);
+    for (const code of deck.diagnostics) expect(text, code).toContain(`\`${code}\``);
+    for (const marp of ['--theme', '--engine @silverpoint/marp/cli', '@silverpoint/marp/theme.css', 'markdown.marp.themes']) expect(text, marp).toContain(marp);
+    for (const fence of ['```tsx', '```vue', '```ts angular', '~~~markdown']) expect(text, fence).toContain(fence);
+    expect(file('SKILL.md')).toContain('[references/deck.md](references/deck.md)');
+  });
+
   test('REQ-554 · every reference names the version it describes', () => {
     for (const [path, content] of files) if (path.startsWith('references/')) expect(content, path).toContain(`silverpoint ${catalog.version}`);
   });
@@ -132,6 +147,7 @@ describe('the committed skill (DD-050)', () => {
       'ui-components': 'references/components.md',
       overlays: 'references/overlays.md',
       timeline: 'references/timeline.md',
+      deck: 'references/deck.md',
       react: 'references/react.md',
       vue: 'references/vue.md',
       angular: 'references/angular.md',
@@ -189,6 +205,11 @@ describe('example extraction (REQ-557)', () => {
     expect(() => extractExamples(md('```tsx vue\nconst a = 1;\n```\n'))).toThrow(/tsx vue/);
     expect(() => extractExamples(md('```ts svelte\nconst a = 1;\n```\n'))).toThrow(/ts svelte/);
     expect(() => extractExamples(md('```\nbare\n```\n'))).toThrow(/language/);
+  });
+
+  test('REQ-557 · REQ-622 · a `~~~markdown` block is a deck, not code to compile, and the fences inside it are its own', () => {
+    const deck = '~~~markdown\n# A deck\n\n```silverpoint\n{"chart":"bar-chart"}\n```\n~~~\n\n```tsx\nA\n```\n';
+    expect(extractExamples(md(deck)).map((e) => e.code)).toEqual(['A\n']);
   });
 
   test('REQ-557 · every example of the skill is extracted: one per fence, none refused', () => {

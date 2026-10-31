@@ -96,7 +96,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 - [x] **T-282** Agent catalog `deck` section (§2.37): props and events from the types, `DECK_DIRECTIVES`, `THEME_CLASSES`, fence JSON Schema, diagnostics, stylesheets. *REQ-619*
 - [x] **T-283** `validate_deck` and `render_deck` (+ resources), limits, contract and golden tests. *REQ-620*
 - [x] **T-284** `generate_code { deck }` per framework; `reflex` → pending error; golden files type-check. *REQ-621*
-- [ ] **T-285** Skill `references/deck.md` (authoring, directives, fence, adapters, Marp CLI), examples compiled. *REQ-622*
+- [x] **T-285** Skill `references/deck.md` (authoring, directives, fence, adapters, Marp CLI), examples compiled. *REQ-622*
 
 ### 10h — Delivery
 

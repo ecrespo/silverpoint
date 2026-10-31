@@ -12,7 +12,7 @@ installs another version, check the props you write against its types, or use th
 answers for the version it ships with.
 
 silverpoint draws data the way a silverpoint drawing is made: hatched tone, a hand-inked line,
-prepared paper. It is 60 charts, 38 UI components, a dashboard and a timeline, with one API in
+prepared paper. It is 60 charts, 38 UI components, a dashboard, a timeline and Marp decks, with one API in
 React, Vue and Angular, and a Python wrapper for Reflex (`reflex-silverpoint-react`). Every render
 is deterministic: the same props and seed draw the same SVG on the server and in the browser.
 
@@ -107,6 +107,8 @@ The props every chart shares (`data`, `title`, `height`, `ground`, `palette`…)
 - **Dashboard:** a responsive grid of cards that the charts fill, with an optional linked
   highlight across charts. See [references/dashboard.md](references/dashboard.md).
 - **Timeline:** `SpTimeline`, a skin over TimelineJS. See [references/timeline.md](references/timeline.md).
+- **Decks:** `SpDeck` renders Marp Markdown as silverpoint slides, with charts from `silverpoint`
+  fences. See [references/deck.md](references/deck.md).
 - **Reflex:** builder names and Python props. See [references/reflex.md](references/reflex.md).
   For Reflex work, use the `reflex-silverpoint` skill when it is installed.
 

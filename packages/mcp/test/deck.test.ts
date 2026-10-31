@@ -5,6 +5,7 @@
  */
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
+import { readFileSync } from 'node:fs';
 import { afterAll, beforeAll, describe, expect, test } from 'vitest';
 import { AGENT_CATALOG, createServer } from '../src';
 import { STANDALONE_STYLE } from '../src/tools/render';
@@ -146,5 +147,18 @@ describe('the deck resource (REQ-546)', () => {
     expect(resources.map((r) => r.uri)).toContain('silverpoint://deck');
     const read = await client.readResource({ uri: 'silverpoint://deck' });
     expect(JSON.parse((read.contents[0] as { text: string }).text)).toEqual(AGENT_CATALOG.deck);
+  });
+});
+
+describe('the skill’s deck reference (REQ-622)', () => {
+  const reference = readFileSync(new URL('../../../skills/silverpoint/references/deck.md', import.meta.url), 'utf8');
+  const decks = [...reference.matchAll(/^~~~markdown\n([\s\S]*?)^~~~$/gm)].map((m) => m[1]!);
+
+  test('REQ-622 · REQ-557 · every deck it shows renders with no diagnostic', async () => {
+    expect(decks.length).toBeGreaterThanOrEqual(3);
+    for (const markdown of decks) {
+      const { data } = await call('validate_deck', { markdown });
+      expect(data.diagnostics, markdown.slice(0, 80)).toEqual([]);
+    }
   });
 });
