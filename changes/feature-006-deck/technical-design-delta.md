@@ -88,8 +88,9 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
 - **Decision:** the fence plugin parses the body with `JSON.parse`, resolves `chart` (a slug) to a
   recipe through a table built from `@silverpoint/core` and `@silverpoint/core/catalog` (recipe
   `name` → kebab-case slug, as the agent catalog's), and calls `grounds.renderChart(recipe, props,
-  { id, width })` with the slide's ground, substrate, mode and palette as props; `toSVGString` gives
-  the markup placed in `<figure class="sp-deck-chart" data-sp-slot>`. The parsed spec travels in
+  { id, width })` with the slide's ground, substrate, mode and palette as props; `toChartRootString`
+  (moved into grounds from the visual gate's reference writer, Analyze A-03) gives the chart's client
+  DOM —`.sp-root`, SVG, live region, table— placed in `<figure class="sp-deck-chart" data-sp-slot>`. The parsed spec travels in
   `DeckRender.slots`; the client reads it back from a `data-sp-spec` attribute (JSON, escaped), so
   `findChartSlots` needs no side channel after SSR.
   Each adapter's `deck/chart-loaders.ts` maps the 60 slugs to `() => import('../<slug>')` and is
