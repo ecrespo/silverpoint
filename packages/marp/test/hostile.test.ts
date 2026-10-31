@@ -28,6 +28,10 @@ const CORPUS: Readonly<Record<string, string>> = {
   'html in header directive': '<!-- header: "<img src=x onerror=alert(1)>" -->',
   'javascript backgroundImage directive': '<!-- backgroundImage: "url(javascript:alert(1))" -->',
   'attribute break in class directive': '<!-- class: "a\\" onmouseover=\\"alert(1)" -->',
+  // T-259: what a chart fence writes — its spec attribute, its chart's text, its error figure.
+  'fence title and data': '```silverpoint\n{"chart":"bar-chart","data":[{"x":"<img src=x onerror=alert(1)>","value":1}],"props":{"title":"\\"><script>alert(1)</script>"}}\n```',
+  'fence unknown chart': '```silverpoint\n{"chart":"\\" onmouseover=\\"alert(1)"}\n```',
+  'fence bad json': '```silverpoint\n</figcaption><script>alert(1)</script>\n```',
 };
 
 describe('hostile input (T-255, REQ-575, I-45)', () => {

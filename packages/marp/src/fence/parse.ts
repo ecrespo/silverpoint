@@ -3,8 +3,9 @@
  * REQ-589, REQ-591). Pure and total: it never throws. The `diagnostic` kind is raised at render.
  */
 import type { ChartFenceSpec, FenceError } from '../types';
+import { PALETTE_NAMES } from '@silverpoint/core/palettes';
 import { MODES } from '../engine/directives';
-import { closest } from '../util/closest';
+import { closest, didYouMean } from '../util/closest';
 import { CHART_PROPS, COMMON_PROPS } from './charts.generated';
 import { CHART_SLUGS } from './recipes';
 
@@ -45,6 +46,7 @@ export function parseChartFence(body: string): FenceParse {
   }
   if (own(v, 'mode') && !MODES.includes(v.mode as never)) return shape(`\`mode\` must be ${MODES.map((m) => `"${m}"`).join(' or ')}.`);
   if (own(v, 'palette') && typeof v.palette !== 'string' && !isObject(v.palette)) return shape('`palette` must be a preset name or a palette object.');
+  if (typeof v.palette === 'string' && !PALETTE_NAMES.includes(v.palette)) return shape(`\`palette\` "${v.palette}" is not a preset.${didYouMean(v.palette, PALETTE_NAMES)}`);
 
   const props = (v.props ?? {}) as Record<string, unknown>;
   for (const key of OWN) if (own(props, key)) return shape(`Give \`${key}\` as a field of the fence, not in \`props\`.`);

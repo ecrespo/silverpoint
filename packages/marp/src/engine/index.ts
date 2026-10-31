@@ -1,10 +1,13 @@
 import { resolveGround } from '@silverpoint/grounds';
 import { themeSource } from '../theme/source';
-import type { DeckDiagnostic, DeckEngine, DeckEngineOptions, DeckMode, DeckRender, SlideRender } from '../types';
+import type { FenceEnv } from '../fence/rule';
+import type { ChartSlot, DeckDiagnostic, DeckEngine, DeckEngineOptions, DeckMode, DeckRender, SlideRender } from '../types';
 import type { AnnotateEnv } from './annotate';
 import { createMarpitEngine, SLIDE_BOX } from './marpit';
 
 const SIZES = { '16:9': { width: 1280, height: 720 }, '4:3': { width: 960, height: 720 } } as const;
+/** The slide's content box, 80 px inside each side edge: a fence's default width (Analyze A-07). */
+const CONTENT_INSET = 80;
 
 /** `[a-z0-9-]`, no leading/trailing or doubled dashes (REQ-571). Throws when nothing is left. */
 export function sanitiseDeckId(id: string): string {
@@ -25,7 +28,8 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
   return {
     render(markdown: string): DeckRender {
       const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[] };
-      const out = markdownEngine.render(markdown, { sp });
+      const spFence: FenceEnv = { deckId: id, contentWidth: SIZES[size].width - 2 * CONTENT_INSET, slots: [] as ChartSlot[], ...(options.palette === undefined ? {} : { palette: options.palette }) };
+      const out = markdownEngine.render(markdown, { sp, spFence });
       const slides: SlideRender[] = out.html.map((html, i) => {
         const token = out.slideTokens[i]!;
         const fragments = Number(token.attrGet('data-marpit-fragments') ?? 0);
@@ -43,7 +47,7 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
           ...(resolved.heading === undefined ? {} : { heading: resolved.heading }),
         };
       });
-      return { id, total: slides.length, size: SIZES[size], css: out.css, slides, slots: [], diagnostics: sp.diagnostics };
+      return { id, total: slides.length, size: SIZES[size], css: out.css, slides, slots: spFence.slots, diagnostics: sp.diagnostics };
     },
   };
 }

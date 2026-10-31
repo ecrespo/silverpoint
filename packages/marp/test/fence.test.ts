@@ -64,6 +64,11 @@ describe('parseChartFence (T-258)', () => {
     expect(r.error).toEqual({ kind: 'shape', message: `Give \`${key}\` as a field of the fence, not in \`props\`.` });
   });
 
+  test('REQ-591 · kind shape: a palette name that is not a preset, with the closest', () => {
+    expect(parse({ chart: 'bar-chart', palette: 'sanguin' }).error).toEqual({ kind: 'shape', message: '`palette` "sanguin" is not a preset. Did you mean "sanguine"?' });
+    expect(parse({ chart: 'bar-chart', palette: 'ironGall' }).spec).toBeDefined();
+  });
+
   test('REQ-591 · kind chart: unknown slug, with the closest slugs', () => {
     expect(parse({ chart: 'bar-chrt' }).error).toEqual({ kind: 'chart', chart: 'bar-chrt', suggestions: ['bar-chart'] });
     expect(parse({ chart: 'zzz' }).error).toEqual({ kind: 'chart', chart: 'zzz', suggestions: [] });

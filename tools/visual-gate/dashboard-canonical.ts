@@ -10,8 +10,8 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { dashboardView, inCell, type DataTable } from '@silverpoint/core';
-import { renderChart, toSVGString, type RenderedChart } from '@silverpoint/grounds';
+import { dashboardView, inCell } from '@silverpoint/core';
+import { renderChart, toChartRootString } from '@silverpoint/grounds';
 import { normalizeDashboard } from '../svg-normalizer/normalize';
 import { dashboardFixtureProps, dashboardMatrix, type DashboardFixture } from './dashboard-fixtures';
 import { FIXTURES_DIR, RECIPES } from './fixtures';
@@ -24,27 +24,6 @@ const attrs = (pairs: Readonly<Record<string, string | undefined>>) =>
     .join('');
 const style = (vars: Readonly<Record<string, string>>) => Object.entries(vars).map(([name, value]) => `${name}:${value}`).join(';');
 
-function table(t: DataTable, id: string, visibility: string): string {
-  const head = t.columns.map((c) => `<th scope="col">${text(String(c))}</th>`).join('');
-  const rows = t.rows.map((row) => `<tr>${row.map((cell, i) => (i === 0 ? `<th scope="row">${text(String(cell))}</th>` : `<td>${text(String(cell))}</td>`)).join('')}</tr>`).join('');
-  return `<div class="sp-table-box" data-visibility="${visibility}"><table class="sp-table" id="${id}" data-visibility="${visibility}"><caption>${text(t.caption)}</caption><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
-}
-
-/** A client chart's DOM (API Spec §10): the focusable root, its SVG, the live region, the table. */
-function chart(rendered: RenderedChart): string {
-  const root = attrs({
-    class: `sp-root sp-ground-${rendered.ground}`,
-    'data-substrate': rendered.substrate,
-    'data-chrome': rendered.chrome,
-    'data-status': rendered.status,
-    tabindex: '0',
-    role: 'group',
-    'aria-label': rendered.name,
-  });
-  const data = rendered.dataTable === 'none' ? '' : table(rendered.table, rendered.ids.table, rendered.dataTable);
-  return `<div${root}>${toSVGString(rendered)}<div class="sp-live" aria-live="polite"></div>${data}</div>`;
-}
-
 /** The fixture's markup, from the core. */
 export function canonicalDashboardMarkup(fixture: DashboardFixture): string {
   const { props, children } = dashboardFixtureProps(fixture);
@@ -56,7 +35,7 @@ export function canonicalDashboardMarkup(fixture: DashboardFixture): string {
     if (!recipe) throw new Error(`No recipe for ${child.chart}`);
     const fitted = inCell(child.props, cell.context, recipe);
     const rendered = renderChart(recipe, fitted.props, { id: cell.context.chartId, width: fitted.width });
-    return `<article${attrs({ class: 'sp-dashboard-cell', part: 'dashboard-cell', 'aria-labelledby': cell.labelledby, style: style(cell.style) })}>${chart(rendered)}</article>`;
+    return `<article${attrs({ class: 'sp-dashboard-cell', part: 'dashboard-cell', 'aria-labelledby': cell.labelledby, style: style(cell.style) })}>${toChartRootString(rendered)}</article>`;
   });
   return (
     `<section${attrs({ class: section.className, part: 'dashboard', 'data-substrate': section.substrate, 'aria-labelledby': section.labelledby, 'aria-describedby': section.describedby, 'aria-label': section.label, style: style(section.style) })}>` +

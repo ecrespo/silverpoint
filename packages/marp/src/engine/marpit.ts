@@ -3,6 +3,7 @@
  * seam, so a Marp Core engine could be a second implementation; the seam is not exported.
  */
 import { Element, Marpit } from '@marp-team/marpit';
+import { renderFences, type FenceEnv } from '../fence/rule';
 import { annotate, isContentSection, type AnnotateEnv } from './annotate';
 import { registerDirectives } from './directives';
 import { isSafeBackgroundImage, sanitiseDeckCss } from './sanitize';
@@ -33,7 +34,7 @@ export interface MarkdownDeckRender {
 }
 
 export interface MarkdownDeckEngine {
-  render(markdown: string, env: { readonly sp: AnnotateEnv }): MarkdownDeckRender;
+  render(markdown: string, env: { readonly sp: AnnotateEnv; readonly spFence: FenceEnv }): MarkdownDeckRender;
 }
 
 export interface MarpitEngineOptions {
@@ -66,6 +67,8 @@ export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEn
   });
   // DD-054: last, so Marpit's directives, fragments and advanced backgrounds are all in place.
   md.core.ruler.push('sp_annotate', annotate as (state: never) => void);
+  // DD-053: after the annotation, so each fence knows its slide's ground, substrate and mode.
+  md.core.ruler.push('sp_fences', renderFences as (state: never) => void);
 
   return {
     render(markdown, env) {
