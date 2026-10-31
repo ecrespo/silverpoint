@@ -150,7 +150,7 @@ paginate: true
 An unknown value, or a substrate of another ground, warns `SP027` with the closest names and keeps the
 inherited value. Marpit's own directives (`theme`, `class`, `paginate`, `header`, `footer`,
 `backgroundColor`, `backgroundImage`, `color`, `size`, `headingDivider`, `lang`) keep their meaning,
-and so do its images: `![bg](…)`, split backgrounds (`![bg right:40%](…)`), sizing and filters.
+and so do its background images: `bg`, split backgrounds such as `bg right:40%`, sizing and filters.
 
 | Class | Effect |
 |---|---|

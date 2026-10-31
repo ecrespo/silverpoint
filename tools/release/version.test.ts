@@ -13,7 +13,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 /** The documented release step (`.changeset/README.md`), pointed at the scratch copy. */
 const VERSION = join(ROOT, 'tools/release/version.mjs');
 const runVersion = (dir: string) => execFileSync(process.execPath, [VERSION, dir], { cwd: join(ROOT, 'tools/release'), stdio: 'pipe' });
-const EIGHT = ['angular', 'core', 'fonts', 'grounds', 'mcp', 'react', 'tailwind', 'vue'];
+const NINE = ['angular', 'core', 'fonts', 'grounds', 'marp', 'mcp', 'react', 'tailwind', 'vue'];
 const WORKSPACE_DIRS = ['packages', 'examples', 'tools'];
 
 let scratch: string | undefined;
@@ -48,11 +48,11 @@ const version = (dir: string, pkg: string): string =>
   JSON.parse(readFileSync(join(dir, 'packages', pkg, 'package.json'), 'utf8')).version;
 
 describe('Changesets (TD §9)', () => {
-  test('REQ-160 · REQ-550 · `changeset version` releases the eight packages together, with a changelog entry each', () => {
+  test('REQ-160 · REQ-550 · REQ-570 · `changeset version` releases the nine packages together, with a changelog entry each', () => {
     scratch = copyWorkspace({ 'one-major.md': "---\n'@silverpoint/core': major\n---\n\nA major release.\n" });
     const next = `${Number(version(scratch, 'core').split('.')[0]) + 1}.0.0`;
     runVersion(scratch);
-    for (const pkg of EIGHT) {
+    for (const pkg of NINE) {
       expect(version(scratch, pkg), pkg).toBe(next);
       expect(readFileSync(join(scratch, 'packages', pkg, 'CHANGELOG.md'), 'utf8'), pkg).toContain(`## ${next}`);
     }
@@ -60,12 +60,12 @@ describe('Changesets (TD §9)', () => {
     expect(JSON.parse(readFileSync(join(scratch, 'tools/release/package.json'), 'utf8')).version).toBe('0.0.0');
   }, 60_000);
 
-  test('REQ-160 · TD §9 · the eight packages share one version: a patch to one releases all eight', () => {
+  test('REQ-160 · TD §9 · the nine packages share one version: a patch to one releases all nine', () => {
     scratch = copyWorkspace({ 'one-patch.md': "---\n'@silverpoint/fonts': patch\n---\n\nA patch to the fonts alone.\n" });
     const before = version(scratch, 'core');
     runVersion(scratch);
     const [major, minor, patch] = before.split('.').map(Number);
-    for (const pkg of EIGHT) expect(version(scratch, pkg), pkg).toBe(`${major}.${minor}.${patch + 1}`);
+    for (const pkg of NINE) expect(version(scratch, pkg), pkg).toBe(`${major}.${minor}.${patch + 1}`);
   }, 60_000);
 
   test('REQ-160 · TD §9 · the README documents the release step as the script this suite runs', () => {

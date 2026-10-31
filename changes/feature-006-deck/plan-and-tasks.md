@@ -102,7 +102,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 
 - [x] **T-286** `DECK_DEMO` on `@silverpoint/marp/demo` (charts, fragments, split background, notes, a `precision` slide, a `cyanotype` slide); `/deck` page in the four apps and the docs site. *REQ-626*
 - [x] **T-287** Docs: usage ×3, authoring guide, theme with Marp CLI and VS Code + degradation, SSR per framework; `@silverpoint/marp` README. *REQ-627*
-- [ ] **T-288** Changeset (`minor`), `@silverpoint/marp` in the `fixed` group and the release tooling's package list; first-publish note. *REQ-570*
+- [x] **T-288** Changeset (`minor`), `@silverpoint/marp` in the `fixed` group and the release tooling's package list; first-publish note. *REQ-570*
 - [ ] **T-289** Fold the deltas into `specs/` (constitution v1.11, PRD v1.15, API v1.13, TD v1.12, Data Model v1.10, plan v1.11), `reports/traceability.md`, `CLAUDE.md` status. *Art. 9*
 
 ## Risks carried
