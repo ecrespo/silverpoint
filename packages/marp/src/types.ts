@@ -36,15 +36,25 @@ export interface SlideRender {
 
 /** The body of a `silverpoint` fence (Data Model §2.32). */
 export interface ChartFenceSpec {
+  /** The chart's catalog slug, such as `bar-chart`. */
   readonly chart: string;
+  /** What the chart reads; its demo dataset when absent. */
   readonly data?: unknown;
+  /** The chart's own props and the common view props; not the fence's own fields. */
   readonly props?: Readonly<Record<string, unknown>>;
+  /** Width in canvas pixels; the slide's content width when absent. */
   readonly width?: number;
+  /** Height in canvas pixels. Default `360`. */
   readonly height?: number;
+  /** The chart's id; `<deck>-s<slide>-c<ordinal>` when absent. */
   readonly id?: string;
+  /** The chart's ground; the slide's when absent. */
   readonly ground?: string;
+  /** The chart's substrate; the slide's when absent. */
   readonly substrate?: string;
+  /** `ink` or `precision`; the slide's when absent. */
   readonly mode?: DeckMode;
+  /** A preset's name or a palette object. */
   readonly palette?: string | Palette;
 }
 

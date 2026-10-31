@@ -187,6 +187,43 @@ export interface AgentCatalog {
   /** The recommender's table (DD-046): `recommend_chart` reads it, never a model. */
   readonly recommend: readonly RecommendRule[];
   readonly stylesheets: { readonly always: readonly string[]; readonly ui: readonly string[]; readonly timeline: readonly string[] };
+  /** The slide decks of `@silverpoint/marp` and `SpDeck` (feature-006, Data Model §2.37, REQ-619). */
+  readonly deck: DeckSection;
+}
+
+/** A deck event, with the way each framework binds it. */
+export interface DeckEventEntry {
+  readonly name: string;
+  /** The payload's type, one plain object (REQ-606, REQ-609). */
+  readonly payload: string;
+  readonly bindings: { readonly react: string; readonly vue: string; readonly angular: string };
+  readonly doc: string;
+}
+
+/** A deck directive: its values (`per-ground` for the substrate), default and slide attribute. */
+export interface DeckDirectiveEntry {
+  readonly name: string;
+  readonly values: readonly string[] | 'per-ground';
+  readonly default: string;
+  readonly attribute: string;
+}
+
+export interface DeckSection {
+  /** Reflex: `''` until `reflex-silverpoint-marp` exports a catalog. */
+  readonly names: Names;
+  readonly imports: Imports;
+  /** The adapters' optional peer, which carries the engine and Marpit (REQ-616). */
+  readonly peer: '@silverpoint/marp';
+  readonly props: readonly PropEntry[];
+  readonly events: readonly DeckEventEntry[];
+  readonly directives: readonly DeckDirectiveEntry[];
+  /** The `silverpoint` theme's classes, for the `class` directive. */
+  readonly classes: readonly string[];
+  /** The `silverpoint` fence: its JSON Schema and one working fence. */
+  readonly fence: { readonly schema: Readonly<Record<string, unknown>>; readonly example: string };
+  /** The codes a deck raises; each one is in `diagnostics`. */
+  readonly diagnostics: readonly string[];
+  readonly stylesheets: readonly string[];
 }
 
 /** `reflex-catalog.json`, exported by `reflex-silverpoint-react` (Data Model §2.30, DD-049). */

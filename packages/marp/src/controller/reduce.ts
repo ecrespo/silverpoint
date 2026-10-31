@@ -19,8 +19,11 @@ export interface DeckState {
 }
 
 export interface DeckEvents {
+  /** The current page changed, by the reader or by a re-render that clamped it. */
   pageChange: { readonly page: number; readonly total: number };
+  /** A fragment of the current slide was revealed or hidden: `step` of `steps`. */
   fragmentChange: { readonly page: number; readonly step: number; readonly steps: number };
+  /** The deck rendered with a new slide count. */
   ready: { readonly total: number };
   /** Internal: the adapters' subscription. */
   state: DeckState;

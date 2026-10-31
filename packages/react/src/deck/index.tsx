@@ -16,25 +16,39 @@ import { CHART_LOADERS } from './chart-loaders';
  * every event one plain object (REQ-609), so a Python wrapper can drive it.
  */
 export interface SpDeckProps {
+  /** The Marp Markdown: front matter, `---` between slides, `silverpoint` fences for charts. */
   readonly markdown: string;
   /** Controlled current page (1-based); pair it with `onPageChange`. */
   readonly page?: number;
+  /** Uncontrolled initial page (1-based). Default `1`. */
   readonly defaultPage?: number;
+  /** The deck's id, which scopes its CSS and names its charts; the adapter's hydration-safe id by default. */
   readonly id?: string;
+  /** Accessible name of the deck region; the first heading of slide 1 by default. */
   readonly label?: string;
+  /** The Marpit theme. Default `'silverpoint'`. */
   readonly theme?: string;
+  /** The deck's ground, which a `ground` directive overrides per slide. Default `'silverpoint'`. */
   readonly ground?: string;
+  /** The deck's substrate; the ground's first by default. */
   readonly substrate?: string;
+  /** `ink` or `precision`, which a `mode` directive overrides per slide. Default `'ink'`. */
   readonly mode?: DeckMode;
   /** A palette preset's name, for the fence charts (REQ-609). */
   readonly palette?: string;
+  /** The slide size. Default `'16:9'`. */
   readonly size?: DeckSize;
+  /** Show the current slide's notes (Marpit comments). Default `false`. */
   readonly showNotes?: boolean;
+  /** Show the controls: previous, next, overview, notes, full screen. Default `true`. */
   readonly showControls?: boolean;
+  /** Handle the keys while focus is in the deck (API delta §7.3). Default `true`. */
   readonly keyboard?: boolean;
+  /** A horizontal swipe moves the deck. Default `true`. */
   readonly swipe?: boolean;
+  /** Read and write a `#<n>` deep link (REQ-602). Default `false`. */
   readonly hash?: boolean;
-  /** Hydrate the fence charts (REQ-594). */
+  /** Hydrate the fence charts (REQ-594). Default `true`. */
   readonly interactive?: boolean;
   readonly onPageChange?: (payload: DeckEvents['pageChange']) => void;
   readonly onFragmentChange?: (payload: DeckEvents['fragmentChange']) => void;

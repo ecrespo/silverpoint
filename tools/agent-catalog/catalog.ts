@@ -27,6 +27,7 @@ import { CATALOG } from '../visual-gate/catalog';
 import { componentSurfaces } from './adapters';
 import { CHART_META, FAMILIES } from './charts.meta';
 import { COMPONENT_SUMMARY } from './components.meta';
+import { deckSection } from './deck';
 import { chartFallbacks, docDefault, specDefaults } from './defaults';
 import { propsReference, type PropDoc } from './props';
 import { RECOMMEND_RULES } from './recommend.rules';
@@ -217,6 +218,7 @@ export async function baseCatalog(): Promise<AgentCatalog> {
       ui: ['@silverpoint/grounds/ui.css'],
       timeline: [`${timelinePeer}/dist/css/timeline.css`, '@silverpoint/grounds/timeline.css'],
     },
+    deck: deckSection((p) => entry(p)),
   };
 }
 

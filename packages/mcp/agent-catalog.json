@@ -10990,5 +10990,368 @@
       "@knight-lab/timelinejs/dist/css/timeline.css",
       "@silverpoint/grounds/timeline.css"
     ]
+  },
+  "deck": {
+    "names": {
+      "react": "SpDeck",
+      "vue": "SpDeck",
+      "angular": "sp-deck",
+      "reflex": ""
+    },
+    "imports": {
+      "react": "@silverpoint/react/deck",
+      "vue": "@silverpoint/vue/deck",
+      "angular": "@silverpoint/angular/deck",
+      "reflex": ""
+    },
+    "peer": "@silverpoint/marp",
+    "props": [
+      {
+        "name": "markdown",
+        "type": "string",
+        "optional": false,
+        "doc": "The Marp Markdown: front matter, `---` between slides, `silverpoint` fences for charts."
+      },
+      {
+        "name": "page",
+        "type": "number",
+        "optional": true,
+        "doc": "Controlled current page (1-based); pair it with `onPageChange`."
+      },
+      {
+        "name": "defaultPage",
+        "type": "number",
+        "optional": true,
+        "default": "1",
+        "doc": "Uncontrolled initial page (1-based). Default `1`."
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "optional": true,
+        "doc": "The deck's id, which scopes its CSS and names its charts; the adapter's hydration-safe id by default."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "optional": true,
+        "doc": "Accessible name of the deck region; the first heading of slide 1 by default."
+      },
+      {
+        "name": "theme",
+        "type": "string",
+        "optional": true,
+        "default": "'silverpoint'",
+        "doc": "The Marpit theme. Default `'silverpoint'`."
+      },
+      {
+        "name": "ground",
+        "type": "string",
+        "optional": true,
+        "default": "'silverpoint'",
+        "doc": "The deck's ground, which a `ground` directive overrides per slide. Default `'silverpoint'`."
+      },
+      {
+        "name": "substrate",
+        "type": "string",
+        "optional": true,
+        "doc": "The deck's substrate; the ground's first by default."
+      },
+      {
+        "name": "mode",
+        "type": "DeckMode",
+        "optional": true,
+        "default": "'ink'",
+        "doc": "`ink` or `precision`, which a `mode` directive overrides per slide. Default `'ink'`."
+      },
+      {
+        "name": "palette",
+        "type": "string",
+        "optional": true,
+        "doc": "A palette preset's name, for the fence charts (REQ-609)."
+      },
+      {
+        "name": "size",
+        "type": "DeckSize",
+        "optional": true,
+        "default": "'16:9'",
+        "doc": "The slide size. Default `'16:9'`."
+      },
+      {
+        "name": "showNotes",
+        "type": "boolean",
+        "optional": true,
+        "default": "false",
+        "doc": "Show the current slide's notes (Marpit comments). Default `false`."
+      },
+      {
+        "name": "showControls",
+        "type": "boolean",
+        "optional": true,
+        "default": "true",
+        "doc": "Show the controls: previous, next, overview, notes, full screen. Default `true`."
+      },
+      {
+        "name": "keyboard",
+        "type": "boolean",
+        "optional": true,
+        "default": "true",
+        "doc": "Handle the keys while focus is in the deck (API delta §7.3). Default `true`."
+      },
+      {
+        "name": "swipe",
+        "type": "boolean",
+        "optional": true,
+        "default": "true",
+        "doc": "A horizontal swipe moves the deck. Default `true`."
+      },
+      {
+        "name": "hash",
+        "type": "boolean",
+        "optional": true,
+        "default": "false",
+        "doc": "Read and write a `#<n>` deep link (REQ-602). Default `false`."
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "optional": true,
+        "default": "true",
+        "doc": "Hydrate the fence charts (REQ-594). Default `true`."
+      }
+    ],
+    "events": [
+      {
+        "name": "pageChange",
+        "payload": "{ readonly page: number; readonly total: number }",
+        "bindings": {
+          "react": "onPageChange",
+          "vue": "@page-change",
+          "angular": "(pageChange)"
+        },
+        "doc": "The current page changed, by the reader or by a re-render that clamped it."
+      },
+      {
+        "name": "fragmentChange",
+        "payload": "{ readonly page: number; readonly step: number; readonly steps: number }",
+        "bindings": {
+          "react": "onFragmentChange",
+          "vue": "@fragment-change",
+          "angular": "(fragmentChange)"
+        },
+        "doc": "A fragment of the current slide was revealed or hidden: `step` of `steps`."
+      },
+      {
+        "name": "ready",
+        "payload": "{ readonly total: number }",
+        "bindings": {
+          "react": "onReady",
+          "vue": "@ready",
+          "angular": "(ready)"
+        },
+        "doc": "The deck rendered with a new slide count."
+      }
+    ],
+    "directives": [
+      {
+        "name": "ground",
+        "values": [
+          "silverpoint",
+          "cyanotype"
+        ],
+        "default": "silverpoint",
+        "attribute": "data-sp-ground"
+      },
+      {
+        "name": "substrate",
+        "values": "per-ground",
+        "default": "cream",
+        "attribute": "data-sp-substrate"
+      },
+      {
+        "name": "mode",
+        "values": [
+          "ink",
+          "precision"
+        ],
+        "default": "ink",
+        "attribute": "data-sp-mode"
+      }
+    ],
+    "classes": [
+      "lead",
+      "invert",
+      "plate",
+      "hatched"
+    ],
+    "fence": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "silverpoint fence",
+        "type": "object",
+        "required": [
+          "chart"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "chart": {
+            "type": "string",
+            "enum": [
+              "activity-grid",
+              "area-chart",
+              "bar-chart",
+              "beeswarm-chart",
+              "box-plot-chart",
+              "bubble-chart",
+              "bullet-chart",
+              "bump-chart",
+              "candlestick-chart",
+              "chord-ring",
+              "composed-chart",
+              "connected-scatter-chart",
+              "contour-chart",
+              "coxcomb-chart",
+              "delaunay-chart",
+              "density-bin-chart",
+              "diverging-bar-chart",
+              "donut-chart",
+              "dumbbell-chart",
+              "ecdf-chart",
+              "error-bar-chart",
+              "funnel-chart",
+              "gauge-arc",
+              "heatmap-chart",
+              "histogram-chart",
+              "interval-chart",
+              "kpi-card",
+              "line-chart",
+              "lollipop-chart",
+              "marimekko-chart",
+              "meter-chart",
+              "network-chart",
+              "orbit-chart",
+              "parallel-coordinates-chart",
+              "polar-bar-chart",
+              "polar-line-chart",
+              "polar-scatter-chart",
+              "pyramid-chart",
+              "radar-chart",
+              "radial-arc-group",
+              "radial-rings",
+              "range-band-chart",
+              "ridgeline-chart",
+              "sankey-chart",
+              "scatter-chart",
+              "slope-chart",
+              "sparkline-rows",
+              "squarified-treemap",
+              "stacked-bar-chart",
+              "step-chart",
+              "stream-chart",
+              "sunburst-chart",
+              "tree-chart",
+              "treemap-chart",
+              "vector-field-chart",
+              "violin-chart",
+              "volvelle-chart",
+              "waffle-chart",
+              "waterfall-chart",
+              "wind-rose"
+            ],
+            "description": "The chart's catalog slug, such as `bar-chart`."
+          },
+          "data": {
+            "description": "What the chart reads; its demo dataset when absent."
+          },
+          "props": {
+            "type": "object",
+            "propertyNames": {
+              "not": {
+                "enum": [
+                  "data",
+                  "width",
+                  "height",
+                  "id",
+                  "ground",
+                  "substrate",
+                  "mode",
+                  "palette"
+                ]
+              }
+            },
+            "description": "The chart's own props and the common view props; not the fence's own fields."
+          },
+          "width": {
+            "type": "number",
+            "minimum": 160,
+            "maximum": 1280,
+            "description": "Width in canvas pixels; the slide's content width when absent."
+          },
+          "height": {
+            "type": "number",
+            "minimum": 90,
+            "maximum": 720,
+            "description": "Height in canvas pixels. Default `360`."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "description": "The chart's id; `<deck>-s<slide>-c<ordinal>` when absent."
+          },
+          "ground": {
+            "type": "string",
+            "enum": [
+              "silverpoint",
+              "cyanotype"
+            ],
+            "description": "The chart's ground; the slide's when absent."
+          },
+          "substrate": {
+            "type": "string",
+            "description": "The chart's substrate; the slide's when absent."
+          },
+          "mode": {
+            "enum": [
+              "ink",
+              "precision"
+            ],
+            "description": "`ink` or `precision`; the slide's when absent."
+          },
+          "palette": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "silverpoint",
+                  "sanguine",
+                  "sepia",
+                  "ironGall",
+                  "verdigris",
+                  "indigo"
+                ]
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "description": "A preset's name or a palette object."
+          }
+        }
+      },
+      "example": "```silverpoint\n{\"chart\":\"bar-chart\",\"props\":{\"title\":\"Visits by quarter\"}}\n```"
+    },
+    "diagnostics": [
+      "SP018",
+      "SP026",
+      "SP027",
+      "SP028",
+      "SP029"
+    ],
+    "stylesheets": [
+      "@silverpoint/fonts/fonts.css",
+      "@silverpoint/grounds/styles.css",
+      "@silverpoint/grounds/ui.css",
+      "@silverpoint/marp/deck.css"
+    ]
   }
 }

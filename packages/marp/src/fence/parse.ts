@@ -11,11 +11,12 @@ import { CHART_SLUGS } from './recipes';
 
 export type FenceParse = { readonly spec: ChartFenceSpec; readonly error?: undefined } | { readonly spec?: undefined; readonly error: FenceError };
 
-const KEYS = ['chart', 'data', 'props', 'width', 'height', 'id', 'ground', 'substrate', 'mode', 'palette'];
+/** The fence's fields, in the order the agent catalog's schema lists them (REQ-619). */
+export const FENCE_KEYS = ['chart', 'data', 'props', 'width', 'height', 'id', 'ground', 'substrate', 'mode', 'palette'] as const;
 /** Fence fields a body must not repeat inside `props` (they would override the slide's). */
-const OWN = ['data', 'width', 'height', 'id', 'ground', 'substrate', 'mode', 'palette'];
+export const FENCE_OWN = ['data', 'width', 'height', 'id', 'ground', 'substrate', 'mode', 'palette'] as const;
 /** Characters the core keeps intact in IDREFs and `url(#…)` (grounds `SAFE_ID`). */
-const SAFE_ID = /^[A-Za-z0-9_.:-]+$/;
+export const FENCE_ID = /^[A-Za-z0-9_.:-]+$/;
 export const WIDTH = { min: 160, max: 1280 } as const;
 export const HEIGHT = { min: 90, max: 720 } as const;
 
@@ -32,7 +33,7 @@ export function parseChartFence(body: string): FenceParse {
   }
   if (!isObject(value)) return shape('The fence must hold one JSON object.');
   for (const key of Object.keys(value)) {
-    if (!KEYS.includes(key)) return shape(`\`${key}\` is not a field of the fence; use ${KEYS.map((k) => `\`${k}\``).join(', ')}.`);
+    if (!(FENCE_KEYS as readonly string[]).includes(key)) return shape(`\`${key}\` is not a field of the fence; use ${FENCE_KEYS.map((k) => `\`${k}\``).join(', ')}.`);
   }
   const v = value;
   if (typeof v.chart !== 'string') return shape('`chart` must name a chart, such as "bar-chart".');
@@ -40,7 +41,7 @@ export function parseChartFence(body: string): FenceParse {
   for (const key of ['width', 'height'] as const) {
     if (own(v, key) && (typeof v[key] !== 'number' || !Number.isFinite(v[key]))) return shape(`\`${key}\` must be a number.`);
   }
-  if (own(v, 'id') && (typeof v.id !== 'string' || !SAFE_ID.test(v.id))) return shape("`id` must use letters, digits, '_', '.', ':' or '-'.");
+  if (own(v, 'id') && (typeof v.id !== 'string' || !FENCE_ID.test(v.id))) return shape("`id` must use letters, digits, '_', '.', ':' or '-'.");
   for (const key of ['ground', 'substrate'] as const) {
     if (own(v, key) && typeof v[key] !== 'string') return shape(`\`${key}\` must be a name.`);
   }
@@ -49,7 +50,7 @@ export function parseChartFence(body: string): FenceParse {
   if (typeof v.palette === 'string' && !PALETTE_NAMES.includes(v.palette)) return shape(`\`palette\` "${v.palette}" is not a preset.${didYouMean(v.palette, PALETTE_NAMES)}`);
 
   const props = (v.props ?? {}) as Record<string, unknown>;
-  for (const key of OWN) if (own(props, key)) return shape(`Give \`${key}\` as a field of the fence, not in \`props\`.`);
+  for (const key of FENCE_OWN) if (own(props, key)) return shape(`Give \`${key}\` as a field of the fence, not in \`props\`.`);
 
   const declared = CHART_PROPS[v.chart];
   if (!own(CHART_PROPS, v.chart) || !declared) return { error: { kind: 'chart', chart: v.chart, suggestions: closest(v.chart, CHART_SLUGS) } };

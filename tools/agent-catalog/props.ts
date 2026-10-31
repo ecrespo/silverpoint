@@ -41,8 +41,8 @@ const PALETTE = fileURLToPath(new URL('../../packages/core/src/palette/palette.t
 const TIMELINE = fileURLToPath(new URL('../../packages/core/src/timeline/types.ts', import.meta.url));
 
 /** Every interface and object type alias of a source file, by name, with its property signatures documented. */
-export function interfacesIn(source: string): Map<string, PropDoc[]> {
-  const file = ts.createSourceFile('props.ts', source, ts.ScriptTarget.Latest, true);
+export function interfacesIn(source: string, fileName = 'props.ts'): Map<string, PropDoc[]> {
+  const file = ts.createSourceFile(fileName, source, ts.ScriptTarget.Latest, true);
   const found = new Map<string, PropDoc[]>();
   const aliases = new Map<string, ts.TypeNode>();
   file.forEachChild((node) => {
