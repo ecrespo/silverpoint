@@ -9,7 +9,7 @@ import { CATALOG } from '../visual-gate/catalog';
 const repo = fileURLToPath(new URL('../..', import.meta.url));
 const bin = join(repo, 'node_modules/.bin/size-limit');
 
-interface Entry { name: string; path?: string; import?: string | Record<string, string>; limit?: string; gzip?: boolean; ignore?: string[] }
+interface Entry { name: string; path?: string; import?: string | Record<string, string>; limit?: string; gzip?: boolean; ignore?: string[]; entry?: string[] }
 interface Result { name: string; passed: boolean; size: number }
 
 function sizeLimit(config?: string): { status: number; results: Result[] } {
@@ -33,7 +33,7 @@ const config = JSON.parse(readFileSync(join(repo, '.size-limit.json'), 'utf8')) 
 
 describe('bundle budgets (size-limit)', () => {
   test('REQ-164 · every package declares a budget', () => {
-    const packages = ['core', 'grounds', 'react', 'vue', 'angular', 'fonts', 'tailwind'];
+    const packages = ['core', 'grounds', 'react', 'vue', 'angular', 'fonts', 'tailwind', 'marp'];
     for (const pkg of packages) {
       expect(config.some((e) => e.path?.startsWith(`packages/${pkg}/`) && e.limit), pkg).toBe(true);
     }
@@ -227,5 +227,82 @@ describe('bundle budgets (size-limit)', () => {
       return PRESET_INKS.filter((ink) => code.includes(ink)).map((ink) => `${name}: ${ink}`);
     });
     expect(leaks).toEqual([]);
+  }, 120_000);
+
+  /**
+   * REQ-616 (feature-006, DD-059): the deck is an optional peer, imported by the `deck` entries
+   * only. Probed by what each library's code writes: `sp-deck` (`@silverpoint/marp`'s classes),
+   * `data-marpit` (Marpit's attributes) and `linkify` (markdown-it, which Marpit carries).
+   */
+  const DECK_MARKERS = ['sp-deck', 'data-marpit', 'linkify'];
+  const ONE_CHART = [
+    '@silverpoint/react + core, LineChart (client)',
+    '@silverpoint/react + core, LineChart (server)',
+    '@silverpoint/vue + core, SpLineChart',
+    '@silverpoint/angular + core, SpLineChart',
+  ];
+
+  test('REQ-616 · no built module but the three deck entries names @silverpoint/marp', () => {
+    const files = execFileSync('find', ['packages/react/dist', 'packages/vue/dist', 'packages/angular/dist/fesm2022', 'packages/core/dist', '-name', '*.js', '-o', '-name', '*.mjs'], { cwd: repo, encoding: 'utf8' })
+      .trim()
+      .split('\n');
+    const naming = files.filter((f) => readFileSync(join(repo, f), 'utf8').includes('@silverpoint/marp')).sort();
+    expect(naming).toEqual(['packages/angular/dist/fesm2022/silverpoint-angular-deck.mjs', 'packages/react/dist/deck.js', 'packages/vue/dist/deck.js']);
+  });
+
+  test('REQ-616 · a one-chart build holds no module of @silverpoint/marp, Marpit or markdown-it', () => {
+    // The probe sees all three when the deck is bundled with its peer.
+    const control = bundled({ name: 'control', path: 'packages/react/dist/deck.js', import: '{ SpDeck }', ignore: ['react', 'react-dom'] });
+    expect(DECK_MARKERS.filter((marker) => !control.includes(marker))).toEqual([]);
+    const leaks = ONE_CHART.flatMap((name) => {
+      const code = bundled(config.find((e) => e.name === name)!);
+      return DECK_MARKERS.filter((marker) => code.includes(marker)).map((marker) => `${name}: ${marker}`);
+    });
+    expect(leaks).toEqual([]);
+  }, 180_000);
+
+  /**
+   * REQ-628 (DD-059): `@silverpoint/marp`'s own code, its client, and each adapter's `deck` entry
+   * are budgeted min+gzip; Marpit (with markdown-it) is measured apart, in an entry of its own. An
+   * adapter's entry counts what loads with the deck — its static imports, the adapter's runtime and
+   * the core included — and not the charts its fences load on demand (`entry`), nor the peer.
+   */
+  const DECK_BUDGETS = {
+    '@silverpoint/marp, the engine (own code)': '11 kB',
+    '@silverpoint/marp, the engine with Marpit': '140 kB',
+    '@silverpoint/marp/client': '4 kB',
+    '@silverpoint/react, SpDeck': '5 kB',
+    '@silverpoint/vue, SpDeck': '48 kB',
+    '@silverpoint/angular, SpDeck': '54 kB',
+  } as const;
+  const PEER = ['@silverpoint/marp', '@marp-team/marpit'];
+
+  test('REQ-628 · the engine, its client and the three deck entries are budgeted, Marpit apart', () => {
+    const entries = Object.keys(DECK_BUDGETS).map((name) => config.find((e) => e.name === name));
+    expect(entries.map((e) => e?.limit)).toEqual(Object.values(DECK_BUDGETS));
+    expect(entries.every((e) => e?.gzip === true)).toBe(true);
+    const [own, withMarpit, client, ...decks] = entries as Entry[];
+    expect(own.ignore).toContain('@marp-team/marpit');
+    expect(withMarpit.ignore ?? []).not.toContain('@marp-team/marpit');
+    expect(client.path).toBe('packages/marp/dist/client.js');
+    for (const deck of decks) {
+      expect(deck.entry, deck.name).toEqual(['index']);
+      expect(PEER.filter((peer) => !deck.ignore?.includes(peer)), deck.name).toEqual([]);
+    }
+  });
+
+  test('REQ-628 · measuring the static graph leaves out the charts a fence loads', () => {
+    const vue = config.find((e) => e.name === '@silverpoint/vue, SpDeck')!;
+    const dir = mkdtempSync(join(repo, '.size-limit-'));
+    try {
+      const file = join(dir, 'deck.json');
+      const { limit: _limit, entry: _entry, ...whole } = { ...vue, path: join(repo, vue.path ?? '') };
+      writeFileSync(file, JSON.stringify([{ ...whole, entry: ['index'], name: 'static' }, { ...whole, name: 'every chunk' }]));
+      const sizes = new Map(sizeLimit(file).results.map((r) => [r.name, r.size]));
+      // Every chart chunk is reachable from the loaders: counted whole, the entry would be far over.
+      expect((sizes.get('every chunk') ?? 0) - (sizes.get('static') ?? 0)).toBeGreaterThan(50_000);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   }, 120_000);
 });

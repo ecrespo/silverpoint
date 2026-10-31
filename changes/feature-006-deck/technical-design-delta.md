@@ -222,6 +222,25 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   pinned image (the PoC's `poc-docker.sh` becomes its local runner). Bundles: `tools/bundle-budget`
   asserts no `@marp-team` and no `@silverpoint/marp` module in the one-chart builds and measures the
   `deck` entries (REQ-616, REQ-628).
+- **Budgets (amended in implementation, T-281).** min+gzip, measured on the first build and rounded up
+  with about 1 KB of margin, in `.size-limit.json`:
+
+  | Entry | Measured | Budget |
+  |---|---|---|
+  | `@silverpoint/marp`, the engine, own code (Marpit, core, grounds left out) | 9.6 KB | 11 kB |
+  | `@silverpoint/marp`, the engine with Marpit and markdown-it (reported apart) | 135.6 KB | 140 kB |
+  | `@silverpoint/marp/client` | 3.4 KB | 4 kB |
+  | `@silverpoint/react/deck` | 3.3 KB | 5 kB |
+  | `@silverpoint/vue/deck` | 46.4 KB | 48 kB |
+  | `@silverpoint/angular/deck` | 52.2 KB | 54 kB |
+
+  An adapter's entry is measured as what loads with the deck: its static imports (size-limit's
+  `entry`), framework and the marp peer left out. The charts a fence loads on demand are not counted:
+  counted whole, Vue's entry gains every chart chunk (170.2 KB against 46.4 KB). React's provider is a bare context,
+  while Vue's and Angular's pull the core's shared runtime, which every chart shares. REQ-616 is held
+  twice: no built module but the three deck entries names `@silverpoint/marp`, and the one-chart
+  builds (React client and server, Vue, Angular) carry none of `sp-deck`, `data-marpit` or
+  markdown-it's `linkify` (`tools/bundle-budget/budget.real.test.ts`).
 
 ### DD-060: Agent access to the deck
 

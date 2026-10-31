@@ -4223,5 +4223,89 @@
     ],
     "gzip": true,
     "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/marp, the engine (own code)",
+    "path": "packages/marp/dist/index.js",
+    "import": "{ createDeckEngine, deckView, deckMarkup }",
+    "ignore": [
+      "@silverpoint/core",
+      "@silverpoint/grounds",
+      "@marp-team/marpit"
+    ],
+    "gzip": true,
+    "limit": "11 kB"
+  },
+  {
+    "name": "@silverpoint/marp, the engine with Marpit",
+    "path": "packages/marp/dist/index.js",
+    "import": "{ createDeckEngine, deckView, deckMarkup }",
+    "ignore": [
+      "@silverpoint/core",
+      "@silverpoint/grounds"
+    ],
+    "gzip": true,
+    "limit": "140 kB"
+  },
+  {
+    "name": "@silverpoint/marp/client",
+    "path": "packages/marp/dist/client.js",
+    "import": "{ attachDeck, createDeckController }",
+    "ignore": [
+      "@silverpoint/core",
+      "@silverpoint/grounds",
+      "@marp-team/marpit"
+    ],
+    "gzip": true,
+    "limit": "4 kB"
+  },
+  {
+    "name": "@silverpoint/react, SpDeck",
+    "path": "packages/react/dist/deck.js",
+    "import": "{ SpDeck }",
+    "entry": [
+      "index"
+    ],
+    "ignore": [
+      "react",
+      "react-dom",
+      "@silverpoint/marp",
+      "@marp-team/marpit"
+    ],
+    "gzip": true,
+    "limit": "5 kB"
+  },
+  {
+    "name": "@silverpoint/vue, SpDeck",
+    "path": "packages/vue/dist/deck.js",
+    "import": "{ SpDeck }",
+    "entry": [
+      "index"
+    ],
+    "ignore": [
+      "vue",
+      "@silverpoint/marp",
+      "@marp-team/marpit"
+    ],
+    "gzip": true,
+    "limit": "48 kB"
+  },
+  {
+    "name": "@silverpoint/angular, SpDeck",
+    "path": "packages/angular/dist/fesm2022/silverpoint-angular-deck.mjs",
+    "import": "{ SpDeckComponent }",
+    "entry": [
+      "index"
+    ],
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "rxjs",
+      "tslib",
+      "@silverpoint/marp",
+      "@marp-team/marpit"
+    ],
+    "gzip": true,
+    "limit": "54 kB"
   }
 ]

@@ -87,9 +87,9 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 ### 10f — Gates
 
 - [x] **T-278** `fixtures/deck/` (Data Model §5) and `tools/visual-gate/deck-gate.ts`: canonical render vs each adapter's server render, DD-017 rules. *REQ-623*
-- [ ] **T-279** Pixel fixtures: slides at 1280×720 per ground and mode, Chromium. *REQ-624*
+- [x] **T-279** Pixel fixtures: slides at 1280×720 per ground and mode, Chromium. *REQ-624*
 - [ ] **T-280** `browser-deck` CI job (pinned image, three engines) + a `deck` e2e in each example app: scaling with CSS-set dimensions in WebKit first (PoC limit), hydration, clicks on marks, keyboard, fragments, hash, re-render, unmount, print layout, focus ring position. *REQ-617, REQ-618, REQ-625*
-- [ ] **T-281** `tools/bundle-budget`: no `@marp-team`/`@silverpoint/marp` module in one-chart builds; `deck` entry and `@silverpoint/marp` budgets (values from the first build, recorded in the TD). *REQ-616, REQ-628*
+- [x] **T-281** `tools/bundle-budget`: no `@marp-team`/`@silverpoint/marp` module in one-chart builds; `deck` entry and `@silverpoint/marp` budgets (values from the first build, recorded in the TD). *REQ-616, REQ-628*
 
 ### 10g — Agent access
 
