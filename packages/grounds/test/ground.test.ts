@@ -98,3 +98,12 @@ describe('ground registry', () => {
     expect(seen).toEqual([]);
   });
 });
+
+describe('listGrounds (feature-006)', () => {
+  test('REQ-584 · Art. 7 · lists the registered grounds, built-ins first, and sees a later registration', async () => {
+    const { listGrounds } = await import('../src');
+    expect(listGrounds().slice(0, 2).map((g) => g.name)).toEqual(['silverpoint', 'cyanotype']);
+    registerGround({ ...silverpoint, name: 'listed-later' });
+    expect(listGrounds().map((g) => g.name)).toContain('listed-later');
+  });
+});

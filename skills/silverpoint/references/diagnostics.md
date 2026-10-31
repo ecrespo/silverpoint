@@ -32,3 +32,7 @@ Every `SP` code the library warns or throws, in development builds.
 | `SP023` | warn | REQ-466 | a palette colour is below its contrast threshold against its substrate; it is drawn as given | Recompute the palette with checkPalette(); colours are not chosen by eye |
 | `SP024` | warn | REQ-467 | a palette field is unknown, or its value is not a CSS colour; the field is dropped | Use the fields of PALETTE_PROPERTIES with plain CSS colour values |
 | `SP025` | warn | REQ-515 | @knight-lab/timelinejs could not be loaded; the fallback is rendered | Install the optional peer @knight-lab/timelinejs and import its stylesheet |
+| `SP026` | warn | REQ-591 | a chart fence is invalid (its JSON, its chart, a prop, a size, or an error of the chart); the slide shows the error in its place | Fix the fence: a JSON object whose `chart` is a catalog slug, with props the chart declares |
+| `SP027` | warn | REQ-586 | a deck directive has an unknown value; the inherited value holds | Use a registered ground, one of its substrates, and `ink` or `precision` |
+| `SP028` | warn | REQ-599 | the page is outside the deck; it was clamped to the nearest slide | Keep `page` and `defaultPage` between 1 and the number of slides |
+| `SP029` | warn | REQ-576 | the Markdown exceeds a deck limit; it was rendered up to the limit | Keep a deck under 512 KB, 300 slides and 60 chart fences |

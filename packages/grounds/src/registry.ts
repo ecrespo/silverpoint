@@ -12,6 +12,11 @@ export function registerGround(ground: Ground): void {
   registry.set(ground.name, ground);
 }
 
+/** The registered grounds, in registration order (the built-ins first). Read by the deck's directives (REQ-584). */
+export function listGrounds(): readonly Ground[] {
+  return [...registry.values()];
+}
+
 /**
  * Resolves a ground reference. A complete ground is used as given; an unknown name falls back
  * to `silverpoint` and emits SP007, and the render continues (REQ-045).

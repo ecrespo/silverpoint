@@ -1,6 +1,7 @@
 import { resolveGround } from '@silverpoint/grounds';
 import { themeSource } from '../theme/source';
-import type { DeckEngine, DeckEngineOptions, DeckMode, DeckRender, SlideRender } from '../types';
+import type { DeckDiagnostic, DeckEngine, DeckEngineOptions, DeckMode, DeckRender, SlideRender } from '../types';
+import type { AnnotateEnv } from './annotate';
 import { createMarpitEngine, SLIDE_BOX } from './marpit';
 
 const SIZES = { '16:9': { width: 1280, height: 720 }, '4:3': { width: 960, height: 720 } } as const;
@@ -23,23 +24,26 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
 
   return {
     render(markdown: string): DeckRender {
-      const out = markdownEngine.render(markdown);
+      const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[] };
+      const out = markdownEngine.render(markdown, { sp });
       const slides: SlideRender[] = out.html.map((html, i) => {
         const token = out.slideTokens[i]!;
         const fragments = Number(token.attrGet('data-marpit-fragments') ?? 0);
         const classes = String(token.meta?.marpitDirectives?.['class'] ?? '').split(/\s+/).filter(Boolean);
+        const resolved: AnnotateEnv['slides'][number] = sp.slides[i] ?? sp.defaults;
         return {
           index: i + 1,
           html: `<div class="${SLIDE_BOX}">${html}</div>`,
           notes: (out.comments[i] ?? []).map((c) => c.trim()),
           fragments,
-          ground: ground.name,
-          substrate,
-          mode,
+          ground: resolved.ground,
+          substrate: resolved.substrate,
+          mode: resolved.mode,
           classes,
+          ...(resolved.heading === undefined ? {} : { heading: resolved.heading }),
         };
       });
-      return { id, total: slides.length, size: SIZES[size], css: out.css, slides, slots: [], diagnostics: [] };
+      return { id, total: slides.length, size: SIZES[size], css: out.css, slides, slots: [], diagnostics: sp.diagnostics };
     },
   };
 }

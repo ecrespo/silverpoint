@@ -3,4 +3,5 @@
  * This entry is pure: no DOM, no globals (REQ-570, REQ-574).
  */
 export { createDeckEngine, sanitiseDeckId } from './engine';
+export { DECK_DIRECTIVES } from './engine/directives';
 export type * from './types';

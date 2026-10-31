@@ -86,3 +86,18 @@ describe('typeface check', () => {
     expect(seen).toHaveLength(0);
   });
 });
+
+describe('deck diagnostics (feature-006)', () => {
+  test.each([
+    ['SP026', 'REQ-591', /chart fence/],
+    ['SP027', 'REQ-586', /directive/],
+    ['SP028', 'REQ-599', /page/],
+    ['SP029', 'REQ-576', /limit/],
+  ] as const)('%s warns through the single template and cites %s', (code, req, what) => {
+    const seen = capture();
+    diagnose(code, 'SpDeck', { property: 'markdown' });
+    expect(seen).toHaveLength(1);
+    expect(seen[0]?.message).toMatch(new RegExp(`^\\[${code}\\] SpDeck: .+\\(\`markdown\`\\)\\..+\\. \\(${req}\\)$`));
+    expect(seen[0]?.message).toMatch(what);
+  });
+});

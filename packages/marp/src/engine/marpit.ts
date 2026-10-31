@@ -3,6 +3,8 @@
  * seam, so a Marp Core engine could be a second implementation; the seam is not exported.
  */
 import { Element, Marpit } from '@marp-team/marpit';
+import { annotate, isContentSection, type AnnotateEnv } from './annotate';
+import { registerDirectives } from './directives';
 import { isSafeBackgroundImage, sanitiseDeckCss } from './sanitize';
 
 /** The slide-opening token fields the engine reads (Marpit's own, see its fragment and directive plugins). */
@@ -17,6 +19,7 @@ interface MarkdownIt {
   readonly core: {
     readonly ruler: {
       before(name: string, rule: string, fn: (state: { tokens: Array<{ meta?: { marpitDirectives?: Record<string, unknown> } | null }> }) => void): void;
+      push(rule: string, fn: (state: never) => void): void;
     };
   };
 }
@@ -30,7 +33,7 @@ export interface MarkdownDeckRender {
 }
 
 export interface MarkdownDeckEngine {
-  render(markdown: string): MarkdownDeckRender;
+  render(markdown: string, env: { readonly sp: AnnotateEnv }): MarkdownDeckRender;
 }
 
 export interface MarpitEngineOptions {
@@ -50,6 +53,7 @@ export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEn
     markdown: { html: false },                                  // REQ-572, REQ-575: never configurable
   });
   marpit.themeSet.default = marpit.themeSet.add(options.theme);
+  registerDirectives(marpit as unknown as Parameters<typeof registerDirectives>[0]);
   // REQ-575: an unsafe `backgroundImage` directive is dropped before Marpit writes it to `style`.
   const md = marpit.markdown as unknown as MarkdownIt;
   md.core.ruler.before('marpit_directives_apply', 'sp_safe_directives', (state) => {
@@ -60,10 +64,12 @@ export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEn
       }
     }
   });
+  // DD-054: last, so Marpit's directives, fragments and advanced backgrounds are all in place.
+  md.core.ruler.push('sp_annotate', annotate as (state: never) => void);
 
   return {
-    render(markdown) {
-      const { html, css, comments } = marpit.render(markdown, { htmlAsArray: true }) as unknown as {
+    render(markdown, env) {
+      const { html, css, comments } = marpit.render(markdown, { htmlAsArray: true, ...env }) as unknown as {
         html: string[];
         css: string;
         comments: string[][];
@@ -75,12 +81,3 @@ export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEn
   };
 }
 
-/**
- * Under inline SVG a slide may have several `<section>`s: Marpit's advanced backgrounds add a
- * `background` one and, for a split, a `pseudo` one. The content section is the other.
- */
-function isContentSection(token: SlideToken): boolean {
-  if (token.type !== 'marpit_slide_open') return false;
-  const advanced = token.attrGet('data-marpit-advanced-background');
-  return advanced === null || advanced === 'content';
-}

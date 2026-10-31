@@ -24,7 +24,11 @@ export type SpCode =
   | 'SP022'
   | 'SP023'
   | 'SP024'
-  | 'SP025';
+  | 'SP025'
+  | 'SP026'
+  | 'SP027'
+  | 'SP028'
+  | 'SP029';
 
 export interface Detail {
   /** The property involved. */
@@ -230,6 +234,26 @@ const WARNINGS: Partial<Record<SpCode, Template>> = {
     req: 'REQ-515',
     what: '@knight-lab/timelinejs could not be loaded; the fallback is rendered',
     todo: 'Install the optional peer @knight-lab/timelinejs and import its stylesheet',
+  },
+  SP026: {
+    req: 'REQ-591',
+    what: 'a chart fence is invalid (its JSON, its chart, a prop, a size, or an error of the chart); the slide shows the error in its place',
+    todo: 'Fix the fence: a JSON object whose `chart` is a catalog slug, with props the chart declares',
+  },
+  SP027: {
+    req: 'REQ-586',
+    what: 'a deck directive has an unknown value; the inherited value holds',
+    todo: 'Use a registered ground, one of its substrates, and `ink` or `precision`',
+  },
+  SP028: {
+    req: 'REQ-599',
+    what: 'the page is outside the deck; it was clamped to the nearest slide',
+    todo: 'Keep `page` and `defaultPage` between 1 and the number of slides',
+  },
+  SP029: {
+    req: 'REQ-576',
+    what: 'the Markdown exceeds a deck limit; it was rendered up to the limit',
+    todo: 'Keep a deck under 512 KB, 300 slides and 60 chart fences',
   },
   SP013: {
     req: 'REQ-032',
