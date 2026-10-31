@@ -7,7 +7,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `DRAFT` — gate 4, drafted 2026-10-31 |
+| **Status** | `APPROVED` — gate 4, drafted and approved 2026-10-31 |
 | **Branch** | `feat/silverpoint-0.9` (off `develop`, after the spec branch merges into it) |
 | **Prerequisite** | Gates 0..3 approved; the PoC done (step 10a) |
 

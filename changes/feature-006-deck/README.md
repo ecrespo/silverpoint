@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `IN PROGRESS` — gates 0..2 and the constitution amendment approved 2026-10-31 by Ernesto Crespo; PoC and Technical Design approved 2026-10-31; Data Model, plan and analyze drafted the same day |
+| **Status** | `IN PROGRESS` — gates 0..2 and the constitution amendment approved 2026-10-31 by Ernesto Crespo; every gate approved 2026-10-31 by Ernesto Crespo; implementation (Phase 10) on `feat/silverpoint-0.9` |
 | **Target release** | `0.9.0` (changeset `minor` from 0.8.x; user decision 2026-10-31). The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-570..REQ-628 (§6.15) |
 | **Design decisions** | DD-051.. (gate 3; DD-051 records the PoC outcome, DD-052 the engine seam) |
@@ -20,9 +20,9 @@
 | 1 | [`prd-delta.md`](prd-delta.md) | The what: scope, personas, REQ-570..628 | ✅ 2026-10-31 |
 | 2 | [`api-delta.md`](api-delta.md) | The contract: `@silverpoint/marp`, `SpDeck` ×3, directives, fence, controller, markup, MCP tools | ✅ 2026-10-31 |
 | PoC | [`poc.md`](poc.md) (Phase 10a) | Scaling method in Chromium, Firefox, WebKit: **`svg-transform`** (DD-051) | ✅ 2026-10-31 |
-| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-051..060; the shapes | TD ✅ 2026-10-31; DM drafted |
-| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 10 steps and tasks, T-252..T-289 | drafted |
-| — | [`analyze.md`](analyze.md) | Coverage 59/59; findings A-01..A-09 | drafted |
+| 3 | [`technical-design-delta.md`](technical-design-delta.md) + [`data-model-delta.md`](data-model-delta.md) | The how: DD-051..060; the shapes | ✅ 2026-10-31 |
+| 4 | [`plan-and-tasks.md`](plan-and-tasks.md) | Phase 10 steps and tasks, T-252..T-289 | ✅ 2026-10-31 |
+| — | [`analyze.md`](analyze.md) | Coverage 59/59; findings A-01..A-09 | ✅ 2026-10-31 |
 | — | [`constitution-amendment.md`](constitution-amendment.md) | Scope line; Art. 2 for `@silverpoint/marp` | ✅ 2026-10-31 |
 
 The user's working order: discovery → PRD → API → TD → **PoC** → data model → plan → tasks →

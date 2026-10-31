@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `DRAFT` — drafted 2026-10-31 over gates 0..4 and the PoC |
+| **Status** | `APPROVED` — drafted and approved 2026-10-31 over gates 0..4 and the PoC, with A-03’s resolution |
 | **Inputs** | `research.md`, `prd-delta.md`, `api-delta.md`, `poc.md`, `technical-design-delta.md`, `data-model-delta.md`, `plan-and-tasks.md`, `constitution-amendment.md` |
 
 ## 1. Coverage
