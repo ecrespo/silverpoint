@@ -22,6 +22,8 @@ export const CALLS: Readonly<Record<string, Record<string, unknown>>> = {
   validate_props: { chart: 'line-chart', props: { data: [] } },
   render_chart: { chart: 'donut-chart', width: 320 },
   check_palette: { palette: 'sanguine' },
+  validate_deck: { markdown: '# One\n\n```silverpoint\n{"chart":"bar-chart"}\n```\n\n---\n\n## Two' },
+  render_deck: { markdown: '# One\n\n---\n\n## Two', slide: 2 },
 };
 
 export interface SmokeReport {

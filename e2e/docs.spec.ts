@@ -41,7 +41,7 @@ const errorsOf = (page: Page) => {
 /** What a route draws once it is ready: a chart or a component, or, on a page that draws none, its last section. */
 const readyOf = (route: string) => (route === '/#/ai' ? '#agent-tools' : '.sp-root, .sp-ui');
 
-const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline', '/#/ai'];
+const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline', '/#/deck', '/#/ai'];
 
 test.describe('documentation site', () => {
   test('PRD §4.2 · the home page gives the quickstart for React, Vue and Angular', async ({ page }) => {
@@ -248,6 +248,26 @@ test.describe('documentation site', () => {
     const rows = page.locator('table.props tbody tr');
     await expect(rows).toHaveCount(props.timeline.length);
     for (const prop of props.timeline) await expect(rows.filter({ has: page.locator('th', { hasText: new RegExp(`^${prop.name}\\??$`) }) })).toContainText(prop.doc);
+    expect(errors).toEqual([]);
+  });
+
+  test('REQ-626 · REQ-627 · the deck page draws DECK_DEMO live, moves by the keys and lists SpDeck\'s props', async ({ page }) => {
+    const errors = errorsOf(page);
+    await page.goto('/#/deck');
+    await expect(page.locator('main > h2')).toHaveText('Decks');
+    const deck = page.locator('main .sp-deck');
+    await expect(deck.locator('.sp-deck-status')).toHaveText('Slide 1 of 6');
+    await expect(deck.locator('[data-sp-slot="s1-c1"][data-sp-hydrated] .sp-root')).toHaveAttribute('data-status', 'ready');
+    await deck.focus();
+    await page.keyboard.press('End');
+    await expect(deck).toHaveAttribute('data-sp-page', '6');
+    // The site routes by the hash: the deck must leave it alone.
+    expect(new URL(page.url()).hash).toBe('#/deck');
+    await expect(page.locator('main pre', { hasText: /^npm install @silverpoint\/marp$/ })).toHaveCount(1);
+    const table = page.locator('[aria-labelledby="deck-props"] table');
+    const rows = table.locator('tbody tr').filter({ has: page.locator('th code', { hasText: /^markdown$/ }) });
+    await expect(rows).toHaveCount(1);
+    for (const prop of props.deck) await expect(table.locator('tbody th', { hasText: new RegExp(`^${prop.name}\\??$`) })).toHaveCount(1);
     expect(errors).toEqual([]);
   });
 

@@ -71,6 +71,8 @@ describe('deck.css (T-271)', () => {
 
   test('REQ-613 · REQ-614 · the controls bar, a tabular counter, a visually hidden live status, a focus indicator on the deck', () => {
     expect(rule('.sp-deck-controls')).toMatch(/display: flex;[^]*min-height: var\(--sp-deck-controls-height\);/);
+    // WCAG 1.4.10: at 320 CSS px the six controls take two rows instead of scrolling the page sideways.
+    expect(rule('.sp-deck-controls')).toMatch(/flex-wrap: wrap;/);
     expect(rule('.sp-deck-counter')).toMatch(/font-variant-numeric: tabular-nums;/);
     const status = rule('.sp-deck-status');
     expect(status).toMatch(/position: absolute;[^]*width: 1px;[^]*height: 1px;[^]*overflow: hidden;[^]*clip-path: inset\(50%\);/);
