@@ -38,31 +38,35 @@ function text(inline: Token | undefined): string {
 }
 
 /** `plate` or `hatched` slides carry the grounds' inked backdrop as `--sp-deck-backdrop` (DD-055). */
-function backdropOf(raw: Readonly<Record<string, unknown>>, resolved: Resolved, n: number, sp: AnnotateEnv): string | undefined {
+interface Backdrop {
+  readonly ink: string;
+  /** The exact version of an inked backdrop, which deck.css shows under forced precision (REQ-615). */
+  readonly precision?: string;
+}
+
+function backdropOf(raw: Readonly<Record<string, unknown>>, resolved: Resolved, n: number, sp: AnnotateEnv): Backdrop | undefined {
   if (!sp.deck) return undefined;
   const classes = String(raw['class'] ?? '').split(/\s+/);
   const kind = classes.includes('hatched') ? 'hatched' : classes.includes('plate') ? 'plate' : undefined;
   if (!kind) return undefined;
-  return slideBackdrop(resolved.ground, resolved.substrate, {
-    kind,
-    seed: resolveSeed(undefined, `${sp.deck.id}-s${n}`),
-    mode: resolved.mode,
-    width: sp.deck.width,
-    height: sp.deck.height,
-  }).dataUri;
+  const options = { kind, seed: resolveSeed(undefined, `${sp.deck.id}-s${n}`), width: sp.deck.width, height: sp.deck.height } as const;
+  const ink = slideBackdrop(resolved.ground, resolved.substrate, { ...options, mode: resolved.mode }).dataUri;
+  if (resolved.mode === 'precision') return { ink };
+  return { ink, precision: slideBackdrop(resolved.ground, resolved.substrate, { ...options, mode: 'precision' }).dataUri };
 }
 
 /** Marpit's other layers of a slide under inline SVG: the background images and the pseudo layer. */
 const LAYERS = new Set(['marpit_advanced_background_section_open', 'marpit_advanced_pseudo_section_open']);
 
 /** The slide's ground, substrate, mode and backdrop, on one of its sections. */
-function paint(token: Token, resolved: Resolved, backdrop: string | undefined): void {
+function paint(token: Token, resolved: Resolved, backdrop: Backdrop | undefined): void {
   token.attrSet('data-sp-ground', resolved.ground);
   token.attrSet('data-sp-substrate', resolved.substrate);
   token.attrSet('data-sp-mode', resolved.mode);
   if (backdrop === undefined) return;
   const style = String(token.attrGet('style') ?? '').replace(/;?\s*$/, '');
-  token.attrSet('style', `${style === '' ? '' : `${style};`}--sp-deck-backdrop:url("${backdrop}")`);
+  const twin = backdrop.precision === undefined ? '' : `;--sp-deck-backdrop-precision:url("${backdrop.precision}")`;
+  token.attrSet('style', `${style === '' ? '' : `${style};`}--sp-deck-backdrop:url("${backdrop.ink}")${twin}`);
 }
 
 export function annotate(state: { tokens: readonly Token[]; env: { sp?: AnnotateEnv } }): void {
@@ -73,7 +77,7 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
   let current: (Resolved & { heading?: string }) | undefined;
   // The sections of the slide being read: its layers come before and after its content (REQ-588).
   let layers: Token[] = [];
-  let slide: { resolved: Resolved; backdrop: string | undefined } | undefined;
+  let slide: { resolved: Resolved; backdrop: Backdrop | undefined } | undefined;
   const flush = () => {
     if (slide) for (const layer of layers) paint(layer, slide.resolved, slide.backdrop);
     layers = [];

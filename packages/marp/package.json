@@ -30,6 +30,7 @@
       "default": "./dist/cli.js"
     },
     "./theme.css": "./theme.css",
+    "./deck.css": "./dist/deck.css",
     "./package.json": "./package.json"
   },
   "files": [
@@ -46,7 +47,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node -e \"require('node:fs').copyFileSync('src/deck.css','dist/deck.css')\"",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {

@@ -48,3 +48,14 @@ describe('advanced background layers (T-260, REQ-588)', () => {
     expect(sections[1]).toContain('aria-label="Slide 1 of 1"');
   });
 });
+
+describe('the precision twin (T-271, REQ-615)', () => {
+  const precisionOf = (html: string) => /--sp-deck-backdrop-precision:url\("([^"]*)"\)/.exec(decode(/<section [^>]*style="([^"]*)"/.exec(html)![1]!))?.[1];
+
+  test('REQ-615 · an inked backdrop carries its exact version, for deck.css under forced precision', () => {
+    const out = createDeckEngine({ id: 'b5' }).render('<!-- _class: plate -->\n# One\n\n---\n\n<!-- _class: plate -->\n<!-- _mode: precision -->\n# Two');
+    expect(precisionOf(out.slides[0]!.html)).toBe(slideBackdrop(silverpoint, 'cream', { kind: 'plate', seed: seed('b5', 1), mode: 'precision', width: 1280, height: 720 }).dataUri);
+    // A precision slide's backdrop is already exact: no twin.
+    expect(precisionOf(out.slides[1]!.html)).toBeUndefined();
+  });
+});

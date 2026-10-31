@@ -73,7 +73,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 - [x] **T-268** Emitter and payloads (I-51); `ready` on new totals. *REQ-606*
 - [x] **T-269** `bindDeck`: keys of API §7.3 scoped to the deck, editable targets ignored, chart keys win; swipe (48 px, 2:1); hash (`#<n>` only, `replaceState`); Fullscreen API availability. *REQ-600..REQ-603*
 - [x] **T-270** `applyScaling` (one `ResizeObserver`, `--sp-deck-scale`, `data-sp-scaled`), `findChartSlots`, fragment `data-sp-pending` moves. *REQ-597, REQ-617, REQ-592*
-- [ ] **T-271** `deck.css`: viewport, slide boxes, scaled state, pending fragments, controls, notes, overview grid with the current thumbnail heightened, print layout, reduced motion, forced precision. *REQ-597, REQ-604, REQ-605, REQ-613, REQ-615*
+- [x] **T-271** `deck.css`: viewport, slide boxes, scaled state, pending fragments, controls, notes, overview grid with the current thumbnail heightened, print layout, reduced motion, forced precision. *REQ-597, REQ-604, REQ-605, REQ-613, REQ-615*
 
 ### 10e — Adapters
 

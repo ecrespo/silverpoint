@@ -141,6 +141,11 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   edge wound the other way; under a `weight` ground it is drawn as weight (REQ-028), and in
   `precision` as its exact outline. The engine writes `--sp-deck-backdrop:url("…")` after the
   section's directive styles; the theme paints it (T-262).
+- *Amended in implementation (T-271):* CSS cannot redraw an inked SVG, so an `ink` slide's backdrop
+  also carries its exact twin, `--sp-deck-backdrop-precision`, and `deck.css` shows it under
+  `prefers-contrast: more` or `forced-colors: active` (REQ-615), on the slide's own layers only
+  (Marpit keeps its content and pseudo layers transparent). The engine marks every
+  `data-marpit-fragment` with `data-sp-pending`: every slide starts at step 0 (DD-057).
 
 ### DD-056: The theme is generated from ground tokens
 
