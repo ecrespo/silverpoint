@@ -34,3 +34,17 @@ describe('slide backdrops (T-260)', () => {
     expect(style).toContain('--sp-deck-backdrop:url("data:image/svg+xml,');
   });
 });
+
+describe('advanced background layers (T-260, REQ-588)', () => {
+  test('REQ-584 · REQ-587 · REQ-588 · every layer of a split slide carries the slide’s ground and backdrop; only the content is the slide', () => {
+    const out = createDeckEngine({ id: 'b4' }).render('<!-- _class: plate -->\n<!-- _ground: cyanotype -->\n![bg left:40%](a.svg)\n\n# Split');
+    const sections = out.slides[0]!.html.match(/<section [^>]*>/g)!;
+    expect(sections.map((s) => /data-marpit-advanced-background="(\w+)"/.exec(s)?.[1])).toEqual(['background', 'content', 'pseudo']);
+    for (const s of sections) {
+      expect(s).toContain('data-sp-ground="cyanotype" data-sp-substrate="prussian" data-sp-mode="ink"');
+      expect(s).toContain('--sp-deck-backdrop:url(');
+    }
+    expect(sections.filter((s) => s.includes('aria-roledescription="slide"'))).toHaveLength(1);
+    expect(sections[1]).toContain('aria-label="Slide 1 of 1"');
+  });
+});

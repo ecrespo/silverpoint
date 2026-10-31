@@ -38,20 +38,31 @@ function text(inline: Token | undefined): string {
 }
 
 /** `plate` or `hatched` slides carry the grounds' inked backdrop as `--sp-deck-backdrop` (DD-055). */
-function backdrop(token: Token, raw: Readonly<Record<string, unknown>>, resolved: Resolved, n: number, sp: AnnotateEnv): void {
-  if (!sp.deck) return;
+function backdropOf(raw: Readonly<Record<string, unknown>>, resolved: Resolved, n: number, sp: AnnotateEnv): string | undefined {
+  if (!sp.deck) return undefined;
   const classes = String(raw['class'] ?? '').split(/\s+/);
   const kind = classes.includes('hatched') ? 'hatched' : classes.includes('plate') ? 'plate' : undefined;
-  if (!kind) return;
-  const { dataUri } = slideBackdrop(resolved.ground, resolved.substrate, {
+  if (!kind) return undefined;
+  return slideBackdrop(resolved.ground, resolved.substrate, {
     kind,
     seed: resolveSeed(undefined, `${sp.deck.id}-s${n}`),
     mode: resolved.mode,
     width: sp.deck.width,
     height: sp.deck.height,
-  });
+  }).dataUri;
+}
+
+/** Marpit's other layers of a slide under inline SVG: the background images and the pseudo layer. */
+const LAYERS = new Set(['marpit_advanced_background_section_open', 'marpit_advanced_pseudo_section_open']);
+
+/** The slide's ground, substrate, mode and backdrop, on one of its sections. */
+function paint(token: Token, resolved: Resolved, backdrop: string | undefined): void {
+  token.attrSet('data-sp-ground', resolved.ground);
+  token.attrSet('data-sp-substrate', resolved.substrate);
+  token.attrSet('data-sp-mode', resolved.mode);
+  if (backdrop === undefined) return;
   const style = String(token.attrGet('style') ?? '').replace(/;?\s*$/, '');
-  token.attrSet('style', `${style === '' ? '' : `${style};`}--sp-deck-backdrop:url("${dataUri}")`);
+  token.attrSet('style', `${style === '' ? '' : `${style};`}--sp-deck-backdrop:url("${backdrop}")`);
 }
 
 export function annotate(state: { tokens: readonly Token[]; env: { sp?: AnnotateEnv } }): void {
@@ -60,10 +71,21 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
   const reported = new Set<string>();
   let carried: Partial<Resolved> = {};
   let current: (Resolved & { heading?: string }) | undefined;
+  // The sections of the slide being read: its layers come before and after its content (REQ-588).
+  let layers: Token[] = [];
+  let slide: { resolved: Resolved; backdrop: string | undefined } | undefined;
+  const flush = () => {
+    if (slide) for (const layer of layers) paint(layer, slide.resolved, slide.backdrop);
+    layers = [];
+    slide = undefined;
+  };
 
   for (let i = 0; i < state.tokens.length; i++) {
     const token = state.tokens[i]!;
-    if (isContentSection(token)) {
+    if (token.type === 'marpit_inline_svg_open') flush();
+    else if (token.type === 'marpit_inline_svg_close') flush();
+    else if (LAYERS.has(token.type)) layers.push(token);
+    else if (isContentSection(token)) {
       const n = (token.meta?.marpitSlide ?? sp.slides.length) + 1;
       const total = Math.min(token.meta?.marpitSlideTotal ?? n, DECK_LIMITS.slides);   // REQ-576
       const raw = token.meta?.marpitDirectives ?? {};
@@ -71,10 +93,8 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
       token.attrSet('role', 'group');
       token.attrSet('aria-roledescription', 'slide');
       token.attrSet('aria-label', `Slide ${n} of ${total}`);
-      token.attrSet('data-sp-ground', resolved.ground);
-      token.attrSet('data-sp-substrate', resolved.substrate);
-      token.attrSet('data-sp-mode', resolved.mode);
-      backdrop(token, raw, resolved, n, sp);
+      slide = { resolved, backdrop: backdropOf(raw, resolved, n, sp) };
+      paint(token, resolved, slide.backdrop);
       current = { ...resolved };
       sp.slides[n - 1] = current;
       // What the next slide inherits if it brings an unknown value (REQ-586).
@@ -84,4 +104,5 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
       if (heading !== '') current.heading = heading;
     }
   }
+  flush();
 }
