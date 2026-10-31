@@ -36,4 +36,8 @@ export const GOLDEN_CASES: readonly GoldenCase[] = [
   ...per('dropdown-menu', { target: { component: 'dropdown-menu' } }),
   ...per('toast', { target: { component: 'toast' } }),
   ...per('card', { target: { component: 'card' } }),
+  // A deck has no Reflex wrapper yet (REQ-621): three frameworks.
+  ...per('deck', { target: { deck: { markdown: ['# Quarterly review', '', '```silverpoint', '{"chart":"bar-chart","props":{"title":"Visits"}}', '```', '', '---', '', '## Next steps', '', '* Ship it'].join('\n') } }, ground: 'cyanotype', props: { hash: true } }).filter(
+    (c) => c.input.framework !== 'reflex',
+  ),
 ];

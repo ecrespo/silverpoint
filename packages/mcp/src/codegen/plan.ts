@@ -9,7 +9,7 @@ import type { ChartEntry, ComponentEntry, Framework, PropEntry } from '../types'
 import { humanised } from './literals';
 
 export interface GenerateInput {
-  readonly target: { readonly chart?: string; readonly component?: string };
+  readonly target: { readonly chart?: string; readonly component?: string; readonly deck?: { readonly markdown?: string } };
   readonly framework: string;
   /** Role → the field name in the user's rows; a role taking several columns takes a list. */
   readonly fields?: Readonly<Record<string, string | readonly string[]>>;
@@ -70,8 +70,8 @@ const OWN_TRIGGER = new Set(['dropdown-menu']);
 const NULLABLE = new Set(['input-number']);
 
 function target(input: GenerateInput): { chart: string } | { component: string } {
-  const { chart, component } = input.target ?? {};
-  if ((chart === undefined) === (component === undefined)) throw new ToolError('invalid_input', 'Name exactly one of `target.chart` or `target.component`.');
+  const { chart, component, deck } = input.target ?? {};
+  if ([chart, component, deck].filter((t) => t !== undefined).length !== 1) throw new ToolError('invalid_input', 'Name exactly one of `target.chart`, `target.component` or `target.deck`.');
   return chart !== undefined ? { chart } : { component: component! };
 }
 

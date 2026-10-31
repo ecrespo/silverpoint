@@ -54,6 +54,7 @@ describe('generate_code (REQ-541)', () => {
     const known = new Set([
       ...AGENT_CATALOG.charts.flatMap((c) => Object.values(c.imports)),
       ...AGENT_CATALOG.components.flatMap((c) => Object.values(c.imports)),
+      ...Object.values(AGENT_CATALOG.deck.imports).filter(Boolean),
       '@silverpoint/core/palettes',
       'react',
       'vue',

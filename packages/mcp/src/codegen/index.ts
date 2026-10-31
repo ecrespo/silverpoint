@@ -3,6 +3,7 @@
  * draw one chart or one component in one framework, from the catalog alone.
  */
 import type { Catalog } from '../catalog';
+import { deckCode } from './deck';
 import { emit } from './emit';
 import { plan, type GenerateInput } from './plan';
 
@@ -16,6 +17,9 @@ export interface Generated {
 }
 
 export function generateCode(catalog: Catalog, input: GenerateInput): Generated {
+  const { chart, component, deck } = input.target ?? {};
+  // A deck is its own target (REQ-621); `plan` refuses it beside a chart or a component.
+  if (deck !== undefined && chart === undefined && component === undefined) return deckCode(catalog, deck, input);
   const planned = plan(catalog, input);
   const { imports, code } = emit(planned);
   const notes = [...planned.notes];

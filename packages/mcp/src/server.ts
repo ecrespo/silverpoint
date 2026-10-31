@@ -147,9 +147,11 @@ export function createServer(options: ServerOptions = {}): McpServer {
     {
       title: 'Generate code',
       description:
-        'The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names.',
+        'The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, or a slide deck (`SpDeck`) in React, Vue or Angular, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names.',
       inputSchema: {
-        target: z.object({ chart: z.string().optional(), component: z.string().optional() }).describe('Exactly one of `chart` or `component`.'),
+        target: z
+          .object({ chart: z.string().optional(), component: z.string().optional(), deck: z.object({ markdown: z.string().optional() }).optional() })
+          .describe('Exactly one of `chart`, `component` or `deck` (`{ markdown }`; a starter deck when absent).'),
         framework: name('react, vue, angular or reflex.'),
         fields: z.record(z.string(), z.union([z.string(), z.array(z.string())])).optional().describe('Data role → field name in your rows.'),
         props: z.record(z.string(), z.unknown()).optional().describe('Props, by their camelCase or Python name.'),

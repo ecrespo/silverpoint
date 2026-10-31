@@ -51,7 +51,7 @@ claude mcp add silverpoint -- npx -y @silverpoint/mcp
 | `list_components` | Every UI component, optionally filtered by family (ui, composed, overlay) or group. |
 | `get_component` | One component’s catalog entry: props, binding, events, slots and states. With `framework`, in that framework’s terms. |
 | `recommend_chart` | Up to five charts for a data shape and an intent, ranked by a reviewed table, with the reasons. Deterministic: no model involved. |
-| `generate_code` | The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names. |
+| `generate_code` | The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, or a slide deck (`SpDeck`) in React, Vue or Angular, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names. |
 | `search_catalog` | A token search over chart and component names, summaries, prop docs and diagnostic codes, best first; at most 20 hits. |
 | `validate_props` | Builds the chart with the core and returns every diagnostic it raises (code, severity, requirement, message, remedy) and the props it does not declare. |
 | `render_chart` | The canonical render of one chart as a standalone SVG, the ground’s stylesheet inlined: what every adapter draws for the same props, data, size and id. Without `data`, the demo dataset. |

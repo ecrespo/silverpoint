@@ -32,7 +32,7 @@
   {
     "name": "generate_code",
     "title": "Generate code",
-    "description": "The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names."
+    "description": "The imports, stylesheets and code that draw one chart or one component in React, Vue, Angular or Reflex, or a slide deck (`SpDeck`) in React, Vue or Angular, using only names, paths and props the catalog holds. `fields` maps the chart’s data roles to your field names."
   },
   {
     "name": "search_catalog",
