@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { cyanotype, silverpoint } from '../../packages/grounds/src';
 import { checkPalette, PALETTE_PAIRS, PALETTES, type Palette } from '../../packages/core/src/palettes';
-import { auditBuiltins, auditGround, auditPalette, auditPalettes, auditUi, contrastRatio, lighten, UI_CONTRAST_PAIRS } from './contrast-gate';
+import { auditBuiltins, auditDeckTheme, auditGround, auditPalette, auditPalettes, auditUi, contrastRatio, DECK_THEME_PAIRS, lighten, UI_CONTRAST_PAIRS } from './contrast-gate';
 
 function minimum(rows: ReturnType<typeof auditGround>, token: string): number | undefined {
   return rows.find((row) => row.token === token)?.min;
@@ -159,5 +159,41 @@ describe('contrast gate over the palette presets (T-209, REQ-464)', () => {
     expect(auditPalette('verdigris', { ...PALETTES.verdigris, ink }).filter((r) => !r.pass).map((r) => r.token)).toEqual(
       expect.arrayContaining(['palette.ink', 'palette.focus']),
     );
+  });
+
+  // feature-006 (T-265, REQ-581): the deck theme's text and rules, per ground × substrate × class.
+  test('REQ-581 · the deck theme’s pairs: text, muted text, ink, secondary ink and rule, on normal and invert slides', () => {
+    expect(DECK_THEME_PAIRS.map((p) => [p.property, p.threshold])).toEqual([
+      ['--sp-text', 4.5],
+      ['--sp-text-muted', 4.5],
+      ['--sp-ink', 4.5],
+      ['--sp-ink-secondary', 4.5],
+      ['--sp-rule', 3],
+    ]);
+    const rows = auditDeckTheme(silverpoint);
+    expect(rows.map((r) => r.token)).toEqual(['normal', 'invert'].flatMap((c) => DECK_THEME_PAIRS.map((p) => `deck.${c}.${p.property.slice(5)}`)));
+  });
+
+  test('REQ-581 · every deck pair of both built-in grounds passes, on every substrate', () => {
+    for (const ground of [silverpoint, cyanotype]) {
+      const failing = auditDeckTheme(ground).filter((r) => !r.pass);
+      expect(failing, ground.name).toEqual([]);
+    }
+  });
+
+  test('REQ-581 · the worst substrate is named; invert is measured on the primary ink', () => {
+    const muted = auditDeckTheme(silverpoint).find((r) => r.token === 'deck.invert.text-muted')!;
+    expect(muted.against).toBe('substrate');
+    expect(Object.keys(silverpoint.substrates)).toContain(muted.worst);
+    expect(muted.min).toBe(Math.round(Math.min(...Object.values(silverpoint.substrates).map((c) => contrastRatio(c, silverpoint.ink.primary))) * 100) / 100);
+  });
+
+  test('REQ-581 · lightening the primary ink until the heightening cannot read on it fails the invert pairs', () => {
+    const pale = { ...silverpoint, ink: { ...silverpoint.ink, primary: lighten(silverpoint.ink.primary, 0.45) } };
+    expect(auditDeckTheme(pale).filter((r) => !r.pass).map((r) => r.token)).toEqual(expect.arrayContaining(['deck.invert.text']));
+  });
+
+  test('REQ-581 · the built-in audit, which CI runs, includes the deck rows', () => {
+    expect(auditBuiltins().filter((r) => r.token.startsWith('deck.')).length).toBe(2 * 2 * DECK_THEME_PAIRS.length);
   });
 });

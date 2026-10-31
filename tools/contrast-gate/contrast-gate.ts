@@ -8,6 +8,7 @@
 import type { Ground } from '@silverpoint/core';
 import { PALETTE_PAIRS, PALETTES, type Palette } from '../../packages/core/src/palettes';
 import { cyanotype, silverpoint } from '../../packages/grounds/src';
+import { invertTokens, slideTokens } from '../../packages/marp/src/theme/silverpoint.css';
 
 type InkToken = keyof Ground['ink'];
 
@@ -24,7 +25,7 @@ const THRESHOLDS: Readonly<Record<Exclude<InkToken, 'heighten'>, number>> = {
 export interface AuditRow {
   readonly ground: string;
   /** An ink token, a UI pair of Data Model §3.8 (`ui.…`), or a palette pair of §3.9 (`palette.…`). */
-  readonly token: InkToken | `ui.${string}` | `palette.${string}`;
+  readonly token: InkToken | `ui.${string}` | `palette.${string}` | `deck.${string}`;
   /** Worst ratio rounded to 2 decimals, as Data Model §3.2 reports it; `pass` uses the exact value. */
   readonly min: number;
   /** Substrate (or outline) on which the worst ratio falls. */
@@ -180,14 +181,57 @@ export function auditPalette(name: string, palette: Palette): AuditRow[] {
   });
 }
 
+/** A colour of the deck theme (feature-006, REQ-581), measured against the slide's `--sp-substrate`. */
+export interface DeckThemePair {
+  readonly property: '--sp-text' | '--sp-text-muted' | '--sp-ink' | '--sp-ink-secondary' | '--sp-rule';
+  readonly threshold: number;
+}
+
+/** What the theme writes in each colour: text (body, headings, header, footer, page number), links and list markers, inline code, rules. */
+export const DECK_THEME_PAIRS: readonly DeckThemePair[] = [
+  { property: '--sp-text', threshold: 4.5 },
+  { property: '--sp-text-muted', threshold: 4.5 },
+  { property: '--sp-ink', threshold: 4.5 },
+  { property: '--sp-ink-secondary', threshold: 4.5 },
+  { property: '--sp-rule', threshold: 3 },
+];
+
+/**
+ * Audits the deck theme on one ground (T-265, REQ-581): the colours `slideTokens` and `invertTokens`
+ * give each substrate —the ones `@silverpoint/marp` writes— against that slide's own background.
+ * `lead`, `plate` and `hatched` change no colour, so `normal` and `invert` are every class.
+ */
+export function auditDeckTheme(ground: Ground): AuditRow[] {
+  const classes = [['normal', slideTokens], ['invert', invertTokens]] as const;
+  return classes.flatMap(([name, tokensOf]) =>
+    DECK_THEME_PAIRS.map(({ property, threshold }) => {
+      let worst = { ratio: Number.POSITIVE_INFINITY, on: '' };
+      for (const [substrate, colour] of Object.entries(ground.substrates)) {
+        const tokens = tokensOf(ground, colour);
+        const ratio = contrastRatio(tokens[property]!, tokens['--sp-substrate']!);
+        if (ratio < worst.ratio) worst = { ratio, on: substrate };
+      }
+      return {
+        ground: ground.name,
+        token: `deck.${name}.${property.slice('--sp-'.length)}` as const,
+        min: round2(worst.ratio),
+        worst: worst.on,
+        threshold,
+        pass: worst.ratio >= threshold,
+        against: 'substrate' as const,
+      };
+    }),
+  );
+}
+
 /** Audits the six presets of `@silverpoint/core/palettes` (REQ-463, REQ-464). */
 export function auditPalettes(): AuditRow[] {
   return Object.entries(PALETTES).flatMap(([name, palette]) => auditPalette(name, palette));
 }
 
-/** Audits every ground `@silverpoint/grounds` registers by default, charts and UI, and the palette presets (REQ-127, REQ-313, REQ-464). */
+/** Audits every ground `@silverpoint/grounds` registers by default, charts, UI and the deck theme, and the palette presets (REQ-127, REQ-313, REQ-581, REQ-464). */
 export function auditBuiltins(): AuditRow[] {
-  return [...[silverpoint, cyanotype].flatMap((ground) => [...auditGround(ground), ...auditUi(ground)]), ...auditPalettes()];
+  return [...[silverpoint, cyanotype].flatMap((ground) => [...auditGround(ground), ...auditUi(ground), ...auditDeckTheme(ground)]), ...auditPalettes()];
 }
 
 function main(): void {
