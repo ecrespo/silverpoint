@@ -154,6 +154,11 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   User text (labels, notes, status) still enters as text nodes. In Angular, `pageChange` carries
   `{ page, total }` as in React and Vue (REQ-606), so it is not an `xChange` pair for `[(page)]`;
   two-way binding reads `[page]="page" (pageChange)="page = $event.page"` (API delta §6).
+- *Amended in implementation (T-277):* React 18 and Vue escape a `<style>` element's text on the
+  server (`>` becomes `&gt;`), which breaks Marpit's child combinators until the client re-renders
+  and, in React 18, is a hydration mismatch. The deck's CSS therefore goes in raw (React
+  `dangerouslySetInnerHTML`, Vue `innerHTML`): `sanitiseDeckCss` leaves no `<` in it, so no
+  `</style` can close the element.
 
 ### DD-056: The theme is generated from ground tokens
 

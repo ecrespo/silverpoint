@@ -1,5 +1,5 @@
 import { act } from 'react';
-import { createRoot, type Root } from 'react-dom/client';
+import { createRoot, hydrateRoot, type Root } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { SpDeck, type SpDeckProps } from '../src/deck';
@@ -16,6 +16,7 @@ const MD = `# Opening\n\n${fence}\n\n---\n\n## Middle\n\n* a\n* b\n\n---\n\n# En
 
 let host: HTMLElement;
 let root: Root | undefined;
+let cleanup = () => {};
 beforeEach(() => {
   host = document.createElement('div');
   document.body.append(host);
@@ -26,6 +27,8 @@ afterEach(() => {
   document.body.innerHTML = '';
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+  cleanup();
+  cleanup = () => {};
 });
 
 async function mount(element: React.ReactElement) {
@@ -46,6 +49,10 @@ describe('SpDeck — server render (REQ-612, REQ-614)', () => {
     expect(html).toMatch(/<div class="sp-deck sp-ground-silverpoint" part="sp-deck" role="region" aria-roledescription="slide deck" aria-label="Opening" tabindex="0"/);
     expect(html).toContain('data-sp-page="1"');
     expect(html).toContain('<style>');
+    // The style's text is raw CSS: Marpit's child combinators survive the server (T-277).
+    const css = /<style>([\s\S]*?)<\/style>/.exec(html)![1]!;
+    expect(css).toContain(' > ');
+    expect(css).not.toContain('&gt;');
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="1" data-sp-current="">/);
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="2" hidden="" inert="">/);
     expect(html).toContain('data-sp-slot="s1-c1"');
@@ -161,6 +168,42 @@ describe('SpDeck — client (REQ-593, REQ-598, REQ-606, REQ-610, REQ-611)', () =
     act(() => root!.unmount());
     root = undefined;
     expect(live.size).toBe(0);
+  });
+});
+
+describe('SpDeck — hydration (T-277, REQ-612)', () => {
+  test('REQ-612 · the client hydrates the server markup with no mismatch, then binds and hydrates the charts', async () => {
+    const page = (
+      <SilverpointProvider ground="cyanotype">
+        <SpDeck markdown={MD} />
+      </SilverpointProvider>
+    );
+    // happy-dom has no Fullscreen API: give it one, so the button can appear after mount (REQ-603).
+    Object.defineProperty(document, 'fullscreenEnabled', { value: true, configurable: true });
+    HTMLElement.prototype.requestFullscreen = async () => {};
+    cleanup = () => {
+      delete (document as { fullscreenEnabled?: boolean }).fullscreenEnabled;
+      delete (HTMLElement.prototype as { requestFullscreen?: unknown }).requestFullscreen;
+    };
+    host.innerHTML = renderToString(page);
+    expect(host.querySelector('[aria-label="Full screen"]')).toBeNull();
+    const server = host.querySelector('.sp-deck')!;
+    const recoverable = vi.fn();
+    const errors = vi.spyOn(console, 'error');
+    await act(async () => {
+      root = hydrateRoot(host, page, { onRecoverableError: recoverable }) as Root;
+    });
+    await hydrated('s1-c1');
+    expect(recoverable).not.toHaveBeenCalled();
+    expect(errors).not.toHaveBeenCalled();
+    // The server's nodes were adopted, not replaced.
+    expect(host.querySelector('.sp-deck')).toBe(server);
+    // After mount only: the fullscreen button (happy-dom has the API) and the bindings.
+    expect(host.querySelector('[aria-label="Full screen"]')).not.toBeNull();
+    // The hydrated deck's own markup: one style, the server's slides.
+    expect(host.querySelectorAll('.sp-deck style')).toHaveLength(1);
+    key('ArrowRight');
+    expect(deck().getAttribute('data-sp-page')).toBe('2');
   });
 });
 

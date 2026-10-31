@@ -27,6 +27,10 @@ describe('<sp-deck> on the server (Angular)', () => {
     // The scoped style is the root's first child, once.
     expect(html).toMatch(/tabindex="0"[^>]*><style>/);
     expect(html.match(/<style>/g)).toHaveLength(1);
+    // The style's text is raw CSS: Marpit's child combinators survive the server (T-277).
+    const css = /<style>([\s\S]*?)<\/style>/.exec(html)![1]!;
+    expect(css).toContain(' > ');
+    expect(css).not.toContain('&gt;');
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="1" data-sp-current="">/);
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="2" hidden="" inert="">/);
     expect(html).toContain('data-sp-slot="s1-c1"');

@@ -13,7 +13,10 @@ const MD = `# Opening\n\n${fence}\n\n---\n\n## Middle\n\n* a\n* b\n\n---\n\n# En
 
 let app: App | undefined;
 let host: HTMLElement;
+let restore = () => {};
 afterEach(() => {
+  restore();
+  restore = () => {};
   app?.unmount();
   app = undefined;
   document.body.innerHTML = '';
@@ -44,6 +47,10 @@ describe('SpDeck — server render (REQ-612, REQ-614)', () => {
     expect(html).toMatch(/<div class="sp-deck sp-ground-silverpoint" part="sp-deck" role="region" aria-roledescription="slide deck" aria-label="Opening" tabindex="0"/);
     expect(html).toContain('data-sp-page="1"');
     expect(html).toContain('<style>');
+    // The style's text is raw CSS: Marpit's child combinators survive the server (T-277).
+    const css = /<style>([\s\S]*?)<\/style>/.exec(html)![1]!;
+    expect(css).toContain(' > ');
+    expect(css).not.toContain('&gt;');
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="1" data-sp-current(="")?>/);
     expect(html).toMatch(/<div class="sp-deck-slide" data-sp-slide="2" hidden(="")? inert(="")?>/);
     expect(html).toContain('data-sp-slot="s1-c1"');
@@ -163,5 +170,37 @@ describe('SpDeck — client (REQ-593, REQ-598, REQ-606, REQ-610, REQ-611)', () =
     expect(live.size).toBe(0);
     // The chart rendered into the slot is unmounted too (`render(null, slot)`).
     expect(slot._vnode ?? null).toBeNull();
+  });
+});
+
+describe('SpDeck — hydration (T-277, REQ-612)', () => {
+  test('REQ-612 · the client hydrates the server markup with no mismatch, then binds and hydrates the charts', async () => {
+    // happy-dom has no Fullscreen API: give it one, so the button can appear after mount (REQ-603).
+    Object.defineProperty(document, 'fullscreenEnabled', { value: true, configurable: true });
+    HTMLElement.prototype.requestFullscreen = async () => {};
+    restore = () => {
+      delete (document as { fullscreenEnabled?: boolean }).fullscreenEnabled;
+      delete (HTMLElement.prototype as { requestFullscreen?: unknown }).requestFullscreen;
+    };
+    const page = () => createSSRApp({ render: () => h(SilverpointProvider, { ground: 'cyanotype' }, () => h(SpDeck, { markdown: MD })) });
+    host = document.createElement('div');
+    host.innerHTML = await renderToString(page());
+    document.body.append(host);
+    expect(host.querySelector('[aria-label="Full screen"]')).toBeNull();
+    const server = host.querySelector('.sp-deck')!;
+    const warnings = vi.spyOn(console, 'warn');
+    const errors = vi.spyOn(console, 'error');
+    app = page();
+    app.mount(host);
+    await nextTick();
+    await hydrated('s1-c1');
+    expect(warnings.mock.calls.flat().join(' ')).not.toMatch(/hydrat|mismatch/i);
+    expect(errors).not.toHaveBeenCalled();
+    // The server's nodes were adopted, not replaced.
+    expect(host.querySelector('.sp-deck')).toBe(server);
+    expect(host.querySelector('[aria-label="Full screen"]')).not.toBeNull();
+    expect(host.querySelectorAll('.sp-deck style')).toHaveLength(1);
+    await key('ArrowRight');
+    expect(deck().getAttribute('data-sp-page')).toBe('2');
   });
 });

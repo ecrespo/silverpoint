@@ -161,7 +161,9 @@ export const SpDeck = defineComponent({
         mode: resolved.value.mode,
       });
       return h('div', { ...props(view.root), ref: root }, [
-        h('style', view.css),
+        // Vue's server render escapes a style's text (`>` → `&gt;`), breaking the CSS; the engine's
+        // CSS holds no `<` (sanitiseDeckCss), so it goes in raw (DD-055, T-277 amendment).
+        h('style', { innerHTML: view.css }),
         h('div', props(view.viewport), [
           h(
             'div',

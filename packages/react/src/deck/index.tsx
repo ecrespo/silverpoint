@@ -183,7 +183,10 @@ export function SpDeck({
   const portals: ReactPortal[] = mounted.map((m) => createPortal(<m.Chart {...m.props} />, m.element, m.key));
   return (
     <div {...props(view.root)} ref={rootRef}>
-      <style>{view.css}</style>
+      {/* React 18 escapes a style's text on the server (`>` → `&gt;`), which breaks the CSS and
+          the hydration; the engine's CSS holds no `<` (sanitiseDeckCss), so raw text is safe. */}
+      {/* eslint-disable-next-line no-restricted-syntax -- DD-055 (T-277 amendment): the deck's sanitised CSS. */}
+      <style dangerouslySetInnerHTML={{ __html: view.css }} />
       <div {...props(view.viewport)}>
         <div {...props(view.container)}>
           {view.slides.map((slide) => (
