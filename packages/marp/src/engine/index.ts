@@ -3,6 +3,7 @@ import { themeSource } from '../theme/source';
 import type { FenceEnv } from '../fence/rule';
 import type { ChartSlot, DeckDiagnostic, DeckEngine, DeckEngineOptions, DeckMode, DeckRender, SlideRender } from '../types';
 import type { AnnotateEnv } from './annotate';
+import { DECK_LIMITS, raiseLimit, withinBytes } from './limits';
 import { createMarpitEngine, SLIDE_BOX } from './marpit';
 
 const SIZES = { '16:9': { width: 1280, height: 720 }, '4:3': { width: 960, height: 720 } } as const;
@@ -29,8 +30,12 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
     render(markdown: string): DeckRender {
       const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[], deck: { id, ...SIZES[size] } };
       const spFence: FenceEnv = { deckId: id, contentWidth: SIZES[size].width - 2 * CONTENT_INSET, slots: [] as ChartSlot[], ...(options.palette === undefined ? {} : { palette: options.palette }) };
-      const out = markdownEngine.render(markdown, { sp, spFence });
-      const slides: SlideRender[] = out.html.map((html, i) => {
+      const bounded = withinBytes(markdown);
+      if (bounded.cut) raiseLimit(sp.diagnostics, 'bytes');
+      const out = markdownEngine.render(bounded.markdown, { sp, spFence });
+      // REQ-576: past 300 slides, the first 300 (the annotation already counted them so).
+      if (out.html.length > DECK_LIMITS.slides) raiseLimit(sp.diagnostics, 'slides');
+      const slides: SlideRender[] = out.html.slice(0, DECK_LIMITS.slides).map((html, i) => {
         const token = out.slideTokens[i]!;
         const fragments = Number(token.attrGet('data-marpit-fragments') ?? 0);
         const classes = String(token.meta?.marpitDirectives?.['class'] ?? '').split(/\s+/).filter(Boolean);

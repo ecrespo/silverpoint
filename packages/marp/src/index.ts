@@ -4,4 +4,5 @@
  */
 export { createDeckEngine, sanitiseDeckId } from './engine';
 export { DECK_DIRECTIVES } from './engine/directives';
+export { DECK_LIMITS } from './engine/limits';
 export type * from './types';

@@ -6,6 +6,7 @@
 import { resolveSeed } from '@silverpoint/core';
 import { slideBackdrop } from '@silverpoint/grounds';
 import type { DeckDiagnostic } from '../types';
+import { DECK_LIMITS } from './limits';
 import { resolveSlide, type Resolved } from './directives';
 
 interface Token {
@@ -64,7 +65,7 @@ export function annotate(state: { tokens: readonly Token[]; env: { sp?: Annotate
     const token = state.tokens[i]!;
     if (isContentSection(token)) {
       const n = (token.meta?.marpitSlide ?? sp.slides.length) + 1;
-      const total = token.meta?.marpitSlideTotal ?? n;
+      const total = Math.min(token.meta?.marpitSlideTotal ?? n, DECK_LIMITS.slides);   // REQ-576
       const raw = token.meta?.marpitDirectives ?? {};
       const resolved = resolveSlide(raw, sp.defaults, carried, n, reported, sp.diagnostics);
       token.attrSet('role', 'group');

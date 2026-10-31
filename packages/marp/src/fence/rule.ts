@@ -7,6 +7,7 @@ import { diagnose } from '@silverpoint/core';
 import type { Palette } from '@silverpoint/core/palettes';
 import type { AnnotateEnv } from '../engine/annotate';
 import { isContentSection } from '../engine/annotate';
+import { DECK_LIMITS, raiseLimit } from '../engine/limits';
 import type { ChartFenceSpec, ChartSlot, FenceError } from '../types';
 import { parseChartFence } from './parse';
 import { errorMarkup, fenceErrorMessage, renderFenceChart, slotMarkup } from './render';
@@ -50,6 +51,14 @@ export function renderFences(state: { tokens: Token[]; env: { sp?: AnnotateEnv; 
       continue;
     }
     if (token.type !== 'fence' || token.info.trim() !== 'silverpoint') continue;
+    // REQ-576: a slide past the slide limit is dropped; a fence past the fence limit is left out.
+    if (slide > DECK_LIMITS.slides || env.slots.length >= DECK_LIMITS.fences) {
+      if (slide <= DECK_LIMITS.slides) raiseLimit(sp.diagnostics, 'fences', slide);
+      token.type = 'html_block';
+      token.info = '';
+      token.content = '';
+      continue;
+    }
     ordinal += 1;
     const slotId = `s${slide}-c${ordinal}`;
     const resolved = sp.slides[slide - 1] ?? sp.defaults;
