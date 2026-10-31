@@ -256,3 +256,73 @@ describe('fullscreen (REQ-603)', () => {
     expect(exit).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('clicks and the overview’s focus (REQ-604, REQ-613)', () => {
+  function mountView() {
+    document.body.innerHTML = `
+      <div class="sp-deck" tabindex="0">
+        <div class="sp-deck-viewport"><div class="sp-deck-v">
+          <div class="sp-deck-slide" data-sp-slide="1"></div><div class="sp-deck-slide" data-sp-slide="2"></div><div class="sp-deck-slide" data-sp-slide="3"></div>
+        </div></div>
+        <div class="sp-deck-controls">
+          <button type="button" data-sp-action="prev"><span>‹</span></button><button type="button" data-sp-action="next"><span>›</span></button>
+          <button type="button" data-sp-action="overview"></button><button type="button" data-sp-action="notes"></button>
+          <button type="button" data-sp-action="fullscreen"></button><button type="button" data-sp-action="bogus"></button>
+        </div>
+      </div>`;
+    root = document.querySelector('.sp-deck')!;
+    controller = createDeckController({ total: 3, steps: [0, 1, 0] });
+    cleanup = bindDeck(root, controller, options);
+  }
+  const click = (selector: string) => (root.querySelector(selector) as HTMLElement).click();
+
+  test('REQ-613 · a control button runs its action, from a click anywhere inside it', () => {
+    mountView();
+    (root.querySelector('[data-sp-action="next"] span') as HTMLElement).click();
+    expect(pos()).toEqual([2, 0]);
+    click('[data-sp-action="next"]');
+    expect(pos()).toEqual([2, 1]);
+    click('[data-sp-action="prev"]');
+    expect(pos()).toEqual([2, 0]);
+    click('[data-sp-action="notes"]');
+    expect(controller.state.notes).toBe(true);
+    click('[data-sp-action="overview"]');
+    expect(controller.state.overview).toBe(true);
+    click('[data-sp-action="bogus"]');
+    expect(pos()).toEqual([2, 0]);
+  });
+
+  test('REQ-604 · a click on a thumbnail selects it and closes the overview', () => {
+    mountView();
+    controller.toggleOverview(true);
+    for (const box of root.querySelectorAll('.sp-deck-slide')) box.classList.add('sp-deck-thumb');
+    click('.sp-deck-thumb[data-sp-slide="3"]');
+    expect(pos()).toEqual([3, 0]);
+    expect(controller.state.overview).toBe(false);
+  });
+
+  test('REQ-604 · Enter on a focused thumbnail selects that one, not the current', () => {
+    mountView();
+    controller.toggleOverview(true);
+    for (const box of root.querySelectorAll('.sp-deck-slide')) box.classList.add('sp-deck-thumb');
+    key(root.querySelector('.sp-deck-thumb[data-sp-slide="2"]')!, 'Enter');
+    expect(pos()).toEqual([2, 0]);
+    expect(controller.state.overview).toBe(false);
+  });
+
+  test('REQ-604 · in the overview, focus follows the current thumbnail once the adapter has rendered it', async () => {
+    mountView();
+    controller.toggleOverview(true);
+    for (const box of root.querySelectorAll('.sp-deck-slide')) {
+      box.classList.add('sp-deck-thumb');
+      box.setAttribute('tabindex', '0');
+    }
+    root.focus();
+    key(root, 'ArrowRight');
+    // The adapter marks the new current box on its own render.
+    root.querySelector('[data-sp-current]')?.removeAttribute('data-sp-current');
+    root.querySelector('[data-sp-slide="2"]')!.setAttribute('data-sp-current', '');
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    expect(document.activeElement).toBe(root.querySelector('[data-sp-slide="2"]'));
+  });
+});
