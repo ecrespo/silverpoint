@@ -61,8 +61,8 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 
 ### 10c — Theme
 
-- [ ] **T-262** `theme/silverpoint.css.ts`: typography, scale, headings, lists, tables, blockquote, code (EB Garamond, `tnum`, no monospace), images, header/footer, pagination, `size` 16:9 and 4:3; canvas px only (lint rule: no `rem|vw|vh|cq`). *REQ-577, REQ-578, REQ-580*
-- [ ] **T-263** Classes `lead`, `invert`, `plate`, `hatched`; `THEME_CLASSES`. *REQ-579*
+- [x] **T-262** `theme/silverpoint.css.ts`: typography, scale, headings, lists, tables, blockquote, code (EB Garamond, `tnum`, no monospace), images, header/footer, pagination, `size` 16:9 and 4:3; canvas px only (lint rule: no `rem|vw|vh|cq`). *REQ-577, REQ-578, REQ-580*
+- [x] **T-263** Classes `lead`, `invert`, `plate`, `hatched`; `THEME_CLASSES`. *REQ-579*
 - [ ] **T-264** `tools/deck-theme` generator → `packages/marp/theme.css` (one block per ground × substrate, `invert` blocks, a default block for Marp CLI); `check` mode in CI. *REQ-577, REQ-582*
 - [ ] **T-265** `tools/contrast-gate`: the theme's text/rule pairs per ground × substrate × class. *REQ-581*
 - [ ] **T-266** Marp CLI: render a fixture with `--theme theme.css` (dev dependency of `tools/deck-theme`, pinned) and assert the theme applies; `@silverpoint/marp/cli` engine renders directives, backdrops and fences (SHOULD). *REQ-582, REQ-583*

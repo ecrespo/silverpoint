@@ -5,4 +5,5 @@
 export { createDeckEngine, sanitiseDeckId } from './engine';
 export { DECK_DIRECTIVES } from './engine/directives';
 export { DECK_LIMITS } from './engine/limits';
+export { THEME_CLASSES, THEME_NAME, type ThemeClass } from './theme/silverpoint.css';
 export type * from './types';
