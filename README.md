@@ -25,6 +25,8 @@ inking switched off entirely.
 | [`@silverpoint/fonts`](packages/fonts/README.md) | Optional self-hosted EB Garamond |
 | [`@silverpoint/core`](packages/core/README.md) | The framework-free engine the adapters share, and the palettes |
 | [`@silverpoint/tailwind`](packages/tailwind/README.md) | An optional Tailwind preset naming the same variables |
+| [`@silverpoint/mcp`](packages/mcp/README.md) | A Model Context Protocol server: the catalog, chart recommendations and code generation for agents |
+| [`@silverpoint/marp`](packages/marp/README.md) | Marp/Marpit Markdown slide decks in the silverpoint style — in progress for `0.9.0`, not yet published |
 
 Each adapter's README has its installation steps, quickstart and examples.
 
@@ -107,6 +109,34 @@ optional peer (`npm install @knight-lab/timelinejs`). Each adapter's README show
 Using Tailwind? The optional [`@silverpoint/tailwind`](packages/tailwind/README.md) preset names the
 same variables as utilities (`bg-sp-substrate`, `text-sp-ink`, `font-sp-display`); silverpoint itself
 never requires it.
+
+## For agents
+
+[`@silverpoint/mcp`](packages/mcp/README.md) tells an agent what the library holds — every chart and
+UI component, their props, data shapes and diagnostics — recommends a chart for a dataset, and writes
+the code in React, Vue, Angular or Reflex. Its answers come from the agent catalog, generated from the
+published types of the same version. It runs hosted, read-only and without an account:
+
+```sh
+claude mcp add --transport http silverpoint https://silverpointweb.vercel.app/mcp
+```
+
+or locally over stdio (`npx @silverpoint/mcp`). In Claude Code, the `silverpoint` plugin connects
+the hosted server and installs the [`silverpoint` skill](skills/silverpoint/) in one step:
+
+```sh
+/plugin marketplace add ecrespo/silverpoint
+/plugin install silverpoint@silverpoint
+```
+
+## Slide decks (coming in 0.9.0)
+
+`@silverpoint/marp` renders Marp/Marpit Markdown as a deck drawn in the ground's hand, with
+`silverpoint` code fences that become live charts, and an `SpDeck` component for each adapter. It is
+being built on `feat/silverpoint-0.9` and is not on npm yet; the design is in
+[`changes/feature-006-deck/`](changes/feature-006-deck/).
+
+## Specifications and releases
 
 The specifications live in [`specs/`](specs/): eight Spec-Driven Design artifacts, from the
 constitution through to the Analyze gate.
