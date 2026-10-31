@@ -18,7 +18,7 @@ const json = <T>(file: string): T => JSON.parse(readFileSync(join(ROOT, file), '
 /** Chart and UI subpaths an npm adapter exports (`./<slug>`, `./ui/<slug>`). */
 function npmExports(adapter: 'react' | 'vue'): { charts: Set<string>; ui: Set<string> } {
   const keys = Object.keys(json<{ exports: Record<string, unknown> }>(`packages/${adapter}/package.json`).exports);
-  const NOT_CHARTS = new Set(['dashboard', 'dashboard-link', 'ui', 'timeline', 'package.json']);
+  const NOT_CHARTS = new Set(['dashboard', 'dashboard-link', 'ui', 'timeline', 'deck', 'package.json']);
   return {
     charts: new Set(keys.map((k) => k.match(/^\.\/([a-z-]+)$/)?.[1]).filter((s): s is string => !!s && !NOT_CHARTS.has(s))),
     ui: new Set(keys.map((k) => k.match(/^\.\/ui\/([a-z-]+)$/)?.[1]).filter((s): s is string => !!s)),
@@ -29,7 +29,7 @@ function npmExports(adapter: 'react' | 'vue'): { charts: Set<string>; ui: Set<st
 function angularEntries(): { charts: Set<string>; ui: Set<string> } {
   const root = join(ROOT, 'packages/angular');
   const entries = (dir: string) => readdirSync(dir).filter((name) => existsSync(join(dir, name, 'ng-package.json')));
-  const NOT_CHARTS = new Set(['dashboard', 'env', 'timeline', 'ui']);
+  const NOT_CHARTS = new Set(['dashboard', 'env', 'timeline', 'ui', 'deck']);
   const NOT_UI = new Set(['base', 'overlay']);
   return {
     charts: new Set(entries(root).filter((name) => !NOT_CHARTS.has(name))),

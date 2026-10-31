@@ -7,7 +7,7 @@ const shared = {
   sourcemap: true,
   // Rollup's treeshake pass drops module-level directives; esbuild already tree-shakes.
   treeshake: false,
-  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/react/dashboard-link', '@knight-lab/timelinejs'],
+  external: ['react', 'react-dom', 'react/jsx-runtime', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/react/dashboard-link', '@knight-lab/timelinejs', '@silverpoint/marp', '@silverpoint/marp/client'],
 };
 
 // Client entries carry the "use client" marker; server entries must not (REQ-104).
@@ -121,6 +121,8 @@ export default defineConfig([
       'ui/toast': 'src/ui/toast.tsx',
       // TimelineJS, loaded on the client only (feature-004, REQ-510).
       timeline: 'src/timeline.tsx',
+      // The deck (feature-006, REQ-608): a client component; Marpit stays behind the optional peer.
+      deck: 'src/deck/index.tsx',
     },
     banner: { js: "'use client';" },
   },

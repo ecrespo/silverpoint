@@ -597,6 +597,9 @@ importers:
       '@knight-lab/timelinejs':
         specifier: 3.9.13
         version: 3.9.13
+      '@silverpoint/marp':
+        specifier: workspace:*
+        version: link:../marp
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0

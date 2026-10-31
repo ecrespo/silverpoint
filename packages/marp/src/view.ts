@@ -8,6 +8,7 @@
  * charts they hydrate inside it survive navigation; the client moves fragments (DD-057).
  */
 import { diagnose } from '@silverpoint/core';
+import { listGrounds } from '@silverpoint/grounds';
 import { resolveUi, uiButtonView, type UiAttrValue, type UiElement, type UiNode } from '@silverpoint/core/ui';
 import type { DeckMode, DeckRender } from './types';
 
@@ -29,7 +30,8 @@ export interface DeckViewOptions {
   readonly fullscreenAvailable: boolean;
   /** The deck's resolved defaults, which draw the chrome. */
   readonly ground: string;
-  readonly substrate: string;
+  /** Default: the ground's first substrate. */
+  readonly substrate?: string;
   readonly mode: DeckMode;
   /** A palette's custom properties for the root (`paletteStyle`). */
   readonly style?: string;
@@ -95,6 +97,8 @@ export function deckView(render: DeckRender, state: DeckViewState, options: Deck
   const { page, step, overview } = state;
   const total = render.total;
   const current = render.slides[page - 1];
+  const known = listGrounds().find((g) => g.name === options.ground);
+  const substrate = options.substrate ?? (known ? Object.keys(known.substrates)[0] : undefined) ?? '';
 
   const root: Record<string, UiAttrValue> = {
     class: `sp-deck sp-ground-${options.ground}`,
@@ -103,7 +107,7 @@ export function deckView(render: DeckRender, state: DeckViewState, options: Deck
     'aria-roledescription': 'slide deck',
     'aria-label': nameOf(render, options.label),
     tabindex: '0',
-    'data-substrate': options.substrate,
+    'data-substrate': substrate,
     'data-mode': options.mode,
     'data-sp-page': String(page),
     'data-sp-step': String(step),
@@ -129,7 +133,7 @@ export function deckView(render: DeckRender, state: DeckViewState, options: Deck
 
   let controls: UiElement | undefined;
   if (options.showControls) {
-    const r = resolveUi({ ground: options.ground, substrate: options.substrate as never, mode: options.mode, size: 'sm' }, {});
+    const r = resolveUi({ ground: options.ground, substrate: substrate as never, mode: options.mode, size: 'sm' }, {});
     const last = page >= total && step >= (current?.fragments ?? 0);
     const children: UiNode[] = [
       control(r, 'prev', 'Previous slide', '‹', { disabled: page <= 1 && step <= 0 }),

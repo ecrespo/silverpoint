@@ -11,3 +11,6 @@ export { deckView, OVERVIEW_COLUMNS } from './view';
 export type { DeckSlideView, DeckView, DeckViewOptions, DeckViewState, ViewAttrs } from './view';
 export { hydrationPlan } from './hydration';
 export type { HydrationEntry } from './hydration';
+// The controller is pure (DD-057): an adapter renders its state on the server too.
+export { createDeckController } from './controller';
+export type { DeckController, DeckControllerOptions, DeckAction, DeckEvents, DeckState } from './controller';
