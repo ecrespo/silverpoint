@@ -13,5 +13,8 @@
     "@silverpoint/core": "workspace:*",
     "@silverpoint/grounds": "workspace:*",
     "@silverpoint/marp": "workspace:*"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
   }
 }

@@ -23,6 +23,12 @@
       "import": "./dist/client.js",
       "default": "./dist/client.js"
     },
+    "./cli": {
+      "@silverpoint/source": "./src/cli/index.ts",
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js",
+      "default": "./dist/cli.js"
+    },
     "./theme.css": "./theme.css",
     "./package.json": "./package.json"
   },

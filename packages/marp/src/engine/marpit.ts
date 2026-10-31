@@ -45,15 +45,11 @@ export interface MarpitEngineOptions {
 /** The slide box class (DD-051): Marpit's `slideContainer`, so its scoped CSS selects through it. */
 export const SLIDE_BOX = 'sp-deck-slide';
 
-export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEngine {
-  const marpit = new Marpit({
-    anchor: false,                                              // REQ-572: no ids in the host page
-    inlineSVG: true,                                            // DD-051: kept for advanced backgrounds
-    container: new Element('div', { class: options.scope }),    // REQ-571: CSS scope per deck
-    slideContainer: new Element('div', { class: SLIDE_BOX }),
-    markdown: { html: false },                                  // REQ-572, REQ-575: never configurable
-  });
-  marpit.themeSet.default = marpit.themeSet.add(options.theme);
+/**
+ * The deck's directives and markdown-it rules on a Marpit instance (DD-054): the engine's own, and
+ * the Marp CLI engine's (T-266). They read their state from the render's `env` (`createDeckEnv`).
+ */
+export function installDeckRules(marpit: Marpit): void {
   registerDirectives(marpit as unknown as Parameters<typeof registerDirectives>[0]);
   // REQ-575: an unsafe `backgroundImage` directive is dropped before Marpit writes it to `style`.
   const md = marpit.markdown as unknown as MarkdownIt;
@@ -69,6 +65,18 @@ export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEn
   md.core.ruler.push('sp_annotate', annotate as (state: never) => void);
   // DD-053: after the annotation, so each fence knows its slide's ground, substrate and mode.
   md.core.ruler.push('sp_fences', renderFences as (state: never) => void);
+}
+
+export function createMarpitEngine(options: MarpitEngineOptions): MarkdownDeckEngine {
+  const marpit = new Marpit({
+    anchor: false,                                              // REQ-572: no ids in the host page
+    inlineSVG: true,                                            // DD-051: kept for advanced backgrounds
+    container: new Element('div', { class: options.scope }),    // REQ-571: CSS scope per deck
+    slideContainer: new Element('div', { class: SLIDE_BOX }),
+    markdown: { html: false },                                  // REQ-572, REQ-575: never configurable
+  });
+  marpit.themeSet.default = marpit.themeSet.add(options.theme);
+  installDeckRules(marpit);
 
   return {
     render(markdown, env) {

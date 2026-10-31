@@ -155,6 +155,15 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   Code: EB Garamond, `font-variant-numeric: tabular-nums`, framed plate (DD-010, REQ-578).
 - **Consequences:** `tools/contrast-gate` gains the theme's text/rule pairs per ground × substrate ×
   class (REQ-581).
+- *Amended in implementation (T-262..T-266):* the theme's properties are the grounds' own names
+  (`--sp-substrate`, `--sp-text`, `--sp-ink`, `--sp-rule`…), not `--sp-ink-text`-style ones, so a
+  palette re-themes slides and charts alike. Marpit's scaffold gives `section::after` the section's
+  padding (`padding: inherit`); the pagination rule resets it. `tools/deck-theme` (Marp CLI 4.5.1,
+  pinned) writes and checks `theme.css` and the CLI engine's copy of the grounds' stylesheet; Marp
+  CLI needs `--no-stdin` when its stdin is not a terminal. `@silverpoint/marp/cli` is a class
+  inherited from Marpit (Marp CLI's contract for a module engine): directives, backdrops and fences,
+  the theme as default, the grounds' stylesheet appended; 16:9 only and none of Marp Core's
+  additions (`size`, math, emoji); fonts as the host provides them.
 
 ### DD-057: The controller is a reducer; fragments are revealed by CSS from one attribute
 

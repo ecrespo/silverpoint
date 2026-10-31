@@ -17,6 +17,19 @@ export function sanitiseDeckId(id: string): string {
   return clean;
 }
 
+/** A render's state, carried on markdown-it's `env`: the annotation's and the fences' (DD-053, DD-054). */
+export function createDeckEnv(deck: {
+  readonly id: string;
+  readonly size: { readonly width: number; readonly height: number };
+  readonly defaults: AnnotateEnv['defaults'];
+  readonly palette?: DeckEngineOptions['palette'];
+}): { readonly sp: AnnotateEnv; readonly spFence: FenceEnv } {
+  return {
+    sp: { defaults: deck.defaults, slides: [], diagnostics: [] as DeckDiagnostic[], deck: { id: deck.id, ...deck.size } },
+    spFence: { deckId: deck.id, contentWidth: deck.size.width - 2 * CONTENT_INSET, slots: [] as ChartSlot[], ...(deck.palette === undefined ? {} : { palette: deck.palette }) },
+  };
+}
+
 /** One deck's engine: one Marpit instance, its CSS scoped to `div.sp-deck-<id>` (REQ-571). */
 export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
   const id = sanitiseDeckId(options.id);
@@ -28,8 +41,7 @@ export function createDeckEngine(options: DeckEngineOptions): DeckEngine {
 
   return {
     render(markdown: string): DeckRender {
-      const sp: AnnotateEnv = { defaults: { ground: ground.name, substrate, mode }, slides: [], diagnostics: [] as DeckDiagnostic[], deck: { id, ...SIZES[size] } };
-      const spFence: FenceEnv = { deckId: id, contentWidth: SIZES[size].width - 2 * CONTENT_INSET, slots: [] as ChartSlot[], ...(options.palette === undefined ? {} : { palette: options.palette }) };
+      const { sp, spFence } = createDeckEnv({ id, size: SIZES[size], defaults: { ground: ground.name, substrate, mode }, ...(options.palette === undefined ? {} : { palette: options.palette }) });
       const bounded = withinBytes(markdown);
       if (bounded.cut) raiseLimit(sp.diagnostics, 'bytes');
       const out = markdownEngine.render(bounded.markdown, { sp, spFence });
