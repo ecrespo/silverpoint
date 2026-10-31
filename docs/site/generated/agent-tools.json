@@ -53,5 +53,15 @@
     "name": "check_palette",
     "title": "Check a palette",
     "description": "The contrast findings of the core’s checkPalette for a preset or a palette of fields, over a substrate given as a hex or by name."
+  },
+  {
+    "name": "validate_deck",
+    "title": "Validate a deck",
+    "description": "Renders a Marp Markdown deck with @silverpoint/marp and returns its slide count and every diagnostic it raises (SP026 fences, SP027 directives, SP029 limits, SP018), each with its slide, its fence slot, requirement and remedy."
+  },
+  {
+    "name": "render_deck",
+    "title": "Render a deck",
+    "description": "A Marp Markdown deck as a standalone HTML document, as every adapter renders it on the server: every slide (or one, with `slide`), static charts, the theme, ground and deck stylesheets inlined, no controls. Deterministic."
   }
 ]

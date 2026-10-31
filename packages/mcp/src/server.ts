@@ -14,6 +14,7 @@ import { GUIDES } from './guides.generated';
 import { getChart, getComponent, listCharts, listComponents } from './tools/entries';
 import { recommendChart } from './tools/recommend';
 import { SEARCH_LIMIT, searchCatalog } from './tools/search';
+import { renderDeck, validateDeck } from './tools/deck';
 import { checkPaletteTool } from './tools/palette';
 import { renderChart } from './tools/render';
 import { validateProps } from './tools/validate';
@@ -239,6 +240,43 @@ export function createServer(options: ServerOptions = {}): McpServer {
     answer('check_palette', (input: Parameters<typeof checkPaletteTool>[1]) => checkPaletteTool(catalog, input)),
   );
 
+  const markdown = z.string().describe('The Marp Markdown of the deck: front matter, `---` between slides, `silverpoint` fences for charts. At most 256 KB.');
+  const deckDiagnostics = z.array(z.looseObject({})).optional();
+
+  server.registerTool(
+    'validate_deck',
+    {
+      title: 'Validate a deck',
+      description: 'Renders a Marp Markdown deck with @silverpoint/marp and returns its slide count and every diagnostic it raises (SP026 fences, SP027 directives, SP029 limits, SP018), each with its slide, its fence slot, requirement and remedy.',
+      inputSchema: { markdown },
+      outputSchema: versioned({ valid: z.boolean().optional(), total: z.number().optional(), diagnostics: deckDiagnostics, ...ERROR_SHAPE }),
+      annotations: READ_ONLY,
+    },
+    answer('validate_deck', (input: Parameters<typeof validateDeck>[1]) => validateDeck(catalog, input)),
+  );
+
+  server.registerTool(
+    'render_deck',
+    {
+      title: 'Render a deck',
+      description:
+        'A Marp Markdown deck as a standalone HTML document, as every adapter renders it on the server: every slide (or one, with `slide`), static charts, the theme, ground and deck stylesheets inlined, no controls. Deterministic.',
+      inputSchema: {
+        markdown,
+        slide: z.number().int().optional().describe('One slide, 1-based; every slide by default.'),
+        ground: name('The deck’s default ground: silverpoint or cyanotype. Directives override it per slide.').optional(),
+        substrate: name('A substrate of the ground.').optional(),
+        mode: name('ink or precision.').optional(),
+        palette: name('A preset of @silverpoint/core/palettes, for the fence charts.').optional(),
+        size: name('16:9 or 4:3; 16:9 by default.').optional(),
+        embedFonts: z.boolean().optional().describe('Inline EB Garamond; otherwise the face is referenced with a serif fallback.'),
+      },
+      outputSchema: versioned({ html: z.string().optional(), total: z.number().optional(), diagnostics: deckDiagnostics, ...ERROR_SHAPE }),
+      annotations: READ_ONLY,
+    },
+    answer('render_deck', (input: Parameters<typeof renderDeck>[1]) => renderDeck(catalog, input)),
+  );
+
   const json = (uri: string, value: unknown) => ({ contents: [{ uri, mimeType: 'application/json', text: JSON.stringify(value, null, 2) }] });
   /** A resource error is a protocol error with a message only: the closest names go into it (REQ-549). */
   const named = <T>(read: () => T): T => {
@@ -252,6 +290,9 @@ export function createServer(options: ServerOptions = {}): McpServer {
 
   server.registerResource('catalog', 'silverpoint://catalog', { title: 'Agent catalog', description: `The whole agent catalog of silverpoint ${version}.`, mimeType: 'application/json' }, (uri) =>
     json(uri.href, catalog.data),
+  );
+  server.registerResource('deck', 'silverpoint://deck', { title: 'Slide decks', description: 'The deck section: SpDeck’s props and events, directives, theme classes, the fence’s JSON Schema, diagnostics and stylesheets.', mimeType: 'application/json' }, (uri) =>
+    json(uri.href, catalog.data.deck),
   );
   server.registerResource('diagnostics', 'silverpoint://diagnostics', { title: 'Diagnostic codes', description: 'Every SP diagnostic: severity, requirement, what it means and what to do.', mimeType: 'application/json' }, (uri) =>
     json(uri.href, catalog.data.diagnostics),

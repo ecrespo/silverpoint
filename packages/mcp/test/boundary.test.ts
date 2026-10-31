@@ -41,7 +41,7 @@ describe('the catalog ships inside the package (REQ-537)', () => {
 
 describe('no capability beyond answering (REQ-551)', () => {
   /** The modules the server may import: its own, the library, the SDK's server side and the schema library. */
-  const ALLOWED = /^(\.{1,2}\/|@silverpoint\/(core(\/palettes|\/catalog)?|grounds)$|zod$|@modelcontextprotocol\/sdk\/(server\/|types\.js$))/;
+  const ALLOWED = /^(\.{1,2}\/|@silverpoint\/(core(\/palettes|\/catalog)?|grounds|marp)$|zod$|@modelcontextprotocol\/sdk\/(server\/|types\.js$))/;
 
   test('REQ-551 · the sources import nothing that writes, connects or spawns: no Node built-in, no other package', () => {
     const imports = SOURCES.flatMap(({ file, text }) =>
@@ -100,6 +100,8 @@ describe('every tool’s contract (REQ-566)', () => {
     validate_props: { chart: 'line-chart', props: 'xKey' },
     render_chart: { chart: 'line-chart', width: 10 },
     check_palette: { palette: 'sangine' },
+    validate_deck: { markdown: 42 },
+    render_deck: { markdown: '# One', slide: 2 },
   };
 
   test('REQ-566 · every tool with an input has an object schema and a refused input in this contract', async () => {

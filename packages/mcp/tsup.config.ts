@@ -11,5 +11,5 @@ export default defineConfig({
   splitting: true,
   clean: true,
   treeshake: true,
-  external: ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod'],
+  external: ['@silverpoint/core', '@silverpoint/grounds', '@silverpoint/marp', '@modelcontextprotocol/sdk', 'zod'],
 });

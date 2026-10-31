@@ -259,6 +259,16 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   API delta §1 and an `SpDeck` per framework. The skill gains `references/deck.md` with compiled
   examples (REQ-557).
 
+- **Agent tools (amended in implementation, T-283).** `render_deck` writes `deckView` with
+  `deckMarkup`, controls omitted, into `<!doctype html>` with the ground's stylesheet, `deck.css`
+  (a generated asset, `DECK_CSS`) and the document's own layout inlined; the deck's id is fixed
+  (`deck`), so the same input gives the same document. With no `slide`, every slide is shown (`hidden`
+  and `inert` dropped); in either case every fragment is shown, as in print (REQ-597). Diagnostics are
+  sorted by slide. A field named `markdown` is held to the body limit (256 KB) only, not to the
+  1,000-character string limit (REQ-560). The engine's warnings are captured, as `render_chart`'s are.
+  `@silverpoint/marp`'s controller reads `reportError` from `globalThis`, so the pure entry names no DOM
+  global. Resource: `silverpoint://deck`; `silverpoint://guides/deck` comes with the skill (T-285).
+
 ## 4. Structure (§5.1) — add
 
 ```

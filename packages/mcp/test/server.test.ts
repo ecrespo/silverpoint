@@ -42,10 +42,12 @@ const VALID: Readonly<Record<string, Record<string, unknown>>> = {
   validate_props: { chart: 'line-chart', props: { xKey: 'day' } },
   render_chart: { chart: 'line-chart', width: 320 },
   check_palette: { palette: 'sanguine' },
+  validate_deck: { markdown: '# One' },
+  render_deck: { markdown: '# One', slide: 1 },
 };
 
 describe('tools (REQ-539, REQ-566)', () => {
-  test('REQ-539 · the eleven tools, each with an input and an output schema and read-only annotations', async () => {
+  test('REQ-539 · the thirteen tools, each with an input and an output schema and read-only annotations', async () => {
     const { tools } = await client.listTools();
     expect(tools.map((t) => t.name).sort()).toEqual(Object.keys(VALID).sort());
     for (const tool of tools) {

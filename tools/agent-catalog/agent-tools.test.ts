@@ -9,7 +9,7 @@ import { README_FILE, toolList, toolsTable, withTools } from './agent-tools';
 const tools = await toolList();
 
 describe('the tool list (REQ-569)', () => {
-  test('REQ-569 · the server’s eleven tools, with their titles and descriptions, in registration order', () => {
+  test('REQ-569 · the server’s thirteen tools, with their titles and descriptions, in registration order', () => {
     expect(tools.map((t) => t.name)).toEqual([
       'get_version',
       'list_charts',
@@ -22,6 +22,8 @@ describe('the tool list (REQ-569)', () => {
       'validate_props',
       'render_chart',
       'check_palette',
+      'validate_deck',
+      'render_deck',
     ]);
     for (const tool of tools) {
       expect(tool.title, tool.name).toBeTruthy();

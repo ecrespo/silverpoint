@@ -38,7 +38,8 @@ export interface Rendered {
 export const DEFAULT_WIDTH = 480;
 /** The ground's rules, as every standalone render carries them. */
 export const STANDALONE_STYLE = GROUND_CSS;
-const FONT_FACE = `@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,${EB_GARAMOND_400}) format('woff2')}`;
+/** EB Garamond's regular face, inlined by `embedFonts`. */
+export const FONT_FACE = `@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,${EB_GARAMOND_400}) format('woff2')}`;
 
 /** Characters the core keeps intact in IDREFs and `url(#…)` (grounds `SAFE_ID`). */
 const SAFE_ID = /^[A-Za-z0-9_.:-]+$/;

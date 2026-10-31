@@ -51,7 +51,9 @@ export function createDeckController(options: DeckControllerOptions): DeckContro
         (fn as (p: DeckEvents[E]) => void)(payload);
       } catch (error) {
         // A host's listener must not break navigation or the other listeners.
-        if (typeof reportError === 'function') reportError(error);
+        // `reportError` is the browser's; the pure entry names no DOM global (REQ-570).
+        const report = (globalThis as { reportError?: (error: unknown) => void }).reportError;
+        if (typeof report === 'function') report(error);
         else console.error(error);
       }
     }

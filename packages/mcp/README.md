@@ -56,6 +56,8 @@ claude mcp add silverpoint -- npx -y @silverpoint/mcp
 | `validate_props` | Builds the chart with the core and returns every diagnostic it raises (code, severity, requirement, message, remedy) and the props it does not declare. |
 | `render_chart` | The canonical render of one chart as a standalone SVG, the ground’s stylesheet inlined: what every adapter draws for the same props, data, size and id. Without `data`, the demo dataset. |
 | `check_palette` | The contrast findings of the core’s checkPalette for a preset or a palette of fields, over a substrate given as a hex or by name. |
+| `validate_deck` | Renders a Marp Markdown deck with @silverpoint/marp and returns its slide count and every diagnostic it raises (SP026 fences, SP027 directives, SP029 limits, SP018), each with its slide, its fence slot, requirement and remedy. |
+| `render_deck` | A Marp Markdown deck as a standalone HTML document, as every adapter renders it on the server: every slide (or one, with `slide`), static charts, the theme, ground and deck stylesheets inlined, no controls. Deterministic. |
 <!-- tools:end -->
 
 Every result carries the version it describes. A name the catalog does not hold is a tool error with

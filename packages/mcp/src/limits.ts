@@ -12,6 +12,12 @@ export const LIMITS = {
   height: [120, 1200],
 } as const;
 
+/**
+ * Fields whose string is a document, held to the body's limit only: a deck's Markdown (REQ-620;
+ * the engine's own limits, REQ-576, apply after).
+ */
+const DOCUMENTS = new Set(['markdown']);
+
 /** Every string, every `data` array and the whole input, against the limits. */
 export function checkPayload(input: unknown): void {
   const bytes = JSON.stringify(input ?? null).length;
@@ -19,7 +25,7 @@ export function checkPayload(input: unknown): void {
   const walk = (value: unknown, path: string, depth: number): void => {
     if (depth > LIMITS.depth) throw new ToolError('invalid_input', `\`${path}\` nests deeper than ${LIMITS.depth} levels.`);
     if (typeof value === 'string') {
-      if (value.length > LIMITS.string) throw new ToolError('limit_exceeded', `\`${path}\` is ${value.length} characters; the limit is ${LIMITS.string}.`);
+      if (value.length > LIMITS.string && !DOCUMENTS.has(path.split('.').at(-1) ?? '')) throw new ToolError('limit_exceeded', `\`${path}\` is ${value.length} characters; the limit is ${LIMITS.string}.`);
       return;
     }
     if (Array.isArray(value)) {

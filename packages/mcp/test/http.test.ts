@@ -40,7 +40,7 @@ describe('stateless Streamable HTTP (REQ-538)', () => {
   test('REQ-538 · REQ-562 · every request stands alone: tools and resources without a prior initialize', async () => {
     const tools = await rpc(post('tools/list'));
     expect(tools.status).toBe(200);
-    expect((tools.body.result?.tools as unknown[]).length).toBe(11);
+    expect((tools.body.result?.tools as unknown[]).length).toBe(13);
     const resources = await rpc(post('resources/list'));
     expect((resources.body.result?.resources as { uri: string }[]).map((r) => r.uri)).toContain('silverpoint://catalog');
   });
