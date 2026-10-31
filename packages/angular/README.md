@@ -410,6 +410,37 @@ export class History {
 
 The server renders the surface and an empty mount; TimelineJS builds in the browser.
 
+## Decks
+
+`SpDeck` renders Marp Markdown as silverpoint slides, with live charts from `silverpoint` fences. Its
+engine is the optional peer `@silverpoint/marp`: install it only if you use decks, and import its
+stylesheet after the ground's.
+
+```sh
+npm install @silverpoint/marp
+```
+
+List `@silverpoint/marp/deck.css` in the `styles` array of `angular.json`.
+
+```ts
+import { Component, signal } from '@angular/core';
+import { SpDeckComponent } from '@silverpoint/angular/deck';
+
+@Component({
+  selector: 'app-talk',
+  imports: [SpDeckComponent],
+  template: `<sp-deck [markdown]="talk" [(page)]="page" [showNotes]="true" />`,
+})
+export class Talk {
+  protected readonly talk = '# Quarterly review\n\n---\n\n## Next steps';
+  protected readonly page = signal(1);
+}
+```
+
+The server renders the current slide and its static charts; the browser adds the controller and
+hydrates the charts. The authoring guide (directives, classes, the fence) and the theme for Marp CLI
+are in [`@silverpoint/marp`](https://www.npmjs.com/package/@silverpoint/marp).
+
 ## Related packages
 
 [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react) ·

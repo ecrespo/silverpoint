@@ -361,6 +361,45 @@ export function History() {
 
 The server renders the surface and an empty mount; TimelineJS builds in the browser.
 
+## Decks
+
+`SpDeck` renders Marp Markdown as silverpoint slides, with live charts from `silverpoint` fences. Its
+engine is the optional peer `@silverpoint/marp`: install it only if you use decks, and import its
+stylesheet after the ground's.
+
+```sh
+npm install @silverpoint/marp
+```
+
+```tsx
+import '@silverpoint/marp/deck.css';
+import { useState } from 'react';
+import { SpDeck } from '@silverpoint/react/deck';
+
+const talk = `# Quarterly review
+
+\`\`\`silverpoint
+{"chart":"bar-chart","props":{"title":"Visits by quarter"}}
+\`\`\`
+
+---
+
+## Next steps
+
+* Ship the deck`;
+
+export function Talk() {
+  const [page, setPage] = useState(1);
+  return <SpDeck markdown={talk} page={page} onPageChange={({ page }) => setPage(page)} />;
+}
+```
+
+In the Next.js App Router, a component holding the page in state needs `'use client'`.
+
+The server renders the current slide and its static charts; the browser adds the controller and
+hydrates the charts. The authoring guide (directives, classes, the fence) and the theme for Marp CLI
+are in [`@silverpoint/marp`](https://www.npmjs.com/package/@silverpoint/marp).
+
 ## Related packages
 
 [`@silverpoint/vue`](https://www.npmjs.com/package/@silverpoint/vue) ·

@@ -366,6 +366,35 @@ const story = {
 
 The server renders the surface and an empty mount; TimelineJS builds in the browser.
 
+## Decks
+
+`SpDeck` renders Marp Markdown as silverpoint slides, with live charts from `silverpoint` fences. Its
+engine is the optional peer `@silverpoint/marp`: install it only if you use decks, and import its
+stylesheet after the ground's.
+
+```sh
+npm install @silverpoint/marp
+```
+
+```vue
+<script setup lang="ts">
+import '@silverpoint/marp/deck.css';
+import { ref } from 'vue';
+import { SpDeck } from '@silverpoint/vue/deck';
+import talk from './talk.md?raw';
+
+const page = ref(1);
+</script>
+
+<template>
+  <SpDeck :markdown="talk" v-model:page="page" show-notes />
+</template>
+```
+
+The server renders the current slide and its static charts; the browser adds the controller and
+hydrates the charts. The authoring guide (directives, classes, the fence) and the theme for Marp CLI
+are in [`@silverpoint/marp`](https://www.npmjs.com/package/@silverpoint/marp).
+
 ## Related packages
 
 [`@silverpoint/react`](https://www.npmjs.com/package/@silverpoint/react) ·
