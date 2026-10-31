@@ -40,6 +40,15 @@ describe('the Marp CLI engine (T-266)', () => {
     expect(css).not.toMatch(/<\/style/i);
   });
 
+  test('REQ-572 · REQ-575 · raw HTML stays off even when the host turns it on after construction (Marp CLI --html)', () => {
+    const engine = new SilverpointMarp();
+    (engine.markdown as unknown as { set(o: object): void }).set({ html: true });
+    (engine.markdown as unknown as { options: { html: boolean } }).options.html = true;
+    const { html } = engine.render('<script>alert(1)</script>\n\n<img src=x onerror=alert(1)>\n\n# A');
+    expect(html).not.toContain('<script');
+    expect(html).not.toContain('<img');
+  });
+
   test('REQ-574 · each render is a fresh deck: the same Markdown, the same output', () => {
     const engine = new SilverpointMarp();
     expect(engine.render(MD)).toEqual(engine.render(MD));

@@ -17,6 +17,12 @@ import { GROUNDS_CSS } from './grounds-css.generated';
 const SIZE = { width: 1280, height: 720 } as const;
 const DECK_ID = 'deck';
 
+/** The slice of markdown-it this engine pins. */
+interface MarkdownOptions {
+  options: { html: boolean };
+  set(options: Record<string, unknown>): unknown;
+}
+
 interface Rendered<T> {
   readonly html: T;
   readonly css: string;
@@ -28,12 +34,17 @@ export default class SilverpointMarp extends Marpit {
     super({ ...options, inlineSVG: true, markdown: { html: false } });
     this.themeSet.default = this.themeSet.add(standaloneTheme([silverpoint, cyanotype]));
     installDeckRules(this);
+    // REQ-572, REQ-575: a host (Marp CLI's `--html`) may turn raw HTML on after construction.
+    const markdown = this.markdown as unknown as MarkdownOptions;
+    const set = markdown.set.bind(markdown);
+    markdown.set = (options) => set({ ...options, html: false });
   }
 
   // Marpit's two overloads: `htmlAsArray` gives one string per slide.
   override render(markdown: string, env: { htmlAsArray: true; [key: string]: unknown }): Rendered<string[]>;
   override render(markdown: string, env?: Record<string, unknown>): Rendered<string>;
   override render(markdown: string, env: Record<string, unknown> = {}): Rendered<string | string[]> {
+    (this.markdown as unknown as MarkdownOptions).options.html = false;
     // A fresh deck per render: Marp CLI renders each file, and each watch, with one instance.
     const deck = createDeckEnv({ id: DECK_ID, size: SIZE, defaults: { ground: 'silverpoint', substrate: 'cream', mode: 'ink' } });
     const out = super.render(markdown, { ...env, ...deck }) as Rendered<string | string[]>;
