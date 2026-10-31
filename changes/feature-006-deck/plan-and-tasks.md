@@ -51,7 +51,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 
 - [x] **T-253** `packages/marp` scaffold in the `fixed` group (tsup, exports of API delta §1, vitest project, `check-deps` rules: Marpit only here; optional peer in the adapters); `README` stub. *REQ-570, REQ-616*
 - [x] **T-254** `engine/marpit.ts` + `createDeckEngine`: container `div.sp-deck-<id>`, `slideContainer div.sp-deck-slide`, `inlineSVG`, `anchor: false`, `html: false`, `htmlAsArray`; id sanitising; `DeckRender` shape. Tests: I-43, I-44, REQ-571, REQ-572. *REQ-571..REQ-574*
-- [ ] **T-255** Hostile-input corpus (raw HTML, `javascript:`/`vbscript:`/`data:` links and images, `on*` attributes in Markdown attributes, HTML in directives and comments); I-45. *REQ-575*
+- [x] **T-255** Hostile-input corpus (raw HTML, `javascript:`/`vbscript:`/`data:` links and images, `on*` attributes in Markdown attributes, HTML in directives and comments); I-45. *REQ-575*
 - [ ] **T-256** Slide annotations (core rule): `role`, `aria-roledescription`, `aria-label`, `heading`, notes, fragments count. *REQ-573, REQ-614*
 - [ ] **T-257** Directives `ground`/`substrate`/`mode` (local, spot, inheritance, ground change resets substrate), `SP027`; `DECK_DIRECTIVES`; I-48. *REQ-584..REQ-586*
 - [ ] **T-258** `parseChartFence` + slug table from core and `/catalog` (60 slugs, kebab of recipe names, agrees with the agent catalog); every `FenceError` kind. *REQ-589, REQ-591*

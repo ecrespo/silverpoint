@@ -115,6 +115,13 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   each slide's opening token. Unknown values raise `SP027` through the core's diagnostic sink and are
   dropped, so Marpit's inheritance keeps the previous value.
 - **Rationale:** tokens, not string post-processing (the gate parses trees; we should too).
+- *Amended in implementation (T-255):* author CSS (`<style>`, `<style scoped>`, the `style`
+  directive) is kept for Marp compatibility but treated as untrusted: the deck CSS is passed through
+  `sanitiseDeckCss` —every `<` becomes `\3c `, so no `</style` can close the adapters' `<style>`
+  element, and `@import` outside strings and comments is removed, so no stylesheet Marpit cannot
+  scope is loaded. A core rule before `marpit_directives_apply` drops a `backgroundImage` directive
+  whose `url()` is not http(s), relative or a raster `data:` image. Found by the hostile corpus and
+  an automated security review; both guarded by mutation-checked tests.
 
 ### DD-055: Backdrops are drawn by `@silverpoint/grounds`
 
