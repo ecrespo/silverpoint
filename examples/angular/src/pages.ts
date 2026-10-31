@@ -1,5 +1,5 @@
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { COMPOSED_PAGE, DECK_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
 import { SpDeckComponent } from '@silverpoint/angular/deck';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
@@ -115,11 +115,20 @@ export class TimelinePage {
   template: `
     @let d = page.deck;
     <h1>{{ page.title }} · Angular</h1>
+    <p class="sp-deck-actions">
+      <button type="button" (click)="markdown.set(page.alternate)">{{ page.actions.change }}</button>
+      <button type="button" (click)="shown.set(false)">{{ page.actions.remove }}</button>
+    </p>
     <div class="sp-deck-page">
-      <sp-deck [id]="d.id" [label]="d.label" [markdown]="d.markdown" />
+      @if (shown()) {
+        <sp-deck [id]="d.id" [label]="d.label" [markdown]="markdown()" [hash]="d.hash" />
+      }
     </div>
   `,
 })
 export class DeckPage {
   protected readonly page = DECK_PAGE;
+  /** The page's two actions: swap the deck's Markdown, remove it (REQ-610, REQ-625). */
+  protected readonly markdown = signal(DECK_PAGE.deck.markdown);
+  protected readonly shown = signal(true);
 }

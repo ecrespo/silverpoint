@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { COMPOSED_PAGE, DECK_PAGE, DEMO_PROPS, fixtureProps, GALLERY, PALETTES_PAGE, sizeOf, TIMELINE_PAGE, UI_PAGE, type HarnessDashboard, type HarnessFixture, type HarnessDeckProps, type HarnessUiFixture } from '@silverpoint/example-harness';
 import { SpAlert, SpBadge, SpButton, SpCard, SpCheckbox, SpDivider, SpInput, SpProgress, SpRadioGroup, SpRate, SpSegmented, SpSkeleton, SpSlider, SpSteps, SpSwitch, SpTabPanel, SpTabs, SpTag } from '@silverpoint/vue/ui';
 import UiFixture from './UiFixture.vue';
@@ -72,6 +73,10 @@ import { SpNetworkChart } from '@silverpoint/vue/network-chart';
 /** `dashboard` with `gate`: a pixel-gate page; without: the `/dashboard` page (REQ-221). */
 const props = defineProps<{ fixture?: HarnessFixture; gallery?: boolean; dashboard?: HarnessDashboard; gate?: boolean; ui?: HarnessUiFixture; uiPage?: boolean; page?: 'composed' | 'palettes' | 'timeline' | 'deck'; deckGate?: HarnessDeckProps }>();
 
+/** The deck page's two actions: swap its Markdown, remove it (REQ-610, REQ-625). */
+const deckMarkdown = ref(DECK_PAGE.deck.markdown);
+const deckShown = ref(true);
+
 /** Every UI component a fixture can name, by its slug. */
 const UI = { button: SpButton, input: SpInput, checkbox: SpCheckbox, switch: SpSwitch, card: SpCard, divider: SpDivider, 'radio-group': SpRadioGroup, segmented: SpSegmented, tabs: SpTabs, slider: SpSlider, rate: SpRate, steps: SpSteps, tag: SpTag, badge: SpBadge, progress: SpProgress, alert: SpAlert, skeleton: SpSkeleton } as const;
 
@@ -140,8 +145,12 @@ const CHARTS = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChar
   </main>
   <main v-else-if="props.page === 'deck'">
     <h1>{{ DECK_PAGE.title }} · Vite + Vue</h1>
+    <p class="sp-deck-actions">
+      <button type="button" @click="deckMarkdown = DECK_PAGE.alternate">{{ DECK_PAGE.actions.change }}</button>
+      <button type="button" @click="deckShown = false">{{ DECK_PAGE.actions.remove }}</button>
+    </p>
     <div class="sp-deck-page">
-      <SpDeck v-bind="DECK_PAGE.deck" />
+      <SpDeck v-if="deckShown" v-bind="DECK_PAGE.deck" :markdown="deckMarkdown" />
     </div>
   </main>
   <main v-else-if="props.page === 'timeline'">

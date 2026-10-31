@@ -589,7 +589,10 @@ export const DECK_PAGE = Object.freeze({
       '',
       '# Thank you',
     ].join('\n'),
+    hash: true,
   }),
+  alternate: ['# A shorter deck', '', '---', '', '## Its last slide'].join('\n'),
+  actions: Object.freeze({ change: 'Change the deck', remove: 'Remove the deck' }),
 });
 
 export const TIMELINE_PAGE = Object.freeze({

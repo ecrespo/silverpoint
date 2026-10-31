@@ -222,6 +222,14 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   pinned image (the PoC's `poc-docker.sh` becomes its local runner). Bundles: `tools/bundle-budget`
   asserts no `@marp-team` and no `@silverpoint/marp` module in the one-chart builds and measures the
   `deck` entries (REQ-616, REQ-628).
+- **Three engines (amended in implementation, T-280).** `e2e/deck-engines.spec.ts` drives the
+  `/deck` page of the four apps; `SP_DECK_ENGINES=1` swaps the Playwright projects for one per app and
+  engine (12), and the default run ignores the spec. The page gains `hash` and two actions, *Change
+  the deck* (an alternate Markdown, REQ-610) and *Remove the deck* (unmount). Its local runner is
+  `tools/visual-gate/deck-engines-docker.sh`, not the PoC's script. Chromium's `channel` moves from the
+  global `use` into each project, or it reaches Firefox and WebKit. A chart's point is found by
+  geometry (`isPointInFill` in the sector's coordinates), not by hit-testing, which is what is under
+  test.
 - **Budgets (amended in implementation, T-281).** min+gzip, measured on the first build and rounded up
   with about 1 KB of margin, in `.size-limit.json`:
 

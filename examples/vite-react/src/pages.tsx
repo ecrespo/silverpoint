@@ -5,6 +5,7 @@ import { SpDeck } from '@silverpoint/react/deck';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { SpTimeline } from '@silverpoint/react/timeline';
 import { SpCard, SpProgress, SpTable, SpToaster } from '@silverpoint/react/ui';
+import { useState } from 'react';
 import { UiComponent } from './ui-fixture';
 
 /** The composed page (T-222): the 21 new rows, every state, in the UI page's three panels. */
@@ -72,13 +73,26 @@ export function PalettesPage() {
 
 /** The timeline page (T-222): `TIMELINE_DEMO` drawn by TimelineJS, in the ground's hand. */
 /** The deck page (T-277): server-rendered elsewhere, client-rendered here. */
+/** The deck and the page's two actions: swap its Markdown, remove it (REQ-610, REQ-625). */
+function DeckBench() {
+  const [markdown, setMarkdown] = useState(DECK_PAGE.deck.markdown);
+  const [shown, setShown] = useState(true);
+  return (
+    <>
+      <p className="sp-deck-actions">
+        <button type="button" onClick={() => setMarkdown(DECK_PAGE.alternate)}>{DECK_PAGE.actions.change}</button>
+        <button type="button" onClick={() => setShown(false)}>{DECK_PAGE.actions.remove}</button>
+      </p>
+      <div className="sp-deck-page">{shown && <SpDeck {...DECK_PAGE.deck} markdown={markdown} />}</div>
+    </>
+  );
+}
+
 export function DeckPage() {
   return (
     <main>
       <h1>{DECK_PAGE.title} · Vite + React</h1>
-      <div className="sp-deck-page">
-        <SpDeck {...DECK_PAGE.deck} />
-      </div>
+      <DeckBench />
     </main>
   );
 }

@@ -146,7 +146,11 @@ export interface HarnessPalettePreset {
 export declare const PALETTES_PAGE: { readonly title: string; readonly presets: readonly HarnessPalettePreset[] };
 export declare const DECK_PAGE: {
   readonly title: string;
-  readonly deck: { readonly id: string; readonly label: string; readonly markdown: string };
+  readonly deck: { readonly id: string; readonly label: string; readonly markdown: string; readonly hash: boolean };
+  /** What "Change the deck" swaps in: two slides and no chart (REQ-610). */
+  readonly alternate: string;
+  /** The two actions of the page, which the three-engine e2e drives (REQ-610, REQ-625). */
+  readonly actions: { readonly change: string; readonly remove: string };
 };
 export declare const TIMELINE_PAGE: {
   readonly title: string;

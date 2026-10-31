@@ -15,7 +15,10 @@ export type AppName = keyof typeof APPS;
 
 /** The documentation site: its own spec, not the apps' (T-097). */
 export const DOCS = { port: 4105 } as const;
-const withDocs = !process.env.E2E_APPS || process.env.E2E_APPS.split(',').includes('docs');
+/** `SP_DECK_ENGINES=1`: the `browser-deck` job's run, the deck spec in Chromium, Firefox and WebKit (T-280). */
+const deckEngines = !!process.env.SP_DECK_ENGINES;
+const ENGINES = ['chromium', 'firefox', 'webkit'] as const;
+const withDocs = !deckEngines && (!process.env.E2E_APPS || process.env.E2E_APPS.split(',').includes('docs'));
 
 /** `E2E_APPS=vite-react,nextjs` limits the run (and the servers started) to those apps. */
 const selected = Object.entries(APPS).filter(
@@ -28,8 +31,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   reporter: process.env.CI ? 'github' : 'list',
   timeout: 60_000,
+  // Each project names its browser: Chromium's `channel` would reach Firefox and WebKit too.
   use: {
-    channel: 'chromium',
     viewport: { width: 800, height: 600 },
     deviceScaleFactor: 1,
     reducedMotion: 'reduce',
@@ -37,15 +40,25 @@ export default defineConfig({
   expect: { toHaveScreenshot: { animations: 'disabled' } },
   // One golden image per fixture, shared by every adapter: the canonical render's screenshot.
   snapshotPathTemplate: '{testDir}/__golden__/{arg}{ext}',
-  projects: [
-    ...selected.map(([name, app]) => ({
-      name,
-      testIgnore: 'docs.spec.ts',
-      use: { baseURL: `http://localhost:${app.port}` },
-      metadata: { app: name, ...app },
-    })),
-    ...(withDocs ? [{ name: 'docs', testMatch: 'docs.spec.ts', use: { baseURL: `http://localhost:${DOCS.port}` } }] : []),
-  ],
+  projects: deckEngines
+    ? // The deck in three engines (T-280, REQ-625): its own spec, every app in each engine.
+      selected.flatMap(([name, app]) =>
+        ENGINES.map((engine) => ({
+          name: `${name}·${engine}`,
+          testMatch: 'deck-engines.spec.ts',
+          use: { baseURL: `http://localhost:${app.port}`, browserName: engine, ...(engine === 'chromium' ? { channel: 'chromium' } : {}) },
+          metadata: { app: name, ...app },
+        })),
+      )
+    : [
+        ...selected.map(([name, app]) => ({
+          name,
+          testIgnore: ['docs.spec.ts', 'deck-engines.spec.ts'],
+          use: { baseURL: `http://localhost:${app.port}`, channel: 'chromium' },
+          metadata: { app: name, ...app },
+        })),
+        ...(withDocs ? [{ name: 'docs', testMatch: 'docs.spec.ts', use: { baseURL: `http://localhost:${DOCS.port}`, channel: 'chromium' } }] : []),
+      ],
   webServer: [
     ...selected.map(([name, app]) => ({
       command: `pnpm --filter @silverpoint/example-${name} run serve --port ${app.port}`,
