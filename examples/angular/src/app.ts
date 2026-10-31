@@ -60,21 +60,29 @@ import { SpContourChart } from '@silverpoint/angular/contour-chart';
 import { SpDelaunayChart } from '@silverpoint/angular/delaunay-chart';
 import { SpVectorFieldChart } from '@silverpoint/angular/vector-field-chart';
 import { SpNetworkChart } from '@silverpoint/angular/network-chart';
-import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery } from '@silverpoint/example-harness';
+import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, dashboardPage, sizeOf, wantsGallery, deckFixtureFromSearch } from '@silverpoint/example-harness';
 import { SpDashboard, SpDashboardCell } from '@silverpoint/angular/dashboard';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiGate, UiPage } from './ui-gate';
 import { ComposedPage, DeckPage, PalettesPage, TimelinePage } from './pages';
+import { SpDeckComponent } from '@silverpoint/angular/deck';
 
 /** Every chart a fixture can name, by its chart name. */
 const CHARTS: Readonly<Record<string, Type<unknown>>> = { LineChart: SpLineChart, BulletChart: SpBulletChart, PyramidChart: SpPyramidChart, HeatmapChart: SpHeatmapChart, TreemapChart: SpTreemapChart, SankeyChart: SpSankeyChart, ActivityGrid: SpActivityGrid, StepChart: SpStepChart, SparklineRows: SpSparklineRows, KpiCard: SpKpiCard, BarChart: SpBarChart, StackedBarChart: SpStackedBarChart, ComposedChart: SpComposedChart, WaterfallChart: SpWaterfallChart, FunnelChart: SpFunnelChart, CandlestickChart: SpCandlestickChart, AreaChart: SpAreaChart, RangeBandChart: SpRangeBandChart, StreamChart: SpStreamChart, ScatterChart: SpScatterChart, BubbleChart: SpBubbleChart, DonutChart: SpDonutChart, RadarChart: SpRadarChart, PolarBarChart: SpPolarBarChart, RadialArcGroup: SpRadialArcGroup, RadialRings: SpRadialRings, GaugeArc: SpGaugeArc, MeterChart: SpMeterChart, CoxcombChart: SpCoxcombChart, WindRose: SpWindRose, VolvelleChart: SpVolvelleChart, ChordRing: SpChordRing, OrbitChart: SpOrbitChart, HistogramChart: SpHistogramChart, EcdfChart: SpEcdfChart, BoxPlotChart: SpBoxPlotChart, ViolinChart: SpViolinChart, RidgelineChart: SpRidgelineChart, BeeswarmChart: SpBeeswarmChart, LollipopChart: SpLollipopChart, DumbbellChart: SpDumbbellChart, SlopeChart: SpSlopeChart, BumpChart: SpBumpChart, ErrorBarChart: SpErrorBarChart, IntervalChart: SpIntervalChart, DivergingBarChart: SpDivergingBarChart, ConnectedScatterChart: SpConnectedScatterChart, WaffleChart: SpWaffleChart, MarimekkoChart: SpMarimekkoChart, SquarifiedTreemap: SpSquarifiedTreemap, SunburstChart: SpSunburstChart, TreeChart: SpTreeChart, ParallelCoordinatesChart: SpParallelCoordinatesChart, PolarLineChart: SpPolarLineChart, PolarScatterChart: SpPolarScatterChart, DensityBinChart: SpDensityBinChart, ContourChart: SpContourChart, DelaunayChart: SpDelaunayChart, VectorFieldChart: SpVectorFieldChart, NetworkChart: SpNetworkChart };
 
 @Component({
   selector: 'app-root',
-  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate, UiPage, ComposedPage, PalettesPage, TimelinePage, DeckPage],
+  imports: [SpLineChart, SpDashboard, SpDashboardCell, NgComponentOutlet, UiGate, UiPage, ComposedPage, PalettesPage, TimelinePage, DeckPage, SpDeckComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (ui) {
+    @if (deckGate; as d) {
+      <main>
+        <div class="sp-deck-harness" data-gate="">
+          <sp-deck [markdown]="d.markdown" [id]="d.id" [ground]="d.ground" [mode]="d.mode" [defaultPage]="d.defaultPage"
+            [showControls]="d.showControls" [keyboard]="d.keyboard" [swipe]="d.swipe" [interactive]="d.interactive" />
+        </div>
+      </main>
+    } @else if (ui) {
       <main><app-ui-gate [fixture]="ui" /></main>
     } @else if (uiPage) {
       <main><app-ui-page /></main>
@@ -141,6 +149,8 @@ export class App {
   private readonly fixture = fixtureById(new URLSearchParams(this.url.search).get('fixture'));
   /** A UI fixture of the pixel gate (REQ-328). */
   protected readonly ui = uiFixtureById(new URLSearchParams(this.url.search).get('ui'));
+  /** A deck fixture's slide of the pixel gate (T-279): `?deck=<id>&slide=<n>&assets=<base>`. */
+  protected readonly deckGate = deckFixtureFromSearch(this.url.search)?.props;
   /** The UI reference page (T-157). */
   protected readonly uiPage = this.url.pathname.replace(/\/$/, '') === '/ui';
   /** The feature-004 pages (T-222): `/composed`, `/palettes`, `/timeline`; and `/deck` (T-277). */

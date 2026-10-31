@@ -176,3 +176,8 @@ h1 {
   flex: 1 1 100%;
   pointer-events: auto;
 }
+
+/* The deck pixel gate (T-279, REQ-624): one slide at the canvas width, so its scale is exactly 1. */
+.sp-deck-harness[data-gate] {
+  width: 1280px;
+}

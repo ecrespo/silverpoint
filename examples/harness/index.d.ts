@@ -154,3 +154,29 @@ export declare const TIMELINE_PAGE: {
   /** What the mount shows when TimelineJS cannot be loaded. */
   readonly fallback: string;
 };
+
+export interface HarnessDeckFixture {
+  readonly id: string;
+  readonly source: string;
+  readonly req: 'REQ-623';
+  readonly deckId: string;
+  readonly ground: string;
+  readonly mode: 'ink' | 'precision';
+  readonly markdown: string;
+  readonly slides: number;
+}
+export interface HarnessDeckProps {
+  readonly markdown: string;
+  readonly id: string;
+  readonly ground: string;
+  readonly mode: 'ink' | 'precision';
+  readonly defaultPage: number;
+  readonly showControls: false;
+  readonly keyboard: false;
+  readonly swipe: false;
+  readonly interactive: false;
+}
+export declare const DECK_FIXTURES: readonly HarnessDeckFixture[];
+export declare function deckFixtureById(id: string | null | undefined): HarnessDeckFixture | undefined;
+export declare function deckFixtureProps(fixture: HarnessDeckFixture, options?: { slide?: number; assets?: string }): HarnessDeckProps;
+export declare function deckFixtureFromSearch(search: string): { fixture: HarnessDeckFixture; props: HarnessDeckProps } | undefined;

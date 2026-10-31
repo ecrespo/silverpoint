@@ -4,6 +4,7 @@
  */
 import { DASHBOARD_DEMOS } from '@silverpoint/core/dashboard-demos';
 import { ALL_FIXTURES } from './fixtures.generated.js';
+import { DECK_FIXTURES } from './deck-fixtures.generated.js';
 
 /** The nightly matrix (Data Model §5): 3,402 cells, the drilled-root and placed-network state fixtures included. */
 export { ALL_FIXTURES };
@@ -596,3 +597,31 @@ export const TIMELINE_PAGE = Object.freeze({
   timeline: { id: 'timeline', data: TIMELINE_DEMO, ground: 'silverpoint', substrate: 'cream', mode: 'ink' },
   fallback: 'The timeline could not be loaded: install @knight-lab/timelinejs.',
 });
+
+/** The deck fixtures of the pixel gate (T-279, REQ-624): six decks × two grounds × two modes. */
+export { DECK_FIXTURES };
+
+/** A deck fixture by id (`?deck=<id>`), or `undefined`. */
+export function deckFixtureById(id) {
+  return id ? DECK_FIXTURES.find((f) => f.id === id) : undefined;
+}
+
+/**
+ * `SpDeck`'s props for one slide of a deck fixture, as every app and the canonical page pass them:
+ * that slide shown, no controls, no bindings, the fence charts static (the gate measures the slide;
+ * the charts' own parity is the chart gates'). The fixtures' `assets/` images are read from `assets`,
+ * the base URL the gate gives every page, so the four apps load the same files.
+ */
+export function deckFixtureProps(fixture, { slide = 1, assets } = {}) {
+  const markdown = assets ? fixture.markdown.replaceAll('](assets/', `](${assets}`) : fixture.markdown;
+  return { markdown, id: fixture.deckId, ground: fixture.ground, mode: fixture.mode, defaultPage: slide, showControls: false, keyboard: false, swipe: false, interactive: false };
+}
+
+/** The `?deck=` page's parameters: the fixture, the slide, the assets' base. */
+export function deckFixtureFromSearch(search) {
+  const params = new URLSearchParams(search);
+  const fixture = deckFixtureById(params.get('deck'));
+  if (!fixture) return undefined;
+  const slide = Number(params.get('slide') ?? '1');
+  return { fixture, props: deckFixtureProps(fixture, { slide: Number.isInteger(slide) && slide >= 1 ? slide : 1, assets: params.get('assets') ?? undefined }) };
+}

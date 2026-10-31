@@ -5,7 +5,7 @@ import '@silverpoint/example-harness/harness.css';
 import '@silverpoint/marp/deck.css';
 import '@knight-lab/timelinejs/dist/css/timeline.css';
 import '@silverpoint/grounds/timeline.css';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, uiFixtureById, wantsGallery } from '@silverpoint/example-harness';
+import { dashboardFixtureById, deckFixtureFromSearch, dashboardFixtureProps, fixtureById, LINKED_DASHBOARD, REFERENCE_DASHBOARD, uiFixtureById, wantsGallery } from '@silverpoint/example-harness';
 import { createApp, createSSRApp } from 'vue';
 import App from './App.vue';
 
@@ -17,11 +17,16 @@ const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'))
 const prerendered = fixtureById(/^\/ssr\/([^/]+?)(?:\.html)?$/.exec(location.pathname)?.[1] ?? null);
 const dashboard = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
 const ui = uiFixtureById(new URLSearchParams(location.search).get('ui'));
+/** A deck fixture's slide of the pixel gate (T-279): `?deck=<id>&slide=<n>&assets=<base>`. */
+const deckGate = deckFixtureFromSearch(location.search);
 
 if (prerendered) {
   // A second-catalog fixture page, server-rendered into dist/ssr: hydrate it (REQ-103, REQ-435).
   createSSRApp(App, { fixture: prerendered }).mount('#app');
   document.documentElement.dataset.hydrated = 'true';
+} else if (deckGate) {
+  // A deck fixture's slide of the pixel gate, rendered on the client.
+  createApp(App, { deckGate: deckGate.props }).mount('#app');
 } else if (ui) {
   // A UI fixture of the pixel gate, rendered on the client.
   createApp(App, { ui }).mount('#app');

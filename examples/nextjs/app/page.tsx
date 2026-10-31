@@ -1,12 +1,13 @@
 import type { ComponentType } from 'react';
 import { uiFixtureById } from '@silverpoint/example-harness';
 import { UiFixture } from './ui-fixture';
-import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, sizeOf } from '@silverpoint/example-harness';
+import { DEMO_PROPS, deckFixtureFromSearch, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, GALLERY, sizeOf } from '@silverpoint/example-harness';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { CHARTS } from './charts';
 import { ReferenceDashboard } from './reference-dashboard';
 import { LineChart as ServerLineChart } from '@silverpoint/react/server/line-chart';
 import { Hydrated } from './hydrated';
+import { SpDeck } from '@silverpoint/react/deck';
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const params = await searchParams;
@@ -34,6 +35,18 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
     return (
       <main>
         <UiFixture fixture={ui} />
+        <Hydrated />
+      </main>
+    );
+  }
+  // A deck fixture's slide of the pixel gate (T-279): `?deck=<id>&slide=<n>&assets=<base>`.
+  const deckGate = deckFixtureFromSearch(new URLSearchParams(Object.entries(params).filter((e): e is [string, string] => e[1] !== undefined)).toString());
+  if (deckGate) {
+    return (
+      <main>
+        <div className="sp-deck-harness" data-gate="">
+          <SpDeck {...deckGate.props} />
+        </div>
         <Hydrated />
       </main>
     );

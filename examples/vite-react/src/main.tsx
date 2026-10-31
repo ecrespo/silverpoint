@@ -8,8 +8,9 @@ import { UI_PAGE, uiFixtureById, type HarnessUiPageItem } from '@silverpoint/exa
 import { SpTabPanel } from '@silverpoint/react/ui';
 import { UI, UiFixture } from './ui-fixture';
 import { ComposedPage, DeckPage, PalettesPage, TimelinePage } from './pages';
-import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
+import { DEMO_PROPS, deckFixtureFromSearch, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
+import { SpDeck } from '@silverpoint/react/deck';
 import { SilverpointProvider } from '@silverpoint/react';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { BulletChart } from '@silverpoint/react/bullet-chart';
@@ -79,6 +80,8 @@ import { createRoot } from 'react-dom/client';
 // resolve the same way under `vite dev` and `vite build` (REQ-033, T-024).
 const fixture = fixtureById(new URLSearchParams(location.search).get('fixture'));
 const dashboardFixture = dashboardFixtureById(new URLSearchParams(location.search).get('dashboard'));
+/** A deck fixture's slide of the pixel gate (T-279): `?deck=<id>&slide=<n>&assets=<base>`. */
+const deckGate = deckFixtureFromSearch(location.search);
 const uiFixture = uiFixtureById(new URLSearchParams(location.search).get('ui'));
 
 /** One item of the UI page as a consumer writes it: uncontrolled, the value as its default. */
@@ -158,6 +161,15 @@ function App() {
     return (
       <main>
         <UiFixture fixture={uiFixture} />
+      </main>
+    );
+  }
+  if (deckGate) {
+    return (
+      <main>
+        <div className="sp-deck-harness" data-gate="">
+          <SpDeck {...deckGate.props} />
+        </div>
       </main>
     );
   }

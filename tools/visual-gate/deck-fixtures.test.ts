@@ -4,7 +4,8 @@ import { describe, expect, test } from 'vitest';
 import { createDeckEngine } from '@silverpoint/marp';
 import { parseDeck } from '../svg-normalizer/normalize';
 import { FIXTURES_DIR } from './fixtures';
-import { DECK_SOURCES, deckCanonicalFor, deckCanonicalMarkup, deckFixtureProps, deckMarkdown, deckMatrix, deckSourcesOnDisk } from './deck-fixtures';
+import { DECK_FIXTURES, deckFixtureFromSearch, deckFixtureProps as harnessDeckProps } from '../../examples/harness/index.js';
+import { DECK_SOURCES, deckCanonicalFor, deckCanonicalMarkup, deckFixtureProps, deckHarnessFixtures, deckMarkdown, deckMatrix, deckSourcesOnDisk } from './deck-fixtures';
 
 /* The deck fixtures (T-278, Data Model §5, REQ-623): six decks × two grounds × two modes. */
 
@@ -65,5 +66,30 @@ describe('deck fixtures (T-278)', () => {
     expect(tree.tag).toBe('div');
     expect(tree.attrs.find(([n]) => n === '#style')![1]).toContain('div.sp-deck-fx-fences');
     expect(tree.children.some((c) => 'tag' in c && c.tag === 'style')).toBe(false);
+  });
+});
+
+describe('the deck fixtures in the example harness (T-279)', () => {
+  test('REQ-624 · the generated module is the current fixtures, Markdown and slide count included', () => {
+    expect(DECK_FIXTURES).toEqual(deckHarnessFixtures());
+    expect(DECK_FIXTURES.find((f) => f.id === 'deck--classes--cyanotype--ink')!.slides).toBe(6);
+    expect(DECK_FIXTURES.reduce((n, f) => n + f.slides, 0)).toBe(23 * 4);
+  });
+
+  test('REQ-624 · the bench serves the fixtures’ images as committed', () => {
+    for (const name of ['plate.svg', 'rule.svg']) {
+      expect(readFileSync(join(FIXTURES_DIR, '..', 'examples/vite-react/public/deck-assets', name), 'utf8'), name).toBe(readFileSync(join(FIXTURES_DIR, 'deck/assets', name), 'utf8'));
+    }
+  });
+
+  test('REQ-624 · `?deck=<id>&slide=<n>&assets=<base>`: that slide, static, its images from the base', () => {
+    const found = deckFixtureFromSearch('?deck=deck--backgrounds--silverpoint--ink&slide=2&assets=http://localhost:4101/deck-assets/')!;
+    expect(found.fixture.id).toBe('deck--backgrounds--silverpoint--ink');
+    expect(found.props).toMatchObject({ id: 'fx-backgrounds', ground: 'silverpoint', mode: 'ink', defaultPage: 2, showControls: false, keyboard: false, swipe: false, interactive: false });
+    expect(found.props.markdown).toContain('](http://localhost:4101/deck-assets/plate.svg)');
+    expect(found.props.markdown).not.toContain('](assets/');
+    expect(deckFixtureFromSearch('?deck=deck--basic--silverpoint--ink&slide=x')!.props.defaultPage).toBe(1);
+    expect(deckFixtureFromSearch('?deck=nope')).toBeUndefined();
+    expect(harnessDeckProps(found.fixture).markdown).toBe(found.fixture.markdown);
   });
 });

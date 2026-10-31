@@ -7,6 +7,7 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
+import '@silverpoint/marp/deck.css';
 import {
   lineChart,
   bulletChart,
@@ -75,9 +76,10 @@ import {
   slopeChart,
   violinChart,
 } from '@silverpoint/core/catalog';
-import { dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureOverlay, uiFixtureTree, uiSizeOf } from '@silverpoint/example-harness';
+import { deckFixtureFromSearch, dashboardFixtureById, dashboardFixtureProps, fixtureById, fixtureProps, sizeOf, uiFixtureById, uiFixtureOverlay, uiFixtureTree, uiSizeOf } from '@silverpoint/example-harness';
 import { uiAnchor, uiOverlaySync, type UiNode } from '@silverpoint/core/ui';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { createDeckEngine, deckMarkup, deckView } from '@silverpoint/marp';
 
 const RECIPES = { LineChart: lineChart, BulletChart: bulletChart, PyramidChart: pyramidChart, HeatmapChart: heatmapChart, TreemapChart: treemapChart, SankeyChart: sankeyChart, ActivityGrid: activityGrid, StepChart: stepChart, SparklineRows: sparklineRows, KpiCard: kpiCard, BarChart: barChart, StackedBarChart: stackedBarChart, ComposedChart: composedChart, WaterfallChart: waterfallChart, FunnelChart: funnelChart, CandlestickChart: candlestickChart, AreaChart: areaChart, RangeBandChart: rangeBandChart, StreamChart: streamChart, ScatterChart: scatterChart, BubbleChart: bubbleChart, DonutChart: donutChart, RadarChart: radarChart, PolarBarChart: polarBarChart, RadialArcGroup: radialArcGroup, RadialRings: radialRings, GaugeArc: gaugeArc, MeterChart: meterChart, CoxcombChart: coxcombChart, WindRose: windRose, VolvelleChart: volvelleChart, ChordRing: chordRing, OrbitChart: orbitChart, HistogramChart: histogramChart, EcdfChart: ecdfChart, BoxPlotChart: boxPlotChart, ViolinChart: violinChart, RidgelineChart: ridgelineChart, BeeswarmChart: beeswarmChart, LollipopChart: lollipopChart, DumbbellChart: dumbbellChart, SlopeChart: slopeChart, BumpChart: bumpChart, ErrorBarChart: errorBarChart, IntervalChart: intervalChart, DivergingBarChart: divergingBarChart, ConnectedScatterChart: connectedScatterChart, WaffleChart: waffleChart, MarimekkoChart: marimekkoChart, SquarifiedTreemap: squarifiedTreemap, SunburstChart: sunburstChart, TreeChart: treeChart, ParallelCoordinatesChart: parallelCoordinatesChart, PolarLineChart: polarLineChart, PolarScatterChart: polarScatterChart, DensityBinChart: densityBinChart, ContourChart: contourChart, DelaunayChart: delaunayChart, VectorFieldChart: vectorFieldChart, NetworkChart: networkChart } as const;
 
@@ -183,4 +185,20 @@ if (ui && uiHarness) {
     if (overlay.place && anchor) uiAnchor(anchor, element, overlay.place);
     if (overlay.focus) element.querySelector<HTMLElement>(`[role="menuitem"][data-key="${CSS.escape(overlay.focus)}"]`)?.focus();
   }
+}
+
+/**
+ * The canonical render of a deck fixture's slide (T-279, REQ-624): `@silverpoint/marp`'s own static
+ * HTML (`deckMarkup` over the engine and `deckView`), parsed inert and adopted as nodes (TD §6), at
+ * the canvas width. No controller and no client half: the slide as the server sends it.
+ */
+const deckGate = deckFixtureFromSearch(location.search);
+if (deckGate) {
+  const { props } = deckGate;
+  const render = createDeckEngine({ id: props.id, ground: props.ground, mode: props.mode }).render(props.markdown);
+  const view = deckView(render, { page: props.defaultPage, step: 0, overview: false, notes: false, fullscreen: false }, { showControls: false, fullscreenAvailable: false, ground: props.ground, mode: props.mode });
+  const page = element('div', { class: 'sp-deck-harness', 'data-gate': '' });
+  const deck = new DOMParser().parseFromString(deckMarkup(view), 'text/html').body.firstElementChild;
+  if (deck) page.append(document.importNode(deck, true));
+  document.querySelector('.sp-harness')?.replaceWith(page);
 }

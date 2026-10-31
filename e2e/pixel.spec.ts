@@ -1,11 +1,10 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
-import pixelmatch from 'pixelmatch';
-import { PNG } from 'pngjs';
 import { ALL_FIXTURES, DASHBOARD_FIXTURES, DASHBOARD_WIDTHS, dashboardFixtureProps, FIXTURES, UI_FIXTURES, UI_PR_FIXTURES, uiFixtureOverlay, type HarnessUiFixture } from '../examples/harness/index.js';
 import { APPS } from '../playwright.config';
 import { CATALOG, DASHBOARDS } from '../tools/visual-gate/catalog';
 import { matrixScope } from '../tools/visual-gate/matrix';
+import { compare, gate } from './pixel-compare';
 
 /** The PR matrix on every PR; the full 3,402 cells when the nightly run sets `SP_MATRIX=full`. */
 const FULL = matrixScope() === 'full';
@@ -24,29 +23,6 @@ async function shoot(page: Page, url: string): Promise<Buffer> {
     await document.fonts.ready;
   });
   return page.locator('.sp-harness[data-gate]').screenshot({ animations: 'disabled' });
-}
-
-/** Pixels differing beyond `threshold` (pixelmatch's YIQ distance, as Playwright uses it). */
-function compare(actual: Buffer, expected: Buffer, threshold: number): { pixels: number; ratio: number } {
-  const a = PNG.sync.read(actual);
-  const b = PNG.sync.read(expected);
-  if (a.width !== b.width || a.height !== b.height) return { pixels: Number.POSITIVE_INFINITY, ratio: 1 };
-  const pixels = pixelmatch(a.data, b.data, null, a.width, a.height, { threshold });
-  return { pixels, ratio: pixels / (a.width * a.height) };
-}
-
-/** The three comparisons of Constitution Art. 3; returns the ones that fail. */
-function gate(adapter: Buffer, canonical: Buffer, golden: Buffer | undefined): string[] {
-  const failures: string[] = [];
-  const same = compare(adapter, canonical, 0.1);
-  if (same.ratio > 0.001) failures.push(`vs canonical: ${same.pixels} px (${same.ratio}) beyond 0.10`);
-  if (compare(adapter, canonical, 0.5).pixels > 0) failures.push('vs canonical: a pixel beyond 0.50');
-  if (golden) {
-    const stored = compare(adapter, golden, 0.15);
-    if (stored.ratio > 0.005) failures.push(`vs golden: ${stored.pixels} px (${stored.ratio}) beyond 0.15`);
-    if (compare(adapter, golden, 0.5).pixels > 0) failures.push('vs golden: a pixel beyond 0.50');
-  }
-  return failures;
 }
 
 test.describe('pixel gate', () => {
