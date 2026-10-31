@@ -561,6 +561,36 @@ export const PALETTES_PAGE = Object.freeze({
 });
 
 /** The timeline page: `TIMELINE_DEMO` on silverpoint/cream, in ink. */
+/** The deck page (T-277): a Marp deck with a fence chart, fragments and notes, server-rendered and hydrated. */
+export const DECK_PAGE = Object.freeze({
+  title: 'silverpoint · deck',
+  deck: Object.freeze({
+    id: 'demo-deck',
+    label: 'silverpoint deck',
+    markdown: [
+      '# The quarter in silverpoint',
+      '',
+      '<!-- Open with the share of each channel. -->',
+      '',
+      '```silverpoint',
+      '{"chart":"donut-chart","props":{"title":"Share by channel"}}',
+      '```',
+      '',
+      '---',
+      '',
+      '## Three things to remember',
+      '',
+      '* Direct traffic grew',
+      '* Referrals held',
+      '* Search fell back',
+      '',
+      '---',
+      '',
+      '# Thank you',
+    ].join('\n'),
+  }),
+});
+
 export const TIMELINE_PAGE = Object.freeze({
   title: 'silverpoint · timeline',
   timeline: { id: 'timeline', data: TIMELINE_DEMO, ground: 'silverpoint', substrate: 'cream', mode: 'ink' },

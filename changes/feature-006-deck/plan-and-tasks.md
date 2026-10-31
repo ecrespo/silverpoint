@@ -82,7 +82,7 @@ When reporting a test step, show its output (rendered HTML/CSS, transitions, the
 - [x] **T-274** Vue `SpDeck`: `shallowRef` state, `v-model:page`, `render(h())` hydration with `appContext`, cleanup. *REQ-593, REQ-608, REQ-610, REQ-611*
 - [x] **T-275** Angular `sp-deck` (secondary entry point `deck`): signal inputs, `[page]` + `(pageChange)` (amended: the payload is `{ page, total }`, TD delta DD-055), `createComponent({ hostElement })` hydration, `afterRenderEffect`, `DestroyRef` cleanup. *REQ-593, REQ-608, REQ-610, REQ-611*
 - [x] **T-276** Controls and overview markup in the three adapters (native buttons, labels, `aria-pressed`, counter, live region, `SP018`). *REQ-604, REQ-613, REQ-614*
-- [ ] **T-277** SSR: Next.js, `@vue/server-renderer`, Angular SSR render the deck; hydration without mismatch; the client half only after mount. *REQ-612*
+- [x] **T-277** SSR: Next.js, `@vue/server-renderer`, Angular SSR render the deck; hydration without mismatch; the client half only after mount. *REQ-612*
 
 ### 10f — Gates
 

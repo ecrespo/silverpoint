@@ -159,6 +159,10 @@ markdown ──► createDeckEngine({ id, ground, substrate, mode, palette, size
   and, in React 18, is a hydration mismatch. The deck's CSS therefore goes in raw (React
   `dangerouslySetInnerHTML`, Vue `innerHTML`): `sanitiseDeckCss` leaves no `<` in it, so no
   `</style` can close the element.
+  In Angular the `<style>` is the root's *last* child: it is not a template node, and hydration walks
+  the server's nodes in template order, so a leading extra node broke it (the client half never ran).
+  The four example apps carry a `/deck` page; `e2e/deck.spec.ts` checks the server HTML, hydration
+  with no mismatch, that the server's deck is adopted, and the client half.
 
 ### DD-056: The theme is generated from ground tokens
 

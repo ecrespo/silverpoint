@@ -144,6 +144,10 @@ export interface HarnessPalettePreset {
   readonly table: SpTableProps;
 }
 export declare const PALETTES_PAGE: { readonly title: string; readonly presets: readonly HarnessPalettePreset[] };
+export declare const DECK_PAGE: {
+  readonly title: string;
+  readonly deck: { readonly id: string; readonly label: string; readonly markdown: string };
+};
 export declare const TIMELINE_PAGE: {
   readonly title: string;
   readonly timeline: SpTimelineProps;

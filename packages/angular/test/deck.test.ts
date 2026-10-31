@@ -24,8 +24,8 @@ describe('<sp-deck> on the server (Angular)', () => {
     const html = await ssrHost(host('<sp-deck [markdown]="md" id="d1" />'));
     expect(html).toMatch(/<div class="sp-deck sp-ground-silverpoint" part="sp-deck" role="region" aria-roledescription="slide deck" aria-label="Opening" tabindex="0"/);
     expect(html).toContain('data-sp-page="1"');
-    // The scoped style is the root's first child, once.
-    expect(html).toMatch(/tabindex="0"[^>]*><style>/);
+    // The scoped style is the root's last child, once: after every template node (hydration).
+    expect(html).toMatch(/Slide 1 of 3<\/p><style>[^<]*<\/style><\/div>/);
     expect(html.match(/<style>/g)).toHaveLength(1);
     // The style's text is raw CSS: Marpit's child combinators survive the server (T-277).
     const css = /<style>([\s\S]*?)<\/style>/.exec(html)![1]!;

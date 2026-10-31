@@ -3,10 +3,11 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
+import '@silverpoint/marp/deck.css';
 import { UI_PAGE, uiFixtureById, type HarnessUiPageItem } from '@silverpoint/example-harness';
 import { SpTabPanel } from '@silverpoint/react/ui';
 import { UI, UiFixture } from './ui-fixture';
-import { ComposedPage, PalettesPage, TimelinePage } from './pages';
+import { ComposedPage, DeckPage, PalettesPage, TimelinePage } from './pages';
 import { DEMO_PROPS, dashboardFixtureById, dashboardFixtureProps, dashboardPage, fixtureById, fixtureProps, GALLERY, sizeOf, wantsGallery, type HarnessDashboard } from '@silverpoint/example-harness';
 import { Dashboard, DashboardCell } from '@silverpoint/react/dashboard';
 import { SilverpointProvider } from '@silverpoint/react';
@@ -173,6 +174,7 @@ function App() {
   if (location.pathname.replace(/\/$/, '') === '/composed') return <ComposedPage />;
   if (location.pathname.replace(/\/$/, '') === '/palettes') return <PalettesPage />;
   if (location.pathname.replace(/\/$/, '') === '/timeline') return <TimelinePage />;
+  if (location.pathname.replace(/\/$/, '') === '/deck') return <DeckPage />;
   if (location.pathname === '/dashboard') {
     return (
       <main>

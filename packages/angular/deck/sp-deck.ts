@@ -60,7 +60,12 @@ export class SpDeckHtml implements OnChanges {
   }
 }
 
-/** `[spDeckStyle]`: the deck's scoped `<style>`, as the root's first child (templates drop `<style>`). */
+/**
+ * `[spDeckStyle]`: the deck's scoped `<style>` (templates drop `<style>`), as the root's *last* child.
+ * It is not a template node, so it must not sit before one: hydration walks the server's nodes in the
+ * template's order, and a leading extra node would shift every one after it. Directives run after
+ * the root's own children exist, so appending places it last, on the server as on the client.
+ */
 @Directive({ selector: '[spDeckStyle]' })
 export class SpDeckStyle implements OnChanges {
   readonly spDeckStyle = input.required<string>();
@@ -71,9 +76,9 @@ export class SpDeckStyle implements OnChanges {
   ngOnChanges(): void {
     if (!this.style) {
       // A server-rendered deck already has it: reuse it rather than add a second.
-      const first = this.element.firstElementChild;
-      this.style = first?.tagName === 'STYLE' ? first : this.renderer.createElement('style');
-      if (this.style !== first) this.renderer.insertBefore(this.element, this.style, this.element.firstChild);
+      const last = this.element.lastElementChild;
+      this.style = last?.tagName === 'STYLE' ? last : this.renderer.createElement('style');
+      if (this.style !== last) this.renderer.appendChild(this.element, this.style);
     }
     this.renderer.setProperty(this.style, 'textContent', this.spDeckStyle());
   }

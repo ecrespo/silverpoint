@@ -14,7 +14,7 @@ console.log('prerendered dist/dashboard.html');
 writeFileSync('dist/ui.html', page.replace('<!--app-->', await render({ uiPage: true })));
 console.log('prerendered dist/ui.html');
 // The feature-004 pages (T-222), server-rendered the same way.
-for (const name of ['composed', 'palettes', 'timeline']) {
+for (const name of ['composed', 'palettes', 'timeline', 'deck']) {
   writeFileSync(`dist/${name}.html`, page.replace('<!--app-->', await render({ page: name })));
   console.log(`prerendered dist/${name}.html`);
 }

@@ -624,7 +624,7 @@
     "./package.json": "./package.json",
     "./deck": {
       "@silverpoint/source": "./src/deck/index.ts",
-      "types": "./dist/deck.d.ts",
+      "types": "./dist/deck/index.d.ts",
       "import": "./dist/deck.js",
       "default": "./dist/deck.js"
     }

@@ -1,6 +1,7 @@
 import '@knight-lab/timelinejs/dist/css/timeline.css';
 import '@silverpoint/grounds/timeline.css';
-import { COMPOSED_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
+import { COMPOSED_PAGE, DECK_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
+import { SpDeck } from '@silverpoint/react/deck';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { SpTimeline } from '@silverpoint/react/timeline';
 import { SpCard, SpProgress, SpTable, SpToaster } from '@silverpoint/react/ui';
@@ -70,6 +71,18 @@ export function PalettesPage() {
 }
 
 /** The timeline page (T-222): `TIMELINE_DEMO` drawn by TimelineJS, in the ground's hand. */
+/** The deck page (T-277): server-rendered elsewhere, client-rendered here. */
+export function DeckPage() {
+  return (
+    <main>
+      <h1>{DECK_PAGE.title} · Vite + React</h1>
+      <div className="sp-deck-page">
+        <SpDeck {...DECK_PAGE.deck} />
+      </div>
+    </main>
+  );
+}
+
 export function TimelinePage() {
   return (
     <main>

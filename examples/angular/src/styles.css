@@ -2,5 +2,6 @@
 @import '@silverpoint/grounds/styles.css';
 @import '@silverpoint/grounds/ui.css';
 @import '@silverpoint/example-harness/harness.css';
+@import '@silverpoint/marp/deck.css';
 @import '@knight-lab/timelinejs/dist/css/timeline.css';
 @import '@silverpoint/grounds/timeline.css';

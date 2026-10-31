@@ -2,6 +2,7 @@ import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
 import '@silverpoint/grounds/ui.css';
 import '@silverpoint/example-harness/harness.css';
+import '@silverpoint/marp/deck.css';
 import type { ReactNode } from 'react';
 
 export const metadata = { title: 'silverpoint · Next.js', icons: { icon: 'data:,' } };

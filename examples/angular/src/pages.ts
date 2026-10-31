@@ -1,6 +1,7 @@
 import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { COMPOSED_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
+import { COMPOSED_PAGE, DECK_PAGE, PALETTES_PAGE, TIMELINE_PAGE } from '@silverpoint/example-harness';
+import { SpDeckComponent } from '@silverpoint/angular/deck';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
 import { SpTimeline, SpTimelineFallback } from '@silverpoint/angular/timeline';
 import { SpCard, SpProgress, SpTable, SpToaster } from '@silverpoint/angular/ui';
@@ -103,4 +104,22 @@ export class PalettesPage {
 })
 export class TimelinePage {
   protected readonly page = TIMELINE_PAGE;
+}
+
+/** The deck page (T-277): server-rendered, then hydrated; the controller binds after render. */
+@Component({
+  selector: 'app-deck-page',
+  imports: [SpDeckComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { style: 'display: contents' },
+  template: `
+    @let d = page.deck;
+    <h1>{{ page.title }} · Angular</h1>
+    <div class="sp-deck-page">
+      <sp-deck [id]="d.id" [label]="d.label" [markdown]="d.markdown" />
+    </div>
+  `,
+})
+export class DeckPage {
+  protected readonly page = DECK_PAGE;
 }
