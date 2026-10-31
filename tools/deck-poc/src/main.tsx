@@ -61,11 +61,13 @@ const marpit = new Marpit({
 });
 marpit.themeSet.default = marpit.themeSet.add(THEME);
 // The fence becomes an empty slot here; the product renders the static SVG into it (DD-053).
-const fallback = marpit.markdown.renderer.rules.fence!;
-marpit.markdown.renderer.rules.fence = (tokens, idx, options, env, self) =>
-  tokens[idx].info.trim() === 'silverpoint'
+type FenceRule = (tokens: Array<{ info: string }>, idx: number, ...rest: unknown[]) => string;
+const rules = marpit.markdown.renderer.rules as { fence: FenceRule };
+const fallback = rules.fence;
+rules.fence = (tokens, idx, ...rest) =>
+  tokens[idx]!.info.trim() === 'silverpoint'
     ? '<figure class="sp-deck-chart" data-sp-slot="s2-c1"></figure>\n'
-    : fallback(tokens, idx, options, env, self);
+    : fallback(tokens, idx, ...rest);
 
 const { html, css } = marpit.render(MARKDOWN);
 
