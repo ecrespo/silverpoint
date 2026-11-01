@@ -385,6 +385,6 @@ None.
 | REQ-623 | MUST | packages/marp/test/markup.test.ts<br>tools/svg-normalizer/normalize.test.ts<br>tools/visual-gate/deck-fixtures.test.ts<br>tools/visual-gate/deck-gate.real.test.ts |
 | REQ-624 | MUST | tools/visual-gate/deck-fixtures.test.ts<br>e2e/deck-pixel.spec.ts |
 | REQ-625 | MUST | e2e/deck-engines.spec.ts |
-| REQ-626 | MUST | packages/marp/test/demo.test.ts<br>docs/site/test/deck.test.ts |
-| REQ-627 | MUST | packages/marp/test/readme.test.ts<br>docs/site/test/deck.test.ts |
+| REQ-626 | MUST | packages/marp/test/demo.test.ts<br>docs/site/test/deck.test.ts<br>e2e/docs.spec.ts |
+| REQ-627 | MUST | packages/marp/test/readme.test.ts<br>docs/site/test/deck.test.ts<br>e2e/docs.spec.ts |
 | REQ-628 | MUST | tools/bundle-budget/budget.real.test.ts |
