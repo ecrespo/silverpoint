@@ -11,6 +11,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import type { AgentCatalog } from '../../packages/mcp/src/types';
+import { sameLine } from './versions';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const json = <T>(file: string): T => JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as T;
@@ -97,7 +98,7 @@ export function checkCatalog(catalog: AgentCatalog, { release, interim }: { read
   }
 
   // I-40, REQ-556: a stale Reflex catalog is reported; a release refuses it.
-  if (catalog.reflex.stale !== (catalog.reflex.wraps !== catalog.version)) errors.push('I-40 · reflex.stale does not match reflex.wraps');
+  if (catalog.reflex.stale !== !sameLine(catalog.reflex.wraps, catalog.version)) errors.push('I-40 · reflex.stale does not match reflex.wraps');
   if (release && catalog.reflex.stale) {
     const message = `REQ-556 · reflex-silverpoint-react ${catalog.reflex.version} wraps silverpoint ${catalog.reflex.wraps}, not ${catalog.version}`;
     if (interim) warnings.push(`${message}; the pin is interim, so the release goes ahead with every Reflex entry marked stale`);

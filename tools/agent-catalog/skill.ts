@@ -209,7 +209,7 @@ function blocks(catalog: Catalog): Readonly<Record<string, () => string>> {
         ],
       ),
     diagnostics: () => table(['Code', 'Severity', 'Requirement', 'What it means', 'What to do'], data.diagnostics.map((d) => [code(d.code), d.severity, d.req, cell(d.what), cell(d.todo)])),
-    'deck-names': () => [namesTable(catalog.data.deck), '', `Optional peer of the adapters: ${code(data.deck.peer)}, which carries the engine and Marpit. Reflex has no deck until \`reflex-silverpoint-marp\` ships.`].join('\n'),
+    'deck-names': () => [namesTable(catalog.data.deck), '', `Optional peer of the adapters: ${code(data.deck.peer)}, which carries the engine and Marpit. In Reflex, \`${data.deck.names.reflex}\` (reflex-silverpoint-react) imports the stylesheets and installs it itself.`].join('\n'),
     'deck-props': () => propsTable(data.deck.props),
     'deck-events': () =>
       table(
@@ -239,11 +239,11 @@ function blocks(catalog: Catalog): Readonly<Record<string, () => string>> {
       return table(['Code', 'Severity', 'What it means', 'What to do'], known.map((d) => [code(d.code), d.severity, cell(d.what), cell(d.todo)]));
     },
     'deck-stylesheets': () => list(data.deck.stylesheets),
-    'deck-examples': () => examples(catalog, { target: { deck: { markdown: EXAMPLE_DECK } }, props: { hash: true } }, ['react', 'vue', 'angular']),
+    'deck-examples': () => examples(catalog, { target: { deck: { markdown: EXAMPLE_DECK } }, props: { hash: true } }, ['react', 'vue', 'angular', 'reflex']),
     'reflex-names': () =>
       table(
         ['Slug', 'Builder', 'Kind'],
-        [...data.charts.map((c) => [code(c.slug), code(c.names.reflex), 'chart']), ...data.components.map((c) => [code(c.slug), code(c.names.reflex), c.family])],
+        [...data.charts.map((c) => [code(c.slug), code(c.names.reflex), 'chart']), ...data.components.map((c) => [code(c.slug), code(c.names.reflex), c.family]), ...(data.deck.names.reflex ? [[code('deck'), code(data.deck.names.reflex), 'deck']] : [])],
       ),
     'reflex-examples': () =>
       [examples(catalog, { target: { chart: 'line-chart' }, fields: demoFields(catalog.chart('line-chart')) }, ['reflex']), examples(catalog, { target: { component: 'modal' } }, ['reflex'])].join('\n\n'),

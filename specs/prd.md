@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.15 |
+| **Version** | 1.16 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-10-31 |
+| **Last updated** | 2026-11-01 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 ---
@@ -278,7 +278,7 @@ directives the first time and can render the deck to check it.
 - Export of a deck to PPTX, PDF or images by the library. Print-to-PDF is the browser's (REQ-605).
 - Slide transitions and animations beyond fragment reveal.
 - A WYSIWYG deck editor.
-- The Reflex deck wrapper itself (`reflex-silverpoint-marp`, another repository).
+- The Reflex deck wrapper itself: `sp_deck` lives in `reflex-silverpoint-react` (since its 0.9.0), another repository (delta-015).
 
 ### 5.3 Future Considerations
 
@@ -962,7 +962,7 @@ skill never states a prop, a default or a name the catalog does not hold.
 | REQ-553 | ubiquitous | `reflex-silverpoint-react` SHALL provide the `reflex-silverpoint` skill, written in English, generated from its own catalog export (DD-049): builders, state-driven props and events, the provider and palettes, composed components and overlays, the timeline, and the demo app's patterns. | MUST |
 | REQ-554 | ubiquitous | Each skill SHALL name the version it describes, SHALL tell the agent to prefer the MCP tools when they are connected, and SHALL keep its `SKILL.md` under 500 lines with the rest in references loaded on demand. | MUST |
 | REQ-555 | ubiquitous | Each repository SHALL publish a Claude plugin manifest that installs its skill and the hosted MCP server. | MUST |
-| REQ-556 | unwanted | IF the Reflex catalog wraps a silverpoint version other than the one the agent catalog describes, THEN the catalog build SHALL mark every Reflex entry `stale` with the version it wraps, and a release build SHALL fail. | MUST |
+| REQ-556 | unwanted | IF the Reflex catalog wraps a silverpoint release line (major.minor) other than the one the agent catalog describes, THEN the catalog build SHALL mark every Reflex entry `stale` with the version it wraps, and a release build SHALL fail. | MUST |
 | REQ-557 | ubiquitous | CI SHALL extract every code example of both skills and the code of `generate_code`'s golden tests, and type-check them (React, Vue and Angular with the example apps' compilers; Reflex by importing and rendering the components). | MUST |
 
 #### 6.14.4 Hosting and the official site
@@ -992,7 +992,7 @@ the WASM rasteriser resolves no `var(--sp-*)` and reads no WOFF2, so a faithful 
 ground's paint flattened into presentation attributes first; `render_chart` takes no `format`.
 (2) **REQ-556** applies in its strict form only when the Reflex pin is the wrapper's own export; the
 interim pin, derived from the wrapper's sources (`derived` set), makes a stale release build warn
-instead of fail (user decision 2026-10-20, option b). (3) **REQ-561 (rate limit, SHOULD) is not
+instead of fail (user decision 2026-10-20, option b). Since delta-015 (#10, user decision 2026-11-01) the pin is the wrapper's own export, and "another version" means another release line: a patch of the library keeps the wrapper of its line current. (3) **REQ-561 (rate limit, SHOULD) is not
 implemented**: no shared store is configured, so the payload limits of REQ-560 stand alone.
 (4) REQ-555: the plugin declares its server inline in `plugin.json`, not in a root `.mcp.json`,
 which would connect every session opened in the repository. (5) REQ-559 measured 0.31 s cold start
@@ -1106,7 +1106,7 @@ live chart component.
 |---|---|---|---|
 | REQ-619 | ubiquitous | The agent catalog (REQ-530) SHALL gain a `deck` section, generated: the props and events of `SpDeck` per framework, the directives and their values, the theme's classes, the fence's schema and the deck's diagnostic codes. | MUST |
 | REQ-620 | event | WHEN `validate_deck` receives Markdown, THE SYSTEM SHALL return the diagnostics `render` raises, per slide and per fence. WHEN `render_deck` receives Markdown and options, it SHALL return a standalone HTML document of the deck (static charts, theme and ground styles inlined), or one slide's HTML, deterministically, within REQ-560's limits. | MUST |
-| REQ-621 | event | WHEN `generate_code` receives `{ deck }` and `react`, `vue` or `angular`, THE SYSTEM SHALL return the imports, stylesheets and code of an `SpDeck`; for `reflex` it SHALL return a tool error until `reflex-silverpoint-marp` exports a catalog. | MUST |
+| REQ-621 | event | WHEN `generate_code` receives `{ deck }` and `react`, `vue`, `angular` or `reflex`, THE SYSTEM SHALL return the imports, stylesheets and code of an `SpDeck` (in Reflex, `sp_deck` from `reflex-silverpoint-react`, as the pinned Reflex catalog names it; a tool error when it names no deck). (Amended by delta-015, #10.) | MUST |
 | REQ-622 | ubiquitous | The `silverpoint` skill SHALL gain a deck reference (authoring, directives, fence, adapters, Marp CLI), its examples type-checked as REQ-557 states. | MUST |
 
 #### 6.15.9 Quality and delivery
@@ -1429,6 +1429,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.16 | 2026-11-01 | Ernesto Crespo | Delta-015 folded (#10): REQ-556 compares release lines (major.minor); REQ-621 generates `sp_deck` for Reflex; §5.2 drops the separate Reflex deck wrapper, which ships in `reflex-silverpoint-react` |
 | 1.15 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: §6.15 slide decks (REQ-570..REQ-628; 59 requirements: 56 MUST, 3 SHOULD; 310 → 369 in all, 343 MUST); §1, Persona 6, §5.1–§5.3, §6.14 amended (REQ-539, REQ-541, REQ-546), §7 additions, Epic J, §11 risks, §12 Phase 10; the delta's glossary folded as §6.15's terms; what the implementation changed folded as built ("amended in implementation"): no SVG polyfill (DD-051), author CSS sanitised, Angular's `pageChange` payload, the six-slide `DECK_DEMO` |
 | 1.14 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: §6.14 agent access (REQ-530..REQ-569; 40 requirements: 37 MUST, 3 SHOULD; 270 → 310 in all, 287 MUST); Persona 5, §4.1, §5.1–§5.3, §7 additions, Epic I, §11 risks, §12 Phase 9; what the implementation changed folded as built ("amended in implementation"): REQ-544 deferred, REQ-556 strict only for the wrapper's own export, REQ-561 not implemented |
 | 1.13 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: §6.13 palettes, composed components, overlays and the timeline (REQ-460..REQ-523; 57 requirements: 56 MUST, 1 SHOULD; 213 → 270 in all, 250 MUST); §1, §4.1, §5.1–§5.3, §6.3, §7 additions, Epic H, §11 risks, §12 Phase 8; REQ-444's gate re-baselined to `0.6.0`; what the implementation changed folded as built ("amended in implementation"): REQ-489 without Collapse, REQ-499, REQ-519 at 2 KB |

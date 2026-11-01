@@ -314,7 +314,7 @@ None.
 | REQ-550 | MUST | packages/mcp/test/server.test.ts<br>packages/mcp/test/tools.test.ts<br>tools/release/version.test.ts |
 | REQ-551 | MUST | packages/mcp/test/boundary.test.ts |
 | REQ-552 | MUST | tools/agent-catalog/skill.test.ts |
-| REQ-553 | MUST | tools/agent-catalog/catalog.test.ts |
+| REQ-553 | MUST | tools/agent-catalog/catalog.test.ts<br>tools/agent-catalog/deck.test.ts |
 | REQ-554 | MUST | tools/agent-catalog/skill.test.ts |
 | REQ-555 | MUST | tools/agent-catalog/skill.test.ts |
 | REQ-556 | MUST | tools/agent-catalog/catalog.test.ts<br>tools/release/publish.test.ts |

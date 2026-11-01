@@ -2,11 +2,12 @@
 
 A deck is Marp Markdown that renders as silverpoint slides: the `silverpoint` theme, its grounds and
 substrates as directives, and real charts from `silverpoint` fences. `SpDeck` renders it in React, Vue
-and Angular, on the server and in the browser, with a keyboard-driven controller.
+and Angular, on the server and in the browser, with a keyboard-driven controller; in Reflex, `sp_deck`
+from `reflex-silverpoint-react` wraps the React one.
 
 <!-- generated:deck-names -->
 
-Install the peer beside the adapter:
+Install the peer beside the adapter (Reflex installs it for you):
 
 ```sh
 npm install @silverpoint/marp@{{version}}

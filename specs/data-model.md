@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.10 |
+| **Version** | 1.11 |
 | **Date** | 2026-10-31 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.12 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.13 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.13 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -718,7 +718,7 @@ engine omits it (the theme paints the substrate colour); it exists for `render_d
 interface AgentCatalog {
   // … §2.28 …
   readonly deck: {
-    readonly names: Names;                   // reflex: '' until reflex-silverpoint-marp exists
+    readonly names: Names;                   // reflex: 'sp_deck', joined from the Reflex catalog; '' when it has no deck
     readonly imports: Imports;
     readonly peer: '@silverpoint/marp';
     readonly props: readonly PropEntry[];
@@ -1293,7 +1293,7 @@ Verifiable, and each one with its test.
 | I-37 | Every chart and component exported by any adapter has exactly one catalog entry, and vice versa. | REQ-536 |
 | I-38 | Every `PropEntry` of a chart or component equals the props reference's entry for it (name, type, optional, doc); only `default` and `reflex` are added. | REQ-530 |
 | I-39 | `catalog.version` equals the version of `@silverpoint/mcp` and of the core it ships with. | REQ-550 |
-| I-40 | `reflex.stale` is `reflex.wraps !== version`; a release build requires `false` when the pin is the wrapper's own export; with a derived pin (`derived` set) a stale catalog warns (amended in implementation, user decision 2026-10-20). | REQ-556 |
+| I-40 | `reflex.stale` is true when `reflex.wraps` and `version` differ in major.minor (delta-015, user decision 2026-11-01); a release build requires `false` when the pin is the wrapper's own export; with a derived pin (`derived` set) a stale catalog warns (amended in implementation, user decision 2026-10-20). | REQ-556 |
 | I-41 | Every `DataSpec.fields[].prop` is a prop of that chart. | REQ-541 |
 | I-42 | Every slug a rule names exists in `charts`. | REQ-540 |
 | I-43 | `DeckRender.slides.length === total` and `slides[i].index === i + 1`. | REQ-573 |
@@ -1325,6 +1325,7 @@ they are renumbered here, and the feature-004 tests that cite them by the delta'
 | 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: the agent catalog §2.28, chart metadata §2.29 (the nine families as built), the Reflex catalog §2.30, the recommender rules §2.31, invariants I-37..I-42. What the implementation changed is folded as built ("amended in implementation") |
 | 1.10 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: the fence spec and its errors §2.32, `DeckRender` §2.33, directive values §2.34, the controller's state, events and actions §2.35, the slide backdrop §2.36, the agent catalog's `deck` section §2.37; deck fixtures in §5 (24 renders, 92 pixel goldens); invariants I-43..I-52. What the implementation changed is folded as built ("amended in implementation") |
+| 1.11 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): I-40 compares release lines (major.minor); the deck's Reflex name joined from the Reflex catalog |
 | 1.8 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: the `Palette` contract and its six presets §2.26; value contracts, sort order and page window of the composed components §2.27; `ui` tokens `backdrop` and `rowTone` (optional, defaults 2 and 1, declared by neither built-in ground) and five UI contrast pairs §3.8; palette contrast pairs §3.9; composed, palettes and timeline demos in §4; 36 states (860 UI matrix fixtures, 320 on PR; 10 timeline surface fixtures, 4 on PR) and 36 palette fixtures in §5 (906 nightly, 360 on PR); invariants I-31..I-36 (I-23..I-28 in the delta). What the implementation changed is folded as built ("amended in implementation") |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |
 | 1.1 | 2026-09-13 | Ernesto Crespo | Converted to English; demo activity-grid dataset pinned to a fixed end date (Analyze finding A-02); "input shape" replaces the overloaded "geometric family" (finding A-11) |

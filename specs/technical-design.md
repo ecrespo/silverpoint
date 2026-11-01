@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.12 |
+| **Version** | 1.13 |
 | **Date** | 2026-10-31 |
-| **Related PRD** | [`prd.md`](prd.md) v1.15 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.13 |
+| **Related PRD** | [`prd.md`](prd.md) v1.16 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
@@ -1317,6 +1317,10 @@ own repository from the same export, so both skills and the MCP agree on Python 
   `@silverpoint/agent-catalog`. REQ-556's release failure applies to the wrapper's own export; a
   derived pin that is stale makes `check --release` warn (user decision 2026-10-20, option b), and
   the release job runs that check before publishing.
+- *Amended by delta-015* (#10, user decision 2026-11-01): the pin is `reflex-silverpoint-react`
+  0.9.1's own export, so REQ-556 is strict; "stale" compares release lines (major.minor), because
+  the wrapper cannot wrap a patch npm does not hold yet. The generator also joins the deck
+  (`sp_deck`).
 
 ### DD-050: Skills are templates plus generated references; hosting is a rewrite
 
@@ -2029,6 +2033,7 @@ OQ-C numbers the feature's ledger cites):
 | 1.10 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: palettes, composed components, overlays and the timeline — modules (§3.2), data flow (§3.3), DD-037..DD-043 with their implementation amendments (43 design decisions), structure (§5.1), TimelineJS as an optional peer (§5.3), `SP023`–`SP025` (§7), tests (§8), decisions OQ-C1..OQ-C4 of feature-004 and OQ-U6 closed (§10) |
 | 1.11 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: agent access — modules (§3.2), DD-044..DD-050 with their implementation amendments (50 design decisions; no PNG, the derived Reflex pin, no rate limit), `@silverpoint/mcp` in the allowlist (§5.3), the package map |
 | 1.12 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: slide decks — modules (§3.2), the deck flow (§3.3), DD-051..DD-060 with their implementation amendments (60 design decisions; the PoC's `svg-transform` scaling, the polyfill dropped, sanitised author CSS, the precision backdrop twin, raw engine markup and CSS in the adapters, the three-engine job `browser-deck`, the measured budgets, the deck tools), structure (§5.1), `@silverpoint/marp` in the allowlist and as the adapters' optional peer (§5.3), `SP026`–`SP029` (§7), tests (§8), the ninth package and its first publish (§9) |
+| 1.13 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): DD-049 — the Reflex pin is the wrapper's own export; staleness compares release lines; the deck joins `sp_deck` |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 
 ## Constitution check

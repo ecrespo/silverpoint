@@ -5,16 +5,17 @@
 
 A deck is Marp Markdown that renders as silverpoint slides: the `silverpoint` theme, its grounds and
 substrates as directives, and real charts from `silverpoint` fences. `SpDeck` renders it in React, Vue
-and Angular, on the server and in the browser, with a keyboard-driven controller.
+and Angular, on the server and in the browser, with a keyboard-driven controller; in Reflex, `sp_deck`
+from `reflex-silverpoint-react` wraps the React one.
 
 |  | React | Vue | Angular | Reflex |
 |---|---|---|---|---|
-| Name | `SpDeck` | `SpDeck` | `sp-deck` | — |
-| Import | `@silverpoint/react/deck` | `@silverpoint/vue/deck` | `@silverpoint/angular/deck` | — |
+| Name | `SpDeck` | `SpDeck` | `sp-deck` | `sp_deck` |
+| Import | `@silverpoint/react/deck` | `@silverpoint/vue/deck` | `@silverpoint/angular/deck` | `reflex_silverpoint_react` |
 
-Optional peer of the adapters: `@silverpoint/marp`, which carries the engine and Marpit. Reflex has no deck until `reflex-silverpoint-marp` ships.
+Optional peer of the adapters: `@silverpoint/marp`, which carries the engine and Marpit. In Reflex, `sp_deck` (reflex-silverpoint-react) imports the stylesheets and installs it itself.
 
-Install the peer beside the adapter:
+Install the peer beside the adapter (Reflex installs it for you):
 
 ```sh
 npm install @silverpoint/marp@0.9.1
@@ -314,6 +315,43 @@ export class DeckView {
   protected readonly markdown = MARKDOWN;
   protected readonly page = signal(1);
 }
+```
+
+```python
+import reflex as rx
+from reflex_silverpoint_react import sp_deck
+
+MARKDOWN = """---
+paginate: true
+---
+
+<!-- _class: lead -->
+
+# Quarterly review
+
+---
+
+## Next steps
+
+* Ship the deck
+* Measure it"""
+
+
+class State(rx.State):
+    page: int = 1
+
+    @rx.event
+    def set_page(self, page: int, total: int):
+        self.page = page
+
+
+def deck_view() -> rx.Component:
+    return sp_deck(
+        MARKDOWN,
+        page=State.page,
+        on_page_change=State.set_page,
+        hash=True,
+    )
 ```
 
 ### Server rendering

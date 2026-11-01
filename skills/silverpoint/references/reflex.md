@@ -3,7 +3,7 @@
 
 *Describes silverpoint 0.9.1.*
 
-`reflex-silverpoint-react` 0.7.1 wraps the React components for Reflex, so the same
+`reflex-silverpoint-react` 0.9.1 wraps the React components for Reflex, so the same
 charts and components are Python builders. For anything beyond names and a first example, use the
 `reflex-silverpoint` skill, which covers state, events and the demo app's patterns.
 
@@ -152,3 +152,4 @@ def modal_view() -> rx.Component:
 | `select` | `sp_select` | overlay |
 | `dropdown-menu` | `sp_dropdown_menu` | overlay |
 | `toast` | `sp_toast` | overlay |
+| `deck` | `sp_deck` | deck |

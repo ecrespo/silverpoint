@@ -6,9 +6,9 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.13 |
-| **Date** | 2026-10-31 |
-| **Related PRD** | [`prd.md`](prd.md) v1.15 |
+| **API version** | v1.14 |
+| **Date** | 2026-11-01 |
+| **Related PRD** | [`prd.md`](prd.md) v1.16 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 | **Surface** | npm packages; one public, read-only MCP endpoint (§14) |
 
@@ -2222,8 +2222,9 @@ never imported by the adapters, and no adapter imports it. Since feature-006 it 
 The `deck` section (feature-006, REQ-619) is read from the sources as the rest: `SpDeck`'s props from
 the React `SpDeckProps` (its handlers aside), its events from `DeckEvents`, the directives from
 `DECK_DIRECTIVES`, the classes from the theme, the fence's JSON Schema from `ChartFenceSpec`, the
-diagnostics from the `SPnnn` the package raises. Reflex's name and import are `''` until
-`reflex-silverpoint-marp` exports a catalog.
+diagnostics from the `SPnnn` the package raises. Reflex's name, import and Python prop names are
+joined from the pinned Reflex catalog (`sp_deck`, `reflex_silverpoint_react`; delta-015), and stay
+`''` when it holds no deck.
 *Amended in implementation (#282):* each event also carries `bindings: { react, vue, angular }`
 (`onPageChange`, `@page-change`, `(pageChange)`), checked against the adapters' sources.
 
@@ -2277,8 +2278,10 @@ catalog's deck section: the four stylesheets, the import, the Markdown embedded 
 template literal (a starter deck holding the catalog's fence example when `markdown` is absent), and
 the page held in the host's state (React `onPageChange`, Vue `v-model:page`, Angular `[page]` with
 `(pageChange)`); `props` holds `SpDeck`'s own props, checked against the catalog, and may not carry
-`markdown`, `page`, `defaultPage` or the appearance inputs (`invalid_input`). `framework: 'reflex'` is
-an `unknown_name` error naming `reflex-silverpoint-marp` as pending. Exactly one target is given.
+`markdown`, `page`, `defaultPage` or the appearance inputs (`invalid_input`). `framework: 'reflex'`
+writes an `sp_deck` call (delta-015): the Markdown in a triple-quoted string, the page held in a
+`State` (`page=State.page`, `on_page_change=State.set_page`), props by their Python names; `sp_deck`
+imports the stylesheets and installs the peer itself. Exactly one target is given.
 
 ### 14.4 Resources (REQ-546)
 
@@ -2392,6 +2395,7 @@ Skill descriptions (frontmatter), verbatim:
 
 | Version | Date | Changes |
 |---|---|---|
+| 1.14 | 2026-11-01 | Delta-015 (#10): §14.2 the deck's Reflex name and import (`sp_deck`, `reflex_silverpoint_react`) joined from the Reflex catalog; §14.3 `generate_code { deck }` supports `reflex` |
 | 1.13 | 2026-10-31 | Feature-006: slide decks — §1 adds `@silverpoint/marp` and the adapters' optional peer; new §1.4 (`.`, `./client`, `./theme.css`, `./deck.css`, `./cli`, `./demo` with `DECK_DEMO`, the `deck` subpaths, `slideBackdrop`, `listGrounds` and `toChartRootString` on the grounds); §2 surface; new §3.6 (the engine, the theme and its classes, the directives, the chart fence); new §7.5 (`SpDeck`, the controller, the keyboard, the markup contract); §9 deck events; §10 parts and properties; `SP026`–`SP029` and `SP018` widened (25 → 29 codes); §12 deck limits and budgets; §13 nine packages; §14 the catalog's `deck` section, `validate_deck`, `render_deck`, `generate_code { deck }` (13 tools), `silverpoint://deck` and the `deck` guide; folds the amendments made in implementation (no polyfill, the shared view functions, `data-sp-pending` fragments, the budgets of DD-059, event bindings) in the ledger of `changes/feature-006-deck/` |
 | 1.12 | 2026-10-20 | Feature-005: agent access — §1 adds `@silverpoint/mcp`; new §14 (the package and its entry points, the agent catalog, eleven tools, resources, prompts, the skill and plugin layout, the official site's paths, the endpoint's limits); §12 the MCP limits; §13 eight packages; folds the amendments made in implementation (no PNG, inline plugin server, the `/#/ai` page) in the ledger of `changes/feature-005-agent-access/` |
 | 1.0 | 2026-09-13 | Initial version |

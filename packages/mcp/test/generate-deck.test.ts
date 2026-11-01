@@ -1,7 +1,7 @@
 /**
  * `generate_code { deck }` (feature-006, API delta §11, REQ-621): the imports, the four stylesheets
  * and the code of an `SpDeck` in React, Vue and Angular, from the catalog's deck section alone; the
- * Markdown embedded verbatim. Reflex has no deck until `reflex-silverpoint-marp` exports a catalog.
+ * Markdown embedded verbatim; in Reflex, `sp_deck` from reflex-silverpoint-react (#10).
  */
 import { describe, expect, test } from 'vitest';
 import { AGENT_CATALOG, Catalog } from '../src/catalog';
@@ -61,10 +61,24 @@ describe('generate_code { deck } (REQ-621)', () => {
     expect(errorOf(() => generate({ target: { deck: {} }, framework: 'react', props: { ground: 'cyanotype' } })).code).toBe('invalid_input');
   });
 
-  test('REQ-621 · reflex: a tool error naming reflex-silverpoint-marp as pending', () => {
-    const error = errorOf(() => generate({ target: { deck: {} }, framework: 'reflex' }));
-    expect(error.code).toBe('unknown_name');
-    expect(error.message).toContain('reflex-silverpoint-marp');
+  test('REQ-621 · reflex: `sp_deck` from reflex_silverpoint_react, the page held in state', () => {
+    const result = generate({ target: { deck: { markdown: TRICKY } }, framework: 'reflex' });
+    expect(result.imports).toEqual(['reflex', 'reflex_silverpoint_react']);
+    expect(result.stylesheets).toEqual(deck.stylesheets);
+    expect(result.code).toContain('from reflex_silverpoint_react import sp_deck');
+    expect(result.code).toContain('page=State.page');
+    expect(result.code).toContain('on_page_change=State.set_page');
+    expect(result.code).toContain('def set_page(self, page: int, total: int):');
+  });
+
+  test('REQ-621 · reflex: the Markdown is embedded verbatim in a Python string', () => {
+    const literal = generate({ target: { deck: { markdown: `${TRICKY}\n"""quoted""" and ""` } }, framework: 'reflex' }).code.match(/^MARKDOWN = """([\s\S]*?)"""$/m)?.[1];
+    expect(literal?.replace(/\\([\\"])/g, '$1')).toBe(`${TRICKY}\n"""quoted""" and ""`);
+  });
+
+  test('REQ-621 · reflex: appearance and SpDeck’s own props by their Python names', () => {
+    const code = generate({ target: { deck: {} }, framework: 'reflex', ground: 'cyanotype', palette: 'ironGall', props: { showNotes: true } }).code;
+    for (const arg of ['ground="cyanotype"', 'palette="ironGall"', 'show_notes=True']) expect(code).toContain(arg);
   });
 
   test('REQ-621 · exactly one target', () => {

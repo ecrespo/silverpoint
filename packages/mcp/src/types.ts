@@ -209,7 +209,7 @@ export interface DeckDirectiveEntry {
 }
 
 export interface DeckSection {
-  /** Reflex: `''` until `reflex-silverpoint-marp` exports a catalog. */
+  /** Reflex: `sp_deck` from reflex-silverpoint-react, joined from its catalog; `''` when the pin has no deck. */
   readonly names: Names;
   readonly imports: Imports;
   /** The adapters' optional peer, which carries the engine and Marpit (REQ-616). */

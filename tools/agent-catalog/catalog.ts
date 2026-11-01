@@ -27,12 +27,15 @@ import { CATALOG } from '../visual-gate/catalog';
 import { componentSurfaces } from './adapters';
 import { CHART_META, FAMILIES } from './charts.meta';
 import { COMPONENT_SUMMARY } from './components.meta';
+import { sameLine } from './versions';
 import { deckSection } from './deck';
 import { chartFallbacks, docDefault, specDefaults } from './defaults';
 import { propsReference, type PropDoc } from './props';
 import { RECOMMEND_RULES } from './recommend.rules';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
+export { sameLine };
+
 export const CATALOG_FILE = join(ROOT, 'packages/mcp/agent-catalog.json');
 export const REFLEX_FILE = join(ROOT, 'tools/agent-catalog/reflex/reflex-catalog.json');
 
@@ -222,9 +225,12 @@ export async function baseCatalog(): Promise<AgentCatalog> {
   };
 }
 
-/** Python names joined by slug and JS prop name (DD-049); stale when it wraps another version (REQ-556). */
+/**
+ * Python names joined by slug and JS prop name (DD-049); stale when it wraps another release line
+ * (REQ-556, amended for #10: a patch of the library keeps the wrapper of its line current).
+ */
 export function joinReflex(catalog: AgentCatalog, reflex: ReflexCatalog): AgentCatalog {
-  const stale = reflex.wraps !== catalog.version;
+  const stale = !sameLine(reflex.wraps, catalog.version);
   const mark = stale ? { stale: reflex.wraps } : {};
   const snake = (props: readonly PropEntry[], python: readonly ReflexProp[] = []) =>
     props.map((p) => {
@@ -248,6 +254,12 @@ export function joinReflex(catalog: AgentCatalog, reflex: ReflexCatalog): AgentC
     }),
     dashboard: { ...catalog.dashboard, names: named(catalog.dashboard.names, byBuilder('dashboard')?.builder), props: snake(catalog.dashboard.props, byBuilder('dashboard')?.props) },
     timeline: { ...catalog.timeline, names: named(catalog.timeline.names, byBuilder('timeline')?.builder), props: snake(catalog.timeline.props, byBuilder('timeline')?.props) },
+    deck: {
+      ...catalog.deck,
+      names: named(catalog.deck.names, byBuilder('deck')?.builder),
+      imports: { ...catalog.deck.imports, reflex: byBuilder('deck') ? REFLEX_PACKAGE : '' },
+      props: snake(catalog.deck.props, byBuilder('deck')?.props),
+    },
   };
 }
 

@@ -7,7 +7,7 @@ import { describe, expect, test } from 'vitest';
 import { UI_COMPONENTS } from '../../packages/core/src/ui/catalog';
 import type { AgentCatalog, ReflexCatalog } from '../../packages/mcp/src/types';
 import { CATALOG } from '../visual-gate/catalog';
-import { buildAgentCatalog, CATALOG_FILE, joinReflex, serialise } from './catalog';
+import { buildAgentCatalog, CATALOG_FILE, joinReflex, sameLine, serialise } from './catalog';
 import { checkCatalog, isInterim } from './check';
 import { CHART_META, FAMILIES } from './charts.meta';
 import { propsReference } from './props';
@@ -179,7 +179,24 @@ describe('versions (REQ-534, REQ-556)', () => {
   test('REQ-534 · I-39 · the catalog carries the library version it describes', () => {
     expect(catalog.version).toBe(core.version);
     expect(catalog.reflex.version).toMatch(/^\d+\.\d+\.\d+$/);
-    expect(catalog.reflex.stale).toBe(catalog.reflex.wraps !== catalog.version);
+    expect(catalog.reflex.stale).toBe(!sameLine(catalog.reflex.wraps, catalog.version));
+  });
+
+  test('REQ-556 · I-40 · the pin is reflex-silverpoint-react 0.9.1’s own export, which wraps 0.9.1 (#10)', () => {
+    expect(catalog.reflex).toEqual({ version: '0.9.1', wraps: '0.9.1', stale: false });
+    expect(isInterim(JSON.parse(readFileSync(new URL('./reflex/reflex-catalog.json', import.meta.url), 'utf8')) as { derived?: string })).toBe(false);
+    expect(catalog.charts.some((c) => c.stale !== undefined)).toBe(false);
+  });
+
+  test('REQ-556 · I-40 · stale compares release lines (major.minor): a patch of the library keeps the wrapper current', () => {
+    expect(sameLine('0.9.1', '0.9.2')).toBe(true);
+    expect(sameLine('0.9.1', '0.9.1')).toBe(true);
+    expect(sameLine('0.8.0', '0.9.2')).toBe(false);
+    expect(sameLine('0.9.1', '1.9.1')).toBe(false);
+    const patch: ReflexCatalog = { schema: 1, package: 'reflex-silverpoint-react', version: '0.9.1', wraps: '0.9.1', charts: [], components: [], helpers: [] };
+    const joined = joinReflex({ ...catalog, version: '0.9.2' }, patch);
+    expect(joined.reflex.stale).toBe(false);
+    expect(checkCatalog(joined, { release: true, interim: false }).errors.filter((e) => e.includes('I-40') || e.includes('REQ-556'))).toEqual([]);
   });
 
   test('REQ-556 · I-40 · a Reflex catalog that wraps another version marks every Reflex entry stale', () => {

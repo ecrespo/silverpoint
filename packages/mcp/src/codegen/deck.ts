@@ -1,13 +1,13 @@
 /**
  * `generate_code { deck }` (feature-006, API delta §11, REQ-621): an `SpDeck` in React, Vue or
- * Angular from the catalog's deck section alone — its import, the four stylesheets of a deck page,
- * the Markdown embedded verbatim, the page held in the host's state, and `SpDeck`'s own props
- * checked against the catalog. Reflex has no deck until `reflex-silverpoint-marp` exports a catalog.
+ * Angular, and `sp_deck` in Reflex (reflex-silverpoint-react, #10), from the catalog's deck section
+ * alone — its import, the four stylesheets of a deck page, the Markdown embedded verbatim, the page
+ * held in the host's state, and `SpDeck`'s own props checked against the catalog.
  */
 import type { Catalog } from '../catalog';
 import { ToolError, unknownName } from '../errors';
 import type { Framework } from '../types';
-import { attribute, js } from './literals';
+import { attribute, js, py } from './literals';
 
 export interface DeckTarget {
   readonly markdown?: string;
@@ -138,16 +138,51 @@ function angular(catalog: Catalog, markdown: string, attrs: readonly Attr[]): st
   return `${lines.join('\n')}\n`;
 }
 
+/**
+ * A triple-quoted Python string holding `source` verbatim: every backslash escaped, and every double
+ * quote that a quote or the end follows, so none can close the string early.
+ */
+const pythonString = (source: string) => `"""${source.replace(/\\/g, '\\\\').replace(/"(?="|$)/g, '\\"')}"""`;
+
+function reflex(catalog: Catalog, markdown: string, attrs: readonly Attr[]): string {
+  const deck = catalog.data.deck;
+  const python = (name: string) => deck.props.find((p) => p.name === name)?.reflex ?? name;
+  const lines = [
+    'import reflex as rx',
+    `from ${deck.imports.reflex} import ${deck.names.reflex}`,
+    '',
+    `MARKDOWN = ${pythonString(markdown)}`,
+    '',
+    '',
+    'class State(rx.State):',
+    '    page: int = 1',
+    '',
+    '    @rx.event',
+    '    def set_page(self, page: int, total: int):',
+    '        self.page = page',
+    '',
+    '',
+    'def deck_view() -> rx.Component:',
+    `    return ${deck.names.reflex}(`,
+    '        MARKDOWN,',
+    '        page=State.page,',
+    '        on_page_change=State.set_page,',
+    ...attrs.map((a) => `        ${python(a.name)}=${py(a.value)},`),
+    '    )',
+  ];
+  return `${lines.join('\n')}\n`;
+}
+
 export function deckCode(catalog: Catalog, target: DeckTarget, input: DeckCodeInput): { imports: string[]; stylesheets: string[]; code: string; notes: string[] } {
   const framework: Framework = catalog.framework(input.framework);
   const deck = catalog.data.deck;
-  if (framework === 'reflex') {
-    throw new ToolError('unknown_name', 'Reflex has no SpDeck yet: `reflex-silverpoint-marp` is pending and exports no catalog. Use react, vue or angular.', ['react', 'vue', 'angular']);
+  if (framework === 'reflex' && deck.names.reflex === '') {
+    throw new ToolError('unknown_name', 'The pinned Reflex catalog has no deck. Use react, vue or angular.', ['react', 'vue', 'angular']);
   }
   const markdown = target.markdown ?? starter(catalog);
   const { attrs, notes } = attrsOf(catalog, input);
-  const code = framework === 'react' ? react(catalog, markdown, attrs) : framework === 'vue' ? vue(catalog, markdown, attrs) : angular(catalog, markdown, attrs);
-  const framed = { react: ['react', deck.imports.react], vue: ['vue', deck.imports.vue], angular: ['@angular/core', deck.imports.angular] }[framework];
+  const code = { react, vue, angular, reflex }[framework](catalog, markdown, attrs);
+  const framed = { react: ['react', deck.imports.react], vue: ['vue', deck.imports.vue], angular: ['@angular/core', deck.imports.angular], reflex: ['reflex', deck.imports.reflex] }[framework];
   return {
     imports: framed,
     stylesheets: [...deck.stylesheets],
@@ -155,7 +190,9 @@ export function deckCode(catalog: Catalog, target: DeckTarget, input: DeckCodeIn
     notes: [
       ...(framework === 'angular' ? ['Add the stylesheets to the `styles` array of angular.json.'] : []),
       ...(framework === 'react' ? ["`DeckView` holds the page in state: in the Next.js App Router, put `'use client'` at the top of its file."] : []),
-      `\`${deck.peer}\` is an optional peer of the adapter: install it beside it.`,
+      ...(framework === 'reflex'
+        ? ['`State` is a placeholder name: merge its fields into your own state class.', '`sp_deck` imports the stylesheets and installs `@silverpoint/marp` itself.']
+        : [`\`${deck.peer}\` is an optional peer of the adapter: install it beside it.`]),
       ...(target.markdown === undefined ? ['The Markdown is a starter deck: replace it with your own.'] : []),
       ...notes,
     ],

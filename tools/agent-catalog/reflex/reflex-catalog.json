@@ -1,9 +1,8 @@
 {
   "schema": 1,
   "package": "reflex-silverpoint-react",
-  "version": "0.7.1",
-  "wraps": "0.7.0",
-  "derived": "tools/agent-catalog/reflex/derive.py from reflex-silverpoint-react dbd7e76",
+  "version": "0.9.1",
+  "wraps": "0.9.1",
   "common": {
     "chart": [
       {
@@ -1573,6 +1572,11 @@
           "name": "root_id",
           "js": "rootId",
           "type": "string | null"
+        },
+        {
+          "name": "on_root_change",
+          "js": "onRootChange",
+          "type": "(id: string | null) => void"
         }
       ]
     },
@@ -1612,6 +1616,11 @@
           "name": "root_id",
           "js": "rootId",
           "type": "string | null"
+        },
+        {
+          "name": "on_root_change",
+          "js": "onRootChange",
+          "type": "(id: string | null) => void"
         }
       ]
     },
@@ -2277,6 +2286,112 @@
       "deprecated": {}
     },
     {
+      "slug": "deck",
+      "builder": "sp_deck",
+      "cls": "SpDeck",
+      "props": [
+        {
+          "name": "markdown",
+          "js": "markdown",
+          "type": "str | rx.Var"
+        },
+        {
+          "name": "page",
+          "js": "page",
+          "type": "int | rx.Var | None"
+        },
+        {
+          "name": "default_page",
+          "js": "defaultPage",
+          "type": "int | rx.Var | None"
+        },
+        {
+          "name": "theme",
+          "js": "theme",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "ground",
+          "js": "ground",
+          "type": "GroundName | str | rx.Var | None"
+        },
+        {
+          "name": "substrate",
+          "js": "substrate",
+          "type": "Substrate | str | rx.Var | None"
+        },
+        {
+          "name": "mode",
+          "js": "mode",
+          "type": "InkMode | rx.Var | None"
+        },
+        {
+          "name": "palette",
+          "js": "palette",
+          "type": "str | Palette | rx.Var | None"
+        },
+        {
+          "name": "size",
+          "js": "size",
+          "type": "DeckSize | rx.Var | None"
+        },
+        {
+          "name": "show_notes",
+          "js": "showNotes",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "show_controls",
+          "js": "showControls",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "keyboard",
+          "js": "keyboard",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "swipe",
+          "js": "swipe",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "hash",
+          "js": "hash",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "interactive",
+          "js": "interactive",
+          "type": "bool | rx.Var | None"
+        },
+        {
+          "name": "label",
+          "js": "label",
+          "type": "str | rx.Var | None"
+        },
+        {
+          "name": "on_page_change",
+          "js": "onPageChange",
+          "type": "Any"
+        },
+        {
+          "name": "on_fragment_change",
+          "js": "onFragmentChange",
+          "type": "Any"
+        },
+        {
+          "name": "on_ready",
+          "js": "onReady",
+          "type": "Any"
+        }
+      ],
+      "positional": [
+        "markdown"
+      ],
+      "deprecated": {}
+    },
+    {
       "slug": "descriptions",
       "builder": "sp_descriptions",
       "cls": "SpDescriptions",
@@ -2418,7 +2533,9 @@
         }
       ],
       "positional": [],
-      "deprecated": {}
+      "deprecated": {
+        "size": "extent"
+      }
     },
     {
       "slug": "dropdown-menu",
@@ -2671,7 +2788,9 @@
         }
       ],
       "positional": [],
-      "deprecated": {}
+      "deprecated": {
+        "input_id": "id"
+      }
     },
     {
       "slug": "modal",
@@ -2888,7 +3007,9 @@
         }
       ],
       "positional": [],
-      "deprecated": {}
+      "deprecated": {
+        "side_offset": "offset"
+      }
     },
     {
       "slug": "progress",
@@ -3609,7 +3730,9 @@
         }
       ],
       "positional": [],
-      "deprecated": {}
+      "deprecated": {
+        "textarea_id": "id"
+      }
     },
     {
       "slug": "timeline",
@@ -3774,7 +3897,9 @@
         "title",
         "description"
       ],
-      "deprecated": {}
+      "deprecated": {
+        "action_alt": ""
+      }
     },
     {
       "slug": "toaster",
@@ -3865,7 +3990,9 @@
         "trigger",
         "content"
       ],
-      "deprecated": {}
+      "deprecated": {
+        "side_offset": "offset"
+      }
     }
   ],
   "helpers": [

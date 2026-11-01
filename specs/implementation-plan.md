@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.11 |
+| **Version** | 1.12 |
 | **Date** | 2026-10-31 |
-| **PRD** | [`prd.md`](prd.md) v1.15 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.12 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.10 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.13 |
+| **PRD** | [`prd.md`](prd.md) v1.16 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.13 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.11 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
 
 ---
 
@@ -686,8 +686,9 @@ budgets hold (DD-059); the agent catalog's `deck` section, `validate_deck` and `
 tools), `generate_code { deck }`, the skill's `references/deck.md` and the `silverpoint://guides/deck`
 guide; `DECK_DEMO` drawn on `/deck` in the four apps and the docs site; the package README. npm holds
 no `@silverpoint/marp` yet: a placeholder is published by hand and its trusted publisher set before
-the release (`changes/feature-006-deck/first-publish.md`). The Reflex deck (`reflex-silverpoint-marp`)
-is outside this repository.
+the release (`changes/feature-006-deck/first-publish.md`). The Reflex deck (`sp_deck`, in
+`reflex-silverpoint-react` since its 0.9.0) is outside this repository; its catalog is pinned here
+(delta-015, `0.9.2`).
 
 **Requirement → task map**
 
@@ -823,6 +824,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.12 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): the Reflex deck is `sp_deck` in `reflex-silverpoint-react`; its catalog pinned in `0.9.2` |
 | 1.11 | 2026-10-31 | Ernesto Crespo | Phase 10 added: slide decks (steps 10a..10h, #252..#289), feature-006, target `0.9.0`; recorded as built |
 | 1.10 | 2026-10-20 | Ernesto Crespo | Phase 9 added: agent access (steps 9a..9g, #226..#251), feature-005, target `0.8.0`; recorded as built in this repository, the sibling repositories' tasks open |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Phase 8 added: palettes, composed components, overlays and the timeline (steps 8a..8h, #200..#225), feature-004, target `0.7.0`; recorded as built |

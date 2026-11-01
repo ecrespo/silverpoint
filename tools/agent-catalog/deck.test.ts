@@ -19,10 +19,16 @@ const read = (file: string) => readFileSync(new URL(`../../${file}`, import.meta
 const PROPS = ['markdown', 'page', 'defaultPage', 'id', 'label', 'theme', 'ground', 'substrate', 'mode', 'palette', 'size', 'showNotes', 'showControls', 'keyboard', 'swipe', 'hash', 'interactive'];
 
 describe('the deck section (REQ-619)', () => {
-  test('REQ-619 · names, imports and the optional peer; Reflex pending until reflex-silverpoint-marp', () => {
-    expect(deck.names).toEqual({ react: 'SpDeck', vue: 'SpDeck', angular: 'sp-deck', reflex: '' });
-    expect(deck.imports).toEqual({ react: '@silverpoint/react/deck', vue: '@silverpoint/vue/deck', angular: '@silverpoint/angular/deck', reflex: '' });
+  test('REQ-619 · names, imports and the optional peer; Reflex’s `sp_deck` joined from reflex-silverpoint-react (#10)', () => {
+    expect(deck.names).toEqual({ react: 'SpDeck', vue: 'SpDeck', angular: 'sp-deck', reflex: 'sp_deck' });
+    expect(deck.imports).toEqual({ react: '@silverpoint/react/deck', vue: '@silverpoint/vue/deck', angular: '@silverpoint/angular/deck', reflex: 'reflex_silverpoint_react' });
     expect(deck.peer).toBe('@silverpoint/marp');
+  });
+
+  test('REQ-553 · REQ-619 · SpDeck’s props carry their Python names', () => {
+    expect(deck.props.find((p) => p.name === 'showNotes')?.reflex).toBe('show_notes');
+    expect(deck.props.find((p) => p.name === 'defaultPage')?.reflex).toBe('default_page');
+    expect(deck.props.find((p) => p.name === 'markdown')?.reflex).toBe('markdown');
   });
 
   test('REQ-619 · REQ-608 · the props are SpDeck’s, in order, the callbacks left to `events`', () => {
