@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/marp",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Marp/Marpit Markdown slide decks in the silverpoint style: the engine, the theme, the chart fence and the deck controller, framework-free.",
   "license": "MIT",
   "type": "module",

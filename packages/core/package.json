@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/core",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Geometry, scales, interaction and the Inker interface of silverpoint. No DOM, no framework.",
   "license": "MIT",
   "type": "module",
