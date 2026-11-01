@@ -1,4 +1,4 @@
-import { act } from 'react';
+import { act, StrictMode } from 'react';
 import { createRoot, hydrateRoot, type Root } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
@@ -138,6 +138,50 @@ describe('SpDeck — client (REQ-593, REQ-598, REQ-606, REQ-610, REQ-611)', () =
     expect(load).not.toHaveBeenCalled();
     expect(host.querySelector('[data-sp-slot="s1-c1"]')!.hasAttribute('data-sp-hydrated')).toBe(false);
     expect(host.querySelectorAll('[data-sp-slot="s1-c1"] .sp-root')).toHaveLength(1);
+  });
+
+  test('REQ-598 · REQ-606 · REQ-613 · under StrictMode the controls, the keys and a controlled page still move the deck (#7)', async () => {
+    const onPageChange = vi.fn();
+    const onReady = vi.fn();
+    await mount(
+      <StrictMode>
+        <SpDeck markdown={MD} id="c8" onPageChange={onPageChange} onReady={onReady} />
+      </StrictMode>,
+    );
+    expect(onReady).toHaveBeenCalledTimes(1);
+    expect(onReady).toHaveBeenCalledWith({ total: 3 });
+    act(() => host.querySelector<HTMLButtonElement>('[data-sp-action="next"]')!.click());
+    expect(deck().getAttribute('data-sp-page')).toBe('2');
+    key('ArrowRight');
+    expect(onPageChange).toHaveBeenCalledTimes(1);
+    expect(host.querySelector('[data-sp-slide="2"] [data-marpit-fragment="1"]')!.hasAttribute('data-sp-pending')).toBe(false);
+    key('End');
+    expect(deck().getAttribute('data-sp-page')).toBe('3');
+    expect(onPageChange).toHaveBeenLastCalledWith({ page: 3, total: 3 });
+    act(() => root!.unmount());
+    root = undefined;
+    const controlled = vi.fn();
+    await mount(<StrictMode><SpDeck markdown={MD} id="c9" page={1} onPageChange={controlled} /></StrictMode>);
+    await act(async () => root!.render(<StrictMode><SpDeck markdown={MD} id="c9" page={3} onPageChange={controlled} /></StrictMode>));
+    expect(deck().getAttribute('data-sp-page')).toBe('3');
+  });
+
+  test('REQ-606 · the first ready reaches onReady when React runs the effects after the microtask (#8)', async () => {
+    // Outside `act`, React flushes passive effects in a later task, as in a browser: the
+    // controller's first `ready` has already fired by then.
+    const env = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean };
+    env.IS_REACT_ACT_ENVIRONMENT = false;
+    try {
+      const onReady = vi.fn();
+      const plain = createRoot(host);
+      plain.render(<SpDeck markdown={MD} id="c10" onReady={onReady} />);
+      await vi.waitFor(() => expect(onReady).toHaveBeenCalledWith({ total: 3 }), { timeout: 2000 });
+      await new Promise((r) => setTimeout(r, 20));
+      expect(onReady).toHaveBeenCalledTimes(1);
+      plain.unmount();
+    } finally {
+      env.IS_REACT_ACT_ENVIRONMENT = true;
+    }
   });
 
   test('REQ-610 · new markdown re-renders, re-hydrates and keeps the page, clamped', async () => {

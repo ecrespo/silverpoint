@@ -138,15 +138,35 @@ export function SpDeck({
   // The events, through refs: a new handler each render rebinds nothing.
   const handlers = useRef({ onPageChange, onFragmentChange, onReady });
   handlers.current = { onPageChange, onFragmentChange, onReady };
+  // Whether the first `ready` reached the host; a ref, so StrictMode's replayed effect keeps it.
+  const announced = useRef(false);
   useEffect(() => {
+    let live = true;
     const off = [
       controller.on('pageChange', (p) => handlers.current.onPageChange?.(p)),
       controller.on('fragmentChange', (p) => handlers.current.onFragmentChange?.(p)),
-      controller.on('ready', (p) => handlers.current.onReady?.(p)),
+      controller.on('ready', (p) => {
+        announced.current = true;
+        handlers.current.onReady?.(p);
+      }),
     ];
-    return () => off.forEach((fn) => fn());
+    // The controller emits the first `ready` in a microtask queued at creation, during render;
+    // React may run this effect after it (#8). This microtask runs after the controller's: if
+    // that one found no listener, the adapter delivers the first `ready` itself, once.
+    queueMicrotask(() => {
+      if (!live || announced.current) return;
+      announced.current = true;
+      handlers.current.onReady?.(Object.freeze({ total: controller.state.total }));
+    });
+    return () => {
+      live = false;
+      off.forEach((fn) => fn());
+    };
   }, [controller]);
-  useEffect(() => () => controller.destroy(), [controller]);
+  // No `controller.destroy()` on cleanup: StrictMode replays effects (mount → cleanup → mount) on
+  // the same `useState` instance, and a destroyed controller ignores every action (#7). The
+  // subscriptions above, `useSyncExternalStore`'s and `attachDeck`'s are torn down by their own
+  // cleanups; the controller then holds no listener and nothing outside the component holds it.
 
   useEffect(() => controller.setTotal(render.total, steps), [controller, render, steps]);
   useEffect(() => {
