@@ -192,7 +192,10 @@ test.describe('the overlays’ keyboard patterns (T-223)', () => {
   test('REQ-491 · the end drawer sits against the end of the viewport', async ({ page }) => {
     const panel = await open(page);
     await panel.getByRole('button', { name: 'Filters', exact: true }).click();
-    const box = (await panel.locator(`${at('drawer--end-open')}--dialog`).boundingBox())!;
+    const drawer = panel.locator(`${at('drawer--end-open')}--dialog`);
+    // Angular opens the dialog a change-detection tick after the click: wait for it before measuring.
+    await expect(drawer).toBeVisible();
+    const box = (await drawer.boundingBox())!;
     expect(Math.abs(box.x + box.width - page.viewportSize()!.width)).toBeLessThanOrEqual(1);
   });
 
