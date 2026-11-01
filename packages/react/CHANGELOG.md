@@ -1,5 +1,14 @@
 # @silverpoint/react
 
+## 0.9.1
+
+### Patch Changes
+
+- 66b5907: `SpDeck` (React): the deck works under `<StrictMode>` — its cleanup no longer destroys the controller that StrictMode's replayed mount reuses (#7) — and `onReady` now receives the first `{ total }` even when React runs the subscribing effect after the controller's initial microtask (#8).
+- @silverpoint/core@0.9.1
+  - @silverpoint/grounds@0.9.1
+  - @silverpoint/marp@0.9.1
+
 ## 0.9.0
 
 ### Minor Changes

@@ -7,7 +7,7 @@ description: Build charts, dashboards and UI with the silverpoint library (React
 
 # silverpoint
 
-This skill describes **silverpoint 0.9.0** (`@silverpoint/*@0.9.0`). If the project
+This skill describes **silverpoint 0.9.1** (`@silverpoint/*@0.9.1`). If the project
 installs another version, check the props you write against its types, or use the MCP server, which
 answers for the version it ships with.
 
