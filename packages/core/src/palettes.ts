@@ -83,8 +83,11 @@ export const indigo = /* @__PURE__ */ preset({
   textMuted: '#4A5590',
 });
 
+/** The names of the six presets: the keys of `PALETTES`, the items of `PALETTE_NAMES`. */
+export type PaletteName = 'silverpoint' | 'sanguine' | 'sepia' | 'ironGall' | 'verdigris' | 'indigo';
+
 /** The six presets by name. */
-export const PALETTES: Readonly<Record<string, Palette>> = /* @__PURE__ */ Object.freeze({
+export const PALETTES: Readonly<Record<PaletteName, Palette>> = /* @__PURE__ */ Object.freeze({
   silverpoint,
   sanguine,
   sepia,
@@ -94,6 +97,6 @@ export const PALETTES: Readonly<Record<string, Palette>> = /* @__PURE__ */ Objec
 });
 
 /** Written out, not `Object.keys(PALETTES)`: a call the bundler cannot drop would keep every preset. */
-export const PALETTE_NAMES: readonly string[] = /* @__PURE__ */ Object.freeze(['silverpoint', 'sanguine', 'sepia', 'ironGall', 'verdigris', 'indigo']);
+export const PALETTE_NAMES: readonly PaletteName[] = /* @__PURE__ */ Object.freeze(['silverpoint', 'sanguine', 'sepia', 'ironGall', 'verdigris', 'indigo']);
 
 export type { Palette } from './palette/palette';

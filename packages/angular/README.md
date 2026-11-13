@@ -80,6 +80,10 @@ the drawing area and defaults to 160 px.
 `provideSilverpoint` sets the ground, the substrate, the mode and the locale for every chart. An
 input on a chart overrides it.
 
+An `sp-dashboard` draws its own frame, title and grid from its own `ground`, `substrate` and
+`palette` inputs, never from the provider, as React's does in Server Components. Under a provider,
+give the dashboard the same values; its charts and components follow either.
+
 ```ts
 // src/app/app.config.ts
 import { type ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
@@ -179,6 +183,8 @@ Each component exposes `getGeometry()` and `toSVGString()`:
 ```ts
 import { Component, viewChild } from '@angular/core';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
+import { standaloneSVG } from '@silverpoint/grounds';
+import groundStyles from '@silverpoint/grounds/styles-text';
 
 @Component({
   selector: 'app-exportable',
@@ -196,11 +202,16 @@ export class Exportable {
   private readonly chart = viewChild.required<SpLineChart>('chart');
 
   protected download() {
-    const svg = this.chart().toSVGString();
+    const svg = standaloneSVG(this.chart().toSVGString(), groundStyles);
     window.open(URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })));
   }
 }
 ```
+
+`toSVGString()` returns the canonical markup, which the page's stylesheet paints through `--sp-*`
+properties: saved as it is, the file has no colours. `standaloneSVG` puts the stylesheet inside it, so
+the file renders the same outside the app; `@silverpoint/grounds/styles-text` is `styles.css` as a
+string, importable in every bundler.
 
 ## Inputs every chart shares
 

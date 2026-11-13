@@ -4,7 +4,7 @@
  * `<svg>`, so the drawing keeps its colours outside a page. Nothing else in the markup changes.
  */
 import { pathBytes, PATH_BYTE_BUDGET } from '@silverpoint/core';
-import { PALETTES } from '@silverpoint/core/palettes';
+import { PALETTES, type PaletteName } from '@silverpoint/core/palettes';
 import { renderChart as render, toSVGString } from '@silverpoint/grounds';
 import { EB_GARAMOND_400, GROUND_CSS } from '../assets.generated';
 import type { Catalog } from '../catalog';
@@ -56,7 +56,7 @@ export function renderChart(catalog: Catalog, input: RenderInput): Rendered {
     if (OWN_INPUTS.includes(key)) throw new ToolError('invalid_input', `Give \`${key}\` as its own input, not in \`props\`.`);
     if (!declared.includes(key)) throw unknownName(`prop of ${chart.slug}`, key, declared);
   }
-  const palette = typeof input.palette === 'string' ? PALETTES[catalog.palette(input.palette)] : input.palette;
+  const palette = typeof input.palette === 'string' ? PALETTES[catalog.palette(input.palette) as PaletteName] : input.palette;
   const props = {
     ...input.props,
     ...(input.data === undefined ? {} : { data: input.data }),

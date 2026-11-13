@@ -4,7 +4,7 @@
  * carries its canonical render, written from the core's view alone (ui-canonical.ts).
  */
 import { UI_COMPONENTS, type CommonUiProps, type UiComponentRow, type UiSize } from '@silverpoint/core/ui';
-import { PALETTES } from '@silverpoint/core/palettes';
+import { PALETTES, type Palette } from '@silverpoint/core/palettes';
 import { UI_DEMOS } from '@silverpoint/core/ui-demos';
 
 /** Each ground with its substrates, as the chart and dashboard matrices have them. No `fs` here: adapter tests import this; so do the timeline fixtures. */
@@ -107,7 +107,7 @@ export function uiFixtureParts(fixture: UiFixture): {
     else if (key === 'active') active = v as string;
     else props[key] = v;
   }
-  const palette = fixture.palette === undefined ? undefined : PALETTES[fixture.palette];
+  const palette = fixture.palette === undefined ? undefined : (PALETTES as Readonly<Record<string, Palette | undefined>>)[fixture.palette];
   if (fixture.palette !== undefined && !palette) throw new Error(`No palette ${fixture.palette}`);
   return {
     props: { ...props, ground: fixture.ground, substrate: fixture.substrate as CommonUiProps['substrate'], mode: fixture.mode, size: fixture.size, ...(palette ? { palette } : {}) },

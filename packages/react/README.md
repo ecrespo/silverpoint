@@ -72,10 +72,18 @@ the drawing area and defaults to 160 px.
 `SilverpointProvider` sets the ground, the substrate, the mode and the locale for every chart
 below it. A prop on a chart overrides the provider.
 
+Import it from `@silverpoint/react/provider`, its own entry: the root entry `@silverpoint/react`
+re-exports every chart, and a bundler that keeps a `'use client'` barrel whole (Next.js with
+Turbopack) would carry all of them into every route that only sets a ground.
+
+A `Dashboard` draws its own frame, title and grid from its own `ground`, `substrate` and `palette`
+props, never from the provider: it renders in Server Components, which read no provider. Under a
+provider, give the dashboard the same values; its charts and components follow either.
+
 ```tsx
 import '@silverpoint/fonts/fonts.css';
 import '@silverpoint/grounds/styles.css';
-import { SilverpointProvider } from '@silverpoint/react';
+import { SilverpointProvider } from '@silverpoint/react/provider';
 import { BarChart } from '@silverpoint/react/bar-chart';
 import { DonutChart } from '@silverpoint/react/donut-chart';
 
@@ -146,12 +154,14 @@ leaves. `onSelect` fires on click, `Enter` or `Space`.
 
 ```tsx
 import { useRef } from 'react';
+import { standaloneSVG } from '@silverpoint/grounds';
+import groundStyles from '@silverpoint/grounds/styles-text';
 import { LineChart, type ChartHandle } from '@silverpoint/react/line-chart';
 
 export function Exportable({ data }: { data: { hour: string; hits: number }[] }) {
   const chart = useRef<ChartHandle>(null);
   const download = () => {
-    const svg = chart.current?.toSVGString() ?? '';
+    const svg = standaloneSVG(chart.current?.toSVGString() ?? '', groundStyles);
     const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
     window.open(url);
   };
@@ -163,6 +173,11 @@ export function Exportable({ data }: { data: { hour: string; hits: number }[] })
   );
 }
 ```
+
+`toSVGString()` returns the canonical markup, which the page's stylesheet paints through `--sp-*`
+properties: saved as it is, the file has no colours. `standaloneSVG` puts the stylesheet inside it, so
+the file renders the same outside the app; `@silverpoint/grounds/styles-text` is `styles.css` as a
+string, importable in every bundler.
 
 ### Next.js and React Server Components
 
@@ -317,7 +332,7 @@ npm install @silverpoint/core
 
 ```tsx
 import { sanguine } from '@silverpoint/core/palettes';
-import { SilverpointProvider } from '@silverpoint/react';
+import { SilverpointProvider } from '@silverpoint/react/provider';
 import { LineChart } from '@silverpoint/react/line-chart';
 import { SpCard } from '@silverpoint/react/ui/card';
 

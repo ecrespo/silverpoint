@@ -44,11 +44,13 @@ export function useMeasuredWidth(element: Ref<HTMLElement | undefined>, enabled:
   let observer: ResizeObserver | undefined;
   onMounted(() => {
     if (!enabled() || !element.value || typeof ResizeObserver !== 'function') return;
+    const target = element.value;
     observer = new ResizeObserver((entries) => {
       const entry = entries[0];
-      if (entry) width.value = entry.contentRect.width;
+      // Hidden with `display: none` (a kept-alive route, a closed panel) is not a measurement: no box, so the last width stands (#22).
+      if (entry && (entry.contentRect.width > 0 || target.getClientRects().length > 0)) width.value = entry.contentRect.width;
     });
-    observer.observe(element.value);
+    observer.observe(target);
   });
   onBeforeUnmount(() => observer?.disconnect());
   return width;

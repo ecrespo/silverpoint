@@ -78,6 +78,8 @@ export default defineConfig([
       'vector-field-chart': 'src/vector-field-chart.tsx',
       'network-chart': 'src/network-chart.tsx',
       'dashboard-link': 'src/dashboard-link.tsx',
+      // The provider on its own (#21): a route that only sets a ground does not import the barrel.
+      provider: 'src/provider.tsx',
       // UI components (feature-002): client entries, one per component, and the barrel.
       ui: 'src/ui/index.ts',
       'ui/button': 'src/ui/button.tsx',

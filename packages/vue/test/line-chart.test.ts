@@ -156,6 +156,43 @@ describe('SpLineChart in the browser', () => {
     expect(host.querySelector('svg.sp-chart')?.getAttribute('viewBox')).toMatch(/^0 0 400 /);
   });
 
+  test('REQ-009 · #22 · a container hidden with display: none keeps its last width and reports no SP003; a rendered one of 0 px still does', async () => {
+    let notify: (width: number) => void = () => {};
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        constructor(callback: (entries: { contentRect: { width: number } }[]) => void) {
+          notify = (width) => callback([{ contentRect: { width } }]);
+        }
+        observe() {}
+        disconnect() {}
+      },
+    );
+    const seen: SpCode[] = [];
+    const restore = __setDiagnosticSink((code) => seen.push(code));
+    const boxes = vi.spyOn(Element.prototype, 'getClientRects');
+    try {
+      const host = mount(() => h(SpLineChart, { id: 'sp-hidden' }));
+      notify(400);
+      await nextTick();
+      // `display: none` (a kept-alive route, a closed panel): no box at all.
+      boxes.mockReturnValue([] as unknown as DOMRectList);
+      notify(0);
+      await nextTick();
+      expect(host.querySelector('svg.sp-chart')?.getAttribute('viewBox')).toMatch(/^0 0 400 /);
+      expect(seen).not.toContain('SP003');
+      // Rendered, and 0 px wide: the layout is broken, and the diagnostic says so.
+      boxes.mockReturnValue([{}] as unknown as DOMRectList);
+      notify(0);
+      await nextTick();
+      expect(host.querySelector('.sp-root')?.getAttribute('data-status')).toBe('deferred');
+      expect(seen).toContain('SP003');
+    } finally {
+      boxes.mockRestore();
+      restore();
+    }
+  });
+
   test('API §8.3 · provideSilverpoint supplies ground, substrate and mode; a prop wins over it', () => {
     const host = mount(
       () => [h(SpLineChart, fixed), h(SpLineChart, { ...fixed, id: 'sp-second', substrate: 'blue' })] as never,

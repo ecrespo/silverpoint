@@ -47,7 +47,7 @@ export function parseChartFence(body: string): FenceParse {
   }
   if (own(v, 'mode') && !MODES.includes(v.mode as never)) return shape(`\`mode\` must be ${MODES.map((m) => `"${m}"`).join(' or ')}.`);
   if (own(v, 'palette') && typeof v.palette !== 'string' && !isObject(v.palette)) return shape('`palette` must be a preset name or a palette object.');
-  if (typeof v.palette === 'string' && !PALETTE_NAMES.includes(v.palette)) return shape(`\`palette\` "${v.palette}" is not a preset.${didYouMean(v.palette, PALETTE_NAMES)}`);
+  if (typeof v.palette === 'string' && !(PALETTE_NAMES as readonly string[]).includes(v.palette)) return shape(`\`palette\` "${v.palette}" is not a preset.${didYouMean(v.palette, PALETTE_NAMES)}`);
 
   const props = (v.props ?? {}) as Record<string, unknown>;
   for (const key of FENCE_OWN) if (own(props, key)) return shape(`Give \`${key}\` as a field of the fence, not in \`props\`.`);

@@ -29,7 +29,9 @@ type Prop<K extends keyof CommonChartProps> = CommonChartProps[K];
  * </sp-chart-frame>
  * ```
  */
-@Directive({ host: { '(document:keydown)': 'onDocumentKey($event)' } })
+// A literal `title="…"` binds the input and also stays on the host as a DOM attribute, where the
+// browser shows its own tooltip over the whole chart: the host drops it (#18).
+@Directive({ host: { '(document:keydown)': 'onDocumentKey($event)', '[attr.title]': 'null' } })
 export abstract class SpChart<P extends CommonChartProps> {
   readonly data = input<Prop<'data'>>();
   readonly ground = input<Prop<'ground'>>();

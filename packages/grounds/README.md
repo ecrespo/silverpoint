@@ -49,6 +49,21 @@ import '@knight-lab/timelinejs/dist/css/timeline.css';
 import '@silverpoint/grounds/timeline.css';
 ```
 
+## A chart as a standalone SVG file
+
+A chart's `toSVGString()` (the handle of every adapter) returns the canonical markup. Its strokes and
+fills are painted by `styles.css` through `--sp-*` properties, so the markup saved as it is has no
+colours when opened on its own. `standaloneSVG` puts the stylesheet inside the root `<svg>`, in
+CDATA, and `@silverpoint/grounds/styles-text` is `styles.css` as a string that every bundler imports
+without loader attributes, `?raw` or prebundle settings:
+
+```ts
+import { standaloneSVG } from '@silverpoint/grounds';
+import groundStyles from '@silverpoint/grounds/styles-text';
+
+const file = standaloneSVG(chart.toSVGString(), groundStyles);
+```
+
 ## Re-theming with CSS
 
 Every stroke carries a `part` attribute bound to a public custom property. Overriding a property

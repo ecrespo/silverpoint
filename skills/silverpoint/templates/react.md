@@ -36,7 +36,9 @@ small.
 
 `onActiveChange(item | null)`, `onSelect(item)` and, on the sunburst and the squarified treemap,
 `onRootChange(id | null)`. A `ref` gives `getGeometry()` and `toSVGString()`, which serialises the
-chart with its palette.
+chart with its palette. That markup is painted by the page's stylesheet: for a file that renders on
+its own, wrap it — `standaloneSVG(svg, css)` from `@silverpoint/grounds`, with
+`import css from '@silverpoint/grounds/styles-text'`.
 
 ## Example
 

@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 import { afterEach, describe, expect, test } from 'vitest';
 import * as main from '../src';
 import { __setDiagnosticSink, type Palette as MainPalette, type SpCode } from '../src';
@@ -193,9 +195,29 @@ describe('palettes — contrast (T-201)', () => {
 describe('palettes — presets (T-201)', () => {
   const presets = { silverpoint, sanguine, sepia, ironGall, verdigris, indigo };
 
+  test('REQ-463 · #20 · the preset names are in the types: `PaletteName`, the keys of `PALETTES`, the items of `PALETTE_NAMES` (compiled type test)', () => {
+    const file = fileURLToPath(new URL('./types/palette-names.ts', import.meta.url));
+    const program = ts.createProgram([file], {
+      strict: true,
+      noEmit: true,
+      noUncheckedIndexedAccess: true,
+      target: ts.ScriptTarget.ES2022,
+      module: ts.ModuleKind.ESNext,
+      moduleResolution: ts.ModuleResolutionKind.Bundler,
+      skipLibCheck: true,
+      types: ['node'],
+    });
+    const diagnostics = ts.getPreEmitDiagnostics(program).map((d) => {
+      const where = d.file && d.start !== undefined ? d.file.getLineAndCharacterOfPosition(d.start).line + 1 : 0;
+      return `${where}: ${ts.flattenDiagnosticMessageText(d.messageText, '\n')}`;
+    });
+    expect(diagnostics).toEqual([]);
+  }, 20_000);
+
   test('REQ-463 · six presets, by name, the same objects as the named exports', () => {
     expect(PALETTE_NAMES).toEqual(['silverpoint', 'sanguine', 'sepia', 'ironGall', 'verdigris', 'indigo']);
-    for (const [name, palette] of Object.entries(presets)) expect(PALETTES[name]).toBe(palette);
+    for (const name of PALETTE_NAMES) expect(PALETTES[name]).toBe(presets[name]);
+    expect(Object.keys(PALETTES)).toEqual([...PALETTE_NAMES]);
   });
 
   test('REQ-463 · presets carry the values of Data Model §2.26', () => {
@@ -222,7 +244,7 @@ describe('palettes — presets (T-201)', () => {
     for (const palette of Object.values(presets)) expect(Object.isFrozen(palette)).toBe(true);
   });
 
-  test.each(Object.keys(presets))('REQ-464 · I-31 · %s passes every pair of Data Model §3.9', (name) => {
-    expect(checkPalette(PALETTES[name]!)).toEqual([]);
+  test.each([...PALETTE_NAMES])('REQ-464 · I-31 · %s passes every pair of Data Model §3.9', (name) => {
+    expect(checkPalette(PALETTES[name])).toEqual([]);
   });
 });

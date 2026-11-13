@@ -9,7 +9,8 @@ import { uiDrawerView, type SpDrawerProps } from '@silverpoint/core/ui';
   selector: 'sp-drawer',
   imports: [SpUiTree],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { style: 'display: contents' },
+  // A literal `title="…"` is the input, never the host's native tooltip (#18).
+  host: { style: 'display: contents', '[attr.title]': 'null' },
   providers: [{ provide: SP_TRIGGER_OWNER, useExisting: forwardRef(() => SpDrawer) }],
   template: `<ng-content select="[spTrigger]" /><ng-template #content><ng-content /></ng-template><sp-ui-tree [node]="view()" [slots]="{ content: content, footer: footer()?.template }" (clicked)="setOpen(false)" />`,
 })

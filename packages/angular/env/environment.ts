@@ -46,7 +46,8 @@ export function injectMeasuredWidth(enabled: () => boolean): Signal<number | und
     const target = host.nativeElement.querySelector<HTMLElement>('.sp-root') ?? host.nativeElement;
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0];
-      if (entry) width.set(entry.contentRect.width);
+      // Hidden with `display: none` (a detached route, a closed panel) is not a measurement: no box, so the last width stands (#22).
+      if (entry && (entry.contentRect.width > 0 || target.getClientRects().length > 0)) width.set(entry.contentRect.width);
     });
     observer.observe(target);
     destroy.onDestroy(() => observer.disconnect());

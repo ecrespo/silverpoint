@@ -40,3 +40,29 @@ describe.each(CATALOG.map((c) => [c.slug, c] as const))('per-chart subpaths of %
     expect(dirname(file)).toMatch(/dist\/fesm2022$/);
   });
 });
+
+describe('the provider subpath (#21)', () => {
+  test('REQ-107 · #21 · @silverpoint/react/provider is a client entry of its own, sharing the charts\' context and not the barrel', async () => {
+    const file = resolve('@silverpoint/react/provider');
+    expect(file).toMatch(/dist\/provider\.js$/);
+    expect(Object.keys(await import(file))).toEqual(['SilverpointProvider']);
+    expect(readFileSync(file, 'utf8')).toMatch(/^['"]use client['"];/);
+    expect(relativeImports(file).some((path) => /\/index\.js$/.test(path))).toBe(false);
+    // One context for both: the chunk that creates it is imported by the provider and by a chart.
+    const chunks = (path: string) => [...readFileSync(path, 'utf8').matchAll(/(?:from|import)\s*['"](\.[^'"]+)['"]/g)].map((m) => m[1] as string);
+    const creates = (path: string) => /createContext\(/.test(readFileSync(join(dirname(file), path), 'utf8'));
+    const context = chunks(file).filter(creates);
+    expect(context).toHaveLength(1);
+    expect(chunks(resolve('@silverpoint/react/line-chart'))).toContain(context[0]);
+  });
+});
+
+describe('the stylesheet as text (#19)', () => {
+  test('#19 · @silverpoint/grounds/styles-text is the published stylesheet, as a string', async () => {
+    const file = resolve('@silverpoint/grounds/styles-text');
+    expect(file).toMatch(/dist\/styles-text\.js$/);
+    const { default: text } = (await import(file)) as { default: string };
+    expect(text).toBe(readFileSync(resolve('@silverpoint/grounds/styles.css'), 'utf8'));
+    expect(readFileSync(file.replace(/\.js$/, '.d.ts'), 'utf8')).toMatch(/export default/);
+  });
+});

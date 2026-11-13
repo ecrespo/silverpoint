@@ -26,7 +26,8 @@ export function useMeasuredWidth(ref: RefObject<HTMLElement | null>, enabled: bo
     if (!enabled || !element || typeof ResizeObserver !== 'function') return;
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0];
-      if (entry) setWidth(entry.contentRect.width);
+      // Hidden with `display: none` (React's <Activity>, a closed panel) is not a measurement: no box, so the last width stands (#22).
+      if (entry && (entry.contentRect.width > 0 || element.getClientRects().length > 0)) setWidth(entry.contentRect.width);
     });
     observer.observe(element);
     return () => observer.disconnect();

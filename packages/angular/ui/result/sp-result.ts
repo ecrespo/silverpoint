@@ -8,7 +8,8 @@ import { uiResultView, type AlertKind, type SpResultProps } from '@silverpoint/c
   selector: 'sp-result',
   imports: [SpUiTree],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { style: 'display: contents' },
+  // A literal `title="…"` is the input, never the host's native tooltip (#18).
+  host: { style: 'display: contents', '[attr.title]': 'null' },
   template: `<sp-ui-tree [node]="view()" [slots]="{ extra: extra()?.template }" />`,
 })
 export class SpResult extends SpUiBase {

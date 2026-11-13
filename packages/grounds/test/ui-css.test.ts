@@ -232,6 +232,13 @@ describe('ui.css, the feature-004 rows (T-210)', () => {
     expect(body('.sp-ui-table td')).toMatch(/z-index: 0/);
   });
 
+  test('REQ-473 · #12 · a body cell aligns to the start unless its column says otherwise; the column rules come later and win', () => {
+    expect(body('.sp-ui-table td')).toMatch(/text-align: start/);
+    const at = (selector: string) => all.findIndex((r) => r.selector === selector);
+    expect(at(".sp-ui-table [data-align='end']")).toBeGreaterThan(at('.sp-ui-table td'));
+    expect(at(".sp-ui-table [data-align='center']")).toBeGreaterThan(at('.sp-ui-table td'));
+  });
+
   test('REQ-475 · DD-040 · under a weight ground a toned row is a weighted rule, not a hatch', () => {
     const rule = withSelector((s) => s.startsWith('.sp-ground-cyanotype') && s.includes('td::before'));
     expect(rule).toHaveLength(1);

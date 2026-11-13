@@ -4,7 +4,7 @@
  * No maths here (Art. 2): the chart is the core's recipe through the grounds' one pipeline.
  */
 import { SilverpointError } from '@silverpoint/core';
-import { PALETTES, type Palette } from '@silverpoint/core/palettes';
+import { PALETTES, type Palette, type PaletteName } from '@silverpoint/core/palettes';
 import { listGrounds, renderChart, toChartRootString } from '@silverpoint/grounds';
 import type { ChartFenceSpec, DeckMode, FenceError } from '../types';
 import { closest, didYouMean } from '../util/closest';
@@ -38,7 +38,7 @@ export function fenceChartProps(spec: ChartFenceSpec, context: FenceContext): Re
   const substrate = spec.substrate ?? (ground === context.ground ? context.substrate : other && Object.keys(other.substrates)[0]);
   const named = spec.palette ?? context.palette;
   // A preset name is the core's preset (REQ-461); the pipeline takes the palette's fields.
-  const palette = typeof named === 'string' ? (Object.hasOwn(PALETTES, named) ? PALETTES[named] : undefined) : named;
+  const palette = typeof named === 'string' ? (Object.hasOwn(PALETTES, named) ? PALETTES[named as PaletteName] : undefined) : named;
   return {
     ...spec.props,
     ...(spec.data === undefined ? {} : { data: spec.data }),

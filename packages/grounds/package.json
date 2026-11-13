@@ -18,6 +18,11 @@
       "default": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
+    "./styles-text": {
+      "types": "./dist/styles-text.d.ts",
+      "import": "./dist/styles-text.js",
+      "default": "./dist/styles-text.js"
+    },
     "./ui.css": "./dist/ui.css",
     "./timeline.css": "./dist/timeline.css",
     "./package.json": "./package.json"
@@ -35,7 +40,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup && node -e \"const fs=require('node:fs');fs.writeFileSync('dist/styles.css',fs.readFileSync('src/styles.css','utf8')+fs.readFileSync('src/dashboard.css','utf8'))\" && tsx scripts/build-ui-css.ts",
+    "build": "tsup && node -e \"const fs=require('node:fs');fs.writeFileSync('dist/styles.css',fs.readFileSync('src/styles.css','utf8')+fs.readFileSync('src/dashboard.css','utf8'))\" && tsx scripts/build-styles-text.ts && tsx scripts/build-ui-css.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {

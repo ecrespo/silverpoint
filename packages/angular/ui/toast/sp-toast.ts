@@ -52,7 +52,8 @@ export class SpToaster extends SpUiBase {
   selector: 'sp-toast',
   imports: [SpUiTree],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { style: 'display: contents' },
+  // A literal `title="…"` is the input, never the host's native tooltip (#18).
+  host: { style: 'display: contents', '[attr.title]': 'null' },
   template: `<sp-ui-tree [node]="view()" [slots]="{ action: action()?.template }" (clicked)="setOpen(false)" />`,
 })
 export class SpToast extends SpUiOverlay {

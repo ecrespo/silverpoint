@@ -28,7 +28,8 @@ export class SpCollapse extends SpUiBase {
   selector: 'sp-collapse-item',
   imports: [SpUiTree],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { style: 'display: contents' },
+  // A literal `title="…"` is the input, never the host's native tooltip (#18).
+  host: { style: 'display: contents', '[attr.title]': 'null' },
   template: `<ng-template #content><ng-content /></ng-template><sp-ui-tree [node]="view()" [slots]="{ content: content }" (toggled)="toggled($event)" (clicked)="activated($event)" />`,
 })
 export class SpCollapseItem extends SpUiBase {

@@ -19,7 +19,7 @@ const json = <T>(file: string): T => JSON.parse(readFileSync(join(ROOT, file), '
 /** Chart and UI subpaths an npm adapter exports (`./<slug>`, `./ui/<slug>`). */
 function npmExports(adapter: 'react' | 'vue'): { charts: Set<string>; ui: Set<string> } {
   const keys = Object.keys(json<{ exports: Record<string, unknown> }>(`packages/${adapter}/package.json`).exports);
-  const NOT_CHARTS = new Set(['dashboard', 'dashboard-link', 'ui', 'timeline', 'deck', 'package.json']);
+  const NOT_CHARTS = new Set(['dashboard', 'dashboard-link', 'provider', 'ui', 'timeline', 'deck', 'package.json']);
   return {
     charts: new Set(keys.map((k) => k.match(/^\.\/([a-z-]+)$/)?.[1]).filter((s): s is string => !!s && !NOT_CHARTS.has(s))),
     ui: new Set(keys.map((k) => k.match(/^\.\/ui\/([a-z-]+)$/)?.[1]).filter((s): s is string => !!s)),

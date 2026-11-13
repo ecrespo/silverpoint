@@ -609,7 +609,7 @@ const COMPOSED = [
     'white-space: nowrap',
   ]),
   // A cell is a stacking context, so its tone layer stays under its own text (REQ-475).
-  rule('.sp-ui-table td', ['position: relative', 'z-index: 0', 'padding: 8px 14px', 'border-block-end: 1px solid var(--sp-grid)', 'vertical-align: top']),
+  rule('.sp-ui-table td', ['position: relative', 'z-index: 0', 'padding: 8px 14px', 'border-block-end: 1px solid var(--sp-grid)', 'vertical-align: top', 'text-align: start']),
   rule('.sp-ui-table td .sp-ui-plate', ['padding-inline: 2px']),
   rule('.sp-ui-table tbody tr:last-child td', ['border-block-end: 0']),
   rule(".sp-ui-table [data-align='end']", ['text-align: end']),

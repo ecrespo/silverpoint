@@ -2,7 +2,7 @@
  * `check_palette` (API delta §3, REQ-545): the core's `checkPalette` findings (REQ-465) for a
  * preset or a palette of fields, over a substrate given as a hex or by name.
  */
-import { checkPalette, PALETTES, type PaletteFinding } from '@silverpoint/core/palettes';
+import { checkPalette, PALETTES, type PaletteFinding, type PaletteName } from '@silverpoint/core/palettes';
 import type { Palette } from '@silverpoint/core';
 import { cyanotype, silverpoint } from '@silverpoint/grounds';
 import type { Catalog } from '../catalog';
@@ -23,7 +23,7 @@ const HEX = /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i;
 export function checkPaletteTool(catalog: Catalog, input: PaletteInput): { findings: readonly PaletteFinding[]; substrate: string } {
   checkPayload(input);
   let palette: Palette;
-  if (typeof input.palette === 'string') palette = PALETTES[catalog.palette(input.palette)]!;
+  if (typeof input.palette === 'string') palette = PALETTES[catalog.palette(input.palette) as PaletteName];
   else {
     const fields = catalog.data.palettes.fields.map((f) => f.name);
     for (const key of Object.keys(input.palette)) if (!fields.includes(key)) throw unknownName('palette field', key, fields);

@@ -71,6 +71,10 @@ the drawing area and defaults to 160 px. In templates, props can be written in `
 The `provideSilverpoint` plugin sets the ground, the substrate, the mode and the locale for every
 chart. A prop on a chart overrides it.
 
+An `SpDashboard` draws its own frame, title and grid from its own `ground`, `substrate` and
+`palette` props, never from the provider, as React's does in Server Components. Under a provider,
+give the dashboard the same values; its charts and components follow either.
+
 ```ts
 // src/main.ts
 import '@silverpoint/fonts/fonts.css';
@@ -157,13 +161,15 @@ leaves. `@select` fires on click, `Enter` or `Space`.
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
+import { standaloneSVG } from '@silverpoint/grounds';
+import groundStyles from '@silverpoint/grounds/styles-text';
 import { SpLineChart } from '@silverpoint/vue/line-chart';
 
 defineProps<{ data: { hour: string; hits: number }[] }>();
 const chart = ref<InstanceType<typeof SpLineChart>>();
 
 function download() {
-  const svg = chart.value?.toSVGString() ?? '';
+  const svg = standaloneSVG(chart.value?.toSVGString() ?? '', groundStyles);
   window.open(URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })));
 }
 </script>
@@ -173,6 +179,11 @@ function download() {
   <button @click="download">Export SVG</button>
 </template>
 ```
+
+`toSVGString()` returns the canonical markup, which the page's stylesheet paints through `--sp-*`
+properties: saved as it is, the file has no colours. `standaloneSVG` puts the stylesheet inside it, so
+the file renders the same outside the app; `@silverpoint/grounds/styles-text` is `styles.css` as a
+string, importable in every bundler.
 
 ### Server rendering
 

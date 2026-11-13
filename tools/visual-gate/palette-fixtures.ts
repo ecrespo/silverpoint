@@ -8,7 +8,7 @@
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { PALETTE_NAMES, PALETTES } from '@silverpoint/core/palettes';
+import { PALETTE_NAMES, PALETTES, type PaletteName } from '@silverpoint/core/palettes';
 import { canonicalFor, FIXTURES_DIR, loadFixtures, type Fixture } from './fixtures';
 import { canonicalUiFor } from './ui-canonical';
 import { uiMatrix, type UiFixture } from './ui-matrix';
@@ -18,7 +18,7 @@ export type PaletteTarget = 'line-chart' | 'card' | 'table';
 export interface PaletteFixture {
   /** `palette--<preset>--<target>--<mode>`: its files' name. */
   readonly id: string;
-  readonly preset: string;
+  readonly preset: PaletteName;
   readonly target: PaletteTarget;
   readonly mode: 'ink' | 'precision';
   readonly req: 'REQ-468';

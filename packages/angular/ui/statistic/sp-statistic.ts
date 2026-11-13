@@ -7,7 +7,8 @@ import { uiStatisticView, type SpStatisticProps } from '@silverpoint/core/ui';
   selector: 'sp-statistic',
   imports: [SpUiTree],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { style: 'display: contents' },
+  // A literal `title="…"` is the input, never the host's native tooltip (#18).
+  host: { style: 'display: contents', '[attr.title]': 'null' },
   template: `<sp-ui-tree [node]="view()" />`,
 })
 export class SpStatistic extends SpUiBase {

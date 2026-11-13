@@ -735,6 +735,12 @@
       "import": "./dist/server/network-chart.js",
       "default": "./dist/server/network-chart.js"
     },
+    "./provider": {
+      "@silverpoint/source": "./src/provider.tsx",
+      "types": "./dist/provider.d.ts",
+      "import": "./dist/provider.js",
+      "default": "./dist/provider.js"
+    },
     "./dashboard": {
       "@silverpoint/source": "./src/dashboard.tsx",
       "types": "./dist/dashboard.d.ts",

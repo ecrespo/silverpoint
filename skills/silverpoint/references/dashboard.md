@@ -16,6 +16,9 @@ resize.
   `SP014`.
 - **A chart inside a cell takes the cell's box** unless it sets its own `width` and `height`, and it
   inherits the dashboard's `ground`, `substrate`, `mode`, `locale` and `palette`.
+- **The dashboard's own frame, title and grid read no provider.** They are drawn from the dashboard's
+  `ground`, `substrate` and `palette`, or the library default. Under a provider, pass the dashboard
+  the same values, or its frame stays cream `silverpoint` around recoloured charts.
 - **`link={{ key: 'hour' }}` highlights the same value** of that field in every chart when one is
   hovered or focused. It is client-only: React's server `Dashboard` refuses it.
 - **On the server,** cells are sized at `ssrWidth` (1200 by default) until they are measured.
