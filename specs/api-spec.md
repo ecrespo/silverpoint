@@ -8,7 +8,7 @@
 | **Status** | `IN_REVIEW` |
 | **API version** | v1.15 |
 | **Date** | 2026-11-14 |
-| **Related PRD** | [`prd.md`](prd.md) v1.17 |
+| **Related PRD** | [`prd.md`](prd.md) v1.18 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 | **Surface** | npm packages; one public, read-only MCP endpoint (§14) |
 

@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.17 |
+| **Version** | 1.18 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-11-14 |
+| **Last updated** | 2026-11-15 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 ---
@@ -962,7 +962,7 @@ skill never states a prop, a default or a name the catalog does not hold.
 | REQ-553 | ubiquitous | `reflex-silverpoint-react` SHALL provide the `reflex-silverpoint` skill, written in English, generated from its own catalog export (DD-049): builders, state-driven props and events, the provider and palettes, composed components and overlays, the timeline, and the demo app's patterns. | MUST |
 | REQ-554 | ubiquitous | Each skill SHALL name the version it describes, SHALL tell the agent to prefer the MCP tools when they are connected, and SHALL keep its `SKILL.md` under 500 lines with the rest in references loaded on demand. | MUST |
 | REQ-555 | ubiquitous | Each repository SHALL publish a Claude plugin manifest that installs its skill and the hosted MCP server. | MUST |
-| REQ-556 | unwanted | IF the Reflex catalog wraps a silverpoint release line (major.minor) other than the one the agent catalog describes, THEN the catalog build SHALL mark every Reflex entry `stale` with the version it wraps, and a release build SHALL fail. | MUST |
+| REQ-556 | unwanted | IF the Reflex catalog wraps a silverpoint release line (major.minor) other than the one the agent catalog describes, THEN the catalog build SHALL mark every Reflex entry `stale` with the version it wraps, and a release build SHALL fail unless the Reflex catalog wraps the release line immediately before it in the same major, in which case it SHALL warn. | MUST |
 | REQ-557 | ubiquitous | CI SHALL extract every code example of both skills and the code of `generate_code`'s golden tests, and type-check them (React, Vue and Angular with the example apps' compilers; Reflex by importing and rendering the components). | MUST |
 
 #### 6.14.4 Hosting and the official site
@@ -992,7 +992,7 @@ the WASM rasteriser resolves no `var(--sp-*)` and reads no WOFF2, so a faithful 
 ground's paint flattened into presentation attributes first; `render_chart` takes no `format`.
 (2) **REQ-556** applies in its strict form only when the Reflex pin is the wrapper's own export; the
 interim pin, derived from the wrapper's sources (`derived` set), makes a stale release build warn
-instead of fail (user decision 2026-10-20, option b). Since delta-015 (#10, user decision 2026-11-01) the pin is the wrapper's own export, and "another version" means another release line: a patch of the library keeps the wrapper of its line current. (3) **REQ-561 (rate limit, SHOULD) is not
+instead of fail (user decision 2026-10-20, option b). Since delta-015 (#10, user decision 2026-11-01) the pin is the wrapper's own export, and "another version" means another release line: a patch of the library keeps the wrapper of its line current. Since delta-017 (user decision 2026-11-15) a pin exactly one release line behind warns instead of failing: the wrapper is built on the published library, so it can only follow a new line; its next export is pinned in a patch. (3) **REQ-561 (rate limit, SHOULD) is not
 implemented**: no shared store is configured, so the payload limits of REQ-560 stand alone.
 (4) REQ-555: the plugin declares its server inline in `plugin.json`, not in a root `.mcp.json`,
 which would connect every session opened in the repository. (5) REQ-559 measured 0.31 s cold start
@@ -1429,6 +1429,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.18 | 2026-11-15 | Ernesto Crespo | Delta-017: REQ-556 — a release build warns, and does not fail, when the Reflex catalog wraps the release line immediately before (the wrapper follows the library; user decision 2026-11-15) |
 | 1.17 | 2026-11-14 | Ernesto Crespo | Delta-016 folded (#12, #14, #17..#22): REQ-009 — a container hidden with `display: none` is not a measurement; REQ-212 and REQ-462 — the dashboard's own root takes the provider's ground, substrate and palette where it sets none, React's server entry aside (user decision 2026-11-14); REQ-220 — React's client entry has 2.25 KB, as its root is a client component (user decision 2026-11-15). No requirement added |
 | 1.16 | 2026-11-01 | Ernesto Crespo | Delta-015 folded (#10): REQ-556 compares release lines (major.minor); REQ-621 generates `sp_deck` for Reflex; §5.2 drops the separate Reflex deck wrapper, which ships in `reflex-silverpoint-react` |
 | 1.15 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: §6.15 slide decks (REQ-570..REQ-628; 59 requirements: 56 MUST, 3 SHOULD; 310 → 369 in all, 343 MUST); §1, Persona 6, §5.1–§5.3, §6.14 amended (REQ-539, REQ-541, REQ-546), §7 additions, Epic J, §11 risks, §12 Phase 10; the delta's glossary folded as §6.15's terms; what the implementation changed folded as built ("amended in implementation"): no SVG polyfill (DD-051), author CSS sanitised, Angular's `pageChange` payload, the six-slide `DECK_DEMO` |

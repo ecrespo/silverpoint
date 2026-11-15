@@ -8,9 +8,9 @@
 | **Status** | `IN_REVIEW` |
 | **Version** | 1.13 |
 | **Date** | 2026-11-14 |
-| **PRD** | [`prd.md`](prd.md) v1.17 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.14 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.12 |
+| **PRD** | [`prd.md`](prd.md) v1.18 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.15 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.13 |
 | **API Spec** | [`api-spec.md`](api-spec.md) v1.15 |
 
 ---

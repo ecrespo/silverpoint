@@ -9,6 +9,7 @@ import type { AgentCatalog, ReflexCatalog } from '../../packages/mcp/src/types';
 import { CATALOG } from '../visual-gate/catalog';
 import { buildAgentCatalog, CATALOG_FILE, joinReflex, sameLine, serialise } from './catalog';
 import { checkCatalog, isInterim } from './check';
+import { followsLine } from './versions';
 import { CHART_META, FAMILIES } from './charts.meta';
 import { propsReference } from './props';
 
@@ -183,9 +184,30 @@ describe('versions (REQ-534, REQ-556)', () => {
   });
 
   test('REQ-556 · I-40 · the pin is reflex-silverpoint-react 0.9.1’s own export, which wraps 0.9.1 (#10)', () => {
-    expect(catalog.reflex).toEqual({ version: '0.9.1', wraps: '0.9.1', stale: false });
+    // Stale exactly while the library is a line ahead of the wrapper, which can only follow it (delta-017).
+    const stale = !sameLine('0.9.1', catalog.version);
+    expect(catalog.reflex).toEqual({ version: '0.9.1', wraps: '0.9.1', stale });
     expect(isInterim(JSON.parse(readFileSync(new URL('./reflex/reflex-catalog.json', import.meta.url), 'utf8')) as { derived?: string })).toBe(false);
-    expect(catalog.charts.some((c) => c.stale !== undefined)).toBe(false);
+    expect(catalog.charts.some((c) => c.stale !== undefined)).toBe(stale);
+  });
+
+  test('REQ-556 · I-40 · the wrapper follows the library: a pin one release line behind lets the release go, warned and marked stale (delta-017)', () => {
+    expect(followsLine('0.9.1', '0.10.0')).toBe(true);
+    expect(followsLine('0.9.1', '0.10.3')).toBe(true);
+    expect(followsLine('0.9.1', '0.9.2')).toBe(false);
+    expect(followsLine('0.8.1', '0.10.0')).toBe(false);
+    expect(followsLine('0.10.0', '0.9.2')).toBe(false);
+    expect(followsLine('0.9.1', '1.0.0')).toBe(false);
+    expect(followsLine('0.9.1', '1.10.0')).toBe(false);
+    const behind: ReflexCatalog = { schema: 1, package: 'reflex-silverpoint-react', version: '0.9.1', wraps: '0.9.1', charts: [], components: [], helpers: [] };
+    const next = joinReflex({ ...catalog, version: '0.10.0' }, behind);
+    expect(next.reflex).toEqual({ version: '0.9.1', wraps: '0.9.1', stale: true });
+    const result = checkCatalog(next, { release: true, interim: false });
+    expect(result.errors.filter((e) => e.includes('I-40') || e.includes('REQ-556'))).toEqual([]);
+    expect(result.warnings.join('\n')).toMatch(/REQ-556 · .*one release line behind/);
+    // Two lines behind is a wrapper that stopped following: the release still fails.
+    const two = joinReflex({ ...catalog, version: '0.11.0' }, behind);
+    expect(checkCatalog(two, { release: true, interim: false }).errors.join('\n')).toMatch(/REQ-556/);
   });
 
   test('REQ-556 · I-40 · stale compares release lines (major.minor): a patch of the library keeps the wrapper current', () => {

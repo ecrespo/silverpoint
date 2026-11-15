@@ -5,13 +5,14 @@
  *   pnpm --filter @silverpoint/agent-catalog check [--release]
  *
  * Regenerates the catalog and fails when the committed one differs, or when a rule below breaks.
- * `--release` also fails on a Reflex catalog that wraps another silverpoint version.
+ * `--release` also fails on a Reflex catalog that wraps another silverpoint release line, unless it
+ * is exactly one line behind (REQ-556).
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import type { AgentCatalog } from '../../packages/mcp/src/types';
-import { sameLine } from './versions';
+import { followsLine, sameLine } from './versions';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const json = <T>(file: string): T => JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as T;
@@ -49,7 +50,9 @@ export const isInterim = (reflex: { readonly derived?: string }): boolean => ref
 /**
  * `release` refuses a stale Reflex catalog (REQ-556), but only once the pin is the Reflex package's
  * own export (`interim: false`): the interim pin, derived here, can only warn (user decision
- * 2026-10-21, the strict check starts with the wrapper's next version).
+ * 2026-10-21, the strict check starts with the wrapper's next version). A pin exactly one release
+ * line behind also only warns: the wrapper is built on the published library, so the release that
+ * opens a line cannot wait for it (delta-017, user decision 2026-11-15).
  */
 export function checkCatalog(catalog: AgentCatalog, { release, interim }: { readonly release: boolean; readonly interim: boolean }): CheckResult {
   const errors: string[] = [];
@@ -102,6 +105,7 @@ export function checkCatalog(catalog: AgentCatalog, { release, interim }: { read
   if (release && catalog.reflex.stale) {
     const message = `REQ-556 · reflex-silverpoint-react ${catalog.reflex.version} wraps silverpoint ${catalog.reflex.wraps}, not ${catalog.version}`;
     if (interim) warnings.push(`${message}; the pin is interim, so the release goes ahead with every Reflex entry marked stale`);
+    else if (followsLine(catalog.reflex.wraps, catalog.version)) warnings.push(`${message}; it is one release line behind and can only follow the library, so the release goes ahead with every Reflex entry marked stale — pin its next export in a patch`);
     else errors.push(`${message}: pin a Reflex catalog that wraps it`);
   }
 
