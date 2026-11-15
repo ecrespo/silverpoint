@@ -1,5 +1,14 @@
 # @silverpoint/mcp
 
+## 0.10.1
+
+### Patch Changes
+
+- e3b60e0: The agent catalog pins `reflex-silverpoint-react` 0.10.0's own Reflex catalog: it wraps 0.10.0, so no Reflex entry is served `stale` any more.
+- @silverpoint/core@0.10.1
+  - @silverpoint/grounds@0.10.1
+  - @silverpoint/marp@0.10.1
+
 ## 0.10.0
 
 ### Minor Changes

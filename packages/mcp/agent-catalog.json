@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "0.10.0",
+  "version": "0.10.1",
   "reflex": {
     "version": "0.10.0",
     "wraps": "0.10.0",

@@ -1,5 +1,11 @@
 # @silverpoint/grounds
 
+## 0.10.1
+
+### Patch Changes
+
+- @silverpoint/core@0.10.1
+
 ## 0.10.0
 
 ### Minor Changes

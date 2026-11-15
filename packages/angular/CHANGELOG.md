@@ -1,5 +1,13 @@
 # @silverpoint/angular
 
+## 0.10.1
+
+### Patch Changes
+
+- @silverpoint/core@0.10.1
+  - @silverpoint/grounds@0.10.1
+  - @silverpoint/marp@0.10.1
+
 ## 0.10.0
 
 ### Minor Changes
