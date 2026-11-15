@@ -183,11 +183,12 @@ describe('versions (REQ-534, REQ-556)', () => {
     expect(catalog.reflex.stale).toBe(!sameLine(catalog.reflex.wraps, catalog.version));
   });
 
-  test('REQ-556 · I-40 · the pin is reflex-silverpoint-react 0.9.1’s own export, which wraps 0.9.1 (#10)', () => {
+  test('REQ-556 · I-40 · the pin is reflex-silverpoint-react’s own export, joined verbatim (#10)', () => {
+    const pin = JSON.parse(readFileSync(new URL('./reflex/reflex-catalog.json', import.meta.url), 'utf8')) as { version: string; wraps: string; derived?: string };
     // Stale exactly while the library is a line ahead of the wrapper, which can only follow it (delta-017).
-    const stale = !sameLine('0.9.1', catalog.version);
-    expect(catalog.reflex).toEqual({ version: '0.9.1', wraps: '0.9.1', stale });
-    expect(isInterim(JSON.parse(readFileSync(new URL('./reflex/reflex-catalog.json', import.meta.url), 'utf8')) as { derived?: string })).toBe(false);
+    const stale = !sameLine(pin.wraps, catalog.version);
+    expect(catalog.reflex).toEqual({ version: pin.version, wraps: pin.wraps, stale });
+    expect(isInterim(pin)).toBe(false);
     expect(catalog.charts.some((c) => c.stale !== undefined)).toBe(stale);
   });
 
