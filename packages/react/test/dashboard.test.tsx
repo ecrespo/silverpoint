@@ -219,6 +219,29 @@ describe('React Dashboard: inherited configuration (T-111)', () => {
     expect(dashboarded?.getAttribute('data-mode')).toBe('precision');
   });
 
+  test('REQ-212 · the dashboard’s own root takes the provider’s ground and substrate where it sets none, on the server as on the client (#17)', () => {
+    capture();
+    const tree = (
+      <SilverpointProvider ground="cyanotype" substrate="blue">
+        <Dashboard id="a" title="A" className="mine" />
+        <Dashboard id="b" title="B" ground="silverpoint" substrate="green" />
+      </SilverpointProvider>
+    );
+    for (const host of [parse(renderToStaticMarkup(tree)), mount(tree)]) {
+      const [provided, own] = host.querySelectorAll('section.sp-dashboard');
+      expect(provided?.className).toBe('sp-dashboard sp-ground-cyanotype mine');
+      expect(provided?.getAttribute('data-substrate')).toBe('blue');
+      expect(own?.className).toBe('sp-dashboard sp-ground-silverpoint');
+      expect(own?.getAttribute('data-substrate')).toBe('green');
+    }
+  });
+
+  test('REQ-210 · without a provider the client dashboard writes the markup of the server one', () => {
+    capture();
+    const props = { id: 'a', title: 'A', description: 'D', substrate: 'ochre', className: 'mine', palette: { ink: '#202020' } } as const;
+    expect(renderToStaticMarkup(<Dashboard {...props} />)).toBe(renderToStaticMarkup(<ServerDashboard {...props} />));
+  });
+
   test('REQ-212 · REQ-123 · the media query forcing precision still wins over a dashboard’s mode', () => {
     capture();
     vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('prefers-contrast: more'), media: query, addEventListener() {}, removeEventListener() {} }));

@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.13 |
-| **Date** | 2026-10-31 |
-| **Related PRD** | [`prd.md`](prd.md) v1.16 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
+| **Version** | 1.14 |
+| **Date** | 2026-11-14 |
+| **Related PRD** | [`prd.md`](prd.md) v1.17 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.15 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 > **Template adaptation note.** The template assumes a service with a database and queues.
@@ -627,7 +627,9 @@ calls in `useEffect`, `onMounted` and `afterNextRender`.
   its partial-compilation output (APF) carries each component's template twice (the declaration
   and the class metadata) and a record for each of its 13 signal inputs. REQ-220 therefore
   allows 2 KB for React and Vue and 3 KB for Angular (delta-012), and CI measures the increment
-  itself, not only the total.
+  itself, not only the total. *Amended by delta-016* (#17, user decision 2026-11-15): React's client
+  entry has 2.25 KB — its root became a client component that reads the provider, measured at
+  2,084 B; the server entry (1,874 B), Vue (1,987 B) and Angular (2,691 B) keep their allowances.
 
 ### DD-019: The `weight` tonal mechanism — a second inker, and the tone written as `data-weight`
 
@@ -1099,6 +1101,18 @@ stay in the main entry. React's drillable charts use `createDrillableChart`.
   palette still reaches every chart and component in its cells. (3) Vue gains a
   `SilverpointProvider` component for sections, as `provideSilverpoint` is an app plugin; Angular's
   `provideSilverpoint` returns a `Provider`, so it scopes a section from a component's `providers`.
+- *Amended by delta-016* (#17, user decision 2026-11-14): the dashboard's root reads the provider.
+  The core's `dashboardSection(config, palette, layout, under)` gives the root's class, substrate and
+  style: the dashboard's own configuration over `under`, the provider, over the defaults. Vue and
+  Angular hand `dashboardView` the provider as `under`, with the palette merged by
+  `resolvePalette(provider.palette, own.palette)`. In React the `section` of `@silverpoint/react/dashboard` is a client
+  component, `DashboardRoot`, in the `dashboard-link` module —the dashboard's one client boundary, which also holds a linked dashboard's value—
+  so `Dashboard` itself still carries no `"use client"` and renders in a Server Component; it hands
+  the root plain data (the section, the dashboard's ground by name, its substrate, palette and class,
+  the layout's variables). `@silverpoint/react/server/dashboard` keeps writing the section from its
+  props alone: it ships no client JavaScript, so its root reads no provider, and that is the one
+  place where the two React dashboards differ. Without a provider every adapter writes the markup it
+  wrote before, so no fixture changes.
 - **Rejected:** a palette as a ground (Art. 7 would be satisfied, but a ground is registered
   globally and carries inker and tonal mechanism; a palette is a per-section colour override); a
   `<style>` element per palette (a stylesheet in the body of every chart, and selectors to scope).
@@ -2033,6 +2047,7 @@ OQ-C numbers the feature's ledger cites):
 | 1.10 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: palettes, composed components, overlays and the timeline — modules (§3.2), data flow (§3.3), DD-037..DD-043 with their implementation amendments (43 design decisions), structure (§5.1), TimelineJS as an optional peer (§5.3), `SP023`–`SP025` (§7), tests (§8), decisions OQ-C1..OQ-C4 of feature-004 and OQ-U6 closed (§10) |
 | 1.11 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: agent access — modules (§3.2), DD-044..DD-050 with their implementation amendments (50 design decisions; no PNG, the derived Reflex pin, no rate limit), `@silverpoint/mcp` in the allowlist (§5.3), the package map |
 | 1.12 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: slide decks — modules (§3.2), the deck flow (§3.3), DD-051..DD-060 with their implementation amendments (60 design decisions; the PoC's `svg-transform` scaling, the polyfill dropped, sanitised author CSS, the precision backdrop twin, raw engine markup and CSS in the adapters, the three-engine job `browser-deck`, the measured budgets, the deck tools), structure (§5.1), `@silverpoint/marp` in the allowlist and as the adapters' optional peer (§5.3), `SP026`–`SP029` (§7), tests (§8), the ninth package and its first publish (§9) |
+| 1.14 | 2026-11-14 | Ernesto Crespo | Delta-016 (#17): DD-037 — the dashboard's root reads the provider through the core's `dashboardSection`; React's root is the client component `DashboardRoot`, and `server/dashboard` reads none; DD-018 — React's client entry has 2.25 KB (REQ-220) |
 | 1.13 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): DD-049 — the Reflex pin is the wrapper's own export; staleness compares release lines; the deck joins `sp_deck` |
 | 1.2 | 2026-09-13 | Ernesto Crespo | Converted to English; rounding corrected to 2 decimals (Analyze finding A-08); font-load failure made observable in DD-010 (finding A-05) |
 

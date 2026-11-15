@@ -6,6 +6,7 @@ import { paletteStyle, sanguine } from '@silverpoint/core/palettes';
 import { afterEach, describe, expect, test } from 'vitest';
 import { LineChart, SilverpointProvider, type ChartHandle } from '../src';
 import { Dashboard, DashboardCell } from '../src/dashboard';
+import { Dashboard as ServerDashboard } from '../src/server/dashboard';
 import { LineChart as ServerLineChart } from '../src/server/line-chart';
 import { SpCard as ServerSpCard } from '../src/server/ui/card';
 import { SpButton } from '../src/ui';
@@ -74,7 +75,19 @@ describe('React palettes (T-212)', () => {
     expect([colour(chart, '--sp-ink'), colour(chart, '--sp-grid'), colour(chart, '--sp-text')]).toEqual(['#303030', '#606060', '#222222']);
     const button = host.querySelector('.sp-ui');
     expect([colour(button, '--sp-ink'), colour(button, '--sp-grid'), colour(button, '--sp-text')]).toEqual(['#202020', '#606060', '#222222']);
-    // The section carries its own palette: a Server Component reads no provider (DD-037, as amended).
+    // The section merges the provider's palette under its own, as its cells do (#17; DD-037, as amended by delta-016).
+    const section = host.querySelector('section.sp-dashboard');
+    expect([colour(section, '--sp-ink'), colour(section, '--sp-grid'), colour(section, '--sp-text')]).toEqual(['#202020', '#606060', '#222222']);
+  });
+
+  test('REQ-462 · the server dashboard reads no provider: its root carries its own palette only', () => {
+    const host = parse(
+      renderToStaticMarkup(
+        <SilverpointProvider palette={PROVIDER}>
+          <ServerDashboard id="ops" title="Ops" palette={DASHBOARD} />
+        </SilverpointProvider>,
+      ),
+    );
     const section = host.querySelector('section.sp-dashboard');
     expect([colour(section, '--sp-ink'), colour(section, '--sp-grid'), colour(section, '--sp-text')]).toEqual(['#202020', '#606060', '']);
   });

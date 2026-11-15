@@ -90,7 +90,7 @@ export { bubbleChart } from './charts/bubble-chart/bubble-chart';
 export type * from './dashboard/types';
 export { DASHBOARD_DEFAULTS, perBreakpoint, resolveLayout } from './dashboard/defaults';
 export { breakpointOf, cellChartBox, resolveDashboard } from './dashboard/resolve';
-export { dashboardView, inCell } from './dashboard/view';
+export { dashboardSection, dashboardView, inCell } from './dashboard/view';
 export { linkedItems, linkedMarks, linkFrom, type LinkState } from './dashboard/link';
 // The palette API is on `@silverpoint/core/palettes`, off this entry's 45 kB budget (REQ-164).
 export type { Palette } from './palette/palette';

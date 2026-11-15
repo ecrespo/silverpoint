@@ -239,6 +239,12 @@ describe('ui.css, the feature-004 rows (T-210)', () => {
     expect(at(".sp-ui-table [data-align='center']")).toBeGreaterThan(at('.sp-ui-table td'));
   });
 
+  test('REQ-473 · #12 · the empty row stays centred: its rule outweighs the body cell\'s start alignment', () => {
+    // `.sp-ui-table td` is (0,1,1); a class alone, (0,1,0), would lose to it whatever the order.
+    expect(body('.sp-ui-table td.sp-ui-table-empty')).toMatch(/text-align: center/);
+    expect(body('.sp-ui-table-empty')).not.toMatch(/text-align/);
+  });
+
   test('REQ-475 · DD-040 · under a weight ground a toned row is a weighted rule, not a hatch', () => {
     const rule = withSelector((s) => s.startsWith('.sp-ground-cyanotype') && s.includes('td::before'));
     expect(rule).toHaveLength(1);

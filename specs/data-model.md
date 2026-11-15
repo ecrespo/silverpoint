@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.11 |
-| **Date** | 2026-10-31 |
+| **Version** | 1.12 |
+| **Date** | 2026-11-14 |
 | **Storage** | None — there is no database |
-| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.13 |
-| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
+| **Related Tech Design** | [`technical-design.md`](technical-design.md) v1.14 |
+| **Related API Spec** | [`api-spec.md`](api-spec.md) v1.15 |
 
 > **Template adaptation note.** The template assumes persisted collections. silverpoint
 > stores nothing: its «entities» are three families of in-memory data —the input
@@ -399,6 +399,9 @@ colour, by allowlist: a hex, a keyword, or a colour function (`rgb`…`oklch`, `
 *Amended in implementation:* `SP023` measures a palette against its **own** `substrate`,
 else cream `#EDE7DA` — the core does not know the resolved ground's substrate colour when it
 resolves a palette. `SP024`'s warning is development-only; the dropping is not.
+
+The six presets are named by `PaletteName` —`silverpoint`, `sanguine`, `sepia`, `ironGall`,
+`verdigris`, `indigo`— the key of `PALETTES` and the element of `PALETTE_NAMES` (delta-016, #20).
 
 **Layers** (REQ-462). `resolvePalette` merges provider → dashboard cell → element, field by field,
 the later layer winning; an `undefined` field is skipped silently (Vue and Angular hand absent
@@ -1325,6 +1328,7 @@ they are renumbered here, and the feature-004 tests that cite them by the delta'
 | 1.7 | 2026-10-10 | Ernesto Crespo | Feature-003 folded: input shapes §2.15..§2.24, derived items and keyboard moves §2.25, "Used by" of §2.1, §2.2, §2.7; the 27 demos in §4; state fixtures and 3,402 chart fixtures (630 on PR) in §5; invariants I-23..I-30 |
 | 1.9 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: the agent catalog §2.28, chart metadata §2.29 (the nine families as built), the Reflex catalog §2.30, the recommender rules §2.31, invariants I-37..I-42. What the implementation changed is folded as built ("amended in implementation") |
 | 1.10 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: the fence spec and its errors §2.32, `DeckRender` §2.33, directive values §2.34, the controller's state, events and actions §2.35, the slide backdrop §2.36, the agent catalog's `deck` section §2.37; deck fixtures in §5 (24 renders, 92 pixel goldens); invariants I-43..I-52. What the implementation changed is folded as built ("amended in implementation") |
+| 1.12 | 2026-11-14 | Ernesto Crespo | Delta-016 (#20): `PaletteName`, the key of `PALETTES` and the element of `PALETTE_NAMES` (§2.26) |
 | 1.11 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): I-40 compares release lines (major.minor); the deck's Reflex name joined from the Reflex catalog |
 | 1.8 | 2026-10-20 | Ernesto Crespo | Feature-004 folded: the `Palette` contract and its six presets §2.26; value contracts, sort order and page window of the composed components §2.27; `ui` tokens `backdrop` and `rowTone` (optional, defaults 2 and 1, declared by neither built-in ground) and five UI contrast pairs §3.8; palette contrast pairs §3.9; composed, palettes and timeline demos in §4; 36 states (860 UI matrix fixtures, 320 on PR; 10 timeline surface fixtures, 4 on PR) and 36 palette fixtures in §5 (906 nightly, 360 on PR); invariants I-31..I-36 (I-23..I-28 in the delta). What the implementation changed is folded as built ("amended in implementation") |
 | 1.4 | 2026-09-25 | Ernesto Crespo | Deltas folded: `columnLabels` on the heatmap (006); `SparklineRows` shape §2.11 (008); how the orbit props read §2.10 (009); `VolvelleData` §2.12 (010); view props apply to the demo (011). Dashboard: layout contract §2.13, reference dashboards in §4, 72 dashboard fixtures in §5, invariants I-10..I-15 (feature-001) |

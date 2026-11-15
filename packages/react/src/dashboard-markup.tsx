@@ -1,4 +1,4 @@
-import { dashboardView, type DashboardCellContext, type DashboardProps } from '@silverpoint/core';
+import { dashboardView, type DashboardCellContext, type DashboardProps, type Palette, type SubstrateName } from '@silverpoint/core';
 import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 import { Children, cloneElement, isValidElement, type CSSProperties, type ReactElement, type ReactNode } from 'react';
 
@@ -22,6 +22,13 @@ export interface CellChartProps {
   readonly dashboardCell?: DashboardCellContext;
 }
 
+/** What the client root takes (`DashboardRoot`, in the link module: one client boundary for both). */
+export interface RootProps {
+  readonly attrs: Readonly<Record<string, unknown>>;
+  readonly own: { readonly ground?: string; readonly substrate?: SubstrateName; readonly palette?: Palette; readonly className?: string };
+  readonly layout: Readonly<Record<string, string>>;
+}
+
 const asStyle = (vars: Readonly<Record<string, string>>) => vars as CSSProperties;
 
 /**
@@ -29,14 +36,22 @@ const asStyle = (vars: Readonly<Record<string, string>>) => vars as CSSPropertie
  * nothing: the core's `dashboardView` gives every attribute, and each cell's chart gets its
  * context as a prop, which crosses a Server Components boundary as plain data (Art. 2).
  */
-export function DashboardMarkup({ children, wrapGrid, ...props }: DashboardProps & { readonly children?: ReactNode; readonly wrapGrid?: (grid: ReactNode) => ReactNode }) {
+export function DashboardMarkup({
+  children,
+  root,
+  ...props
+}: DashboardProps & {
+  readonly children?: ReactNode;
+  /** The client root, which reads the provider (#17); without it the section is written here, from the props alone. */
+  readonly root?: (props: RootProps) => ReactNode;
+}) {
   const given = Children.toArray(children).map((child) => {
     const marked = isValidElement<DashboardCellProps>(child) && child.type === DashboardCell;
     const content = marked ? child.props.children : child;
     const chart = isValidElement<{ id?: string }>(content) ? content : undefined;
     return { cell: marked ? child.props.cell : undefined, id: chart?.props.id, content, chart };
   });
-  // Its own palette only: this renders in Server Components, which read no provider (DD-037).
+  // Its own palette: this renders in Server Components, which read no provider; `root` reads it (DD-037).
   const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })), paletteStyle(resolvePalette(props.palette)));
   const Heading = view.heading ? (`h${view.heading.level}` as const) : undefined;
   const grid = (
@@ -51,16 +66,8 @@ export function DashboardMarkup({ children, wrapGrid, ...props }: DashboardProps
       })}
     </div>
   );
-  return (
-    <section
-      className={view.section.className}
-      part="dashboard"
-      data-substrate={view.section.substrate}
-      aria-labelledby={view.section.labelledby}
-      aria-describedby={view.section.describedby}
-      aria-label={view.section.label}
-      style={asStyle(view.section.style)}
-    >
+  const body = (
+    <>
       {Heading && view.heading && (
         <Heading className="sp-dashboard-title" part="dashboard-title" id={view.heading.id}>
           {view.heading.text}
@@ -71,7 +78,21 @@ export function DashboardMarkup({ children, wrapGrid, ...props }: DashboardProps
           {view.description.text}
         </p>
       )}
-      {wrapGrid ? wrapGrid(grid) : grid}
-    </section>
+      {grid}
+    </>
   );
+  const { section } = view;
+  // The section as the props alone give it; a client root rewrites its class, substrate and style.
+  const attrs = {
+    className: section.className,
+    part: 'dashboard',
+    'data-substrate': section.substrate,
+    'aria-labelledby': section.labelledby,
+    'aria-describedby': section.describedby,
+    'aria-label': section.label,
+    style: asStyle(section.style),
+    children: body,
+  };
+  const { ground, substrate, palette, className } = props;
+  return root ? root({ attrs, own: { ground: typeof ground === 'object' ? ground.name : ground, substrate, palette, className }, layout: view.model.style }) : <section {...attrs} />;
 }

@@ -81,8 +81,7 @@ the drawing area and defaults to 160 px.
 input on a chart overrides it.
 
 An `sp-dashboard` draws its own frame, title and grid from its own `ground`, `substrate` and
-`palette` inputs, never from the provider, as React's does in Server Components. Under a provider,
-give the dashboard the same values; its charts and components follow either.
+`palette` inputs, then from the provider, as its charts do.
 
 ```ts
 // src/app/app.config.ts

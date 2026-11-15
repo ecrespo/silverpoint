@@ -6,17 +6,38 @@ import { cellChartBox, resolveDashboard, safeIdOf } from './resolve';
 import type { DashboardCellContext, DashboardProps, DashboardView } from './types';
 
 /**
+ * A dashboard root's class, substrate and style for a configuration (REQ-212, REQ-462): the
+ * dashboard's own over `under`, the provider an adapter reads, over the defaults (#17). `palette` is
+ * that configuration's palette as declarations, written first; `layout` is the model's style.
+ */
+export function dashboardSection(
+  config: Pick<DashboardProps, 'ground' | 'substrate' | 'className'>,
+  palette: string,
+  layout: Readonly<Record<string, string>>,
+  under?: Pick<ProviderConfig, 'ground' | 'substrate'> | null,
+): Pick<DashboardView['section'], 'className' | 'substrate' | 'style'> {
+  const ground = config.ground ?? under?.ground ?? DEFAULTS.ground;
+  return {
+    className: ['sp-dashboard', `sp-ground-${typeof ground === 'string' ? ground : ground.name}`, config.className].filter(Boolean).join(' '),
+    substrate: config.substrate ?? under?.substrate ?? DEFAULTS.substrate,
+    style: { ...Object.fromEntries(palette.split(';').filter(Boolean).map((d) => d.split(':') as [string, string])), ...layout },
+  };
+}
+
+/**
  * The dashboard as an adapter writes it (REQ-200, REQ-214): the section's class, substrate, name
  * and variables, the heading and description, and per cell its variables, its label and the
  * context its chart reads. `children` gives, in source order, each child's `cell` and its chart's
  * own `id` when the adapter can read it. `palette` is the section's own palette as declarations
  * (`paletteStyle`, from `@silverpoint/core/palettes`, off this entry's budget), written first in its
- * style; the cells hand the palette on to their charts and components (REQ-461, REQ-462).
+ * style; the cells hand the palette on to their charts and components (REQ-461, REQ-462). `under`
+ * is the provider the adapter reads, which the root follows where the dashboard sets nothing (#17).
  */
 export function dashboardView(
   props: DashboardProps,
   children: readonly { readonly cell?: string; readonly id?: string }[],
   palette = '',
+  under?: Pick<ProviderConfig, 'ground' | 'substrate'> | null,
 ): DashboardView {
   const model = resolveDashboard(props, children.map((c) => c.cell));
   // React and Vue reject a nameless dashboard by type; Angular's signal inputs cannot (REQ-214).
@@ -24,8 +45,6 @@ export function dashboardView(
     diagnose('SP002', 'Dashboard', { property: 'title', message: 'Name the region with `title` or `label`.' });
   }
   const base = safeIdOf(props.id);
-  const ground = props.ground ?? DEFAULTS.ground;
-  const groundName = typeof ground === 'string' ? ground : ground.name;
   const titled = props.title !== undefined;
   const heading = titled ? { level: props.headingLevel ?? DASHBOARD_DEFAULTS.headingLevel, id: `${base}-title`, text: props.title } : undefined;
   const description = props.description !== undefined ? { id: `${base}-desc`, text: props.description } : undefined;
@@ -36,11 +55,9 @@ export function dashboardView(
   return {
     model,
     section: {
-      className: ['sp-dashboard', `sp-ground-${groundName}`, props.className].filter(Boolean).join(' '),
-      substrate: props.substrate ?? DEFAULTS.substrate,
+      ...dashboardSection(props, palette, model.style, under),
       ...(heading ? { labelledby: heading.id } : { label: props.label }),
       ...(description ? { describedby: description.id } : {}),
-      style: { ...Object.fromEntries(palette.split(';').filter(Boolean).map((d) => d.split(':') as [string, string])), ...model.style },
     },
     ...(heading ? { heading } : {}),
     ...(description ? { description } : {}),

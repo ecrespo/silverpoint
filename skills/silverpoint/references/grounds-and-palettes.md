@@ -71,12 +71,12 @@ that is not a CSS colour is dropped with `SP024`, and a pair under its contrast 
 dashboard, then the provider, then the library default. A palette merges field by field at each
 level, and a nested provider inherits what it does not set.
 
-**A dashboard's own root reads no provider.** Its frame, title and grid background are drawn from the
-dashboard's own `ground`, `substrate` and `palette`, and from the library default when it sets none:
-React's `Dashboard` renders in Server Components, which read no provider, and Vue, Angular and Reflex
-match it. Under a provider set to `cyanotype` or to a palette, a dashboard without those props keeps
-a cream `silverpoint` frame around recoloured charts. Give the dashboard the same values as the
-provider.
+**A dashboard's own root follows the same chain.** Its frame, title and grid background are drawn
+from the dashboard's own `ground`, `substrate` and `palette`, then from the provider, then from the
+library default. The one exception is React's `@silverpoint/react/server/dashboard`: a Server
+Component reads no provider, so under a provider set to `cyanotype` or to a palette it keeps a cream
+`silverpoint` frame around recoloured charts unless it is given the same values as props. Reflex
+follows the React version its wrapper pins.
 
 In React, import the provider from `@silverpoint/react/provider`. The root entry `@silverpoint/react`
 re-exports every chart, and Next.js with Turbopack carries that whole `'use client'` barrel into

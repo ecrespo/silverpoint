@@ -6,12 +6,12 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.12 |
-| **Date** | 2026-10-31 |
-| **PRD** | [`prd.md`](prd.md) v1.16 |
-| **Tech Design** | [`technical-design.md`](technical-design.md) v1.13 |
-| **Data Model** | [`data-model.md`](data-model.md) v1.11 |
-| **API Spec** | [`api-spec.md`](api-spec.md) v1.14 |
+| **Version** | 1.13 |
+| **Date** | 2026-11-14 |
+| **PRD** | [`prd.md`](prd.md) v1.17 |
+| **Tech Design** | [`technical-design.md`](technical-design.md) v1.14 |
+| **Data Model** | [`data-model.md`](data-model.md) v1.12 |
+| **API Spec** | [`api-spec.md`](api-spec.md) v1.15 |
 
 ---
 
@@ -182,7 +182,7 @@ the demo ignores).
 - Parity gate green on the 24 dashboard parity fixtures; pixel gates green on all 72.
 - The four example apps have the reference dashboard page, green in e2e and axe.
 - `dashboard` subpath within its allowance over the one-chart build: 2 KB for React and Vue, 3 KB
-  for Angular (REQ-220, delta-012).
+  for Angular (REQ-220, delta-012); React's client entry has 2.25 KB since delta-016 (#17).
 - Delta-012: REQ-028 and REQ-222 cited by tests; `cyanotype` in the fixture matrix (330 PR, 1,782
   nightly; 30 parity and 90 pixel dashboard fixtures); the Angular example app server-rendered.
 - No canonical chart fixture changed by the demo rule.
@@ -690,6 +690,12 @@ the release (`changes/feature-006-deck/first-publish.md`). The Reflex deck (`sp_
 `reflex-silverpoint-react` since its 0.9.0) is outside this repository; its catalog is pinned here
 (delta-015, `0.9.2`).
 
+After Phase 10, delta-016 (the issues found writing the tutorial series, #12, #14, #17..#22) ships
+as `0.10.0`: `SpTable`'s cell alignment, `standaloneSVG` and `@silverpoint/grounds/styles-text`,
+Angular hosts without a literal `title`, `PaletteName`, `@silverpoint/react/provider`, no `SP003`
+for a hidden container, and the dashboard's root under the provider (DD-037 as amended). A minor,
+so the Reflex pin moves to the wrapper's export on the `0.10` line before the release (REQ-556).
+
 **Requirement → task map**
 
 | Requirement | Tasks |
@@ -824,6 +830,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.13 | 2026-11-14 | Ernesto Crespo | Delta-016 (#12, #14, #17..#22) noted after Phase 10: released as `0.10.0` |
 | 1.12 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): the Reflex deck is `sp_deck` in `reflex-silverpoint-react`; its catalog pinned in `0.9.2` |
 | 1.11 | 2026-10-31 | Ernesto Crespo | Phase 10 added: slide decks (steps 10a..10h, #252..#289), feature-006, target `0.9.0`; recorded as built |
 | 1.10 | 2026-10-20 | Ernesto Crespo | Phase 9 added: agent access (steps 9a..9g, #226..#251), feature-005, target `0.8.0`; recorded as built in this repository, the sibling repositories' tasks open |

@@ -62,8 +62,9 @@ describe('Vue palettes (T-212)', () => {
     expect([colour(chart, '--sp-ink'), colour(chart, '--sp-grid'), colour(chart, '--sp-text')]).toEqual(['#303030', '#606060', '#222222']);
     const button = host.querySelector('.sp-ui');
     expect([colour(button, '--sp-ink'), colour(button, '--sp-grid'), colour(button, '--sp-text')]).toEqual(['#202020', '#606060', '#222222']);
+    // The section merges the provider's palette under its own, as its cells do (#17).
     const section = host.querySelector('section.sp-dashboard');
-    expect([colour(section, '--sp-ink'), colour(section, '--sp-grid'), colour(section, '--sp-text')]).toEqual(['#202020', '#606060', '']);
+    expect([colour(section, '--sp-ink'), colour(section, '--sp-grid'), colour(section, '--sp-text')]).toEqual(['#202020', '#606060', '#222222']);
   });
 
   test('REQ-462 · SilverpointProvider scopes a section: its palette over the app\'s, the app\'s ground kept, no wrapper', async () => {

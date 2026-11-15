@@ -162,6 +162,22 @@ describe('sp-dashboard under @angular/platform-server (T-113)', () => {
     expect(dashboarded?.getAttribute('data-mode')).toBe('precision');
   });
 
+  test('REQ-212 · the dashboard’s own root takes the provider’s ground and substrate where it sets none (#17)', async () => {
+    capture();
+    const doc = parse(
+      await ssr(
+        `<sp-dashboard id="a" title="A" className="mine" />
+         <sp-dashboard id="b" title="B" ground="silverpoint" substrate="green" />`,
+        [provideSilverpoint({ ground: 'cyanotype', substrate: 'blue' })],
+      ),
+    );
+    const [provided, own] = doc.querySelectorAll('section.sp-dashboard');
+    expect(provided?.className).toBe('sp-dashboard sp-ground-cyanotype mine');
+    expect(provided?.getAttribute('data-substrate')).toBe('blue');
+    expect(own?.className).toBe('sp-dashboard sp-ground-silverpoint');
+    expect(own?.getAttribute('data-substrate')).toBe('green');
+  });
+
   test('REQ-214 · Angular cannot require “title or label” by type: a dashboard with neither warns SP002', async () => {
     const seen = capture();
     await ssr(`<sp-dashboard id="ops" />`);

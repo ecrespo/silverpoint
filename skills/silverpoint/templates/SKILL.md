@@ -72,9 +72,9 @@ Without it, these references hold the same tables. To connect it in Claude Code:
   [references/grounds-and-palettes.md](references/grounds-and-palettes.md).
 - **A provider sets them for a subtree:** `SilverpointProvider` (React, Vue) or
   `provideSilverpoint` (Angular, Vue). A prop on the chart wins over its dashboard, and the
-  dashboard over the provider. The dashboard's own frame reads no provider: give it the same
-  `ground`, `substrate` and `palette`. In React, import the provider from
-  `@silverpoint/react/provider`, not the root entry.
+  dashboard over the provider. The dashboard's own frame follows the provider too, except React's
+  `server/dashboard`, which needs the same `ground`, `substrate` and `palette` as props. In React,
+  import the provider from `@silverpoint/react/provider`, not the root entry.
 - **Overlays take a native `<button type="button">` as their trigger**, not `SpButton` (React
   clones its trigger with ARIA, and `SpButton` drops it in this version). In Angular, put the
   `spTrigger` directive on the button.

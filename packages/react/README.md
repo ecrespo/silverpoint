@@ -76,9 +76,10 @@ Import it from `@silverpoint/react/provider`, its own entry: the root entry `@si
 re-exports every chart, and a bundler that keeps a `'use client'` barrel whole (Next.js with
 Turbopack) would carry all of them into every route that only sets a ground.
 
-A `Dashboard` draws its own frame, title and grid from its own `ground`, `substrate` and `palette`
-props, never from the provider: it renders in Server Components, which read no provider. Under a
-provider, give the dashboard the same values; its charts and components follow either.
+A `Dashboard` from `@silverpoint/react/dashboard` draws its own frame, title and grid from its own
+`ground`, `substrate` and `palette` props, then from the provider, as its charts do. The one from
+`@silverpoint/react/server/dashboard` ships no client JavaScript and reads no provider: give it the
+same values as the provider.
 
 ```tsx
 import '@silverpoint/fonts/fonts.css';

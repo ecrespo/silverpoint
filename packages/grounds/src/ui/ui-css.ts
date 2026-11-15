@@ -631,7 +631,9 @@ const COMPOSED = [
   rule(".sp-ui-sort [part='sp-mark']", ['inline-size: 12px', 'block-size: 12px', 'color: var(--sp-rule)']),
   rule(".sp-ui-table th[aria-sort]", ['color: var(--sp-text)']),
   rule(".sp-ui-table th[aria-sort] .sp-ui-sort [part='sp-mark']", ['color: var(--sp-ink)']),
-  rule('.sp-ui-table-empty', ['padding: 18px', 'color: var(--sp-text-muted)', 'font-style: italic', 'text-align: center']),
+  rule('.sp-ui-table-empty', ['padding: 18px', 'color: var(--sp-text-muted)', 'font-style: italic']),
+  // With the cell's element, so it outweighs the body cell's start alignment (#12).
+  rule('.sp-ui-table td.sp-ui-table-empty', ['text-align: center']),
   // Pagination
   rule('.sp-pagination', ['display: inline-flex', 'flex-wrap: wrap', 'align-items: center', 'gap: 12px', 'font-size: 15px']),
   rule('.sp-ui-pages', ['display: flex', 'flex-wrap: wrap', 'align-items: center', 'gap: 6px', 'margin: 0', 'padding: 0', 'list-style: none']),

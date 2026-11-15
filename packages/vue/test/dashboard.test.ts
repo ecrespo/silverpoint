@@ -223,4 +223,22 @@ describe('SpDashboard: linked interaction (T-121)', () => {
     capture();
     expect(await ssr(linked())).not.toMatch(/part="linked"/);
   });
+
+  test('REQ-212 · the dashboard’s own root takes the provider’s ground and substrate where it sets none (#17)', async () => {
+    capture();
+    const host = mount(
+      () =>
+        h('div', [
+          h(SpDashboard, { id: 'a', title: 'A', className: 'mine' }),
+          h(SpDashboard, { id: 'b', title: 'B', ground: 'silverpoint', substrate: 'green' }),
+        ]),
+      provideSilverpoint({ ground: 'cyanotype', substrate: 'blue' }),
+    );
+    await nextTick();
+    const [provided, own] = host.querySelectorAll('section.sp-dashboard');
+    expect(provided?.className).toBe('sp-dashboard sp-ground-cyanotype mine');
+    expect(provided?.getAttribute('data-substrate')).toBe('blue');
+    expect(own?.className).toBe('sp-dashboard sp-ground-silverpoint');
+    expect(own?.getAttribute('data-substrate')).toBe('green');
+  });
 });

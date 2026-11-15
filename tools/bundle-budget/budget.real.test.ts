@@ -75,11 +75,13 @@ describe('bundle budgets (size-limit)', () => {
 
   /**
    * Each dashboard entry, the one-chart entry it is measured against, and the adapter's allowance
-   * in bytes (REQ-220): 2 KB for React and Vue, 3 KB for Angular, whose partial-compilation output
-   * carries each component's template and input metadata (TD DD-018, delta-012).
+   * in bytes (REQ-220): 2 KB for React's server entry and Vue, 3 KB for Angular, whose
+   * partial-compilation output carries each component's template and input metadata (TD DD-018,
+   * delta-012), and 2.25 KB for React's client entry, whose root is a client component that reads the
+   * provider (delta-016, #17, user decision 2026-11-15).
    */
   const DASHBOARD_PAIRS = [
-    ['@silverpoint/react + core, Dashboard + LineChart (client)', '@silverpoint/react + core, LineChart (client)', 2000],
+    ['@silverpoint/react + core, Dashboard + LineChart (client)', '@silverpoint/react + core, LineChart (client)', 2250],
     ['@silverpoint/react + core, Dashboard + LineChart (server)', '@silverpoint/react + core, LineChart (server)', 2000],
     ['@silverpoint/vue + core, SpDashboard + SpLineChart', '@silverpoint/vue + core, SpLineChart', 2000],
     ['@silverpoint/angular + core, SpDashboard + SpLineChart', '@silverpoint/angular + core, SpLineChart', 3000],

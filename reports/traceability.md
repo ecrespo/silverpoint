@@ -139,7 +139,7 @@ None.
 | REQ-207 | MUST | packages/angular/test/dashboard-client.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts<br>e2e/dashboard.spec.ts |
 | REQ-208 | MUST | packages/core/test/dashboard.test.ts |
 | REQ-209 | MUST | packages/angular/test/dashboard.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/react/test/types.test.ts<br>packages/vue/test/dashboard.test.ts<br>packages/vue/test/types.test.ts |
-| REQ-210 | MUST | tools/svg-normalizer/normalize.test.ts<br>tools/visual-gate/dashboard-fixtures.test.ts<br>tools/visual-gate/dashboard-gate.real.test.ts<br>tools/visual-gate/dashboard-gate.test.ts |
+| REQ-210 | MUST | packages/react/test/dashboard.test.tsx<br>tools/svg-normalizer/normalize.test.ts<br>tools/visual-gate/dashboard-fixtures.test.ts<br>tools/visual-gate/dashboard-gate.real.test.ts<br>tools/visual-gate/dashboard-gate.test.ts |
 | REQ-211 | MUST | tools/visual-gate/harness.test.ts<br>e2e/pixel.spec.ts |
 | REQ-212 | MUST | packages/angular/test/dashboard.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/react/test/dashboard.test.tsx<br>packages/vue/test/dashboard.test.ts<br>tools/visual-gate/dashboard-fixtures.test.ts<br>tools/visual-gate/dashboard-gate.real.test.ts |
 | REQ-213 | MUST | packages/core/test/dashboard.test.ts<br>packages/grounds/test/dashboard-styles.test.ts |
@@ -237,7 +237,7 @@ None.
 | REQ-450 | MUST | packages/core/test/catalog-expansion-contracts.test.ts<br>tools/spec-check/feature-003.test.ts |
 | REQ-460 | MUST | packages/core/test/palette-layers.test.ts<br>packages/core/test/palette.test.ts<br>tools/spec-check/feature-004.test.ts<br>docs/site/test/props.test.ts |
 | REQ-461 | MUST | packages/angular/test/palette.test.ts<br>packages/core/test/palette-layers.test.ts<br>packages/core/test/palette.test.ts<br>packages/grounds/test/chart-root.test.ts<br>packages/grounds/test/palette-render.test.ts<br>packages/marp/test/fence-render.test.ts<br>packages/marp/test/hydration.test.ts<br>packages/react/test/palette.test.tsx<br>packages/vue/test/palette.test.ts<br>tools/visual-gate/palette-fixtures.test.ts |
-| REQ-462 | MUST | packages/angular/test/palette.test.ts<br>packages/core/test/palette-layers.test.ts<br>packages/core/test/palette.test.ts<br>packages/grounds/test/palette-render.test.ts<br>packages/react/test/palette.test.tsx<br>packages/vue/test/palette.test.ts |
+| REQ-462 | MUST | packages/angular/test/palette.test.ts<br>packages/core/test/dashboard.test.ts<br>packages/core/test/palette-layers.test.ts<br>packages/core/test/palette.test.ts<br>packages/grounds/test/palette-render.test.ts<br>packages/react/test/palette.test.tsx<br>packages/vue/test/palette.test.ts |
 | REQ-463 | MUST | packages/core/test/palette.test.ts<br>tools/bundle-budget/budget.real.test.ts |
 | REQ-464 | MUST | packages/core/test/palette.test.ts<br>tools/contrast-gate/contrast-gate.test.ts |
 | REQ-465 | MUST | packages/core/test/palette.test.ts<br>tools/contrast-gate/contrast-gate.test.ts |

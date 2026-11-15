@@ -72,8 +72,7 @@ The `provideSilverpoint` plugin sets the ground, the substrate, the mode and the
 chart. A prop on a chart overrides it.
 
 An `SpDashboard` draws its own frame, title and grid from its own `ground`, `substrate` and
-`palette` props, never from the provider, as React's does in Server Components. Under a provider,
-give the dashboard the same values; its charts and components follow either.
+`palette` props, then from the provider, as its charts do.
 
 ```ts
 // src/main.ts

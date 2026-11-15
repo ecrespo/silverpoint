@@ -8,6 +8,7 @@ import {
   __setDiagnosticSink,
   cellChartBox,
   DASHBOARD_DEFAULTS,
+  dashboardSection,
   dashboardView,
   inCell,
   linkedItems,
@@ -450,6 +451,25 @@ describe('dashboardView: what every adapter writes (T-111..T-113)', () => {
     const view = dashboardView({ id: 'ops', title: 'Ops', substrate: 'green', className: 'mine' }, []);
     expect(view.section.className).toBe('sp-dashboard sp-ground-silverpoint mine');
     expect(view.section.substrate).toBe('green');
+  });
+
+  test('REQ-212 · REQ-462 · dashboardSection gives the root its class, substrate and style for any configuration: the one a provider completes (#17)', () => {
+    capture();
+    const view = dashboardView({ id: 'ops', title: 'Ops', className: 'mine' }, []);
+    // The dashboard's own configuration gives what dashboardView wrote.
+    expect(dashboardSection({ className: 'mine' }, '', view.model.style)).toEqual({ className: view.section.className, substrate: view.section.substrate, style: view.section.style });
+    // A provider's ground, substrate and palette, where the dashboard set none; the palette first in the style.
+    const under = dashboardSection({ ground: 'cyanotype', substrate: 'blue', className: 'mine' }, '--sp-ink:#101010;--sp-text:#222222', view.model.style);
+    expect(under.className).toBe('sp-dashboard sp-ground-cyanotype mine');
+    expect(under.substrate).toBe('blue');
+    expect(under.style).toEqual({ '--sp-ink': '#101010', '--sp-text': '#222222', ...view.model.style });
+    expect(Object.keys(under.style).slice(0, 2)).toEqual(['--sp-ink', '--sp-text']);
+    // A ground given as an object is named by its name.
+    expect(dashboardSection({ ground: { name: 'etching' } as never }, '', {}).className).toBe('sp-dashboard sp-ground-etching');
+    // `under`, the provider: followed where the dashboard sets nothing, never over what it sets.
+    expect(dashboardSection({}, '', {}, { ground: 'cyanotype', substrate: 'blue' })).toMatchObject({ className: 'sp-dashboard sp-ground-cyanotype', substrate: 'blue' });
+    expect(dashboardSection({ ground: 'silverpoint', substrate: 'cream' }, '', {}, { ground: 'cyanotype', substrate: 'blue' })).toMatchObject({ className: 'sp-dashboard sp-ground-silverpoint', substrate: 'cream' });
+    expect(dashboardView({ id: 'd', label: 'x' }, [], '', { ground: 'cyanotype', substrate: 'blue' }).section).toMatchObject({ className: 'sp-dashboard sp-ground-cyanotype', substrate: 'blue' });
   });
 
   test('REQ-209 · REQ-214 · each cell is labelled by its chart’s name: the derived id, or the chart’s own', () => {

@@ -6,9 +6,9 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.14 |
-| **Date** | 2026-11-01 |
-| **Related PRD** | [`prd.md`](prd.md) v1.16 |
+| **API version** | v1.15 |
+| **Date** | 2026-11-14 |
+| **Related PRD** | [`prd.md`](prd.md) v1.17 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 | **Surface** | npm packages; one public, read-only MCP endpoint (§14) |
 
@@ -59,6 +59,14 @@ The dashboard composition (§7.1) follows the same rule, under a `dashboard` sub
 adapter: `@silverpoint/react/dashboard` (and `/server/dashboard`), `@silverpoint/vue/dashboard`,
 `@silverpoint/angular/dashboard`. It ships inside the existing packages; there is no dashboard
 package.
+
+Three more subpaths (delta-016). `@silverpoint/react/provider` is `SilverpointProvider` on an entry
+of its own, built with the client entries so it shares their context: a bundler that keeps the
+`'use client'` root barrel whole (Next.js with Turbopack) does not carry every chart into a route
+that only sets a ground (#21). `@silverpoint/grounds/styles-text` is `styles.css` as a module whose
+default export is the stylesheet's text, written by the build, so every bundler imports it without
+loader attributes, `?raw` or prebundle settings (#19). `@silverpoint/grounds` exports
+`standaloneSVG(svg, css)` (§8.1, #14).
 
 The 27 charts of the second catalog (§7.3) are subpaths of the same shape, in every adapter
 (`@silverpoint/react/histogram-chart`, `@silverpoint/vue/sunburst-chart`,
@@ -583,6 +591,11 @@ export interface Palette {
   readonly focus?: string;
 }
 
+/** The six preset names (delta-016, #20). */
+export type PaletteName = 'silverpoint' | 'sanguine' | 'sepia' | 'ironGall' | 'verdigris' | 'indigo';
+export const PALETTES: Readonly<Record<PaletteName, Palette>>;
+export const PALETTE_NAMES: readonly PaletteName[];
+
 /** Field → custom property, in the fixed order of every emitted `style` (REQ-461). */
 export const PALETTE_PROPERTIES: Readonly<Record<keyof Palette, `--sp-${string}`>>;
 //  substrate → --sp-substrate, ink → --sp-ink, inkSecondary → --sp-ink-secondary, heighten → --sp-heighten,
@@ -625,6 +638,11 @@ merge field by field. Vue exports a `SilverpointProvider` component (props `grou
 `provideSilverpoint` returns a `Provider` instead of `EnvironmentProviders`, so it is accepted in a
 component's `providers` as well as at bootstrap. A dashboard's root carries its own palette, not
 the provider's. `ChartHandle.toSVGString()` writes the palette on its `<svg>`.
+
+*Amended by delta-016 (#17, #20):* a dashboard's root now merges the provider's palette under its
+own, as its cells do, and takes the provider's ground and substrate where it sets none (§7.1); only
+React's `server/dashboard` still carries its own alone. `PALETTES` is keyed by `PaletteName`, so code
+that indexes it with a plain `string` narrows the name first.
 
 ### 3.5 Composed components, overlays and the timeline (feature-004)
 
@@ -1197,6 +1215,10 @@ export type DashboardProps = DashboardName & {
   /** Below the chart's own `palette`, above the provider's, field by field (REQ-462). */
   palette?: Palette;
 
+  // The dashboard's own root —its frame, title and grid— resolves `ground`, `substrate` and
+  // `palette` as dashboard → provider → default (delta-016, #17). `@silverpoint/react/server/dashboard`
+  // reads no provider: its root has the dashboard's own values and the defaults.
+
   className?: string;
 };
 
@@ -1666,6 +1688,23 @@ export interface ChartHandle {
 }
 ```
 
+`toSVGString()` returns the canonical markup, the one every gate compares (Art. 3): its strokes and
+fills are painted by the page's stylesheet, so saved on its own it has no colours. `standaloneSVG`
+on `@silverpoint/grounds` makes it a file (delta-016, #14), outside the handle, so no adapter gains
+a byte (REQ-444):
+
+```ts
+import { standaloneSVG } from '@silverpoint/grounds';
+import css from '@silverpoint/grounds/styles-text';
+
+/** The stylesheet as the root's first child, in CDATA; markup that is not an `<svg>` root is returned unchanged. */
+const file: string = standaloneSVG(chart.toSVGString(), css);
+```
+
+`SilverpointProvider` is also on `@silverpoint/react/provider` (§1, #21). `Dashboard` from
+`@silverpoint/react/dashboard` still carries no `"use client"`: its `section` is a client component
+of the `dashboard-link` module (`DashboardRoot`), which reads the provider (§7.1, #17).
+
 **UI components (§7.2).** Function components; `forwardRef` to the native element (`SpButton`, `SpInput` and the hidden inputs); `onChange` receives the value. `SpTabs` renders `SpTabPanel` children matched by `value`. Display components also have server entries (§1.2).
 
 **Composed components, overlays and the timeline (§7.4).** Function components; `forwardRef` to the
@@ -1713,6 +1752,10 @@ bootstrapApplication(App, {
 Inputs are declared with `input()` and are read-only inside the component. The component
 SHALL NOT expose public methods beyond `getGeometry()` and `toSVGString()`, so as to keep
 symmetry with `ChartHandle`.
+
+A literal `title="…"` on a chart, on `sp-dashboard` or on a UI component with a `title` input is
+the input and is not left on the host element, where the browser would show its native tooltip
+(delta-016, #18). Hosts are outside the parity contract (DD-017).
 
 **UI components (§7.2).** Standalone, signal inputs, `OnPush`, zoneless-safe (REQ-101). Value components share the `SpUiControl` base (`ui/base`), expose `value = model<T>()` and implement `ControlValueAccessor` (REQ-323). `SpButton` is an attribute component on the consumer's native element (`button[spButton]`, `a[spButton]`), so the host is the native control (DD-024). `SpInput` is an **element**, `<sp-input>`, not `input[spInput]`: a native `<input>` can hold neither the frame nor the message. Named slots are templates: `<ng-template spExtra>`, `spFooter`, `spPrefix`, `spSuffix`. Panels read their tabs through the `SP_TABS` token. A Tag reads its projected text after render, for its close button's name.
 
@@ -2039,7 +2082,7 @@ production bundle; those with `error` severity are always thrown.
 |---|---|---|---|
 | `SP001` | warn | REQ-007 | Empty dataset; the ground's empty state is drawn |
 | `SP002` | warn | REQ-008 | A value cannot be drawn as given — `null`, not finite, or outside the chart's data contract — so it is corrected or omitted. The generic message names no remedy; each chart states what happened and its own remedy in the diagnostic's specifics |
-| `SP003` | warn | REQ-009 | Zero-dimension container; the render is deferred |
+| `SP003` | warn | REQ-009 | Zero-dimension container; the render is deferred. A container hidden with `display: none` is not a measurement: the last measured width stands, with no warning (delta-016, #22) |
 | `SP004` | warn | REQ-010 | Degenerate scale domain; it is expanded with `domainPadding` |
 | `SP005` | error (dev) / warn (prod) | REQ-025 | More than one item marked with heightening; the first one is applied |
 | `SP006` | warn | REQ-026 | Inker not registered; falls back to `NullInker` |
@@ -2098,7 +2141,7 @@ motivates it.
 | Path data per chart | 40 KB | `SP011` |
 | Weight of `@silverpoint/core` + `react` with one chart | 45 KB min+gzip | CI fails (REQ-164) |
 | Geometry computation, 100 points | 2 ms | The CI benchmark fails |
-| `dashboard` subpath, per adapter, over its one-chart build | 2 KB min+gzip for React and Vue, 3 KB for Angular | CI fails (REQ-220) |
+| `dashboard` subpath, per adapter, over its one-chart build | 2 KB min+gzip for React's server entry and Vue, 2.25 KB for React's client entry, 3 KB for Angular | CI fails (REQ-220) |
 | Cells per dashboard | 24 (advisory) | No diagnostic; documented guidance, rendered anyway |
 | Dashboard layout resolution, 24 cells | 0.5 ms | The CI benchmark fails |
 | Reference 12-card dashboard, server HTML | 480 KB | `tools/path-weight` fails the PR |
@@ -2395,6 +2438,7 @@ Skill descriptions (frontmatter), verbatim:
 
 | Version | Date | Changes |
 |---|---|---|
+| 1.15 | 2026-11-14 | Delta-016 (#12, #14, #17..#22): §1 the subpaths `@silverpoint/react/provider` and `@silverpoint/grounds/styles-text`, and `standaloneSVG`; §3.4 `PaletteName`, with `PALETTES` and `PALETTE_NAMES` keyed by it; §7.1 the dashboard's root resolves ground, substrate and palette as dashboard → provider → default, except React's `server/dashboard`; §8.1 `toSVGString` is the canonical markup and `standaloneSVG` makes it a file; §8.2 an Angular host keeps no literal `title`; §11 `SP003` is not raised for a hidden container; §12 React's client `dashboard` entry has 2.25 KB over its one-chart build (REQ-220) |
 | 1.14 | 2026-11-01 | Delta-015 (#10): §14.2 the deck's Reflex name and import (`sp_deck`, `reflex_silverpoint_react`) joined from the Reflex catalog; §14.3 `generate_code { deck }` supports `reflex` |
 | 1.13 | 2026-10-31 | Feature-006: slide decks — §1 adds `@silverpoint/marp` and the adapters' optional peer; new §1.4 (`.`, `./client`, `./theme.css`, `./deck.css`, `./cli`, `./demo` with `DECK_DEMO`, the `deck` subpaths, `slideBackdrop`, `listGrounds` and `toChartRootString` on the grounds); §2 surface; new §3.6 (the engine, the theme and its classes, the directives, the chart fence); new §7.5 (`SpDeck`, the controller, the keyboard, the markup contract); §9 deck events; §10 parts and properties; `SP026`–`SP029` and `SP018` widened (25 → 29 codes); §12 deck limits and budgets; §13 nine packages; §14 the catalog's `deck` section, `validate_deck`, `render_deck`, `generate_code { deck }` (13 tools), `silverpoint://deck` and the `deck` guide; folds the amendments made in implementation (no polyfill, the shared view functions, `data-sp-pending` fragments, the budgets of DD-059, event bindings) in the ledger of `changes/feature-006-deck/` |
 | 1.12 | 2026-10-20 | Feature-005: agent access — §1 adds `@silverpoint/mcp`; new §14 (the package and its entry points, the agent catalog, eleven tools, resources, prompts, the skill and plugin layout, the official site's paths, the endpoint's limits); §12 the MCP limits; §13 eight packages; folds the amendments made in implementation (no PNG, inline plugin server, the `/#/ai` page) in the ledger of `changes/feature-005-agent-access/` |

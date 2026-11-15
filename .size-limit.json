@@ -21,7 +21,7 @@
       "react-dom"
     ],
     "gzip": true,
-    "limit": "47 kB"
+    "limit": "47.25 kB"
   },
   {
     "name": "@silverpoint/react + core, LineChart (server)",

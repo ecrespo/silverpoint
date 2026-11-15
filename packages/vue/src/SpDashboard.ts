@@ -2,6 +2,7 @@ import { dashboardView, type DashboardProps, type LinkState } from '@silverpoint
 import { paletteStyle, resolvePalette } from '@silverpoint/core/palettes';
 import { cloneVNode, Comment, defineComponent, Fragment, h, isVNode, provide, ref, type Slots, type VNode } from 'vue';
 import { DASHBOARD_LINK } from './dashboard-context';
+import { useProvider } from './environment';
 import { SpDashboardCell } from './SpDashboardCell';
 
 /** The slot's element nodes, fragments (`v-for`) opened and comments (`v-if`) dropped. */
@@ -40,14 +41,15 @@ export const SpDashboard = defineComponent(
         emit('linkChange', next && { key: next.key, value: next.value });
       },
     });
+    const provider = useProvider();
     return () => {
       const given = elements(slots.default?.() ?? []).map((node) => {
         const marked = node.type === SpDashboardCell;
         return { node, cell: marked ? (node.props?.cell as string | undefined) : undefined, id: marked ? chartIdOf(node) : (node.props?.id as string | undefined) };
       });
-      // Its own palette only, as in React, whose dashboard reads no provider (DD-037).
-      const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })), paletteStyle(resolvePalette(props.palette)));
-      const { section, heading, description } = view;
+      // The root under the provider: its ground, substrate and palette where the dashboard sets none (#17, DD-037).
+      const view = dashboardView(props, given.map(({ cell, id }) => ({ cell, id })), paletteStyle(resolvePalette(provider.palette, props.palette)), provider);
+      const { heading, description, section } = view;
       return h(
         'section',
         {

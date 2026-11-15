@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.16 |
+| **Version** | 1.17 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-11-01 |
+| **Last updated** | 2026-11-14 |
 | **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
 
 ---
@@ -322,7 +322,7 @@ citing it (Constitution, Art. 9). Retired identifiers are not reused.
 | REQ-006 | ubiquitous | THE SYSTEM SHALL produce identical encoding vertices in `ink` mode and in `precision` mode for every chart. | MUST |
 | REQ-007 | unwanted | IF the dataset is empty, THEN THE SYSTEM SHALL render the empty state declared by the ground, without spurious axes and without throwing. | MUST |
 | REQ-008 | unwanted | IF a datum contains `null`, `undefined` or `NaN`, THEN THE SYSTEM SHALL omit that point from the stroke, honour the declared `connectNulls` policy and warn only in development builds. | MUST |
-| REQ-009 | unwanted | IF the container measures 0 px in any dimension, THEN THE SYSTEM SHALL defer the render until dimensions are available and SHALL NOT emit attributes containing `NaN`. | MUST |
+| REQ-009 | unwanted | IF the container measures 0 px in any dimension, THEN THE SYSTEM SHALL defer the render until dimensions are available and SHALL NOT emit attributes containing `NaN`. A container hidden with `display: none` has no box and is not a measurement: the chart SHALL keep its last measured width and SHALL NOT warn (amended by delta-016, #22). | MUST |
 | REQ-010 | state | WHILE a scale's domain has zero length, THE SYSTEM SHALL expand it according to the ground's policy instead of dividing by zero. | MUST |
 | REQ-011 | ubiquitous | THE SYSTEM SHALL expose the computed geometry as serialisable data, with no DOM nodes and no functions. | MUST |
 
@@ -556,7 +556,7 @@ Linked interaction between charts is optional (SHOULD).
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-212 | optional | WHERE the dashboard sets `ground`, `substrate`, `mode` or `locale`, the charts inside it SHALL inherit them with the precedence chart prop → dashboard → application provider → library default; the media query forcing `precision` (REQ-123) SHALL still not be overridable. | MUST |
+| REQ-212 | optional | WHERE the dashboard sets `ground`, `substrate`, `mode` or `locale`, the charts inside it SHALL inherit them with the precedence chart prop → dashboard → application provider → library default; the media query forcing `precision` (REQ-123) SHALL still not be overridable. The dashboard's own root SHALL take `ground` and `substrate` with the precedence dashboard → application provider → library default, except in React's server entry, which reads no provider (amended by delta-016, #17). | MUST |
 | REQ-213 | ubiquitous | The dashboard's own chrome —title, description, gap— SHALL take colour and type only from the ground's tokens and `--sp-` custom properties, with no CSS framework. | MUST |
 
 #### Accessibility
@@ -582,7 +582,7 @@ by a runtime warning.
 
 | ID | Pattern | Criterion | Priority |
 |---|---|---|---|
-| REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds to its one-chart build more than its allowance min+gzip —2 KB for React (client and server) and Vue, 3 KB for Angular, whose partial-compilation output carries each component's template and input metadata— THEN CI SHALL fail (REQ-164). | MUST |
+| REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds to its one-chart build more than its allowance min+gzip —2 KB for React's server entry and Vue, 2.25 KB for React's client entry, whose root is a client component that reads the provider (delta-016, #17), 3 KB for Angular, whose partial-compilation output carries each component's template and input metadata— THEN CI SHALL fail (REQ-164). | MUST |
 | REQ-221 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include the reference dashboard page, verified end to end, the three server-rendered apps (`vite-vue`, `nextjs`, `angular`) hydrating it: no hydration mismatch, no axe A/AA issue, pixel gates green at the three breakpoints. | MUST |
 
 A dashboard's name is enforced by the type —`title` or `label` is required (API Spec §7.1)—, not
@@ -744,7 +744,7 @@ free; none is reused.
 |---|---|---|---|
 | REQ-460 | ubiquitous | THE SYSTEM SHALL define a palette as up to nine optional colours —`substrate`, `ink`, `inkSecondary`, `heighten`, `rule`, `grid`, `text`, `textMuted`, `focus`— each setting one `--sp-` custom property (Data Model §2.26); an unset field SHALL keep the ground's own value. | MUST |
 | REQ-461 | optional | WHERE a chart, a UI component, a composed component, an overlay, a dashboard or a `SpTimeline` sets `palette`, THE SYSTEM SHALL write the palette's declarations on that element's root as an inline `style` computed by `@silverpoint/core`, in the fixed order of REQ-460, so that it re-colours without re-rendering the drawing (REQ-041, REQ-042). | MUST |
-| REQ-462 | optional | WHERE a provider (`SilverpointProvider`, `provideSilverpoint`) or a dashboard sets `palette`, THE SYSTEM SHALL merge palettes field by field with the precedence element → dashboard → provider, a nested provider scoping a section. | MUST |
+| REQ-462 | optional | WHERE a provider (`SilverpointProvider`, `provideSilverpoint`) or a dashboard sets `palette`, THE SYSTEM SHALL merge palettes field by field with the precedence element → dashboard → provider, a nested provider scoping a section; the dashboard's own root SHALL merge the provider's palette under its own, except in React's server entry (amended by delta-016, #17). | MUST |
 | REQ-463 | ubiquitous | THE SYSTEM SHALL ship six presets —`silverpoint`, `sanguine`, `sepia`, `ironGall`, `verdigris`, `indigo`— as frozen data on `@silverpoint/core/palettes`, importable one by one so that an application ships only the presets it names. | MUST |
 | REQ-464 | ubiquitous | Every preset SHALL pass every contrast pair of the gate (Data Model §3.8 and §3.9) against its own substrate; CI SHALL verify it as REQ-127 does. | MUST |
 | REQ-465 | ubiquitous | THE SYSTEM SHALL expose `contrastRatio(a, b)` and `checkPalette(palette, substrate?)`, which measures every hex field of a palette against its thresholds and returns one finding per failing pair (empty when it passes). | MUST |
@@ -759,7 +759,7 @@ on the main entry it pushed `@silverpoint/core` past its 45 kB budget (REQ-164);
 a palette against its own `substrate`, else cream, since the core does not know the ground's
 substrate colour when it resolves a palette; (3) `SP024` is a development warning, but the field is
 dropped in every build, and the allowlist of REQ-467 is applied again by `paletteStyle`; (4) nested
-providers inherit field by field, and a dashboard's root carries its own palette only; (5) a chart's
+providers inherit field by field, and a dashboard's root carried its own palette only (until delta-016, #17: it now reads the provider, React's server dashboard aside); (5) a chart's
 palette is on the adapter's `.sp-root` frame, and the core's `toSVGString` writes it on the `<svg>`;
 (6) the consumer's own `style` is appended after the palette's, so the consumer wins.
 
@@ -1429,6 +1429,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.17 | 2026-11-14 | Ernesto Crespo | Delta-016 folded (#12, #14, #17..#22): REQ-009 — a container hidden with `display: none` is not a measurement; REQ-212 and REQ-462 — the dashboard's own root takes the provider's ground, substrate and palette where it sets none, React's server entry aside (user decision 2026-11-14); REQ-220 — React's client entry has 2.25 KB, as its root is a client component (user decision 2026-11-15). No requirement added |
 | 1.16 | 2026-11-01 | Ernesto Crespo | Delta-015 folded (#10): REQ-556 compares release lines (major.minor); REQ-621 generates `sp_deck` for Reflex; §5.2 drops the separate Reflex deck wrapper, which ships in `reflex-silverpoint-react` |
 | 1.15 | 2026-10-31 | Ernesto Crespo | Feature-006 folded: §6.15 slide decks (REQ-570..REQ-628; 59 requirements: 56 MUST, 3 SHOULD; 310 → 369 in all, 343 MUST); §1, Persona 6, §5.1–§5.3, §6.14 amended (REQ-539, REQ-541, REQ-546), §7 additions, Epic J, §11 risks, §12 Phase 10; the delta's glossary folded as §6.15's terms; what the implementation changed folded as built ("amended in implementation"): no SVG polyfill (DD-051), author CSS sanitised, Angular's `pageChange` payload, the six-slide `DECK_DEMO` |
 | 1.14 | 2026-10-20 | Ernesto Crespo | Feature-005 folded: §6.14 agent access (REQ-530..REQ-569; 40 requirements: 37 MUST, 3 SHOULD; 270 → 310 in all, 287 MUST); Persona 5, §4.1, §5.1–§5.3, §7 additions, Epic I, §11 risks, §12 Phase 9; what the implementation changed folded as built ("amended in implementation"): REQ-544 deferred, REQ-556 strict only for the wrapper's own export, REQ-561 not implemented |
