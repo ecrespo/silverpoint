@@ -1,9 +1,10 @@
-# Research — drawing silverpoint charts inside BI and workflow tools
+# Research — drawing silverpoint charts inside BI tools, workflow tools and Python web frameworks
 
 > Input to a future `prd-delta.md`. A first survey gathered 2026-11-20 from each vendor's public
 > documentation (sources in §6) and from this repository at `0.10.1`. Nothing here was built or
 > run against a host: every host claim is what its documentation says, and what the documentation
-> did not say is listed in §5 as an open question.
+> did not say is listed in §5 as an open question. §3.7 (Flask, Django, Plone), added the same
+> day, is the exception: no documentation was read for it, and it says so.
 
 ## 1. What silverpoint already has
 
@@ -44,6 +45,16 @@ data inline). With `_repr_html_` the same object shows in Jupyter, in a Databric
 through KNIME's `view_ipy_repr`. The render happens in the browser, so the Python side needs no
 JavaScript runtime. A static image (KNIME reports) does need one: Node.js in the node's
 environment calling the headless render.
+
+The web frameworks of §3.7 use the same package in two modes:
+
+| Mode | What the page carries | For |
+|---|---|---|
+| Browser | The `embed` file as a static asset and the data as JSON; drawn on load | Interactive pages: hover, keyboard, selection |
+| Server | The SVG already in the HTML | E-mail, PDF, pages without JavaScript |
+
+The server mode needs a JavaScript engine beside Python: Node.js as a subprocess, or an embedded
+engine. Whether the core runs in an embedded one was not tried.
 
 ### 2.3 Manifests from the agent catalog
 
@@ -111,6 +122,29 @@ Power BI `dataRoles`, Tableau encodings, KNIME node parameters, Superset control
   `view_svg` is what reports include.
 - Selection shared with other nodes is documented only for Plotly figures.
 
+### 3.7 Flask, Django and Plone
+
+**Not surveyed.** No framework documentation was read for this section; it records the intended
+shape from general knowledge of the three, and every line is to be verified at gate 0.
+
+These hosts serve pages of their own: no isolated frame and no store to certify against, so they
+ask less than the BI tools. Each is a thin layer over §2.2.
+
+| | Flask | Django | Plone |
+|---|---|---|---|
+| Package | `flask-silverpoint` | `django-silverpoint` | One add-on for Volto, another for Classic UI |
+| Use | A Jinja global: `{{ silverpoint_chart("line", data=hits) }}` | A template tag: `{% silverpoint_chart "line" data=hits x_key="t" %}` | A block the editor inserts in a page |
+| Static file | A blueprint with its `static` folder | An app with `static/`, collected by `collectstatic` | Resources registered by the add-on |
+| Data | Whatever the view passes | The view's context, or a QuerySet through `.values()` | The block's fields, an attached CSV or JSON, or a collection |
+
+- **Flask**: an extension with `init_app` that registers the blueprint and the Jinja global.
+- **Django**: an installable app with the template tag, the static files and project-wide
+  defaults in `settings.py` (ground, substrate, mode, palette). Data travels through
+  `json_script`. Natural extras: a Wagtail block and an admin widget.
+- **Plone**: Volto, Plone 6's interface, is built on React, so its block can wrap
+  `@silverpoint/react` as the Superset plugin does. Classic UI renders server templates, where a
+  view or a tile carries `embed`. Two add-ons, hence the larger effort.
+
 ## 4. Proposed additions to PRD §5.3 (Future Considerations)
 
 To be folded only when this feature's PRD delta is approved (Art. 9):
@@ -120,6 +154,8 @@ To be folded only when this feature's PRD delta is approved (Art. 9):
 - A Python package that returns a chart as a self-contained HTML document.
 - Host integrations built on them: Apache Superset, n8n, Power BI, Tableau, KNIME, and notebook
   output for Databricks and Jupyter.
+- Python web framework integrations on the same package: Flask, Django and Plone (Volto and
+  Classic UI).
 
 ## 5. Open questions
 
@@ -133,6 +169,11 @@ To be folded only when this feature's PRD delta is approved (Art. 9):
 6. Whether `embed` joins the parity gate (Art. 3).
 7. Where each integration lives: this monorepo's `fixed` group, or a sibling repository per host.
 8. A selection-aware KNIME view (a Java node with a JavaScript view) was not surveyed.
+9. Flask, Django and Plone were not surveyed at all (§3.7): extension points, packaging and
+   static-file handling are to be read from each project's documentation.
+10. The React version of current Volto against `@silverpoint/react`'s 18.2 floor.
+11. Which JavaScript engine the Python package's server mode uses, and whether the core runs in
+    an embedded one.
 
 ## 6. Sources
 

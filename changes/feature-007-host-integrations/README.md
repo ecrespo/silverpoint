@@ -1,4 +1,4 @@
-# feature-007 — host integrations: silverpoint charts inside BI and workflow tools
+# feature-007 — host integrations: silverpoint charts inside BI tools, workflow tools and Python web frameworks
 
 | Field | Value |
 |---|---|
@@ -10,8 +10,9 @@
 
 ## What it is
 
-Six tools people already chart in, and the two shared pieces that let silverpoint draw inside them.
-None of them is a data connector: each is the host's own extension point for a visualization.
+Six tools people already chart in, three Python web frameworks, and the two shared pieces that let
+silverpoint draw inside them. None of them is a data connector: each is the host's own extension
+point for a visualization.
 
 | Host | Extension point | Built on |
 |---|---|---|
@@ -21,6 +22,10 @@ None of them is a data connector: each is the host's own extension point for a v
 | Tableau | Viz extension (`.trex` + a web page) | `@silverpoint/embed` (new) |
 | KNIME | Python node extension with a view | `silverpoint` on PyPI (new), which carries `embed` |
 | Databricks, Jupyter | Notebook output (`displayHTML`, `_repr_html_`) | `silverpoint` on PyPI (new) |
+| Flask | Extension: a Jinja global and a blueprint for the static file | `silverpoint` on PyPI (new) |
+| Django | App: a template tag and its static files | `silverpoint` on PyPI (new) |
+| Plone (Classic UI) | Add-on: a view or tile in a server template | `silverpoint` on PyPI (new) |
+| Plone (Volto) | Add-on: a block (React) | `@silverpoint/react`, as published |
 
 Out: Databricks AI/BI dashboards. Their custom visualizations are Vega-Lite specifications and run
 no JavaScript of ours (research §3.5).
@@ -39,9 +44,12 @@ no JavaScript of ours (research §3.5).
 1. n8n node — needs nothing new in this repository.
 2. Superset plugin — reuses `@silverpoint/react`; its React version is to be confirmed.
 3. `@silverpoint/embed`.
-4. `silverpoint` on PyPI, then the KNIME node and the notebook output.
-5. Power BI custom visual.
-6. Tableau viz extension.
+4. `silverpoint` on PyPI, then the notebook output.
+5. Flask extension and Django app — the thinnest layers over the Python package.
+6. KNIME node.
+7. Plone: the Volto block and the Classic UI add-on.
+8. Power BI custom visual.
+9. Tableau viz extension.
 
 A first family (line, bar, donut, KPI) before the 60 charts.
 
