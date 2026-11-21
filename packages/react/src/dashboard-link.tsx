@@ -53,13 +53,17 @@ export function DashboardRoot({ attrs, own, layout, link, onLinkChange }: Dashbo
   const root = dashboardSection(own, paletteStyle(resolvePalette(provider.palette, own.palette)), layout, provider);
   return (
     <section {...attrs} className={root.className} data-substrate={root.substrate} style={root.style as CSSProperties}>
-      {link ? (
-        <DashboardLink link={link} onLinkChange={onLinkChange}>
-          {attrs.children}
-        </DashboardLink>
-      ) : (
-        attrs.children
-      )}
+      {/* The root hands on the value it read (REQ-671, #27): when it re-renders with a new one, React
+          propagates the change from here, also into a segment Next.js revealed from its cache. */}
+      <SilverpointContext.Provider value={provider}>
+        {link ? (
+          <DashboardLink link={link} onLinkChange={onLinkChange}>
+            {attrs.children}
+          </DashboardLink>
+        ) : (
+          attrs.children
+        )}
+      </SilverpointContext.Provider>
     </section>
   );
 }
