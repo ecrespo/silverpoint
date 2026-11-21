@@ -1,5 +1,13 @@
 # @silverpoint/vue
 
+## 0.11.1
+
+### Patch Changes
+
+- @silverpoint/core@0.11.1
+  - @silverpoint/grounds@0.11.1
+  - @silverpoint/marp@0.11.1
+
 ## 0.11.0
 
 ### Minor Changes
