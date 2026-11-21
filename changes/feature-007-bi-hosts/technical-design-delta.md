@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved); DD-062 filled from the PoC ([`poc.md`](poc.md)), DD-070 amended by its finding F-P1, §7 resolved |
+| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved); DD-062 filled from the PoC ([`poc.md`](poc.md)), DD-070 amended by its finding F-P1, §7 resolved; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.15 → v1.16: §3 (package map), §4 (DD-061..DD-072), §5.3 (allowlist note), §6 (a row), §8 (gates), §9 (publication) |
 | **Requirements** | REQ-629..REQ-668 |
 
@@ -41,6 +41,12 @@
   release, deleting `mcp/src/recipes.ts` and the render half of `tools/render.ts` (the MCP keeps its
   input checks against the agent catalog, its `capturing` of diagnostics and its tool errors).
   `@silverpoint/marp` keeps its fence parser and registry in `0.11.0`.
+  *Amended in implementation:* `validate_props` renders through the embed too (declared props
+  only), so the MCP keeps no recipe map at all. `SP030` and `SP031` are templated in the embed
+  (`spec/codes.ts`), not in the core's `ERRORS` table, which every production bundle carries
+  (REQ-444); the core gains only the two names in `SpCode`. `STANDALONE_INTEGRITY` is exported by the
+  main entry and written into `dist` after hashing, for `generate_code { framework: 'html' }` (the MCP
+  imports no Node built-in, REQ-551, so it cannot read `integrity.json`).
 - **Why not move the deck now.** The fence has slide-contextual defaults (the slide's ground, a
   content width per slide size, ids `<deck>-s<n>-c<m>`), narrower size ranges, and 59 requirements
   resting on fixtures. Moving it is a refactor with no user-visible gain and belongs in a delta of its
@@ -61,8 +67,13 @@
   `full` file adds EB Garamond 400, 500 and 400 italic as base64 WOFF2 in one `@font-face` sheet —
   all three cuts, the fonts fallback is not needed. (4) Budgets, gzip (the unit of
   `.size-limit.json`): `silverpoint-embed.js` / `.mjs` **≤ 140 kB**; `.full.js` / `.full.mjs`
-  **≤ 220 kB**; main entry own code **≤ 12 kB**; client entry own code **≤ 8 kB**. Brotli is
-  recorded, not gated.
+  **≤ 220 kB**; main entry own code **≤ 34 kB**; client entry own code **≤ 11 kB** (amended in implementation,
+  user decision 2026-11-21: gate 3 set 12 / 8 kB; the main entry carries EB Garamond 400 for
+  `renderToSVG`'s `embedFonts`, 24 kB of its measured 31.6 kB, and the client measures 10.1 kB).
+  Brotli is recorded, not gated. (5) `silverpoint-embed.js` carries no face: `embedFonts` there
+  draws the fallback stack and reports `SP013`. (6) `HOST_CATALOG` is not in the standalone files
+  (580 kB with its demos); they carry `specFromTable` over a generated binding table
+  (`hosts/bindings.generated.ts`), and hosts pin `host-catalog.json`.
 - **Measured.** Base 374.6 KB minified, 121.1 kB gzip, 99.0 kB brotli; `full` 474.4 KB, 197.5 kB,
   173.9 kB (with a 6 kB prototype client; the margin holds the real client, validation,
   `specFromTable`, `conformance` and the prop tables). The core's recipes are 77 % of the file.
@@ -133,6 +144,9 @@
   - *Labels*: sentence-cased names; overrides and the per-chart `title` in `hosts.meta.ts`.
   - *Binding and reshape*: `rows` unless `hosts.meta.ts` says otherwise; a chart with an `array` field
     or no field and no entry in `hosts.meta.ts` fails generation (a new chart cannot slip in unbound).
+- **As built** *(amended in implementation)*. 52 `rows`, 2 `pivot`, 2 `scalar`, 4 `none`
+  (`treemap-chart`, whose tiles carry their own grid spans; `sparkline-rows`; `volvelle-chart`;
+  `orbit-chart`). A demo carries `options` for the canonical demo's non-role props, so I-59 holds.
 - **Why a second catalog and not more fields in the first.** The agent catalog is read by models and
   documented field by field (Data Model §2.28); hosts need a smaller, stricter, typed shape, and may
   need it to stay stable while the agent catalog grows. Same generator, same `check`, two views.

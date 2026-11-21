@@ -4341,7 +4341,7 @@
       "@silverpoint/grounds"
     ],
     "gzip": true,
-    "limit": "12 kB"
+    "limit": "34 kB"
   },
   {
     "name": "@silverpoint/embed/client entry, own code (REQ-650)",
@@ -4352,6 +4352,6 @@
       "@silverpoint/grounds"
     ],
     "gzip": true,
-    "limit": "8 kB"
+    "limit": "11 kB"
   }
 ]

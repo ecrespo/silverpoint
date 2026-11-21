@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved) |
+| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved); §2.41 amended in implementation 2026-11-21 (`demo.options`, the bindings as built) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.13 → v1.14: new §2.38..§2.44, §2.28 (the agent catalog's `hosts`), §5 (fixtures), §6 (I-53..I-60) |
 
 ## §2.38 `ChartSpec`
@@ -56,7 +56,7 @@ interface HostChart {
   reason?: string;                                         // with `none`
   roles: HostRole[];                                       // [] with `none`
   options: HostOption[];
-  demo?: { roles: Record<string, string | string[]>; rows: Record<string, unknown>[] };   // absent with `none`
+  demo?: { roles: Record<string, string | string[]>; rows: Record<string, unknown>[]; options?: Record<string, unknown> };   // absent with `none`
 }
 interface HostRole {
   id: string;                    // the agent catalog's `role`, or the reshape's role
@@ -78,6 +78,13 @@ interface HostOption {
 `demo.rows` is the chart's demo dataset in the table form a host would hand over: for `rows` charts
 the demo itself with `demoKeys` as `roles`; for `pivot` charts the long form whose reshape gives the
 demo back; for `scalar` charts one row.
+
+`demo.options` *(amended in implementation)* holds the canonical demo's props that are not roles
+—`names` (dumbbell), `axis` (interval), `period` (slope), `metric` and `delta` (KPI card), `nodes`
+(network)— so `specFromTable(demo)` renders the canonical demo (I-59). As built, 56 charts bind
+(52 `rows`, 2 `pivot`, 2 `scalar`); `binding: 'none'`: `treemap-chart` (its tiles carry grid spans,
+`cols` and `rows`, that are not data fields; `squarified-treemap` binds parts), `sparkline-rows`,
+`volvelle-chart` and `orbit-chart`.
 
 ## §2.42 `Table`, `TableBinding`
 

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, approved 2026-11-20 (user decision: every gate approved); §7 budgets filled from the PoC |
+| **Status** | `APPROVED` — gate 2, approved 2026-11-20 (user decision: every gate approved); §7 budgets filled from the PoC; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.15 → v1.16: §1 (a row), new §1.5, new §3.7, §11 (two diagnostics), §12 (budgets), §14.2, §14.3, §14.6, new §15 |
 | **Requirements** | REQ-629..REQ-668 |
 
@@ -20,13 +20,13 @@ Nothing published in `0.10.x` changes shape. Every addition is additive; `0.x` r
 
 | Entry | Environment | Exports |
 |---|---|---|
-| `@silverpoint/embed` | any (no DOM) | `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `CHART_SLUGS`, `VERSION`, the types of §3.7 |
+| `@silverpoint/embed` | any (no DOM) | `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `CHART_SLUGS`, `VERSION`, `STANDALONE_INTEGRITY`, the types of §3.7 |
 | `@silverpoint/embed/client` | browser | `mount`, `mountAll`, `defineElement`, `hostAppearance`, `ELEMENT_NAME`, and everything of the main entry |
 | `@silverpoint/embed/hosts` | any (no DOM) | `HOST_CATALOG`, `specFromTable`, `hostCatalogFollows`, the types of §15 |
 | `@silverpoint/embed/conformance` | any (no DOM) | `CONFORMANCE`, `conformance(renderToSVG)` (§15.4) |
 | `@silverpoint/embed/host-catalog.json` | — | the host catalog file |
 | `@silverpoint/embed/conformance.json` | — | the conformance file |
-| `@silverpoint/embed/silverpoint-embed.js`, `.mjs` | browser, or Node for the DOM-free functions | the standalone file: main + client + hosts + the `conformance` function, no import; the script build defines `globalThis.Silverpoint` and the element. Importing the module build touches no DOM global, so Node can call `renderToSVG`, `specFromTable` and `conformance` from it |
+| `@silverpoint/embed/silverpoint-embed.js`, `.mjs` | browser, or Node for the DOM-free functions | the standalone file: main + client + `specFromTable` and `hostCatalogFollows` (over a generated binding table; `HOST_CATALOG` itself, 580 kB with its demos, is not in the file: hosts pin `host-catalog.json`) + the `conformance` function, no import; the script build defines `globalThis.Silverpoint` and the element, and mounts every `[data-sp-embed]` once the document is parsed (amended in implementation), so `renderToHTML`'s interactive markup needs no inline script. Importing the module build touches no DOM global, so Node can call `renderToSVG`, `specFromTable` and `conformance` from it |
 | `@silverpoint/embed/silverpoint-embed.full.js`, `.full.mjs` | browser | the same with EB Garamond's three cuts inlined |
 | `@silverpoint/embed/integrity.json` | — | `{ "<file>": "sha384-…" }` for the four standalone files (REQ-651) |
 
@@ -112,7 +112,16 @@ export function renderToHTML(spec: ChartSpec | string, options?: HTMLOptions): S
 
 export const CHART_SLUGS: readonly string[];   // 60
 export const VERSION: string;
+/** `{ "<file>": "sha384-…" }` for the four standalone files, written into `dist` after hashing (amended in implementation). */
+export const STANDALONE_INTEGRITY: Readonly<Record<string, string>>;
 ```
+
+- `STANDALONE_INTEGRITY` is what `generate_code { framework: 'html' }` writes into its `<script>`
+  tag (§14.3): read from the package's sources, before a build, it is empty, and the tool's `notes`
+  name `integrity.json` instead. The MCP imports no Node built-in (REQ-551), so it cannot read the file.
+- `embedFonts` in `silverpoint-embed.js`, which carries no face, draws the ground's fallback stack and
+  reports `SP013` (warn); the module entries and the `full` files embed EB Garamond 400 (amended in
+  implementation).
 
 - `renderToSVG` is `render_chart`'s function moved here (REQ-660): the ground's stylesheet as the
   root's first child, nothing else in the markup changed (REQ-632).
@@ -201,7 +210,9 @@ error's message as text, in the ground's type. Parts: `data-sp-embed` (the mount
 | `SP031` | error | REQ-668 | The client was given a spec that does not validate; the error figure is shown | Read the message: it names the field, the unknown chart with suggestions, or the undeclared props |
 
 The catalog of §11 grows from `SP029` to `SP031`; the agent catalog's `diagnostics`
-follows by generation.
+follows by generation. *Amended in implementation:* both are templated in the embed (`spec/codes.ts`,
+the core's wording), not in the core's `ERRORS` table, which ships in every production bundle
+(REQ-444); the core gains only the two names in `SpCode`, and the agent catalog reads both tables.
 
 ## 7. Limits and budgets — add to §12
 
@@ -211,8 +222,8 @@ follows by generation.
 | `width` / `height` | 160..1600 / 90..1200 | REQ-631 |
 | `silverpoint-embed.js` / `.mjs` | **140 kB** gzip (measured 121.1 kB; DD-062) | `.size-limit.json` |
 | `silverpoint-embed.full.js` / `.full.mjs` | **220 kB** gzip (measured 197.5 kB) | `.size-limit.json` |
-| `@silverpoint/embed` main entry, own code | **12 kB** gzip | `.size-limit.json` |
-| `@silverpoint/embed/client` entry, own code | **8 kB** gzip | `.size-limit.json` |
+| `@silverpoint/embed` main entry, own code | **34 kB** gzip (measured 31.6 kB, of which EB Garamond 400 for `embedFonts` is 24 kB; raised from 12 kB, user decision 2026-11-21) | `.size-limit.json` |
+| `@silverpoint/embed/client` entry, own code | **11 kB** gzip (measured 10.1 kB; raised from 8 kB, user decision 2026-11-21) | `.size-limit.json` |
 | One-chart builds of the adapters | unchanged (REQ-444) | existing gate |
 
 ## 8. Agent access — amend §14
@@ -238,6 +249,8 @@ result's `code` is the fragment of §1.5 —the `<silverpoint-chart>` with the s
 for `silverpoint-embed.full.js` with its `integrity`, `stylesheets` is empty, and `notes` says where
 the file comes from. `{ component }` and `{ deck }` with `html` are `invalid_input`.
 `search_catalog` returns `kind: 'host'` hits (REQ-661). `render_chart`'s contract is unchanged.
+*Amended in implementation:* `validate_props` renders through the embed too (declared props only), so
+the server keeps no recipe map of its own (`recipes.ts` deleted).
 
 **§14.6.** The `silverpoint` skill gains `references/hosts.md`, generated (REQ-663).
 
@@ -265,7 +278,7 @@ the file comes from. `{ component }` and `{ deck }` with `html` are `invalid_inp
         { "id": "secondary", "prop": "secondaryKey", "label": "Secondary", "kind": "measure",   "dataType": "number", "required": false, "multiple": false }
       ],
       "options": [ { "name": "orientation", "kind": "enum", "values": ["columns", "rows"], "label": "Orientation", "doc": "…" } ],
-      "demo": { "roles": { "x": "x", "value": "value", "secondary": "previous" }, "rows": [ … ] }
+      "demo": { "roles": { "x": "x", "value": "value", "secondary": "previous" }, "rows": [ … ] }   // + "options" where the demo needs non-role props
     }
   ]
 }
@@ -316,9 +329,17 @@ strings; `null` and `undefined` cells pass through as `null`.
 | `gauge-arc`, `meter-chart` | `scalar` | `percent` (measure) | The first row's cell to the `percent` prop |
 | `kpi-card` | `rows` | as the catalog | — |
 | `orbit-chart` | `none` | — | `reason`: each row carries an array of markers no flat table states. *(Revisit with a `marker` long form.)* |
+| `treemap-chart` | `none` | — | `reason`: each tile carries its own grid span (`cols`, `rows`), which are not data fields; a table of parts binds to `squarified-treemap` *(amended in implementation)* |
+| `sparkline-rows`, `volvelle-chart` | `none` | — | `reason`: each row of the sparklines carries an array of points no flat table states; the volvelle draws from its props alone (rings, an index) |
 
 The final table is produced by the generator from the chart metadata and reviewed at gate 3; the rows
-above are the ones the agent catalog of `0.10.1` forces.
+above are the ones the agent catalog of `0.10.1` forces. As built: 52 `rows`, 2 `pivot`, 2 `scalar`,
+4 `none` — 56 bindable charts.
+
+A demo may carry `options` (amended in implementation): the props of the canonical demo that are not
+roles —the dumbbell's `names`, the interval chart's `axis`, the slope chart's `period`, the KPI card's
+`metric` and `delta`, the network's `nodes`— so that `specFromTable(demo)` renders the canonical demo
+(I-59). A matrix pivot's reference render adds the `columnLabels` its reshape names.
 
 ### 15.4 The conformance kit (REQ-666)
 
