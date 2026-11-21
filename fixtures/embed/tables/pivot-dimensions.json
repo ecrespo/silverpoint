@@ -1,0 +1,7 @@
+[
+  {
+    "name": "parallel-coordinates-chart: the dimensions prop takes the mapped column names",
+    "binding": { "chart": "parallel-coordinates-chart", "table": { "rows": [ { "model": "A", "mass": 9.1, "price": 800, "extra": 1 }, { "model": "B", "mass": 11.4, "price": 650, "extra": 2 } ] }, "roles": { "label": "model", "dimensions": [ "mass", "price" ] } },
+    "expect": { "chart": "parallel-coordinates-chart", "data": [ { "model": "A", "mass": 9.1, "price": 800 }, { "model": "B", "mass": 11.4, "price": 650 } ], "props": { "labelKey": "model", "dimensions": [ "mass", "price" ] } }
+  }
+]

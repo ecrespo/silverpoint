@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "The documentation site: gallery, ground playground, quickstart and adapter parity (PRD \u00a75.1).",
+  "description": "The documentation site: gallery, ground playground, quickstart and adapter parity (PRD §5.1).",
   "scripts": {
     "generate": "tsx --conditions=@silverpoint/source scripts/generate.ts",
     "dev": "vite",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@knight-lab/timelinejs": "3.9.13",
     "@silverpoint/core": "workspace:*",
+    "@silverpoint/embed": "workspace:*",
     "@silverpoint/fonts": "workspace:*",
     "@silverpoint/grounds": "workspace:*",
     "@silverpoint/marp": "workspace:*",

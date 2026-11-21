@@ -21,10 +21,10 @@ afterEach(() => {
 });
 
 describe('publish (TD §9)', () => {
-  test('REQ-160 · REQ-047 · REQ-538 · the nine public packages, one version, each after its @silverpoint dependencies', () => {
+  test('REQ-160 · REQ-047 · REQ-538 · the ten public packages, one version (embed: feature-007), each after its @silverpoint dependencies', () => {
     const packages: Pkg[] = publishablePackages(ROOT);
     expect(packages.map((p) => p.name).sort()).toEqual(
-      ['angular', 'core', 'fonts', 'grounds', 'marp', 'mcp', 'react', 'tailwind', 'vue'].map((p) => `@silverpoint/${p}`),
+      ['angular', 'core', 'embed', 'fonts', 'grounds', 'marp', 'mcp', 'react', 'tailwind', 'vue'].map((p) => `@silverpoint/${p}`),
     );
     expect(new Set(packages.map((p) => p.version)).size).toBe(1);
     const position = new Map(packages.map((p, i) => [p.name, i]));

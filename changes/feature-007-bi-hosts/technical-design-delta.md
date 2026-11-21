@@ -194,6 +194,7 @@
   `MutationObserver` on itself, disconnected once a complete spec is read or the element is
   removed) and SHALL treat JSON that does not parse yet as not arrived. A `spec` property set before
   the child arrives wins. Verified red-first in T-304.
+- **Mounting on load** *(as implemented)*. The script builds define the element and call `mountAll` once the document is parsed, so a page needs no inline script to bring `renderToHTML`'s interactive boxes to life.
 - **Server-rendered roots.** The element and `mountAll` adopt an existing chart root when its
   serialisation equals what they would build (DD-063's nodes compared through the gate's
   normaliser); otherwise they replace it. No hydration-mismatch warning: there is no framework to

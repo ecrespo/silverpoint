@@ -5,6 +5,7 @@ import { SpTooltip } from '@silverpoint/angular';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
 import type { ActiveItem } from '@silverpoint/core';
 import { afterEach, describe, expect, test } from 'vitest';
+import { INTERACTION_CASES } from '../../../tools/testing/interaction-cases';
 
 let apps: ApplicationRef[] = [];
 afterEach(() => {
@@ -60,8 +61,8 @@ describe('sp-line-chart readout', () => {
     const { app, chartRoot, recorder } = await mount();
     const { x, y } = livePoint();
     await fire(app, chartRoot, move(x, y));
-    expect(recorder.changes.at(-1)).toMatchObject({ seriesKey: 'hits', index: 11, value: 41 });
-    expect(document.querySelector('.sp-readout')?.textContent?.trim()).toBe('22hits: 41');
+    expect(recorder.changes.at(-1)).toMatchObject(INTERACTION_CASES.hover.active);
+    expect(document.querySelector('.sp-readout')?.textContent?.trim()).toBe(INTERACTION_CASES.hover.readout);
     expect(document.querySelector('svg.sp-marker path')).not.toBeNull();
   });
 
@@ -81,7 +82,7 @@ describe('sp-line-chart readout', () => {
     const { app, chartRoot } = await mount();
     await fire(app, chartRoot, new FocusEvent('focus'));
     expect(document.querySelector('.sp-live')?.getAttribute('aria-live')).toBe('polite');
-    expect(document.querySelector('.sp-live')?.textContent?.trim()).toBe('hour 00, hits 18');
+    expect(document.querySelector('.sp-live')?.textContent?.trim()).toBe(INTERACTION_CASES.focus.live);
   });
 
   test('REQ-143 · leaving the drawing area emits null and leaves no residual state', async () => {
@@ -106,7 +107,7 @@ describe('sp-line-chart readout', () => {
     const { app, chartRoot, recorder } = await mount();
     await fire(app, chartRoot, new FocusEvent('focus'));
     await fire(app, chartRoot, keydown('Enter'));
-    expect(recorder.selected[0]).toMatchObject({ index: 0 });
+    expect(recorder.selected[0]).toMatchObject(INTERACTION_CASES.select.item);
   });
 
   test('REQ-142 · an spTooltip template replaces the built-in readout', async () => {

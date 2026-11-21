@@ -2,8 +2,9 @@ import type { ActiveItem } from '@silverpoint/core';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { createApp, h, nextTick } from 'vue';
 import { SpLineChart } from '../src';
+import { INTERACTION_CASES, INTERACTION_CHART } from '../../../tools/testing/interaction-cases';
 
-const fixed = { id: 'sp-interactive', width: 320, height: 160, chrome: 'bare' } as const;
+const fixed = INTERACTION_CHART;
 
 let cleanup: (() => void)[] = [];
 afterEach(() => {
@@ -47,8 +48,8 @@ describe('SpLineChart readout', () => {
     const { host, chartRoot } = mount({ ...fixed, onActiveChange });
     const { x, y } = livePoint(host);
     await fire(chartRoot, move(x, y));
-    expect(onActiveChange).toHaveBeenLastCalledWith(expect.objectContaining({ seriesKey: 'hits', index: 11, value: 41 }));
-    expect(host.querySelector('.sp-readout')?.textContent).toBe('22hits: 41');
+    expect(onActiveChange).toHaveBeenLastCalledWith(expect.objectContaining(INTERACTION_CASES.hover.active));
+    expect(host.querySelector('.sp-readout')?.textContent).toBe(INTERACTION_CASES.hover.readout);
     expect(host.querySelector('svg.sp-marker path')).not.toBeNull();
   });
 
@@ -68,7 +69,7 @@ describe('SpLineChart readout', () => {
     const { host, chartRoot } = mount(fixed);
     await fire(chartRoot, new FocusEvent('focus'));
     expect(host.querySelector('.sp-live')?.getAttribute('aria-live')).toBe('polite');
-    expect(host.querySelector('.sp-live')?.textContent).toBe('hour 00, hits 18');
+    expect(host.querySelector('.sp-live')?.textContent).toBe(INTERACTION_CASES.focus.live);
   });
 
   test('REQ-143 · leaving the drawing area emits null and leaves no residual state', async () => {
@@ -96,7 +97,7 @@ describe('SpLineChart readout', () => {
     const { chartRoot } = mount({ ...fixed, onSelect });
     await fire(chartRoot, new FocusEvent('focus'));
     await fire(chartRoot, keydown('Enter'));
-    expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({ index: 0 }));
+    expect(onSelect).toHaveBeenCalledWith(expect.objectContaining(INTERACTION_CASES.select.item));
   });
 
   test('REQ-142 · a #tooltip slot replaces the built-in readout', async () => {

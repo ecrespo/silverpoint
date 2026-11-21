@@ -71,3 +71,6 @@ jobs:
           # The release notes are the version's section of the shared changelog.
           awk -v v="$VERSION" '$0 == "## " v {on=1; next} /^## / {on=0} on' packages/core/CHANGELOG.md > "$RUNNER_TEMP/notes.md"
           gh release create "$tag" --title "$tag" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
+          # The hosts kit (TD delta §6): what the host repositories vendor, from packages/embed/dist.
+          node tools/release/hosts-kit.mjs "$VERSION"
+          gh release upload "$tag" "silverpoint-hosts-kit-${VERSION}.zip"

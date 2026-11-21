@@ -288,6 +288,7 @@ export function skillFiles(data: AgentCatalog): Map<string, string> {
     'references/diagnostics.md',
     stamped(['# Diagnostics', '', 'Every `SP` code the library warns or throws, in development builds.', '', blocks(catalog).diagnostics!(), ''].join('\n'), catalog.version),
   );
+  files.set('references/hosts.md', stamped(hostsReference(data), catalog.version));
   for (const family of data.families) {
     const charts = data.charts.filter((c) => c.family === family.slug);
     const body = [
@@ -303,6 +304,40 @@ export function skillFiles(data: AgentCatalog): Map<string, string> {
     files.set(`references/charts/${family.slug}.md`, stamped(body, catalog.version));
   }
   return files;
+}
+
+/** `references/hosts.md` (REQ-663): each host, what it is built on, and how a chart reaches it. */
+function hostsReference(data: AgentCatalog): string {
+  const via = { embed: 'the standalone file of `@silverpoint/embed`', react: '`@silverpoint/react`', python: 'the `silverpoint` Python package' } as const;
+  const rows = data.hosts.map((h) => `| ${h.name} | ${via[h.via]} | ${h.package ? `\`${h.package}\`` : '—'} (${h.registry}) | ${h.status} | ${h.summary} |`);
+  return [
+    '# Hosts: BI tools, flows, notebooks and CMSs',
+    '',
+    'Outside React, Vue, Angular and Reflex, a chart is a JSON spec drawn by `@silverpoint/embed` — the same engine, so the same picture (Art. 2, Art. 3).',
+    '',
+    '| Host | Built on | Package | Status | What it is |',
+    '|---|---|---|---|---|',
+    ...rows,
+    '',
+    '## How a chart reaches a host',
+    '',
+    '- **A page with no framework:** load `silverpoint-embed.full.js` and write a `<silverpoint-chart>` holding the spec in a JSON child. `generate_code` with `framework: "html"` writes both.',
+    '',
+    '```text',
+    '<script src="silverpoint-embed.full.js"></script>',
+    '<silverpoint-chart>',
+    '  <script type="application/json">{ "chart": "bar-chart", "data": [{ "team": "A", "wins": 12 }], "props": { "xKey": "team", "valueKey": "wins" } }</script>',
+    '</silverpoint-chart>',
+    '```',
+    '',
+    '- **A server or a flow:** `renderToSVG(spec)` and `renderToHTML(spec)` run in Node with no DOM; `render_chart` is the same function.',
+    '- **A BI tool:** the host binds its fields to a chart\'s roles and calls `specFromTable({ chart, table, roles, options })`; the roles, options and appearance values come from `@silverpoint/embed/host-catalog.json`, never typed by hand.',
+    '- **Python (notebooks, Flask, Django, KNIME, Plone):** the `silverpoint` package builds the spec and writes the interactive HTML; the picture is drawn by the vendored standalone file.',
+    '- **A host proves it draws correctly** by running the conformance kit (`@silverpoint/embed/conformance`) against the file it ships.',
+    '',
+    'Databricks AI/BI dashboards are out: their custom visuals take Vega-Lite only (DD-072).',
+    '',
+  ].join('\n');
 }
 
 /** `packages/mcp/src/guides.generated.ts`: the guides the server serves, read from no file at run time. */

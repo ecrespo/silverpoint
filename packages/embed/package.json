@@ -1,0 +1,71 @@
+{
+  "name": "@silverpoint/embed",
+  "version": "0.10.1",
+  "description": "Silverpoint charts for hosts: any chart from one JSON spec — a DOM-free render, a framework-free client, a single standalone file, the host catalog and a conformance kit.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "./dist/silverpoint-embed.js",
+    "./dist/silverpoint-embed.full.js"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "@silverpoint/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "@silverpoint/source": "./src/client/index.ts",
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    },
+    "./hosts": {
+      "@silverpoint/source": "./src/hosts/index.ts",
+      "types": "./dist/hosts.d.ts",
+      "import": "./dist/hosts.js",
+      "default": "./dist/hosts.js"
+    },
+    "./conformance": {
+      "@silverpoint/source": "./src/conformance/index.ts",
+      "types": "./dist/conformance.d.ts",
+      "import": "./dist/conformance.js",
+      "default": "./dist/conformance.js"
+    },
+    "./host-catalog.json": "./dist/host-catalog.json",
+    "./conformance.json": "./dist/conformance.json",
+    "./integrity.json": "./dist/integrity.json",
+    "./silverpoint-embed.js": "./dist/silverpoint-embed.js",
+    "./silverpoint-embed.mjs": "./dist/silverpoint-embed.mjs",
+    "./silverpoint-embed.full.js": "./dist/silverpoint-embed.full.js",
+    "./silverpoint-embed.full.mjs": "./dist/silverpoint-embed.full.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecrespo/silverpoint.git",
+    "directory": "packages/embed"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup && node scripts/after-build.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@silverpoint/core": "workspace:*",
+    "@silverpoint/grounds": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  }
+}

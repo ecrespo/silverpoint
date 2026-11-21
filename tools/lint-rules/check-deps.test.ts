@@ -48,6 +48,10 @@ function valid(): Manifest[] {
       sideEffects: ['*.css'],
       dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*', '@marp-team/marpit': '^3.2.3' },
     }),
+    library('@silverpoint/embed', {
+      sideEffects: ['./dist/silverpoint-embed.js', './dist/silverpoint-embed.full.js'],
+      dependencies: { '@silverpoint/core': 'workspace:*', '@silverpoint/grounds': 'workspace:*' },
+    }),
     {
       name: '@silverpoint/tailwind',
       sideEffects: ['*.css'],
@@ -61,7 +65,7 @@ function replace(manifests: Manifest[], name: string, change: (m: Manifest) => M
 }
 
 describe('check-deps', () => {
-  test('REQ-160 · REQ-538 · REQ-570 · the nine packages of the allowlist pass', () => {
+  test('REQ-160 · REQ-538 · REQ-570 · the ten packages of the allowlist pass', () => {
     expect(checkManifests(valid())).toEqual([]);
   });
 
@@ -126,6 +130,28 @@ describe('check-deps', () => {
   test('REQ-620 · DD-060 · the MCP server may depend on the deck package', () => {
     const manifests = replace(valid(), '@silverpoint/mcp', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/marp': 'workspace:*' } }));
     expect(checkManifests(manifests)).toEqual([]);
+  });
+
+  test('REQ-629 · the embed depends on the core and the grounds only: a framework or another package fails', () => {
+    const manifests = replace(valid(), '@silverpoint/embed', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/react': 'workspace:*' } }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-162.*@silverpoint\/embed.*@silverpoint\/react/);
+  });
+
+  test('REQ-652 · no adapter, nor the core, nor the grounds may depend on the embed', () => {
+    for (const name of ['@silverpoint/react', '@silverpoint/vue', '@silverpoint/core', '@silverpoint/grounds', '@silverpoint/marp']) {
+      const manifests = replace(valid(), name, (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/embed': 'workspace:*' } }));
+      expect(checkManifests(manifests).join('\n'), name).toMatch(new RegExp(`REQ-162.*${name.replace('/', '\\/')}.*@silverpoint\\/embed`));
+    }
+  });
+
+  test('REQ-660 · DD-061 · the MCP server may depend on the embed', () => {
+    const manifests = replace(valid(), '@silverpoint/mcp', (m) => ({ ...m, dependencies: { ...(m.dependencies as Manifest), '@silverpoint/embed': 'workspace:*' } }));
+    expect(checkManifests(manifests)).toEqual([]);
+  });
+
+  test('REQ-649 · the embed declares only its two script builds as side effects', () => {
+    const manifests = replace(valid(), '@silverpoint/embed', (m) => ({ ...m, sideEffects: true }));
+    expect(checkManifests(manifests).join('\n')).toMatch(/REQ-163.*@silverpoint\/embed/);
   });
 
   test('REQ-161 · Vue missing from peerDependencies fails', () => {

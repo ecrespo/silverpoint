@@ -17,8 +17,13 @@ export type AppName = keyof typeof APPS;
 export const DOCS = { port: 4105 } as const;
 /** `SP_DECK_ENGINES=1`: the `browser-deck` job's run, the deck spec in Chromium, Firefox and WebKit (T-280). */
 const deckEngines = !!process.env.SP_DECK_ENGINES;
+/** `SP_EMBED_ENGINES=1`: the `browser-embed` job's run, examples/embed-html in three engines (feature-007, T-324). */
+const embedEngines = !!process.env.SP_EMBED_ENGINES;
+export const EMBED = { port: 4106 } as const;
+/** A Chromium executable to use instead of the bundled one (`CHROMIUM_PATH`), for machines without Playwright's builds. */
+const chromiumLaunch = process.env.CHROMIUM_PATH ? { launchOptions: { executablePath: process.env.CHROMIUM_PATH } } : {};
 const ENGINES = ['chromium', 'firefox', 'webkit'] as const;
-const withDocs = !deckEngines && (!process.env.E2E_APPS || process.env.E2E_APPS.split(',').includes('docs'));
+const withDocs = !deckEngines && !embedEngines && (!process.env.E2E_APPS || process.env.E2E_APPS.split(',').includes('docs'));
 
 /** `E2E_APPS=vite-react,nextjs` limits the run (and the servers started) to those apps. */
 const selected = Object.entries(APPS).filter(
@@ -40,7 +45,13 @@ export default defineConfig({
   expect: { toHaveScreenshot: { animations: 'disabled' } },
   // One golden image per fixture, shared by every adapter: the canonical render's screenshot.
   snapshotPathTemplate: '{testDir}/__golden__/{arg}{ext}',
-  projects: deckEngines
+  projects: embedEngines
+    ? ENGINES.filter((engine) => !process.env.SP_ENGINES || process.env.SP_ENGINES.split(',').includes(engine)).map((engine) => ({
+        name: `embed·${engine}`,
+        testMatch: 'embed.spec.ts',
+        use: { baseURL: `http://localhost:${EMBED.port}`, browserName: engine, ...(engine === 'chromium' ? chromiumLaunch : {}) },
+      }))
+    : deckEngines
     ? // The deck in three engines (T-280, REQ-625): its own spec, every app in each engine.
       selected.flatMap(([name, app]) =>
         ENGINES.map((engine) => ({
@@ -53,13 +64,15 @@ export default defineConfig({
     : [
         ...selected.map(([name, app]) => ({
           name,
-          testIgnore: ['docs.spec.ts', 'deck-engines.spec.ts'],
+          testIgnore: ['docs.spec.ts', 'deck-engines.spec.ts', 'embed.spec.ts'],
           use: { baseURL: `http://localhost:${app.port}`, channel: 'chromium' },
           metadata: { app: name, ...app },
         })),
         ...(withDocs ? [{ name: 'docs', testMatch: 'docs.spec.ts', use: { baseURL: `http://localhost:${DOCS.port}`, channel: 'chromium' } }] : []),
       ],
-  webServer: [
+  webServer: embedEngines
+    ? [{ command: `node examples/embed-html/serve.mjs --port ${EMBED.port}`, url: `http://localhost:${EMBED.port}/`, reuseExistingServer: !process.env.CI, timeout: 60_000, stdout: 'ignore' as const }]
+    : [
     ...selected.map(([name, app]) => ({
       command: `pnpm --filter @silverpoint/example-${name} run serve --port ${app.port}`,
       url: `http://localhost:${app.port}/`,

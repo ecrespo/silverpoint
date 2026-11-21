@@ -1,0 +1,6 @@
+{
+  "chart": "bar-chart",
+  "props": {
+    "title": "&lt;b&gt; &amp; &#60;"
+  }
+}

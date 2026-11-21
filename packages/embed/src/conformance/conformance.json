@@ -1,0 +1,705 @@
+{
+  "version": "0.10.1",
+  "cases": [
+    {
+      "name": "line-chart",
+      "spec": {
+        "chart": "line-chart",
+        "width": 480,
+        "id": "line-chart"
+      },
+      "sha256": "5607dc7f549eeb4317ffde04c06f3bd17dcd83ee38f69accda149881858be69b"
+    },
+    {
+      "name": "bullet-chart",
+      "spec": {
+        "chart": "bullet-chart",
+        "width": 480,
+        "id": "bullet-chart"
+      },
+      "sha256": "593844818d9143590c7fe8936f66743843164d511142ecc542b8ca7bd4e36499"
+    },
+    {
+      "name": "pyramid-chart",
+      "spec": {
+        "chart": "pyramid-chart",
+        "width": 480,
+        "id": "pyramid-chart"
+      },
+      "sha256": "b3ac8f6b8c8aceecebd5873c9e5b1f96e0433776a92ee9b609901e46d756eb6e"
+    },
+    {
+      "name": "heatmap-chart",
+      "spec": {
+        "chart": "heatmap-chart",
+        "width": 480,
+        "id": "heatmap-chart"
+      },
+      "sha256": "00a65eddbeffe2a267ddebed5269e0b7edc99dbc39651c191b43f67124382886"
+    },
+    {
+      "name": "treemap-chart",
+      "spec": {
+        "chart": "treemap-chart",
+        "width": 480,
+        "id": "treemap-chart"
+      },
+      "sha256": "a1059d2f9991823fcaa45ba2dbf2da25a990f6592ff156d63bf40506a4208b36"
+    },
+    {
+      "name": "sankey-chart",
+      "spec": {
+        "chart": "sankey-chart",
+        "width": 480,
+        "id": "sankey-chart"
+      },
+      "sha256": "6172d111dc1c76ac41962cb8c1c81f9994e094e244c8b730fc844a1e3550a031"
+    },
+    {
+      "name": "activity-grid",
+      "spec": {
+        "chart": "activity-grid",
+        "width": 480,
+        "id": "activity-grid"
+      },
+      "sha256": "0703de48206c6f987f4fa0212c40443a01b5b6eb3289ae79f9beac5195b3eea6"
+    },
+    {
+      "name": "step-chart",
+      "spec": {
+        "chart": "step-chart",
+        "width": 480,
+        "id": "step-chart"
+      },
+      "sha256": "92d5c885e53e3a486d9c271fb074f46afd1dfb10d4bc011ef353e234e27d181c"
+    },
+    {
+      "name": "sparkline-rows",
+      "spec": {
+        "chart": "sparkline-rows",
+        "width": 480,
+        "id": "sparkline-rows"
+      },
+      "sha256": "293cfa0d7a6834b3b9c6fe9a4722b55863888b571c20391c1e9cfe36d9bcf7fc"
+    },
+    {
+      "name": "kpi-card",
+      "spec": {
+        "chart": "kpi-card",
+        "width": 480,
+        "id": "kpi-card"
+      },
+      "sha256": "854b658f7dc56e26b0fde4234b96a6b16f024e1182bf97f2feec0712f5b0a9a1"
+    },
+    {
+      "name": "bar-chart",
+      "spec": {
+        "chart": "bar-chart",
+        "width": 480,
+        "id": "bar-chart"
+      },
+      "sha256": "60803a0adff5dd824ee7f0fed286c2e5c0fe7592e533b1f2dc474c68bc4a89bb"
+    },
+    {
+      "name": "stacked-bar-chart",
+      "spec": {
+        "chart": "stacked-bar-chart",
+        "width": 480,
+        "id": "stacked-bar-chart"
+      },
+      "sha256": "5078f44a7b5d92fd18444acdc683334869a82d79bd37507019a3632fa3f83460"
+    },
+    {
+      "name": "composed-chart",
+      "spec": {
+        "chart": "composed-chart",
+        "width": 480,
+        "id": "composed-chart"
+      },
+      "sha256": "3baef72b0b05ec680deee89c07d681ae143a31c605b864142583961dd0323586"
+    },
+    {
+      "name": "waterfall-chart",
+      "spec": {
+        "chart": "waterfall-chart",
+        "width": 480,
+        "id": "waterfall-chart"
+      },
+      "sha256": "b487392c5051484f06c44071d03545a5f5260b652cf4e8c4d35046feccb151e3"
+    },
+    {
+      "name": "funnel-chart",
+      "spec": {
+        "chart": "funnel-chart",
+        "width": 480,
+        "id": "funnel-chart"
+      },
+      "sha256": "e0f151e93ab55cc531990ccfa8e88d4dafe5ee2110afdd28425f2b133382d0ea"
+    },
+    {
+      "name": "candlestick-chart",
+      "spec": {
+        "chart": "candlestick-chart",
+        "width": 480,
+        "id": "candlestick-chart"
+      },
+      "sha256": "bfd70baaec9460195731a385e412ffc86bd611c5e447c184505f3ec067ab850a"
+    },
+    {
+      "name": "area-chart",
+      "spec": {
+        "chart": "area-chart",
+        "width": 480,
+        "id": "area-chart"
+      },
+      "sha256": "4551d672278ad88ded4933862dc1ad9b13a95d0555ee55c39b7b6fcbbdae755e"
+    },
+    {
+      "name": "range-band-chart",
+      "spec": {
+        "chart": "range-band-chart",
+        "width": 480,
+        "id": "range-band-chart"
+      },
+      "sha256": "9474f3576969c4fb2413eb9531f6448e2df1f9021709d98479b4f0c3ee898b6b"
+    },
+    {
+      "name": "stream-chart",
+      "spec": {
+        "chart": "stream-chart",
+        "width": 480,
+        "id": "stream-chart"
+      },
+      "sha256": "ce332cbcf1fcac4d8abf2d4d15aeaf185d7e6ec837ceffd00e6926277b7d1a9b"
+    },
+    {
+      "name": "scatter-chart",
+      "spec": {
+        "chart": "scatter-chart",
+        "width": 480,
+        "id": "scatter-chart"
+      },
+      "sha256": "f58b878ec383dce0dd93e0f585a59d85a1b343f98952b87eff889bb9c7489322"
+    },
+    {
+      "name": "bubble-chart",
+      "spec": {
+        "chart": "bubble-chart",
+        "width": 480,
+        "id": "bubble-chart"
+      },
+      "sha256": "63f1b678751cb77774beaace3022d06129941633af21e92fa054c7f6d131d60c"
+    },
+    {
+      "name": "donut-chart",
+      "spec": {
+        "chart": "donut-chart",
+        "width": 480,
+        "id": "donut-chart"
+      },
+      "sha256": "098b4ea7756a775fc0fcd48618c14f0140fbbfba95d0745ade30f4566e6e6902"
+    },
+    {
+      "name": "radar-chart",
+      "spec": {
+        "chart": "radar-chart",
+        "width": 480,
+        "id": "radar-chart"
+      },
+      "sha256": "8f010788c9e29a6bde8d7c33211480c79d00c90700919051047c1ac52e5202dd"
+    },
+    {
+      "name": "polar-bar-chart",
+      "spec": {
+        "chart": "polar-bar-chart",
+        "width": 480,
+        "id": "polar-bar-chart"
+      },
+      "sha256": "fce4e3cb4183ec798e88c256a146d075e6830af220b606a2459262cd7f601be9"
+    },
+    {
+      "name": "radial-arc-group",
+      "spec": {
+        "chart": "radial-arc-group",
+        "width": 480,
+        "id": "radial-arc-group"
+      },
+      "sha256": "0c1254a805068ec638cf530b8a91f55a2103a7cbc57573f6a0d20a42d788fdb0"
+    },
+    {
+      "name": "radial-rings",
+      "spec": {
+        "chart": "radial-rings",
+        "width": 480,
+        "id": "radial-rings"
+      },
+      "sha256": "aa8937433e35d9050aef2045d6f973837cbca0aeab541ea6edb0fa4dc6f4267a"
+    },
+    {
+      "name": "gauge-arc",
+      "spec": {
+        "chart": "gauge-arc",
+        "width": 480,
+        "id": "gauge-arc"
+      },
+      "sha256": "938502fe969fbb9bab3fc997d9805a5fad7380970f16e4d194bfd83f3e8e840a"
+    },
+    {
+      "name": "meter-chart",
+      "spec": {
+        "chart": "meter-chart",
+        "width": 480,
+        "id": "meter-chart"
+      },
+      "sha256": "a35f7e81631d6bf5e1c288523a5af37af4fa99931edf623451c9cf10b21fb371"
+    },
+    {
+      "name": "coxcomb-chart",
+      "spec": {
+        "chart": "coxcomb-chart",
+        "width": 480,
+        "id": "coxcomb-chart"
+      },
+      "sha256": "003129a3d0143897ad3840e34a45d5ee32f156e606643e8dd63f785401ce16d2"
+    },
+    {
+      "name": "wind-rose",
+      "spec": {
+        "chart": "wind-rose",
+        "width": 480,
+        "id": "wind-rose"
+      },
+      "sha256": "844b60cb5602c16bd1d5fb73349fc0625f7215afeb55f1c39d1e4950f76b4473"
+    },
+    {
+      "name": "volvelle-chart",
+      "spec": {
+        "chart": "volvelle-chart",
+        "width": 480,
+        "id": "volvelle-chart"
+      },
+      "sha256": "8b50c294c5011fd125184a2c25ffb3974a8fb212d91b0d3eb9642bd005014e6d"
+    },
+    {
+      "name": "chord-ring",
+      "spec": {
+        "chart": "chord-ring",
+        "width": 480,
+        "id": "chord-ring"
+      },
+      "sha256": "bb02ffcdfbdf78733d69c8d2a75e9fb87502c66995fa06ac5d9fd6de222bff64"
+    },
+    {
+      "name": "orbit-chart",
+      "spec": {
+        "chart": "orbit-chart",
+        "width": 480,
+        "id": "orbit-chart"
+      },
+      "sha256": "58796402ef1b2a91596eddccda77a4d9a0d75700a0d81cc0515cb144e4157328"
+    },
+    {
+      "name": "histogram-chart",
+      "spec": {
+        "chart": "histogram-chart",
+        "width": 480,
+        "id": "histogram-chart"
+      },
+      "sha256": "25dd681df01e65580d9a8a6385aa5cb5c8a9a3a942fa99dcc29d56a5c47f801d"
+    },
+    {
+      "name": "ecdf-chart",
+      "spec": {
+        "chart": "ecdf-chart",
+        "width": 480,
+        "id": "ecdf-chart"
+      },
+      "sha256": "613a54a35754be8a68a4fec15bae087d6d94f14b3de70a943ca1f96fa6ce5680"
+    },
+    {
+      "name": "box-plot-chart",
+      "spec": {
+        "chart": "box-plot-chart",
+        "width": 480,
+        "id": "box-plot-chart"
+      },
+      "sha256": "2ecf567d02900e760a1d1da702df72d457e36a7b93402c2b36c369e4b257b049"
+    },
+    {
+      "name": "violin-chart",
+      "spec": {
+        "chart": "violin-chart",
+        "width": 480,
+        "id": "violin-chart"
+      },
+      "sha256": "7136810f14717e1a20206c7ba570a0d2f272ebb02430e8f785833965a86453ae"
+    },
+    {
+      "name": "ridgeline-chart",
+      "spec": {
+        "chart": "ridgeline-chart",
+        "width": 480,
+        "id": "ridgeline-chart"
+      },
+      "sha256": "92dce588f069b48e25035898278ad6f06096f7851ace17af52479464d028a4be"
+    },
+    {
+      "name": "beeswarm-chart",
+      "spec": {
+        "chart": "beeswarm-chart",
+        "width": 480,
+        "id": "beeswarm-chart"
+      },
+      "sha256": "8aae67634a94524af3c9e7a59c99ed23131e74de0a1db52c9564214f12a9b634"
+    },
+    {
+      "name": "lollipop-chart",
+      "spec": {
+        "chart": "lollipop-chart",
+        "width": 480,
+        "id": "lollipop-chart"
+      },
+      "sha256": "f01af8cd80b4a1fafe0fc3aa5eeb6bdeeed4ae390bc0a65c0f7f96a8b340d5aa"
+    },
+    {
+      "name": "dumbbell-chart",
+      "spec": {
+        "chart": "dumbbell-chart",
+        "width": 480,
+        "id": "dumbbell-chart"
+      },
+      "sha256": "c7d05575d7414c5451ef881496c40b88622ce2645d2439d99fd058363cb9ff22"
+    },
+    {
+      "name": "slope-chart",
+      "spec": {
+        "chart": "slope-chart",
+        "width": 480,
+        "id": "slope-chart"
+      },
+      "sha256": "d2fb6440cc67418bfa14f17708ac920fa0d103024449d9cc6e2f520e266ddc09"
+    },
+    {
+      "name": "bump-chart",
+      "spec": {
+        "chart": "bump-chart",
+        "width": 480,
+        "id": "bump-chart"
+      },
+      "sha256": "117f1ccbe63ec4daa89d3ed8e91f541dd920825c0ff3620659c45e34c4498ef5"
+    },
+    {
+      "name": "error-bar-chart",
+      "spec": {
+        "chart": "error-bar-chart",
+        "width": 480,
+        "id": "error-bar-chart"
+      },
+      "sha256": "bf9ae26bd3a3e2aa3b9b3b9294754933c13c151f5f21cd8cbeb08134917b1c89"
+    },
+    {
+      "name": "interval-chart",
+      "spec": {
+        "chart": "interval-chart",
+        "width": 480,
+        "id": "interval-chart"
+      },
+      "sha256": "99d442c043b7d0317eb5ae960c42d37550f592c92ce1c6755becad62ea6da30e"
+    },
+    {
+      "name": "diverging-bar-chart",
+      "spec": {
+        "chart": "diverging-bar-chart",
+        "width": 480,
+        "id": "diverging-bar-chart"
+      },
+      "sha256": "e2470bafcbf3fc54aada5ebe36ae4dc64ab7636f03c2240489c54306b4dc5ede"
+    },
+    {
+      "name": "connected-scatter-chart",
+      "spec": {
+        "chart": "connected-scatter-chart",
+        "width": 480,
+        "id": "connected-scatter-chart"
+      },
+      "sha256": "418784d4ee2c440116d922db549e41589191b98d168851b280e8a3b759cafe88"
+    },
+    {
+      "name": "waffle-chart",
+      "spec": {
+        "chart": "waffle-chart",
+        "width": 480,
+        "id": "waffle-chart"
+      },
+      "sha256": "c7bd9bfee47290eb626a93da3066bb066c04e866b1d987da23f90b95d077dde5"
+    },
+    {
+      "name": "marimekko-chart",
+      "spec": {
+        "chart": "marimekko-chart",
+        "width": 480,
+        "id": "marimekko-chart"
+      },
+      "sha256": "6bf01fe57464b35c5d156e650d45d49800fe9ce09919119502b00b94f78d6760"
+    },
+    {
+      "name": "squarified-treemap",
+      "spec": {
+        "chart": "squarified-treemap",
+        "width": 480,
+        "id": "squarified-treemap"
+      },
+      "sha256": "249aab6a87d547d4d8971b842ea16d5485cf101cf67cef1e4d56f088eb7183e0"
+    },
+    {
+      "name": "sunburst-chart",
+      "spec": {
+        "chart": "sunburst-chart",
+        "width": 480,
+        "id": "sunburst-chart"
+      },
+      "sha256": "5a2df2ccf4ed76b1aa8822b50b1b1f6840c159f4b1f0b2af4829248e262b3666"
+    },
+    {
+      "name": "tree-chart",
+      "spec": {
+        "chart": "tree-chart",
+        "width": 480,
+        "id": "tree-chart"
+      },
+      "sha256": "edc639bab88f1f1cba3ffe6e0c36223a412feed15f65710767854e9244236c65"
+    },
+    {
+      "name": "parallel-coordinates-chart",
+      "spec": {
+        "chart": "parallel-coordinates-chart",
+        "width": 480,
+        "id": "parallel-coordinates-chart"
+      },
+      "sha256": "4caead5d58cfff7af82d436e5c64e16ed0af405bbf3cd5f2a33e5b1fa121b8a8"
+    },
+    {
+      "name": "polar-line-chart",
+      "spec": {
+        "chart": "polar-line-chart",
+        "width": 480,
+        "id": "polar-line-chart"
+      },
+      "sha256": "57614c4a11e97916077aa5fd0a57186839e24cf425775a4fc4750b6ffd8ac717"
+    },
+    {
+      "name": "polar-scatter-chart",
+      "spec": {
+        "chart": "polar-scatter-chart",
+        "width": 480,
+        "id": "polar-scatter-chart"
+      },
+      "sha256": "6218dabdd05d021dc4bb55363b37d8d62ee086a683a718e879bbfd806d11985c"
+    },
+    {
+      "name": "density-bin-chart",
+      "spec": {
+        "chart": "density-bin-chart",
+        "width": 480,
+        "id": "density-bin-chart"
+      },
+      "sha256": "81be66d8f97fa0b07e6f27a6ea629f320411ae7db7a49ab5507aa631e346eb7b"
+    },
+    {
+      "name": "contour-chart",
+      "spec": {
+        "chart": "contour-chart",
+        "width": 480,
+        "id": "contour-chart"
+      },
+      "sha256": "8ba91659f257ee6f5e7a88ec17caf82b7f2c7f4ff1e2c55fb0f0f0697059bf21"
+    },
+    {
+      "name": "delaunay-chart",
+      "spec": {
+        "chart": "delaunay-chart",
+        "width": 480,
+        "id": "delaunay-chart"
+      },
+      "sha256": "afbe325344b4add11bc4a4a426b2c0b1b8f12328a73041169c0f38e454ec528d"
+    },
+    {
+      "name": "vector-field-chart",
+      "spec": {
+        "chart": "vector-field-chart",
+        "width": 480,
+        "id": "vector-field-chart"
+      },
+      "sha256": "6544e5bf0195e82ba1e3b18d139873244b8b12e6acc93ff2d96330e6c709148d"
+    },
+    {
+      "name": "network-chart",
+      "spec": {
+        "chart": "network-chart",
+        "width": 480,
+        "id": "network-chart"
+      },
+      "sha256": "6ce750d7672648eb13b8d21a9e2184300553a0dd8e3ac15a9e81ce3e8f6396e1"
+    },
+    {
+      "name": "line-chart--cyanotype",
+      "spec": {
+        "chart": "line-chart",
+        "width": 480,
+        "id": "line-chart-cyanotype",
+        "ground": "cyanotype"
+      },
+      "sha256": "bf76048ea1e8e39cc48ae2588239e82c05deca2abec1d82babf2c5fff4130f01"
+    },
+    {
+      "name": "line-chart--precision",
+      "spec": {
+        "chart": "line-chart",
+        "width": 480,
+        "id": "line-chart-precision",
+        "mode": "precision"
+      },
+      "sha256": "813c6afc5209e57983e59ef41ec391cecc2b64a476dcc134a20bea8da4050488"
+    },
+    {
+      "name": "line-chart--sepia",
+      "spec": {
+        "chart": "line-chart",
+        "width": 480,
+        "id": "line-chart-sepia",
+        "palette": "sepia"
+      },
+      "sha256": "504b4c8d4000083d2e369db7fe671c6159c083f327fe7a0119d1a1a2d825392f"
+    },
+    {
+      "name": "line-chart--indigo",
+      "spec": {
+        "chart": "line-chart",
+        "width": 480,
+        "id": "line-chart-indigo",
+        "palette": "indigo"
+      },
+      "sha256": "377c7f6f9ef312b3fd23605de0643eb4ba3dd38d3696c15f261daafa6121516d"
+    },
+    {
+      "name": "area-chart--cyanotype",
+      "spec": {
+        "chart": "area-chart",
+        "width": 480,
+        "id": "area-chart-cyanotype",
+        "ground": "cyanotype"
+      },
+      "sha256": "4369da3aa190f73fe62c9c29fcbb88e640651e54f408d969a61b07d909c3af35"
+    },
+    {
+      "name": "area-chart--precision",
+      "spec": {
+        "chart": "area-chart",
+        "width": 480,
+        "id": "area-chart-precision",
+        "mode": "precision"
+      },
+      "sha256": "01636ceca5d2e885a80e1e1b2900ffc144f5d553aa24eb5ef759673e3b001288"
+    },
+    {
+      "name": "area-chart--sepia",
+      "spec": {
+        "chart": "area-chart",
+        "width": 480,
+        "id": "area-chart-sepia",
+        "palette": "sepia"
+      },
+      "sha256": "e71137f09ff6ff6ecdedb852787fa9b0ca4392a9282d1a909386e62ede54ad47"
+    },
+    {
+      "name": "area-chart--indigo",
+      "spec": {
+        "chart": "area-chart",
+        "width": 480,
+        "id": "area-chart-indigo",
+        "palette": "indigo"
+      },
+      "sha256": "927f9ca2884c0454145d17c9daa233ec4dc2c0919d46fb5712f70be11415244d"
+    },
+    {
+      "name": "radar-chart--cyanotype",
+      "spec": {
+        "chart": "radar-chart",
+        "width": 480,
+        "id": "radar-chart-cyanotype",
+        "ground": "cyanotype"
+      },
+      "sha256": "f085d33b6be74bba206a25c921a560ead657452de7712391380fae0bcab471d5"
+    },
+    {
+      "name": "radar-chart--precision",
+      "spec": {
+        "chart": "radar-chart",
+        "width": 480,
+        "id": "radar-chart-precision",
+        "mode": "precision"
+      },
+      "sha256": "92ddb27474d1e03daf82b074b33d49ab0bad6820661ca2181f0c0e6dd5b7b737"
+    },
+    {
+      "name": "radar-chart--sepia",
+      "spec": {
+        "chart": "radar-chart",
+        "width": 480,
+        "id": "radar-chart-sepia",
+        "palette": "sepia"
+      },
+      "sha256": "39dcf7b12029f50b0a1b915b8c03f478ef3f8bdb1bf991c1c097fe5e5f053400"
+    },
+    {
+      "name": "radar-chart--indigo",
+      "spec": {
+        "chart": "radar-chart",
+        "width": 480,
+        "id": "radar-chart-indigo",
+        "palette": "indigo"
+      },
+      "sha256": "880b47feb9fa9f30ce71ea9fe84f36b536a2f4f560a6cf862cc9f27a279de7b2"
+    },
+    {
+      "name": "kpi-card--cyanotype",
+      "spec": {
+        "chart": "kpi-card",
+        "width": 480,
+        "id": "kpi-card-cyanotype",
+        "ground": "cyanotype"
+      },
+      "sha256": "97809c6b1220aeca4e1507aef138ca443e59a6f7e5b514a4c34015ce114a246f"
+    },
+    {
+      "name": "kpi-card--precision",
+      "spec": {
+        "chart": "kpi-card",
+        "width": 480,
+        "id": "kpi-card-precision",
+        "mode": "precision"
+      },
+      "sha256": "ac9a1e444668eabb55afb1a65b14b3fd7a894f6306d2644d7c1c8473fde84ac3"
+    },
+    {
+      "name": "kpi-card--sepia",
+      "spec": {
+        "chart": "kpi-card",
+        "width": 480,
+        "id": "kpi-card-sepia",
+        "palette": "sepia"
+      },
+      "sha256": "79644c583dd26d3fb6015371f73ccf1dde658397f5f6379695556e0006949dae"
+    },
+    {
+      "name": "kpi-card--indigo",
+      "spec": {
+        "chart": "kpi-card",
+        "width": 480,
+        "id": "kpi-card-indigo",
+        "palette": "indigo"
+      },
+      "sha256": "05cb7548de4d517e3399bf3447de4742f8a752d9651aa09100a002266a61d8eb"
+    }
+  ]
+}

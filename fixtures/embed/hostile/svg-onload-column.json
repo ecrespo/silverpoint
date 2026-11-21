@@ -1,0 +1,12 @@
+{
+  "chart": "bar-chart",
+  "props": {
+    "xKey": "<svg onload=alert(1)>"
+  },
+  "data": [
+    {
+      "<svg onload=alert(1)>": "A",
+      "value": 1
+    }
+  ]
+}

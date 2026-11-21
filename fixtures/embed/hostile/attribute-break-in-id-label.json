@@ -1,0 +1,7 @@
+{
+  "chart": "donut-chart",
+  "props": {
+    "title": "\" onload=\"alert(1)",
+    "label": "' onmouseover='x"
+  }
+}

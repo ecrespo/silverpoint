@@ -1,0 +1,7 @@
+{
+  "chart": "bar-chart",
+  "props": {
+    "badge": "<!--",
+    "footerLeft": "-->"
+  }
+}

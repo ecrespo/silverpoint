@@ -189,6 +189,21 @@ export interface AgentCatalog {
   readonly stylesheets: { readonly always: readonly string[]; readonly ui: readonly string[]; readonly timeline: readonly string[] };
   /** The slide decks of `@silverpoint/marp` and `SpDeck` (feature-006, Data Model §2.37, REQ-619). */
   readonly deck: DeckSection;
+  /** The host integrations (feature-007, Data Model §2.43, REQ-661): BI tools, flows, notebooks, CMSs. */
+  readonly hosts: readonly HostEntry[];
+}
+
+/** One host integration (Data Model §2.43): facts about another repository, hand-kept in tools/agent-catalog/hosts.meta.ts. */
+export interface HostEntry {
+  readonly id: string;
+  readonly name: string;
+  readonly kind: 'bi' | 'workflow' | 'notebook' | 'web' | 'cms' | 'language';
+  readonly via: 'embed' | 'react' | 'python';
+  readonly repository: string | null;
+  readonly package: string | null;
+  readonly registry: 'npm' | 'pypi' | 'github-release' | 'github-pages' | 'knime-hub' | 'none';
+  readonly status: 'planned' | 'preview' | 'released';
+  readonly summary: string;
 }
 
 /** A deck event, with the way each framework binds it. */

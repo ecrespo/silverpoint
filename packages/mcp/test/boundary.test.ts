@@ -40,8 +40,8 @@ describe('the catalog ships inside the package (REQ-537)', () => {
 });
 
 describe('no capability beyond answering (REQ-551)', () => {
-  /** The modules the server may import: its own, the library, the SDK's server side and the schema library. */
-  const ALLOWED = /^(\.{1,2}\/|@silverpoint\/(core(\/palettes|\/catalog)?|grounds|marp)$|zod$|@modelcontextprotocol\/sdk\/(server\/|types\.js$))/;
+  /** The modules the server may import: its own, the library (the embed included, REQ-660), the SDK's server side and the schema library. */
+  const ALLOWED = /^(\.{1,2}\/|@silverpoint\/(core(\/palettes|\/catalog)?|grounds|marp|embed)$|zod$|@modelcontextprotocol\/sdk\/(server\/|types\.js$))/;
 
   test('REQ-551 · the sources import nothing that writes, connects or spawns: no Node built-in, no other package', () => {
     const imports = SOURCES.flatMap(({ file, text }) =>

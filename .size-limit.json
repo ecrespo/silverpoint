@@ -4307,5 +4307,51 @@
     ],
     "gzip": true,
     "limit": "54 kB"
+  },
+  {
+    "name": "@silverpoint/embed, silverpoint-embed.js (REQ-650, DD-062)",
+    "path": "packages/embed/dist/silverpoint-embed.js",
+    "gzip": true,
+    "limit": "140 kB"
+  },
+  {
+    "name": "@silverpoint/embed, silverpoint-embed.mjs (REQ-650, DD-062)",
+    "path": "packages/embed/dist/silverpoint-embed.mjs",
+    "gzip": true,
+    "limit": "140 kB"
+  },
+  {
+    "name": "@silverpoint/embed, silverpoint-embed.full.js (REQ-650, DD-062)",
+    "path": "packages/embed/dist/silverpoint-embed.full.js",
+    "gzip": true,
+    "limit": "220 kB"
+  },
+  {
+    "name": "@silverpoint/embed, silverpoint-embed.full.mjs (REQ-650, DD-062)",
+    "path": "packages/embed/dist/silverpoint-embed.full.mjs",
+    "gzip": true,
+    "limit": "220 kB"
+  },
+  {
+    "name": "@silverpoint/embed main entry, own code (REQ-650)",
+    "path": "packages/embed/dist/index.js",
+    "import": "{ validateSpec, renderToSVG, renderToHTML }",
+    "ignore": [
+      "@silverpoint/core",
+      "@silverpoint/grounds"
+    ],
+    "gzip": true,
+    "limit": "12 kB"
+  },
+  {
+    "name": "@silverpoint/embed/client entry, own code (REQ-650)",
+    "path": "packages/embed/dist/client.js",
+    "import": "{ mount, mountAll, defineElement, hostAppearance }",
+    "ignore": [
+      "@silverpoint/core",
+      "@silverpoint/grounds"
+    ],
+    "gzip": true,
+    "limit": "8 kB"
   }
 ]

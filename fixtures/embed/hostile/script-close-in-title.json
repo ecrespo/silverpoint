@@ -1,0 +1,6 @@
+{
+  "chart": "bar-chart",
+  "props": {
+    "title": "</script><script>alert(1)</script>"
+  }
+}

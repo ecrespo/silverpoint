@@ -1,0 +1,11 @@
+[
+  { "file": "bar-chart.document.html", "spec": { "chart": "bar-chart", "id": "orders", "props": { "title": "Orders per quarter" } }, "options": {} },
+  { "file": "bar-chart.fragment.html", "spec": { "chart": "bar-chart", "id": "orders", "props": { "title": "Orders per quarter" } }, "options": { "as": "fragment" } },
+  { "file": "bar-chart.interactive.html", "spec": { "chart": "bar-chart", "id": "orders", "props": { "title": "Orders per quarter" } }, "options": { "as": "fragment", "interactive": true } },
+  { "file": "heatmap-chart.document.html", "spec": { "chart": "heatmap-chart", "id": "load", "width": 640, "height": 300, "ground": "silverpoint", "substrate": "ochre" }, "options": { "lang": "es", "title": "Carga" } },
+  { "file": "heatmap-chart.fragment.html", "spec": { "chart": "heatmap-chart", "id": "load", "width": 640, "height": 300, "ground": "silverpoint", "substrate": "ochre" }, "options": { "as": "fragment", "styles": "none" } },
+  { "file": "heatmap-chart.interactive.html", "spec": { "chart": "heatmap-chart", "id": "load", "width": 640, "height": 300, "ground": "silverpoint", "substrate": "ochre" }, "options": { "as": "fragment", "interactive": true, "styles": "none" } },
+  { "file": "gauge-arc.document.html", "spec": { "chart": "gauge-arc", "id": "capacity", "ground": "cyanotype", "mode": "precision", "props": { "percent": 64, "caption": "of the cluster" } }, "options": {} },
+  { "file": "gauge-arc.fragment.html", "spec": { "chart": "gauge-arc", "id": "capacity", "ground": "cyanotype", "mode": "precision", "props": { "percent": 64, "caption": "of the cluster" } }, "options": { "as": "fragment" } },
+  { "file": "gauge-arc.interactive.html", "spec": { "chart": "gauge-arc", "id": "capacity", "ground": "cyanotype", "mode": "precision", "props": { "percent": 64, "caption": "of the cluster" } }, "options": { "interactive": true, "script": { "src": "silverpoint-embed.full.js" } } }
+]

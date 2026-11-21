@@ -5,7 +5,7 @@
  */
 import type { Catalog } from '../catalog';
 
-export type HitKind = 'chart' | 'component' | 'prop' | 'diagnostic';
+export type HitKind = 'chart' | 'component' | 'prop' | 'diagnostic' | 'host';
 
 export interface Hit {
   readonly kind: HitKind;
@@ -54,6 +54,10 @@ function documents(catalog: Catalog): readonly Document[] {
       docs.push({ kind: 'prop', slug: `${entry.slug}.${prop.name}`, title: `${entry.names.react} ${prop.name}`, snippet: prop.doc, names: `${prop.name} ${prop.reflex ?? ''}`, text: `${prop.doc} ${prop.type}` });
     }
   }
+  // REQ-661: the host integrations, by name, id and package.
+  for (const h of catalog.data.hosts ?? []) {
+    docs.push({ kind: 'host', slug: h.id, title: h.name, snippet: h.summary, names: `${h.name} ${h.id} ${h.package ?? ''}`, text: `${h.summary} ${h.kind} ${h.via} ${h.registry}` });
+  }
   for (const d of catalog.data.diagnostics) {
     docs.push({ kind: 'diagnostic', slug: d.code, title: d.code, snippet: `${d.what}. ${d.todo}`, names: `${d.code} ${d.req}`, text: `${d.what} ${d.todo}` });
   }
@@ -61,7 +65,7 @@ function documents(catalog: Catalog): readonly Document[] {
   return docs;
 }
 
-const KIND_ORDER: Readonly<Record<HitKind, number>> = { chart: 0, component: 1, diagnostic: 2, prop: 3 };
+const KIND_ORDER: Readonly<Record<HitKind, number>> = { chart: 0, component: 1, host: 2, diagnostic: 3, prop: 4 };
 
 export function searchCatalog(catalog: Catalog, input: SearchInput): { hits: Hit[] } {
   const limit = Math.max(1, Math.min(SEARCH_LIMIT.max, Math.floor(input.limit ?? SEARCH_LIMIT.default)));

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "gauge-arc: the first row's cell to the percent prop; no data",
+    "binding": { "chart": "gauge-arc", "table": { "rows": [ { "used": 64, "site": "A" }, { "used": 12, "site": "B" } ] }, "roles": { "percent": "used" }, "options": { "caption": "of the cluster" } },
+    "expect": { "chart": "gauge-arc", "props": { "caption": "of the cluster", "percent": 64 } }
+  },
+  {
+    "name": "meter-chart from a numeric string",
+    "binding": { "chart": "meter-chart", "table": { "columns": [ "p" ], "values": [ [ "41.5" ] ] }, "roles": { "percent": "p" } },
+    "expect": { "chart": "meter-chart", "props": { "percent": 41.5 } }
+  }
+]

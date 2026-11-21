@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>silverpoint under a strict policy</title>
+    <link rel="icon" href="data:,">
+    <script src="silverpoint-embed.full.js"></script>
+  </head>
+  <body>
+    <h1>Served with <code>script-src 'self'; style-src 'self'</code></h1>
+    <silverpoint-chart>
+      <script type="application/json">{ "chart": "heatmap-chart", "id": "load", "width": 640, "palette": "indigo" }</script>
+    </silverpoint-chart>
+    <div data-sp-embed>
+      <script type="application/json">{ "chart": "radar-chart", "id": "scores", "width": 480 }</script>
+    </div>
+  </body>
+</html>

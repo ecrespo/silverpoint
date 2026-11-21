@@ -9989,6 +9989,20 @@
       "req": "REQ-576",
       "what": "the Markdown exceeds a deck limit; it was rendered up to the limit",
       "todo": "Keep a deck under 512 KB, 300 slides and 60 chart fences"
+    },
+    {
+      "code": "SP030",
+      "severity": "error",
+      "req": "REQ-635",
+      "what": "a spec exceeds 2 MB serialised, or its path data exceeds the path byte budget; it is refused",
+      "todo": "Send fewer rows, aggregate before charting, or use `hatchFill: 'tile'`"
+    },
+    {
+      "code": "SP031",
+      "severity": "error",
+      "req": "REQ-668",
+      "what": "the embed client was given a spec that does not validate; the error figure is shown",
+      "todo": "Read the message: it names the field, the unknown chart with suggestions, or the undeclared props"
     }
   ],
   "recommend": [
@@ -11271,5 +11285,139 @@
       "@silverpoint/grounds/ui.css",
       "@silverpoint/marp/deck.css"
     ]
-  }
+  },
+  "hosts": [
+    {
+      "id": "powerbi",
+      "name": "Power BI",
+      "kind": "bi",
+      "via": "embed",
+      "repository": "https://github.com/ecrespo/silverpoint-powerbi",
+      "package": "silverpoint-powerbi",
+      "registry": "github-release",
+      "status": "planned",
+      "summary": "A custom visual: fields on roles, any of the tabular charts."
+    },
+    {
+      "id": "tableau",
+      "name": "Tableau",
+      "kind": "bi",
+      "via": "embed",
+      "repository": "https://github.com/ecrespo/silverpoint-tableau",
+      "package": "silverpoint-tableau",
+      "registry": "github-pages",
+      "status": "planned",
+      "summary": "Viz extensions, one manifest per chart, drawing on a worksheet."
+    },
+    {
+      "id": "knime",
+      "name": "KNIME",
+      "kind": "workflow",
+      "via": "python",
+      "repository": "https://github.com/ecrespo/silverpoint-knime",
+      "package": "silverpoint-knime",
+      "registry": "github-release",
+      "status": "planned",
+      "summary": "View nodes that draw a chart from a table, through the Python package."
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "kind": "workflow",
+      "via": "embed",
+      "repository": "https://github.com/ecrespo/n8n-nodes-silverpoint",
+      "package": "n8n-nodes-silverpoint",
+      "registry": "npm",
+      "status": "planned",
+      "summary": "A community node that draws a chart from workflow items, as SVG or HTML."
+    },
+    {
+      "id": "superset",
+      "name": "Apache Superset",
+      "kind": "bi",
+      "via": "react",
+      "repository": "https://github.com/ecrespo/superset-plugin-chart-silverpoint",
+      "package": "superset-plugin-chart-silverpoint",
+      "registry": "npm",
+      "status": "planned",
+      "summary": "Visualization plugins, one per chart, drawn by the React adapter."
+    },
+    {
+      "id": "volto",
+      "name": "Plone Volto",
+      "kind": "cms",
+      "via": "react",
+      "repository": "https://github.com/ecrespo/volto-silverpoint",
+      "package": "volto-silverpoint",
+      "registry": "npm",
+      "status": "planned",
+      "summary": "A block that draws a chart from a table, server-rendered and hydrated."
+    },
+    {
+      "id": "plone-classic",
+      "name": "Plone Classic UI",
+      "kind": "cms",
+      "via": "python",
+      "repository": "https://github.com/ecrespo/collective.silverpoint",
+      "package": "collective.silverpoint",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "A Chart content type and a view for templates, through the Python package."
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "kind": "language",
+      "via": "embed",
+      "repository": "https://github.com/ecrespo/silverpoint-python",
+      "package": "silverpoint",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "A chart from a DataFrame as self-contained HTML; the standalone file vendored."
+    },
+    {
+      "id": "flask",
+      "name": "Flask",
+      "kind": "web",
+      "via": "python",
+      "repository": null,
+      "package": "silverpoint[flask]",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "Jinja globals and a route for the script, inside the Python package."
+    },
+    {
+      "id": "django",
+      "name": "Django",
+      "kind": "web",
+      "via": "python",
+      "repository": null,
+      "package": "silverpoint[django]",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "An installable app with template tags, inside the Python package."
+    },
+    {
+      "id": "jupyter",
+      "name": "Jupyter",
+      "kind": "notebook",
+      "via": "python",
+      "repository": null,
+      "package": "silverpoint",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "A chart as a cell output, in a sandboxed frame."
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks notebooks",
+      "kind": "notebook",
+      "via": "python",
+      "repository": null,
+      "package": "silverpoint",
+      "registry": "pypi",
+      "status": "planned",
+      "summary": "A chart in a notebook cell with displayHTML; AI/BI dashboards are out (DD-072)."
+    }
+  ]
 }

@@ -161,10 +161,12 @@ describe('the rest of the API (REQ-533)', () => {
     expect(catalog.timeline.peer).toBe('@knight-lab/timelinejs@^3.9.13');
   });
 
-  test('REQ-533 · the 29 diagnostic codes with their requirement, severity, condition and remedy', () => {
-    expect(catalog.diagnostics.map((d) => d.code)).toEqual(Array.from({ length: 29 }, (_, i) => `SP${String(i + 1).padStart(3, '0')}`));
+  test('REQ-533 · the 31 diagnostic codes with their requirement, severity, condition and remedy (SP030, SP031: feature-007)', () => {
+    expect(catalog.diagnostics.map((d) => d.code)).toEqual(Array.from({ length: 31 }, (_, i) => `SP${String(i + 1).padStart(3, '0')}`));
     expect(catalog.diagnostics.find((d) => d.code === 'SP009')).toMatchObject({ severity: 'error', req: 'REQ-097' });
     expect(catalog.diagnostics.find((d) => d.code === 'SP001')).toMatchObject({ severity: 'warn', req: 'REQ-007' });
+    expect(catalog.diagnostics.find((d) => d.code === 'SP030')).toMatchObject({ severity: 'error', req: 'REQ-635' });
+    expect(catalog.diagnostics.find((d) => d.code === 'SP031')).toMatchObject({ severity: 'error', req: 'REQ-668' });
     for (const d of catalog.diagnostics) expect(d.what.length * d.todo.length, d.code).toBeGreaterThan(0);
   });
 

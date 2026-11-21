@@ -1,0 +1,10 @@
+[
+  { "name": "a required role without a column", "binding": { "chart": "bar-chart", "table": { "rows": [ { "a": 1 } ] }, "roles": { "x": "a" } }, "error": { "kind": "role", "missing": [ "value" ], "unknownColumns": [] } },
+  { "name": "a column the table does not have", "binding": { "chart": "bar-chart", "table": { "rows": [ { "a": 1, "b": 2 } ] }, "roles": { "x": "a", "value": "c" } }, "error": { "kind": "role", "missing": [], "unknownColumns": [ "c" ] } },
+  { "name": "an unknown chart, with suggestions", "binding": { "chart": "bar-chrt", "table": { "rows": [] }, "roles": {} }, "error": { "kind": "chart", "chart": "bar-chrt", "suggestions": [ "bar-chart" ] } },
+  { "name": "a chart a table cannot feed", "binding": { "chart": "orbit-chart", "table": { "rows": [] }, "roles": {} }, "errorKind": "shape" },
+  { "name": "duplicate column names", "binding": { "chart": "bar-chart", "table": { "columns": [ "a", "a" ], "values": [ [ 1, 2 ] ] }, "roles": { "x": "a", "value": "a" } }, "errorKind": "shape" },
+  { "name": "a role the chart does not have", "binding": { "chart": "bar-chart", "table": { "rows": [ { "a": "x", "b": 1 } ] }, "roles": { "x": "a", "value": "b", "colour": "a" } }, "errorKind": "shape" },
+  { "name": "an empty table for a scalar chart", "binding": { "chart": "gauge-arc", "table": { "columns": [ "p" ], "values": [] }, "roles": { "percent": "p" } }, "errorKind": "shape" },
+  { "name": "an option the chart does not declare", "binding": { "chart": "bar-chart", "table": { "rows": [ { "a": "x", "b": 1 } ] }, "roles": { "x": "a", "value": "b" }, "options": { "colour": "red" } }, "error": { "kind": "prop", "props": [ "colour" ] } }
+]

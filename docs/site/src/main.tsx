@@ -9,6 +9,7 @@ import { AgentPage } from './pages/agent';
 import { ChartPage } from './pages/chart';
 import { DashboardPage } from './pages/dashboard';
 import { DeckPage } from './pages/deck';
+import { EmbedPage } from './pages/embed';
 import { Gallery } from './pages/gallery';
 import { Home } from './pages/home';
 import { Playground } from './pages/playground';
@@ -39,6 +40,7 @@ const NAV = [
   ['/palettes', 'Palettes'],
   ['/timeline', 'Timeline'],
   ['/deck', 'Decks'],
+  ['/embed', 'BI tools and plain pages'],
   ['/ai', 'Use with AI'],
 ] as const;
 
@@ -53,6 +55,7 @@ function Page({ route }: { route: string }) {
   if (route === '/palettes') return <PalettesPage />;
   if (route === '/timeline') return <TimelinePage />;
   if (route === '/deck') return <DeckPage />;
+  if (route === '/embed') return <EmbedPage />;
   if (route === '/ai') return <AgentPage />;
   if (route.startsWith('/ui/')) return <UiPage slug={route.slice('/ui/'.length)} />;
   if (route.startsWith('/chart/')) return <ChartPage slug={route.slice('/chart/'.length)} />;

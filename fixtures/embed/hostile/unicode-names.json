@@ -1,0 +1,12 @@
+{
+  "chart": "bar-chart",
+  "data": [
+    {
+      "x": "日本 😀",
+      "value": 5
+    }
+  ],
+  "props": {
+    "title": "Ünïcödé — ✓"
+  }
+}

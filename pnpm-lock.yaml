@@ -235,6 +235,9 @@ importers:
       '@silverpoint/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@silverpoint/embed':
+        specifier: workspace:*
+        version: link:../../packages/embed
       '@silverpoint/fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
@@ -556,6 +559,19 @@ importers:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.28)(supports-color@7.2.0)(tsx@4.23.13)(typescript@5.9.3)(yaml@2.9.0)
 
+  packages/embed:
+    dependencies:
+      '@silverpoint/core':
+        specifier: workspace:*
+        version: link:../core
+      '@silverpoint/grounds':
+        specifier: workspace:*
+        version: link:../grounds
+    devDependencies:
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.28)(supports-color@8.1.1)(tsx@4.23.13)(typescript@5.9.3)(yaml@2.9.0)
+
   packages/fonts: {}
 
   packages/grounds:
@@ -595,6 +611,9 @@ importers:
       '@silverpoint/core':
         specifier: workspace:*
         version: link:../core
+      '@silverpoint/embed':
+        specifier: workspace:*
+        version: link:../embed
       '@silverpoint/grounds':
         specifier: workspace:*
         version: link:../grounds

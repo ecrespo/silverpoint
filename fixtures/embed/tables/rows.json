@@ -1,0 +1,22 @@
+[
+  {
+    "name": "bar-chart from rows: only the mapped columns travel, under their own names",
+    "binding": { "chart": "bar-chart", "table": { "rows": [ { "team": "A", "wins": 12, "losses": 3, "note": "x" }, { "team": "B", "wins": 9, "losses": 5, "note": "y" } ] }, "roles": { "x": "team", "value": "wins" }, "options": { "orientation": "rows", "title": "Wins" } },
+    "expect": { "chart": "bar-chart", "data": [ { "team": "A", "wins": 12 }, { "team": "B", "wins": 9 } ], "props": { "orientation": "rows", "title": "Wins", "xKey": "team", "valueKey": "wins" } }
+  },
+  {
+    "name": "the same table in column form gives the same spec",
+    "binding": { "chart": "bar-chart", "table": { "columns": [ "team", "wins", "losses" ], "values": [ [ "A", 12, 3 ], [ "B", 9, 5 ] ] }, "roles": { "x": "team", "value": "wins" }, "options": { "orientation": "rows", "title": "Wins" } },
+    "expect": { "chart": "bar-chart", "data": [ { "team": "A", "wins": 12 }, { "team": "B", "wins": 9 } ], "props": { "orientation": "rows", "title": "Wins", "xKey": "team", "valueKey": "wins" } }
+  },
+  {
+    "name": "a multiple role takes a list; a single name is read as a one-element list",
+    "binding": { "chart": "stacked-bar-chart", "table": { "rows": [ { "month": "Jan", "free": 4, "pro": 2 }, { "month": "Feb", "free": 5, "pro": 3 } ] }, "roles": { "x": "month", "values": "free" } },
+    "expect": { "chart": "stacked-bar-chart", "data": [ { "month": "Jan", "free": 4 }, { "month": "Feb", "free": 5 } ], "props": { "xKey": "month", "keys": [ "free" ] } }
+  },
+  {
+    "name": "appearance, size and id are the spec's fields; null cells pass through as null",
+    "binding": { "chart": "line-chart", "table": { "rows": [ { "t": "00", "v": 1 }, { "t": "01", "v": null }, { "t": "02" } ] }, "roles": { "x": "t", "value": "v" }, "appearance": { "ground": "cyanotype", "mode": "precision", "palette": "sepia" }, "size": { "width": 640, "height": 300 }, "id": "hits" },
+    "expect": { "chart": "line-chart", "data": [ { "t": "00", "v": 1 }, { "t": "01", "v": null }, { "t": "02", "v": null } ], "props": { "xKey": "t", "valueKey": "v" }, "ground": "cyanotype", "mode": "precision", "palette": "sepia", "width": 640, "height": 300, "id": "hits" }
+  }
+]

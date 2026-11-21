@@ -225,3 +225,19 @@ describe('example extraction (REQ-557)', () => {
     expect(example!.name).toMatch(/^references-charts-flows-\d+$/);
   });
 });
+
+describe('feature-007 (REQ-663)', () => {
+  test('REQ-663 · the skill carries references/hosts.md naming each host, what it is built on and how a chart reaches it', async () => {
+    const { buildAgentCatalog: build } = await import('./catalog');
+    const { skillFiles: files } = await import('./skill');
+    const hosts = files(await build()).get('references/hosts.md');
+    expect(hosts).toBeDefined();
+    for (const name of ['Power BI', 'Tableau', 'KNIME', 'n8n', 'Apache Superset', 'Plone Volto', 'Plone Classic UI', 'Python', 'Jupyter']) expect(hosts).toContain(name);
+    expect(hosts).toContain('<silverpoint-chart>');
+    expect(hosts).toContain('specFromTable');
+    // The page example is a `text` fence (the examples check compiles code); its spec is checked here.
+    const { validateSpec } = await import('../../packages/embed/src/index');
+    const json = /<script type="application\/json">([\s\S]*?)<\/script>/.exec(hosts!)![1]!;
+    expect(validateSpec(json).ok).toBe(true);
+  });
+});

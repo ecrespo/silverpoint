@@ -1,0 +1,6 @@
+{
+  "chart": "bar-chart",
+  "props": {
+    "footerRight": "javascript:alert(1)"
+  }
+}

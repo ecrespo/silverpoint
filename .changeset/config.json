@@ -12,7 +12,8 @@
       "@silverpoint/fonts",
       "@silverpoint/tailwind",
       "@silverpoint/mcp",
-      "@silverpoint/marp"
+      "@silverpoint/marp",
+      "@silverpoint/embed"
     ]
   ],
   "access": "public",

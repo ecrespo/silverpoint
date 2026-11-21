@@ -136,6 +136,22 @@ async function main(): Promise<void> {
   if (!existsSync(FENCE_FILE) || readFileSync(FENCE_FILE, 'utf8') !== fenceSource(catalog)) {
     errors.unshift('REQ-591 · packages/marp/src/fence/charts.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
   }
+  const { embedFiles } = await import('./embed');
+  for (const [file, content] of embedFiles(catalog)) {
+    if (!existsSync(file) || readFileSync(file, 'utf8') !== content) errors.unshift(`REQ-653 · ${file.slice(ROOT.length)} is not current: run \`pnpm --filter @silverpoint/agent-catalog generate\``);
+  }
+  const { BINDINGS_FILE, bindingsSource, buildHostCatalog, HOST_CATALOG_FILE, hostCatalogSource } = await import('./hosts');
+  const hostCatalog = await buildHostCatalog(catalog);
+  if (!existsSync(HOST_CATALOG_FILE) || readFileSync(HOST_CATALOG_FILE, 'utf8') !== hostCatalogSource(hostCatalog)) {
+    errors.unshift('REQ-653 · packages/embed/src/hosts/host-catalog.json is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
+  if (!existsSync(BINDINGS_FILE) || readFileSync(BINDINGS_FILE, 'utf8') !== bindingsSource(hostCatalog)) {
+    errors.unshift('REQ-656 · packages/embed/src/hosts/bindings.generated.ts is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
+  const { buildConformance, CONFORMANCE_FILE, conformanceSource } = await import('./conformance');
+  if (!existsSync(CONFORMANCE_FILE) || readFileSync(CONFORMANCE_FILE, 'utf8') !== conformanceSource(await buildConformance(catalog.charts.map((c) => c.slug), catalog.version))) {
+    errors.unshift('REQ-666 · packages/embed/src/conformance/conformance.json is not current: run `pnpm --filter @silverpoint/agent-catalog generate`');
+  }
   const { LOADER_FILES, loaderSource } = await import('./loaders');
   for (const [adapter, file] of Object.entries(LOADER_FILES) as [keyof typeof LOADER_FILES, string][]) {
     if (!existsSync(file) || readFileSync(file, 'utf8') !== loaderSource(catalog, adapter)) {

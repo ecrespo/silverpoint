@@ -36,3 +36,5 @@ Every `SP` code the library warns or throws, in development builds.
 | `SP027` | warn | REQ-586 | a deck directive has an unknown value; the inherited value holds | Use a registered ground, one of its substrates, and `ink` or `precision` |
 | `SP028` | warn | REQ-599 | the page is outside the deck; it was clamped to the nearest slide | Keep `page` and `defaultPage` between 1 and the number of slides |
 | `SP029` | warn | REQ-576 | the Markdown exceeds a deck limit; it was rendered up to the limit | Keep a deck under 512 KB, 300 slides and 60 chart fences |
+| `SP030` | error | REQ-635 | a spec exceeds 2 MB serialised, or its path data exceeds the path byte budget; it is refused | Send fewer rows, aggregate before charting, or use `hatchFill: 'tile'` |
+| `SP031` | error | REQ-668 | the embed client was given a spec that does not validate; the error figure is shown | Read the message: it names the field, the unknown chart with suggestions, or the undeclared props |

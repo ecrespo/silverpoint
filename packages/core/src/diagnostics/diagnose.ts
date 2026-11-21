@@ -28,7 +28,10 @@ export type SpCode =
   | 'SP026'
   | 'SP027'
   | 'SP028'
-  | 'SP029';
+  | 'SP029'
+  // Raised by @silverpoint/embed, worded there (feature-007, API delta §6): no template ships in the core.
+  | 'SP030'
+  | 'SP031';
 
 export interface Detail {
   /** The property involved. */

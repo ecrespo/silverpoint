@@ -3,10 +3,11 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { LineChart } from '../src';
+import { INTERACTION_CASES, INTERACTION_CHART } from '../../../tools/testing/interaction-cases';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
-const fixed = { id: 'sp-interactive', width: 320, height: 160, chrome: 'bare' } as const;
+const fixed = INTERACTION_CHART;
 
 let cleanup: (() => void)[] = [];
 afterEach(() => {
@@ -57,8 +58,8 @@ describe('LineChart readout', () => {
     const { host, chartRoot } = mount(<LineChart {...fixed} onActiveChange={onActiveChange} />);
     const { x, y } = livePoint(host);
     pointer(chartRoot, 'pointermove', x, y);
-    expect(onActiveChange).toHaveBeenLastCalledWith(expect.objectContaining({ seriesKey: 'hits', index: 11, value: 41 }));
-    expect(host.querySelector('.sp-readout')?.textContent).toBe('22hits: 41');
+    expect(onActiveChange).toHaveBeenLastCalledWith(expect.objectContaining(INTERACTION_CASES.hover.active));
+    expect(host.querySelector('.sp-readout')?.textContent).toBe(INTERACTION_CASES.hover.readout);
     expect(host.querySelector('svg.sp-marker path')).not.toBeNull();
   });
 
@@ -79,7 +80,7 @@ describe('LineChart readout', () => {
     const { host, chartRoot } = mount(<LineChart {...fixed} />);
     act(() => chartRoot.focus());
     expect(host.querySelector('.sp-live')?.getAttribute('aria-live')).toBe('polite');
-    expect(host.querySelector('.sp-live')?.textContent).toBe('hour 00, hits 18');
+    expect(host.querySelector('.sp-live')?.textContent).toBe(INTERACTION_CASES.focus.live);
   });
 
   test('REQ-143 · leaving the drawing area emits null and leaves no residual state', () => {
@@ -110,7 +111,7 @@ describe('LineChart readout', () => {
     const { chartRoot } = mount(<LineChart {...fixed} onSelect={onSelect} />);
     act(() => chartRoot.focus());
     key(chartRoot, 'Enter');
-    expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({ index: 0 }));
+    expect(onSelect).toHaveBeenCalledWith(expect.objectContaining(INTERACTION_CASES.select.item));
   });
 
   test('REQ-142 · a consumer-supplied readout replaces the built-in one', () => {

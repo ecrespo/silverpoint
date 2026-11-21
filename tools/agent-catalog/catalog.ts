@@ -32,6 +32,7 @@ import { deckSection } from './deck';
 import { chartFallbacks, docDefault, specDefaults } from './defaults';
 import { propsReference, type PropDoc } from './props';
 import { RECOMMEND_RULES } from './recommend.rules';
+import { HOSTS } from './hosts.meta';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 export { sameLine };
@@ -73,14 +74,19 @@ async function demoModule(slug: string): Promise<Record<string, unknown>> {
 
 /** The diagnostic templates of `diagnose.ts` (`ERRORS`, `WARNINGS`), read without running it. */
 function diagnostics(): Diagnostic[] {
-  const file = join(ROOT, 'packages/core/src/diagnostics/diagnose.ts');
+  return [...tableDiagnostics('packages/core/src/diagnostics/diagnose.ts', ['ERRORS', 'WARNINGS']), ...tableDiagnostics('packages/embed/src/spec/codes.ts', ['EMBED_ERRORS'])].sort((a, b) => a.code.localeCompare(b.code));
+}
+
+/** The diagnostic templates of one source file's tables; a table named `…ERRORS` is of error severity. */
+function tableDiagnostics(path: string, tables: readonly string[]): Diagnostic[] {
+  const file = join(ROOT, path);
   const source = ts.createSourceFile(file, readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true);
   const found: Diagnostic[] = [];
   source.forEachChild((node) => {
     if (!ts.isVariableStatement(node)) return;
     for (const decl of node.declarationList.declarations) {
       const table = decl.name.getText(source);
-      if ((table !== 'ERRORS' && table !== 'WARNINGS') || !decl.initializer || !ts.isObjectLiteralExpression(decl.initializer)) continue;
+      if (!tables.includes(table) || !decl.initializer || !ts.isObjectLiteralExpression(decl.initializer)) continue;
       for (const row of decl.initializer.properties) {
         if (!ts.isPropertyAssignment(row) || !ts.isObjectLiteralExpression(row.initializer)) continue;
         const field = (name: string) => {
@@ -89,11 +95,11 @@ function diagnostics(): Diagnostic[] {
         };
         const code = row.name.getText(source);
         // SP005 throws in development and is stripped in production (REQ-025): an error to an author.
-        found.push({ code, severity: table === 'ERRORS' || code === 'SP005' ? 'error' : 'warn', req: field('req'), what: field('what'), todo: field('todo') });
+        found.push({ code, severity: table.endsWith('ERRORS') || code === 'SP005' ? 'error' : 'warn', req: field('req'), what: field('what'), todo: field('todo') });
       }
     }
   });
-  return found.sort((a, b) => a.code.localeCompare(b.code));
+  return found;
 }
 
 /** The first selector of an Angular entry point's component class. */
@@ -222,6 +228,7 @@ export async function baseCatalog(): Promise<AgentCatalog> {
       timeline: [`${timelinePeer}/dist/css/timeline.css`, '@silverpoint/grounds/timeline.css'],
     },
     deck: deckSection((p) => entry(p)),
+    hosts: HOSTS,
   };
 }
 

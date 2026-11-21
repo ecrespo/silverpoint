@@ -41,7 +41,7 @@ const errorsOf = (page: Page) => {
 /** What a route draws once it is ready: a chart or a component, or, on a page that draws none, its last section. */
 const readyOf = (route: string) => (route === '/#/ai' ? '#agent-tools' : '.sp-root, .sp-ui');
 
-const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline', '/#/deck', '/#/ai'];
+const ROUTES = ['/', '/#/gallery', '/#/playground', '/#/chart/sankey-chart', '/#/chart/histogram-chart', '/#/adapters', '/#/dashboard', '/#/ui', '/#/ui/tabs', '/#/composed', '/#/ui/table', '/#/overlays', '/#/ui/modal', '/#/palettes', '/#/timeline', '/#/deck', '/#/embed', '/#/ai'];
 
 test.describe('documentation site', () => {
   test('PRD §4.2 · the home page gives the quickstart for React, Vue and Angular', async ({ page }) => {

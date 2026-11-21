@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>silverpoint in a plain page</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="page.css">
+    <script src="silverpoint-embed.full.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>silverpoint in a plain page</h1>
+      <p>One script, no framework, no build step: <code>silverpoint-embed.full.js</code> (REQ-667).</p>
+
+      <h2>The element</h2>
+      <silverpoint-chart id="element">
+        <script type="application/json">
+          { "chart": "bar-chart", "id": "orders",
+            "data": [{ "quarter": "Q1", "orders": 120 }, { "quarter": "Q2", "orders": 168 }, { "quarter": "Q3", "orders": 141 }, { "quarter": "Q4", "orders": 190 }],
+            "props": { "xKey": "quarter", "valueKey": "orders", "title": "Orders per quarter" } }
+        </script>
+      </silverpoint-chart>
+
+      <h2>A box mounted by the script on load</h2>
+      <div data-sp-embed id="box">
+        <script type="application/json">{ "chart": "donut-chart", "id": "budget", "width": 480, "ground": "silverpoint", "substrate": "ochre" }</script>
+      </div>
+
+      <h2>The API: mount, update, destroy</h2>
+      <div id="api" class="resizable"></div>
+      <p>
+        <button type="button" id="update">Update</button>
+        <button type="button" id="destroy">Destroy</button>
+      </p>
+      <pre id="log" aria-live="off"></pre>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -27,6 +27,27 @@ function reported(catalog: Catalog, code: SpCode | string, message: string): Rep
   return { code, severity: known?.severity ?? 'warn', req: known?.req ?? '', message, todo: known?.todo ?? '' };
 }
 
+/** A diagnostic of the embed (`{ code, severity, message }`) with the catalog's `req` and `todo`. */
+export function fromEmbed(catalog: Catalog, d: { readonly code: string; readonly severity: 'warn' | 'error'; readonly message: string }): ReportedDiagnostic {
+  const known = catalog.data.diagnostics.find((k) => k.code === d.code);
+  return { code: d.code, severity: d.severity, req: known?.req ?? '', message: d.message, todo: known?.todo ?? '' };
+}
+
+/**
+ * Runs `run` as development: the core strips its warnings where `NODE_ENV` is `production`, as a
+ * deployment sets it, and the read is at call time in the published build (REQ-542).
+ */
+export function asDevelopment<T>(run: () => T): T {
+  const environment = process.env.NODE_ENV;
+  process.env.NODE_ENV = 'development';
+  try {
+    return run();
+  } finally {
+    if (environment === undefined) delete process.env.NODE_ENV;
+    else process.env.NODE_ENV = environment;
+  }
+}
+
 export function capturing<T>(catalog: Catalog, run: () => T): Captured<T> {
   const diagnostics: ReportedDiagnostic[] = [];
   // The core strips its warnings where NODE_ENV is `production`, as a deployment sets it; the

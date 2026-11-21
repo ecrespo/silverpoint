@@ -69,6 +69,21 @@ export default [
     rules: { 'silverpoint/no-transcendental': 'error' },
   },
   {
+    // feature-007, DD-061: the embed's DOM-free entries (main, hosts, conformance) read no DOM global,
+    // so Node, workers and the module build can import them.
+    files: ['packages/embed/src/{index,api,registry,recipes.generated}.ts', 'packages/embed/src/{spec,render,hosts,conformance,util}/**/*.ts'],
+    rules: {
+      'no-restricted-globals': ['error', ...['document', 'window', 'HTMLElement', 'customElements', 'navigator', 'matchMedia', 'ResizeObserver', 'MutationObserver', 'localStorage', 'sessionStorage'].map((name) => ({ name, message: 'DD-061: a DOM-free entry of @silverpoint/embed reads no DOM global; the DOM belongs in client/.' }))],
+    },
+  },
+  {
+    // REQ-652: no package but the MCP server imports the embed; the core, the grounds and the adapters never.
+    files: ['packages/{core,grounds,react,vue,marp,fonts,tailwind}/src/**/*.{ts,tsx,vue}', 'packages/angular/!(test|dist|node_modules)/**/*.ts'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{ group: ['@silverpoint/embed', '@silverpoint/embed/*'], message: 'REQ-652: only @silverpoint/mcp may import @silverpoint/embed.' }] }],
+    },
+  },
+  {
     // REQ-162: the core's runtime allowlist.
     files: ['packages/core/src/**/*.ts'],
     plugins: { silverpoint },

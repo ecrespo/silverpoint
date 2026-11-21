@@ -313,3 +313,29 @@ export function compareDeck(actual: string, expected: string): { equal: true } |
   const found = difference(parseDeck(actual), parseDeck(expected), 'div');
   return found === undefined ? { equal: true } : { equal: false, difference: found };
 }
+
+function findChartRoot(node: ParsedNode): ParsedElement | undefined {
+  if (isElement(node) && (node.attrs.find((a) => a.name === 'class')?.value.split(/\s+/) ?? []).includes('sp-root')) return node;
+  for (const child of 'childNodes' in node ? node.childNodes : []) {
+    const found = findChartRoot(child);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+/**
+ * Parses markup and returns the normalised tree of its first chart root (`.sp-root`, API Spec §10),
+ * with the dashboard's rules (DD-017): `style` compared as declarations, so a root whose palette
+ * was set through the CSSOM equals the canonical attribute string (feature-007 DD-063, I-56).
+ */
+export function parseChartRoot(markup: string): NormalElement {
+  const root = findChartRoot(parseFragment(markup));
+  if (!root) throw new Error('No element with class "sp-root" in the markup.');
+  return toTree(root, new Map(), { dashboard: true });
+}
+
+/** Compares two chart roots as normalised trees, reporting the first difference (REQ-636). */
+export function compareChartRoot(actual: string, expected: string): { equal: true } | { equal: false; difference: string } {
+  const found = difference(parseChartRoot(actual), parseChartRoot(expected), 'div');
+  return found === undefined ? { equal: true } : { equal: false, difference: found };
+}

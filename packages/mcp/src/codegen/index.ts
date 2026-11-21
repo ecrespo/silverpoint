@@ -5,6 +5,7 @@
 import type { Catalog } from '../catalog';
 import { deckCode } from './deck';
 import { emit } from './emit';
+import { htmlCode } from './html';
 import { plan, type GenerateInput } from './plan';
 
 export type { GenerateInput } from './plan';
@@ -17,6 +18,8 @@ export interface Generated {
 }
 
 export function generateCode(catalog: Catalog, input: GenerateInput): Generated {
+  // REQ-662: plain HTML through the standalone file, for one chart.
+  if (typeof input.framework === 'string' && input.framework.toLowerCase() === 'html') return htmlCode(catalog, input);
   const { chart, component, deck } = input.target ?? {};
   // A deck is its own target (REQ-621); `plan` refuses it beside a chart or a component.
   if (deck !== undefined && chart === undefined && component === undefined) return deckCode(catalog, deck, input);

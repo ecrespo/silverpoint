@@ -26,7 +26,8 @@ inking switched off entirely.
 | [`@silverpoint/core`](packages/core/README.md) | The framework-free engine the adapters share, and the palettes |
 | [`@silverpoint/tailwind`](packages/tailwind/README.md) | An optional Tailwind preset naming the same variables |
 | [`@silverpoint/mcp`](packages/mcp/README.md) | A Model Context Protocol server: the catalog, chart recommendations and code generation for agents |
-| [`@silverpoint/marp`](packages/marp/README.md) | Marp/Marpit Markdown slide decks in the silverpoint style — in progress for `0.9.0`, not yet published |
+| [`@silverpoint/marp`](packages/marp/README.md) | Marp/Marpit Markdown slide decks in the silverpoint style |
+| [`@silverpoint/embed`](packages/embed/README.md) | Any chart from one JSON spec, for BI tools, flows, notebooks and plain pages: a DOM-free render, a framework-free client, a single standalone file, the host catalog and a conformance kit — new in `0.11.0` |
 
 Each adapter's README has its installation steps, quickstart and examples.
 

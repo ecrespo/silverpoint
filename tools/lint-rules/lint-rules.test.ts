@@ -261,3 +261,24 @@ describe('no-transcendental (T-165, DD-028)', () => {
     for (const line of allowances) expect(line).toMatch(/eslint-disable-next-line silverpoint\/no-transcendental -- DD-029: .+/);
   });
 });
+
+describe('feature-007 boundaries', () => {
+  test('DD-061 · a DOM-free entry of the embed that reads document fails', async () => {
+    expect(await rulesHit('packages/embed/src/render/x.ts', 'export const t = document.title;')).toEqual(['no-restricted-globals']);
+    expect(await rulesHit('packages/embed/src/hosts/x.ts', 'export const w = window.innerWidth;')).toEqual(['no-restricted-globals']);
+  });
+
+  test('DD-061 · the client may read the DOM', async () => {
+    expect(await rulesHit('packages/embed/src/client/x.ts', 'export const t = document.title;')).toEqual([]);
+  });
+
+  test('REQ-652 · an adapter, the core or the grounds importing the embed fails', async () => {
+    for (const file of ['packages/react/src/x.tsx', 'packages/core/src/x.ts', 'packages/grounds/src/x.ts', 'packages/angular/line-chart/x.ts']) {
+      expect(await rulesHit(file, "import { renderToSVG } from '@silverpoint/embed';\nexport const r = renderToSVG;"), file).toContain('no-restricted-imports');
+    }
+  });
+
+  test('REQ-652 · the MCP server may import the embed', async () => {
+    expect(await rulesHit('packages/mcp/src/x.ts', "import { renderToSVG } from '@silverpoint/embed';\nexport const r = renderToSVG;")).toEqual([]);
+  });
+});

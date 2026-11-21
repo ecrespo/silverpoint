@@ -1,0 +1,4 @@
+body { font-family: Georgia, serif; margin: 0; background: #f7f4ee; color: #222; }
+main { max-width: 760px; margin: 0 auto; padding: 24px; }
+.resizable { width: 100%; }
+pre { font-size: 12px; background: #fff; padding: 8px; min-height: 2em; }

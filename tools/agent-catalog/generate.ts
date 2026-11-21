@@ -9,7 +9,10 @@ import { dirname, join } from 'node:path';
 import { ASSETS_FILE, assetsSource } from './assets';
 import { DOCS_TOOLS_FILE, README_FILE, toolList, toolsJson, withTools } from './agent-tools';
 import { buildAgentCatalog, CATALOG_FILE, serialise } from './catalog';
+import { buildConformance, CONFORMANCE_FILE, conformanceSource } from './conformance';
+import { embedFiles } from './embed';
 import { FENCE_FILE, fenceSource } from './fence';
+import { BINDINGS_FILE, bindingsSource, buildHostCatalog, HOST_CATALOG_FILE, hostCatalogSource } from './hosts';
 import { LOADER_FILES, loaderSource } from './loaders';
 import { GUIDES_FILE, guidesSource, MARKETPLACE_FILE, marketplaceManifest, PLUGIN_FILE, pluginManifest, SKILL_DIR, skillFiles } from './skill';
 
@@ -21,6 +24,17 @@ console.log('wrote packages/mcp/src/assets.generated.ts');
 mkdirSync(dirname(FENCE_FILE), { recursive: true });
 writeFileSync(FENCE_FILE, fenceSource(catalog));
 console.log('wrote packages/marp/src/fence/charts.generated.ts');
+for (const [file, content] of embedFiles(catalog)) {
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, content);
+}
+console.log('wrote packages/embed/src generated files (prop tables, recipes, assets, fonts)');
+const hostCatalog = await buildHostCatalog(catalog);
+writeFileSync(HOST_CATALOG_FILE, hostCatalogSource(hostCatalog));
+writeFileSync(BINDINGS_FILE, bindingsSource(hostCatalog));
+writeFileSync(CONFORMANCE_FILE, conformanceSource(await buildConformance(catalog.charts.map((c) => c.slug), catalog.version)));
+console.log('wrote packages/embed/src/conformance/conformance.json');
+console.log(`wrote packages/embed/src/hosts/host-catalog.json (${hostCatalog.charts.filter((c) => c.binding !== 'none').length} bindable charts)`);
 for (const [adapter, file] of Object.entries(LOADER_FILES) as [keyof typeof LOADER_FILES, string][]) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, loaderSource(catalog, adapter));

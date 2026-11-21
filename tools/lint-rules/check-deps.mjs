@@ -21,9 +21,18 @@ const ALLOWLIST = {
   '@silverpoint/tailwind': [],
   // The MCP server describes the library to agents: no framework, ever (Art. 8, REQ-538).
   // It renders decks through the deck package too (DD-060).
-  '@silverpoint/mcp': ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod', '@silverpoint/marp'],
+  // It renders charts through the embed (REQ-660, DD-061), the only package allowed to import it.
+  '@silverpoint/mcp': ['@silverpoint/core', '@silverpoint/grounds', '@modelcontextprotocol/sdk', 'zod', '@silverpoint/marp', '@silverpoint/embed'],
   // The deck package: Marpit and nothing else; the SVG polyfill was dropped by the PoC (DD-051).
   '@silverpoint/marp': ['@silverpoint/core', '@silverpoint/grounds', '@marp-team/marpit'],
+  // Host embedding: the core and the grounds, no framework, no peer (REQ-629). No adapter, nor the
+  // core, nor the grounds lists it, so none may depend on it (REQ-652).
+  '@silverpoint/embed': ['@silverpoint/core', '@silverpoint/grounds'],
+};
+
+/** Packages whose script builds run on load: exactly these files are side effects (REQ-649). */
+const SCRIPT_EFFECTS = {
+  '@silverpoint/embed': ['./dist/silverpoint-embed.js', './dist/silverpoint-embed.full.js'],
 };
 
 /** Frameworks each adapter must declare as peers, and nobody may declare as dependencies. */
@@ -122,7 +131,12 @@ export function checkManifests(manifests) {
     }
     checkConditionOrder(name, manifest.exports, problems);
 
-    if (STYLESHEETS.includes(name)) {
+    if (SCRIPT_EFFECTS[name]) {
+      const effects = manifest.sideEffects;
+      if (!Array.isArray(effects) || effects.join() !== SCRIPT_EFFECTS[name].join()) {
+        problems.push(`REQ-163 · ${name} must declare exactly its script builds as side effects: ${JSON.stringify(SCRIPT_EFFECTS[name])}.`);
+      }
+    } else if (STYLESHEETS.includes(name)) {
       const effects = manifest.sideEffects;
       if (!Array.isArray(effects) || !effects.includes('*.css')) {
         problems.push(`REQ-034 · ${name} ships a stylesheet, so sideEffects must be ["*.css"] or bundlers drop the import.`);

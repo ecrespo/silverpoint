@@ -1,0 +1,7 @@
+[
+  {
+    "name": "heatmap-chart from long rows: one row per distinct row, values in the order columns first appear, missing cells null",
+    "binding": { "chart": "heatmap-chart", "table": { "rows": [ { "day": "Mon", "hour": "09", "load": 12 }, { "day": "Mon", "hour": "10", "load": 34 }, { "day": "Tue", "hour": "10", "load": 42 }, { "day": "Tue", "hour": "09", "load": 18 }, { "day": "Wed", "hour": "11", "load": 7 } ] }, "roles": { "row": "day", "column": "hour", "value": "load" }, "options": { "scaleMax": 50 } },
+    "expect": { "chart": "heatmap-chart", "data": [ { "day": "Mon", "values": [ 12, 34, null ] }, { "day": "Tue", "values": [ 18, 42, null ] }, { "day": "Wed", "values": [ null, null, 7 ] } ], "props": { "scaleMax": 50, "labelKey": "day", "valuesKey": "values", "columnLabels": [ "09", "10", "11" ] } }
+  }
+]

@@ -127,6 +127,18 @@ export default defineConfig({
         test: { name: 'marp', root: 'packages/marp', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {
+        // feature-007: the DOM-free entries of @silverpoint/embed (spec, render, hosts, conformance).
+        resolve: source,
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: { name: 'embed', root: 'packages/embed', environment: 'node', include: ['test/*.test.ts'] },
+      },
+      {
+        // feature-007: the embed client, in a DOM (DD-063, I-56).
+        resolve: source,
+        ssr: { resolve: { conditions: ['@silverpoint/source'], externalConditions: ['@silverpoint/source'] } },
+        test: { name: 'embed-dom', root: 'packages/embed', environment: 'happy-dom', include: ['test/dom/*.test.ts'] },
+      },
+      {
         test: { name: 'tailwind', root: 'packages/tailwind', environment: 'node', include: ['test/**/*.test.ts'] },
       },
       {
