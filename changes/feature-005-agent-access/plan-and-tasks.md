@@ -41,6 +41,11 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 **First run: T-226..T-231** (9a and 9b), then review the catalog before building on it.
 
+> **Closed 2026-11-21.** Every task is done, here or in its sibling repository; checked against
+> GitHub (`reflex-silverpoint-react`: `export_catalog.py`, `make_skill.py`, the skill, the plugin
+> marketplace, both checks in `quality.yml`) and against the live site (`silverpoint_web`). The
+> SHOULDs REQ-544 (PNG) and REQ-561 (rate limit) stay deferred; delta-014 lifted REQ-547's example.
+
 ## Tasks
 
 ### 9a — Agent catalog
@@ -52,8 +57,8 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 ### 9b — Reflex catalog
 
-- [ ] **T-230** (reflex-silverpoint-react) `scripts/export_catalog.py` → `reflex-catalog.json` (§2.30); test: every builder in `__all__` present, `wraps == SILVERPOINT_VERSION`; attach to releases. *REQ-534, REQ-553*
-- [ ] **T-231** `pnpm agent-catalog:pull-reflex <version>`; join by slug into `PropEntry.reflex` and `names.reflex`; I-40 and the release-build failure. *REQ-556*
+- [x] **T-230** (reflex-silverpoint-react) `scripts/export_catalog.py` → `reflex-catalog.json` (§2.30); test: every builder in `__all__` present, `wraps == SILVERPOINT_VERSION`; attach to releases. *REQ-534, REQ-553* — **done in the wrapper**, released in its `v0.8.0` (2026-10-21); its `quality.yml` fails when `reflex-catalog.json` is not current
+- [x] **T-231** ~~`pnpm agent-catalog:pull-reflex <version>`~~; join by slug into `PropEntry.reflex` and `names.reflex`; I-40 and the release-build failure. *REQ-556* — **superseded and done**: the join, I-40 and the release-build check shipped in `0.8.0` over the interim derived pin (REQ-556 option (b)); delta-015 (`0.9.2`) replaced the derived pin with the wrapper's own export, copied into `tools/agent-catalog/reflex/reflex-catalog.json` (no pull script: a pin is one file), and delta-017 (`0.10.0`) made a pin one line behind warn. `0.10.1` pins the wrapper `0.10.0` (`stale: false`)
 
 ### 9c — The server, read-only tools
 
@@ -74,20 +79,20 @@ change touching `packages/` adds a changeset. Skills and everything else in Engl
 
 - [x] **T-241** `http.ts` stateless Streamable HTTP; body, row and string limits before any work; no body logging; optional rate limit. *REQ-538, REQ-560..REQ-562*
 - [x] **T-242** `apps/mcp-vercel` + deployment; MCP smoke test in CI against the built handler and post-deploy against the URL. *REQ-558, REQ-568* — Vercel project `silverpoint-mcp` (root `apps/mcp-vercel`), preview of `feat/silverpoint-0.8` smoke-tested 2026-10-20; production follows `0.8.0` on `main`
-- [ ] **T-243** (silverpoint_web) `vercel.json` rewrite `/mcp`, catch-all exclusion, `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` generated at export from the catalog. *REQ-537, REQ-558, REQ-564*
-- [ ] **T-244** (silverpoint_web) `/docs/ai` page: URL, client configs, skills, `npx`; no `rx.State`. *REQ-565*
+- [x] **T-243** (silverpoint_web) `vercel.json` rewrite `/mcp`, catch-all exclusion, `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` generated at export from the catalog. *REQ-537, REQ-558, REQ-564* — **done in silverpoint_web**: verified 2026-11-21 against `https://silverpointweb.vercel.app` — `/agent-catalog.json`, `/llms.txt`, `/llms-full.txt` answer 200 and describe `0.10.1`; `/mcp` is the rewrite. REQ-564 is delegated there (user decision 2026-11-21) and its test lives in that repository
+- [x] **T-244** (silverpoint_web) `/docs/ai` page: URL, client configs, skills, `npx`; no `rx.State`. *REQ-565* — **done in silverpoint_web**: `/docs/ai` ("Use with AI") answers 200, verified 2026-11-21
 
 ### 9f — Skills
 
 - [x] **T-245** `skills/silverpoint`: templates (SKILL.md ≤ 500 lines, pitfalls, framework guides) + generated references; version stamp; "prefer the MCP" rule. *REQ-552, REQ-554, REQ-563*
-- [ ] **T-246** (reflex-silverpoint-react) `skills/reflex-silverpoint` from `reflex-catalog.json` with `scripts/make_skill.py`; state/event guide from the demo app. *REQ-553, REQ-554*
-- [ ] **T-247** Example extraction and type-check in both repositories' CI. *REQ-557* — done here; the Reflex repository's half waits with T-246
-- [ ] **T-248** `.claude-plugin/marketplace.json` in both repositories (skill + `.mcp.json` → hosted URL); install tested in Claude Code. *REQ-555* — done here; the Reflex repository's half waits with T-246
+- [x] **T-246** (reflex-silverpoint-react) `skills/reflex-silverpoint` from `reflex-catalog.json` with `scripts/make_skill.py`; state/event guide from the demo app. *REQ-553, REQ-554* — **done in the wrapper** (`v0.8.0`); `make_skill.py --check` runs in its CI
+- [x] **T-247** Example extraction and type-check in both repositories' CI. *REQ-557* — done here; the Reflex repository's half shipped with T-246 in its `v0.8.0`
+- [x] **T-248** `.claude-plugin/marketplace.json` in both repositories (skill + `.mcp.json` → hosted URL); install tested in Claude Code. *REQ-555* — done here and in the wrapper (`.claude-plugin/marketplace.json`, the `reflex-silverpoint` plugin)
 
 ### 9g — Documentation and release
 
 - [x] **T-249** `@silverpoint/mcp` README and the docs-site agent page, tool lists generated from the server. *REQ-569*
-- [ ] **T-250** Changeset `minor` (`0.8.0`); `CLAUDE.md` status here, in reflex-silverpoint-react and silverpoint_web. — done here; the sibling repositories' `CLAUDE.md` wait with their tasks
+- [x] **T-250** Changeset `minor` (`0.8.0`); `CLAUDE.md` status here, in reflex-silverpoint-react and silverpoint_web. — done in all three (the siblings' `CLAUDE.md` record their halves of feature-005)
 - [x] **T-251** Fold the deltas into `specs/` (PRD v1.14, API v1.12, TD v1.11, DM v1.9, constitution v1.10); traceability report.
 
 ## Ledger
