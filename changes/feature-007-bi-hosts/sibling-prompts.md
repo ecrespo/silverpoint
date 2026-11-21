@@ -4,6 +4,9 @@ Feature-007's work that lives outside this repository, as prompts for a Claude C
 each one. The eight **new** repositories have their own bootstrap prompts in
 [`repositories/`](repositories/README.md); this file covers the two that already exist.
 
+*Re-read 2026-11-21 against the built API (T-328): both prompts stand as written; what the built API
+changes for the eight new repositories is in [`repositories/README.md` §7](repositories/README.md).*
+
 | Repository | Work | When |
 |---|---|---|
 | `reflex-silverpoint-react` | Follow the `0.11` line; no API change | After `@silverpoint/*@0.11.0` is on npm |

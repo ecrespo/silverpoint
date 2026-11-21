@@ -131,4 +131,22 @@ constitution, and stop for review before any code.
 Identity · constitution (H-1..H-8 plus local articles) · scope · requirements in EARS with local ids ·
 design decisions · structure · tasks · release · open questions · bootstrap prompt. A pack is a
 **gate-1 draft**: enough to start and to review, written before `@silverpoint/embed` exists. Task
-T-328 re-reads all eight against the released API.
+T-328 re-read all eight against the built API (§7).
+
+## 7. The built API, as the packs meet it (T-328, 2026-11-21)
+
+Every pack was re-read against `@silverpoint/embed` as built for `0.11.0` (API delta, amended in
+implementation). No requirement of any pack contradicts it; the points below are what a host
+repository must know that the packs, written before the code, could not say. Each affected pack
+carries a short *As built* note pointing here.
+
+| Point | What it means for a host |
+|---|---|
+| **56 bindable charts** | `binding: 'none'` for `treemap-chart` (its tiles carry grid spans, not data fields; `squarified-treemap` binds parts), `sparkline-rows`, `volvelle-chart` and `orbit-chart`. Every "chart whose `binding` is not `none`" in the packs is these 56; nothing is counted by hand (H-3). |
+| **`demo.options`** | A host chart's `demo` may carry `options`: props of the canonical demo that are not roles (`names` of the dumbbell, `axis` of the interval chart, `period` of the slope chart, `metric`/`delta` of the KPI card, `nodes` of the network). A demo, gallery, thumbnail or test that draws a chart from its `demo` passes `demo.options` as `options` to `specFromTable`, or its picture differs from the library's. |
+| **`HOST_CATALOG` is not in the standalone files** | The files expose `Silverpoint.specFromTable` and `hostCatalogFollows` over a generated binding table, not the catalog (580 kB with its demos). Generators read the pinned `host-catalog.json` at build time (H-3); the page binds at run time with `Silverpoint.specFromTable`. The module entry `@silverpoint/embed/hosts` does export `HOST_CATALOG`. |
+| **The script builds mount on load** | `silverpoint-embed.js` and `.full.js` define `<silverpoint-chart>` and mount every `[data-sp-embed]` once the document is parsed. `renderToHTML({ interactive: true })` needs no inline boot script, so markup works under `script-src 'self'`. |
+| **`embedFonts` needs a face** | Only the module entries and the `full` files carry EB Garamond. `embedFonts` with `silverpoint-embed.js` / `.mjs` draws the fallback stack and reports `SP013`. A host that renders SVG on a server vendors `silverpoint-embed.full.mjs`. |
+| **Integrity** | `integrity.json` in the hosts kit (and `STANDALONE_INTEGRITY` from the module entry) gives the `sha384` of each standalone file; H-2's verification reads it. |
+| **Diagnostics** | `SP030` (a spec over 2 MB or the path byte budget) and `SP031` (an invalid spec given to the client) are the embed's; they reach `onDiagnostic` and `sp-diagnostic` like any other code. |
+| **Hosts kit** | `silverpoint-hosts-kit-<version>.zip` on each GitHub release: the four standalone files, `host-catalog.json`, `conformance.json`, `integrity.json`, `html-goldens/`, `tables/` (`tools/release/hosts-kit.mjs`). |

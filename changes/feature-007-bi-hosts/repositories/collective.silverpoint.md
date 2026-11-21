@@ -48,6 +48,9 @@ external data sources.
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** PLC-REQ-006 holds by construction: the script build defines `<silverpoint-chart>` and mounts `[data-sp-embed]` on load, so the view emits no inline script. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **PLC-DD-01 — Depend on `silverpoint`.** Spec building, validation, reshapes and the script all
   come from it (H-1, H-2: the pin is its version in `pyproject.toml`). This add-on adds Plone's
   content model and templates.

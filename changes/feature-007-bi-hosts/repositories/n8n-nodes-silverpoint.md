@@ -48,6 +48,9 @@ sending the chart anywhere (that is the next node's job).
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** The bundled module `@silverpoint/embed/hosts` exports `HOST_CATALOG`, so the node may read it at run time; `make-properties.ts` still generates from the pinned file (H-3). *Interactive HTML* inlines the script build, which mounts the chart on load: no extra boot code. *Embed fonts* works because the bundled module entry carries EB Garamond 400. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **N8N-DD-01 — Bundle, do not depend.** esbuild inlines `@silverpoint/embed` (main, `/hosts`,
   `/conformance`) into one CommonJS file under `dist/`. For *Interactive HTML* the standalone script
   is read from a `.js` asset copied into `dist` at build, not from `node_modules`.

@@ -403,6 +403,9 @@ importers:
       '@silverpoint/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@silverpoint/embed':
+        specifier: workspace:*
+        version: link:../../packages/embed
       '@silverpoint/example-harness':
         specifier: workspace:*
         version: link:../harness

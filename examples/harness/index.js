@@ -54,6 +54,30 @@ export function fixtureProps(fixture) {
   };
 }
 
+const slugOf = (/** @type {string} */ name) => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase();
+
+/**
+ * The fixture as an `@silverpoint/embed` spec (DD-065): `chart` is the recipe's slug, the appearance
+ * fields lifted out of props, `seed` and `hatchFill` kept as props. The bench's `embed.html` mounts
+ * it; a test holds it equal to `tools/visual-gate/embed-fixtures.ts#specOfFixture`.
+ * @param {(typeof ALL_FIXTURES)[number]} fixture
+ */
+export function fixtureSpec(fixture) {
+  const { data: inline, ...props } = /** @type {Record<string, unknown>} */ (fixture.props);
+  const data = fixture.rows === null ? inline : fixture.rows;
+  return {
+    chart: slugOf(fixture.chart),
+    ...(data === undefined ? {} : { data }),
+    props: { ...props, seed: fixture.seed, hatchFill: fixture.hatchFill },
+    width: fixture.size.width,
+    height: fixture.size.height,
+    id: fixture.id,
+    ground: fixture.ground,
+    substrate: fixture.substrate,
+    mode: fixture.mode,
+  };
+}
+
 /** The chart the home page of every example app shows. */
 export const DEMO_PROPS = Object.freeze({
   id: 'sp-demo',

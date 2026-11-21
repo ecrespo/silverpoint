@@ -28,6 +28,18 @@ export declare function fixtureById(id: string | null | undefined): HarnessFixtu
 /** A fixture's props: the common ones, typed, plus whatever its chart takes. */
 export type FixtureProps = CommonChartProps & Record<string, unknown>;
 export declare function fixtureProps(fixture: HarnessFixture): FixtureProps;
+/** The fixture as an `@silverpoint/embed` spec (DD-065), for the bench's `embed.html`. */
+export declare function fixtureSpec(fixture: HarnessFixture): {
+  chart: string;
+  data?: unknown;
+  props: Record<string, unknown>;
+  width: number;
+  height: number;
+  id: string;
+  ground: string;
+  substrate: string;
+  mode: 'ink' | 'precision';
+};
 export declare const DEMO_PROPS: Readonly<LineChartProps>;
 export declare const GALLERY: readonly { readonly chart: string; readonly props: FixtureProps }[];
 export declare function wantsGallery(search: string): boolean;

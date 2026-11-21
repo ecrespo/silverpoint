@@ -52,6 +52,9 @@ tooltips, AppSource submission.
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** `scripts/make-capabilities.ts` reads the pinned `host-catalog.json` (the standalone file does not carry `HOST_CATALOG`); the visual binds with `Silverpoint.specFromTable` from the `full` file at run time. The chart card lists the 56 bindable charts. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **PBI-DD-01 — One visual.** A report author adds one visual from one file; sixty `.pbiviz`
   files would be unmanageable in a tenant.
 - **PBI-DD-02 — Generic wells, generated role table.** Power BI fixes `dataRoles` at package time,

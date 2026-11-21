@@ -55,6 +55,9 @@ components, decks; a pure-Python or embedded-engine SVG (silverpoint DD-069); se
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** PY-REQ-003's builders cover the 56 bindable charts; the gallery and every demo-based test pass `demo.options` (PY-REQ-005's fixtures included). `to_svg()` with `embed_fonts` needs the vendored `silverpoint-embed.full.mjs` (PY-DD-02 already vendors it). The inline document of PY-REQ-006 needs no boot script: the inlined script build mounts `[data-sp-embed]` on load, which is also why PY-REQ-011/013's markup works with no inline script. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **PY-DD-01 — The version mirrors the library's.** `silverpoint` X.Y.Z vendors
   `@silverpoint/embed` X.Y.Z. Python-only fixes are `X.Y.Z.postN`. This is the one host whose version
   is not its own (silverpoint DD-068): it is the standalone file's Python distribution, and "which

@@ -12,6 +12,8 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         canonical: fileURLToPath(new URL('./canonical.html', import.meta.url)),
+        // The embed column of the tree and pixel gates (feature-007, DD-065).
+        embed: fileURLToPath(new URL('./embed.html', import.meta.url)),
       },
     },
   },

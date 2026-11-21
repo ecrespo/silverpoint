@@ -105,8 +105,8 @@ change DD-062 and, through it, tasks T-306 and T-309.
 
 ### 11g — Gates
 
-- [ ] **T-322** `tools/visual-gate`: the `embed` target (DD-065) over the PR matrix in CI and the full matrix nightly; functions-in-props fixtures counted and reported. *REQ-664*
-- [ ] **T-323** [P] The embed as a column of the pixel gate. *REQ-664*
+- [x] **T-322** `tools/visual-gate`: the `embed` target (DD-065) over the PR matrix in CI and the full matrix nightly; functions-in-props fixtures counted and reported. *REQ-664* — **done 2026-11-21**: `e2e/embed-gate.spec.ts` on the vite-react bench's new `embed.html` (the fixture's spec, `fixtureSpec` in the harness, held equal to `specOfFixture`), tree compared with the canonical page's SVG; `SP_MATRIX=full` for the full matrix (the nightly workflow stays disabled, user decision); skipped fixtures counted (0)
+- [x] **T-323** [P] The embed as a column of the pixel gate. *REQ-664* — **done 2026-11-21**: the same spec screenshots the embed and passes the three Art. 3 comparisons against the canonical page and the golden image; `pixel-docker.sh` runs it. 632/632 in the pinned image
 - [x] **T-324** `e2e/embed.spec.ts` and the CI job `browser-embed` (three engines) over `examples/embed-html`: keyboard, pointer, resize, `update`/`destroy`, the element, `mountAll`, the CSP page, the sandboxed frame, an empty request log, axe; in Firefox and WebKit the PoC's scenarios too, OQ-H2 included (carried from T-290). *REQ-665*
 - [x] **T-325** `conformance/`: `conformance.json` generated and checked, `conformance()` run in Node and in the browser against the built files (I-60). *REQ-666*
 
@@ -114,7 +114,7 @@ change DD-062 and, through it, tasks T-306 and T-309.
 
 - [x] **T-326** `examples/embed-html` (static files, no build step, served by the e2e) and the docs site's `#/embed` page: the element, `mount`, `renderToHTML`, the host list from the agent catalog. *REQ-667*
 - [x] **T-327** README of `@silverpoint/embed`; the root README's package table; the changeset (`minor`); the first publish per [`first-publish.md`](first-publish.md). *REQ-629, REQ-667*
-- [ ] **T-328** [P] [`sibling-prompts.md`](sibling-prompts.md) brought up to date with what was built; the eight spec packs in [`repositories/`](repositories/README.md) re-read against the released API and corrected. *REQ-661, REQ-666*
+- [x] **T-328** [P] [`sibling-prompts.md`](sibling-prompts.md) brought up to date with what was built; the eight spec packs in [`repositories/`](repositories/README.md) re-read against the released API and corrected. *REQ-661, REQ-666* — **done 2026-11-21**: no pack contradicts the built API; `repositories/README.md` §7 and an *As built* note in each affected pack (56 bindable charts, `demo.options`, no `HOST_CATALOG` in the standalone files, mounting on load, `embedFonts` needs a face)
 - [ ] **T-329** Fold the deltas into `specs/` (PRD v1.19, API v1.16, TD v1.16, Data Model v1.14, Plan v1.14, Constitution v1.12); `CLAUDE.md` status; traceability regenerated. *Art. 9*
 
 ## Phase 12 — the hosts (outside this repository)

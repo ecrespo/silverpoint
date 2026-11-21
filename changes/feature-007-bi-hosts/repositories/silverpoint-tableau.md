@@ -47,6 +47,9 @@ and appearance. **Out:** dashboard extensions; Tableau Exchange listing; a sandb
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** `scripts/make-trex.ts` reads the pinned `host-catalog.json` (56 manifests); the page binds with `Silverpoint.specFromTable` from the standalone file, which does not carry `HOST_CATALOG`. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **TAB-DD-01 — One manifest per chart, one page.** A viz extension's Marks-card tiles are fixed by
   its manifest, and Tableau's own viz extensions are one chart each. Generating a `.trex` per chart
   gives every chart its exact tiles; they all open the same hosted page (H-3:

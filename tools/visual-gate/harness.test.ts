@@ -13,6 +13,15 @@ describe('example harness', () => {
     }
   });
 
+  test('REQ-664 · the bench\'s embed page mounts the spec the embed gates derive from each fixture (DD-065)', async () => {
+    const { fixtureSpec } = await import('../../examples/harness/index.js');
+    const { specOfFixture } = await import('./embed-fixtures');
+    const { FIXTURES_DIR } = await import('./fixtures');
+    for (const fixture of loadFixtures()) {
+      expect(fixtureSpec(fixtureById(fixture.id)), fixture.id).toEqual(specOfFixture(fixture, FIXTURES_DIR));
+    }
+  });
+
   test('REQ-093 · the default page shows the demo chart with a pinned id and size', () => {
     expect(DEMO_PROPS).toMatchObject({ id: 'sp-demo', width: 320 });
     expect(DEMO_PROPS.data).toBeUndefined();

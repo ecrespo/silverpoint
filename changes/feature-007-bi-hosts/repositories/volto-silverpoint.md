@@ -48,6 +48,9 @@ File content item. **Out:** live queries to external data; the dashboard and UI 
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** The plugin's chart list is the 56 bindable charts of the pinned `host-catalog.json`; thumbnails and demos drawn from a chart's `demo` pass `demo.options` to `specFromTable`. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **VOL-DD-01 — The schema is generated.** `scripts/make-schema.ts` writes the block's schema
   fragments per chart from the host catalog (H-3); the block's schema enhancer picks the fragment of
   the chosen chart.

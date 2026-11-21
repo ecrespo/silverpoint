@@ -49,6 +49,9 @@ contributing upstream (the project prefers ECharts-based plugins).
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** The plugin's chart list is the 56 bindable charts of the pinned `host-catalog.json`; thumbnails and demos drawn from a chart's `demo` pass `demo.options` to `specFromTable`. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **SUP-DD-01 — Classic plugin first** (silverpoint D7): an npm package registered in
   `MainPreset.js`, which needs a custom Superset frontend build. It is the documented, stable path.
 - **SUP-DD-02 — One plugin per chart, generated.** Superset's chart gallery is a list of viz types;

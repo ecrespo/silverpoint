@@ -46,6 +46,9 @@ events back into the workflow; components for Data Apps beyond what a view gives
 
 ## Design decisions
 
+> **As built in `0.11.0` (T-328).** 56 nodes. KN-REQ-009 runs each node against its demo table *with `demo.options`*, or the drawn demo differs from the library's. The image port of KN-REQ-006 goes through the `silverpoint` package's `to_svg()`, i.e. the vendored `full` module. See [§7 of the README](README.md#7-the-built-api-as-the-packs-meet-it-t-328-2026-11-21).
+
+
 - **KN-DD-01 — One node per chart, generated.** KNIME's own views are one node per chart, and a
   static dialog with a column selector per role is what users expect. A single node with a chart
   picker would need a dialog that reshapes itself. `scripts/make_nodes.py` writes the node modules
