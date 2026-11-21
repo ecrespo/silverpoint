@@ -459,3 +459,53 @@ describe('Vue toasts (T-216)', () => {
     expect(document.activeElement).toBe(host.querySelector('section'));
   });
 });
+
+describe('Vue SpButton as an overlay\'s trigger (delta-014)', () => {
+  const { SpModal, SpDrawer, SpPopover, SpTooltip, SpButton } = Ui as unknown as Record<string, Component>;
+  const sp = (text: string) => () => h(SpButton!, null, { default: () => text });
+
+  test.each([
+    ['modal', SpModal, 'dialog', 'o--dialog'],
+    ['drawer', SpDrawer, 'dialog', 'o--dialog'],
+    ['popover', SpPopover, 'dialog', 'o--popover'],
+  ] as const)('REQ-500 · the %s\'s ARIA reaches the <button> SpButton renders, and toggles', async (_, overlay, popup, controls) => {
+    const host = mount(() => h(overlay!, { id: 'o', title: 'T' }, { trigger: sp('Open'), default: () => 'Body' }));
+    await nextTick();
+    const button = host.querySelector('button')!;
+    expect(button.getAttribute('aria-haspopup')).toBe(popup);
+    expect(button.getAttribute('aria-controls')).toBe(controls);
+    expect(host.querySelector(`#${controls}`)).not.toBeNull();
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+    await click(button);
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  test('REQ-500 · the server writes the trigger\'s ARIA on SpButton', async () => {
+    const html = await renderToString(createSSRApp({ render: () => h(SpModal!, { id: 'm', title: 'T' }, { trigger: sp('Edit'), default: () => 'B' }) }));
+    const tag = html.slice(html.indexOf('<button'), html.indexOf('>', html.indexOf('<button')) + 1);
+    expect(tag).toContain('aria-haspopup="dialog"');
+    expect(tag).toContain('aria-expanded="false"');
+    expect(tag).toContain('aria-controls="m--dialog"');
+  });
+
+  test('REQ-492 · a second press on the SpButton of an open popover closes it, even after the light dismiss', async () => {
+    const host = mount(() => h(SpPopover!, { title: 'Order' }, { trigger: sp('Details'), default: () => 'Body' }));
+    await nextTick();
+    const button = host.querySelector('button')!;
+    const popover = host.querySelector('[popover]')!;
+    await click(button);
+    expect(shown(popover)).toBe(true);
+    button.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    (popover as HTMLElement).hidePopover();
+    await nextTick();
+    await click(button);
+    expect(shown(popover)).toBe(false);
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  test('REQ-500 · a tooltip\'s aria-describedby reaches SpButton', async () => {
+    const host = mount(() => h(SpTooltip!, { id: 't', text: 'Copy' }, { trigger: sp('Copy') }));
+    await nextTick();
+    expect(host.querySelector('button')!.getAttribute('aria-describedby')).toBe('t--tooltip');
+  });
+});

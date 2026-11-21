@@ -432,3 +432,56 @@ describe('React toasts (T-216)', () => {
     expect(document.activeElement).toBe(host.querySelector('section'));
   });
 });
+
+describe('React SpButton as an overlay\'s trigger (delta-014)', () => {
+  const { SpButton } = Client;
+
+  test.each([
+    ['modal', (t: ReactElement) => <SpModal id="o" title="Edit" trigger={t}>Body</SpModal>, 'dialog', 'o--dialog'],
+    ['drawer', (t: ReactElement) => <SpDrawer id="o" title="Filters" trigger={t}>Body</SpDrawer>, 'dialog', 'o--dialog'],
+    ['popover', (t: ReactElement) => <SpPopover id="o" title="Order" trigger={t}>Body</SpPopover>, 'dialog', 'o--popover'],
+  ] as const)('REQ-500 · the %s\'s ARIA reaches the <button> SpButton renders, and toggles', (_, overlay, popup, controls) => {
+    const { host } = mount(overlay(<SpButton>Open</SpButton>));
+    const button = host.querySelector('button')!;
+    expect(button.getAttribute('aria-haspopup')).toBe(popup);
+    expect(button.getAttribute('aria-controls')).toBe(controls);
+    expect(host.querySelector(`#${controls}`)).not.toBeNull();
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+    click(button);
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  test('REQ-500 · the server writes the trigger\'s ARIA on SpButton', () => {
+    const html = renderToStaticMarkup(<SpModal id="m" title="T" trigger={<SpButton>Edit</SpButton>}>B</SpModal>);
+    const tag = html.slice(0, html.indexOf('>') + 1);
+    expect(tag).toMatch(/^<button /);
+    expect(tag).toContain('aria-haspopup="dialog"');
+    expect(tag).toContain('aria-expanded="false"');
+    expect(tag).toContain('aria-controls="m--dialog"');
+  });
+
+  test('REQ-492 · a second press on the SpButton of an open popover closes it, even after the light dismiss', () => {
+    const { host } = mount(<SpPopover title="Order" trigger={<SpButton>Details</SpButton>}>Body</SpPopover>);
+    const button = host.querySelector('button')!;
+    const popover = host.querySelector('[popover]')!;
+    click(button);
+    expect(shown(popover)).toBe(true);
+    act(() => {
+      button.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+      (popover as HTMLElement).hidePopover();
+    });
+    click(button);
+    expect(shown(popover)).toBe(false);
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  test('REQ-500 · a tooltip\'s aria-describedby reaches SpButton', () => {
+    const { host } = mount(<SpTooltip id="t" text="Copy" trigger={<SpButton>Copy</SpButton>} />);
+    expect(host.querySelector('button')!.getAttribute('aria-describedby')).toBe('t--tooltip');
+  });
+
+  test('delta-014 · SpButton forwards nothing else: an unknown attribute stays off its root', () => {
+    const html = renderToStaticMarkup(<SpButton {...({ 'data-x': '1', title: 'no' } as Record<string, string>)}>A</SpButton>);
+    expect(html).not.toContain('data-x');
+  });
+});

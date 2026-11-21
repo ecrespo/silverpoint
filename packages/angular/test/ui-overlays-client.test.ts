@@ -2,7 +2,7 @@
 import { ApplicationRef, Component, provideZonelessChangeDetection, signal, type Type } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { SpDrawer, SpDropdownMenu, SpModal, SpPopover, SpSelect, SpToast, SpToaster, SpTooltip, SpTrigger } from '@silverpoint/angular/ui';
+import { SpButton, SpDrawer, SpDropdownMenu, SpModal, SpPopover, SpSelect, SpToast, SpToaster, SpTooltip, SpTrigger } from '@silverpoint/angular/ui';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { stubPopoverApi } from '../../../tools/visual-gate/popover-stub';
 
@@ -376,5 +376,44 @@ describe('Angular toasts (T-216)', () => {
     expect(two!.getAttribute('data-state')).toBe('closed');
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'F8', bubbles: true }));
     expect(document.activeElement).toBe($('section'));
+  });
+});
+
+describe('Angular SpButton as an overlay\'s trigger (delta-014)', () => {
+  test.each([
+    ['modal', '<sp-modal id="o" title="T"><button spButton spTrigger>Open</button>body</sp-modal>', 'o--dialog'],
+    ['drawer', '<sp-drawer id="o" title="T"><button spButton spTrigger>Open</button>body</sp-drawer>', 'o--dialog'],
+    ['popover', '<sp-popover id="o" title="T"><button spButton spTrigger>Open</button>body</sp-popover>', 'o--popover'],
+  ])('REQ-500 · the %s\'s ARIA reaches a <button spButton spTrigger>, and toggles', async (_, template, controls) => {
+    const app = await mount(template, {}, [SpButton]);
+    const button = $('button[spButton]');
+    expect(button.classList.contains('sp-button')).toBe(true);
+    expect(button.getAttribute('aria-haspopup')).toBe('dialog');
+    expect(button.getAttribute('aria-controls')).toBe(controls);
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+    button.click();
+    await app.whenStable();
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  test('REQ-492 · a second press on the spButton of an open popover closes it, even after the light dismiss', async () => {
+    const app = await mount('<sp-popover title="T"><button spButton spTrigger>Open</button>body</sp-popover>', {}, [SpButton]);
+    const popover = $('[popover]');
+    const button = $('button[spButton]');
+    button.click();
+    await app.whenStable();
+    expect(shown(popover)).toBe(true);
+    button.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    popovers.light(popover);
+    await app.whenStable();
+    button.click();
+    await app.whenStable();
+    expect(shown(popover)).toBe(false);
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  test('REQ-500 · a tooltip\'s aria-describedby reaches a <button spButton spTrigger>', async () => {
+    await mount('<sp-tooltip id="t" text="Copy"><button spButton spTrigger>Copy</button></sp-tooltip>', {}, [SpButton]);
+    expect($('button[spButton]').getAttribute('aria-describedby')).toBe('t--tooltip');
   });
 });
