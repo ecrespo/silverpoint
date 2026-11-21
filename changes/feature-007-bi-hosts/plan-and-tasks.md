@@ -7,7 +7,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 4, approved 2026-11-20. **Implemented 2026-11-20** (steps 11a..11h, test-first per [`tdd-plan.md`](tdd-plan.md)), except T-322/T-323 (the browser tree gate and the pixel column), T-328 (re-reading the packs against the API) and T-329 (the fold); see the ledger below. Not released |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — gate 4, approved 2026-11-20. **Implemented** 2026-11-20 (steps 11a..11h, test-first per [`tdd-plan.md`](tdd-plan.md)) and completed 2026-11-21 (T-322, T-323, T-328, T-329; deviations 1–9 accepted). Not released |
 | **Branch** | `feat/silverpoint-0.11` (off `develop`, after the spec branch merges into it) |
 | **Prerequisite** | Gates 0..3 approved; the PoC done (step 11a) — both met 2026-11-20 |
 
@@ -115,7 +115,7 @@ change DD-062 and, through it, tasks T-306 and T-309.
 - [x] **T-326** `examples/embed-html` (static files, no build step, served by the e2e) and the docs site's `#/embed` page: the element, `mount`, `renderToHTML`, the host list from the agent catalog. *REQ-667*
 - [x] **T-327** README of `@silverpoint/embed`; the root README's package table; the changeset (`minor`); the first publish per [`first-publish.md`](first-publish.md). *REQ-629, REQ-667*
 - [x] **T-328** [P] [`sibling-prompts.md`](sibling-prompts.md) brought up to date with what was built; the eight spec packs in [`repositories/`](repositories/README.md) re-read against the released API and corrected. *REQ-661, REQ-666* — **done 2026-11-21**: no pack contradicts the built API; `repositories/README.md` §7 and an *As built* note in each affected pack (56 bindable charts, `demo.options`, no `HOST_CATALOG` in the standalone files, mounting on load, `embedFonts` needs a face)
-- [ ] **T-329** Fold the deltas into `specs/` (PRD v1.19, API v1.16, TD v1.16, Data Model v1.14, Plan v1.14, Constitution v1.12); `CLAUDE.md` status; traceability regenerated. *Art. 9*
+- [x] **T-329** Fold the deltas into `specs/` (PRD v1.19, API v1.16, TD v1.16, Data Model v1.14, Plan v1.14, Constitution v1.12); `CLAUDE.md` status; traceability regenerated. *Art. 9* — **done 2026-11-21**, with delta-014; `tools/spec-check/feature-007.test.ts` holds the fold
 
 ## Phase 12 — the hosts (outside this repository)
 
@@ -170,7 +170,10 @@ embed's entries only (the full run exhausted this machine's memory): see deviati
 | 11g | `e2e/embed.spec.ts` (`browser-embed` job) | 8/8 in Chromium 153 locally; Firefox and WebKit run in CI | — |
 | 11h | README examples run (`readme.test.ts`); docs `#/embed` | green | — |
 
-### Deviations from the approved artifacts — to review
+### Deviations from the approved artifacts — resolved 2026-11-21
+
+**All nine accepted by the user (2026-11-21)** and folded as built: deviation 1 by raising the
+limits to 34 / 11 kB; 2–9 as described below. The deltas carry them as "amended in implementation".
 
 1. **Two entry budgets exceed gate 3's numbers.** Standalone files are within budget
    (`silverpoint-embed.js` 126.4 kB, `.full.js` 202.9 kB gzip, size-limit). The main entry's own
@@ -199,7 +202,10 @@ embed's entries only (the full run exhausted this machine's memory): see deviati
 9. **`embedFonts` in `silverpoint-embed.js`** (no face) draws the fallback stack and reports
    `SP013`; the module build and the `full` files embed the face.
 
-### Not done here
+### Not done here (2026-11-20) — closed 2026-11-21
+
+All three closed on 2026-11-21: T-322 and T-323 by `e2e/embed-gate.spec.ts` (632/632 in the pinned
+image), T-328 by `repositories/README.md` §7, T-329 by the fold.
 
 - T-322, T-323: the embed as a target of the browser tree gate and a column of the pixel gate (the
   happy-dom I-56 test covers the tree over the PR matrix; the pinned-Chromium run and the goldens are

@@ -307,4 +307,39 @@ describe('bundle budgets (size-limit)', () => {
       rmSync(dir, { recursive: true, force: true });
     }
   }, 120_000);
+
+  /**
+   * REQ-650 (DD-062, amended in implementation 2026-11-21): the four standalone files within the
+   * PoC's budgets, gzip; the main and client entries' own code at 34 / 11 kB, the core and the grounds
+   * left out (the main entry carries EB Garamond 400 for `embedFonts`).
+   */
+  const EMBED_BUDGETS = {
+    '@silverpoint/embed, silverpoint-embed.js (REQ-650, DD-062)': '140 kB',
+    '@silverpoint/embed, silverpoint-embed.mjs (REQ-650, DD-062)': '140 kB',
+    '@silverpoint/embed, silverpoint-embed.full.js (REQ-650, DD-062)': '220 kB',
+    '@silverpoint/embed, silverpoint-embed.full.mjs (REQ-650, DD-062)': '220 kB',
+    '@silverpoint/embed main entry, own code (REQ-650)': '34 kB',
+    '@silverpoint/embed/client entry, own code (REQ-650)': '11 kB',
+  } as const;
+
+  test('REQ-650 · the standalone files and the embed entries are budgeted as DD-062 records', () => {
+    const entries = Object.keys(EMBED_BUDGETS).map((name) => config.find((e) => e.name === name));
+    expect(entries.map((e) => e?.limit)).toEqual(Object.values(EMBED_BUDGETS));
+    expect(entries.every((e) => e?.gzip === true)).toBe(true);
+    for (const own of entries.slice(4) as Entry[]) expect(own.ignore, own.name).toEqual(['@silverpoint/core', '@silverpoint/grounds']);
+  });
+
+  test('REQ-650 · every embed budget holds on the built files', () => {
+    const dir = mkdtempSync(join(repo, '.size-limit-'));
+    try {
+      const file = join(dir, 'embed.json');
+      writeFileSync(file, JSON.stringify(config.filter((e) => e.name in EMBED_BUDGETS).map((e) => ({ ...e, path: join(repo, e.path ?? '') }))));
+      const { status, results } = sizeLimit(file);
+      expect(results.filter((r) => !r.passed).map((r) => r.name)).toEqual([]);
+      expect(results).toHaveLength(6);
+      expect(status).toBe(0);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }, 180_000);
 });

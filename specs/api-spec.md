@@ -6,10 +6,10 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **API version** | v1.15 |
-| **Date** | 2026-11-14 |
-| **Related PRD** | [`prd.md`](prd.md) v1.18 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
+| **API version** | v1.16 |
+| **Date** | 2026-11-21 |
+| **Related PRD** | [`prd.md`](prd.md) v1.19 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.12 |
 | **Surface** | npm packages; one public, read-only MCP endpoint (§14) |
 
 ---
@@ -43,7 +43,8 @@ that the Analyze gate does not read it as an omission:
 | `@silverpoint/vue` | Vue 3 components authored with `<script setup>`: charts, the dashboard, the UI components, `SpTimeline` and `SpDeck` | `peer`: `vue`; optional `peer`: `@knight-lab/timelinejs` (§1.3), `@silverpoint/marp` (§1.4) |
 | `@silverpoint/fonts` | **Optional.** Self-hosted EB Garamond (400, 500 and 400 italic) plus its `@font-face` rules | none |
 | `@silverpoint/tailwind` | **Optional.** A Tailwind preset naming the public `--sp-` variables as theme tokens (§10.4, REQ-047) | none, not even a peer |
-| `@silverpoint/mcp` | **Optional, for agents.** The agent catalog and an MCP server over stdio (`silverpoint-mcp`) and stateless Streamable HTTP (`./http`) (§14) | `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/marp`, `@modelcontextprotocol/sdk`, `zod`; no framework, no peer |
+| `@silverpoint/mcp` | **Optional, for agents.** The agent catalog and an MCP server over stdio (`silverpoint-mcp`) and stateless Streamable HTTP (`./http`) (§14) | `@silverpoint/core`, `@silverpoint/grounds`, `@silverpoint/marp`, `@silverpoint/embed` (REQ-660), `@modelcontextprotocol/sdk`, `zod`; no framework, no peer |
+| `@silverpoint/embed` | **Optional, for hosts.** Any chart from one JSON spec: a DOM-free render, a framework-free client, the same as a single standalone file, the host catalog and the conformance kit (§1.5, §3.7, §15) | `@silverpoint/core`, `@silverpoint/grounds`; no framework, no peer |
 | `@silverpoint/marp` | **Optional.** Marp/Marpit Markdown slide decks in the silverpoint style: the engine, the `silverpoint` theme, the directives, the chart fence and the deck controller, framework-free (§1.4, §3.6) | `@silverpoint/core`, `@silverpoint/grounds`, `@marp-team/marpit` `^3.2.3`; no framework, no peer |
 
 Every chart is importable by subpath, so that an app using one does not drag in all 60
@@ -228,6 +229,36 @@ import { SpDeck } from '@silverpoint/react/deck';
 ```
 ```html
 <sp-deck [markdown]="md" [page]="page()" (pageChange)="page.set($event.page)" [showNotes]="true" />
+```
+
+### 1.5 Host embedding (feature-007)
+
+| Entry | Environment | Exports |
+|---|---|---|
+| `@silverpoint/embed` | any (no DOM) | `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `CHART_SLUGS`, `VERSION`, `STANDALONE_INTEGRITY`, the types of §3.7 |
+| `@silverpoint/embed/client` | browser | `mount`, `mountAll`, `defineElement`, `hostAppearance`, `ELEMENT_NAME`, and everything of the main entry |
+| `@silverpoint/embed/hosts` | any (no DOM) | `HOST_CATALOG`, `specFromTable`, `hostCatalogFollows`, the types of §15 |
+| `@silverpoint/embed/conformance` | any (no DOM) | `CONFORMANCE`, `conformance(renderToSVG)` (§15.4) |
+| `@silverpoint/embed/host-catalog.json` | — | the host catalog file |
+| `@silverpoint/embed/conformance.json` | — | the conformance file |
+| `@silverpoint/embed/silverpoint-embed.js`, `.mjs` | browser, or Node for the DOM-free functions | the standalone file: main + client + `specFromTable` and `hostCatalogFollows` (over a generated binding table; `HOST_CATALOG` itself, 580 kB with its demos, is not in the file: hosts pin `host-catalog.json`) + the `conformance` function, no import; the script build defines `globalThis.Silverpoint` and the element, and mounts every `[data-sp-embed]` once the document is parsed (amended in implementation), so `renderToHTML`'s interactive markup needs no inline script. Importing the module build touches no DOM global, so Node can call `renderToSVG`, `specFromTable` and `conformance` from it |
+| `@silverpoint/embed/silverpoint-embed.full.js`, `.full.mjs` | browser | the same with EB Garamond's three cuts inlined |
+| `@silverpoint/embed/integrity.json` | — | `{ "<file>": "sha384-…" }` for the four standalone files (REQ-651) |
+
+The module entries import `@silverpoint/core` and `@silverpoint/grounds` normally, so a bundler
+shares them with an adapter. The standalone files inline them and are for hosts with no bundler or
+no dependency allowance. Do not load a standalone file and an adapter on one page expecting them to
+share a provider: they do not.
+
+```html
+<!-- the whole integration, for a host that can serve one file -->
+<script src="/static/silverpoint-embed.full.js"></script>
+<silverpoint-chart ground="silverpoint" substrate="cream">
+  <script type="application/json">
+    { "chart": "bar-chart", "data": [{ "team": "A", "wins": 12 }, { "team": "B", "wins": 9 }],
+      "props": { "xKey": "team", "valueKey": "wins", "title": "Wins" } }
+  </script>
+</silverpoint-chart>
 ```
 
 ## 2. Public versus internal surface
@@ -867,6 +898,149 @@ never evaluated. An info string other than `silverpoint` (` ```js `) is a normal
   <figcaption>Chart fence on slide 2: unknown chart "barchart". Did you mean "bar-chart"?</figcaption>
 </figure>
 ```
+
+### 3.7 Host embedding (feature-007)
+
+#### Types
+
+```ts
+/** A chart as data. The deck fence's spec (Data Model §2.32), with no slide to inherit from. */
+export interface ChartSpec {
+  readonly chart: string;                       // catalog slug: "bar-chart"
+  readonly data?: unknown;                      // the chart's demo dataset when absent
+  readonly props?: Readonly<Record<string, unknown>>;   // own and common view props; not the fields below
+  readonly width?: number;                      // 160..1600; measured by the client when absent, 480 by the DOM-free render
+  readonly height?: number;                     // 90..1200; the recipe's default when absent
+  readonly id?: string;                         // /^[A-Za-z0-9_.:-]+$/; the slug when absent (DOM-free) or a per-mount id (client)
+  readonly ground?: string;
+  readonly substrate?: string;
+  readonly mode?: 'ink' | 'precision';
+  readonly palette?: PaletteName | Palette;
+}
+
+export type SpecError =
+  | { readonly kind: 'json'; readonly message: string }
+  | { readonly kind: 'shape'; readonly message: string }
+  | { readonly kind: 'chart'; readonly chart: string; readonly suggestions: readonly string[] }
+  | { readonly kind: 'prop'; readonly props: readonly string[] }
+  | { readonly kind: 'size'; readonly width?: number; readonly height?: number }
+  | { readonly kind: 'limit'; readonly message: string }                       // REQ-635
+  | { readonly kind: 'role'; readonly missing: readonly string[]; readonly unknownColumns: readonly string[] }  // specFromTable only
+  | { readonly kind: 'diagnostic'; readonly code: string; readonly message: string };  // an error-severity SPnnn at render
+
+export type SpecResult<T> = { readonly ok: true; readonly value: T; readonly diagnostics: readonly EmbedDiagnostic[] }
+                          | { readonly ok: false; readonly error: SpecError; readonly diagnostics: readonly EmbedDiagnostic[] };
+
+export interface EmbedDiagnostic { readonly code: string; readonly severity: 'warn' | 'error'; readonly message: string }
+```
+
+`width` and `height` ranges are wider than the fence's (a slide is at most 1280 × 720; a report tile
+is not). Everything else is the fence's rule, word for word: unknown top-level fields, a field
+repeated inside `props`, an undeclared prop and an unknown preset are errors (REQ-631).
+
+#### The DOM-free entry
+
+```ts
+/** Accepts a parsed value or a JSON string. Total: never throws (REQ-631). */
+export function validateSpec(input: unknown): SpecResult<ChartSpec>;
+
+/** The library's pipeline for a spec: the recipe by slug, then `renderChart`. */
+export function renderSpec(spec: ChartSpec, environment?: Partial<RenderEnvironment>): SpecResult<RenderedChart>;
+
+export interface SVGOptions { readonly embedFonts?: boolean }   // EB Garamond 400 as a data URI, as `render_chart` does
+export function renderToSVG(spec: ChartSpec | string, options?: SVGOptions): SpecResult<{ svg: string; width: number; height: number }>;
+
+export interface HTMLOptions {
+  /** `document`: `<!doctype html>` … ; `fragment`: one `<div>` to place in a page. Default `document`. */
+  readonly as?: 'document' | 'fragment';
+  /** Adds the spec as JSON and `data-sp-embed`, so a client on the page mounts it. Default `false`: a static chart. */
+  readonly interactive?: boolean;
+  /** With `interactive`: where the standalone file comes from. `inline` needs `script`. Default `none` (the page loads it). */
+  readonly script?: { readonly src: string; readonly integrity?: string } | { readonly inline: string } | 'none';
+  /** `inline` (default) writes the stylesheet in a `<style>`; `none` leaves styling to the page or the client. */
+  readonly styles?: 'inline' | 'none';
+  readonly embedFonts?: boolean;
+  readonly title?: string;        // the document's <title>; the chart's name when absent
+  readonly lang?: string;         // default "en"
+}
+export function renderToHTML(spec: ChartSpec | string, options?: HTMLOptions): SpecResult<{ html: string }>;
+
+export const CHART_SLUGS: readonly string[];   // 60
+export const VERSION: string;
+/** `{ "<file>": "sha384-…" }` for the four standalone files, written into `dist` after hashing (amended in implementation). */
+export const STANDALONE_INTEGRITY: Readonly<Record<string, string>>;
+```
+
+- `STANDALONE_INTEGRITY` is what `generate_code { framework: 'html' }` writes into its `<script>`
+  tag (§14.3): read from the package's sources, before a build, it is empty, and the tool's `notes`
+  name `integrity.json` instead. The MCP imports no Node built-in (REQ-551), so it cannot read the file.
+- `embedFonts` in `silverpoint-embed.js`, which carries no face, draws the ground's fallback stack and
+  reports `SP013` (warn); the module entries and the `full` files embed EB Garamond 400 (amended in
+  implementation).
+
+- `renderToSVG` is `render_chart`'s function moved here (REQ-660): the ground's stylesheet as the
+  root's first child, nothing else in the markup changed (REQ-632).
+- `renderToHTML` writes `toChartRootString`'s markup: the focusable root, the SVG, the live region,
+  the data table. A static document is a complete, accessible chart with no script at all.
+- With `interactive`, the root sits inside
+  `<div data-sp-embed><script type="application/json">…</script>…</div>`; the JSON is escaped for a
+  script context (`<`, `>`, `&`, U+2028, U+2029 as `\uXXXX`). The client adopts the server's nodes if
+  their serialisation equals what it would build, and replaces them otherwise.
+- An invalid spec returns `ok: false` and, for `renderToHTML`, no markup: the caller decides what to
+  show. (The client, which must show something, draws the error figure — REQ-668.)
+
+#### The client
+
+```ts
+export interface MountOptions {
+  readonly onActiveChange?: (item: ActiveItem | null) => void;
+  readonly onSelect?: (item: ActiveItem) => void;
+  readonly onDiagnostic?: (diagnostic: EmbedDiagnostic) => void;   // console.warn/error when absent, outside production
+  /** Defaults under the spec's own fields (the host's theme). */
+  readonly appearance?: { readonly ground?: string; readonly substrate?: string; readonly mode?: 'ink' | 'precision'; readonly palette?: PaletteName | Palette };
+  readonly styles?: 'adopt' | 'none';              // default 'adopt' (REQ-643)
+  readonly fonts?: 'embedded' | 'none';            // default 'embedded' in a `full` file, 'none' otherwise (REQ-647)
+  readonly locale?: string;
+}
+
+export interface ChartMount {
+  readonly element: HTMLElement;                   // the chart root
+  update(spec: ChartSpec | string, options?: Pick<MountOptions, 'appearance'>): void;   // REQ-642
+  getGeometry(): Geometry | null;                  // null while showing the error figure
+  toSVGString(options?: { standalone?: boolean }): string;   // canonical markup; with `standalone`, self-painting
+  destroy(): void;
+}
+
+export function mount(target: Element, spec: ChartSpec | string, options?: MountOptions): ChartMount;
+export function mountAll(root?: ParentNode, options?: MountOptions): ChartMount[];   // REQ-646
+export const ELEMENT_NAME = 'silverpoint-chart';
+export function defineElement(name?: string): void;   // idempotent; a no-op without `customElements`
+
+/** REQ-648. Picks among declared grounds and substrates; computes no colour of its own. */
+export function hostAppearance(host: { background: string; foreground?: string; highContrast?: boolean }): { ground: string; substrate: string; mode: 'ink' | 'precision' };
+```
+
+**Events (REQ-639).** On the target: `sp-activechange` (`detail: ActiveItem | null`), `sp-select`
+(`detail: ActiveItem`), `sp-diagnostic` (`detail: EmbedDiagnostic`). All bubble and are composed;
+none is cancelable.
+
+**The element (REQ-645).**
+
+| Attribute / property | Meaning |
+|---|---|
+| child `<script type="application/json">` | the spec; read on connection and when the child list changes |
+| `spec` (property) | a `ChartSpec` object or JSON string; wins over the child |
+| `chart`, `ground`, `substrate`, `mode`, `palette`, `width`, `height` (attributes) | override the spec's fields; observed |
+| `styles`, `fonts` (attributes) | as `MountOptions` |
+| `mounted` (property, read-only) | the `ChartMount` or `null` |
+
+The element renders in the light DOM by default, so the page's `--sp-*` overrides reach it as they
+reach an adapter's chart. With the boolean attribute `shadow` it attaches an open shadow root and
+adopts the stylesheet there (DD-070).
+
+**Ids.** A mount with no `spec.id` takes `sp-embed-<n>`, `n` counting mounts in document order from
+the first; `mountAll` over server-rendered roots reuses the id the server wrote. Give `id` whenever
+the output must be stable across pages (Art. 4).
 
 ## 4. Naming conventions
 
@@ -1705,7 +1879,7 @@ const file: string = standaloneSVG(chart.toSVGString(), css);
 `@silverpoint/react/dashboard` still carries no `"use client"`: its `section` is a client component
 of the `dashboard-link` module (`DashboardRoot`), which reads the provider (§7.1, #17).
 
-**UI components (§7.2).** Function components; `forwardRef` to the native element (`SpButton`, `SpInput` and the hidden inputs); `onChange` receives the value. `SpTabs` renders `SpTabPanel` children matched by `value`. Display components also have server entries (§1.2).
+**UI components (§7.2).** Function components; `forwardRef` to the native element (`SpButton`, `SpInput` and the hidden inputs); `onChange` receives the value. `SpButton` forwards the trigger contract an overlay clones onto it —`aria-haspopup`, `aria-expanded`, `aria-controls`, `aria-describedby` and `onPointerDown`— and nothing else (delta-014; Vue's `SpButton` forwards the same attributes). `SpTabs` renders `SpTabPanel` children matched by `value`. Display components also have server entries (§1.2).
 
 **Composed components, overlays and the timeline (§7.4).** Function components; `forwardRef` to the
 native element (`<textarea>`, the number `<input>`, the Select's trigger, the `<dialog>`). Overlay
@@ -2073,6 +2247,21 @@ Palettes (§3.4) add nothing to the preset: eight of a palette's nine fields set
 properties it already maps, so its utilities follow a palette as they follow a ground (the ninth,
 `focus`, sets `--sp-ui-focus-color`, which the preset does not name).
 
+### 10.5 The embed's wrapper markup (feature-007)
+
+The chart root is §10's, unchanged. Around it:
+
+```html
+<silverpoint-chart …>                 <!-- or any element given to mount(); or div[data-sp-embed] -->
+  <script type="application/json">…</script>   <!-- kept; never rendered -->
+  <div class="sp-root sp-ground-…" …> … </div> <!-- §10: svg.sp-chart, .sp-live, .sp-table-box -->
+</silverpoint-chart>
+```
+
+The error figure (REQ-668) is the deck fence's: `figure.sp-embed-error[role="alert"]` holding the
+error's message as text, in the ground's type. Parts: `data-sp-embed` (the mount box),
+`data-sp-embed-state="mounted" | "error"`.
+
 ## 11. Catalog of errors and warnings
 
 Stable codes, part of the public surface. Those with `warn` severity are stripped from the
@@ -2124,9 +2313,14 @@ Decks (feature-006) add four codes:
 | `SP027` | warn | REQ-586 | A `ground`, `substrate` or `mode` directive has an unknown value, or a substrate not in the slide's ground; the inherited value holds |
 | `SP028` | warn | REQ-599 | `page` or `defaultPage` is outside `1..total`, or a re-render shrank the deck under the current page; clamped |
 | `SP029` | warn | REQ-576 | The Markdown exceeds a limit (512 KB, 300 slides, 60 fences); rendered up to it |
+| `SP030` | error | REQ-635 | A spec exceeds 2 MB serialised, or its path data exceeds the path byte budget | Send fewer rows, aggregate before charting, or use `hatchFill: 'tile'` |
+| `SP031` | error | REQ-668 | The client was given a spec that does not validate; the error figure is shown | Read the message: it names the field, the unknown chart with suggestions, or the undeclared props |
 
 `SP018` (REQ-319) widens to a deck with no `label` and no heading on slide 1. A deck diagnostic
-carries its slide and, for a fence, its slot. That is 29 codes.
+carries its slide and, for a fence, its slot. `SP030` and `SP031` are the embed's (feature-007): templated in
+`@silverpoint/embed`, in the core's wording, not in the core's table, which every production bundle
+carries (REQ-444); the core declares only their names in `SpCode`, and the agent catalog reads both
+tables. That is 31 codes.
 
 Every diagnostic includes the chart name, the property involved and the `REQ-NNN` that
 motivates it.
@@ -2196,20 +2390,32 @@ measured 9.6 kB own code, 135.6 kB with Marpit, 3.4 kB client, and `SpDeck` 3.3 
 React / Vue / Angular. An `SpDeck` row measures the entry's static graph (`entry: ["index"]`), so the
 chart chunks the fence loads on demand are counted with no deck.
 
+**Host embedding (feature-007).**
+
+| Item | Limit | Verified by |
+|---|---|---|
+| Spec, serialised | 2 MB | REQ-635 |
+| `width` / `height` | 160..1600 / 90..1200 | REQ-631 |
+| `silverpoint-embed.js` / `.mjs` | **140 kB** gzip (measured 121.1 kB; DD-062) | `.size-limit.json` |
+| `silverpoint-embed.full.js` / `.full.mjs` | **220 kB** gzip (measured 197.5 kB) | `.size-limit.json` |
+| `@silverpoint/embed` main entry, own code | **34 kB** gzip (measured 31.6 kB, of which EB Garamond 400 for `embedFonts` is 24 kB; raised from 12 kB, user decision 2026-11-21) | `.size-limit.json` |
+| `@silverpoint/embed/client` entry, own code | **11 kB** gzip (measured 10.1 kB; raised from 8 kB, user decision 2026-11-21) | `.size-limit.json` |
+| One-chart builds of the adapters | unchanged (REQ-444) | existing gate |
+
 ## 13. Versioning and deprecation
 
 SemVer over the public surface of §2.
 
 - **Major**: removing or renaming a prop, a component, an `SPNNN` code, a `--sp-` variable
   or a `part`; changing a default value observably.
-- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, palette presets, new codes, and an optional peer imported by one subpath only (feature-004 is `minor`, shipped as `0.7.0`; feature-006, a new package in the `fixed` group and `deck` subpaths, is `minor`, `0.9.0`).
+- **Minor**: adding charts, components, subpaths, stylesheets, optional props and tokens, grounds, palette presets, new codes, and an optional peer imported by one subpath only (feature-004 is `minor`, shipped as `0.7.0`; feature-006, a new package in the `fixed` group and `deck` subpaths, is `minor`, `0.9.0`; feature-007, `@silverpoint/embed`, is `minor`, `0.11.0`).
 - **Patch**: fixes that do not alter the normalised SVG output. A change that does alter
   it **is not a patch**, even if it is a visual improvement: it breaks the golden images of
   consumers using the same gate.
 
 Deprecation: a prop marked `@deprecated` warns for at least two minor versions before
-being removed in the next major. The nine packages of §1 (`@silverpoint/mcp` and `@silverpoint/marp` included) are always published with the same
-version.
+being removed in the next major. The ten packages of §1 (`@silverpoint/mcp`, `@silverpoint/marp` and `@silverpoint/embed` included) are always published with
+the same version.
 
 ## 14. Agent access (feature-005)
 
@@ -2271,6 +2477,21 @@ joined from the pinned Reflex catalog (`sp_deck`, `reflex_silverpoint_react`; de
 *Amended in implementation (#282):* each event also carries `bindings: { react, vue, angular }`
 (`onPageChange`, `@page-change`, `(pageChange)`), checked against the adapters' sources.
 
+**Hosts (feature-007, REQ-661).** The catalog gains
+
+```jsonc
+"hosts": [
+  { "id": "powerbi", "name": "Power BI", "kind": "bi", "via": "embed",
+    "repository": "https://github.com/ecrespo/silverpoint-powerbi", "package": "silverpoint-powerbi", "registry": "github-release",
+    "status": "planned", "summary": "A custom visual: fields on roles, any of the tabular charts." }
+  // tableau, knime, n8n, superset, volto, plone-classic, python, flask, django, jupyter, databricks
+]
+```
+
+`status` ∈ `planned`, `preview`, `released`; `via` ∈ `embed`, `react`, `python`; `registry` ∈ `npm`,
+`pypi`, `github-release`, `github-pages`, `knime-hub`, `none`. `frameworks` is **not** extended:
+a host is not a framework, and `names`/`imports` stay keyed by the four frameworks.
+
 ### 14.3 Tools (REQ-539)
 
 Every result is `structuredContent` (matching the tool's output schema) plus a short text summary,
@@ -2286,11 +2507,11 @@ suggestions? }`; codes: `unknown_name`, `invalid_input`, `limit_exceeded`, `rend
 | `list_components` | `{ family?: 'ui' \| 'composed' \| 'overlay', group? }` | `{ components: [{ slug, family, group, summary }] }` |
 | `get_component` | `{ slug, framework? }` | the component's catalog entry, as `get_chart` |
 | `recommend_chart` | `{ shape: DataShape, fields?: FieldDesc[], intent: Intent, rows?: number }` | `{ recommendations: [{ slug, score, reasons: string[] }] }`, ≤ 5, deterministic (REQ-540) |
-| `generate_code` | `{ target: { chart } \| { component } \| { deck: { markdown? } }, framework, fields?: Record<role, string>, props?: object, ground?, substrate?, mode?, palette? }` | `{ imports: string[], stylesheets: string[], code: string, notes: string[] }` (REQ-541, REQ-547) |
+| `generate_code` | `{ target: { chart } \| { component } \| { deck: { markdown? } }, framework (`react` \| `vue` \| `angular` \| `reflex` \| `html`), fields?: Record<role, string>, props?: object, ground?, substrate?, mode?, palette? }` | `{ imports: string[], stylesheets: string[], code: string, notes: string[] }` (REQ-541, REQ-547) |
 | `validate_props` | `{ chart, props, width?, height? }` | `{ valid: boolean, diagnostics: [{ code, severity, req, message, todo }], unknownProps: string[] }` (REQ-542) |
 | `render_chart` | `{ chart, props?, data?, width? (320..1600, 480), height?, id?, ground?, substrate?, mode?, palette?, embedFonts?: boolean }` | `{ svg: string, width, height, diagnostics[] }` (REQ-543) |
 | `check_palette` | `{ palette: Palette \| presetName, substrate? }` | `{ findings: PaletteFinding[] }` (REQ-545) |
-| `search_catalog` | `{ query: string, limit? (≤ 20) }` | `{ hits: [{ kind: 'chart' \| 'component' \| 'prop' \| 'diagnostic' \| 'guide', slug, title, snippet }] }` — token match over names, summaries, docs; no embeddings |
+| `search_catalog` | `{ query: string, limit? (≤ 20) }` | `{ hits: [{ kind: 'chart' \| 'component' \| 'prop' \| 'diagnostic' \| 'guide' \| 'host', slug, title, snippet }] }` — token match over names, summaries, docs; no embeddings |
 | `validate_deck` | `{ markdown: string }` | `{ valid, total, diagnostics: [{ code, severity, req, message, todo, slide?, slot? }] }` (REQ-620) |
 | `render_deck` | `{ markdown, slide?: number, ground?, substrate?, mode?, palette?, size?: '16:9' \| '4:3', embedFonts?: boolean }` | `{ html: string, total, diagnostics[] }` — a standalone HTML document (REQ-620) |
 
@@ -2306,8 +2527,8 @@ share of a whole), `matrix` (row × column → value), `hierarchy` (parent/child
 import from its subpath; the element with the accessor props mapped from `fields`; `title` and
 `label`; `ground`, `substrate`, `mode`, `palette` when given. Reflex code is a page function with
 `rx` imports and builder calls; state-driven values are left as `State.<name>` placeholders named in
-`notes`. Overlays get a native `<button type="button">` (Angular `spTrigger`, Reflex `trigger="…"`) as `trigger` while delta-014 is
-open (REQ-547).
+`notes`. Overlays get a native `<button type="button">` (Angular `spTrigger`, Reflex `trigger="…"`) as `trigger`, the pattern the
+example apps run (REQ-547); since delta-014 an `SpButton` is a valid trigger too.
 
 Thirteen tools in all since feature-006. `validate_deck` and `render_deck` (REQ-620) run the deck
 engine of §3.6 under the deck id `deck`; their diagnostics are sorted by slide. `render_deck`'s
@@ -2325,6 +2546,15 @@ the page held in the host's state (React `onPageChange`, Vue `v-model:page`, Ang
 writes an `sp_deck` call (delta-015): the Markdown in a triple-quoted string, the page held in a
 `State` (`page=State.page`, `on_page_change=State.set_page`), props by their Python names; `sp_deck`
 imports the stylesheets and installs the peer itself. Exactly one target is given.
+
+**Host embedding (feature-007).** `generate_code`'s `framework` accepts `'html'` for a `{ chart }` target (REQ-662): the
+result's `code` is the fragment of §1.5 —the `<silverpoint-chart>` with the spec in its JSON child,
+`fields` mapped to accessor props as for the other frameworks— `imports` is the one `<script>` tag
+for `silverpoint-embed.full.js` with its `integrity`, `stylesheets` is empty, and `notes` says where
+the file comes from. `{ component }` and `{ deck }` with `html` are `invalid_input`.
+`search_catalog` returns `kind: 'host'` hits (REQ-661). `render_chart`'s contract is unchanged.
+*Amended in implementation:* `validate_props` renders through the embed too (declared props only), so
+the server keeps no recipe map of its own (`recipes.ts` deleted).
 
 ### 14.4 Resources (REQ-546)
 
@@ -2356,7 +2586,8 @@ skills/silverpoint/                      (this repository; generated + hand-writ
     grounds-and-palettes.md, dashboard.md, timeline.md
     deck.md                              authoring, directives, classes, the fence, SpDeck, Marp CLI (generated + hand-written, REQ-622)
     react.md, vue.md, angular.md         imports, stylesheets, SSR, binding idioms (hand-written)
-    pitfalls.md                          (hand-written: delta-014, accessors are field names, tone is density…)
+    hosts.md                             each host integration, what it is built on, how a chart reaches it (generated, REQ-663)
+    pitfalls.md                          (hand-written: accessors are field names, tone is density…)
 .claude-plugin/marketplace.json          one plugin, "silverpoint", source ./
 .claude-plugin/plugin.json               the skill + mcpServers (inline) → https://silverpointweb.vercel.app/mcp
 
@@ -2434,10 +2665,114 @@ Skill descriptions (frontmatter), verbatim:
 
 ---
 
+## 15. Host catalog and table binding (feature-007)
+
+### 15.1 The host catalog (summary; shape in Data Model §2.40)
+
+```jsonc
+{
+  "schema": 1,
+  "version": "0.11.0",
+  "appearance": {
+    "grounds": [{ "name": "silverpoint", "label": "Silverpoint", "substrates": [{ "name": "cream", "label": "Cream" }, …] }, …],
+    "modes": [{ "name": "ink", "label": "Ink" }, { "name": "precision", "label": "Precision" }],
+    "palettes": [{ "name": "silverpoint", "label": "Silverpoint" }, …]
+  },
+  "common": [ { "name": "title", "kind": "string", "label": "Title", "doc": "…" }, … ],
+  "charts": [
+    {
+      "slug": "bar-chart", "title": "Bar chart", "family": "bars", "summary": "…",
+      "shape": "categories", "binding": "rows",
+      "roles": [
+        { "id": "x",         "prop": "xKey",         "label": "Category",  "kind": "dimension", "dataType": "string", "required": true,  "multiple": false },
+        { "id": "value",     "prop": "valueKey",     "label": "Value",     "kind": "measure",   "dataType": "number", "required": true,  "multiple": false },
+        { "id": "secondary", "prop": "secondaryKey", "label": "Secondary", "kind": "measure",   "dataType": "number", "required": false, "multiple": false }
+      ],
+      "options": [ { "name": "orientation", "kind": "enum", "values": ["columns", "rows"], "label": "Orientation", "doc": "…" } ],
+      "demo": { "roles": { "x": "x", "value": "value", "secondary": "previous" }, "rows": [ … ] }   // + "options" where the demo needs non-role props
+    }
+  ]
+}
+```
+
+- `kind` ∈ `dimension` (a category), `measure` (a number to aggregate), `temporal` (a date or time),
+  `any`. `dataType` ∈ `string`, `number`, `date`, `boolean`.
+- `binding` ∈ `rows` (a role is a column, a prop names it), `pivot` (long rows reshaped; `reshape`
+  says how), `scalar` (one value from the first row), `none` (not feedable from a table; `reason`).
+- `options` holds only props a control can express: `boolean`, `number`, `string`, `enum` (with
+  `values`). Accessors, callbacks, objects and arrays are not options. `label` is the prop's name in
+  sentence case unless the chart's metadata gives one.
+
+### 15.2 `specFromTable`
+
+```ts
+export type Table =
+  | { readonly rows: readonly Readonly<Record<string, unknown>>[] }
+  | { readonly columns: readonly string[]; readonly values: readonly (readonly unknown[])[] };   // row-major
+
+export interface TableBinding {
+  readonly chart: string;
+  readonly table: Table;
+  /** role id → column name; a role with `multiple` takes an array of names. */
+  readonly roles: Readonly<Record<string, string | readonly string[]>>;
+  readonly options?: Readonly<Record<string, unknown>>;      // own options and common view options
+  readonly appearance?: Pick<ChartSpec, 'ground' | 'substrate' | 'mode' | 'palette'>;
+  readonly size?: Pick<ChartSpec, 'width' | 'height'>;
+  readonly id?: string;
+}
+
+export function specFromTable(binding: TableBinding): SpecResult<ChartSpec>;
+export function hostCatalogFollows(pinned: string, current: string): boolean;   // same major.minor (REQ-658)
+export const HOST_CATALOG: HostCatalog;
+```
+
+`specFromTable` copies only the mapped columns into `data` (a host's table may carry fields the
+chart never reads), under their own names, and sets each role's `prop` to its column's name. It does
+not aggregate, sort or filter: the host's query did. Dates given as `Date` objects are written as ISO
+strings; `null` and `undefined` cells pass through as `null`.
+
+### 15.3 Reshapes (REQ-657)
+
+| Chart | `binding` | Roles offered to a host | Reshape |
+|---|---|---|---|
+| `heatmap-chart` | `pivot` | `row` (dimension), `column` (dimension), `value` (measure) | One output row per distinct `row`, its `values` array in the order columns first appear; the distinct columns to `columnLabels` |
+| `parallel-coordinates-chart` | `pivot` | `label` (dimension, optional), `dimensions` (measure, `multiple`) | `dimensions` prop takes the mapped column names |
+| `gauge-arc`, `meter-chart` | `scalar` | `percent` (measure) | The first row's cell to the `percent` prop |
+| `kpi-card` | `rows` | as the catalog | — |
+| `orbit-chart` | `none` | — | `reason`: each row carries an array of markers no flat table states. *(Revisit with a `marker` long form.)* |
+| `treemap-chart` | `none` | — | `reason`: each tile carries its own grid span (`cols`, `rows`), which are not data fields; a table of parts binds to `squarified-treemap` *(amended in implementation)* |
+| `sparkline-rows`, `volvelle-chart` | `none` | — | `reason`: each row of the sparklines carries an array of points no flat table states; the volvelle draws from its props alone (rings, an index) |
+
+The final table is produced by the generator from the chart metadata and reviewed at gate 3; the rows
+above are the ones the agent catalog of `0.10.1` forces. As built: 52 `rows`, 2 `pivot`, 2 `scalar`,
+4 `none` — 56 bindable charts.
+
+A demo may carry `options` (amended in implementation): the props of the canonical demo that are not
+roles —the dumbbell's `names`, the interval chart's `axis`, the slope chart's `period`, the KPI card's
+`metric` and `delta`, the network's `nodes`— so that `specFromTable(demo)` renders the canonical demo
+(I-59). A matrix pivot's reference render adds the `columnLabels` its reshape names.
+
+### 15.4 The conformance kit (REQ-666)
+
+```ts
+export interface ConformanceCase { readonly name: string; readonly spec: ChartSpec; readonly sha256: string }   // of renderToSVG(spec).svg, UTF-8
+export const CONFORMANCE: { readonly version: string; readonly cases: readonly ConformanceCase[] };
+export function conformance(
+  render: (spec: ChartSpec) => string | Promise<string>,
+  hash?: (text: string) => string | Promise<string>,        // SHA-256 hex; Web Crypto when absent
+  cases?: Conformance,                                      // `CONFORMANCE` when absent; a host passes the `conformance.json` it pinned
+): Promise<{ readonly passed: number; readonly failed: readonly { name: string; expected: string; actual: string }[] }>;
+```
+
+One case per chart with its demo dataset at 480 px, plus the appearance axes on four charts (each
+ground, each mode, two palettes). A host repository runs it against **the file it ships**, in the
+runtime it ships it in.
+
 ## Change History
 
 | Version | Date | Changes |
 |---|---|---|
+| 1.16 | 2026-11-21 | Feature-007: host embedding — §1 adds `@silverpoint/embed` (and the MCP's dependency on it); new §1.5 (`.`, `./client`, `./hosts`, `./conformance`, the four standalone files, `host-catalog.json`, `conformance.json`, `integrity.json`); new §3.7 (`ChartSpec`, `SpecError`, `SpecResult`, `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `STANDALONE_INTEGRITY`, `mount`, `mountAll`, `<silverpoint-chart>`, `hostAppearance`); new §10.5 (the wrapper markup and the error figure); `SP030`, `SP031` (29 → 31 codes); §12 the embed's limits and budgets; §13 ten packages; §14 `hosts` in the agent catalog, `generate_code { framework: 'html' }`, `search_catalog` kind `host`, `references/hosts.md`; new §15 (the host catalog, `specFromTable`, reshapes, the conformance kit); folds the amendments made in implementation (mounting on load, the entry budgets 34 / 11 kB, `demo.options`, four unbound charts, `validate_props` through the embed) in the ledger of `changes/feature-007-bi-hosts/`. Delta-014: §8.1 `SpButton` forwards an overlay's trigger contract; §14.3 drops the restriction |
 | 1.15 | 2026-11-14 | Delta-016 (#12, #14, #17..#22): §1 the subpaths `@silverpoint/react/provider` and `@silverpoint/grounds/styles-text`, and `standaloneSVG`; §3.4 `PaletteName`, with `PALETTES` and `PALETTE_NAMES` keyed by it; §7.1 the dashboard's root resolves ground, substrate and palette as dashboard → provider → default, except React's `server/dashboard`; §8.1 `toSVGString` is the canonical markup and `standaloneSVG` makes it a file; §8.2 an Angular host keeps no literal `title`; §11 `SP003` is not raised for a hidden container; §12 React's client `dashboard` entry has 2.25 KB over its one-chart build (REQ-220) |
 | 1.14 | 2026-11-01 | Delta-015 (#10): §14.2 the deck's Reflex name and import (`sp_deck`, `reflex_silverpoint_react`) joined from the Reflex catalog; §14.3 `generate_code { deck }` supports `reflex` |
 | 1.13 | 2026-10-31 | Feature-006: slide decks — §1 adds `@silverpoint/marp` and the adapters' optional peer; new §1.4 (`.`, `./client`, `./theme.css`, `./deck.css`, `./cli`, `./demo` with `DECK_DEMO`, the `deck` subpaths, `slideBackdrop`, `listGrounds` and `toChartRootString` on the grounds); §2 surface; new §3.6 (the engine, the theme and its classes, the directives, the chart fence); new §7.5 (`SpDeck`, the controller, the keyboard, the markup contract); §9 deck events; §10 parts and properties; `SP026`–`SP029` and `SP018` widened (25 → 29 codes); §12 deck limits and budgets; §13 nine packages; §14 the catalog's `deck` section, `validate_deck`, `render_deck`, `generate_code { deck }` (13 tools), `silverpoint://deck` and the `deck` guide; folds the amendments made in implementation (no polyfill, the shared view functions, `data-sp-pending` fragments, the budgets of DD-059, event bindings) in the ledger of `changes/feature-006-deck/` |

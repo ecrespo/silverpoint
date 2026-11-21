@@ -2,8 +2,8 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — every gate approved 2026-11-20 (user decision), decisions D1..D12 as recommended; the PoC (step 11a, T-290) done and recorded in [`poc.md`](poc.md); OQ-H1..H4 resolved (TD delta §7). **Phase 11 is ready to start at step 11b**; nothing of the package is implemented |
-| **Target release** | `0.11.0` (changeset `minor` from 0.10.x) — proposed, decision D1. The line stays on `0.x`; `1.0.0` stays parked |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — every gate approved 2026-11-20 (user decision), decisions D1..D12 as recommended; the PoC (step 11a, T-290) in [`poc.md`](poc.md); OQ-H1..H4 resolved (TD delta §7). **Phase 11 implemented** 2026-11-20/21 on `feat/silverpoint-0.11` (T-290..T-329, ledger in [`plan-and-tasks.md`](plan-and-tasks.md)); deviations 1–9 accepted by the user 2026-11-21 and folded as built. Not released |
+| **Target release** | `0.11.0` (changeset `minor` from 0.10.x), decision D1, confirmed by the user 2026-11-21. The line stays on `0.x`; `1.0.0` stays parked |
 | **Requirements** | REQ-629..REQ-668 (§6.16), 40 (39 MUST, 1 SHOULD) |
 | **Design decisions** | DD-061..DD-072 (DD-062 records the PoC outcome) |
 | **Invariants** | I-53..I-60 |

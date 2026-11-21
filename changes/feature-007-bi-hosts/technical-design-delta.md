@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved); DD-062 filled from the PoC ([`poc.md`](poc.md)), DD-070 amended by its finding F-P1, §7 resolved; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — gate 3, approved 2026-11-20 (user decision: every gate approved); DD-062 filled from the PoC ([`poc.md`](poc.md)), DD-070 amended by its finding F-P1, §7 resolved; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
 | **Amends** | [Technical Design](../../specs/technical-design.md) v1.15 → v1.16: §3 (package map), §4 (DD-061..DD-072), §5.3 (allowlist note), §6 (a row), §8 (gates), §9 (publication) |
 | **Requirements** | REQ-629..REQ-668 |
 

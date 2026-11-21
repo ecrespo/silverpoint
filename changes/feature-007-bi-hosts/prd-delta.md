@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 1, approved 2026-11-20 (user decision: every gate approved) |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — gate 1, approved 2026-11-20 (user decision: every gate approved) |
 | **Amends** | [PRD](../../specs/prd.md) v1.18 → v1.19: §1, §3 (Personas 7 and 8), §5.1, §5.2, §5.3, new §6.16, §6.14 (agent access gains hosts and `html`), §7, §9 (Epic K), §11 |
 | **Applicable Constitution** | [`constitution.md`](../../specs/constitution.md) v1.11, with the v1.12 amendment proposed in [`constitution-amendment.md`](constitution-amendment.md) |
 | **Research** | [`research.md`](research.md) |

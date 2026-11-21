@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 2, approved 2026-11-20 (user decision: every gate approved); §7 budgets filled from the PoC; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — gate 2, approved 2026-11-20 (user decision: every gate approved); §7 budgets filled from the PoC; amended in implementation 2026-11-21 (deviations 1–9 of the plan's ledger, accepted by the user) |
 | **Amends** | [API Spec](../../specs/api-spec.md) v1.15 → v1.16: §1 (a row), new §1.5, new §3.7, §11 (two diagnostics), §12 (budgets), §14.2, §14.3, §14.6, new §15 |
 | **Requirements** | REQ-629..REQ-668 |
 

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — gate 3, approved 2026-11-20 (user decision: every gate approved); §2.41 amended in implementation 2026-11-21 (`demo.options`, the bindings as built) |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — gate 3, approved 2026-11-20 (user decision: every gate approved); §2.41 amended in implementation 2026-11-21 (`demo.options`, the bindings as built) |
 | **Amends** | [Data Model](../../specs/data-model.md) v1.13 → v1.14: new §2.38..§2.44, §2.28 (the agent catalog's `hosts`), §5 (fixtures), §6 (I-53..I-60) |
 
 ## §2.38 `ChartSpec`

@@ -1,9 +1,11 @@
 # Constitution — silverpoint
 
-> Version 1.11 · Ratified: 2026-09-12 · Last amended: 2026-10-31
+> Version 1.12 · Ratified: 2026-09-12 · Last amended: 2026-11-21
 > Scope: `silverpoint` monorepo — `@silverpoint/core`, `@silverpoint/react`,
-> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, `@silverpoint/marp`,
-> `@silverpoint/mcp`, the `silverpoint` skill, example apps and documentation site.
+> `@silverpoint/vue`, `@silverpoint/angular`, `@silverpoint/grounds`, `@silverpoint/embed`,
+> `@silverpoint/marp`, `@silverpoint/mcp`, the `silverpoint` skill, example apps and documentation
+> site. Host integrations —repositories of their own that draw silverpoint charts inside another
+> product— are outside this scope and bound to it by the rule of Art. 2.
 
 **What silverpoint is.** A library of charts —and of the interface components around them— for React, Vue and
 Angular, whose visual language is historical drawing techniques. The first style —the Renaissance *ground*— reproduces
@@ -57,6 +59,12 @@ types, never retyped.
 its inked backdrop SHALL be rendered by `@silverpoint/core` and `@silverpoint/grounds`, and the
 deck package SHALL only parse Markdown, place their output and keep the deck's state.
 
+`@silverpoint/embed` SHALL compute no geometry and no colour of its own: it SHALL render only by
+calling `@silverpoint/core` and `@silverpoint/grounds`, and its client SHALL translate their output
+into nodes and forward events to the core's interaction reducer, as an adapter does. A host
+integration SHALL draw only through `@silverpoint/embed` or through an adapter package, unmodified,
+and SHALL NOT restyle, re-ink or redraw what they return.
+
 *Rationale: two implementations of the same drawing always diverge; it is the failure
 that sinks multi-framework libraries. An agent shown a picture or a verdict the library would not
 produce is worse off than one shown nothing. A chart in a slide must be the same chart as anywhere
@@ -76,6 +84,11 @@ Where a component hosts a third-party widget behind an optional peer dependency 
 timeline of `SpTimeline`— the gate covers the markup the library emits around it (its surface,
 probes and mount) and not the widget's own DOM, which the library neither writes nor controls;
 such a component SHALL carry a pixel fixture over a pinned version of the widget.
+
+`@silverpoint/embed`'s client is held to the same gate as an adapter: the nodes it builds,
+serialised and normalised, SHALL equal the canonical chart root for the same input, with zero
+tolerance. It is not a fourth framework: it contributes no component layer and gets no example app
+of its own among the validated integrations.
 
 THE SYSTEM SHALL also pass three pixel comparisons, and CI SHALL block the release if
 any of them is not met:
@@ -185,6 +198,7 @@ Decided, not re-litigated per feature:
 | Testing | Vitest (core, react, vue), Angular TestBed, Playwright for cross-framework visual regression |
 | Supported frameworks | **React, Angular and Vue.** Those three contribute a component layer, and each gets an adapter package |
 | Validated integrations | **Vite, Next.js and the Angular CLI**, each with an example app under `examples/`. A build tool is not a framework: Vite + React is React, and the Angular CLI runs on Vite and esbuild. Integrations are validated as first-class targets, not as incidental hosts |
+| Host targets | A product that embeds charts —a BI tool, a workflow tool, a notebook, a server-rendered web framework, a CMS— is reached through `@silverpoint/embed` or an adapter, from a repository of its own. Hosts are **not** validated integrations of this repository: each host repository validates itself against the conformance kit this repository publishes |
 | Runtime | Node 20+, pnpm 9+ |
 | CI | GitHub Actions |
 | Licence | MIT |
@@ -224,6 +238,8 @@ explicitly in its tonal mechanism token.
 | 2026-10-18 | — , 3, 6 | The `0.7.0` inventory source (`reflex-silverpoint-react` 0.7) is named; Art. 3's gate covers the library's markup around a third-party widget behind an optional peer, not the widget's DOM, which carries a pinned pixel fixture instead; Art. 6 names the current page and the active option or item of an open list as a component's current item | feature-004 adds palettes, composed components, overlays and `SpTimeline` (TimelineJS builds its DOM at runtime, outside the parity contract); the highlighted option of a select or menu is the list's current item, and the chosen option (ticked) is not heightened | Ernesto Crespo |
 | 2026-10-20 | — , 2 | `@silverpoint/mcp` and the `silverpoint` skill enter the scope; Art. 2 binds the server: it renders and validates only through the core and the grounds, and its catalog is generated from the published types | feature-005 describes the library to agents; they belong to it, version with it, and must never show what the library would not draw | Ernesto Crespo |
 | 2026-10-31 | — , 2 | `@silverpoint/marp` enters the scope; Art. 2 binds the deck package: a slide's charts and inked backdrop are rendered by the core and the grounds, the deck package only parses Markdown, places their output and keeps the deck's state; the MCP server renders decks through it | feature-006 renders the library's charts and grounds inside Marp slides and versions with it in the `fixed` group | Ernesto Crespo |
+
+| 2026-11-21 | — , 2, 3 | `@silverpoint/embed` enters the scope and host integrations are named outside it; Art. 2 binds the embed (it renders only through the core and the grounds, its client translates and forwards like an adapter) and every host (it draws only through the embed or an adapter, unmodified); Art. 3 holds the embed's client to the adapters' gate; Stack: a "Host targets" row | feature-007 puts the library's charts inside BI tools, workflow tools, notebooks and CMSs from repositories of their own; a chart in a report must be the same chart as in an app | Ernesto Crespo |
 
 ## Constitution check (use in every artifact)
 

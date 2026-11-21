@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `APPROVED` |
-| **Version** | 1.18 |
+| **Version** | 1.19 |
 | **Date** | 2026-09-12 |
 | **Reviewers** | Ernesto Crespo |
-| **Last updated** | 2026-11-15 |
-| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.11 |
+| **Last updated** | 2026-11-21 |
+| **Applicable Constitution** | [`constitution.md`](constitution.md) v1.12 |
 
 ---
 
@@ -65,6 +65,15 @@ charts inside a slide —static SVG on the server, hydrated in the browser—, w
 (pages, fragments, notes, deep links, keys, swipe, overview, full screen, print). `SpDeck` binds it in
 the three adapters; the theme also works in Marp CLI and the Marp VS Code extension. Decks ship in
 `0.9.0`.
+
+**Host embedding** (§6.16) carries the charts beyond the three frameworks: `@silverpoint/embed` draws
+any of the 60 charts from one JSON document, the **chart spec** —as a standalone SVG or a
+self-contained HTML document on a server, and as live, keyboard-readable nodes in any page, from a
+single standalone file—, identically to the adapters. A **host catalog** generated from the agent
+catalog tells a BI or workflow tool which roles each chart binds columns to, `specFromTable` turns a
+table into a spec, and a conformance kit lets each host repository prove it draws unchanged. Host
+integrations for Power BI, Tableau, KNIME, n8n, Superset, Plone, Flask, Django, Databricks and
+Jupyter live in repositories of their own. Host embedding ships in `0.11.0`.
 
 ## 2. Context and Problem
 
@@ -159,6 +168,25 @@ a report) driven by props and events; Persona 4 follows it by keyboard and scree
 keeping its tabular alternative and precision mode; Persona 5's agent writes valid fences and
 directives the first time and can render the deck to check it.
 
+### Persona 7: Analyst in a BI tool
+- **Description:** Builds reports in Power BI, Tableau or Superset, or workflows in KNIME. Does not
+  write code.
+- **Main need:** To pick a chart, drop fields on roles, set a ground and a mode, and get the same
+  chart the organisation's apps show.
+- **Frequency of use:** Daily, inside the BI tool.
+- **Technical level:** Low to medium; works in the tool's property panes.
+
+### Persona 8: Integrator
+- **Description:** Maintains a host integration, or embeds charts in a server-rendered site or an
+  automation (n8n).
+- **Main need:** One file, one JSON shape, a description of every chart in data, and a way to prove
+  the integration still draws correctly after an upgrade.
+- **Frequency of use:** At each integration and each upgrade of the pinned line.
+- **Technical level:** High.
+
+Persona 2 draws a chart from a DataFrame in a notebook cell through the `silverpoint` Python
+package; Persona 4 loses nothing on the way into a host (feature-007).
+
 ## 4. Objectives and Success Metrics
 
 ### 4.1 Project objectives
@@ -236,6 +264,14 @@ directives the first time and can render the deck to check it.
 - [ ] The theme as a standalone file for Marp CLI and the Marp VS Code extension (REQ-582).
 - [ ] Scaling decided by a cross-browser PoC (§6.15.7).
 - [ ] The deck in the agent catalog, the MCP server and the skill (§6.15.8).
+- [ ] `@silverpoint/embed`: the chart spec, its validation, the DOM-free render (§6.16.1).
+- [ ] The embed client: `mount`, `update`, `destroy`, events, the `<silverpoint-chart>` element,
+      `mountAll` (§6.16.2).
+- [ ] The standalone file, with and without fonts, under a budget fixed by a PoC (§6.16.3).
+- [ ] The host catalog and `specFromTable` (§6.16.4).
+- [ ] `render_chart` through the embed; hosts and `html` in the agent catalog, the MCP server and
+      the skill (§6.16.5).
+- [ ] Parity, pixel and end-to-end gates for the client; the conformance kit for hosts (§6.16.6).
 
 ### 5.2 Out of Scope
 
@@ -279,6 +315,15 @@ directives the first time and can render the deck to check it.
 - Slide transitions and animations beyond fragment reveal.
 - A WYSIWYG deck editor.
 - The Reflex deck wrapper itself: `sp_deck` lives in `reflex-silverpoint-react` (since its 0.9.0), another repository (delta-015).
+- Any host's SDK, manifest or packaging in this repository (DD-068).
+- Databricks AI/BI dashboard visualizations: Vega-Lite only (DD-072).
+- A server-side SVG from Python without a JavaScript runtime (DD-069).
+- The dashboard composition, the UI components, the timeline and the deck in the embed. `0.11.0`
+  embeds charts. *(They are React, Vue and Angular features; a host that is React may use them.)*
+- Cross-filtering, selection write-back and drill-through into the host. The client reports
+  `select`; what a host does with it is the host repository's requirement.
+- A PNG render of an embedded chart (REQ-544 stays deferred).
+- Editing a chart: no configuration UI ships in the embed. Each host has its own property pane.
 
 ### 5.3 Future Considerations
 
@@ -304,6 +349,11 @@ directives the first time and can render the deck to check it.
 - A Marp Core engine behind the deck's engine seam.
 - A presenter view in a second window, synchronised through `BroadcastChannel`.
 - Grounds `burin`, `woodcut`, `wash`, `plotter` in the deck theme as they ship.
+- `@silverpoint/marp` reading its fence through the embed's validator (decision D11).
+- The dashboard composition in the embed (`DashboardSpec`).
+- A per-family split of the standalone file, if the PoC's budget proves tight in the field.
+- A hosted `render` endpoint (SVG over HTTP) for hosts that can only show an image.
+- `generate_code` for `python`, once the Python package exports its own catalog as Reflex does.
 
 ## 6. Functional Requirements
 
@@ -948,7 +998,7 @@ skill never states a prop, a default or a name the catalog does not hold.
 | REQ-544 | optional | WHERE the client asks for `format: "png"`, THE SYSTEM SHOULD return the render rasterised as an MCP image, for clients that cannot display SVG. | SHOULD |
 | REQ-545 | event | WHEN `check_palette` receives a palette, THE SYSTEM SHALL return the findings of the core's `checkPalette` for it (REQ-465). | MUST |
 | REQ-546 | ubiquitous | The server SHALL provide the resources of API Spec §14.4: the whole catalog, one per chart and per component, the guides of the `silverpoint` skill, and the diagnostic codes; since `0.9.0` also the catalog's deck section with the fence schema (`silverpoint://deck`) and the skill's deck guide. | MUST |
-| REQ-547 | unwanted | IF a code pattern is not run by an example app (REQ-520) —today, an `SpButton` as an overlay's `trigger` (delta-014)— THEN `generate_code` and the skills SHALL NOT emit it. | MUST |
+| REQ-547 | unwanted | IF a code pattern is not run by an example app (REQ-520), THEN `generate_code` and the skills SHALL NOT emit it. | MUST |
 | REQ-548 | optional | WHERE the client supports prompts, THE SYSTEM SHOULD offer `choose-chart` and `build-dashboard` prompts that sequence the tools. | SHOULD |
 | REQ-549 | unwanted | IF a tool receives an unknown chart, component, framework, ground, substrate or palette, THEN it SHALL return a tool error naming the closest valid names, never an exception or an empty result. | MUST |
 | REQ-550 | ubiquitous | Every tool result SHALL carry the library version it was computed with, which SHALL be the version of the catalog the server ships. | MUST |
@@ -1136,8 +1186,107 @@ or `forced-colors: active`. (5) **REQ-625:** the three-engine e2e runs in its ow
 `/deck` page; the docs site's page is `/#/deck`. (7) **REQ-628:** the budgets are DD-059's, in
 `.size-limit.json`.
 
-**Count:** §6.15 holds 59 requirements (56 MUST, 3 SHOULD). With the rest of §6 the PRD has 369
-requirements (343 MUST).
+**Count:** §6.15 holds 59 requirements (56 MUST, 3 SHOULD).
+
+### 6.16 Host embedding
+
+`@silverpoint/embed` does the work; it renders only through `@silverpoint/core` and
+`@silverpoint/grounds` (Art. 2) and its client is held to the adapters' gate (Art. 3). A **host** is a
+product that embeds charts —a BI tool, a workflow tool, a notebook, a server-rendered framework, a
+CMS—; a **host integration** lives in a repository of its own (DD-068).
+
+Patterns: *ubiquitous*, *event* (WHEN), *state* (WHILE), *optional* (WHERE), *unwanted* (IF/THEN).
+
+#### 6.16.1 The chart spec and the DOM-free render
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-629 | ubiquitous | THE SYSTEM SHALL publish `@silverpoint/embed` in the `fixed` group, depending only on `@silverpoint/core` and `@silverpoint/grounds`, with no framework and no peer dependency. | MUST |
+| REQ-630 | ubiquitous | THE SYSTEM SHALL accept a chart as one JSON-serialisable `ChartSpec` with the fields `chart`, `data`, `props`, `width`, `height`, `id`, `ground`, `substrate`, `mode` and `palette`, with the meanings of Data Model §2.32, for each of the 60 charts by its catalog slug. | MUST |
+| REQ-631 | unwanted | IF a value given as a spec is not valid, THEN `validateSpec` SHALL return a `SpecError` of kind `json`, `shape`, `chart`, `prop`, `size` or `limit` —with the closest slugs for `chart` and the offending names for `prop`— and SHALL never throw. | MUST |
+| REQ-632 | event | WHEN `renderToSVG` receives a valid spec, THE SYSTEM SHALL return a standalone SVG whose parsed tree, with the inlined stylesheet set aside, is identical to the canonical render of the same chart, props, size and id. | MUST |
+| REQ-633 | event | WHEN `renderToHTML` receives a valid spec, THE SYSTEM SHALL return markup that holds the canonical chart root, the stylesheet and, WHERE `interactive` is set, the spec as JSON for the client to mount, and that requests no resource the caller did not name. | MUST |
+| REQ-634 | ubiquitous | THE SYSTEM SHALL return byte-identical output from `renderToSVG` and `renderToHTML` for the same spec and options. | MUST |
+| REQ-635 | unwanted | IF a spec's serialised size exceeds 2 MB, or its rendered path data exceeds the path byte budget, THEN THE SYSTEM SHALL refuse it with a `limit` error and raise `SP030`. | MUST |
+
+#### 6.16.2 The client
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-636 | event | WHEN `mount` receives a target element and a valid spec, THE SYSTEM SHALL build under the target a chart root whose serialised, normalised form is identical to the canonical chart root for the same input. | MUST |
+| REQ-637 | ubiquitous | THE SYSTEM SHALL build the client's nodes from the core's view with DOM methods, and SHALL never parse a string as markup nor assign `innerHTML`. | MUST |
+| REQ-638 | ubiquitous | THE SYSTEM SHALL give a mounted chart the interaction of the adapters' client charts —pointer, focus, arrow keys, Home and End, Enter and Space, Escape; the active mark, the readout and the live region— by forwarding events to the core's interaction reducer (REQ-140..REQ-143). | MUST |
+| REQ-639 | event | WHEN the active item changes or an item is chosen, THE SYSTEM SHALL call the `onActiveChange` or `onSelect` option and dispatch a bubbling `sp-activechange` or `sp-select` event on the target, whose `detail` is the item or `null`. | MUST |
+| REQ-640 | state | WHILE a mounted chart has no `width` in its spec, THE SYSTEM SHALL draw it at its container's measured width and redraw when that width changes, and SHALL raise no diagnostic for a container that is not displayed. | MUST |
+| REQ-641 | state | WHILE `prefers-contrast: more` or `forced-colors: active` holds, THE SYSTEM SHALL draw a mounted chart in `precision` mode whatever its spec says. | MUST |
+| REQ-642 | event | WHEN `update` receives a new spec, THE SYSTEM SHALL redraw in place, keeping focus and keeping the active item where one with the same series and index still exists; WHEN `destroy` is called, THE SYSTEM SHALL remove its nodes, listeners and observers. | MUST |
+| REQ-643 | ubiquitous | THE SYSTEM SHALL apply the client's stylesheet and every style declaration through the CSS object model, once per document or shadow root, so that a page whose policy forbids inline styles renders the chart; WHERE `styles: 'none'` is given it SHALL apply no stylesheet. | MUST |
+| REQ-644 | ubiquitous | THE SYSTEM SHALL NOT, in any `@silverpoint/embed` entry, open a network connection, evaluate a string as code, import dynamically, or read or write cookies or web storage. CI SHALL fail if the built files reference `fetch`, `XMLHttpRequest`, `WebSocket`, `EventSource`, `sendBeacon`, `eval`, `new Function`, `import(`, `localStorage`, `sessionStorage` or `document.cookie`. | MUST |
+| REQ-645 | ubiquitous | THE SYSTEM SHALL provide a `<silverpoint-chart>` custom element that reads its spec from a child `<script type="application/json">` or from its `spec` property, takes `chart`, `ground`, `substrate`, `mode`, `palette`, `width` and `height` as attributes that override the spec, and redraws when any of them changes. | MUST |
+| REQ-646 | event | WHEN `mountAll` is called, THE SYSTEM SHALL mount every element carrying `data-sp-embed` that holds a JSON spec and is not mounted yet, and SHALL return their handles. | MUST |
+| REQ-647 | optional | WHERE `fonts: 'embedded'` is given and the file in use carries them, THE SYSTEM SHALL register EB Garamond's three cuts from inlined data; otherwise it SHALL draw with the ground's fallback stack and request no font. | MUST |
+| REQ-648 | optional | WHERE the host passes its background and foreground colours to `hostAppearance`, THE SYSTEM SHOULD return the ground, substrate and mode among the declared ones that sit closest to them, for the host to use as defaults. | SHOULD |
+| REQ-668 | unwanted | IF the spec given to `mount`, to the element or to `mountAll` is not valid, THEN THE SYSTEM SHALL draw the error figure of the deck fence (REQ-591) naming the error, raise `SP031`, and leave the page's other charts untouched. | MUST |
+
+#### 6.16.3 The standalone file
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-649 | ubiquitous | THE SYSTEM SHALL build, in `@silverpoint/embed`, `silverpoint-embed.js` —one script with no import, defining the global `Silverpoint` with every export of the main and client entries, `specFromTable`, every chart, both grounds and the stylesheet— its module twin `silverpoint-embed.mjs`, and `silverpoint-embed.full.js` and `.full.mjs`, which add the fonts. In the script builds only, the custom element is defined and every `data-sp-embed` box mounted once the document is parsed. | MUST |
+| REQ-650 | ubiquitous | THE SYSTEM SHALL keep each standalone file within the budget DD-062 records from the PoC, verified in CI. | MUST |
+| REQ-651 | ubiquitous | THE SYSTEM SHALL expose the library version as `Silverpoint.version` and in a banner comment, and SHALL publish `integrity.json` with a SHA-384 digest of each standalone file. | MUST |
+| REQ-652 | ubiquitous | THE SYSTEM SHALL leave every adapter's one-chart build within REQ-444's allowance; no adapter, and neither `@silverpoint/core` nor `@silverpoint/grounds`, SHALL import `@silverpoint/embed`. | MUST |
+
+#### 6.16.4 The host catalog
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-653 | ubiquitous | THE SYSTEM SHALL generate `host-catalog.json` from the agent catalog with the same generator, never by hand; its `check` SHALL fail on any difference. | MUST |
+| REQ-654 | ubiquitous | THE SYSTEM SHALL describe each chart in the host catalog by `slug`, `title`, `family`, `summary`, `shape`, `binding`, its `roles` (`id`, `prop`, `kind`, `dataType`, `required`, `multiple`), its `options` (`name`, `kind`, `values`, `default`, `label`, `doc`) and a `demo` of roles, rows and, where the demo needs them, options. | MUST |
+| REQ-655 | ubiquitous | THE SYSTEM SHALL list in the host catalog the grounds with their substrates, the modes, the palette presets and the view options common to every chart, each with a label. | MUST |
+| REQ-656 | event | WHEN `specFromTable` receives a chart, a table as rows or as columns, a mapping of roles to column names, options and an appearance, THE SYSTEM SHALL return the `ChartSpec` that binds them, or a `SpecError` of kind `role` naming each required role left unmapped and each mapped column the table lacks. | MUST |
+| REQ-657 | ubiquitous | THE SYSTEM SHALL reshape the table for every chart whose `binding` is `pivot` or `scalar` —a matrix from long rows, a set of dimensions from columns, a single value from the first row— and SHALL mark `binding: 'none'` every chart it cannot feed from a table, each with the reason. | MUST |
+| REQ-658 | ubiquitous | THE SYSTEM SHALL stamp the host catalog with `schema` and the library `version`, and SHALL export `hostCatalogFollows(pinned, current)`, true when both are on the same major and minor. | MUST |
+| REQ-659 | ubiquitous | CI SHALL, for every chart whose `binding` is not `none`, run `specFromTable` over the catalog's own `demo` and compare the render with the canonical render of the chart's demo dataset, tree for tree. | MUST |
+
+#### 6.16.5 Agent access
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-660 | ubiquitous | THE SYSTEM SHALL render `render_chart` through `@silverpoint/embed`'s `renderToSVG`, with REQ-543 and the gate of REQ-567 unchanged. | MUST |
+| REQ-661 | ubiquitous | THE SYSTEM SHALL list in the agent catalog a `hosts` section —for each host integration its `id`, `name`, `repository`, `package`, `registry`, `via` (`embed`, `react` or `python`) and `status`— read from one source file, and SHALL return it from `search_catalog` as hits of kind `host`. | MUST |
+| REQ-662 | event | WHEN `generate_code` receives `framework: 'html'` with a chart target, THE SYSTEM SHALL return a page fragment that loads the standalone file and holds a `<silverpoint-chart>` with the spec, whose spec passes `validateSpec`. | MUST |
+| REQ-663 | ubiquitous | THE SYSTEM SHALL add to the `silverpoint` skill a generated `references/hosts.md` naming each host, what it is built on and how a chart reaches it. | MUST |
+
+#### 6.16.6 Gates and documentation
+
+| ID | Pattern | Requirement | Priority |
+|---|---|---|---|
+| REQ-664 | ubiquitous | CI SHALL compare the embed client's nodes against the canonical chart root over the PR fixture matrix with zero tolerance, and SHALL include the client in the pixel gate of Art. 3. | MUST |
+| REQ-665 | ubiquitous | CI SHALL exercise the standalone file end to end: keyboard and pointer, resize, `update` and `destroy`, the custom element, `mountAll`, a page under `script-src 'self'; style-src 'self'`, and a frame under `sandbox="allow-scripts"`, with no console error and no request beyond the page's own files. | MUST |
+| REQ-666 | ubiquitous | THE SYSTEM SHALL publish in `@silverpoint/embed` a conformance kit —for a declared set of specs, the SHA-256 of each `renderToSVG` result— and a `conformance` function a host repository runs to prove the embed it carries draws them unchanged. | MUST |
+| REQ-667 | ubiquitous | THE SYSTEM SHALL document the embed with a README, an `examples/embed-html` page that uses nothing but the standalone file, and an `#/embed` page on the docs site listing the hosts. | MUST |
+
+*Numbering note:* REQ-668 sits in §6.16.2, where it belongs; it was written last and keeps its number
+so that the range stays contiguous.
+
+*Amended in implementation* (user decisions 2026-11-21): (1) **REQ-649:** the script builds mount every
+`[data-sp-embed]` on load, so `renderToHTML`'s interactive markup runs under `script-src 'self'` with
+no inline script; the standalone files carry `specFromTable` over a generated binding table but not
+`HOST_CATALOG` (580 kB with its demos), which hosts pin as `host-catalog.json`. (2) **REQ-650:** the
+standalone budgets are DD-062's (140 / 220 kB gzip); the main and client entries' own code is
+budgeted at 34 / 11 kB (gate 3 set 12 / 8 kB; the main entry carries EB Garamond 400 for
+`embedFonts`). (3) **REQ-654, REQ-659:** a demo carries `options` for the canonical demo's non-role
+props, so the demo gate holds. (4) **REQ-657:** 56 charts bind; `treemap-chart`, `sparkline-rows`,
+`volvelle-chart` and `orbit-chart` are `binding: 'none'`, each with its reason. (5) **REQ-635,
+REQ-668:** `SP030` and `SP031` are templated in the embed, not in the core's diagnostics table, which
+ships in every production bundle. (6) **REQ-660:** `validate_props` renders through the embed too.
+(7) **REQ-664:** the embed column of the tree and pixel gates runs on the vite-react bench's
+`embed.html` (`e2e/embed-gate.spec.ts`).
+
+**Count:** §6.16 holds 40 requirements (39 MUST, 1 SHOULD). With the rest of §6 the PRD has 409
+requirements (382 MUST).
+
 
 ## 7. Non-Functional Requirements
 
@@ -1223,6 +1372,15 @@ reinterpreted and the original is stated.
   `process.env.NODE_ENV`.
 - Every warning SHALL name the chart, the property involved and the `REQ-NNN` that motivates
   it.
+
+### Host embedding *(feature-007)*
+
+| Area | Requirement |
+|---|---|
+| Size | The standalone files' budgets (REQ-650), measured compressed and uncompressed, in `.size-limit.json` |
+| Compatibility | The standalone file targets ES2020 and the evergreen engines of the last two years; it uses `ResizeObserver` and constructable stylesheets where present and degrades to a fixed width and a `<style>` element where not |
+| Security | REQ-637, REQ-644; the TD §6 table's row for hosts |
+| Accessibility | Art. 5 in full inside a host; the tabular alternative is part of the chart root and is never dropped by the client |
 
 ## 8. Constraints and Dependencies
 
@@ -1355,6 +1513,19 @@ writing a grid around the cards in every app.
 | J-6 As Persona 5, my agent writes and checks decks | REQ-619..622 |
 | J-7 As maintainer, nothing leaks, drifts or grows the chart bundle | REQ-610, REQ-611, REQ-616, REQ-623..628 |
 
+### Epic K — Charts in BI tools and flows
+
+| Story | Requirements |
+|---|---|
+| K-1 As Persona 8, I draw a chart from JSON on a server and get an SVG I can attach to a report | REQ-630, REQ-632, REQ-634 |
+| K-2 As Persona 8, I drop one script and one element into a template and the chart is live | REQ-645, REQ-649, REQ-638 |
+| K-3 As Persona 8, my host's property pane is generated from data, not typed by hand | REQ-653..REQ-655 |
+| K-4 As Persona 7, I put fields on roles and the chart appears, heatmap included | REQ-656, REQ-657 |
+| K-5 As Persona 4, a chart inside a BI report reads by keyboard and switches to precision mode | REQ-638, REQ-641 |
+| K-6 As Persona 8, I upgrade the file my integration carries and know in one CI job that it still draws correctly | REQ-666, REQ-658 |
+| K-7 As Persona 8, my integration passes a certification that forbids network access | REQ-644, REQ-647 |
+| K-8 As an agent, I am asked for "a chart in a plain HTML page" and write one that validates | REQ-662 |
+
 ## 10. Wireframes / Mockups
 
 Proof of concept rendered during the proposal phase, with the *burin* setting
@@ -1401,6 +1572,10 @@ dominant sector of an arc, and exact vertices with a heightened live point in a 
 | A slide does not scale identically in Chromium, Firefox and WebKit | High | High | A blocking PoC before any adapter work decided the method (DD-051, `svg-transform`); the three-engine e2e guards it (REQ-617, REQ-618, REQ-625) |
 | Marpit grows the bundle of apps that only draw charts | Medium | High | Optional peer imported only by the `deck` entries; a one-chart build is checked to hold no deck module (REQ-616); budgets per entry (REQ-628) |
 | Markdown from an untrusted author injects markup or styles | Medium | High | HTML off and not configurable; URLs filtered; author CSS sanitised (REQ-575); a hostile corpus in the tests |
+| The standalone file is too large for a host | Medium | Medium | A PoC measured it before any code (DD-062); budgets in CI (REQ-650); a per-family split and a fonts-light build as fallbacks |
+| The embed client diverges from the adapters | Medium | High | Held to the adapters' tree gate and pixel gate (REQ-664, Art. 3); a port of their interaction, table-driven from their cases (DD-064) |
+| A host refuses network access, inline scripts or inline styles | High | High | No network API in any built file (REQ-644), styles through the CSSOM (REQ-643), mounting on load from the script build (REQ-649); the CSP and sandbox pages in the e2e (REQ-665) |
+| A host integration redraws "in the style of" silverpoint | Medium | High | Art. 2 binds hosts to the embed or an adapter, unmodified; the conformance kit proves it in each host's CI (REQ-666) |
 
 ## 12. Estimated Timeline
 
@@ -1421,7 +1596,8 @@ commitments.
 | Phase 7 — second catalog | 3 waves | 27 charts × 3 adapters (§6.4.2, §6.12), the core's statistics and layouts, their gates and example-app pages; the three waves released together as 0.6.0 (user decision 2026-10-10) |
 | Phase 8 — composed components | 3 batches | Palettes, 21 components × 3 adapters and `SpTimeline` (§6.13), their gates, example-app pages and docs; released in 0.7.0 |
 | Phase 9 — agent access | 7 steps | The agent catalog, `@silverpoint/mcp`, the skills and plugin manifests, the hosted endpoint (§6.14); three repositories; released in 0.8.0 |
-| Phase 10 — slide decks | 8 steps | The scaling PoC, `@silverpoint/marp`, its theme and controller, `SpDeck` × 3, the deck gates, the agent tools and skill, the demo and docs (§6.15); target 0.9.0 |
+| Phase 10 — slide decks | 8 steps | The scaling PoC, `@silverpoint/marp`, its theme and controller, `SpDeck` × 3, the deck gates, the agent tools and skill, the demo and docs (§6.15); released in 0.9.0 |
+| Phase 11 — host embedding | 8 steps | The standalone-file PoC, `@silverpoint/embed` (spec, DOM-free render, client, standalone files), the host catalog and `specFromTable`, the agent access changes, the embed gates, the conformance kit, the example and docs (§6.16); target 0.11.0 |
 
 ---
 
@@ -1429,6 +1605,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.19 | 2026-11-21 | Ernesto Crespo | Feature-007 folded: §6.16 host embedding (REQ-629..REQ-668; 40 requirements: 39 MUST, 1 SHOULD; 369 → 409 in all, 382 MUST); §1, Personas 7 and 8, §5.1–§5.3, §7 additions, Epic K, §11 risks, §12 Phase 11; what the implementation changed folded as built ("amended in implementation"): mounting on load, the entry budgets 34 / 11 kB, `demo.options`, 56 bindable charts. Delta-014 folded: REQ-547 drops its `SpButton` example (an `SpButton` is a valid overlay trigger in React and Vue); REQ-500 gains the test |
 | 1.18 | 2026-11-15 | Ernesto Crespo | Delta-017: REQ-556 — a release build warns, and does not fail, when the Reflex catalog wraps the release line immediately before (the wrapper follows the library; user decision 2026-11-15) |
 | 1.17 | 2026-11-14 | Ernesto Crespo | Delta-016 folded (#12, #14, #17..#22): REQ-009 — a container hidden with `display: none` is not a measurement; REQ-212 and REQ-462 — the dashboard's own root takes the provider's ground, substrate and palette where it sets none, React's server entry aside (user decision 2026-11-14); REQ-220 — React's client entry has 2.25 KB, as its root is a client component (user decision 2026-11-15). No requirement added |
 | 1.16 | 2026-11-01 | Ernesto Crespo | Delta-015 folded (#10): REQ-556 compares release lines (major.minor); REQ-621 generates `sp_deck` for Reflex; §5.2 drops the separate Reflex deck wrapper, which ships in `reflex-silverpoint-react` |

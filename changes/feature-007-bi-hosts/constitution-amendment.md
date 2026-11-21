@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | `APPROVED` — 2026-11-20 with gate 1 (user decision); in force when folded with the feature (T-329) |
+| **Status** | `APPROVED` and **folded into `specs/` 2026-11-21** (T-329) — 2026-11-20 with gate 1 (user decision); in force when folded with the feature (T-329) |
 | **Articles** | Scope line; Art. 2 (one addition); Art. 3 (one addition); Stack constraints (one row added) |
 
 ## 1. Scope line
