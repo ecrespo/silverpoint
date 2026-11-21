@@ -2,7 +2,10 @@
 import type { SvgView } from '@silverpoint/core';
 import ChartPath from './ChartPath.vue';
 
-/** Writes the core's SVG view one field to one attribute; computes nothing (Art. 2). */
+/** Writes the core's SVG view one field to one attribute; computes nothing (Art. 2).
+ * The name is a `<desc>`, not a `<title>`: no native tooltip (REQ-669, #29). No comment in the
+ * template: Vue renders it as a node inside the `<svg>`.
+ */
 defineProps<{ view: SvgView }>();
 </script>
 
@@ -18,7 +21,6 @@ defineProps<{ view: SvgView }>();
     :role="view.svg.role"
     :aria-labelledby="view.svg.labelledby"
   >
-    <!-- A <desc>, not a <title>: no native tooltip (REQ-669, #29). -->
     <desc :id="view.title.id">{{ view.title.text }}</desc>
     <desc :id="view.desc.id">{{ view.desc.text }}</desc>
     <defs v-if="view.patterns.length > 0">
