@@ -596,10 +596,11 @@ const COMPOSED = [
   rule(".sp-ui :is([data-glyph='sort'], [data-glyph='sortUp'], [data-glyph='sortDown'])", ['fill: currentColor', 'stroke: none']),
   rule('.sp-ui-icon-button', [...plainButton, 'min-inline-size: 24px', 'min-block-size: 24px', 'color: var(--sp-text)']),
   // Table
-  rule('.sp-table', ['display: block', 'padding: 6px 0 8px', 'font-size: 15px']),
+  // The top margin and the italic caption were styles.css's, which no longer reaches `SpTable` (REQ-670).
+  rule('.sp-table', ['display: block', 'margin-top: 8px', 'padding: 6px 0 8px', 'font-size: 15px']),
   rule('.sp-ui-table-scroll', ['position: relative', 'overflow-x: auto']),
   rule('.sp-ui-table', ['inline-size: 100%', 'border-collapse: collapse', 'font-variant-numeric: tabular-nums', 'color: var(--sp-text)']),
-  rule('.sp-ui-table caption', ['padding: 6px 16px 8px', 'caption-side: top', 'text-align: start', 'font-size: 17px', 'font-weight: 500']),
+  rule('.sp-ui-table caption', ['padding: 6px 16px 8px', 'caption-side: top', 'text-align: start', 'font-size: 17px', 'font-style: italic', 'font-weight: 500']),
   rule('.sp-ui-table th', [
     'padding: 8px 14px',
     'border-block-end: 1px solid var(--sp-ink)',

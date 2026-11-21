@@ -182,9 +182,11 @@ describe('ui.css (T-141)', () => {
     for (const r of moving) expect(r.media.some((m) => m.includes('prefers-reduced-motion: no-preference'))).toBe(true);
   });
 
-  test('REQ-301 · the charts\' styles.css is untouched by the components: byte for byte what 0.2.0 shipped', () => {
+  test('REQ-301 · the charts\' styles.css is untouched by the components: byte for byte what 0.2.0 shipped, scoped by delta-018', () => {
     const hash = createHash('sha256').update(src('src/styles.css') + src('src/dashboard.css')).digest('hex');
-    expect(hash).toBe('363c596a7ec5cc6904d325d720cb2128ef6b70a40d10c27b6eda0083e1b5cda0');
+    // Changed once on purpose: delta-018 (#28, REQ-670) scopes the tabular alternative's rules to
+    // `table.sp-table`, so they no longer reach `SpTable`. Any other change is a regression.
+    expect(hash).toBe('09d8c6d0413f952b9184155f13033cd137a31a7790c1297f3a2aae710a9901a4');
   });
 
   test('REQ-301 · ui.css is a separate, opt-in file of the package, written by the build', () => {

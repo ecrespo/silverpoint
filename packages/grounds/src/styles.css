@@ -296,7 +296,11 @@
 
 /* ── Tabular alternative (REQ-121) ───────────────────────────────────────────────────── */
 
-.sp-table {
+/*
+ * Scoped to the element: `SpTable`'s wrapper is also `.sp-table`, and these rules must not reach it
+ * whatever the order of styles.css and ui.css (REQ-670, #28).
+ */
+table.sp-table {
   margin-top: 8px;
   border-collapse: collapse;
   font-family: var(--sp-font-display);
@@ -305,14 +309,14 @@
   color: var(--sp-text);
 }
 
-.sp-table th,
-.sp-table td {
+table.sp-table th,
+table.sp-table td {
   padding: 2px 8px;
   text-align: right;
   border-bottom: 0.9px solid var(--sp-rule);
 }
 
-.sp-table caption {
+table.sp-table caption {
   text-align: left;
   font-style: italic;
 }
