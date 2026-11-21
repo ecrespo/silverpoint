@@ -1,5 +1,9 @@
 # @silverpoint/fonts
 
+## 0.11.0
+
+No changes in this release.
+
 ## 0.10.1
 
 No changes in this release.

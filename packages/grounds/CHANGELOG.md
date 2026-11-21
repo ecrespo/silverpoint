@@ -1,5 +1,14 @@
 # @silverpoint/grounds
 
+## 0.11.0
+
+### Patch Changes
+
+- 5ac7d14: `SpTable` looks the same whatever the order of `styles.css` and `ui.css` (#28): the tabular alternative's rules are scoped to `table.sp-table`.
+- Updated dependencies [a3aefc5]
+- Updated dependencies [3a670ef]
+  - @silverpoint/core@0.11.0
+
 ## 0.10.1
 
 ### Patch Changes

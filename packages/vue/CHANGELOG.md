@@ -1,5 +1,21 @@
 # @silverpoint/vue
 
+## 0.11.0
+
+### Minor Changes
+
+- a3aefc5: Every chart's handle gains `toStandaloneSVGString(extraCss?)`, a self-painting SVG file with the stylesheet loaded on demand (#25). A chart's accessible name is now a `<desc id="{id}-title">` instead of an SVG `<title>`, so browsers no longer show a native tooltip over a chart (#29); the normalised SVG output changes by that element name.
+
+### Patch Changes
+
+- 89c4a7f: delta-014: `SpButton` works as an overlay's `trigger`. React's and Vue's `SpButton` dropped the `aria-haspopup`, `aria-expanded`, `aria-controls` and `aria-describedby` an overlay clones onto its trigger, and its `pointerdown` handler, so a modal opened from an `SpButton` announced nothing to assistive technology and a second press on an open popover's trigger reopened it. They now forward exactly that set to their root. Angular's `spButton` was unaffected.
+- Updated dependencies [5ac7d14]
+- Updated dependencies [a3aefc5]
+- Updated dependencies [3a670ef]
+  - @silverpoint/grounds@0.11.0
+  - @silverpoint/marp@0.11.0
+  - @silverpoint/core@0.11.0
+
 ## 0.10.1
 
 ### Patch Changes

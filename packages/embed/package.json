@@ -1,6 +1,6 @@
 {
   "name": "@silverpoint/embed",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Silverpoint charts for hosts: any chart from one JSON spec — a DOM-free render, a framework-free client, a single standalone file, the host catalog and a conformance kit.",
   "license": "MIT",
   "type": "module",
