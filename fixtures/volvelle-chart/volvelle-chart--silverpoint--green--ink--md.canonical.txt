@@ -1,5 +1,5 @@
 <svg aria-labelledby="volvelle-chart--silverpoint--green--ink--md-title volvelle-chart--silverpoint--green--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="volvelle-chart--silverpoint--green--ink--md-title">
+  <desc id="volvelle-chart--silverpoint--green--ink--md-title">
     "On call"
   <desc id="volvelle-chart--silverpoint--green--ink--md-desc">
     "On call. Volvelle of 3 rings from the inside out; under the index: Day Mon · Shift Early · Team Atlas."

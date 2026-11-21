@@ -1,5 +1,5 @@
 <svg aria-labelledby="sparkline-rows--silverpoint--ochre--ink--md-title sparkline-rows--silverpoint--ochre--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="sparkline-rows--silverpoint--ochre--ink--md-title">
+  <desc id="sparkline-rows--silverpoint--ochre--ink--md-title">
     "Service health"
   <desc id="sparkline-rows--silverpoint--ochre--ink--md-desc">
     "Service health. 4 rows: API 99.9%, Queue 17, Cache 84%, Search 170."

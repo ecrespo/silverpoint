@@ -1,5 +1,5 @@
 <svg aria-labelledby="waffle-chart--silverpoint--ochre--ink--md--per-shape-title waffle-chart--silverpoint--ochre--ink--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="waffle-chart--silverpoint--ochre--ink--md--per-shape-title">
+  <desc id="waffle-chart--silverpoint--ochre--ink--md--per-shape-title">
     "Household energy"
   <desc id="waffle-chart--silverpoint--ochre--ink--md--per-shape-desc">
     "Household energy. Waffle of 100 cells in 10 columns, filled in reading order by 5 categories totalling 1,000; one cell is about 10. The largest is Heating, 41 cells, 41%."

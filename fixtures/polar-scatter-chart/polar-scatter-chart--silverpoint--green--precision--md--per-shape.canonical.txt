@@ -1,5 +1,5 @@
 <svg aria-labelledby="polar-scatter-chart--silverpoint--green--precision--md--per-shape-title polar-scatter-chart--silverpoint--green--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="polar-scatter-chart--silverpoint--green--precision--md--per-shape-title">
+  <desc id="polar-scatter-chart--silverpoint--green--precision--md--per-shape-title">
     "Sightings"
   <desc id="polar-scatter-chart--silverpoint--green--precision--md--per-shape-desc">
     "Sightings. Polar scatter of 150 points, bearing round the circle (one turn being 360) and distance out from the centre; the farthest at 19.6."

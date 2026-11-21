@@ -5,7 +5,7 @@
     <article aria-labelledby="mixed-spans--one-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Step" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--one-title mixed-spans--one-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--one-title">
+          <desc id="mixed-spans--one-title">
             "Step"
           <desc id="mixed-spans--one-desc">
             "Step. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."
@@ -88,7 +88,7 @@
     <article aria-labelledby="mixed-spans--two-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Area" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--two-title mixed-spans--two-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--two-title">
+          <desc id="mixed-spans--two-title">
             "Area"
           <desc id="mixed-spans--two-desc">
             "Area. Area chart of 7 x values; value ranges from 29 to 66."
@@ -176,7 +176,7 @@
     <article aria-labelledby="mixed-spans--three-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Funnel" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--three-title mixed-spans--three-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--three-title">
+          <desc id="mixed-spans--three-title">
             "Funnel"
           <desc id="mixed-spans--three-desc">
             "Funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."
@@ -270,7 +270,7 @@
     <article aria-labelledby="mixed-spans--four-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:3;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Bars" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--four-title mixed-spans--four-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 1280 240" width="1280" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--four-title">
+          <desc id="mixed-spans--four-title">
             "Bars"
           <desc id="mixed-spans--four-desc">
             "Bars. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
@@ -357,7 +357,7 @@
     <article aria-labelledby="mixed-spans--five-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Radar" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--five-title mixed-spans--five-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--five-title">
+          <desc id="mixed-spans--five-title">
             "Radar"
           <desc id="mixed-spans--five-desc">
             "Radar. Radar of 6 subjects on a scale from 0 to 10; highest Safety at 9, lowest Cost at 4."
@@ -441,7 +441,7 @@
     <article aria-labelledby="mixed-spans--six-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Stream" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--six-title mixed-spans--six-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 848 240" width="848" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--six-title">
+          <desc id="mixed-spans--six-title">
             "Stream"
           <desc id="mixed-spans--six-desc">
             "Stream. Overlaid stream of 2 waves over 7 x values; organic totals 199; paid totals 134."
@@ -551,7 +551,7 @@
     <article aria-labelledby="mixed-spans--seven-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Meter" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="blue" role="group" tabindex="0">
         <svg aria-labelledby="mixed-spans--seven-title mixed-spans--seven-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 416 240" width="416" xmlns="http://www.w3.org/2000/svg">
-          <title id="mixed-spans--seven-title">
+          <desc id="mixed-spans--seven-title">
             "Meter"
           <desc id="mixed-spans--seven-desc">
             "Meter. The value at 72% of the range."

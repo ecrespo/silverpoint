@@ -1,5 +1,5 @@
 <svg aria-labelledby="step-chart--cyanotype--prussian--precision--md-title step-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="step-chart--cyanotype--prussian--precision--md-title">
+  <desc id="step-chart--cyanotype--prussian--precision--md-title">
     "Price tier"
   <desc id="step-chart--cyanotype--prussian--precision--md-desc">
     "Price tier. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."

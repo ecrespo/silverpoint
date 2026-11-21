@@ -39,7 +39,8 @@ import type { RenderedChart } from '@silverpoint/grounds';
         [attr.role]="v.svg.role"
         [attr.aria-labelledby]="v.svg.labelledby"
       >
-        <title [attr.id]="v.title.id">{{ v.title.text }}</title>
+        <!-- A <desc>, not a <title>: no native tooltip (REQ-669, #29). -->
+        <desc [attr.id]="v.title.id">{{ v.title.text }}</desc>
         <desc [attr.id]="v.desc.id">{{ v.desc.text }}</desc>
         @if (v.patterns.length > 0) {
           <defs>

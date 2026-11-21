@@ -1,5 +1,5 @@
 <svg aria-labelledby="step-chart--silverpoint--ochre--precision--lg--per-shape-title step-chart--silverpoint--ochre--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="step-chart--silverpoint--ochre--precision--lg--per-shape-title">
+  <desc id="step-chart--silverpoint--ochre--precision--lg--per-shape-title">
     "Price tier"
   <desc id="step-chart--silverpoint--ochre--precision--lg--per-shape-desc">
     "Price tier. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."

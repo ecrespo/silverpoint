@@ -1,5 +1,5 @@
 <svg aria-labelledby="pyramid-chart--silverpoint--cream--ink--sm-title pyramid-chart--silverpoint--cream--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="pyramid-chart--silverpoint--cream--ink--sm-title">
+  <desc id="pyramid-chart--silverpoint--cream--ink--sm-title">
     "Headcount by level"
   <desc id="pyramid-chart--silverpoint--cream--ink--sm-desc">
     "Headcount by level. Pyramid of 4 tiers, from Leads at the top to Staff at the base; width on a 0 to 100 scale."

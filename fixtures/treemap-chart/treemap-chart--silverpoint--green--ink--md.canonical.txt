@@ -1,5 +1,5 @@
 <svg aria-labelledby="treemap-chart--silverpoint--green--ink--md-title treemap-chart--silverpoint--green--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="treemap-chart--silverpoint--green--ink--md-title">
+  <desc id="treemap-chart--silverpoint--green--ink--md-title">
     "Traffic sources"
   <desc id="treemap-chart--silverpoint--green--ink--md-desc">
     "Traffic sources. Treemap of 4 tiles in a 6 by 4 grid; Search 48%, Direct 26%, Social 17%, Email 9%."

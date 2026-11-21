@@ -167,7 +167,9 @@ export function svgString(view: SvgView, style = ''): string {
     // A palette's declarations (REQ-461): the only attribute it changes (REQ-468).
     ['style', style || null],
   ])}>`;
-  const title = `<title id="${escape(view.title.id)}">${escape(view.title.text)}</title>`;
+  // The name is a `<desc>`, not a `<title>`: browsers show an SVG `<title>` as a native tooltip over the
+  // chart (#29). `aria-labelledby` names the chart by it and the description (REQ-669, REQ-120).
+  const title = `<desc id="${escape(view.title.id)}">${escape(view.title.text)}</desc>`;
   const desc = `<desc id="${escape(view.desc.id)}">${escape(view.desc.text)}</desc>`;
   const defs =
     view.patterns.length === 0

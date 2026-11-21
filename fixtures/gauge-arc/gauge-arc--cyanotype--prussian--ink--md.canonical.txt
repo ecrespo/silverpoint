@@ -1,5 +1,5 @@
 <svg aria-labelledby="gauge-arc--cyanotype--prussian--ink--md-title gauge-arc--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="gauge-arc--cyanotype--prussian--ink--md-title">
+  <desc id="gauge-arc--cyanotype--prussian--ink--md-title">
     "Capacity"
   <desc id="gauge-arc--cyanotype--prussian--ink--md-desc">
     "Capacity. The value at 72% of the range."

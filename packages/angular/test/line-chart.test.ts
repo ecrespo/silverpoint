@@ -118,12 +118,12 @@ describe('sp-line-chart component contract', () => {
     expect(Object.keys(definition.outputs as object).sort()).toEqual(['activeChange', 'select']);
   });
 
-  test('API §8.2 · exposes getGeometry() and toSVGString() and no other public method', () => {
+  test('API §8.2 · REQ-672 · exposes getGeometry(), toSVGString() and toStandaloneSVGString() and no other public method', () => {
     // Walk the whole class chain: the methods may live on a shared base class.
     const methods = new Set<string>();
     for (let proto = SpLineChart.prototype; proto && proto !== Object.prototype; proto = Object.getPrototypeOf(proto)) {
       for (const name of Object.getOwnPropertyNames(proto)) if (name !== 'constructor' && !name.startsWith('ng')) methods.add(name);
     }
-    expect([...methods].sort()).toEqual(['getGeometry', 'toSVGString']);
+    expect([...methods].sort()).toEqual(['getGeometry', 'toSVGString', 'toStandaloneSVGString']);
   });
 });

@@ -1,5 +1,5 @@
 <svg aria-labelledby="volvelle-chart--cyanotype--prussian--ink--lg-title volvelle-chart--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="volvelle-chart--cyanotype--prussian--ink--lg-title">
+  <desc id="volvelle-chart--cyanotype--prussian--ink--lg-title">
     "On call"
   <desc id="volvelle-chart--cyanotype--prussian--ink--lg-desc">
     "On call. Volvelle of 3 rings from the inside out; under the index: Day Mon · Shift Early · Team Atlas."

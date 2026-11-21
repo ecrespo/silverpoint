@@ -1,5 +1,5 @@
 <svg aria-labelledby="dumbbell-chart--cyanotype--prussian--precision--md-title dumbbell-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="dumbbell-chart--cyanotype--prussian--precision--md-title">
+  <desc id="dumbbell-chart--cyanotype--prussian--precision--md-title">
     "Clinic waits"
   <desc id="dumbbell-chart--cyanotype--prussian--precision--md-desc">
     "Clinic waits. Dumbbell chart of 10 clinic values from 2024 to 2025; 8 rise, 2 fall; the largest change is Fairholm, +15."

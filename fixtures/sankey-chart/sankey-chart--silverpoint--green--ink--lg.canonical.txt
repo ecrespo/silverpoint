@@ -1,5 +1,5 @@
 <svg aria-labelledby="sankey-chart--silverpoint--green--ink--lg-title sankey-chart--silverpoint--green--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="sankey-chart--silverpoint--green--ink--lg-title">
+  <desc id="sankey-chart--silverpoint--green--ink--lg-title">
     "Visitor flow"
   <desc id="sankey-chart--silverpoint--green--ink--lg-desc">
     "Visitor flow. Sankey diagram of 6 flows between 7 nodes in 4 layers; total flow of 90."

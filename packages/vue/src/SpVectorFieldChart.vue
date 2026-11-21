@@ -19,6 +19,7 @@ const shell = ref<ChartHandle>();
 defineExpose<ChartHandle>({
   getGeometry: () => shell.value!.getGeometry(),
   toSVGString: () => shell.value!.toSVGString(),
+  toStandaloneSVGString: (extraCss?: string) => shell.value!.toStandaloneSVGString(extraCss),
 });
 </script>
 

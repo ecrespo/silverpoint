@@ -1,5 +1,5 @@
 <svg aria-labelledby="coxcomb-chart--cyanotype--prussian--ink--lg-title coxcomb-chart--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="coxcomb-chart--cyanotype--prussian--ink--lg-title">
+  <desc id="coxcomb-chart--cyanotype--prussian--ink--lg-title">
     "Tickets"
   <desc id="coxcomb-chart--cyanotype--prussian--ink--lg-desc">
     "Tickets. Coxcomb of 7 equal-angle sectors whose area is proportional to the value; the largest is Mon at 42."

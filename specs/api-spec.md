@@ -1859,13 +1859,13 @@ The server variant emits pure SVG with no client JavaScript. It accepts neither
 export interface ChartHandle {
   getGeometry(): Geometry;
   toSVGString(): string;
+  toStandaloneSVGString(extraCss?: string): Promise<string>;   // delta-018, #25 (REQ-672)
 }
 ```
 
 `toSVGString()` returns the canonical markup, the one every gate compares (Art. 3): its strokes and
 fills are painted by the page's stylesheet, so saved on its own it has no colours. `standaloneSVG`
-on `@silverpoint/grounds` makes it a file (delta-016, #14), outside the handle, so no adapter gains
-a byte (REQ-444):
+on `@silverpoint/grounds` makes it a file (delta-016, #14):
 
 ```ts
 import { standaloneSVG } from '@silverpoint/grounds';
@@ -1874,6 +1874,14 @@ import css from '@silverpoint/grounds/styles-text';
 /** The stylesheet as the root's first child, in CDATA; markup that is not an `<svg>` root is returned unchanged. */
 const file: string = standaloneSVG(chart.toSVGString(), css);
 ```
+
+`toStandaloneSVGString(extraCss?)` is that file from the handle, for a caller that can reach only the
+handle (Reflex's `rx.call_script`, #25): `@silverpoint/grounds/styles.css`, then `extraCss` (the
+app's own `--sp-*` overrides), embedded in the markup. The stylesheet is loaded by a dynamic `import()`
+on the first call, so a chart's build does not carry it; hence a promise. The ground (the root's
+class) and a palette (declarations on the root's `style`, REQ-461) are in the markup, so both reach
+the file; the typeface is not embedded. The chart's accessible name is a `<desc id="{id}-title">`, not
+a `<title>`, which browsers show as a native tooltip (delta-018, #29, REQ-669).
 
 `SilverpointProvider` is also on `@silverpoint/react/provider` (§1, #21). `Dashboard` from
 `@silverpoint/react/dashboard` still carries no `"use client"`: its `section` is a client component
@@ -1924,8 +1932,8 @@ bootstrapApplication(App, {
 ```
 
 Inputs are declared with `input()` and are read-only inside the component. The component
-SHALL NOT expose public methods beyond `getGeometry()` and `toSVGString()`, so as to keep
-symmetry with `ChartHandle`.
+SHALL NOT expose public methods beyond `getGeometry()`, `toSVGString()` and
+`toStandaloneSVGString()`, so as to keep symmetry with `ChartHandle`.
 
 A literal `title="…"` on a chart, on `sp-dashboard` or on a UI component with a `title` input is
 the input and is not left on the host element, where the browser would show its native tooltip
@@ -1986,6 +1994,7 @@ Vue app, and Nuxt is not a validated integration in the `0.x` line.
 ```ts
 const chart = ref<InstanceType<typeof SpLineChart>>();
 chart.value?.getGeometry();
+await chart.value?.toStandaloneSVGString();
 ```
 
 **UI components (§7.2).** `<script setup>` with typed props and emits (REQ-108), `defineModel` for the value, slots `prefix`, `suffix`, `extra` and `footer`.
@@ -2355,7 +2364,7 @@ motivates it.
 | 60 × 60 field | 8 ms | The CI benchmark fails |
 | 150-node network layout (300 iterations) | 16 ms | The CI benchmark fails |
 | `core` + `react` with one chart of §7.3 | 45 KB min+gzip, as any chart | CI fails (REQ-164) |
-| One-chart build of any of the 60 charts, against `0.6.0` (`one-chart-0.6.0.json`) | Within 2 KB (2,000 B) of uncompressed minified bytes (gzip moves when the bundler only reorders modules). *Amended in implementation (feature-004):* re-baselined from `0.3.0` and 0.25 KB, to hold the palette on the chart path | CI fails (REQ-444, REQ-519) |
+| One-chart build of any of the 60 charts, against `0.11.0` (`one-chart-0.11.0.json`; `0.6.0` until delta-018) | Within 2 KB (2,000 B) of uncompressed minified bytes (gzip moves when the bundler only reorders modules). *Amended in implementation (feature-004):* re-baselined from `0.3.0` and 0.25 KB, to hold the palette on the chart path | CI fails (REQ-444, REQ-519) |
 | `@silverpoint/core/catalog`, everything | 75 kB min+gzip | CI fails |
 | One component's subpath of §7.4 over the shared UI runtime | 3 KB min+gzip | CI fails (REQ-518) |
 | Overlay runtime over the shared UI runtime, per adapter | 4 KB min+gzip | CI fails (REQ-518) |
@@ -2772,7 +2781,7 @@ runtime it ships it in.
 
 | Version | Date | Changes |
 |---|---|---|
-| 1.16 | 2026-11-21 | Feature-007: host embedding — §1 adds `@silverpoint/embed` (and the MCP's dependency on it); new §1.5 (`.`, `./client`, `./hosts`, `./conformance`, the four standalone files, `host-catalog.json`, `conformance.json`, `integrity.json`); new §3.7 (`ChartSpec`, `SpecError`, `SpecResult`, `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `STANDALONE_INTEGRITY`, `mount`, `mountAll`, `<silverpoint-chart>`, `hostAppearance`); new §10.5 (the wrapper markup and the error figure); `SP030`, `SP031` (29 → 31 codes); §12 the embed's limits and budgets; §13 ten packages; §14 `hosts` in the agent catalog, `generate_code { framework: 'html' }`, `search_catalog` kind `host`, `references/hosts.md`; new §15 (the host catalog, `specFromTable`, reshapes, the conformance kit); folds the amendments made in implementation (mounting on load, the entry budgets 34 / 11 kB, `demo.options`, four unbound charts, `validate_props` through the embed) in the ledger of `changes/feature-007-bi-hosts/`. Delta-014: §8.1 `SpButton` forwards an overlay's trigger contract; §14.3 drops the restriction |
+| 1.16 | 2026-11-21 | Feature-007: host embedding — §1 adds `@silverpoint/embed` (and the MCP's dependency on it); new §1.5 (`.`, `./client`, `./hosts`, `./conformance`, the four standalone files, `host-catalog.json`, `conformance.json`, `integrity.json`); new §3.7 (`ChartSpec`, `SpecError`, `SpecResult`, `validateSpec`, `renderSpec`, `renderToSVG`, `renderToHTML`, `STANDALONE_INTEGRITY`, `mount`, `mountAll`, `<silverpoint-chart>`, `hostAppearance`); new §10.5 (the wrapper markup and the error figure); `SP030`, `SP031` (29 → 31 codes); §12 the embed's limits and budgets; §13 ten packages; §14 `hosts` in the agent catalog, `generate_code { framework: 'html' }`, `search_catalog` kind `host`, `references/hosts.md`; new §15 (the host catalog, `specFromTable`, reshapes, the conformance kit); folds the amendments made in implementation (mounting on load, the entry budgets 34 / 11 kB, `demo.options`, four unbound charts, `validate_props` through the embed) in the ledger of `changes/feature-007-bi-hosts/`. Delta-014: §8.1 `SpButton` forwards an overlay's trigger contract; §14.3 drops the restriction; delta-018: §8.1–§8.3 `ChartHandle.toStandaloneSVGString()`, the name as a `<desc>` |
 | 1.15 | 2026-11-14 | Delta-016 (#12, #14, #17..#22): §1 the subpaths `@silverpoint/react/provider` and `@silverpoint/grounds/styles-text`, and `standaloneSVG`; §3.4 `PaletteName`, with `PALETTES` and `PALETTE_NAMES` keyed by it; §7.1 the dashboard's root resolves ground, substrate and palette as dashboard → provider → default, except React's `server/dashboard`; §8.1 `toSVGString` is the canonical markup and `standaloneSVG` makes it a file; §8.2 an Angular host keeps no literal `title`; §11 `SP003` is not raised for a hidden container; §12 React's client `dashboard` entry has 2.25 KB over its one-chart build (REQ-220) |
 | 1.14 | 2026-11-01 | Delta-015 (#10): §14.2 the deck's Reflex name and import (`sp_deck`, `reflex_silverpoint_react`) joined from the Reflex catalog; §14.3 `generate_code { deck }` supports `reflex` |
 | 1.13 | 2026-10-31 | Feature-006: slide decks — §1 adds `@silverpoint/marp` and the adapters' optional peer; new §1.4 (`.`, `./client`, `./theme.css`, `./deck.css`, `./cli`, `./demo` with `DECK_DEMO`, the `deck` subpaths, `slideBackdrop`, `listGrounds` and `toChartRootString` on the grounds); §2 surface; new §3.6 (the engine, the theme and its classes, the directives, the chart fence); new §7.5 (`SpDeck`, the controller, the keyboard, the markup contract); §9 deck events; §10 parts and properties; `SP026`–`SP029` and `SP018` widened (25 → 29 codes); §12 deck limits and budgets; §13 nine packages; §14 the catalog's `deck` section, `validate_deck`, `render_deck`, `generate_code { deck }` (13 tools), `silverpoint://deck` and the `deck` guide; folds the amendments made in implementation (no polyfill, the shared view functions, `data-sp-pending` fragments, the budgets of DD-059, event bindings) in the ledger of `changes/feature-006-deck/` |

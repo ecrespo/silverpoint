@@ -1,5 +1,5 @@
 <svg aria-labelledby="waterfall-chart--silverpoint--blue--ink--lg--per-shape-title waterfall-chart--silverpoint--blue--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="waterfall-chart--silverpoint--blue--ink--lg--per-shape-title">
+  <desc id="waterfall-chart--silverpoint--blue--ink--lg--per-shape-title">
     "Cash bridge"
   <desc id="waterfall-chart--silverpoint--blue--ink--lg--per-shape-desc">
     "Cash bridge. Waterfall of 6 steps, ending at 124."

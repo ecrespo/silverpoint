@@ -1,5 +1,5 @@
 <svg aria-labelledby="pyramid-chart--cyanotype--prussian--ink--lg-title pyramid-chart--cyanotype--prussian--ink--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="pyramid-chart--cyanotype--prussian--ink--lg-title">
+  <desc id="pyramid-chart--cyanotype--prussian--ink--lg-title">
     "Headcount by level"
   <desc id="pyramid-chart--cyanotype--prussian--ink--lg-desc">
     "Headcount by level. Pyramid of 4 tiers, from Leads at the top to Staff at the base; width on a 0 to 100 scale."

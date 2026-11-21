@@ -1,5 +1,5 @@
 <svg aria-labelledby="box-plot-chart--silverpoint--ochre--ink--md-title box-plot-chart--silverpoint--ochre--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="box-plot-chart--silverpoint--ochre--ink--md-title">
+  <desc id="box-plot-chart--silverpoint--ochre--ink--md-title">
     "Response time"
   <desc id="box-plot-chart--silverpoint--ochre--ink--md-desc">
     "Response time. Box plot of ms in 5 groups; quartiles by linear interpolation, Tukey whiskers at 1.5 IQR; Search median 178.5, Checkout median 200.5, Profile median 120, Reports median 344.5, Login median 88."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="tree-chart--cyanotype--prussian--ink--sm-title tree-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="tree-chart--cyanotype--prussian--ink--sm-title">
+  <desc id="tree-chart--cyanotype--prussian--ink--sm-title">
     "City budget"
   <desc id="tree-chart--cyanotype--prussian--ink--sm-desc">
     "City budget. Tidy tree, left to right, of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364."

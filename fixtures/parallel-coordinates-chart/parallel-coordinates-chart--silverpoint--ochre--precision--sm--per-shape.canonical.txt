@@ -1,5 +1,5 @@
 <svg aria-labelledby="parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape-title parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape-title">
+  <desc id="parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape-title">
     "Bicycles"
   <desc id="parallel-coordinates-chart--silverpoint--ochre--precision--sm--per-shape-desc">
     "Bicycles. Parallel coordinates of 30 rows on 5 axes, mass, gears, price, range, rating; every axis spans its data, niced. The first row, Model 01, is drawn heavier."

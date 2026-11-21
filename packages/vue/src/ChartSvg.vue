@@ -18,7 +18,8 @@ defineProps<{ view: SvgView }>();
     :role="view.svg.role"
     :aria-labelledby="view.svg.labelledby"
   >
-    <title :id="view.title.id">{{ view.title.text }}</title>
+    <!-- A <desc>, not a <title>: no native tooltip (REQ-669, #29). -->
+    <desc :id="view.title.id">{{ view.title.text }}</desc>
     <desc :id="view.desc.id">{{ view.desc.text }}</desc>
     <defs v-if="view.patterns.length > 0">
       <pattern

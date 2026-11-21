@@ -1,5 +1,5 @@
 <svg aria-labelledby="bullet-chart--silverpoint--ochre--precision--lg--per-shape-title bullet-chart--silverpoint--ochre--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="bullet-chart--silverpoint--ochre--precision--lg--per-shape-title">
+  <desc id="bullet-chart--silverpoint--ochre--precision--lg--per-shape-title">
     "Quarter targets"
   <desc id="bullet-chart--silverpoint--ochre--precision--lg--per-shape-desc">
     "Quarter targets. Bullet chart of 4 targets on a 0 to 100 scale; 1 of 4 reach their target."

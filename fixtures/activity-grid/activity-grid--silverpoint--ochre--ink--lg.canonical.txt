@@ -1,5 +1,5 @@
 <svg aria-labelledby="activity-grid--silverpoint--ochre--ink--lg-title activity-grid--silverpoint--ochre--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="activity-grid--silverpoint--ochre--ink--lg-title">
+  <desc id="activity-grid--silverpoint--ochre--ink--lg-title">
     "Contributions"
   <desc id="activity-grid--silverpoint--ochre--ink--lg-desc">
     "Contributions. Activity grid of 26 weeks, 2025-12-31 to 2026-06-30; 530 in total, active on 121 of 182 days."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="kpi-card--silverpoint--green--ink--sm-title kpi-card--silverpoint--green--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="262" role="img" viewBox="0 0 240 262" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="kpi-card--silverpoint--green--ink--sm-title">
+  <desc id="kpi-card--silverpoint--green--ink--sm-title">
     "Orders"
   <desc id="kpi-card--silverpoint--green--ink--sm-desc">
     "Orders. orders per day at 171, change +8.2; 14 points from 118 to 171."

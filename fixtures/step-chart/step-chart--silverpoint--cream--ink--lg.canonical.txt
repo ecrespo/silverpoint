@@ -1,5 +1,5 @@
 <svg aria-labelledby="step-chart--silverpoint--cream--ink--lg-title step-chart--silverpoint--cream--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="step-chart--silverpoint--cream--ink--lg-title">
+  <desc id="step-chart--silverpoint--cream--ink--lg-title">
     "Price tier"
   <desc id="step-chart--silverpoint--cream--ink--lg-desc">
     "Price tier. Step chart of 8 x values, stepping after each point; value ranges from 12 to 30."

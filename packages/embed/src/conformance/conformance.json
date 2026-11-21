@@ -8,7 +8,7 @@
         "width": 480,
         "id": "line-chart"
       },
-      "sha256": "5607dc7f549eeb4317ffde04c06f3bd17dcd83ee38f69accda149881858be69b"
+      "sha256": "685f9906bb9720509898baaab26bca2fdffa02a558ca2f197fe540842992baae"
     },
     {
       "name": "bullet-chart",
@@ -17,7 +17,7 @@
         "width": 480,
         "id": "bullet-chart"
       },
-      "sha256": "593844818d9143590c7fe8936f66743843164d511142ecc542b8ca7bd4e36499"
+      "sha256": "27ece03b77e4dc9c25c359f9c3b2084428447c00dfcf122b95dce6dad3461990"
     },
     {
       "name": "pyramid-chart",
@@ -26,7 +26,7 @@
         "width": 480,
         "id": "pyramid-chart"
       },
-      "sha256": "b3ac8f6b8c8aceecebd5873c9e5b1f96e0433776a92ee9b609901e46d756eb6e"
+      "sha256": "f121e2e78e1f405806a9a3de99b09ac315de79c52d54e6db2ebde852e125e672"
     },
     {
       "name": "heatmap-chart",
@@ -35,7 +35,7 @@
         "width": 480,
         "id": "heatmap-chart"
       },
-      "sha256": "00a65eddbeffe2a267ddebed5269e0b7edc99dbc39651c191b43f67124382886"
+      "sha256": "18c6946af2518c9ae1631428454664876344318ec450658c9cdb5871dcf44eb0"
     },
     {
       "name": "treemap-chart",
@@ -44,7 +44,7 @@
         "width": 480,
         "id": "treemap-chart"
       },
-      "sha256": "a1059d2f9991823fcaa45ba2dbf2da25a990f6592ff156d63bf40506a4208b36"
+      "sha256": "def9e8f04b7d7a2e48afc1d7a93a8b863b40aebe0a9703384659fc5889c538e6"
     },
     {
       "name": "sankey-chart",
@@ -53,7 +53,7 @@
         "width": 480,
         "id": "sankey-chart"
       },
-      "sha256": "6172d111dc1c76ac41962cb8c1c81f9994e094e244c8b730fc844a1e3550a031"
+      "sha256": "532e6e9b16f5221c591cd42abfb9e4faa606423be9dffd3715fd0f94509736ae"
     },
     {
       "name": "activity-grid",
@@ -62,7 +62,7 @@
         "width": 480,
         "id": "activity-grid"
       },
-      "sha256": "0703de48206c6f987f4fa0212c40443a01b5b6eb3289ae79f9beac5195b3eea6"
+      "sha256": "bce5107956b691837601fbcc8dda771b9a18b46eda443bf331d4a3eecddc8eb6"
     },
     {
       "name": "step-chart",
@@ -71,7 +71,7 @@
         "width": 480,
         "id": "step-chart"
       },
-      "sha256": "92d5c885e53e3a486d9c271fb074f46afd1dfb10d4bc011ef353e234e27d181c"
+      "sha256": "5432ff792b0612d4222cba53962693a9aec32c48b87826c1ff402fc924afd874"
     },
     {
       "name": "sparkline-rows",
@@ -80,7 +80,7 @@
         "width": 480,
         "id": "sparkline-rows"
       },
-      "sha256": "293cfa0d7a6834b3b9c6fe9a4722b55863888b571c20391c1e9cfe36d9bcf7fc"
+      "sha256": "427d5b8e1f997c227fb88eca4c16f1dd8679e00f295ed2279dcec0ddb72af387"
     },
     {
       "name": "kpi-card",
@@ -89,7 +89,7 @@
         "width": 480,
         "id": "kpi-card"
       },
-      "sha256": "854b658f7dc56e26b0fde4234b96a6b16f024e1182bf97f2feec0712f5b0a9a1"
+      "sha256": "bd638a44a4f545115b3bae6b09123321e64557d61fd63bc4ee0f65a021c5ae60"
     },
     {
       "name": "bar-chart",
@@ -98,7 +98,7 @@
         "width": 480,
         "id": "bar-chart"
       },
-      "sha256": "60803a0adff5dd824ee7f0fed286c2e5c0fe7592e533b1f2dc474c68bc4a89bb"
+      "sha256": "80a090d7c69912ac7cccaf9605e41e2f1520a03a17a6a2c5db846e704ba444aa"
     },
     {
       "name": "stacked-bar-chart",
@@ -107,7 +107,7 @@
         "width": 480,
         "id": "stacked-bar-chart"
       },
-      "sha256": "5078f44a7b5d92fd18444acdc683334869a82d79bd37507019a3632fa3f83460"
+      "sha256": "0d09abe537592635ed5971732882f4efac34eda50f8024bf7d2da6f5fccda18f"
     },
     {
       "name": "composed-chart",
@@ -116,7 +116,7 @@
         "width": 480,
         "id": "composed-chart"
       },
-      "sha256": "3baef72b0b05ec680deee89c07d681ae143a31c605b864142583961dd0323586"
+      "sha256": "a530f7117876ae34f359dec4344064572318d12309beb6cf7c22fa4896b5c0f9"
     },
     {
       "name": "waterfall-chart",
@@ -125,7 +125,7 @@
         "width": 480,
         "id": "waterfall-chart"
       },
-      "sha256": "b487392c5051484f06c44071d03545a5f5260b652cf4e8c4d35046feccb151e3"
+      "sha256": "4212f868c624d0081a3be80c44adefb2623f373ff72812d997a545fa10640cb4"
     },
     {
       "name": "funnel-chart",
@@ -134,7 +134,7 @@
         "width": 480,
         "id": "funnel-chart"
       },
-      "sha256": "e0f151e93ab55cc531990ccfa8e88d4dafe5ee2110afdd28425f2b133382d0ea"
+      "sha256": "9a5c222f9f69e675562705be473451917aa59a97593b780105bb7ce5b550b6ca"
     },
     {
       "name": "candlestick-chart",
@@ -143,7 +143,7 @@
         "width": 480,
         "id": "candlestick-chart"
       },
-      "sha256": "bfd70baaec9460195731a385e412ffc86bd611c5e447c184505f3ec067ab850a"
+      "sha256": "06af3094758793751bd17d5f3382570df2c219ae9ca8b6f81b9f5927619b8381"
     },
     {
       "name": "area-chart",
@@ -152,7 +152,7 @@
         "width": 480,
         "id": "area-chart"
       },
-      "sha256": "4551d672278ad88ded4933862dc1ad9b13a95d0555ee55c39b7b6fcbbdae755e"
+      "sha256": "c73923ff81d70a9c69c308e41a68eaef39c0187009d12f4121069c49ec52084f"
     },
     {
       "name": "range-band-chart",
@@ -161,7 +161,7 @@
         "width": 480,
         "id": "range-band-chart"
       },
-      "sha256": "9474f3576969c4fb2413eb9531f6448e2df1f9021709d98479b4f0c3ee898b6b"
+      "sha256": "0b71c0404aa4b6436aef13ec74b44eb1d90fb77809fbc02679f7aae9d0105785"
     },
     {
       "name": "stream-chart",
@@ -170,7 +170,7 @@
         "width": 480,
         "id": "stream-chart"
       },
-      "sha256": "ce332cbcf1fcac4d8abf2d4d15aeaf185d7e6ec837ceffd00e6926277b7d1a9b"
+      "sha256": "2b64806ad6696b383de614b3ff45f5f270e6afc89199581c8730b445598795dc"
     },
     {
       "name": "scatter-chart",
@@ -179,7 +179,7 @@
         "width": 480,
         "id": "scatter-chart"
       },
-      "sha256": "f58b878ec383dce0dd93e0f585a59d85a1b343f98952b87eff889bb9c7489322"
+      "sha256": "c65cfcfecadc72beaaf71a1174a11a0a9d40d057ac1da5d88eecd8580a75ac22"
     },
     {
       "name": "bubble-chart",
@@ -188,7 +188,7 @@
         "width": 480,
         "id": "bubble-chart"
       },
-      "sha256": "63f1b678751cb77774beaace3022d06129941633af21e92fa054c7f6d131d60c"
+      "sha256": "ec93e108045744b179f90cdadaebfb04c03868ac682372b66bd7e0677613945b"
     },
     {
       "name": "donut-chart",
@@ -197,7 +197,7 @@
         "width": 480,
         "id": "donut-chart"
       },
-      "sha256": "098b4ea7756a775fc0fcd48618c14f0140fbbfba95d0745ade30f4566e6e6902"
+      "sha256": "2bae9f4135de374419c306699cc69da51923a5b9aad25d4d8e7ea7f98075af7b"
     },
     {
       "name": "radar-chart",
@@ -206,7 +206,7 @@
         "width": 480,
         "id": "radar-chart"
       },
-      "sha256": "8f010788c9e29a6bde8d7c33211480c79d00c90700919051047c1ac52e5202dd"
+      "sha256": "1210b2be1e26e19fa875cf3e7b51eba95996aee69925a260cd520a8ff5c1e949"
     },
     {
       "name": "polar-bar-chart",
@@ -215,7 +215,7 @@
         "width": 480,
         "id": "polar-bar-chart"
       },
-      "sha256": "fce4e3cb4183ec798e88c256a146d075e6830af220b606a2459262cd7f601be9"
+      "sha256": "7504985caf7e2cfaf9b40549c35e70be37dbf0a8d879789f184d00db6eea9d75"
     },
     {
       "name": "radial-arc-group",
@@ -224,7 +224,7 @@
         "width": 480,
         "id": "radial-arc-group"
       },
-      "sha256": "0c1254a805068ec638cf530b8a91f55a2103a7cbc57573f6a0d20a42d788fdb0"
+      "sha256": "494b7671d71929424121c83a7a1fdb120d9ce771b06d43c0e62f0a82f440753f"
     },
     {
       "name": "radial-rings",
@@ -233,7 +233,7 @@
         "width": 480,
         "id": "radial-rings"
       },
-      "sha256": "aa8937433e35d9050aef2045d6f973837cbca0aeab541ea6edb0fa4dc6f4267a"
+      "sha256": "cd28914d6533b1762529d3d3414dcc3f6163b5e25932f41b88f8b62c1c2a73b6"
     },
     {
       "name": "gauge-arc",
@@ -242,7 +242,7 @@
         "width": 480,
         "id": "gauge-arc"
       },
-      "sha256": "938502fe969fbb9bab3fc997d9805a5fad7380970f16e4d194bfd83f3e8e840a"
+      "sha256": "13a3e66163e6a8bbac7f5f8499e78f6a236d82e8721e08921e54a86d5833ac8c"
     },
     {
       "name": "meter-chart",
@@ -251,7 +251,7 @@
         "width": 480,
         "id": "meter-chart"
       },
-      "sha256": "a35f7e81631d6bf5e1c288523a5af37af4fa99931edf623451c9cf10b21fb371"
+      "sha256": "64143e253a95cc439626bc86c1b281ddc0e988fefefecce7e70664d22995603b"
     },
     {
       "name": "coxcomb-chart",
@@ -260,7 +260,7 @@
         "width": 480,
         "id": "coxcomb-chart"
       },
-      "sha256": "003129a3d0143897ad3840e34a45d5ee32f156e606643e8dd63f785401ce16d2"
+      "sha256": "d6cddca3a6bbcc14cff65612e25ff0e723d2449f2fc9c21bbbb503379b67b4df"
     },
     {
       "name": "wind-rose",
@@ -269,7 +269,7 @@
         "width": 480,
         "id": "wind-rose"
       },
-      "sha256": "844b60cb5602c16bd1d5fb73349fc0625f7215afeb55f1c39d1e4950f76b4473"
+      "sha256": "ae9b4f6810d472ecff484d3d6c2f38ba336282909f0c14c5a6bfd66564bd315a"
     },
     {
       "name": "volvelle-chart",
@@ -278,7 +278,7 @@
         "width": 480,
         "id": "volvelle-chart"
       },
-      "sha256": "8b50c294c5011fd125184a2c25ffb3974a8fb212d91b0d3eb9642bd005014e6d"
+      "sha256": "5fb36396636f81c30be2a69fce1238738598d987bc4fcde32fa917fbac20ef46"
     },
     {
       "name": "chord-ring",
@@ -287,7 +287,7 @@
         "width": 480,
         "id": "chord-ring"
       },
-      "sha256": "bb02ffcdfbdf78733d69c8d2a75e9fb87502c66995fa06ac5d9fd6de222bff64"
+      "sha256": "56e3e11b17a381d861e329cbc1224ab4ca501601b029f3f7d7119e64daf37777"
     },
     {
       "name": "orbit-chart",
@@ -296,7 +296,7 @@
         "width": 480,
         "id": "orbit-chart"
       },
-      "sha256": "58796402ef1b2a91596eddccda77a4d9a0d75700a0d81cc0515cb144e4157328"
+      "sha256": "97d63e73d9c1224967cdf36c9c4a8c035462a215651288b393be78ee1dc2cbbe"
     },
     {
       "name": "histogram-chart",
@@ -305,7 +305,7 @@
         "width": 480,
         "id": "histogram-chart"
       },
-      "sha256": "25dd681df01e65580d9a8a6385aa5cb5c8a9a3a942fa99dcc29d56a5c47f801d"
+      "sha256": "24d406ca7fc80b3b1989d16885107f94e65c2d8e9138f19e85a7092715d2a735"
     },
     {
       "name": "ecdf-chart",
@@ -314,7 +314,7 @@
         "width": 480,
         "id": "ecdf-chart"
       },
-      "sha256": "613a54a35754be8a68a4fec15bae087d6d94f14b3de70a943ca1f96fa6ce5680"
+      "sha256": "1fb2cf92481b45dcba1226915417cf3681a211833aa9bb04222cd9fe1da13e6f"
     },
     {
       "name": "box-plot-chart",
@@ -323,7 +323,7 @@
         "width": 480,
         "id": "box-plot-chart"
       },
-      "sha256": "2ecf567d02900e760a1d1da702df72d457e36a7b93402c2b36c369e4b257b049"
+      "sha256": "711763e767660b574840c6a1f077acb79f5bf933fa816bac3de959fe7ba4a411"
     },
     {
       "name": "violin-chart",
@@ -332,7 +332,7 @@
         "width": 480,
         "id": "violin-chart"
       },
-      "sha256": "7136810f14717e1a20206c7ba570a0d2f272ebb02430e8f785833965a86453ae"
+      "sha256": "5e6dde7565b956b4317cc1446d284e70ca09d91c286ae9345ed3ca7e19a00134"
     },
     {
       "name": "ridgeline-chart",
@@ -341,7 +341,7 @@
         "width": 480,
         "id": "ridgeline-chart"
       },
-      "sha256": "92dce588f069b48e25035898278ad6f06096f7851ace17af52479464d028a4be"
+      "sha256": "3bad1d7d1886ea1b020ad160322a5cbcfba39a48bfb446a4bc836b999c8c1bdd"
     },
     {
       "name": "beeswarm-chart",
@@ -350,7 +350,7 @@
         "width": 480,
         "id": "beeswarm-chart"
       },
-      "sha256": "8aae67634a94524af3c9e7a59c99ed23131e74de0a1db52c9564214f12a9b634"
+      "sha256": "06c29048441f1fc60856eba1d61df74538acfc630a01572f7823fc64fcd087d4"
     },
     {
       "name": "lollipop-chart",
@@ -359,7 +359,7 @@
         "width": 480,
         "id": "lollipop-chart"
       },
-      "sha256": "f01af8cd80b4a1fafe0fc3aa5eeb6bdeeed4ae390bc0a65c0f7f96a8b340d5aa"
+      "sha256": "07834033a8bd0b5fc80ae5fee8209bcc36dabc5c992e8ffe234570670925651c"
     },
     {
       "name": "dumbbell-chart",
@@ -368,7 +368,7 @@
         "width": 480,
         "id": "dumbbell-chart"
       },
-      "sha256": "c7d05575d7414c5451ef881496c40b88622ce2645d2439d99fd058363cb9ff22"
+      "sha256": "7777aa165b1015d123a6ddb27d0ff66f7d0c0d0dacff6efffc809d698d72beaa"
     },
     {
       "name": "slope-chart",
@@ -377,7 +377,7 @@
         "width": 480,
         "id": "slope-chart"
       },
-      "sha256": "d2fb6440cc67418bfa14f17708ac920fa0d103024449d9cc6e2f520e266ddc09"
+      "sha256": "3a590b3ece96fd474570ff76279678761632a55ffd5e21da8d90d8ff8957a4cc"
     },
     {
       "name": "bump-chart",
@@ -386,7 +386,7 @@
         "width": 480,
         "id": "bump-chart"
       },
-      "sha256": "117f1ccbe63ec4daa89d3ed8e91f541dd920825c0ff3620659c45e34c4498ef5"
+      "sha256": "7aaec9299931dfab48bd9a706d40039c0d479272a5ad698ef3a4300253825cac"
     },
     {
       "name": "error-bar-chart",
@@ -395,7 +395,7 @@
         "width": 480,
         "id": "error-bar-chart"
       },
-      "sha256": "bf9ae26bd3a3e2aa3b9b3b9294754933c13c151f5f21cd8cbeb08134917b1c89"
+      "sha256": "ac9e8f417efc3c4717f5abb25eecb7d3152213d769488f5b8af7c190957147d7"
     },
     {
       "name": "interval-chart",
@@ -404,7 +404,7 @@
         "width": 480,
         "id": "interval-chart"
       },
-      "sha256": "99d442c043b7d0317eb5ae960c42d37550f592c92ce1c6755becad62ea6da30e"
+      "sha256": "9227b2eb0a687e1fb46da21735cfc6de198e9b594a9a713f7db7ec2251089ac9"
     },
     {
       "name": "diverging-bar-chart",
@@ -413,7 +413,7 @@
         "width": 480,
         "id": "diverging-bar-chart"
       },
-      "sha256": "e2470bafcbf3fc54aada5ebe36ae4dc64ab7636f03c2240489c54306b4dc5ede"
+      "sha256": "fe84b2d5134fede0eb52cddd78a7ed9302ff9fcb32f4c18a7ea6983add0a2f03"
     },
     {
       "name": "connected-scatter-chart",
@@ -422,7 +422,7 @@
         "width": 480,
         "id": "connected-scatter-chart"
       },
-      "sha256": "418784d4ee2c440116d922db549e41589191b98d168851b280e8a3b759cafe88"
+      "sha256": "6078bd91ce22065fcd93e8aae1fb84236cbef4a8527585c986f5a989396701ce"
     },
     {
       "name": "waffle-chart",
@@ -431,7 +431,7 @@
         "width": 480,
         "id": "waffle-chart"
       },
-      "sha256": "c7bd9bfee47290eb626a93da3066bb066c04e866b1d987da23f90b95d077dde5"
+      "sha256": "9abe603a816dbb3fb77e1a7c5ccbcd0de5cedeeb7082322638fa63a479a5ac22"
     },
     {
       "name": "marimekko-chart",
@@ -440,7 +440,7 @@
         "width": 480,
         "id": "marimekko-chart"
       },
-      "sha256": "6bf01fe57464b35c5d156e650d45d49800fe9ce09919119502b00b94f78d6760"
+      "sha256": "139f5561c425de2fcd21f66e47779f99f37c5548bf9fafff9ab83a09cb03a4e6"
     },
     {
       "name": "squarified-treemap",
@@ -449,7 +449,7 @@
         "width": 480,
         "id": "squarified-treemap"
       },
-      "sha256": "249aab6a87d547d4d8971b842ea16d5485cf101cf67cef1e4d56f088eb7183e0"
+      "sha256": "21439989444e10255a8cd3b0153a93ed4750b4b5e39bdfbaf2e2f1e35064e9d6"
     },
     {
       "name": "sunburst-chart",
@@ -458,7 +458,7 @@
         "width": 480,
         "id": "sunburst-chart"
       },
-      "sha256": "5a2df2ccf4ed76b1aa8822b50b1b1f6840c159f4b1f0b2af4829248e262b3666"
+      "sha256": "ed82fb6631b82685dcef9ec4e8a327f196e8b80f607ff8d7bdfbe3f391c67d2e"
     },
     {
       "name": "tree-chart",
@@ -467,7 +467,7 @@
         "width": 480,
         "id": "tree-chart"
       },
-      "sha256": "edc639bab88f1f1cba3ffe6e0c36223a412feed15f65710767854e9244236c65"
+      "sha256": "7b061c1f26ee2bb443a0d7eb2f3e0d6c7644501de6b5d9ba20de8d03db26e109"
     },
     {
       "name": "parallel-coordinates-chart",
@@ -476,7 +476,7 @@
         "width": 480,
         "id": "parallel-coordinates-chart"
       },
-      "sha256": "4caead5d58cfff7af82d436e5c64e16ed0af405bbf3cd5f2a33e5b1fa121b8a8"
+      "sha256": "cc83fe9f3f16edb45846149bd16bf8affb889ad7763b02c9b71723a695e812bc"
     },
     {
       "name": "polar-line-chart",
@@ -485,7 +485,7 @@
         "width": 480,
         "id": "polar-line-chart"
       },
-      "sha256": "57614c4a11e97916077aa5fd0a57186839e24cf425775a4fc4750b6ffd8ac717"
+      "sha256": "958a01aafb1534b5685f4746eaedfbe14183e0fac4ddedf4bab1f3d3a0828b50"
     },
     {
       "name": "polar-scatter-chart",
@@ -494,7 +494,7 @@
         "width": 480,
         "id": "polar-scatter-chart"
       },
-      "sha256": "6218dabdd05d021dc4bb55363b37d8d62ee086a683a718e879bbfd806d11985c"
+      "sha256": "72ebdffaf63c2a4c51629718c80ac8ccc1993d0306a01af72ad10e20b24537dc"
     },
     {
       "name": "density-bin-chart",
@@ -503,7 +503,7 @@
         "width": 480,
         "id": "density-bin-chart"
       },
-      "sha256": "81be66d8f97fa0b07e6f27a6ea629f320411ae7db7a49ab5507aa631e346eb7b"
+      "sha256": "dea40f7b83e9998769153dbc548ff964788ffcf170f31c6fe4ed0d5abaa410fc"
     },
     {
       "name": "contour-chart",
@@ -512,7 +512,7 @@
         "width": 480,
         "id": "contour-chart"
       },
-      "sha256": "8ba91659f257ee6f5e7a88ec17caf82b7f2c7f4ff1e2c55fb0f0f0697059bf21"
+      "sha256": "57e910174487d7dd69e7e0f6a298305fb79760892f94837ac3bd2bf5139d18cc"
     },
     {
       "name": "delaunay-chart",
@@ -521,7 +521,7 @@
         "width": 480,
         "id": "delaunay-chart"
       },
-      "sha256": "afbe325344b4add11bc4a4a426b2c0b1b8f12328a73041169c0f38e454ec528d"
+      "sha256": "ca6551871340198243ff34e5fc850f2652926ae5cad05ed2a9699e38a22648e0"
     },
     {
       "name": "vector-field-chart",
@@ -530,7 +530,7 @@
         "width": 480,
         "id": "vector-field-chart"
       },
-      "sha256": "6544e5bf0195e82ba1e3b18d139873244b8b12e6acc93ff2d96330e6c709148d"
+      "sha256": "71f93a85d11ae8c04266d9c06015e9f23e6d77b9f8a5ce5c3cf56c0aca39a40e"
     },
     {
       "name": "network-chart",
@@ -539,7 +539,7 @@
         "width": 480,
         "id": "network-chart"
       },
-      "sha256": "6ce750d7672648eb13b8d21a9e2184300553a0dd8e3ac15a9e81ce3e8f6396e1"
+      "sha256": "cf35882387485504c8a5c7de92ecbadb714bb879d1bac26062bad4ef6c01c70c"
     },
     {
       "name": "line-chart--cyanotype",
@@ -549,7 +549,7 @@
         "id": "line-chart-cyanotype",
         "ground": "cyanotype"
       },
-      "sha256": "bf76048ea1e8e39cc48ae2588239e82c05deca2abec1d82babf2c5fff4130f01"
+      "sha256": "0e3be0eb3df3c6f739cd1f02ed5a6f565048b2f687f55b39f1071cbbb4073e40"
     },
     {
       "name": "line-chart--precision",
@@ -559,7 +559,7 @@
         "id": "line-chart-precision",
         "mode": "precision"
       },
-      "sha256": "813c6afc5209e57983e59ef41ec391cecc2b64a476dcc134a20bea8da4050488"
+      "sha256": "7349a20cf0892794c9489e3024515e38cff1a4df419e894840e760e9a5d1f466"
     },
     {
       "name": "line-chart--sepia",
@@ -569,7 +569,7 @@
         "id": "line-chart-sepia",
         "palette": "sepia"
       },
-      "sha256": "504b4c8d4000083d2e369db7fe671c6159c083f327fe7a0119d1a1a2d825392f"
+      "sha256": "bc78a98e12d1bcf4f68091435e6825b8596a891c82503a397d03f570b8807e41"
     },
     {
       "name": "line-chart--indigo",
@@ -579,7 +579,7 @@
         "id": "line-chart-indigo",
         "palette": "indigo"
       },
-      "sha256": "377c7f6f9ef312b3fd23605de0643eb4ba3dd38d3696c15f261daafa6121516d"
+      "sha256": "d4bc6110e25fe8c20a5c39efc33111737f077448c110da7a5998019258f4eae6"
     },
     {
       "name": "area-chart--cyanotype",
@@ -589,7 +589,7 @@
         "id": "area-chart-cyanotype",
         "ground": "cyanotype"
       },
-      "sha256": "4369da3aa190f73fe62c9c29fcbb88e640651e54f408d969a61b07d909c3af35"
+      "sha256": "e7818f879b75433234da85429b3a680bb2d40f9bf7231f4998b8c4408a2a48c6"
     },
     {
       "name": "area-chart--precision",
@@ -599,7 +599,7 @@
         "id": "area-chart-precision",
         "mode": "precision"
       },
-      "sha256": "01636ceca5d2e885a80e1e1b2900ffc144f5d553aa24eb5ef759673e3b001288"
+      "sha256": "3e8316d02cb7fddbdbc5cf567c56ae3bbf36efedb26826d0691e521c1582286b"
     },
     {
       "name": "area-chart--sepia",
@@ -609,7 +609,7 @@
         "id": "area-chart-sepia",
         "palette": "sepia"
       },
-      "sha256": "e71137f09ff6ff6ecdedb852787fa9b0ca4392a9282d1a909386e62ede54ad47"
+      "sha256": "e53b55380a74c1c7a0970fd8d9337bdafc174256eb4af783a9b122cac87259e0"
     },
     {
       "name": "area-chart--indigo",
@@ -619,7 +619,7 @@
         "id": "area-chart-indigo",
         "palette": "indigo"
       },
-      "sha256": "927f9ca2884c0454145d17c9daa233ec4dc2c0919d46fb5712f70be11415244d"
+      "sha256": "05397e847cb80709270101cbe98184e11199286e62e2e86bff172828ed40b0f4"
     },
     {
       "name": "radar-chart--cyanotype",
@@ -629,7 +629,7 @@
         "id": "radar-chart-cyanotype",
         "ground": "cyanotype"
       },
-      "sha256": "f085d33b6be74bba206a25c921a560ead657452de7712391380fae0bcab471d5"
+      "sha256": "a03af8e2ac083778c366c62a434d0b659b93745b3983a4e1f8f8f41ab74a02cc"
     },
     {
       "name": "radar-chart--precision",
@@ -639,7 +639,7 @@
         "id": "radar-chart-precision",
         "mode": "precision"
       },
-      "sha256": "92ddb27474d1e03daf82b074b33d49ab0bad6820661ca2181f0c0e6dd5b7b737"
+      "sha256": "16f769daca6b39e15b6f848233975c3bcb423cf575b0cd5f475b3ed9d73b4199"
     },
     {
       "name": "radar-chart--sepia",
@@ -649,7 +649,7 @@
         "id": "radar-chart-sepia",
         "palette": "sepia"
       },
-      "sha256": "39dcf7b12029f50b0a1b915b8c03f478ef3f8bdb1bf991c1c097fe5e5f053400"
+      "sha256": "30106faf55563e13b210860c259fc8425d8c6cdd55b26689dd3a12055c455b20"
     },
     {
       "name": "radar-chart--indigo",
@@ -659,7 +659,7 @@
         "id": "radar-chart-indigo",
         "palette": "indigo"
       },
-      "sha256": "880b47feb9fa9f30ce71ea9fe84f36b536a2f4f560a6cf862cc9f27a279de7b2"
+      "sha256": "b00d0c110a89f6232bfbf341884a36bfa78f6494abd1f8038cd6ee67e31aa465"
     },
     {
       "name": "kpi-card--cyanotype",
@@ -669,7 +669,7 @@
         "id": "kpi-card-cyanotype",
         "ground": "cyanotype"
       },
-      "sha256": "97809c6b1220aeca4e1507aef138ca443e59a6f7e5b514a4c34015ce114a246f"
+      "sha256": "97e6cabdd63410b4cf42a6fed5819d0ef245e0345ce0f734bd45fcaa8e000853"
     },
     {
       "name": "kpi-card--precision",
@@ -679,7 +679,7 @@
         "id": "kpi-card-precision",
         "mode": "precision"
       },
-      "sha256": "ac9a1e444668eabb55afb1a65b14b3fd7a894f6306d2644d7c1c8473fde84ac3"
+      "sha256": "e76320061046939e90a308b79b9f8278d76e7eb8443de9107de116a78dd01d54"
     },
     {
       "name": "kpi-card--sepia",
@@ -689,7 +689,7 @@
         "id": "kpi-card-sepia",
         "palette": "sepia"
       },
-      "sha256": "79644c583dd26d3fb6015371f73ccf1dde658397f5f6379695556e0006949dae"
+      "sha256": "4ea37aedff70c6f9f19d590f4d614457da1e9daa52b4ffc7ac93454f080c364c"
     },
     {
       "name": "kpi-card--indigo",
@@ -699,7 +699,7 @@
         "id": "kpi-card-indigo",
         "palette": "indigo"
       },
-      "sha256": "05cb7548de4d517e3399bf3447de4742f8a752d9651aa09100a002266a61d8eb"
+      "sha256": "20b3e88fc826ea4d13a56e52ed3996bf920b324425b5ce84eff845e50ab32ea2"
     }
   ]
 }

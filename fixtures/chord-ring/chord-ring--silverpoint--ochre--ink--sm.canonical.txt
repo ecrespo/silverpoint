@@ -1,5 +1,5 @@
 <svg aria-labelledby="chord-ring--silverpoint--ochre--ink--sm-title chord-ring--silverpoint--ochre--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="chord-ring--silverpoint--ochre--ink--sm-title">
+  <desc id="chord-ring--silverpoint--ochre--ink--sm-title">
     "Site journeys"
   <desc id="chord-ring--silverpoint--ochre--ink--sm-desc">
     "Site journeys. Chord ring of 8 flows between 5 categories; the busiest is Shop, sending 46."

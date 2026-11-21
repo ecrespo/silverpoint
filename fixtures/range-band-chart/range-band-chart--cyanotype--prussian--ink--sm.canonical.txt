@@ -1,5 +1,5 @@
 <svg aria-labelledby="range-band-chart--cyanotype--prussian--ink--sm-title range-band-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="range-band-chart--cyanotype--prussian--ink--sm-title">
+  <desc id="range-band-chart--cyanotype--prussian--ink--sm-title">
     "Temperature"
   <desc id="range-band-chart--cyanotype--prussian--ink--sm-desc">
     "Temperature. Range band over 7 x values, from a lowest low of 9 to a highest high of 24."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="heatmap-chart--silverpoint--green--ink--md-title heatmap-chart--silverpoint--green--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="heatmap-chart--silverpoint--green--ink--md-title">
+  <desc id="heatmap-chart--silverpoint--green--ink--md-title">
     "Load by weekday"
   <desc id="heatmap-chart--silverpoint--green--ink--md-desc">
     "Load by weekday. Heatmap of 5 rows by 6 columns, toned against 100; values range from 6 to 93."

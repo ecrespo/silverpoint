@@ -3,6 +3,7 @@ import { ApplicationRef, provideZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { SpLineChart } from '@silverpoint/angular/line-chart';
 import { __setDiagnosticSink, type SpCode } from '@silverpoint/core';
+import { standaloneSVG } from '@silverpoint/grounds';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { canonical, host } from './harness';
@@ -120,6 +121,13 @@ describe('sp-line-chart in the browser', () => {
     const instance = findChart();
     expect(instance.getGeometry().viewBox.width).toBe(320);
     expect(compareSvg(instance.toSVGString(), canonical(fixed)).equal).toBe(true);
+  });
+
+  test('REQ-672 · toStandaloneSVGString() resolves to styles.css and the extra CSS in the markup (#25)', async () => {
+    await mount(fixed);
+    const instance = findChart();
+    const { default: styles } = await import('@silverpoint/grounds/styles-text');
+    expect(await instance.toStandaloneSVGString('.app{}')).toBe(standaloneSVG(instance.toSVGString(), `${styles}.app{}`));
   });
 });
 

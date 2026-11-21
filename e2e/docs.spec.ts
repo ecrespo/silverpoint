@@ -70,7 +70,7 @@ test.describe('documentation site', () => {
     await page.goto('/#/playground');
     const svg = page.locator('main svg.sp-chart');
     await page.getByLabel('Chart', { exact: true }).selectOption('DonutChart');
-    await expect(svg.locator('title')).toContainText('Donut');
+    await expect(svg.locator('desc').first()).toContainText('Donut');
     await page.getByLabel('Substrate', { exact: true }).selectOption('ochre');
     await expect(svg).toHaveAttribute('data-substrate', 'ochre');
     await page.getByLabel('Mode', { exact: true }).selectOption('precision');

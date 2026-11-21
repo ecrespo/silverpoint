@@ -1,5 +1,5 @@
 <svg aria-labelledby="scatter-chart--silverpoint--cream--precision--sm-title scatter-chart--silverpoint--cream--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="scatter-chart--silverpoint--cream--precision--sm-title">
+  <desc id="scatter-chart--silverpoint--cream--precision--sm-title">
     "Height and weight"
   <desc id="scatter-chart--silverpoint--cream--precision--sm-desc">
     "Height and weight. 9 points; x from 152 to 182, y from 51 to 77, size from 2 to 10 as marker area."

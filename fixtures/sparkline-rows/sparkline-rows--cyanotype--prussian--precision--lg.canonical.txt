@@ -1,5 +1,5 @@
 <svg aria-labelledby="sparkline-rows--cyanotype--prussian--precision--lg-title sparkline-rows--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="sparkline-rows--cyanotype--prussian--precision--lg-title">
+  <desc id="sparkline-rows--cyanotype--prussian--precision--lg-title">
     "Service health"
   <desc id="sparkline-rows--cyanotype--prussian--precision--lg-desc">
     "Service health. 4 rows: API 99.9%, Queue 17, Cache 84%, Search 170."

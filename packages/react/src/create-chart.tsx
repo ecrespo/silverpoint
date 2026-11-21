@@ -10,7 +10,7 @@ import {
   type InteractionEvent,
   type PointerKind,
 } from '@silverpoint/core';
-import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { renderChart, standaloneSVG, toSVGString } from '@silverpoint/grounds';
 import {
   forwardRef,
   useContext,
@@ -132,6 +132,8 @@ export function createClientChart<P extends CommonChartProps>(recipe: ChartRecip
       () => ({
         getGeometry: () => rendered.geometry,
         toSVGString: () => toSVGString(rendered),
+        // The stylesheet is a chunk of its own, loaded on the first call (REQ-672).
+        toStandaloneSVGString: async (extraCss = '') => standaloneSVG(toSVGString(rendered), (await import('@silverpoint/grounds/styles-text')).default + extraCss),
       }),
       [rendered],
     );

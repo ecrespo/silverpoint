@@ -1,5 +1,5 @@
 <svg aria-labelledby="delaunay-chart--cyanotype--prussian--precision--sm-title delaunay-chart--cyanotype--prussian--precision--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="delaunay-chart--cyanotype--prussian--precision--sm-title">
+  <desc id="delaunay-chart--cyanotype--prussian--precision--sm-title">
     "Stations"
   <desc id="delaunay-chart--cyanotype--prussian--precision--sm-desc">
     "Stations. The Delaunay triangulation of 60 points, 109 triangles, x across and y up; P57 has the most neighbours, 9."

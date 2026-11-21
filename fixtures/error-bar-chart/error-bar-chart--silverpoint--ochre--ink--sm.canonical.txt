@@ -1,5 +1,5 @@
 <svg aria-labelledby="error-bar-chart--silverpoint--ochre--ink--sm-title error-bar-chart--silverpoint--ochre--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="error-bar-chart--silverpoint--ochre--ink--sm-title">
+  <desc id="error-bar-chart--silverpoint--ochre--ink--sm-title">
     "Effect estimates"
   <desc id="error-bar-chart--silverpoint--ochre--ink--sm-desc">
     "Effect estimates. 8 estimates of effect with their intervals; estimates from 0.2 to 1.64."

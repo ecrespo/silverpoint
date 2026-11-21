@@ -1,5 +1,5 @@
 <svg aria-labelledby="error-bar-chart--silverpoint--cream--precision--md-title error-bar-chart--silverpoint--cream--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="error-bar-chart--silverpoint--cream--precision--md-title">
+  <desc id="error-bar-chart--silverpoint--cream--precision--md-title">
     "Effect estimates"
   <desc id="error-bar-chart--silverpoint--cream--precision--md-desc">
     "Effect estimates. 8 estimates of effect with their intervals; estimates from 0.2 to 1.64."

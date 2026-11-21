@@ -45,6 +45,6 @@ describe('mountAll', () => {
     if (!fragment.ok) throw new Error('render');
     page.innerHTML = fragment.value.html;
     const [handle] = mountAll(page);
-    expect(handle!.element.querySelector('title')!.id).toBe('srv-1-title');
+    expect(handle!.element.querySelector('desc')!.id).toBe('srv-1-title');
   });
 });

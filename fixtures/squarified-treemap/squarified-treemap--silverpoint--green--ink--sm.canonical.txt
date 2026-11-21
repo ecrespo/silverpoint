@@ -1,5 +1,5 @@
 <svg aria-labelledby="squarified-treemap--silverpoint--green--ink--sm-title squarified-treemap--silverpoint--green--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="squarified-treemap--silverpoint--green--ink--sm-title">
+  <desc id="squarified-treemap--silverpoint--green--ink--sm-title">
     "City budget"
   <desc id="squarified-treemap--silverpoint--green--ink--sm-desc">
     "City budget. Squarified treemap of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364; each tile's area is its value. The largest tile is City budget › Administration › IT services, 12% of the whole."

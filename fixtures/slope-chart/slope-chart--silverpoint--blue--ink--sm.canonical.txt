@@ -1,5 +1,5 @@
 <svg aria-labelledby="slope-chart--silverpoint--blue--ink--sm-title slope-chart--silverpoint--blue--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="slope-chart--silverpoint--blue--ink--sm-title">
+  <desc id="slope-chart--silverpoint--blue--ink--sm-title">
     "Clinic waits"
   <desc id="slope-chart--silverpoint--blue--ink--sm-desc">
     "Clinic waits. Slopegraph of 10 clinic values from 2024 to 2025; 8 rise, 2 fall, 0 hold; the largest change is Fairholm, +15."

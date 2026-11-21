@@ -541,6 +541,8 @@ Cross-cutting catalog requirements:
 | REQ-125 | event | WHEN the environment declares `prefers-reduced-motion: reduce`, THE SYSTEM SHALL omit the entry animation and render the final state. | MUST |
 | REQ-126 | ubiquitous | Every ground SHALL reach a contrast ratio of at least 4.5:1 for text and 3:1 for graphical objects, against its substrate. | MUST |
 | REQ-127 | unwanted | IF a ground does not reach the contrast minimums, THEN CI SHALL fail before publishing it. | MUST |
+| REQ-669 | ubiquitous | THE SYSTEM SHALL name a chart's root `<svg>` through `aria-labelledby` without an SVG `<title>` element, so that no browser shows a native tooltip over a chart; the element carrying the name SHALL keep the id `{id}-title` (delta-018, #29). | MUST |
+| REQ-672 | ubiquitous | THE SYSTEM SHALL expose on every chart's imperative handle, in the three adapters, `toStandaloneSVGString(extraCss?)`, resolving to the chart's `toSVGString()` with `@silverpoint/grounds/styles.css`, followed by `extraCss`, embedded as its first child (`standaloneSVG`), and SHALL load the stylesheet only when it is called (delta-018, #25). | MUST |
 
 ### 6.7 Interaction
 
@@ -634,6 +636,7 @@ by a runtime warning.
 |---|---|---|---|
 | REQ-220 | unwanted | IF an adapter's `dashboard` subpath adds to its one-chart build more than its allowance min+gzip —2 KB for React's server entry and Vue, 2.25 KB for React's client entry, whose root is a client component that reads the provider (delta-016, #17), 3 KB for Angular, whose partial-compilation output carries each component's template and input metadata— THEN CI SHALL fail (REQ-164). | MUST |
 | REQ-221 | ubiquitous | Each example app —`vite-react`, `vite-vue`, `nextjs`, `angular`— SHALL include the reference dashboard page, verified end to end, the three server-rendered apps (`vite-vue`, `nextjs`, `angular`) hydrating it: no hydration mismatch, no axe A/AA issue, pixel gates green at the three breakpoints. | MUST |
+| REQ-671 | event | WHEN React's dashboard root renders with a provider configuration, THE SYSTEM SHALL provide that configuration to the dashboard's charts and components from the root, so that they re-render with the root when the provider changes, also after the dashboard was hidden (delta-018, #27). | MUST |
 
 A dashboard's name is enforced by the type —`title` or `label` is required (API Spec §7.1)—, not
 by a runtime warning.
@@ -765,7 +768,9 @@ Requirements that bind the charts of §6.4.2 and any later chart that derives wh
 one-chart build minified against a recorded baseline, within an allowance (0.25 KB through `0.6.0`).
 For `0.7.0` the baseline is `tools/bundle-budget/one-chart-0.6.0.json` (all 244 one-chart entries,
 measured on a v0.6.0 worktree) and the allowance 2 KB, which holds the palette on the chart path
-(REQ-519; user decision 2026-10-19); from `0.7.0` on it is 0.25 KB again.
+(REQ-519; user decision 2026-10-19). *Amended by delta-018:* re-baselined at `0.11.0`
+(`tools/bundle-budget/one-chart-0.11.0.json`), the allowance kept at 2 KB, for `toStandaloneSVGString()`
+(REQ-672; user decision 2026-11-21).
 
 #### Grounds, demos, quality and docs
 
@@ -845,6 +850,7 @@ palette is on the adapter's `.sp-root` frame, and the core's `toSVGString` write
 | REQ-487 | unwanted | IF the columns of an `SpTable` or the items of an `SpBreadcrumb`, `SpTimelineList`, `SpSelect` or `SpDropdownMenu` share a key, THEN THE SYSTEM SHALL keep the first, skip the later ones and warn `SP019` (REQ-325 extended). | MUST |
 | REQ-488 | ubiquitous | `SpTextarea`, `SpInputNumber` and `SpSelect` SHALL support controlled and uncontrolled use in each framework's idiom and, in Angular, implement `ControlValueAccessor` (REQ-322, REQ-323 extended). | MUST |
 | REQ-489 | ubiquitous | The display components —Surface, Glyph, Table without sorting, Breadcrumb, Avatar, AvatarGroup, Statistic, Descriptions, TimelineList, Empty, Result— SHALL render in React Server Components from `@silverpoint/react/server/ui/<name>` (REQ-104 extended). | MUST |
+| REQ-670 | ubiquitous | No rule of `@silverpoint/grounds/styles.css` SHALL match an element of `SpTable`, so that `SpTable` computes the same styles whatever the order of `styles.css` and `ui.css` (delta-018, #28). | MUST |
 
 *Amended in implementation:* (1) REQ-489 no longer lists Collapse: the
 navigation and entry components —Pagination, Collapse, Textarea, InputNumber— are client components
@@ -1284,8 +1290,8 @@ ships in every production bundle. (6) **REQ-660:** `validate_props` renders thro
 (7) **REQ-664:** the embed column of the tree and pixel gates runs on the vite-react bench's
 `embed.html` (`e2e/embed-gate.spec.ts`).
 
-**Count:** §6.16 holds 40 requirements (39 MUST, 1 SHOULD). With the rest of §6 the PRD has 409
-requirements (382 MUST).
+**Count:** §6.16 holds 40 requirements (39 MUST, 1 SHOULD). With the rest of §6 and delta-018's four
+(REQ-669..REQ-672, in §6.6, §6.10 and §6.11) the PRD has 413 requirements (386 MUST).
 
 
 ## 7. Non-Functional Requirements
@@ -1605,7 +1611,7 @@ commitments.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
-| 1.19 | 2026-11-21 | Ernesto Crespo | Feature-007 folded: §6.16 host embedding (REQ-629..REQ-668; 40 requirements: 39 MUST, 1 SHOULD; 369 → 409 in all, 382 MUST); §1, Personas 7 and 8, §5.1–§5.3, §7 additions, Epic K, §11 risks, §12 Phase 11; what the implementation changed folded as built ("amended in implementation"): mounting on load, the entry budgets 34 / 11 kB, `demo.options`, 56 bindable charts. Delta-014 folded: REQ-547 drops its `SpButton` example (an `SpButton` is a valid overlay trigger in React and Vue); REQ-500 gains the test |
+| 1.19 | 2026-11-21 | Ernesto Crespo | Feature-007 folded: §6.16 host embedding (REQ-629..REQ-668; 40 requirements: 39 MUST, 1 SHOULD; 369 → 409 in all, 382 MUST); §1, Personas 7 and 8, §5.1–§5.3, §7 additions, Epic K, §11 risks, §12 Phase 11; what the implementation changed folded as built ("amended in implementation"): mounting on load, the entry budgets 34 / 11 kB, `demo.options`, 56 bindable charts. Delta-014 folded: REQ-547 drops its `SpButton` example (an `SpButton` is a valid overlay trigger in React and Vue); REQ-500 gains the test; delta-018 (#25, #27, #28, #29): REQ-669..REQ-672, 413 requirements (386 MUST) |
 | 1.18 | 2026-11-15 | Ernesto Crespo | Delta-017: REQ-556 — a release build warns, and does not fail, when the Reflex catalog wraps the release line immediately before (the wrapper follows the library; user decision 2026-11-15) |
 | 1.17 | 2026-11-14 | Ernesto Crespo | Delta-016 folded (#12, #14, #17..#22): REQ-009 — a container hidden with `display: none` is not a measurement; REQ-212 and REQ-462 — the dashboard's own root takes the provider's ground, substrate and palette where it sets none, React's server entry aside (user decision 2026-11-14); REQ-220 — React's client entry has 2.25 KB, as its root is a client component (user decision 2026-11-15). No requirement added |
 | 1.16 | 2026-11-01 | Ernesto Crespo | Delta-015 folded (#10): REQ-556 compares release lines (major.minor); REQ-621 generates `sp_deck` for Reflex; §5.2 drops the separate Reflex deck wrapper, which ships in `reflex-silverpoint-react` |

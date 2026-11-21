@@ -1,5 +1,6 @@
 import { __setDiagnosticSink, lineChart, type LineChartProps, type SpCode } from '@silverpoint/core';
 import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { standaloneSVG } from '@silverpoint/grounds';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { createApp, createSSRApp, h, nextTick, ref } from 'vue';
 import { renderToString } from 'vue/server-renderer';
@@ -131,7 +132,7 @@ describe('SpLineChart in the browser', () => {
     await nextTick();
     expect(warnings.filter((w) => /hydration/i.test(w))).toEqual([]);
     expect(errors.mock.calls.flat().join(' ')).not.toMatch(/hydration/i);
-    const ids = [...host.querySelectorAll('svg.sp-chart title')].map((t) => t.id);
+    const ids = [...host.querySelectorAll('svg.sp-chart > desc[id$="-title"]')].map((t) => t.id);
     expect(new Set(ids).size).toBe(2);
     app.unmount();
     host.remove();
@@ -227,6 +228,13 @@ describe('SpLineChart in the browser', () => {
     const host = mount(() => h(SpLineChart, fixed));
     await vi.waitFor(() => expect(seen).toContain('SP013'));
     expect(host.querySelector('svg.sp-chart')).not.toBeNull();
+  });
+
+  test('REQ-672 · the template ref resolves toStandaloneSVGString() to styles.css and the extra CSS in the markup (#25)', async () => {
+    const chart = ref<{ toSVGString(): string; toStandaloneSVGString(extraCss?: string): Promise<string> }>();
+    mount(() => h(SpLineChart, { ...fixed, ref: chart }));
+    const { default: styles } = await import('@silverpoint/grounds/styles-text');
+    expect(await chart.value!.toStandaloneSVGString('.app{}')).toBe(standaloneSVG(chart.value!.toSVGString(), `${styles}.app{}`));
   });
 
   test('API §8.3 · the template ref exposes getGeometry() and toSVGString()', () => {

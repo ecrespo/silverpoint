@@ -29,7 +29,8 @@ export function ChartSvg({ view }: { readonly view: SvgView }) {
       role={svg.role}
       aria-labelledby={svg.labelledby}
     >
-      <title id={view.title.id}>{view.title.text}</title>
+      {/* A `<desc>`, not a `<title>`: no native tooltip (REQ-669, #29). */}
+      <desc id={view.title.id}>{view.title.text}</desc>
       <desc id={view.desc.id}>{view.desc.text}</desc>
       {view.patterns.length > 0 && (
         <defs>

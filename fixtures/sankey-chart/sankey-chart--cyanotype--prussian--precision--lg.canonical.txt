@@ -1,5 +1,5 @@
 <svg aria-labelledby="sankey-chart--cyanotype--prussian--precision--lg-title sankey-chart--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="sankey-chart--cyanotype--prussian--precision--lg-title">
+  <desc id="sankey-chart--cyanotype--prussian--precision--lg-title">
     "Visitor flow"
   <desc id="sankey-chart--cyanotype--prussian--precision--lg-desc">
     "Visitor flow. Sankey diagram of 6 flows between 7 nodes in 4 layers; total flow of 90."

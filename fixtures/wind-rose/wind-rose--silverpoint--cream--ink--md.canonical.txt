@@ -1,5 +1,5 @@
 <svg aria-labelledby="wind-rose--silverpoint--cream--ink--md-title wind-rose--silverpoint--cream--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="wind-rose--silverpoint--cream--ink--md-title">
+  <desc id="wind-rose--silverpoint--cream--ink--md-title">
     "Wind at DSM"
   <desc id="wind-rose--silverpoint--cream--ink--md-desc">
     "Wind at DSM. Wind rose of 742 observations in 16 sectors; most often from E (13%); calm 3%."

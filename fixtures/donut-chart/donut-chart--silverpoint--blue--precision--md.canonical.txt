@@ -1,5 +1,5 @@
 <svg aria-labelledby="donut-chart--silverpoint--blue--precision--md-title donut-chart--silverpoint--blue--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="donut-chart--silverpoint--blue--precision--md-title">
+  <desc id="donut-chart--silverpoint--blue--precision--md-title">
     "Budget"
   <desc id="donut-chart--silverpoint--blue--precision--md-desc">
     "Budget. Donut of 5 sectors totalling 100; the largest is Rent at 38%."

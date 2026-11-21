@@ -1,5 +1,5 @@
 <svg aria-labelledby="ecdf-chart--silverpoint--ochre--precision--sm--per-shape-title ecdf-chart--silverpoint--ochre--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="ecdf-chart--silverpoint--ochre--precision--sm--per-shape-title">
+  <desc id="ecdf-chart--silverpoint--ochre--precision--sm--per-shape-title">
     "Reading time"
   <desc id="ecdf-chart--silverpoint--ochre--precision--sm--per-shape-desc">
     "Reading time. Empirical cumulative distribution of minutes, the share of observations at or below each value, from 1 to 27.5; desktop: 88 values, median 6.5; phone: 152 values, median 5."

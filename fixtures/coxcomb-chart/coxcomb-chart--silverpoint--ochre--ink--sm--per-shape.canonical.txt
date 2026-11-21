@@ -1,5 +1,5 @@
 <svg aria-labelledby="coxcomb-chart--silverpoint--ochre--ink--sm--per-shape-title coxcomb-chart--silverpoint--ochre--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="coxcomb-chart--silverpoint--ochre--ink--sm--per-shape-title">
+  <desc id="coxcomb-chart--silverpoint--ochre--ink--sm--per-shape-title">
     "Tickets"
   <desc id="coxcomb-chart--silverpoint--ochre--ink--sm--per-shape-desc">
     "Tickets. Coxcomb of 7 equal-angle sectors whose area is proportional to the value; the largest is Mon at 42."

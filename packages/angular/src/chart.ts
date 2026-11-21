@@ -11,7 +11,7 @@ import {
   type InteractionEvent,
   type PointerKind,
 } from '@silverpoint/core';
-import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { renderChart, standaloneSVG, toSVGString } from '@silverpoint/grounds';
 import { injectForcedPrecision, injectMeasuredWidth, injectTypefaceCheck, SILVERPOINT_CONFIG, SilverpointIds, SP_DASHBOARD_CELL, SP_DASHBOARD_LINK } from '@silverpoint/angular/env';
 import { SpTooltip } from './tooltip';
 
@@ -185,5 +185,11 @@ export abstract class SpChart<P extends CommonChartProps> {
   /** The canonical SVG markup of the chart. */
   toSVGString(): string {
     return toSVGString(this.rendered());
+  }
+
+  /** The canonical markup as a file that paints itself; the stylesheet loads on the first call (REQ-672). */
+  async toStandaloneSVGString(extraCss = ''): Promise<string> {
+    const { default: styles } = await import('@silverpoint/grounds/styles-text');
+    return standaloneSVG(toSVGString(this.rendered()), styles + extraCss);
   }
 }

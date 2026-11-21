@@ -1,5 +1,5 @@
 <svg aria-labelledby="histogram-chart--cyanotype--prussian--precision--lg-title histogram-chart--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="histogram-chart--cyanotype--prussian--precision--lg-title">
+  <desc id="histogram-chart--cyanotype--prussian--precision--lg-title">
     "Reading time"
   <desc id="histogram-chart--cyanotype--prussian--precision--lg-desc">
     "Reading time. Histogram of 240 minutes observations in 14 bins by the Freedman–Diaconis rule, from 0 to 28; the fullest bin, 4–6, holds 57."

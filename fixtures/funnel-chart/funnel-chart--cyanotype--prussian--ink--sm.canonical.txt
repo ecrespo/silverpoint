@@ -1,5 +1,5 @@
 <svg aria-labelledby="funnel-chart--cyanotype--prussian--ink--sm-title funnel-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="funnel-chart--cyanotype--prussian--ink--sm-title">
+  <desc id="funnel-chart--cyanotype--prussian--ink--sm-title">
     "Checkout funnel"
   <desc id="funnel-chart--cyanotype--prussian--ink--sm-desc">
     "Checkout funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."

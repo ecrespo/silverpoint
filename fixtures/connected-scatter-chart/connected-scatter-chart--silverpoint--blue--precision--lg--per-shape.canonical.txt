@@ -1,5 +1,5 @@
 <svg aria-labelledby="connected-scatter-chart--silverpoint--blue--precision--lg--per-shape-title connected-scatter-chart--silverpoint--blue--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="connected-scatter-chart--silverpoint--blue--precision--lg--per-shape-title">
+  <desc id="connected-scatter-chart--silverpoint--blue--precision--lg--per-shape-title">
     "Fare and riders"
   <desc id="connected-scatter-chart--silverpoint--blue--precision--lg--per-shape-desc">
     "Fare and riders. A path through 14 points in data order, fare across and riders up; it starts at 1.5, 39.8 and ends at 3.05, 59.6."

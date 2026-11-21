@@ -1,5 +1,5 @@
 <svg aria-labelledby="radial-arc-group--silverpoint--ochre--precision--md-title radial-arc-group--silverpoint--ochre--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="radial-arc-group--silverpoint--ochre--precision--md-title">
+  <desc id="radial-arc-group--silverpoint--ochre--precision--md-title">
     "Pipeline"
   <desc id="radial-arc-group--silverpoint--ochre--precision--md-desc">
     "Pipeline. 4 concentric tracks, outermost first: Direct 84, Partners 62, Online 47, Events 23."

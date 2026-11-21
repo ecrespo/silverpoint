@@ -35,7 +35,7 @@ export function svgNode(document: Document, rendered: RenderedChart): Element {
   const s = view.svg;
   const svg = element(document, SVG, 'svg', [['xmlns', SVG], ['viewBox', s.viewBox], ['width', s.width], ['height', s.height], ['class', s.class], ['data-substrate', s.substrate], ['data-mode', s.mode], ['role', s.role], ['aria-labelledby', s.labelledby]]);
   if (rendered.style) declare(svg, rendered.style);
-  svg.append(element(document, SVG, 'title', [['id', view.title.id]], view.title.text), element(document, SVG, 'desc', [['id', view.desc.id]], view.desc.text));
+  svg.append(element(document, SVG, 'desc', [['id', view.title.id]], view.title.text), element(document, SVG, 'desc', [['id', view.desc.id]], view.desc.text));
   if (view.patterns.length > 0) {
     const defs = element(document, SVG, 'defs', []);
     for (const p of view.patterns) {

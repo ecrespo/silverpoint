@@ -21,6 +21,7 @@ const shell = ref<ChartHandle>();
 defineExpose<ChartHandle>({
   getGeometry: () => shell.value!.getGeometry(),
   toSVGString: () => shell.value!.toSVGString(),
+  toStandaloneSVGString: (extraCss?: string) => shell.value!.toStandaloneSVGString(extraCss),
 });
 
 // `rootChange` is read from the drawing as it is now; the root stays the consumer's `rootId` (REQ-108).

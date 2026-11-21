@@ -1,5 +1,5 @@
 <svg aria-labelledby="bump-chart--silverpoint--blue--precision--lg--per-shape-title bump-chart--silverpoint--blue--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="bump-chart--silverpoint--blue--precision--lg--per-shape-title">
+  <desc id="bump-chart--silverpoint--blue--precision--lg--per-shape-title">
     "League table"
   <desc id="bump-chart--silverpoint--blue--precision--lg--per-shape-desc">
     "League table. Bump chart of the rank of 6 series over 8 season values, rank 1 the highest points, competition ranking with ties shared; Badger leads at 2025."

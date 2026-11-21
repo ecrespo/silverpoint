@@ -1,5 +1,5 @@
 <svg aria-labelledby="density-bin-chart--cyanotype--prussian--precision--md-title density-bin-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="density-bin-chart--cyanotype--prussian--precision--md-title">
+  <desc id="density-bin-chart--cyanotype--prussian--precision--md-title">
     "Readings"
   <desc id="density-bin-chart--cyanotype--prussian--precision--md-desc">
     "Readings. 1200 points of x across and y up, counted in 65 hexagonal bins 14 px across and toned by count against the densest, which holds 71 near 42.61, 61.31."

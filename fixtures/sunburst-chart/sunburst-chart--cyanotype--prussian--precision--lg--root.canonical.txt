@@ -1,5 +1,5 @@
 <svg aria-labelledby="sunburst-chart--cyanotype--prussian--precision--lg--root-title sunburst-chart--cyanotype--prussian--precision--lg--root-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="sunburst-chart--cyanotype--prussian--precision--lg--root-title">
+  <desc id="sunburst-chart--cyanotype--prussian--precision--lg--root-title">
     "City budget"
   <desc id="sunburst-chart--cyanotype--prussian--precision--lg--root-desc">
     "City budget. Sunburst of 3 levels, 9 nodes, 6 leaves, rooted at City budget › Public works, totalling 19,197; each arc's angle is its value, each ring a level. The largest first-level arc is Street lighting, 42% of the whole."

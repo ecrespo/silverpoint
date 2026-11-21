@@ -1,5 +1,5 @@
 <svg aria-labelledby="radar-chart--silverpoint--cream--ink--sm-title radar-chart--silverpoint--cream--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="radar-chart--silverpoint--cream--ink--sm-title">
+  <desc id="radar-chart--silverpoint--cream--ink--sm-title">
     "Model scores"
   <desc id="radar-chart--silverpoint--cream--ink--sm-desc">
     "Model scores. Radar of 6 subjects on a scale from 0 to 10; highest Safety at 9, lowest Cost at 4."

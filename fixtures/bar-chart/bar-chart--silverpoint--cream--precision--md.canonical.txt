@@ -1,5 +1,5 @@
 <svg aria-labelledby="bar-chart--silverpoint--cream--precision--md-title bar-chart--silverpoint--cream--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="bar-chart--silverpoint--cream--precision--md-title">
+  <desc id="bar-chart--silverpoint--cream--precision--md-title">
     "Orders per quarter"
   <desc id="bar-chart--silverpoint--cream--precision--md-desc">
     "Orders per quarter. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."

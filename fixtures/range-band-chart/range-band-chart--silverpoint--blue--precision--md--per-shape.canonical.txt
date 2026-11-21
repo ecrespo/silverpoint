@@ -1,5 +1,5 @@
 <svg aria-labelledby="range-band-chart--silverpoint--blue--precision--md--per-shape-title range-band-chart--silverpoint--blue--precision--md--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="range-band-chart--silverpoint--blue--precision--md--per-shape-title">
+  <desc id="range-band-chart--silverpoint--blue--precision--md--per-shape-title">
     "Temperature"
   <desc id="range-band-chart--silverpoint--blue--precision--md--per-shape-desc">
     "Temperature. Range band over 7 x values, from a lowest low of 9 to a highest high of 24."

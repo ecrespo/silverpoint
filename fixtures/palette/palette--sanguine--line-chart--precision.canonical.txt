@@ -1,5 +1,5 @@
 <svg aria-labelledby="palette--sanguine--line-chart--precision-title palette--sanguine--line-chart--precision-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="292" role="img" style="--sp-substrate:#F2E8DC;--sp-ink:#8A3A24;--sp-ink-secondary:#6A4A3A;--sp-heighten:#FFFFFF;--sp-rule:#9A6450;--sp-grid:#9A6450;--sp-text:#4A2216;--sp-text-muted:#7A3E2C" viewBox="0 0 320 292" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="palette--sanguine--line-chart--precision-title">
+  <desc id="palette--sanguine--line-chart--precision-title">
     "Throughput per hour"
   <desc id="palette--sanguine--line-chart--precision-desc">
     "Throughput per hour. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."

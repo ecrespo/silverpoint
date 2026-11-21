@@ -37,7 +37,7 @@ describe('conformance kit', () => {
   });
 
   test('I-60 · a render that draws differently fails, naming the case and both digests', async () => {
-    const result = await conformance((spec) => svg(spec).replace('<title', '<title data-x="1"'), undefined, { version: 'x', cases: CONFORMANCE.cases.slice(0, 2) });
+    const result = await conformance((spec) => svg(spec).replace('<desc', '<desc data-x="1"'), undefined, { version: 'x', cases: CONFORMANCE.cases.slice(0, 2) });
     expect(result.passed).toBe(0);
     expect(result.failed[0]).toMatchObject({ name: CONFORMANCE.cases[0]!.name });
     expect(result.failed[0]!.expected).not.toBe(result.failed[0]!.actual);

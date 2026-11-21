@@ -1,5 +1,5 @@
 <svg aria-labelledby="network-chart--silverpoint--blue--ink--md--placed-title network-chart--silverpoint--blue--ink--md--placed-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="network-chart--silverpoint--blue--ink--md--placed-title">
+  <desc id="network-chart--silverpoint--blue--ink--md--placed-title">
     "Collaboration"
   <desc id="network-chart--silverpoint--blue--ink--md--placed-desc">
     "Collaboration. 8 nodes and 9 links, at the given positions, in 2 groups; the busiest, North 2, has 3 links."

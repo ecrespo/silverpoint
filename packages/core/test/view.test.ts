@@ -127,9 +127,16 @@ describe('canonical SVG string', () => {
     expect(svgString(toSvgView(model, style))).not.toContain('data-weight');
   });
 
-  test('REQ-120 · title and desc are the first children, as assistive technology expects', () => {
+  test('REQ-120 · REQ-669 · the name and the description are the first children, as assistive technology expects', () => {
     const svg = svgString(toSvgView(model, style));
-    expect(svg).toMatch(/^<svg[^>]*><title id="sp-line-chart-view-title">[^<]*<\/title><desc id="sp-line-chart-view-desc">/);
+    expect(svg).toMatch(/^<svg[^>]*><desc id="sp-line-chart-view-title">[^<]*<\/desc><desc id="sp-line-chart-view-desc">/);
+  });
+
+  test('REQ-669 · no SVG <title>, so no native tooltip; aria-labelledby still names the chart by its title and description (#29)', () => {
+    const svg = svgString(toSvgView(model, style));
+    expect(svg).not.toMatch(/<title[\s>]/);
+    expect(svg).toMatch(/^<svg[^>]* aria-labelledby="sp-line-chart-view-title sp-line-chart-view-desc"/);
+    expect(svg).toMatch(/<desc id="sp-line-chart-view-title">[^<]+<\/desc><desc id="sp-line-chart-view-desc">/);
   });
 
   test('REQ-009 · a deferred model serialises with no NaN anywhere', () => {

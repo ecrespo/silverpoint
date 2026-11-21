@@ -1,5 +1,5 @@
 <svg aria-labelledby="diverging-bar-chart--silverpoint--cream--precision--sm--per-shape-title diverging-bar-chart--silverpoint--cream--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="diverging-bar-chart--silverpoint--cream--precision--sm--per-shape-title">
+  <desc id="diverging-bar-chart--silverpoint--cream--precision--sm--per-shape-title">
     "Survey"
   <desc id="diverging-bar-chart--silverpoint--cream--precision--sm--per-shape-desc">
     "Survey. Diverging bars of 6 question rows on a 5-level scale from Strongly disagree to Strongly agree, Neutral split across the centre; each row as shares of 100 %, levels before the centre to its left."

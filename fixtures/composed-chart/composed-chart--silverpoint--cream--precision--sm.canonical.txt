@@ -1,5 +1,5 @@
 <svg aria-labelledby="composed-chart--silverpoint--cream--precision--sm-title composed-chart--silverpoint--cream--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="composed-chart--silverpoint--cream--precision--sm-title">
+  <desc id="composed-chart--silverpoint--cream--precision--sm-title">
     "Revenue and margin"
   <desc id="composed-chart--silverpoint--cream--precision--sm-desc">
     "Revenue and margin. Columns of revenue with a line of margin over 6 x values, on one scale from 17 to 61."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="marimekko-chart--silverpoint--green--precision--md-title marimekko-chart--silverpoint--green--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="marimekko-chart--silverpoint--green--precision--md-title">
+  <desc id="marimekko-chart--silverpoint--green--precision--md-title">
     "Sales"
   <desc id="marimekko-chart--silverpoint--green--precision--md-desc">
     "Sales. Marimekko of 4 columns by 4 segments, totalling 2,398: each column is as wide as its share of the whole, each segment as tall as its share of the column. The widest column is West."

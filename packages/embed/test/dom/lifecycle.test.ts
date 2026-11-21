@@ -23,9 +23,9 @@ describe('ChartMount', () => {
   test('API §4 · ids sp-embed-<n> count mounts in order; a spec id wins', () => {
     const a = mount(host(), { chart: 'bar-chart' });
     const b = mount(host(), { chart: 'bar-chart' });
-    const n = Number(a.element.querySelector('title')!.id.match(/sp-embed-(\d+)/)![1]);
-    expect(b.element.querySelector('title')!.id).toBe(`sp-embed-${n + 1}-title`);
-    expect(mount(host(), { chart: 'bar-chart', id: 'mine' }).element.querySelector('title')!.id).toBe('mine-title');
+    const n = Number(a.element.querySelector('desc')!.id.match(/sp-embed-(\d+)/)![1]);
+    expect(b.element.querySelector('desc')!.id).toBe(`sp-embed-${n + 1}-title`);
+    expect(mount(host(), { chart: 'bar-chart', id: 'mine' }).element.querySelector('desc')!.id).toBe('mine-title');
   });
 
   test('REQ-642 · update redraws in place, keeping focus and the active item where it still exists', () => {

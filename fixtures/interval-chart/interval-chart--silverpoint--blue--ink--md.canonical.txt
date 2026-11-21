@@ -1,5 +1,5 @@
 <svg aria-labelledby="interval-chart--silverpoint--blue--ink--md-title interval-chart--silverpoint--blue--ink--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="interval-chart--silverpoint--blue--ink--md-title">
+  <desc id="interval-chart--silverpoint--blue--ink--md-title">
     "Crew jobs"
   <desc id="interval-chart--silverpoint--blue--ink--md-desc">
     "Crew jobs. 16 intervals on 4 crew lanes, from 2026-01-02 to 2026-03-31 (UTC days); the longest is Grading, 23 days."

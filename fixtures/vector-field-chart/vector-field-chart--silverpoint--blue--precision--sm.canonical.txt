@@ -1,5 +1,5 @@
 <svg aria-labelledby="vector-field-chart--silverpoint--blue--precision--sm-title vector-field-chart--silverpoint--blue--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="vector-field-chart--silverpoint--blue--precision--sm-title">
+  <desc id="vector-field-chart--silverpoint--blue--precision--sm-title">
     "Current"
   <desc id="vector-field-chart--silverpoint--blue--precision--sm-desc">
     "Current. 280 arrows on a 20 × 14 grid of x across and y up, each along (u, v), its length its magnitude at 1.93 px per unit; the largest, 2.24, at 9, 11."

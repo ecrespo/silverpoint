@@ -1,5 +1,5 @@
 <svg aria-labelledby="tree-chart--silverpoint--green--ink--lg-title tree-chart--silverpoint--green--ink--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="tree-chart--silverpoint--green--ink--lg-title">
+  <desc id="tree-chart--silverpoint--green--ink--lg-title">
     "City budget"
   <desc id="tree-chart--silverpoint--green--ink--lg-desc">
     "City budget. Tidy tree, left to right, of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364."

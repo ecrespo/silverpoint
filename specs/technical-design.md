@@ -2162,8 +2162,8 @@ normaliser (DD-017) keeps a hex colour inside a `style` whole (#218). The 10 tim
 fixtures are compared over the published builds by `timeline-gate.ts` (30 comparisons), and the
 page's TimelineJS is one nightly pixel fixture, `timeline/timeline--page.png`, one golden for the
 four apps; axe excludes TimelineJS's own DOM (#222, #223). REQ-444's gate reads
-`tools/bundle-budget/one-chart-0.6.0.json` (244 entries, measured on a v0.6.0 worktree) with a 2 KB
-allowance, and REQ-519's gate checks that the LineChart bundle of each adapter holds no preset
+`tools/bundle-budget/one-chart-0.11.0.json` (244 entries; `one-chart-0.6.0.json` until delta-018 re-baselined it
+for `toStandaloneSVGString()`, user decision 2026-11-21) with a 2 KB allowance, and REQ-519's gate checks that the LineChart bundle of each adapter holds no preset
 while a control bundle importing `sanguine` does (#212, #220). Overlay rows are absolute limits
 (the UI runtime's 8 kB + 4 kB + 3 kB); React and Vue keep the overlay runtime inside each overlay's
 bundle, and Angular's `ui/overlay` entry has its own row (#220).

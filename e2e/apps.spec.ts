@@ -33,7 +33,7 @@ test.describe('example apps', () => {
     await expect(harness).toHaveAttribute('data-size', 'md');
     await expect(harness.locator('svg.sp-chart')).toHaveAttribute('data-substrate', 'ochre');
     await expect(harness.locator('svg.sp-chart')).toHaveAttribute('data-mode', 'precision');
-    await expect(harness.locator('svg.sp-chart title')).toHaveAttribute('id', 'line-chart--silverpoint--ochre--precision--md-title');
+    await expect(harness.locator('svg.sp-chart > desc').first()).toHaveAttribute('id', 'line-chart--silverpoint--ochre--precision--md-title');
   });
 
   // The nightly matrix has three sizes (T-092): each cell lays out in a container of its own size,
@@ -60,8 +60,10 @@ test.describe('example apps', () => {
       await page.goto(`/?fixture=${fixture.id}`);
       const harness = page.locator('.sp-harness[data-gate]');
       await expect(harness.locator('.sp-root')).toHaveAttribute('data-status', 'ready');
-      await expect(harness.locator('svg.sp-chart title')).toHaveAttribute('id', `${fixture.id}-title`);
-      await expect(harness.locator('svg.sp-chart title')).toHaveText(String(fixture.props.title));
+      // The name is the first `<desc>`; an SVG `<title>` would draw a native tooltip (REQ-669).
+      await expect(harness.locator('svg.sp-chart title')).toHaveCount(0);
+      await expect(harness.locator('svg.sp-chart > desc').first()).toHaveAttribute('id', `${fixture.id}-title`);
+      await expect(harness.locator('svg.sp-chart > desc').first()).toHaveText(String(fixture.props.title));
       // The chart itself, not merely its card: the markup equals that recipe's canonical render.
       const drawn = await harness.locator('svg.sp-chart').evaluate((el) => el.outerHTML);
       const expected = toSVGString(renderChart(catalogEntry(fixture.chart).recipe, fixtureProps(fixture), { id: fixture.id }));

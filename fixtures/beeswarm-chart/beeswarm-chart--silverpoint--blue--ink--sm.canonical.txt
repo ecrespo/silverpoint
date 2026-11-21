@@ -1,5 +1,5 @@
 <svg aria-labelledby="beeswarm-chart--silverpoint--blue--ink--sm-title beeswarm-chart--silverpoint--blue--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="beeswarm-chart--silverpoint--blue--ink--sm-title">
+  <desc id="beeswarm-chart--silverpoint--blue--ink--sm-title">
     "Reading time"
   <desc id="beeswarm-chart--silverpoint--blue--ink--sm-desc">
     "Reading time. Beeswarm of 240 minutes observations, one point each, packed without overlap; from 1 to 27.5."

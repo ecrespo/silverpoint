@@ -1,5 +1,5 @@
 <svg aria-labelledby="donut-chart--cyanotype--prussian--ink--md-title donut-chart--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="donut-chart--cyanotype--prussian--ink--md-title">
+  <desc id="donut-chart--cyanotype--prussian--ink--md-title">
     "Budget"
   <desc id="donut-chart--cyanotype--prussian--ink--md-desc">
     "Budget. Donut of 5 sectors totalling 100; the largest is Rent at 38%."

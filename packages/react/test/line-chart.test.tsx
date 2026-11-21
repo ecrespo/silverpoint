@@ -2,6 +2,7 @@ import { act, createRef } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { __setDiagnosticSink, type SpCode } from '@silverpoint/core';
+import { standaloneSVG } from '@silverpoint/grounds';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { compareSvg } from '../../../tools/svg-normalizer/normalize';
 import { LineChart, SilverpointProvider, type ChartHandle } from '../src';
@@ -168,12 +169,21 @@ describe('client LineChart', () => {
     expect(host.querySelector('svg.sp-chart')?.getAttribute('data-mode')).toBe('precision');
   });
 
-  test('API §8.1 · the ref exposes getGeometry() and toSVGString(), and nothing else', () => {
+  test('API §8.1 · the ref exposes getGeometry(), toSVGString() and toStandaloneSVGString(), and nothing else', () => {
     const ref = createRef<ChartHandle>();
     mount(<LineChart {...fixed} ref={ref} />);
-    expect(Object.keys(ref.current ?? {}).sort()).toEqual(['getGeometry', 'toSVGString']);
+    expect(Object.keys(ref.current ?? {}).sort()).toEqual(['getGeometry', 'toSVGString', 'toStandaloneSVGString']);
     expect(ref.current?.getGeometry().viewBox.width).toBe(320);
     expect(compareSvg(ref.current?.toSVGString() ?? '', canonical(fixed)).equal).toBe(true);
+  });
+
+  test('REQ-672 · toStandaloneSVGString() embeds styles.css, then the extra CSS, in the canonical markup (#25)', async () => {
+    const ref = createRef<ChartHandle>();
+    mount(<LineChart {...fixed} ref={ref} />);
+    const { default: styles } = await import('@silverpoint/grounds/styles-text');
+    const file = await ref.current!.toStandaloneSVGString('.app { --sp-ink: #123456; }');
+    expect(file).toBe(standaloneSVG(ref.current!.toSVGString(), `${styles}.app { --sp-ink: #123456; }`));
+    expect(await ref.current!.toStandaloneSVGString()).toBe(standaloneSVG(ref.current!.toSVGString(), styles));
   });
 
   test('REQ-032 · a typeface that fails to load reports SP013 and the chart still renders', async () => {
@@ -211,7 +221,7 @@ describe('client LineChart', () => {
     });
     expect(recoverable).not.toHaveBeenCalled();
     expect(errors.mock.calls.flat().join(' ')).not.toMatch(/hydrat|did not match/i);
-    const ids = [...host.querySelectorAll('svg.sp-chart title')].map((t) => t.id);
+    const ids = [...host.querySelectorAll('svg.sp-chart > desc[id$="-title"]')].map((t) => t.id);
     expect(ids).toHaveLength(2);
     expect(new Set(ids).size).toBe(2);
   });

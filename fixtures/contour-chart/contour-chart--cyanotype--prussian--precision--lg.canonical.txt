@@ -1,5 +1,5 @@
 <svg aria-labelledby="contour-chart--cyanotype--prussian--precision--lg-title contour-chart--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="contour-chart--cyanotype--prussian--precision--lg-title">
+  <desc id="contour-chart--cyanotype--prussian--precision--lg-title">
     "Readings"
   <desc id="contour-chart--cyanotype--prussian--precision--lg-desc">
     "Readings. Contours of the density of 1200 points of x and y, estimated with an Epanechnikov kernel (bandwidths 3.61 and 3.29, Silverman's rule) and read as a share of its peak, filled in bands at 4 levels: 20%, 40%, 60%, 80%; the highest band is 80% and above."

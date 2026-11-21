@@ -1,5 +1,5 @@
 <svg aria-labelledby="candlestick-chart--silverpoint--green--precision--md-title candlestick-chart--silverpoint--green--precision--md-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="candlestick-chart--silverpoint--green--precision--md-title">
+  <desc id="candlestick-chart--silverpoint--green--precision--md-title">
     "Share price"
   <desc id="candlestick-chart--silverpoint--green--precision--md-desc">
     "Share price. Candlestick chart of 8 sessions, prices from 96 to 116, from the lowest low to the highest high; 5 rise and 3 fall."

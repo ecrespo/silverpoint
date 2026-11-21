@@ -1,5 +1,5 @@
 <svg aria-labelledby="density-bin-chart--silverpoint--cream--ink--lg--per-shape-title density-bin-chart--silverpoint--cream--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="density-bin-chart--silverpoint--cream--ink--lg--per-shape-title">
+  <desc id="density-bin-chart--silverpoint--cream--ink--lg--per-shape-title">
     "Readings"
   <desc id="density-bin-chart--silverpoint--cream--ink--lg--per-shape-desc">
     "Readings. 1200 points of x across and y up, counted in 257 hexagonal bins 14 px across and toned by count against the densest, which holds 18 near 43.26, 65.22."

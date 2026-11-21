@@ -64,7 +64,7 @@ test.describe('embed gate', () => {
   test('REQ-664 · the spec the page mounts is the fixture\'s own', async ({ page }) => {
     const fixture = FIXTURES[0]!;
     await ready(page, `${BENCH}/embed.html?fixture=${fixture.id}`);
-    await expect(page.locator('.sp-harness[data-gate] svg.sp-chart title')).toHaveAttribute('id', `${fixture.id}-title`);
+    await expect(page.locator('.sp-harness[data-gate] svg.sp-chart > desc').first()).toHaveAttribute('id', `${fixture.id}-title`);
     expect(fixtureSpec(fixture).id).toBe(fixture.id);
   });
 });

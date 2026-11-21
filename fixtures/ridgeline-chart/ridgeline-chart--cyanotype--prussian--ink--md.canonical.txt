@@ -1,5 +1,5 @@
 <svg aria-labelledby="ridgeline-chart--cyanotype--prussian--ink--md-title ridgeline-chart--cyanotype--prussian--ink--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="ridgeline-chart--cyanotype--prussian--ink--md-title">
+  <desc id="ridgeline-chart--cyanotype--prussian--ink--md-title">
     "Response time"
   <desc id="ridgeline-chart--cyanotype--prussian--ink--md-desc">
     "Response time. Ridgeline chart of ms in 5 groups; densities by an Epanechnikov kernel of bandwidth 11.87, the mean of the groups' Silverman rules, overlapping by 0.5; Search peaks at 182.41, Checkout peaks at 138.06, Profile peaks at 115.88, Reports peaks at 308.09, Login peaks at 86.31."

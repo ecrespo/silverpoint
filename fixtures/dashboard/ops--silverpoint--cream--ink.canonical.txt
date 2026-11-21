@@ -7,7 +7,7 @@
     <article aria-labelledby="ops--revenue-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Revenue" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--revenue-title ops--revenue-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--revenue-title">
+          <desc id="ops--revenue-title">
             "Revenue"
           <desc id="ops--revenue-desc">
             "Revenue. thousands at 171, change +6.4; 14 points from 118 to 171."
@@ -116,7 +116,7 @@
     <article aria-labelledby="ops--users-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Active users" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--users-title ops--users-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--users-title">
+          <desc id="ops--users-title">
             "Active users"
           <desc id="ops--users-desc">
             "Active users. hundreds at 171, change +2.1; 14 points from 118 to 171."
@@ -225,7 +225,7 @@
     <article aria-labelledby="ops--churn-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Churn" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--churn-title ops--churn-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--churn-title">
+          <desc id="ops--churn-title">
             "Churn"
           <desc id="ops--churn-desc">
             "Churn. per cent at 171, change -0.4; 14 points from 118 to 171."
@@ -334,7 +334,7 @@
     <article aria-labelledby="ops--nps-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="NPS" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--nps-title ops--nps-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--nps-title">
+          <desc id="ops--nps-title">
             "NPS"
           <desc id="ops--nps-desc">
             "NPS. points at 171, change +3; 14 points from 118 to 171."
@@ -443,7 +443,7 @@
     <article aria-labelledby="ops--traffic-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:3;--sp-cell-row-sm:2;--sp-cell-row-md:2;--sp-cell-row-lg:2">
       <div aria-label="Traffic" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--traffic-title ops--traffic-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="496" role="img" viewBox="0 0 956 496" width="956" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--traffic-title">
+          <desc id="ops--traffic-title">
             "Traffic"
           <desc id="ops--traffic-desc">
             "Traffic. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."
@@ -600,7 +600,7 @@
     <article aria-labelledby="ops--errors-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Errors" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--errors-title ops--errors-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--errors-title">
+          <desc id="ops--errors-title">
             "Errors"
           <desc id="ops--errors-desc">
             "Errors. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
@@ -711,7 +711,7 @@
     <article aria-labelledby="ops--share-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Traffic share" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--share-title ops--share-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--share-title">
+          <desc id="ops--share-title">
             "Traffic share"
           <desc id="ops--share-desc">
             "Traffic share. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
@@ -855,7 +855,7 @@
     <article aria-labelledby="ops--load-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Load by hour" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--load-title ops--load-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 632 240" width="632" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--load-title">
+          <desc id="ops--load-title">
             "Load by hour"
           <desc id="ops--load-desc">
             "Load by hour. Heatmap of 5 rows by 6 columns, toned against 100; values range from 6 to 93."
@@ -1135,7 +1135,7 @@
     <article aria-labelledby="ops--hosts-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Hosts" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--hosts-title ops--hosts-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--hosts-title">
+          <desc id="ops--hosts-title">
             "Hosts"
           <desc id="ops--hosts-desc">
             "Hosts. 4 rows: API 99.9%, Queue 17, Cache 84%, Search 170."
@@ -1197,7 +1197,7 @@
     <article aria-labelledby="ops--uptime-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Uptime" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--uptime-title ops--uptime-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--uptime-title">
+          <desc id="ops--uptime-title">
             "Uptime"
           <desc id="ops--uptime-desc">
             "Uptime. The value at 72% of the range."
@@ -1237,7 +1237,7 @@
     <article aria-labelledby="ops--activity-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:2;--sp-cell-col-lg:2;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Deploys" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--activity-title ops--activity-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 632 240" width="632" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--activity-title">
+          <desc id="ops--activity-title">
             "Deploys"
           <desc id="ops--activity-desc">
             "Deploys. Activity grid of 26 weeks, 2025-12-31 to 2026-06-30; 530 in total, active on 121 of 182 days."
@@ -2893,7 +2893,7 @@
     <article aria-labelledby="ops--capacity-title" class="sp-dashboard-cell" part="dashboard-cell" style="--sp-cell-col-sm:1;--sp-cell-col-md:1;--sp-cell-col-lg:1;--sp-cell-row-sm:1;--sp-cell-row-md:1;--sp-cell-row-lg:1">
       <div aria-label="Capacity" class="sp-root sp-ground-silverpoint" data-chrome="card" data-status="ready" data-substrate="cream" role="group" tabindex="0">
         <svg aria-labelledby="ops--capacity-title ops--capacity-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="240" role="img" viewBox="0 0 308 240" width="308" xmlns="http://www.w3.org/2000/svg">
-          <title id="ops--capacity-title">
+          <desc id="ops--capacity-title">
             "Capacity"
           <desc id="ops--capacity-desc">
             "Capacity. The value at 72% of the range."

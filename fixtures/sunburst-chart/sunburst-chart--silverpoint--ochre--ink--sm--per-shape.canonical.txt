@@ -1,5 +1,5 @@
 <svg aria-labelledby="sunburst-chart--silverpoint--ochre--ink--sm--per-shape-title sunburst-chart--silverpoint--ochre--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="sunburst-chart--silverpoint--ochre--ink--sm--per-shape-title">
+  <desc id="sunburst-chart--silverpoint--ochre--ink--sm--per-shape-title">
     "City budget"
   <desc id="sunburst-chart--silverpoint--ochre--ink--sm--per-shape-desc">
     "City budget. Sunburst of 4 levels, 38 nodes, 24 leaves, rooted at City budget, totalling 69,364; each arc's angle is its value, each ring a level. The largest first-level arc is Public works, 28% of the whole."

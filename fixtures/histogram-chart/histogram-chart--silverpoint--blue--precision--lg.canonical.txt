@@ -1,5 +1,5 @@
 <svg aria-labelledby="histogram-chart--silverpoint--blue--precision--lg-title histogram-chart--silverpoint--blue--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="histogram-chart--silverpoint--blue--precision--lg-title">
+  <desc id="histogram-chart--silverpoint--blue--precision--lg-title">
     "Reading time"
   <desc id="histogram-chart--silverpoint--blue--precision--lg-desc">
     "Reading time. Histogram of 240 minutes observations in 14 bins by the Freedman–Diaconis rule, from 0 to 28; the fullest bin, 4–6, holds 57."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="area-chart--silverpoint--green--precision--lg--per-shape-title area-chart--silverpoint--green--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="area-chart--silverpoint--green--precision--lg--per-shape-title">
+  <desc id="area-chart--silverpoint--green--precision--lg--per-shape-title">
     "Sessions"
   <desc id="area-chart--silverpoint--green--precision--lg--per-shape-desc">
     "Sessions. Area chart of 7 x values; value ranges from 29 to 66."

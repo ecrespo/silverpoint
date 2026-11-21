@@ -1,5 +1,5 @@
 <svg aria-labelledby="polar-line-chart--silverpoint--green--precision--lg-title polar-line-chart--silverpoint--green--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="polar-line-chart--silverpoint--green--precision--lg-title">
+  <desc id="polar-line-chart--silverpoint--green--precision--lg-title">
     "Rainfall"
   <desc id="polar-line-chart--silverpoint--green--precision--lg-desc">
     "Rainfall. Polar line of 12 rain values by month, one turn being 12, closed; radius from 0, the maximum 91 at 10."

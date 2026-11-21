@@ -1,5 +1,5 @@
 <svg aria-labelledby="funnel-chart--silverpoint--green--ink--sm--per-shape-title funnel-chart--silverpoint--green--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="funnel-chart--silverpoint--green--ink--sm--per-shape-title">
+  <desc id="funnel-chart--silverpoint--green--ink--sm--per-shape-title">
     "Checkout funnel"
   <desc id="funnel-chart--silverpoint--green--ink--sm--per-shape-desc">
     "Checkout funnel. Funnel of 5 stages, from Visits to Paid; 8% of the entry reach the last stage."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="delaunay-chart--silverpoint--blue--precision--lg-title delaunay-chart--silverpoint--blue--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="delaunay-chart--silverpoint--blue--precision--lg-title">
+  <desc id="delaunay-chart--silverpoint--blue--precision--lg-title">
     "Stations"
   <desc id="delaunay-chart--silverpoint--blue--precision--lg-desc">
     "Stations. The Delaunay triangulation of 60 points, 109 triangles, x across and y up; P57 has the most neighbours, 8."

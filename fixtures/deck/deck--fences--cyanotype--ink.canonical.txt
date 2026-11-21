@@ -10,7 +10,7 @@
               <figure class="sp-deck-chart" data-sp-slot="s1-c1" data-sp-spec="{\"chart\":\"bar-chart\",\"props\":{\"title\":\"Visits\"},\"width\":560,\"height\":280}" part="sp-deck-chart">
                 <div aria-label="Visits" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
                   <svg aria-labelledby="fx-fences-s1-c1-title fx-fences-s1-c1-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="340" role="img" viewBox="0 0 560 340" width="560" xmlns="http://www.w3.org/2000/svg">
-                    <title id="fx-fences-s1-c1-title">
+                    <desc id="fx-fences-s1-c1-title">
                       "Visits"
                     <desc id="fx-fences-s1-c1-desc">
                       "Visits. Bar chart in columns of 4 x values; value from 42 to 73; previous from 35 to 60."
@@ -103,7 +103,7 @@
               <figure class="sp-deck-chart" data-sp-slot="s2-c1" data-sp-spec="{\"chart\":\"donut-chart\",\"props\":{\"title\":\"Share\"},\"width\":480,\"height\":280}" part="sp-deck-chart">
                 <div aria-label="Share" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
                   <svg aria-labelledby="fx-fences-s2-c1-title fx-fences-s2-c1-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="340" role="img" viewBox="0 0 480 340" width="480" xmlns="http://www.w3.org/2000/svg">
-                    <title id="fx-fences-s2-c1-title">
+                    <desc id="fx-fences-s2-c1-title">
                       "Share"
                     <desc id="fx-fences-s2-c1-desc">
                       "Share. Donut of 5 sectors totalling 100; the largest is Rent at 38%."
@@ -194,7 +194,7 @@
               <figure class="sp-deck-chart" data-sp-slot="s2-c2" data-sp-spec="{\"chart\":\"line-chart\",\"props\":{\"title\":\"Trend\"},\"width\":480,\"height\":240}" part="sp-deck-chart">
                 <div aria-label="Trend" class="sp-root sp-ground-cyanotype" data-chrome="card" data-status="ready" data-substrate="prussian" role="group" tabindex="0">
                   <svg aria-labelledby="fx-fences-s2-c2-title fx-fences-s2-c2-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="300" role="img" viewBox="0 0 480 300" width="480" xmlns="http://www.w3.org/2000/svg">
-                    <title id="fx-fences-s2-c2-title">
+                    <desc id="fx-fences-s2-c2-title">
                       "Trend"
                     <desc id="fx-fences-s2-c2-desc">
                       "Trend. Line chart of 12 hour values in 2 series; hits ranges from 11 to 88; baseline ranges from 15 to 70."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="polar-bar-chart--silverpoint--ochre--precision--sm-title polar-bar-chart--silverpoint--ochre--precision--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="ochre" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="polar-bar-chart--silverpoint--ochre--precision--sm-title">
+  <desc id="polar-bar-chart--silverpoint--ochre--precision--sm-title">
     "Monthly sales"
   <desc id="polar-bar-chart--silverpoint--ochre--precision--sm-desc">
     "Monthly sales. Polar bars for 12 categories around the circle; the longest is Jul at 66."

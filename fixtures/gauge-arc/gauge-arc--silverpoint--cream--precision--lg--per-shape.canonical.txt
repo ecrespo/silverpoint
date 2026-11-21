@@ -1,5 +1,5 @@
 <svg aria-labelledby="gauge-arc--silverpoint--cream--precision--lg--per-shape-title gauge-arc--silverpoint--cream--precision--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="gauge-arc--silverpoint--cream--precision--lg--per-shape-title">
+  <desc id="gauge-arc--silverpoint--cream--precision--lg--per-shape-title">
     "Capacity"
   <desc id="gauge-arc--silverpoint--cream--precision--lg--per-shape-desc">
     "Capacity. The value at 72% of the range."

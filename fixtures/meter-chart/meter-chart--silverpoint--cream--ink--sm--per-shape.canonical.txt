@@ -1,5 +1,5 @@
 <svg aria-labelledby="meter-chart--silverpoint--cream--ink--sm--per-shape-title meter-chart--silverpoint--cream--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="meter-chart--silverpoint--cream--ink--sm--per-shape-title">
+  <desc id="meter-chart--silverpoint--cream--ink--sm--per-shape-title">
     "Pressure"
   <desc id="meter-chart--silverpoint--cream--ink--sm--per-shape-desc">
     "Pressure. The value at 72% of the range."

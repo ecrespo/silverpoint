@@ -1,5 +1,5 @@
 <svg aria-labelledby="diverging-bar-chart--cyanotype--prussian--precision--md-title diverging-bar-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="diverging-bar-chart--cyanotype--prussian--precision--md-title">
+  <desc id="diverging-bar-chart--cyanotype--prussian--precision--md-title">
     "Survey"
   <desc id="diverging-bar-chart--cyanotype--prussian--precision--md-desc">
     "Survey. Diverging bars of 6 question rows on a 5-level scale from Strongly disagree to Strongly agree, Neutral split across the centre; each row as shares of 100 %, levels before the centre to its left."

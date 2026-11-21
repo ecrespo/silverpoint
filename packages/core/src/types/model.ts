@@ -50,4 +50,10 @@ export interface ChartRecipe<P extends CommonChartProps> {
 export interface ChartHandle {
   getGeometry(): Geometry;
   toSVGString(): string;
+  /**
+   * `toSVGString()` as a file that paints itself: `@silverpoint/grounds/styles.css`, then `extraCss`,
+   * embedded as the root's first child (`standaloneSVG`). The stylesheet loads on the first call, so a
+   * chart's build does not carry it (REQ-672, #25).
+   */
+  toStandaloneSVGString(extraCss?: string): Promise<string>;
 }

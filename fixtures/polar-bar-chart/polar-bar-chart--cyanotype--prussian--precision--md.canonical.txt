@@ -1,5 +1,5 @@
 <svg aria-labelledby="polar-bar-chart--cyanotype--prussian--precision--md-title polar-bar-chart--cyanotype--prussian--precision--md-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="240" role="img" viewBox="0 0 320 240" width="320" xmlns="http://www.w3.org/2000/svg">
-  <title id="polar-bar-chart--cyanotype--prussian--precision--md-title">
+  <desc id="polar-bar-chart--cyanotype--prussian--precision--md-title">
     "Monthly sales"
   <desc id="polar-bar-chart--cyanotype--prussian--precision--md-desc">
     "Monthly sales. Polar bars for 12 categories around the circle; the longest is Jul at 66."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="composed-chart--cyanotype--prussian--precision--lg-title composed-chart--cyanotype--prussian--precision--lg-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="composed-chart--cyanotype--prussian--precision--lg-title">
+  <desc id="composed-chart--cyanotype--prussian--precision--lg-title">
     "Revenue and margin"
   <desc id="composed-chart--cyanotype--prussian--precision--lg-desc">
     "Revenue and margin. Columns of revenue with a line of margin over 6 x values, on one scale from 17 to 61."

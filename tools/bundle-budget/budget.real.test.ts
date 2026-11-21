@@ -127,17 +127,17 @@ describe('bundle budgets (size-limit)', () => {
 
   /**
    * REQ-444 (feature-003, API Spec delta §12): what a release adds must shake out of every existing
-   * chart's build. Each one-chart build is held to its size in `0.6.0` (`one-chart-0.6.0.json`,
-   * measured on a v0.6.0 worktree, all 60 charts) within an allowance — minified, not gzipped: code
-   * that grows grows there, while gzip moves by tens of bytes when the bundler only reorders modules
-   * (seen with wave 2). For `0.7.0` the allowance is 2 KB: it holds the palette on the chart path
-   * (`resolvePalette`, `paletteStyle`, the SP023 check, Angular's `palette` input and nested
-   * `provideSilverpoint`), measured at up to 1.9 KB against 0.3.0 (OQ-C3, user decision 2026-10-19).
-   * From 0.7.0 on it is 0.25 KB again. The 45 KB budgets above stay min+gzip.
+   * chart's build. Each one-chart build is held to its size in its record (`one-chart-0.11.0.json`, all
+   * 60 charts × 4 builds) within an allowance — minified, not gzipped: code that grows grows there,
+   * while gzip moves by tens of bytes when the bundler only reorders modules (seen with wave 2).
+   * Re-baselined twice by user decision: at 0.6.0 for the palettes (OQ-C3, 2026-10-19), and at 0.11.0
+   * for `toStandaloneSVGString()` (delta-018, #25, 2026-11-21: it adds 300–370 B to every chart, and
+   * Angular's dashboard build sat at exactly 2 000 B over 0.6.0). The allowance is 2 KB. The 45 KB
+   * budgets above stay min+gzip.
    */
   const ALLOWANCE = 2000;
-  test('REQ-444 · no existing one-chart build grows by more than the allowance, minified, against 0.6.0', () => {
-    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.6.0.json'), 'utf8')) as { minified: Record<string, number> };
+  test('REQ-444 · no existing one-chart build grows by more than the allowance, minified, against 0.11.0', () => {
+    const record = JSON.parse(readFileSync(join(repo, 'tools/bundle-budget/one-chart-0.11.0.json'), 'utf8')) as { minified: Record<string, number> };
     const dir = mkdtempSync(join(repo, '.size-limit-'));
     try {
       const file = join(dir, 'minified.json');
@@ -342,4 +342,27 @@ describe('bundle budgets (size-limit)', () => {
       rmSync(dir, { recursive: true, force: true });
     }
   }, 180_000);
+
+  /**
+   * REQ-672 (delta-018, #25): `toStandaloneSVGString()` loads `styles-text` on its first call, so no
+   * chart build carries the stylesheet. Each adapter reaches it only through a dynamic `import()`, and
+   * the budgets measure the static graph (the module is ignored, as a fence's charts are, REQ-628).
+   */
+  test('REQ-672 · the standalone stylesheet is loaded on demand: no adapter imports it statically', () => {
+    const built = {
+      react: readFileSync(join(repo, 'packages/react/dist', execFileSync('grep', ['-l', 'toStandaloneSVGString', '-r', join(repo, 'packages/react/dist'), '--include=*.js'], { encoding: 'utf8' }).trim().split('\n')[0]!.split('/dist/')[1]!), 'utf8'),
+    };
+    for (const adapter of ['react', 'vue', 'angular'] as const) {
+      const files = execFileSync('grep', ['-rl', '@silverpoint/grounds/styles-text', join(repo, `packages/${adapter}/dist`), '--include=*.js', '--include=*.mjs'], { encoding: 'utf8' }).trim().split('\n');
+      expect(files.length, adapter).toBeGreaterThan(0);
+      for (const file of files) {
+        const text = readFileSync(file, 'utf8');
+        expect(text, file).toMatch(/import\(\s*["']@silverpoint\/grounds\/styles-text["']\s*\)/);
+        expect(text, file).not.toMatch(/from\s*["']@silverpoint\/grounds\/styles-text["']/);
+      }
+    }
+    expect(built.react).toContain('toStandaloneSVGString');
+    const charts = config.filter((e) => e.ignore?.some((m) => ['react', 'vue', '@angular/core'].includes(m)));
+    expect(charts.filter((e) => !e.ignore!.includes('@silverpoint/grounds/styles-text')).map((e) => e.name)).toEqual([]);
+  });
 });

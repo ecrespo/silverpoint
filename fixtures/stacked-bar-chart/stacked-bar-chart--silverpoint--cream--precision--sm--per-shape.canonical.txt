@@ -1,5 +1,5 @@
 <svg aria-labelledby="stacked-bar-chart--silverpoint--cream--precision--sm--per-shape-title stacked-bar-chart--silverpoint--cream--precision--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="stacked-bar-chart--silverpoint--cream--precision--sm--per-shape-title">
+  <desc id="stacked-bar-chart--silverpoint--cream--precision--sm--per-shape-title">
     "Signups by plan"
   <desc id="stacked-bar-chart--silverpoint--cream--precision--sm--per-shape-desc">
     "Signups by plan. Stacked bars of 3 keys (free, pro, team, bottom to top) over 5 x values; the tallest stack totals 95."

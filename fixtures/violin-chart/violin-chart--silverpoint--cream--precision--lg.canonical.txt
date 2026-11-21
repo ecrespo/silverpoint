@@ -1,5 +1,5 @@
 <svg aria-labelledby="violin-chart--silverpoint--cream--precision--lg-title violin-chart--silverpoint--cream--precision--lg-desc" class="sp-chart sp-ground-silverpoint" data-mode="precision" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="violin-chart--silverpoint--cream--precision--lg-title">
+  <desc id="violin-chart--silverpoint--cream--precision--lg-title">
     "Response time"
   <desc id="violin-chart--silverpoint--cream--precision--lg-desc">
     "Response time. Violin chart of ms in 5 groups; densities by an Epanechnikov kernel of bandwidth 11.87, the mean of the groups' Silverman rules, at 64 points; Search median 178.5, Checkout median 200.5, Profile median 120, Reports median 344.5, Login median 88."

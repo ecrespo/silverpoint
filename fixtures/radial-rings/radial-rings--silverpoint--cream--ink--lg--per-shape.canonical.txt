@@ -1,5 +1,5 @@
 <svg aria-labelledby="radial-rings--silverpoint--cream--ink--lg--per-shape-title radial-rings--silverpoint--cream--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="radial-rings--silverpoint--cream--ink--lg--per-shape-title">
+  <desc id="radial-rings--silverpoint--cream--ink--lg--per-shape-title">
     "Daily goals"
   <desc id="radial-rings--silverpoint--cream--ink--lg--per-shape-desc">
     "Daily goals. 3 concentric tracks, outermost first: Move 82%, Exercise 64%, Stand 100%."

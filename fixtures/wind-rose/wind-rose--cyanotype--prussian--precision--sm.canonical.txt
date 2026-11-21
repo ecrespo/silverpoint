@@ -1,5 +1,5 @@
 <svg aria-labelledby="wind-rose--cyanotype--prussian--precision--sm-title wind-rose--cyanotype--prussian--precision--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="wind-rose--cyanotype--prussian--precision--sm-title">
+  <desc id="wind-rose--cyanotype--prussian--precision--sm-title">
     "Wind at DSM"
   <desc id="wind-rose--cyanotype--prussian--precision--sm-desc">
     "Wind at DSM. Wind rose of 742 observations in 16 sectors; most often from E (13%); calm 3%."

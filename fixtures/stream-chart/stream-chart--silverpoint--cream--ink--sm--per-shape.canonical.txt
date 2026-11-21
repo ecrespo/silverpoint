@@ -1,5 +1,5 @@
 <svg aria-labelledby="stream-chart--silverpoint--cream--ink--sm--per-shape-title stream-chart--silverpoint--cream--ink--sm--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="stream-chart--silverpoint--cream--ink--sm--per-shape-title">
+  <desc id="stream-chart--silverpoint--cream--ink--sm--per-shape-title">
     "Traffic sources"
   <desc id="stream-chart--silverpoint--cream--ink--sm--per-shape-desc">
     "Traffic sources. Overlaid stream of 2 waves over 7 x values; organic totals 199; paid totals 134."

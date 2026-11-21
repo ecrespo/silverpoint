@@ -1,5 +1,5 @@
 <svg aria-labelledby="lollipop-chart--silverpoint--green--ink--sm-title lollipop-chart--silverpoint--green--ink--sm-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="lollipop-chart--silverpoint--green--ink--sm-title">
+  <desc id="lollipop-chart--silverpoint--green--ink--sm-title">
     "Loans"
   <desc id="lollipop-chart--silverpoint--green--ink--sm-desc">
     "Loans. Lollipop chart in columns of 12 branch values; loans from 2,695 to 7,785, the largest Harbour View Annex."

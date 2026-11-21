@@ -1,5 +1,5 @@
 <svg aria-labelledby="meter-chart--cyanotype--prussian--ink--sm-title meter-chart--cyanotype--prussian--ink--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="ink" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="meter-chart--cyanotype--prussian--ink--sm-title">
+  <desc id="meter-chart--cyanotype--prussian--ink--sm-title">
     "Pressure"
   <desc id="meter-chart--cyanotype--prussian--ink--sm-desc">
     "Pressure. The value at 72% of the range."

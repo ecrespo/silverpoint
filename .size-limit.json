@@ -5,7 +5,8 @@
     "import": "{ LineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -18,7 +19,8 @@
     },
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "47.25 kB"
@@ -29,7 +31,8 @@
     "import": "{ LineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -42,7 +45,8 @@
     },
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "47 kB"
@@ -52,7 +56,8 @@
     "path": "packages/vue/dist/line-chart.js",
     "import": "{ SpLineChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -64,7 +69,8 @@
       "packages/vue/dist/line-chart.js": "{ SpLineChart }"
     },
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "47 kB"
@@ -77,7 +83,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -92,7 +99,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "48 kB"
@@ -103,7 +111,8 @@
     "import": "{ BulletChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -114,7 +123,8 @@
     "import": "{ BulletChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -124,7 +134,8 @@
     "path": "packages/vue/dist/bullet-chart.js",
     "import": "{ SpBulletChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -137,7 +148,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -148,7 +160,8 @@
     "import": "{ PyramidChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -159,7 +172,8 @@
     "import": "{ PyramidChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -169,7 +183,8 @@
     "path": "packages/vue/dist/pyramid-chart.js",
     "import": "{ SpPyramidChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -182,7 +197,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -193,7 +209,8 @@
     "import": "{ HeatmapChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -204,7 +221,8 @@
     "import": "{ HeatmapChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -214,7 +232,8 @@
     "path": "packages/vue/dist/heatmap-chart.js",
     "import": "{ SpHeatmapChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -227,7 +246,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -238,7 +258,8 @@
     "import": "{ TreemapChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -249,7 +270,8 @@
     "import": "{ TreemapChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -259,7 +281,8 @@
     "path": "packages/vue/dist/treemap-chart.js",
     "import": "{ SpTreemapChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -272,7 +295,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -283,7 +307,8 @@
     "import": "{ SankeyChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -294,7 +319,8 @@
     "import": "{ SankeyChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -304,7 +330,8 @@
     "path": "packages/vue/dist/sankey-chart.js",
     "import": "{ SpSankeyChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -317,7 +344,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -328,7 +356,8 @@
     "import": "{ ActivityGrid }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -339,7 +368,8 @@
     "import": "{ ActivityGrid }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -349,7 +379,8 @@
     "path": "packages/vue/dist/activity-grid.js",
     "import": "{ SpActivityGrid }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -362,7 +393,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -373,7 +405,8 @@
     "import": "{ StepChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -384,7 +417,8 @@
     "import": "{ StepChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -394,7 +428,8 @@
     "path": "packages/vue/dist/step-chart.js",
     "import": "{ SpStepChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -407,7 +442,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -418,7 +454,8 @@
     "import": "{ SparklineRows }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -429,7 +466,8 @@
     "import": "{ SparklineRows }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -439,7 +477,8 @@
     "path": "packages/vue/dist/sparkline-rows.js",
     "import": "{ SpSparklineRows }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -452,7 +491,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -463,7 +503,8 @@
     "import": "{ KpiCard }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -474,7 +515,8 @@
     "import": "{ KpiCard }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -484,7 +526,8 @@
     "path": "packages/vue/dist/kpi-card.js",
     "import": "{ SpKpiCard }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -497,7 +540,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -508,7 +552,8 @@
     "import": "{ BarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -519,7 +564,8 @@
     "import": "{ BarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -529,7 +575,8 @@
     "path": "packages/vue/dist/bar-chart.js",
     "import": "{ SpBarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -542,7 +589,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -553,7 +601,8 @@
     "import": "{ StackedBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -564,7 +613,8 @@
     "import": "{ StackedBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -574,7 +624,8 @@
     "path": "packages/vue/dist/stacked-bar-chart.js",
     "import": "{ SpStackedBarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -587,7 +638,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -598,7 +650,8 @@
     "import": "{ ComposedChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -609,7 +662,8 @@
     "import": "{ ComposedChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -619,7 +673,8 @@
     "path": "packages/vue/dist/composed-chart.js",
     "import": "{ SpComposedChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -632,7 +687,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -643,7 +699,8 @@
     "import": "{ WaterfallChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -654,7 +711,8 @@
     "import": "{ WaterfallChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -664,7 +722,8 @@
     "path": "packages/vue/dist/waterfall-chart.js",
     "import": "{ SpWaterfallChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -677,7 +736,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -688,7 +748,8 @@
     "import": "{ FunnelChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -699,7 +760,8 @@
     "import": "{ FunnelChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -709,7 +771,8 @@
     "path": "packages/vue/dist/funnel-chart.js",
     "import": "{ SpFunnelChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -722,7 +785,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -733,7 +797,8 @@
     "import": "{ CandlestickChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -744,7 +809,8 @@
     "import": "{ CandlestickChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -754,7 +820,8 @@
     "path": "packages/vue/dist/candlestick-chart.js",
     "import": "{ SpCandlestickChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -767,7 +834,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -778,7 +846,8 @@
     "import": "{ AreaChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -789,7 +858,8 @@
     "import": "{ AreaChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -799,7 +869,8 @@
     "path": "packages/vue/dist/area-chart.js",
     "import": "{ SpAreaChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -812,7 +883,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -823,7 +895,8 @@
     "import": "{ RangeBandChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -834,7 +907,8 @@
     "import": "{ RangeBandChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -844,7 +918,8 @@
     "path": "packages/vue/dist/range-band-chart.js",
     "import": "{ SpRangeBandChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -857,7 +932,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -868,7 +944,8 @@
     "import": "{ StreamChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -879,7 +956,8 @@
     "import": "{ StreamChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -889,7 +967,8 @@
     "path": "packages/vue/dist/stream-chart.js",
     "import": "{ SpStreamChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -902,7 +981,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -913,7 +993,8 @@
     "import": "{ ScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -924,7 +1005,8 @@
     "import": "{ ScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -934,7 +1016,8 @@
     "path": "packages/vue/dist/scatter-chart.js",
     "import": "{ SpScatterChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -947,7 +1030,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -958,7 +1042,8 @@
     "import": "{ BubbleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -969,7 +1054,8 @@
     "import": "{ BubbleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -979,7 +1065,8 @@
     "path": "packages/vue/dist/bubble-chart.js",
     "import": "{ SpBubbleChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -992,7 +1079,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1003,7 +1091,8 @@
     "import": "{ DonutChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1014,7 +1103,8 @@
     "import": "{ DonutChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1024,7 +1114,8 @@
     "path": "packages/vue/dist/donut-chart.js",
     "import": "{ SpDonutChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1037,7 +1128,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1048,7 +1140,8 @@
     "import": "{ RadarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1059,7 +1152,8 @@
     "import": "{ RadarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1069,7 +1163,8 @@
     "path": "packages/vue/dist/radar-chart.js",
     "import": "{ SpRadarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1082,7 +1177,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1093,7 +1189,8 @@
     "import": "{ PolarBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1104,7 +1201,8 @@
     "import": "{ PolarBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1114,7 +1212,8 @@
     "path": "packages/vue/dist/polar-bar-chart.js",
     "import": "{ SpPolarBarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1127,7 +1226,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1138,7 +1238,8 @@
     "import": "{ RadialArcGroup }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1149,7 +1250,8 @@
     "import": "{ RadialArcGroup }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1159,7 +1261,8 @@
     "path": "packages/vue/dist/radial-arc-group.js",
     "import": "{ SpRadialArcGroup }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1172,7 +1275,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1183,7 +1287,8 @@
     "import": "{ RadialRings }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1194,7 +1299,8 @@
     "import": "{ RadialRings }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1204,7 +1310,8 @@
     "path": "packages/vue/dist/radial-rings.js",
     "import": "{ SpRadialRings }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1217,7 +1324,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1228,7 +1336,8 @@
     "import": "{ GaugeArc }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1239,7 +1348,8 @@
     "import": "{ GaugeArc }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1249,7 +1359,8 @@
     "path": "packages/vue/dist/gauge-arc.js",
     "import": "{ SpGaugeArc }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1262,7 +1373,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1273,7 +1385,8 @@
     "import": "{ MeterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1284,7 +1397,8 @@
     "import": "{ MeterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1294,7 +1408,8 @@
     "path": "packages/vue/dist/meter-chart.js",
     "import": "{ SpMeterChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1307,7 +1422,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1318,7 +1434,8 @@
     "import": "{ CoxcombChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1329,7 +1446,8 @@
     "import": "{ CoxcombChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1339,7 +1457,8 @@
     "path": "packages/vue/dist/coxcomb-chart.js",
     "import": "{ SpCoxcombChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1352,7 +1471,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1363,7 +1483,8 @@
     "import": "{ WindRose }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1374,7 +1495,8 @@
     "import": "{ WindRose }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1384,7 +1506,8 @@
     "path": "packages/vue/dist/wind-rose.js",
     "import": "{ SpWindRose }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1397,7 +1520,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1408,7 +1532,8 @@
     "import": "{ VolvelleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1419,7 +1544,8 @@
     "import": "{ VolvelleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1429,7 +1555,8 @@
     "path": "packages/vue/dist/volvelle-chart.js",
     "import": "{ SpVolvelleChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1442,7 +1569,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1453,7 +1581,8 @@
     "import": "{ ChordRing }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1464,7 +1593,8 @@
     "import": "{ ChordRing }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1474,7 +1604,8 @@
     "path": "packages/vue/dist/chord-ring.js",
     "import": "{ SpChordRing }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1487,7 +1618,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1498,7 +1630,8 @@
     "import": "{ OrbitChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1509,7 +1642,8 @@
     "import": "{ OrbitChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1519,7 +1653,8 @@
     "path": "packages/vue/dist/orbit-chart.js",
     "import": "{ SpOrbitChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1532,7 +1667,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1543,7 +1679,8 @@
     "import": "{ HistogramChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1554,7 +1691,8 @@
     "import": "{ HistogramChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1564,7 +1702,8 @@
     "path": "packages/vue/dist/histogram-chart.js",
     "import": "{ SpHistogramChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1577,7 +1716,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1588,7 +1728,8 @@
     "import": "{ EcdfChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1599,7 +1740,8 @@
     "import": "{ EcdfChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1609,7 +1751,8 @@
     "path": "packages/vue/dist/ecdf-chart.js",
     "import": "{ SpEcdfChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1622,7 +1765,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1633,7 +1777,8 @@
     "import": "{ BoxPlotChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1644,7 +1789,8 @@
     "import": "{ BoxPlotChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1654,7 +1800,8 @@
     "path": "packages/vue/dist/box-plot-chart.js",
     "import": "{ SpBoxPlotChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1667,7 +1814,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1678,7 +1826,8 @@
     "import": "{ ViolinChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1689,7 +1838,8 @@
     "import": "{ ViolinChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1699,7 +1849,8 @@
     "path": "packages/vue/dist/violin-chart.js",
     "import": "{ SpViolinChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1712,7 +1863,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1723,7 +1875,8 @@
     "import": "{ RidgelineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1734,7 +1887,8 @@
     "import": "{ RidgelineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1744,7 +1898,8 @@
     "path": "packages/vue/dist/ridgeline-chart.js",
     "import": "{ SpRidgelineChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1757,7 +1912,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1768,7 +1924,8 @@
     "import": "{ BeeswarmChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1779,7 +1936,8 @@
     "import": "{ BeeswarmChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1789,7 +1947,8 @@
     "path": "packages/vue/dist/beeswarm-chart.js",
     "import": "{ SpBeeswarmChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1802,7 +1961,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1813,7 +1973,8 @@
     "import": "{ LollipopChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1824,7 +1985,8 @@
     "import": "{ LollipopChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1834,7 +1996,8 @@
     "path": "packages/vue/dist/lollipop-chart.js",
     "import": "{ SpLollipopChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1847,7 +2010,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1858,7 +2022,8 @@
     "import": "{ DumbbellChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1869,7 +2034,8 @@
     "import": "{ DumbbellChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1879,7 +2045,8 @@
     "path": "packages/vue/dist/dumbbell-chart.js",
     "import": "{ SpDumbbellChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1892,7 +2059,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1903,7 +2071,8 @@
     "import": "{ SlopeChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1914,7 +2083,8 @@
     "import": "{ SlopeChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1924,7 +2094,8 @@
     "path": "packages/vue/dist/slope-chart.js",
     "import": "{ SpSlopeChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1937,7 +2108,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1948,7 +2120,8 @@
     "import": "{ BumpChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1959,7 +2132,8 @@
     "import": "{ BumpChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1969,7 +2143,8 @@
     "path": "packages/vue/dist/bump-chart.js",
     "import": "{ SpBumpChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1982,7 +2157,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -1993,7 +2169,8 @@
     "import": "{ ErrorBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2004,7 +2181,8 @@
     "import": "{ ErrorBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2014,7 +2192,8 @@
     "path": "packages/vue/dist/error-bar-chart.js",
     "import": "{ SpErrorBarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2027,7 +2206,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2038,7 +2218,8 @@
     "import": "{ IntervalChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2049,7 +2230,8 @@
     "import": "{ IntervalChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2059,7 +2241,8 @@
     "path": "packages/vue/dist/interval-chart.js",
     "import": "{ SpIntervalChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2072,7 +2255,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2083,7 +2267,8 @@
     "import": "{ DivergingBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2094,7 +2279,8 @@
     "import": "{ DivergingBarChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2104,7 +2290,8 @@
     "path": "packages/vue/dist/diverging-bar-chart.js",
     "import": "{ SpDivergingBarChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2117,7 +2304,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2128,7 +2316,8 @@
     "import": "{ ConnectedScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2139,7 +2328,8 @@
     "import": "{ ConnectedScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2149,7 +2339,8 @@
     "path": "packages/vue/dist/connected-scatter-chart.js",
     "import": "{ SpConnectedScatterChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2162,7 +2353,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2173,7 +2365,8 @@
     "import": "{ WaffleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2184,7 +2377,8 @@
     "import": "{ WaffleChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2194,7 +2388,8 @@
     "path": "packages/vue/dist/waffle-chart.js",
     "import": "{ SpWaffleChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2207,7 +2402,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2218,7 +2414,8 @@
     "import": "{ MarimekkoChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2229,7 +2426,8 @@
     "import": "{ MarimekkoChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2239,7 +2437,8 @@
     "path": "packages/vue/dist/marimekko-chart.js",
     "import": "{ SpMarimekkoChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2252,7 +2451,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2263,7 +2463,8 @@
     "import": "{ SquarifiedTreemap }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2274,7 +2475,8 @@
     "import": "{ SquarifiedTreemap }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2284,7 +2486,8 @@
     "path": "packages/vue/dist/squarified-treemap.js",
     "import": "{ SpSquarifiedTreemap }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2297,7 +2500,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2308,7 +2512,8 @@
     "import": "{ SunburstChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2319,7 +2524,8 @@
     "import": "{ SunburstChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2329,7 +2535,8 @@
     "path": "packages/vue/dist/sunburst-chart.js",
     "import": "{ SpSunburstChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2342,7 +2549,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2353,7 +2561,8 @@
     "import": "{ TreeChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2364,7 +2573,8 @@
     "import": "{ TreeChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2374,7 +2584,8 @@
     "path": "packages/vue/dist/tree-chart.js",
     "import": "{ SpTreeChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2387,7 +2598,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2398,7 +2610,8 @@
     "import": "{ ParallelCoordinatesChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2409,7 +2622,8 @@
     "import": "{ ParallelCoordinatesChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2419,7 +2633,8 @@
     "path": "packages/vue/dist/parallel-coordinates-chart.js",
     "import": "{ SpParallelCoordinatesChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2432,7 +2647,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2443,7 +2659,8 @@
     "import": "{ PolarLineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2454,7 +2671,8 @@
     "import": "{ PolarLineChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2464,7 +2682,8 @@
     "path": "packages/vue/dist/polar-line-chart.js",
     "import": "{ SpPolarLineChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2477,7 +2696,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2488,7 +2708,8 @@
     "import": "{ PolarScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2499,7 +2720,8 @@
     "import": "{ PolarScatterChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2509,7 +2731,8 @@
     "path": "packages/vue/dist/polar-scatter-chart.js",
     "import": "{ SpPolarScatterChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2522,7 +2745,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2533,7 +2757,8 @@
     "import": "{ DensityBinChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2544,7 +2769,8 @@
     "import": "{ DensityBinChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2554,7 +2780,8 @@
     "path": "packages/vue/dist/density-bin-chart.js",
     "import": "{ SpDensityBinChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2567,7 +2794,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2578,7 +2806,8 @@
     "import": "{ ContourChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2589,7 +2818,8 @@
     "import": "{ ContourChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2599,7 +2829,8 @@
     "path": "packages/vue/dist/contour-chart.js",
     "import": "{ SpContourChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2612,7 +2843,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2623,7 +2855,8 @@
     "import": "{ DelaunayChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2634,7 +2867,8 @@
     "import": "{ DelaunayChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2644,7 +2878,8 @@
     "path": "packages/vue/dist/delaunay-chart.js",
     "import": "{ SpDelaunayChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2657,7 +2892,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2668,7 +2904,8 @@
     "import": "{ VectorFieldChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2679,7 +2916,8 @@
     "import": "{ VectorFieldChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2689,7 +2927,8 @@
     "path": "packages/vue/dist/vector-field-chart.js",
     "import": "{ SpVectorFieldChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2702,7 +2941,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2713,7 +2953,8 @@
     "import": "{ NetworkChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2724,7 +2965,8 @@
     "import": "{ NetworkChart }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2734,7 +2976,8 @@
     "path": "packages/vue/dist/network-chart.js",
     "import": "{ SpNetworkChart }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2747,7 +2990,8 @@
       "@angular/core",
       "@angular/common",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "45 kB"
@@ -2813,7 +3057,8 @@
     "import": "{ SpDivider }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "8 kB"
@@ -2824,7 +3069,8 @@
     "import": "{ SpButton }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2835,7 +3081,8 @@
     "import": "{ SpInput }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2846,7 +3093,8 @@
     "import": "{ SpCheckbox }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2857,7 +3105,8 @@
     "import": "{ SpSwitch }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2868,7 +3117,8 @@
     "import": "{ SpCard }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2879,7 +3129,8 @@
     "import": "{ SpDivider }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2890,7 +3141,8 @@
     "import": "{ SpRadioGroup }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2901,7 +3153,8 @@
     "import": "{ SpSegmented }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2912,7 +3165,8 @@
     "import": "{ SpTabs, SpTabPanel }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2923,7 +3177,8 @@
     "import": "{ SpSlider }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2934,7 +3189,8 @@
     "import": "{ SpRate }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2945,7 +3201,8 @@
     "import": "{ SpSteps }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2956,7 +3213,8 @@
     "import": "{ SpTag }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2967,7 +3225,8 @@
     "import": "{ SpBadge }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2978,7 +3237,8 @@
     "import": "{ SpProgress }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -2989,7 +3249,8 @@
     "import": "{ SpAlert }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3000,7 +3261,8 @@
     "import": "{ SpSkeleton }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3011,7 +3273,8 @@
     "import": "{ SpSurface }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3022,7 +3285,8 @@
     "import": "{ SpGlyph }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3033,7 +3297,8 @@
     "import": "{ SpTable }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3044,7 +3309,8 @@
     "import": "{ SpPagination }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3055,7 +3321,8 @@
     "import": "{ SpBreadcrumb }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3066,7 +3333,8 @@
     "import": "{ SpAvatar }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3077,7 +3345,8 @@
     "import": "{ SpStatistic }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3088,7 +3357,8 @@
     "import": "{ SpDescriptions }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3099,7 +3369,8 @@
     "import": "{ SpTimelineList }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3110,7 +3381,8 @@
     "import": "{ SpCollapse }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3121,7 +3393,8 @@
     "import": "{ SpEmpty }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3132,7 +3405,8 @@
     "import": "{ SpResult }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3143,7 +3417,8 @@
     "import": "{ SpTextarea }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3154,7 +3429,8 @@
     "import": "{ SpInputNumber }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3165,7 +3441,8 @@
     "import": "{ SpModal }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3176,7 +3453,8 @@
     "import": "{ SpDrawer }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3187,7 +3465,8 @@
     "import": "{ SpPopover }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3198,7 +3477,8 @@
     "import": "{ SpTooltip }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3209,7 +3489,8 @@
     "import": "{ SpSelect }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3220,7 +3501,8 @@
     "import": "{ SpDropdownMenu }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3231,7 +3513,8 @@
     "import": "{ SpToast }",
     "ignore": [
       "react",
-      "react-dom"
+      "react-dom",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3243,6 +3526,7 @@
     "ignore": [
       "react",
       "react-dom",
+      "@silverpoint/grounds/styles-text",
       "@knight-lab/timelinejs"
     ],
     "gzip": true,
@@ -3253,7 +3537,8 @@
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "8 kB"
@@ -3263,7 +3548,8 @@
     "path": "packages/vue/dist/ui/button.js",
     "import": "{ SpButton }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3273,7 +3559,8 @@
     "path": "packages/vue/dist/ui/input.js",
     "import": "{ SpInput }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3283,7 +3570,8 @@
     "path": "packages/vue/dist/ui/checkbox.js",
     "import": "{ SpCheckbox }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3293,7 +3581,8 @@
     "path": "packages/vue/dist/ui/switch.js",
     "import": "{ SpSwitch }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3303,7 +3592,8 @@
     "path": "packages/vue/dist/ui/card.js",
     "import": "{ SpCard }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3313,7 +3603,8 @@
     "path": "packages/vue/dist/ui/divider.js",
     "import": "{ SpDivider }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3323,7 +3614,8 @@
     "path": "packages/vue/dist/ui/radio-group.js",
     "import": "{ SpRadioGroup }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3333,7 +3625,8 @@
     "path": "packages/vue/dist/ui/segmented.js",
     "import": "{ SpSegmented }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3343,7 +3636,8 @@
     "path": "packages/vue/dist/ui/tabs.js",
     "import": "{ SpTabs, SpTabPanel }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3353,7 +3647,8 @@
     "path": "packages/vue/dist/ui/slider.js",
     "import": "{ SpSlider }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3363,7 +3658,8 @@
     "path": "packages/vue/dist/ui/rate.js",
     "import": "{ SpRate }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3373,7 +3669,8 @@
     "path": "packages/vue/dist/ui/steps.js",
     "import": "{ SpSteps }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3383,7 +3680,8 @@
     "path": "packages/vue/dist/ui/tag.js",
     "import": "{ SpTag }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3393,7 +3691,8 @@
     "path": "packages/vue/dist/ui/badge.js",
     "import": "{ SpBadge }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3403,7 +3702,8 @@
     "path": "packages/vue/dist/ui/progress.js",
     "import": "{ SpProgress }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3413,7 +3713,8 @@
     "path": "packages/vue/dist/ui/alert.js",
     "import": "{ SpAlert }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3423,7 +3724,8 @@
     "path": "packages/vue/dist/ui/skeleton.js",
     "import": "{ SpSkeleton }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3433,7 +3735,8 @@
     "path": "packages/vue/dist/ui/surface.js",
     "import": "{ SpSurface }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3443,7 +3746,8 @@
     "path": "packages/vue/dist/ui/glyph.js",
     "import": "{ SpGlyph }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3453,7 +3757,8 @@
     "path": "packages/vue/dist/ui/table.js",
     "import": "{ SpTable }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3463,7 +3768,8 @@
     "path": "packages/vue/dist/ui/pagination.js",
     "import": "{ SpPagination }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3473,7 +3779,8 @@
     "path": "packages/vue/dist/ui/breadcrumb.js",
     "import": "{ SpBreadcrumb }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3483,7 +3790,8 @@
     "path": "packages/vue/dist/ui/avatar.js",
     "import": "{ SpAvatar }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3493,7 +3801,8 @@
     "path": "packages/vue/dist/ui/statistic.js",
     "import": "{ SpStatistic }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3503,7 +3812,8 @@
     "path": "packages/vue/dist/ui/descriptions.js",
     "import": "{ SpDescriptions }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3513,7 +3823,8 @@
     "path": "packages/vue/dist/ui/timeline-list.js",
     "import": "{ SpTimelineList }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3523,7 +3834,8 @@
     "path": "packages/vue/dist/ui/collapse.js",
     "import": "{ SpCollapse }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3533,7 +3845,8 @@
     "path": "packages/vue/dist/ui/empty.js",
     "import": "{ SpEmpty }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3543,7 +3856,8 @@
     "path": "packages/vue/dist/ui/result.js",
     "import": "{ SpResult }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3553,7 +3867,8 @@
     "path": "packages/vue/dist/ui/textarea.js",
     "import": "{ SpTextarea }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3563,7 +3878,8 @@
     "path": "packages/vue/dist/ui/input-number.js",
     "import": "{ SpInputNumber }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3573,7 +3889,8 @@
     "path": "packages/vue/dist/ui/modal.js",
     "import": "{ SpModal }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3583,7 +3900,8 @@
     "path": "packages/vue/dist/ui/drawer.js",
     "import": "{ SpDrawer }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3593,7 +3911,8 @@
     "path": "packages/vue/dist/ui/popover.js",
     "import": "{ SpPopover }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3603,7 +3922,8 @@
     "path": "packages/vue/dist/ui/tooltip.js",
     "import": "{ SpTooltip }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3613,7 +3933,8 @@
     "path": "packages/vue/dist/ui/select.js",
     "import": "{ SpSelect }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3623,7 +3944,8 @@
     "path": "packages/vue/dist/ui/dropdown-menu.js",
     "import": "{ SpDropdownMenu }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3633,7 +3955,8 @@
     "path": "packages/vue/dist/ui/toast.js",
     "import": "{ SpToast }",
     "ignore": [
-      "vue"
+      "vue",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -3644,6 +3967,7 @@
     "import": "{ SpTimeline }",
     "ignore": [
       "vue",
+      "@silverpoint/grounds/styles-text",
       "@knight-lab/timelinejs"
     ],
     "gzip": true,
@@ -3658,7 +3982,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "8 kB"
@@ -3672,7 +3997,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3686,7 +4012,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3700,7 +4027,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3714,7 +4042,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3728,7 +4057,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3742,7 +4072,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3756,7 +4087,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3770,7 +4102,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3784,7 +4117,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3798,7 +4132,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3812,7 +4147,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3826,7 +4162,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3840,7 +4177,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3854,7 +4192,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3868,7 +4207,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3882,7 +4222,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3896,7 +4237,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3910,7 +4252,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "12 kB"
@@ -3924,7 +4267,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3938,7 +4282,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3952,7 +4297,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3966,7 +4312,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3980,7 +4327,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -3994,7 +4342,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4008,7 +4357,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4022,7 +4372,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4036,7 +4387,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4050,7 +4402,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4064,7 +4417,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4078,7 +4432,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4092,7 +4447,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4106,7 +4462,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "11 kB"
@@ -4120,7 +4477,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4134,7 +4492,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4148,7 +4507,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4162,7 +4522,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4176,7 +4537,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4190,7 +4552,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4204,7 +4567,8 @@
       "@angular/common",
       "@angular/forms",
       "rxjs",
-      "tslib"
+      "tslib",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "15 kB"
@@ -4219,6 +4583,7 @@
       "@angular/forms",
       "rxjs",
       "tslib",
+      "@silverpoint/grounds/styles-text",
       "@knight-lab/timelinejs"
     ],
     "gzip": true,
@@ -4270,7 +4635,8 @@
       "react",
       "react-dom",
       "@silverpoint/marp",
-      "@marp-team/marpit"
+      "@marp-team/marpit",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "5 kB"
@@ -4285,7 +4651,8 @@
     "ignore": [
       "vue",
       "@silverpoint/marp",
-      "@marp-team/marpit"
+      "@marp-team/marpit",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "48 kB"
@@ -4303,7 +4670,8 @@
       "rxjs",
       "tslib",
       "@silverpoint/marp",
-      "@marp-team/marpit"
+      "@marp-team/marpit",
+      "@silverpoint/grounds/styles-text"
     ],
     "gzip": true,
     "limit": "54 kB"

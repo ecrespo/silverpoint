@@ -103,7 +103,7 @@ describe('React Dashboard: markup contract (T-111)', () => {
     const cells = [...host.querySelectorAll('article')];
     expect(cells.map((c) => c.getAttribute('aria-labelledby'))).toEqual(['ops--revenue-title', 'ops--traffic-title']);
     // The chart each cell holds, by its title: the layout's order, not the source order.
-    expect(cells.map((c) => c.querySelector('svg title')?.textContent)).toEqual(['Revenue', 'Traffic']);
+    expect(cells.map((c) => c.querySelector('svg > desc[id$="-title"]')?.textContent)).toEqual(['Revenue', 'Traffic']);
     for (const cell of cells) expect(cell.querySelector(`#${cell.getAttribute('aria-labelledby')}`)).not.toBeNull();
     expect(cells[0]!.querySelector('svg')?.getAttribute('aria-labelledby')).toMatch(/^ops--revenue-title /);
   });

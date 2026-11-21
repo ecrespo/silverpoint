@@ -11,7 +11,7 @@ import {
   type PointerKind,
   type Readout,
 } from '@silverpoint/core';
-import { renderChart, toSVGString } from '@silverpoint/grounds';
+import { renderChart, standaloneSVG, toSVGString } from '@silverpoint/grounds';
 import { computed, inject, onBeforeUnmount, ref, useId, watch } from 'vue';
 import ChartFrame from './ChartFrame.vue';
 import ChartOverlay from './ChartOverlay.vue';
@@ -107,6 +107,8 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onDocumentKey));
 defineExpose({
   getGeometry: () => rendered.value.geometry,
   toSVGString: () => toSVGString(rendered.value),
+  // The stylesheet is a chunk of its own, loaded on the first call (REQ-672).
+  toStandaloneSVGString: async (extraCss = '') => standaloneSVG(toSVGString(rendered.value), (await import('@silverpoint/grounds/styles-text')).default + extraCss),
 });
 </script>
 

@@ -1,5 +1,5 @@
 <svg aria-labelledby="dumbbell-chart--silverpoint--cream--ink--lg--per-shape-title dumbbell-chart--silverpoint--cream--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="cream" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="dumbbell-chart--silverpoint--cream--ink--lg--per-shape-title">
+  <desc id="dumbbell-chart--silverpoint--cream--ink--lg--per-shape-title">
     "Clinic waits"
   <desc id="dumbbell-chart--silverpoint--cream--ink--lg--per-shape-desc">
     "Clinic waits. Dumbbell chart of 10 clinic values from 2024 to 2025; 8 rise, 2 fall; the largest change is Fairholm, +15."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="bubble-chart--silverpoint--blue--ink--lg--per-shape-title bubble-chart--silverpoint--blue--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="blue" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="bubble-chart--silverpoint--blue--ink--lg--per-shape-title">
+  <desc id="bubble-chart--silverpoint--blue--ink--lg--per-shape-title">
     "Markets"
   <desc id="bubble-chart--silverpoint--blue--ink--lg--per-shape-desc">
     "Markets. 5 points; x from 2 to 14, y from 12 to 30, size from 40 to 210 as marker area."

@@ -1,5 +1,5 @@
 <svg aria-labelledby="activity-grid--cyanotype--prussian--precision--sm-title activity-grid--cyanotype--prussian--precision--sm-desc" class="sp-chart sp-ground-cyanotype" data-mode="precision" data-substrate="prussian" height="210" role="img" viewBox="0 0 240 210" width="240" xmlns="http://www.w3.org/2000/svg">
-  <title id="activity-grid--cyanotype--prussian--precision--sm-title">
+  <desc id="activity-grid--cyanotype--prussian--precision--sm-title">
     "Contributions"
   <desc id="activity-grid--cyanotype--prussian--precision--sm-desc">
     "Contributions. Activity grid of 26 weeks, 2025-12-31 to 2026-06-30; 530 in total, active on 121 of 182 days."

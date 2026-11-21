@@ -1,5 +1,5 @@
 <svg aria-labelledby="orbit-chart--silverpoint--green--ink--lg--per-shape-title orbit-chart--silverpoint--green--ink--lg--per-shape-desc" class="sp-chart sp-ground-silverpoint" data-mode="ink" data-substrate="green" height="390" role="img" viewBox="0 0 640 390" width="640" xmlns="http://www.w3.org/2000/svg">
-  <title id="orbit-chart--silverpoint--green--ink--lg--per-shape-title">
+  <desc id="orbit-chart--silverpoint--green--ink--lg--per-shape-title">
     "Releases"
   <desc id="orbit-chart--silverpoint--green--ink--lg--per-shape-desc">
     "Releases. 3 orbits from the inside out (2023, 2024, 2025) with 12 markers placed by period over the cycle; the largest is 50."

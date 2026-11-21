@@ -73,7 +73,7 @@ describe('SpDashboard: markup contract (T-112)', () => {
     capture();
     const cells = [...parse(await ssr(ops())).querySelectorAll('article')];
     expect(cells.map((c) => c.getAttribute('aria-labelledby'))).toEqual(['ops--revenue-title', 'ops--traffic-title']);
-    expect(cells.map((c) => c.querySelector('svg title')?.textContent)).toEqual(['Revenue', 'Traffic']);
+    expect(cells.map((c) => c.querySelector('svg > desc[id$="-title"]')?.textContent)).toEqual(['Revenue', 'Traffic']);
     for (const cell of cells) expect(cell.querySelector(`#${cell.getAttribute('aria-labelledby')}`)).not.toBeNull();
   });
 
