@@ -38,10 +38,12 @@ small.
 ## Events and the handle
 
 `onActiveChange(item | null)`, `onSelect(item)` and, on the sunburst and the squarified treemap,
-`onRootChange(id | null)`. A `ref` gives `getGeometry()` and `toSVGString()`, which serialises the
-chart with its palette. That markup is painted by the page's stylesheet: for a file that renders on
-its own, wrap it — `standaloneSVG(svg, css)` from `@silverpoint/grounds`, with
-`import css from '@silverpoint/grounds/styles-text'`.
+`onRootChange(id | null)`. A `ref` gives `getGeometry()`, `toSVGString()` and
+`toStandaloneSVGString(extraCss?)`. `toSVGString()` serialises the chart with its palette; that
+markup is painted by the page's stylesheet. For a file that renders on its own, `await
+ref.current.toStandaloneSVGString()` resolves to the same markup with `styles.css` (then `extraCss`,
+for the app's own `--sp-*` overrides) embedded; the stylesheet loads on the first call. The typeface
+is not embedded. The chart's accessible name is a `<desc>`, not a `<title>`, so no native tooltip.
 
 ## Example
 

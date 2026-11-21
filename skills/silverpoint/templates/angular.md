@@ -31,6 +31,8 @@ Selectors are `sp-<name>`. The exceptions are `SpButton` (`<button spButton>`) a
 - Values: `[(value)]`, or a forms directive (`formControlName`, `ngModel`): the value components
   are `ControlValueAccessor`s. Open state: `[(open)]`. Pagination: `[(current)]`.
 - Events are outputs: `(activeChange)`, `(select)`, `(rootChange)`, `(openChange)`, `(sort)`.
+- A chart component exposes `getGeometry()`, `toSVGString()` and `toStandaloneSVGString(extraCss?)`,
+  a promise of the markup with `styles.css` embedded (a file that renders on its own).
 - Content is projected through templates: `<ng-template spFooter>`, `spExtra`, `spAction`,
   `spFallback`, `spTooltip`. An overlay's trigger is `<button type="button" spTrigger>`, with
   `SpTrigger` imported from the overlay's subpath.

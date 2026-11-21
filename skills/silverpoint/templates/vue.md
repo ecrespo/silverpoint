@@ -28,6 +28,8 @@ in React. In a template, write them in kebab-case (`x-key`, `value-key`) and bin
 
 - Values: `v-model`. Open state: `v-model:open`. Pagination: `v-model:current`.
 - Events: `@active-change`, `@select`, `@root-change`, `@sort`, `@toggle`.
+- A chart's template ref gives `getGeometry()`, `toSVGString()` and `toStandaloneSVGString(extraCss?)`,
+  a promise of the markup with `styles.css` embedded (a file that renders on its own).
 - Content: slots `trigger`, `footer`, `extra`, `prefix`, `suffix`, `action`, `fallback`, `tooltip`.
 - A section of the page: `<SilverpointProvider :palette="sepia">`. It renders no element of its
   own.
