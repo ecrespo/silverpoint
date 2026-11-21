@@ -49,7 +49,7 @@ and `result`. Every other component is a client component.
 | Name | `SpButton` | `SpButton` | `button[spButton]` | `sp_button` |
 | Import | `@silverpoint/react/ui/button` | `@silverpoint/vue/ui/button` | `@silverpoint/angular/ui/button` | `reflex_silverpoint_react` |
 
-**Events:** React `onClick`; Vue `click`; Angular .
+**Events:** React `onClick`, `onPointerDown`; Vue `click`; Angular .
 
 **Content:** React `children`; Vue `default`; Angular `content`.
 
