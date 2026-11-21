@@ -1,0 +1,206 @@
+{
+  "csp": "default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; font-src data:; frame-src 'self'",
+  "engines": {
+    "chromium": {
+      "launched": true,
+      "version": "153.0.8010.12",
+      "scenarios": [
+        {
+          "name": "file://, one chart",
+          "charts": 1,
+          "roots": 1,
+          "svgs": 1,
+          "tables": 1,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "x Q2, value 58",
+          "drawnAtMs": 114,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/one.html",
+            "/dist/silverpoint-embed.full.js",
+            "/pages/probe.js"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "file://, twenty charts",
+          "charts": 20,
+          "roots": 20,
+          "svgs": 20,
+          "tables": 20,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "hour 02, hits 14",
+          "drawnAtMs": 231,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/twenty.html",
+            "/dist/silverpoint-embed.full.js",
+            "/pages/probe.js"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "file://, mountAll over five hosts",
+          "charts": 5,
+          "roots": 5,
+          "svgs": 5,
+          "tables": 5,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "x 5, y 24",
+          "drawnAtMs": 91,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/mountall.html",
+            "/dist/silverpoint-embed.full.js",
+            "/pages/probe.js"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "strict CSP page (element + mountAll)",
+          "charts": 2,
+          "roots": 2,
+          "svgs": 2,
+          "tables": 2,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "hour 02, hits 14",
+          "drawnAtMs": 91,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/csp.html",
+            "/dist/silverpoint-embed.full.js",
+            "/pages/probe.js"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "sandbox=\"allow-scripts\" srcdoc, script inlined",
+          "charts": 1,
+          "frame": true,
+          "roots": 1,
+          "svgs": 1,
+          "tables": 1,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "label Mon, #2 34",
+          "drawnAtMs": 102,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/sandbox-srcdoc.html"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "sandbox=\"allow-scripts\" frame of the strict CSP page",
+          "charts": 2,
+          "frame": true,
+          "roots": 2,
+          "svgs": 2,
+          "tables": 2,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "hour 02, hits 14",
+          "drawnAtMs": 114,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/pages/generated/sandbox-csp.html",
+            "/pages/generated/csp.html",
+            "/dist/silverpoint-embed.full.js",
+            "/pages/probe.js"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": []
+        },
+        {
+          "name": "Jupyter: executed notebook exported to HTML (srcdoc output)",
+          "charts": 1,
+          "frame": true,
+          "roots": 1,
+          "svgs": 1,
+          "tables": 1,
+          "adoptedSheets": 1,
+          "styleElements": 0,
+          "faces": [
+            "400 normal loaded",
+            "500 normal loaded",
+            "400 italic loaded"
+          ],
+          "parity": true,
+          "keyboardLive": "subject Range, value 6",
+          "drawnAtMs": 98,
+          "version": null,
+          "ok": true,
+          "requests": [
+            "/results/notebook.html"
+          ],
+          "errors": [],
+          "hostRequestsAndErrors": [
+            "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe",
+            "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+            "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED"
+          ]
+        }
+      ]
+    },
+    "firefox": {
+      "launched": false,
+      "error": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/firefox-1543/firefox/firefox"
+    },
+    "webkit": {
+      "launched": false,
+      "error": "browserType.launch: Executable doesn't exist at /opt/pw-browsers/webkit-2359/pw_run.sh"
+    }
+  }
+}

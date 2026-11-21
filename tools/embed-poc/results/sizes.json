@@ -1,0 +1,76 @@
+{
+  "version": "0.10.1",
+  "built": "esbuild 0.28.2, minify, target es2020, no source map",
+  "files": {
+    "silverpoint-embed.js": {
+      "raw": 374622,
+      "gzip": 121121,
+      "brotli": 99029,
+      "byPackage": {
+        "src/standalone.ts": 209,
+        "core": 286619,
+        "d3": 33516,
+        "src/registry.generated.ts": 1310,
+        "roughjs": 27527,
+        "grounds": 18346,
+        "src/embed.ts": 6435
+      }
+    },
+    "silverpoint-embed.mjs": {
+      "raw": 374140,
+      "gzip": 120861,
+      "brotli": 98919,
+      "byPackage": {
+        "core": 286619,
+        "d3": 33516,
+        "src/registry.generated.ts": 1310,
+        "roughjs": 27527,
+        "grounds": 18346,
+        "src/embed.ts": 6435
+      }
+    },
+    "silverpoint-embed.full.js": {
+      "raw": 474351,
+      "gzip": 197533,
+      "brotli": 173923,
+      "byPackage": {
+        "src/standalone.ts": 209,
+        "core": 286619,
+        "d3": 33516,
+        "src/registry.generated.ts": 1310,
+        "roughjs": 27527,
+        "grounds": 18346,
+        "fonts (inlined)": 99724,
+        "src/embed.ts": 6440
+      }
+    },
+    "silverpoint-embed.full.mjs": {
+      "raw": 473869,
+      "gzip": 197250,
+      "brotli": 173753,
+      "byPackage": {
+        "core": 286619,
+        "d3": 33516,
+        "src/registry.generated.ts": 1310,
+        "roughjs": 27527,
+        "grounds": 18346,
+        "fonts (inlined)": 99724,
+        "src/embed.ts": 6440
+      }
+    },
+    "silverpoint-embed.core.js": {
+      "raw": 189535,
+      "gzip": 62832,
+      "brotli": 53557,
+      "byPackage": {
+        "src/standalone.ts": 209,
+        "core": 102888,
+        "d3": 32857,
+        "src/registry.generated.ts": 689,
+        "roughjs": 27475,
+        "grounds": 18346,
+        "src/embed.ts": 6411
+      }
+    }
+  }
+}
