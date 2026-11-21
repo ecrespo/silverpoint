@@ -75,26 +75,29 @@ export function EmbedPage() {
         a host proves it draws correctly with the conformance kit, <code>@silverpoint/embed/conformance</code>.
       </p>
       <h3 id="embed-hosts">Hosts</h3>
-      <table id="embed-host-list">
-        <thead>
-          <tr>
-            <th scope="col">Host</th>
-            <th scope="col">Built on</th>
-            <th scope="col">Status</th>
-            <th scope="col">What it is</th>
-          </tr>
-        </thead>
-        <tbody>
-          {catalog.hosts.map((host) => (
-            <tr key={host.id}>
-              <th scope="row">{host.repository ? <a href={host.repository}>{host.name}</a> : host.name}</th>
-              <td>{VIA[host.via as keyof typeof VIA]}</td>
-              <td>{host.status}</td>
-              <td>{host.summary}</td>
+      {/* Four columns are wider than a phone: the table scrolls in its own region (WCAG 1.4.10). */}
+      <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="embed-hosts">
+        <table id="embed-host-list">
+          <thead>
+            <tr>
+              <th scope="col">Host</th>
+              <th scope="col">Built on</th>
+              <th scope="col">Status</th>
+              <th scope="col">What it is</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {catalog.hosts.map((host) => (
+              <tr key={host.id}>
+                <th scope="row">{host.repository ? <a href={host.repository}>{host.name}</a> : host.name}</th>
+                <td>{VIA[host.via as keyof typeof VIA]}</td>
+                <td>{host.status}</td>
+                <td>{host.summary}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
