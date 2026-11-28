@@ -420,7 +420,7 @@ None.
 | REQ-658 | MUST | packages/embed/test/follows.test.ts<br>tools/agent-catalog/hosts.test.ts |
 | REQ-659 | MUST | tools/visual-gate/embed-demo-gate.test.ts |
 | REQ-660 | MUST | packages/mcp/test/embed.test.ts<br>tools/lint-rules/check-deps.test.ts |
-| REQ-661 | MUST | packages/mcp/test/embed.test.ts |
+| REQ-661 | MUST | packages/mcp/test/embed.test.ts<br>tools/agent-catalog/hosts.test.ts |
 | REQ-662 | MUST | packages/mcp/test/embed.test.ts |
 | REQ-663 | MUST | tools/agent-catalog/skill.test.ts |
 | REQ-664 | MUST | tools/visual-gate/harness.test.ts<br>e2e/embed-gate.spec.ts |

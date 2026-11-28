@@ -11296,7 +11296,7 @@
       "repository": "https://github.com/ecrespo/silverpoint-powerbi",
       "package": "silverpoint-powerbi",
       "registry": "github-release",
-      "status": "planned",
+      "status": "released",
       "summary": "A custom visual: fields on roles, any of the tabular charts."
     },
     {
@@ -11307,7 +11307,7 @@
       "repository": "https://github.com/ecrespo/silverpoint-tableau",
       "package": "silverpoint-tableau",
       "registry": "github-pages",
-      "status": "planned",
+      "status": "released",
       "summary": "Viz extensions, one manifest per chart, drawing on a worksheet."
     },
     {
@@ -11318,7 +11318,7 @@
       "repository": "https://github.com/ecrespo/silverpoint-knime",
       "package": "silverpoint-knime",
       "registry": "github-release",
-      "status": "planned",
+      "status": "released",
       "summary": "View nodes that draw a chart from a table, through the Python package."
     },
     {
@@ -11329,7 +11329,7 @@
       "repository": "https://github.com/ecrespo/n8n-nodes-silverpoint",
       "package": "n8n-nodes-silverpoint",
       "registry": "npm",
-      "status": "planned",
+      "status": "released",
       "summary": "A community node that draws a chart from workflow items, as SVG or HTML."
     },
     {
@@ -11340,7 +11340,7 @@
       "repository": "https://github.com/ecrespo/superset-plugin-chart-silverpoint",
       "package": "superset-plugin-chart-silverpoint",
       "registry": "npm",
-      "status": "planned",
+      "status": "released",
       "summary": "Visualization plugins, one per chart, drawn by the React adapter."
     },
     {
@@ -11351,7 +11351,7 @@
       "repository": "https://github.com/ecrespo/volto-silverpoint",
       "package": "volto-silverpoint",
       "registry": "npm",
-      "status": "planned",
+      "status": "released",
       "summary": "A block that draws a chart from a table, server-rendered and hydrated."
     },
     {
@@ -11362,7 +11362,7 @@
       "repository": "https://github.com/ecrespo/collective.silverpoint",
       "package": "collective.silverpoint",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "A Chart content type and a view for templates, through the Python package."
     },
     {
@@ -11373,7 +11373,7 @@
       "repository": "https://github.com/ecrespo/silverpoint-python",
       "package": "silverpoint",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "A chart from a DataFrame as self-contained HTML; the standalone file vendored."
     },
     {
@@ -11384,7 +11384,7 @@
       "repository": null,
       "package": "silverpoint[flask]",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "Jinja globals and a route for the script, inside the Python package."
     },
     {
@@ -11395,7 +11395,7 @@
       "repository": null,
       "package": "silverpoint[django]",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "An installable app with template tags, inside the Python package."
     },
     {
@@ -11406,7 +11406,7 @@
       "repository": null,
       "package": "silverpoint",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "A chart as a cell output, in a sandboxed frame."
     },
     {
@@ -11417,7 +11417,7 @@
       "repository": null,
       "package": "silverpoint",
       "registry": "pypi",
-      "status": "planned",
+      "status": "released",
       "summary": "A chart in a notebook cell with displayHTML; AI/BI dashboards are out (DD-072)."
     }
   ]
