@@ -22,7 +22,7 @@ describe('feature-007 · folded into specs/ (T-329)', () => {
     expect(spec('api-spec')).toMatch(/^\| \*\*API version\*\* \| v1\.16 \|/m);
     expect(spec('technical-design')).toMatch(/^\| \*\*Version\*\* \| 1\.16 \|/m);
     expect(spec('data-model')).toMatch(/^\| \*\*Version\*\* \| 1\.14 \|/m);
-    expect(spec('implementation-plan')).toMatch(/^\| \*\*Version\*\* \| 1\.14 \|/m);
+    expect(spec('implementation-plan')).toMatch(/^\| \*\*Version\*\* \| 1\.15 \|/m);
   });
 
   test('the constitution names @silverpoint/embed in its scope and binds it in Art. 2', () => {
@@ -61,6 +61,10 @@ describe('feature-007 · folded into specs/ (T-329)', () => {
 
   test('the Implementation Plan has Phase 11', () => {
     expect(spec('implementation-plan')).toMatch(/^#{2,3} Phase 11\b/m);
+  });
+
+  test('REQ-661 · the Implementation Plan records Phase 12 done (v1.15: the eight hosts published)', () => {
+    expect(spec('implementation-plan')).toMatch(/\*\*Done 2026-11-28:\*\* all eight are published/);
   });
 
   test('the amendments made in implementation are carried (budgets 34 / 11 kB, treemap unbound)', () => {
