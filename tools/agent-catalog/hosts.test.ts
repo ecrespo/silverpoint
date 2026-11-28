@@ -7,6 +7,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { buildAgentCatalog } from './catalog';
 import { buildHostCatalog, HOST_CATALOG_FILE, hostCatalogSource } from './hosts';
+import { HOSTS } from './hosts.meta';
 
 const agent = await buildAgentCatalog();
 const hosts = await buildHostCatalog(agent);
@@ -106,5 +107,28 @@ describe('the host catalog (REQ-654)', () => {
   test('REQ-653 · the committed host-catalog.json is the generator’s output', () => {
     expect(existsSync(HOST_CATALOG_FILE)).toBe(true);
     expect(readFileSync(HOST_CATALOG_FILE, 'utf8')).toBe(hostCatalogSource(hosts));
+  });
+});
+
+describe('the host integrations (REQ-661)', () => {
+  // Each one checked on its registry 2026-11-28: the PyPI `silverpoint` 0.11.0.post1 (the [flask] and
+  // [django] extras, Jupyter and Databricks outputs), collective.silverpoint 0.1.0 on PyPI,
+  // n8n-nodes-silverpoint 0.1.3, superset-plugin-chart-silverpoint 0.1.0 and volto-silverpoint 0.1.0 on
+  // npm, the .pbiviz and the KNIME update site on GitHub Releases v0.1.0, the Tableau extensions on Pages.
+  test('REQ-661 · every host is published, so every host is released', () => {
+    expect(Object.fromEntries(HOSTS.map((h) => [h.id, h.status]))).toEqual({
+      powerbi: 'released',
+      tableau: 'released',
+      knime: 'released',
+      n8n: 'released',
+      superset: 'released',
+      volto: 'released',
+      'plone-classic': 'released',
+      python: 'released',
+      flask: 'released',
+      django: 'released',
+      jupyter: 'released',
+      databricks: 'released',
+    });
   });
 });

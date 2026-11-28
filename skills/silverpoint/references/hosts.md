@@ -7,18 +7,18 @@ Outside React, Vue, Angular and Reflex, a chart is a JSON spec drawn by `@silver
 
 | Host | Built on | Package | Status | What it is |
 |---|---|---|---|---|
-| Power BI | the standalone file of `@silverpoint/embed` | `silverpoint-powerbi` (github-release) | planned | A custom visual: fields on roles, any of the tabular charts. |
-| Tableau | the standalone file of `@silverpoint/embed` | `silverpoint-tableau` (github-pages) | planned | Viz extensions, one manifest per chart, drawing on a worksheet. |
-| KNIME | the `silverpoint` Python package | `silverpoint-knime` (github-release) | planned | View nodes that draw a chart from a table, through the Python package. |
-| n8n | the standalone file of `@silverpoint/embed` | `n8n-nodes-silverpoint` (npm) | planned | A community node that draws a chart from workflow items, as SVG or HTML. |
-| Apache Superset | `@silverpoint/react` | `superset-plugin-chart-silverpoint` (npm) | planned | Visualization plugins, one per chart, drawn by the React adapter. |
-| Plone Volto | `@silverpoint/react` | `volto-silverpoint` (npm) | planned | A block that draws a chart from a table, server-rendered and hydrated. |
-| Plone Classic UI | the `silverpoint` Python package | `collective.silverpoint` (pypi) | planned | A Chart content type and a view for templates, through the Python package. |
-| Python | the standalone file of `@silverpoint/embed` | `silverpoint` (pypi) | planned | A chart from a DataFrame as self-contained HTML; the standalone file vendored. |
-| Flask | the `silverpoint` Python package | `silverpoint[flask]` (pypi) | planned | Jinja globals and a route for the script, inside the Python package. |
-| Django | the `silverpoint` Python package | `silverpoint[django]` (pypi) | planned | An installable app with template tags, inside the Python package. |
-| Jupyter | the `silverpoint` Python package | `silverpoint` (pypi) | planned | A chart as a cell output, in a sandboxed frame. |
-| Databricks notebooks | the `silverpoint` Python package | `silverpoint` (pypi) | planned | A chart in a notebook cell with displayHTML; AI/BI dashboards are out (DD-072). |
+| Power BI | the standalone file of `@silverpoint/embed` | `silverpoint-powerbi` (github-release) | released | A custom visual: fields on roles, any of the tabular charts. |
+| Tableau | the standalone file of `@silverpoint/embed` | `silverpoint-tableau` (github-pages) | released | Viz extensions, one manifest per chart, drawing on a worksheet. |
+| KNIME | the `silverpoint` Python package | `silverpoint-knime` (github-release) | released | View nodes that draw a chart from a table, through the Python package. |
+| n8n | the standalone file of `@silverpoint/embed` | `n8n-nodes-silverpoint` (npm) | released | A community node that draws a chart from workflow items, as SVG or HTML. |
+| Apache Superset | `@silverpoint/react` | `superset-plugin-chart-silverpoint` (npm) | released | Visualization plugins, one per chart, drawn by the React adapter. |
+| Plone Volto | `@silverpoint/react` | `volto-silverpoint` (npm) | released | A block that draws a chart from a table, server-rendered and hydrated. |
+| Plone Classic UI | the `silverpoint` Python package | `collective.silverpoint` (pypi) | released | A Chart content type and a view for templates, through the Python package. |
+| Python | the standalone file of `@silverpoint/embed` | `silverpoint` (pypi) | released | A chart from a DataFrame as self-contained HTML; the standalone file vendored. |
+| Flask | the `silverpoint` Python package | `silverpoint[flask]` (pypi) | released | Jinja globals and a route for the script, inside the Python package. |
+| Django | the `silverpoint` Python package | `silverpoint[django]` (pypi) | released | An installable app with template tags, inside the Python package. |
+| Jupyter | the `silverpoint` Python package | `silverpoint` (pypi) | released | A chart as a cell output, in a sandboxed frame. |
+| Databricks notebooks | the `silverpoint` Python package | `silverpoint` (pypi) | released | A chart in a notebook cell with displayHTML; AI/BI dashboards are out (DD-072). |
 
 ## How a chart reaches a host
 

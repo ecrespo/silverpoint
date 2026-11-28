@@ -6,8 +6,8 @@
 |---|---|
 | **Author** | Ernesto Crespo |
 | **Status** | `IN_REVIEW` |
-| **Version** | 1.14 |
-| **Date** | 2026-11-21 |
+| **Version** | 1.15 |
+| **Date** | 2026-11-28 |
 | **PRD** | [`prd.md`](prd.md) v1.19 |
 | **Tech Design** | [`technical-design.md`](technical-design.md) v1.16 |
 | **Data Model** | [`data-model.md`](data-model.md) v1.14 |
@@ -841,6 +841,12 @@ Every task cites at least one requirement; no orphan task.
 when its dependency is released: Volto and Superset now (on `@silverpoint/react`); the Python package
 and n8n at `0.11.0`; Power BI and Tableau after one wave-1 release; KNIME and Plone Classic UI after
 `silverpoint` on PyPI. No more than three open at once. Tracked in each repository with its own ids.
+**Done 2026-11-28:** all eight are published — `silverpoint` 0.11.0.post1 (with the `[flask]` and
+`[django]` extras, Jupyter and Databricks outputs) and `collective.silverpoint` 0.1.0 on PyPI;
+`n8n-nodes-silverpoint` 0.1.3, `superset-plugin-chart-silverpoint` 0.1.0 and `volto-silverpoint` 0.1.0
+on npm; `silverpoint-powerbi` (`.pbiviz`) and `silverpoint-knime` (update site) on GitHub Releases
+`v0.1.0`; `silverpoint-tableau` on GitHub Pages (`v0.1/`). The twelve `hosts` entries are `released`
+from `0.11.2`.
 
 ## 4. Dependency Map
 
@@ -926,6 +932,7 @@ No ceremonies: this is a one-person project. Tracking lives in the repository.
 
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 1.15 | 2026-11-28 | Ernesto Crespo | Phase 12 done: the eight host repositories published; the twelve `hosts` entries `released` in `0.11.2` |
 | 1.14 | 2026-11-21 | Ernesto Crespo | Phase 11 added: host embedding (steps 11a..11h, #290..#329), feature-007, target `0.11.0`; recorded as built; Phase 12 (the eight host repositories) noted; delta-014 ships with it |
 | 1.13 | 2026-11-14 | Ernesto Crespo | Delta-016 (#12, #14, #17..#22) noted after Phase 10: released as `0.10.0` |
 | 1.12 | 2026-11-01 | Ernesto Crespo | Delta-015 (#10): the Reflex deck is `sp_deck` in `reflex-silverpoint-react`; its catalog pinned in `0.9.2` |
